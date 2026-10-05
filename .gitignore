@@ -1,0 +1,24 @@
+.DS_Store
+
+# Commercial packages: reference only, never committed.
+Theme.zip
+Studiare-Extentions.zip
+Design/uploads/*.zip
+
+# Local reference copies (extracted theme, Studiare plugin) and the test site.
+reference/
+.dev/
+
+# Build output and dependencies.
+dist/
+vendor/
+node_modules/
+composer.lock
+
+# Knowledge graph: only the human-readable report is versioned.
+graphify-out/*
+!graphify-out/GRAPH_REPORT.md
+
+# Claude Code / graphify local files.
+.claude/settings.json.graphify-bak
+.claude/settings.local.json

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0&amp;display=block" />
+<style>
+@font-face{font-family:"IRANYekanXFANum";src:url("assets/fonts/iranyekanxfanum-regular.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"IRANYekanXFANum";src:url("assets/fonts/iranyekanxfanum-medium.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"IRANYekanXFANum";src:url("assets/fonts/iranyekanxfanum-bold.woff2") format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"IRANYekanXFANum";src:url("assets/fonts/iranyekanxfanum-black.woff2") format("woff2");font-weight:900;font-display:swap}
+@font-face{font-family:"lenz-icon";src:url("assets/fonts/iconly.woff2") format("woff2");font-weight:400;font-display:block}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:#55636F;font-family:"IRANYekanXFANum",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#022D4F;text-decoration:none}
+a:hover{color:#185E82}
+input,textarea,select,button{font-family:inherit}
+</style>
+</helmet>
+<div dir="rtl" style="background:#fff;overflow-x:hidden">
+
+  <header style="position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid #EDF1F4">
+    <div style="width:100%;max-width:1280px;margin-inline:auto;padding:14px clamp(16px,4vw,40px);display:flex;align-items:center;gap:clamp(16px,3vw,48px)">
+      <a href="Amirmahdi%20Asadi%20-%20Home.dc.html" style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+        <img src="assets/logo-mark-ink.png" alt="لوگوی امیرمهدی اسدی" style="height:36px;width:auto;display:block" />
+        <span style="display:flex;flex-direction:column;line-height:1.15">
+          <span style="font-size:19px;font-weight:900;color:var(--ink,#022D4F);letter-spacing:.02em">امیرمهدی اسدی</span>
+          <span style="font-size:10px;font-weight:500;color:#8C9AA6;letter-spacing:.18em">PHOTO &amp; VIDEO</span>
+        </span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:clamp(14px,2vw,30px);margin-inline-start:auto;flex-wrap:wrap">
+        <a href="Amirmahdi%20Asadi%20-%20Home.dc.html" style="font-size:14px;font-weight:500;color:#55636F" style-hover="color:#022D4F">خانه</a>
+        <a href="Amirmahdi%20Asadi%20-%20Services.dc.html" style="font-size:14px;font-weight:500;color:#55636F" style-hover="color:#022D4F">خدمات</a>
+        <a href="Amirmahdi%20Asadi%20-%20Portfolio.dc.html" style="font-size:14px;font-weight:500;color:#55636F" style-hover="color:#022D4F">نمونه‌کارها</a>
+        <a href="Amirmahdi%20Asadi%20-%20Home.dc.html#courses" style="font-size:14px;font-weight:700;color:var(--ink,#022D4F)">دوره‌ها</a>
+        <a href="Amirmahdi%20Asadi%20-%20Blog.dc.html" style="font-size:14px;font-weight:500;color:#55636F" style-hover="color:#022D4F">مقالات</a>
+        <a href="Amirmahdi%20Asadi%20-%20About.dc.html" style="font-size:14px;font-weight:500;color:#55636F" style-hover="color:#022D4F">درباره من</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:8px;margin-inline-start:auto">
+        <a href="#enroll" style="display:flex;align-items:center;gap:8px;background:var(--ink,#022D4F);color:#fff;padding:10px 16px;border-radius:10px;font-size:14px;font-weight:700;white-space:nowrap" style-hover="background:#185E82">
+          <span>ثبت‌نام دوره</span>
+          <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:17px">how_to_reg</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section style="position:relative;padding-block:clamp(24px,4vw,52px) clamp(28px,4vw,56px);overflow:hidden">
+    <div style="position:absolute;inset:0;display:var(--guides,block);pointer-events:none">
+      <div style="position:absolute;top:0;bottom:0;right:8%;border-inline-end:1px dashed #E3E9EE"></div>
+      <div style="position:absolute;top:0;bottom:0;left:8%;border-inline-end:1px dashed #E3E9EE"></div>
+    </div>
+    <div style="position:absolute;top:auto;bottom:-7%;inset-inline-start:-2%;font-size:clamp(50px,9vw,130px);font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(2,45,79,.06);white-space:nowrap;pointer-events:none">MOBILE PHOTOGRAPHY</div>
+
+    <div style="position:relative;width:100%;max-width:1280px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)">
+      <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#8C9AA6;margin-bottom:22px;flex-wrap:wrap">
+        <a href="Amirmahdi%20Asadi%20-%20Home.dc.html" style="color:#8C9AA6" style-hover="color:#022D4F">خانه</a>
+        <span>/</span>
+        <a href="Amirmahdi%20Asadi%20-%20Home.dc.html#courses" style="color:#8C9AA6" style-hover="color:#022D4F">دوره‌ها</a>
+        <span>/</span>
+        <span style="color:#3E5566;font-weight:700">از دیدن تا ثبت کردن</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(22px,3.5vw,48px);align-items:center">
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+            <span style="background:var(--ink,#022D4F);color:#fff;font-size:12px;font-weight:700;padding:6px 12px;border-radius:8px">ورکشاپ عملی</span>
+            <span style="background:#E8EEF3;color:#3E5566;font-size:12px;font-weight:700;padding:6px 12px;border-radius:8px">عکاسی با موبایل · سطح مقدماتی</span>
+            <span style="border:1px solid #B9C6D0;color:var(--ink,#022D4F);font-size:12px;font-weight:700;padding:5px 11px;border-radius:8px">۱٫۸۰۰٫۰۰۰ تومان</span>
+          </div>
+          <h1 style="margin:0;font-size:clamp(24px,3.6vw,44px);font-weight:900;color:var(--ink,#022D4F);line-height:1.45;text-wrap:pretty">از دیدن تا ثبت کردن</h1>
+          <p style="margin:0;font-size:clamp(14px,1.6vw,18px);color:#55636F;line-height:2.1;max-width:48ch;text-wrap:pretty">یک ورکشاپ عملی برای کسانی که می‌خواهند با موبایلشان بهتر ببینند، بهتر کادر ببندند و عکس‌های بهتری ثبت کنند.</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:6px">
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="width:44px;height:44px;flex-shrink:0;border:1px dashed #D3DCE3;border-radius:12px;display:grid;place-items:center;font-size:19px;color:var(--ink,#022D4F)"><span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga'">schedule</span></span>
+              <span style="display:flex;flex-direction:column;line-height:1.6"><span style="font-size:12px;color:#8C9AA6">مدت</span><span style="font-size:14px;font-weight:900;color:var(--ink,#022D4F)">۳ تا ۴ ساعت</span></span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="width:44px;height:44px;flex-shrink:0;border:1px dashed #D3DCE3;border-radius:12px;display:grid;place-items:center;font-size:19px;color:var(--ink,#022D4F)"><span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga'">co_present</span></span>
+              <span style="display:flex;flex-direction:column;line-height:1.6"><span style="font-size:12px;color:#8C9AA6">نوع</span><span style="font-size:14px;font-weight:900;color:var(--ink,#022D4F)">تئوری + تمرین عملی + نقد عکس</span></span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="width:44px;height:44px;flex-shrink:0;border:1px dashed #D3DCE3;border-radius:12px;display:grid;place-items:center;font-size:19px;color:var(--ink,#022D4F)"><span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga'">smartphone</span></span>
+              <span style="display:flex;flex-direction:column;line-height:1.6"><span style="font-size:12px;color:#8C9AA6">ابزار</span><span style="font-size:14px;font-weight:900;color:var(--ink,#022D4F)">موبایل</span></span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="width:44px;height:44px;flex-shrink:0;border:1px dashed #D3DCE3;border-radius:12px;display:grid;place-items:center;font-size:19px;color:var(--ink,#022D4F)"><span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga'">calendar_month</span></span>
+              <span style="display:flex;flex-direction:column;line-height:1.6"><span style="font-size:12px;color:#8C9AA6">تاریخ برگزاری</span><span style="font-size:14px;font-weight:900;color:var(--ink,#022D4F)">جمعه ۲۵ مهر ۱۴۰۵</span></span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="width:44px;height:44px;flex-shrink:0;border:1px dashed #D3DCE3;border-radius:12px;display:grid;place-items:center;font-size:19px;color:var(--ink,#022D4F)"><span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga'">group</span></span>
+              <span style="display:flex;flex-direction:column;line-height:1.6"><span style="font-size:12px;color:#8C9AA6">ظرفیت</span><span style="font-size:14px;font-weight:900;color:var(--ink,#022D4F)">۱۲ نفر</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div style="position:relative">
+          <div style="position:relative;aspect-ratio:16/10;border-radius:14px;overflow:hidden;background:repeating-linear-gradient(135deg,#e6e6e6 0 12px,#f2f2f2 12px 24px);filter:var(--photo-filter,grayscale(1));display:grid;place-items:center">
+            <span style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:#8C9AA6;letter-spacing:.06em;text-align:center;padding:8px">workshop 16:10<br>ویدیو یا عکس معرفی ورکشاپ</span>
+          </div>
+          <button type="button" style="position:absolute;inset:0;margin:auto;width:72px;height:72px;border:none;border-radius:50%;background:rgba(2,45,79,.85);color:#fff;display:grid;place-items:center;cursor:pointer" style-hover="background:#022D4F">
+            <span style="font-family:lenz-icon;font-size:25px;margin-inline-start:2px">&#xe02f;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-block:clamp(24px,4vw,56px)">
+    <div style="width:100%;max-width:1280px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)">
+      <div style="display:flex;flex-direction:column;gap:clamp(28px,4vw,48px);min-width:0">
+
+        <div style="background:#F5F8FA;border-radius:16px;padding:clamp(20px,3vw,32px)">
+          <p style="margin:0;font-size:clamp(14px,1.5vw,16px);line-height:2.2;color:#3E5566;text-wrap:pretty;max-width:80ch">در این ورکشاپ از اصول پایه عکاسی شروع می‌کنیم و با نور، ترکیب‌بندی، نگاه عکاسانه و تکنیک‌های کاربردی عکاسی با موبایل آشنا می‌شویم؛ سپس آموخته‌ها را در یک تمرین عملی عکاسی می‌کنیم و عکس‌ها را بررسی می‌کنیم.</p>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+            <span style="width:3px;height:22px;background:#185E82;border-radius:2px"></span>
+            <h2 style="margin:0;font-size:clamp(18px,2.2vw,26px);font-weight:900;color:var(--ink,#022D4F)">در این ورکشاپ چه چیزهایی یاد می‌گیری؟</h2>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">
+            <div style="display:flex;align-items:flex-start;gap:12px;border:1px dashed #D3DCE3;border-radius:12px;padding:18px" style-hover="border-color:#022D4F;border-style:solid">
+              <span style="font-family:lenz-icon;font-size:20px;color:var(--ink,#022D4F);line-height:1.6">&#xe024;</span>
+              <span style="font-size:14px;line-height:2;color:#3E5566">چطور بهتر ببینیم و سوژه پیدا کنیم</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;border:1px dashed #D3DCE3;border-radius:12px;padding:18px" style-hover="border-color:#022D4F;border-style:solid">
+              <span style="font-family:lenz-icon;font-size:20px;color:var(--ink,#022D4F);line-height:1.6">&#xe024;</span>
+              <span style="font-size:14px;line-height:2;color:#3E5566">شناخت نور و استفاده درست از آن</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;border:1px dashed #D3DCE3;border-radius:12px;padding:18px" style-hover="border-color:#022D4F;border-style:solid">
+              <span style="font-family:lenz-icon;font-size:20px;color:var(--ink,#022D4F);line-height:1.6">&#xe024;</span>
+              <span style="font-size:14px;line-height:2;color:#3E5566">اصول ساده و کاربردی ترکیب‌بندی</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;border:1px dashed #D3DCE3;border-radius:12px;padding:18px" style-hover="border-color:#022D4F;border-style:solid">
+              <span style="font-family:lenz-icon;font-size:20px;color:var(--ink,#022D4F);line-height:1.6">&#xe024;</span>
+              <span style="font-size:14px;line-height:2;color:#3E5566">انتخاب زاویه و کادر مناسب</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;border:1px dashed #D3DCE3;border-radius:12px;padding:18px" style-hover="border-color:#022D4F;border-style:solid">
+              <span style="font-family:lenz-icon;font-size:20px;color:var(--ink,#022D4F);line-height:1.6">&#xe024;</span>
+              <span style="font-size:14px;line-height:2;color:#3E5566">استفاده بهتر از امکانات دوربین موبایل</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;border:1px dashed #D3DCE3;border-radius:12px;padding:18px" style-hover="border-color:#022D4F;border-style:solid">
+              <span style="font-family:lenz-icon;font-size:20px;color:var(--ink,#022D4F);line-height:1.6">&#xe024;</span>
+              <span style="font-size:14px;line-height:2;color:#3E5566">عکاسی در فضای شهری</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;border:1px dashed #D3DCE3;border-radius:12px;padding:18px" style-hover="border-color:#022D4F;border-style:solid">
+              <span style="font-family:lenz-icon;font-size:20px;color:var(--ink,#022D4F);line-height:1.6">&#xe024;</span>
+              <span style="font-size:14px;line-height:2;color:#3E5566">انتخاب عکس بهتر</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;border:1px dashed #D3DCE3;border-radius:12px;padding:18px" style-hover="border-color:#022D4F;border-style:solid">
+              <span style="font-family:lenz-icon;font-size:20px;color:var(--ink,#022D4F);line-height:1.6">&#xe024;</span>
+              <span style="font-size:14px;line-height:2;color:#3E5566">اصول اولیه ادیت عکس</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;border:1px dashed #D3DCE3;border-radius:12px;padding:18px" style-hover="border-color:#022D4F;border-style:solid">
+              <span style="font-family:lenz-icon;font-size:20px;color:var(--ink,#022D4F);line-height:1.6">&#xe024;</span>
+              <span style="font-size:14px;line-height:2;color:#3E5566">نگاه کردن و نقد کردن عکس</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+            <span style="width:3px;height:22px;background:#185E82;border-radius:2px"></span>
+            <h2 style="margin:0;font-size:clamp(18px,2.2vw,26px);font-weight:900;color:var(--ink,#022D4F)">سرفصل‌های ورکشاپ</h2>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="border:1px solid #E3EBF1;border-radius:12px;overflow:hidden">
+              <button type="button" data-acc-q="1" style="width:100%;display:flex;align-items:center;gap:14px;background:#fff;border:none;padding:18px 20px;cursor:pointer;text-align:start">
+                <span style="width:34px;height:34px;flex-shrink:0;background:#E8EEF3;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:900;color:var(--ink,#022D4F)">۱</span>
+                <span style="flex:1;font-size:15px;font-weight:700;color:var(--ink,#022D4F)">نگاه عکاسانه</span>
+                <span data-acc-icon="1" style="font-family:lenz-icon;font-size:18px;color:#3E5566;transition:transform .2s ease">&#xe01d;</span>
+              </button>
+              <div data-acc-a="1" style="display:none;padding:0 20px 20px;font-size:14px;line-height:2.1;color:#55636F">دیدن، انتخاب کردن و تصمیم گرفتن قبل از ثبت عکس</div>
+            </div>
+            <div style="border:1px solid #E3EBF1;border-radius:12px;overflow:hidden">
+              <button type="button" data-acc-q="1" style="width:100%;display:flex;align-items:center;gap:14px;background:#fff;border:none;padding:18px 20px;cursor:pointer;text-align:start">
+                <span style="width:34px;height:34px;flex-shrink:0;background:#E8EEF3;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:900;color:var(--ink,#022D4F)">۲</span>
+                <span style="flex:1;font-size:15px;font-weight:700;color:var(--ink,#022D4F)">شناخت دوربین موبایل</span>
+                <span data-acc-icon="1" style="font-family:lenz-icon;font-size:18px;color:#3E5566;transition:transform .2s ease">&#xe01d;</span>
+              </button>
+              <div data-acc-a="1" style="display:none;padding:0 20px 20px;font-size:14px;line-height:2.1;color:#55636F">لنزها، فوکوس، نوردهی و امکانات کاربردی دوربین</div>
+            </div>
+            <div style="border:1px solid #E3EBF1;border-radius:12px;overflow:hidden">
+              <button type="button" data-acc-q="1" style="width:100%;display:flex;align-items:center;gap:14px;background:#fff;border:none;padding:18px 20px;cursor:pointer;text-align:start">
+                <span style="width:34px;height:34px;flex-shrink:0;background:#E8EEF3;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:900;color:var(--ink,#022D4F)">۳</span>
+                <span style="flex:1;font-size:15px;font-weight:700;color:var(--ink,#022D4F)">نور</span>
+                <span data-acc-icon="1" style="font-family:lenz-icon;font-size:18px;color:#3E5566;transition:transform .2s ease">&#xe01d;</span>
+              </button>
+              <div data-acc-a="1" style="display:none;padding:0 20px 20px;font-size:14px;line-height:2.1;color:#55636F">شناخت نور و پیدا کردن نور مناسب</div>
+            </div>
+            <div style="border:1px solid #E3EBF1;border-radius:12px;overflow:hidden">
+              <button type="button" data-acc-q="1" style="width:100%;display:flex;align-items:center;gap:14px;background:#fff;border:none;padding:18px 20px;cursor:pointer;text-align:start">
+                <span style="width:34px;height:34px;flex-shrink:0;background:#E8EEF3;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:900;color:var(--ink,#022D4F)">۴</span>
+                <span style="flex:1;font-size:15px;font-weight:700;color:var(--ink,#022D4F)">ترکیب‌بندی</span>
+                <span data-acc-icon="1" style="font-family:lenz-icon;font-size:18px;color:#3E5566;transition:transform .2s ease">&#xe01d;</span>
+              </button>
+              <div data-acc-a="1" style="display:none;padding:0 20px 20px;font-size:14px;line-height:2.1;color:#55636F">کادر، زاویه، خطوط، فضای منفی و پس‌زمینه</div>
+            </div>
+            <div style="border:1px solid #E3EBF1;border-radius:12px;overflow:hidden">
+              <button type="button" data-acc-q="1" style="width:100%;display:flex;align-items:center;gap:14px;background:#fff;border:none;padding:18px 20px;cursor:pointer;text-align:start">
+                <span style="width:34px;height:34px;flex-shrink:0;background:#E8EEF3;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:900;color:var(--ink,#022D4F)">۵</span>
+                <span style="flex:1;font-size:15px;font-weight:700;color:var(--ink,#022D4F)">عکاسی شهری</span>
+                <span data-acc-icon="1" style="font-family:lenz-icon;font-size:18px;color:#3E5566;transition:transform .2s ease">&#xe01d;</span>
+              </button>
+              <div data-acc-a="1" style="display:none;padding:0 20px 20px;font-size:14px;line-height:2.1;color:#55636F">تمرین عملی و پیدا کردن سوژه در محیط واقعی</div>
+            </div>
+            <div style="border:1px solid #E3EBF1;border-radius:12px;overflow:hidden">
+              <button type="button" data-acc-q="1" style="width:100%;display:flex;align-items:center;gap:14px;background:#fff;border:none;padding:18px 20px;cursor:pointer;text-align:start">
+                <span style="width:34px;height:34px;flex-shrink:0;background:#E8EEF3;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:900;color:var(--ink,#022D4F)">۶</span>
+                <span style="flex:1;font-size:15px;font-weight:700;color:var(--ink,#022D4F)">انتخاب و ادیت</span>
+                <span data-acc-icon="1" style="font-family:lenz-icon;font-size:18px;color:#3E5566;transition:transform .2s ease">&#xe01d;</span>
+              </button>
+              <div data-acc-a="1" style="display:none;padding:0 20px 20px;font-size:14px;line-height:2.1;color:#55636F">انتخاب عکس بهتر و اصلاحات پایه</div>
+            </div>
+            <div style="border:1px solid #E3EBF1;border-radius:12px;overflow:hidden">
+              <button type="button" data-acc-q="1" style="width:100%;display:flex;align-items:center;gap:14px;background:#fff;border:none;padding:18px 20px;cursor:pointer;text-align:start">
+                <span style="width:34px;height:34px;flex-shrink:0;background:#E8EEF3;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:900;color:var(--ink,#022D4F)">۷</span>
+                <span style="flex:1;font-size:15px;font-weight:700;color:var(--ink,#022D4F)">نقد عکس</span>
+                <span data-acc-icon="1" style="font-family:lenz-icon;font-size:18px;color:#3E5566;transition:transform .2s ease">&#xe01d;</span>
+              </button>
+              <div data-acc-a="1" style="display:none;padding:0 20px 20px;font-size:14px;line-height:2.1;color:#55636F">بررسی عکس‌ها و پیدا کردن نقاط قوت و ضعف آن‌ها</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+            <span style="width:3px;height:22px;background:#185E82;border-radius:2px"></span>
+            <h2 style="margin:0;font-size:clamp(18px,2.2vw,26px);font-weight:900;color:var(--ink,#022D4F)">این ورکشاپ برای چه کسانی است؟</h2>
+          </div>
+          <p style="margin:0 0 16px;font-size:14px;color:#3E5566;font-weight:700">برای کسانی که:</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">
+            <div style="display:flex;align-items:flex-start;gap:12px;border:1px dashed #D3DCE3;border-radius:12px;padding:18px" style-hover="border-color:#022D4F;border-style:solid">
+              <span style="font-family:lenz-icon;font-size:20px;color:var(--ink,#022D4F);line-height:1.6">&#xe024;</span>
+              <span style="font-size:14px;line-height:2;color:#3E5566">با موبایل زیاد عکس می‌گیرند اما از نتیجه راضی نیستند.</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;border:1px dashed #D3DCE3;border-radius:12px;padding:18px" style-hover="border-color:#022D4F;border-style:solid">
+              <span style="font-family:lenz-icon;font-size:20px;color:var(--ink,#022D4F);line-height:1.6">&#xe024;</span>
+              <span style="font-size:14px;line-height:2;color:#3E5566">می‌خواهند عکاسی را اصولی‌تر یاد بگیرند.</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;border:1px dashed #D3DCE3;border-radius:12px;padding:18px" style-hover="border-color:#022D4F;border-style:solid">
+              <span style="font-family:lenz-icon;font-size:20px;color:var(--ink,#022D4F);line-height:1.6">&#xe024;</span>
+              <span style="font-size:14px;line-height:2;color:#3E5566">به عکاسی شهری، روزمره و سفر علاقه دارند.</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;border:1px dashed #D3DCE3;border-radius:12px;padding:18px" style-hover="border-color:#022D4F;border-style:solid">
+              <span style="font-family:lenz-icon;font-size:20px;color:var(--ink,#022D4F);line-height:1.6">&#xe024;</span>
+              <span style="font-size:14px;line-height:2;color:#3E5566">می‌خواهند بدون تجهیزات حرفه‌ای عکس‌های بهتری ثبت کنند.</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;border:1px dashed #D3DCE3;border-radius:12px;padding:18px" style-hover="border-color:#022D4F;border-style:solid">
+              <span style="font-family:lenz-icon;font-size:20px;color:var(--ink,#022D4F);line-height:1.6">&#xe024;</span>
+              <span style="font-size:14px;line-height:2;color:#3E5566">می‌خواهند نگاه و سلیقه عکاسانه خودشان را تقویت کنند.</span>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:12px;margin-top:16px;background:#E8EEF3;border-radius:12px;padding:16px 18px">
+            <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:20px;color:#185E82;line-height:1.6">smartphone</span>
+            <span style="font-size:14px;line-height:2;color:#3E5566">برای شرکت در دوره، داشتن موبایل خاصی لازم نیست. مهم این است که گوشی شما دوربین داشته باشد.</span>
+          </div>
+        </div>
+
+        <div style="border:1px solid #E3EBF1;border-radius:16px;padding:clamp(20px,3vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(18px,3vw,36px);align-items:center">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <span style="font-size:12px;color:#8C9AA6;letter-spacing:.14em">خروجی ورکشاپ</span>
+            <p style="margin:0;font-size:15px;line-height:2.2;color:#3E5566;text-wrap:pretty">در پایان ورکشاپ، مخاطب با اصول پایه عکاسی با موبایل آشناست و می‌تواند آگاهانه‌تر سوژه پیدا کند، نور و کادر را انتخاب کند و عکس خود را ثبت و بررسی کند.</p>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px">
+            <div style="background:#F5F8FA;border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;color:#8C9AA6">مدت</span><span style="font-size:15px;font-weight:900;color:var(--ink,#022D4F)">۳–۴ ساعت</span></div>
+            <div style="background:#F5F8FA;border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;color:#8C9AA6">سطح</span><span style="font-size:15px;font-weight:900;color:var(--ink,#022D4F)">مقدماتی</span></div>
+            <div style="background:#F5F8FA;border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;color:#8C9AA6">نوع</span><span style="font-size:15px;font-weight:900;color:var(--ink,#022D4F)">ورکشاپ عملی</span></div>
+            <div style="background:#F5F8FA;border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;color:#8C9AA6">ابزار</span><span style="font-size:15px;font-weight:900;color:var(--ink,#022D4F)">موبایل</span></div>
+          </div>
+        </div>
+
+        <div style="background:var(--ink,#022D4F);border-radius:16px;padding:clamp(22px,3vw,34px);display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;align-items:center">
+          <div style="aspect-ratio:1/1;max-width:150px;border-radius:14px;background:repeating-linear-gradient(135deg,#0E3E62 0 10px,#164A6E 10px 20px);display:grid;place-items:center">
+            <span style="font-family:ui-monospace,Menlo,monospace;font-size:10px;color:#8FA9BE;text-align:center;padding:6px">عکس مدرس</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <span style="font-size:12px;color:#8FA9BE;letter-spacing:.14em">مدرس ورکشاپ</span>
+            <h3 style="margin:0;font-size:20px;font-weight:900;color:#fff">امیرمهدی اسدی</h3>
+            <p style="margin:0;font-size:13px;line-height:2.1;color:#C4D3DF">عکاس و فیلم‌بردار؛ عکاس خبرگزاری مهر و شرکت فرس، عکاس و تصویربردار شرکت پارسینو. برگزیده جشنواره‌های عکس و عضو موسسه عکاسان خراسان رضوی.</p>
+            <a href="Amirmahdi%20Asadi%20-%20About.dc.html" style="align-self:flex-start;display:flex;align-items:center;gap:8px;background:#fff;color:var(--ink,#022D4F);padding:11px 18px;border-radius:10px;font-size:13px;font-weight:700" style-hover="background:#E3EBF1">
+              <span>درباره من بیشتر بخوان</span>
+              <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:15px;">north_west</span>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+            <span style="width:3px;height:22px;background:#185E82;border-radius:2px"></span>
+            <h2 style="margin:0;font-size:clamp(18px,2.2vw,26px);font-weight:900;color:var(--ink,#022D4F)">سوالات متداول</h2>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="border:1px solid #E3EBF1;border-radius:12px;overflow:hidden">
+              <button type="button" data-acc-q="1" style="width:100%;display:flex;align-items:center;gap:14px;background:#fff;border:none;padding:18px 20px;cursor:pointer;text-align:start">
+                
+                <span style="flex:1;font-size:15px;font-weight:700;color:var(--ink,#022D4F)">آیا باید عکاسی بلد باشم؟</span>
+                <span data-acc-icon="1" style="font-family:lenz-icon;font-size:18px;color:#3E5566;transition:transform .2s ease">&#xe01d;</span>
+              </button>
+              <div data-acc-a="1" style="display:none;padding:0 20px 20px;font-size:14px;line-height:2.1;color:#55636F">خیر. ورکشاپ از مفاهیم پایه شروع می‌شود.</div>
+            </div>
+            <div style="border:1px solid #E3EBF1;border-radius:12px;overflow:hidden">
+              <button type="button" data-acc-q="1" style="width:100%;display:flex;align-items:center;gap:14px;background:#fff;border:none;padding:18px 20px;cursor:pointer;text-align:start">
+                
+                <span style="flex:1;font-size:15px;font-weight:700;color:var(--ink,#022D4F)">آیا نوع یا مدل موبایل مهم است؟</span>
+                <span data-acc-icon="1" style="font-family:lenz-icon;font-size:18px;color:#3E5566;transition:transform .2s ease">&#xe01d;</span>
+              </button>
+              <div data-acc-a="1" style="display:none;padding:0 20px 20px;font-size:14px;line-height:2.1;color:#55636F">خیر. مفاهیم اصلی دوره برای عکاسی با موبایل طراحی شده و به برند خاصی محدود نیست.</div>
+            </div>
+            <div style="border:1px solid #E3EBF1;border-radius:12px;overflow:hidden">
+              <button type="button" data-acc-q="1" style="width:100%;display:flex;align-items:center;gap:14px;background:#fff;border:none;padding:18px 20px;cursor:pointer;text-align:start">
+                
+                <span style="flex:1;font-size:15px;font-weight:700;color:var(--ink,#022D4F)">آیا تمرین عملی داریم؟</span>
+                <span data-acc-icon="1" style="font-family:lenz-icon;font-size:18px;color:#3E5566;transition:transform .2s ease">&#xe01d;</span>
+              </button>
+              <div data-acc-a="1" style="display:none;padding:0 20px 20px;font-size:14px;line-height:2.1;color:#55636F">بله. بخشی از ورکشاپ به عکاسی در فضای واقعی اختصاص دارد.</div>
+            </div>
+            <div style="border:1px solid #E3EBF1;border-radius:12px;overflow:hidden">
+              <button type="button" data-acc-q="1" style="width:100%;display:flex;align-items:center;gap:14px;background:#fff;border:none;padding:18px 20px;cursor:pointer;text-align:start">
+                
+                <span style="flex:1;font-size:15px;font-weight:700;color:var(--ink,#022D4F)">آیا عکس‌های خودمان بررسی می‌شوند؟</span>
+                <span data-acc-icon="1" style="font-family:lenz-icon;font-size:18px;color:#3E5566;transition:transform .2s ease">&#xe01d;</span>
+              </button>
+              <div data-acc-a="1" style="display:none;padding:0 20px 20px;font-size:14px;line-height:2.1;color:#55636F">بله، در بخش پایانی عکس‌ها بررسی و نقد می‌شوند.</div>
+            </div>
+            <div style="border:1px solid #E3EBF1;border-radius:12px;overflow:hidden">
+              <button type="button" data-acc-q="1" style="width:100%;display:flex;align-items:center;gap:14px;background:#fff;border:none;padding:18px 20px;cursor:pointer;text-align:start">
+                
+                <span style="flex:1;font-size:15px;font-weight:700;color:var(--ink,#022D4F)">آیا ادیت عکس هم آموزش داده می‌شود؟</span>
+                <span data-acc-icon="1" style="font-family:lenz-icon;font-size:18px;color:#3E5566;transition:transform .2s ease">&#xe01d;</span>
+              </button>
+              <div data-acc-a="1" style="display:none;padding:0 20px 20px;font-size:14px;line-height:2.1;color:#55636F">بله، در حد اصول و اصلاحات کاربردی.</div>
+            </div>
+            <div style="border:1px solid #E3EBF1;border-radius:12px;overflow:hidden">
+              <button type="button" data-acc-q="1" style="width:100%;display:flex;align-items:center;gap:14px;background:#fff;border:none;padding:18px 20px;cursor:pointer;text-align:start">
+                
+                <span style="flex:1;font-size:15px;font-weight:700;color:var(--ink,#022D4F)">آیا این دوره فقط درباره تنظیمات دوربین است؟</span>
+                <span data-acc-icon="1" style="font-family:lenz-icon;font-size:18px;color:#3E5566;transition:transform .2s ease">&#xe01d;</span>
+              </button>
+              <div data-acc-a="1" style="display:none;padding:0 20px 20px;font-size:14px;line-height:2.1;color:#55636F">خیر. تمرکز اصلی روی دیدن، نور، ترکیب‌بندی و تصمیم‌گیری برای ثبت عکس است.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-block:clamp(10px,1.6vw,20px) clamp(24px,4vw,52px)">
+    <div style="width:100%;max-width:1280px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)">
+      <div style="border:1px solid #E3EBF1;border-radius:16px;padding:clamp(22px,3vw,34px);display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(20px,3vw,36px);align-items:center;background:#fff">
+        <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start">
+          <span style="font-size:12px;color:#8C9AA6;letter-spacing:.14em">مشخصات دوره</span>
+          <span style="font-size:clamp(20px,2.6vw,28px);font-weight:900;color:var(--ink,#022D4F);line-height:1.5">از دیدن تا ثبت کردن</span>
+          <div style="display:flex;align-items:baseline;gap:8px">
+            <span style="font-size:clamp(24px,3vw,32px);font-weight:900;color:var(--ink,#022D4F)">۱٫۸۰۰٫۰۰۰</span>
+            <span style="font-size:13px;font-weight:500;color:#8C9AA6">تومان</span>
+          </div>
+          <a href="#enroll" style="display:flex;align-items:center;justify-content:center;gap:10px;background:var(--ink,#022D4F);color:#fff;padding:15px 26px;border-radius:10px;font-size:15px;font-weight:700" style-hover="background:#185E82">
+            <span>ثبت‌نام در ورکشاپ</span>
+            <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:16px;">north_west</span>
+          </a>
+          <div style="display:flex;align-items:flex-start;gap:10px;padding-top:12px;border-top:1px dashed #E0E6EB;width:100%">
+            <span style="font-family:lenz-icon;font-size:18px;color:var(--ink,#022D4F);line-height:1.7">&#xe005;</span>
+            <span style="font-size:13px;line-height:2;color:#55636F">سؤالی داری؟ قبل از ثبت‌نام زنگ بزن: <b style="color:#022D4F">۰۹۱۲۰۰۰۰۰۰۰</b></span>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 clamp(18px,3vw,36px)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px;border-bottom:1px dashed #E0E6EB"><span style="font-size:13px;color:#8C9AA6">مدت</span><span style="font-size:13px;font-weight:700;color:var(--ink,#022D4F);text-align:end">۳–۴ ساعت</span></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px;border-bottom:1px dashed #E0E6EB"><span style="font-size:13px;color:#8C9AA6">سطح</span><span style="font-size:13px;font-weight:700;color:var(--ink,#022D4F);text-align:end">مقدماتی</span></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px;border-bottom:1px dashed #E0E6EB"><span style="font-size:13px;color:#8C9AA6">نوع</span><span style="font-size:13px;font-weight:700;color:var(--ink,#022D4F);text-align:end">ورکشاپ عملی</span></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px;border-bottom:1px dashed #E0E6EB"><span style="font-size:13px;color:#8C9AA6">ابزار</span><span style="font-size:13px;font-weight:700;color:var(--ink,#022D4F);text-align:end">موبایل</span></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px;border-bottom:1px dashed #E0E6EB"><span style="font-size:13px;color:#8C9AA6">تمرین عملی</span><span style="font-size:13px;font-weight:700;color:var(--ink,#022D4F);text-align:end">عکاسی در فضای شهری</span></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px;border-bottom:1px dashed #E0E6EB"><span style="font-size:13px;color:#8C9AA6">نقد عکس</span><span style="font-size:13px;font-weight:700;color:var(--ink,#022D4F);text-align:end">در بخش پایانی ورکشاپ</span></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px;border-bottom:1px dashed #E0E6EB"><span style="font-size:13px;color:#8C9AA6">شکل برگزاری</span><span style="font-size:13px;font-weight:700;color:var(--ink,#022D4F);text-align:end">حضوری، مشهد</span></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px;border-bottom:1px dashed #E0E6EB"><span style="font-size:13px;color:#8C9AA6">تاریخ و ساعت</span><span style="font-size:13px;font-weight:700;color:var(--ink,#022D4F);text-align:end">جمعه ۲۵ مهر ۱۴۰۵ · ۹ تا ۱۳</span></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px;border-bottom:1px dashed #E0E6EB"><span style="font-size:13px;color:#8C9AA6">ظرفیت باقی‌مانده</span><span style="font-size:13px;font-weight:700;color:var(--ink,#022D4F);text-align:end">۵ از ۱۲ نفر</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-block:0 clamp(24px,4vw,52px)">
+    <div style="width:100%;max-width:1280px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)">
+      <div id="enroll">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+          <span style="width:3px;height:22px;background:#185E82;border-radius:2px"></span>
+          <h2 style="margin:0;font-size:clamp(18px,2.2vw,26px);font-weight:900;color:var(--ink,#022D4F)">ثبت‌نام ورکشاپ</h2>
+        </div>
+        <p style="margin:0 0 22px;font-size:14px;color:#8C9AA6">فرم را پر کن؛ زمان، مکان و جزئیات ورکشاپ را برایت می‌فرستم.</p>
+        <form data-form="enroll" style="border:1px solid #E3EBF1;border-radius:16px;padding:clamp(18px,2.6vw,28px)">
+          <div data-form-fields="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px">
+            <input type="text" required="required" placeholder="نام و نام خانوادگی" style="width:100%;border:1px solid #DCE3E9;border-radius:10px;padding:14px;font-size:14px;color:#022D4F;outline:none" style-focus="border-color:#022D4F" />
+            <input type="tel" required="required" placeholder="شماره موبایل" style="width:100%;border:1px solid #DCE3E9;border-radius:10px;padding:14px;font-size:14px;color:#022D4F;outline:none" style-focus="border-color:#022D4F" />
+            <select required="required" style="width:100%;border:1px solid #DCE3E9;border-radius:10px;padding:14px;font-size:14px;color:#3E5566;outline:none;background:#fff" style-focus="border-color:#022D4F">
+              <option value="">سطح فعلی‌ات را انتخاب کن</option>
+              <option value="beginner">تازه شروع کرده‌ام</option>
+              <option value="mid">مدتی است عکس می‌گیرم</option>
+              <option value="pro">با موبایل زیاد عکس می‌گیرم</option>
+            </select>
+            <input type="text" placeholder="مدل گوشی (اختیاری)" style="width:100%;border:1px solid #DCE3E9;border-radius:10px;padding:14px;font-size:14px;color:#022D4F;outline:none" style-focus="border-color:#022D4F" />
+            <div style="grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap">
+              <span style="font-size:12px;color:#8C9AA6">ظرفیت ورکشاپ ۱۲ نفر است و به ترتیب ثبت‌نام پر می‌شود.</span>
+              <button type="submit" style="display:flex;align-items:center;gap:10px;background:var(--ink,#022D4F);color:#fff;border:none;border-radius:10px;padding:14px 26px;font-size:15px;font-weight:700;cursor:pointer" style-hover="background:#185E82">
+                <span>ثبت‌نام می‌کنم</span>
+                <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:16px;">north_west</span>
+              </button>
+            </div>
+          </div>
+          <div data-form-done="1" style="display:none;align-items:center;gap:12px;background:#E8EEF3;border-radius:12px;padding:22px">
+            <span style="font-family:lenz-icon;font-size:24px;color:var(--ink,#022D4F)">&#xe024;</span>
+            <span style="font-size:14px;font-weight:700;color:var(--ink,#022D4F)">ثبت شد. زمان، مکان و جزئیات ورکشاپ را برایت می‌فرستم.</span>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <footer style="background:var(--ink,#022D4F);padding-block:clamp(30px,4vw,52px) 22px;margin-top:clamp(20px,3vw,40px)">
+    <div style="width:100%;max-width:1280px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:clamp(22px,3vw,40px)">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:inline-flex;align-items:center;gap:10px;border:1px solid #2A5878;border-radius:12px;padding:14px 16px;align-self:flex-start">
+          <img src="assets/logo-mark-white.png" alt="لوگوی امیرمهدی اسدی" style="height:32px;width:auto;display:block" />
+          <span style="display:flex;flex-direction:column;line-height:1.2">
+            <span style="font-size:17px;font-weight:900;color:#fff">امیرمهدی اسدی</span>
+            <span style="font-size:10px;font-weight:500;color:#8FA9BE;letter-spacing:.18em">PHOTO &amp; VIDEO</span>
+          </span>
+        </div>
+        <p style="margin:0;font-size:13px;line-height:2.1;color:#C4D3DF">دوره‌ها به‌صورت گروه‌های کوچک برگزار می‌شود تا فرصت بررسی کار همه باشد.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <h3 style="margin:0;font-size:15px;font-weight:900;color:#fff">دسترسی سریع</h3>
+        <a href="Amirmahdi%20Asadi%20-%20Home.dc.html" style="display:flex;align-items:center;gap:10px;font-size:13px;color:#C4D3DF" style-hover="color:#fff"><span style="width:6px;height:6px;background:#8FA9BE"></span>خانه</a>
+        <a href="Amirmahdi%20Asadi%20-%20Home.dc.html#courses" style="display:flex;align-items:center;gap:10px;font-size:13px;color:#C4D3DF" style-hover="color:#fff"><span style="width:6px;height:6px;background:#8FA9BE"></span>همه دوره‌ها</a>
+        <a href="Amirmahdi%20Asadi%20-%20About.dc.html" style="display:flex;align-items:center;gap:10px;font-size:13px;color:#C4D3DF" style-hover="color:#fff"><span style="width:6px;height:6px;background:#8FA9BE"></span>درباره من</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <h3 style="margin:0;font-size:15px;font-weight:900;color:#fff">تماس</h3>
+        <div style="background:#0B3A5E;border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="font-family:lenz-icon;font-size:17px;color:#8FA9BE">&#xe005;</span>
+            <span style="font-size:13px;color:#C4D3DF">۰۹۱۲۰۰۰۰۰۰۰</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="font-family:lenz-icon;font-size:17px;color:#8FA9BE">&#xe00d;</span>
+            <span style="font-size:13px;color:#C4D3DF">amirmahdiphoto.ir</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="width:100%;max-width:1280px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)">
+      <div style="margin-top:28px;padding-top:18px;border-top:1px dashed #2A5878;display:flex;align-items:center;justify-content:center">
+        <span style="font-size:12px;color:#8FA9BE;text-align:center">تمامی حقوق این سایت و تصاویر متعلق به امیرمهدی اسدی است.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;inkColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#022D4F&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#022D4F&quot;,&quot;#185E82&quot;,&quot;#0B3A5E&quot;,&quot;#000000&quot;],&quot;section&quot;:&quot;ظاهر&quot;},&quot;photoTone&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;سیاه‌وسفید&quot;,&quot;رنگی&quot;],&quot;default&quot;:&quot;سیاه‌وسفید&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;ظاهر&quot;},&quot;showGuides&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;ظاهر&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() { this.applyVars(); this.wire(); }
+  componentDidUpdate() { this.applyVars(); }
+
+  applyVars() {
+    const r = document.documentElement.style;
+    r.setProperty('--ink', this.props.inkColor || '#022D4F');
+    r.setProperty('--photo-filter', (this.props.photoTone || 'سیاه‌وسفید') === 'رنگی' ? 'none' : 'grayscale(1)');
+    r.setProperty('--guides', this.props.showGuides === false ? 'none' : 'block');
+  }
+
+  wire() {
+    if (this._wired) return;
+    this._wired = true;
+    document.addEventListener('click', (e) => {
+      const q = e.target.closest('[data-acc-q]');
+      if (q) this.toggle(q.parentElement);
+    });
+    document.addEventListener('submit', (e) => {
+      const form = e.target.closest('[data-form]');
+      if (!form) return;
+      e.preventDefault();
+      const done = form.querySelector('[data-form-done]');
+      if (done) { done.style.display = 'flex'; form.querySelectorAll('[data-form-fields]').forEach(f => f.style.display = 'none'); }
+    });
+  }
+
+  toggle(item) {
+    const body = item.querySelector('[data-acc-a]');
+    const icon = item.querySelector('[data-acc-icon]');
+    const open = body.style.display === 'block';
+    body.style.display = open ? 'none' : 'block';
+    if (icon) icon.style.transform = open ? 'none' : 'rotate(180deg)';
+  }
+}
+</script>
+</body>
+</html>

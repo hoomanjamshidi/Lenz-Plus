@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0&amp;display=block" />
+<style>
+@font-face{font-family:"IRANYekanXFANum";src:url("assets/fonts/iranyekanxfanum-regular.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"IRANYekanXFANum";src:url("assets/fonts/iranyekanxfanum-medium.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"IRANYekanXFANum";src:url("assets/fonts/iranyekanxfanum-bold.woff2") format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"IRANYekanXFANum";src:url("assets/fonts/iranyekanxfanum-black.woff2") format("woff2");font-weight:900;font-display:swap}
+@font-face{font-family:"lenz-icon";src:url("assets/fonts/iconly.woff2") format("woff2");font-weight:400;font-display:block}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:#55636F;font-family:"IRANYekanXFANum",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#022D4F;text-decoration:none}
+a:hover{color:#185E82}
+input,textarea,select,button{font-family:inherit}
+</style>
+</helmet>
+<div dir="rtl" style="background:#fff;overflow-x:hidden">
+
+  <header style="position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid #EDF1F4">
+    <div style="width:100%;max-width:1280px;margin-inline:auto;padding:14px clamp(16px,4vw,40px);display:flex;align-items:center;gap:clamp(16px,3vw,48px)">
+      <a href="Amirmahdi%20Asadi%20-%20Home.dc.html" style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+        <img src="assets/logo-mark-ink.png" alt="لوگوی امیرمهدی اسدی" style="height:36px;width:auto;display:block" />
+        <span style="display:flex;flex-direction:column;line-height:1.15">
+          <span style="font-size:19px;font-weight:900;color:var(--ink,#022D4F);letter-spacing:.02em">امیرمهدی اسدی</span>
+          <span style="font-size:10px;font-weight:500;color:#8C9AA6;letter-spacing:.18em">PHOTO &amp; VIDEO</span>
+        </span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:clamp(14px,2vw,30px);margin-inline-start:auto;flex-wrap:wrap">
+        <a href="Amirmahdi%20Asadi%20-%20Home.dc.html" style="font-size:14px;font-weight:500;color:#55636F" style-hover="color:#022D4F">خانه</a>
+        <a href="Amirmahdi%20Asadi%20-%20Services.dc.html" style="font-size:14px;font-weight:500;color:#55636F" style-hover="color:#022D4F">خدمات</a>
+        <a href="Amirmahdi%20Asadi%20-%20Portfolio.dc.html" style="font-size:14px;font-weight:500;color:#55636F" style-hover="color:#022D4F">نمونه‌کارها</a>
+        <a href="Amirmahdi%20Asadi%20-%20Courses.dc.html" style="font-size:14px;font-weight:500;color:#55636F" style-hover="color:#022D4F">دوره‌ها</a>
+        <a href="Amirmahdi%20Asadi%20-%20Blog.dc.html" style="font-size:14px;font-weight:500;color:#55636F" style-hover="color:#022D4F">مقالات</a>
+        <a href="#top" style="font-size:14px;font-weight:700;color:var(--ink,#022D4F)">درباره من</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:8px;margin-inline-start:auto">
+        <a href="Amirmahdi%20Asadi%20-%20Home.dc.html#booking" style="display:flex;align-items:center;gap:8px;background:var(--ink,#022D4F);color:#fff;padding:10px 16px;border-radius:10px;font-size:14px;font-weight:700;white-space:nowrap" style-hover="background:#185E82">
+          <span>رزرو وقت</span>
+          <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:17px">calendar_month</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section id="top" style="position:relative;padding-block:clamp(28px,4.5vw,64px);overflow:hidden">
+    <div style="position:absolute;inset:0;display:var(--guides,block);pointer-events:none">
+      <div style="position:absolute;top:0;bottom:0;right:8%;border-inline-end:1px dashed #E3E9EE"></div>
+      <div style="position:absolute;top:0;bottom:0;left:8%;border-inline-end:1px dashed #E3E9EE"></div>
+      <div style="position:absolute;left:8%;right:8%;bottom:12%;border-top:1px dashed #E3E9EE"></div>
+    </div>
+    <div style="position:absolute;bottom:6%;inset-inline-start:-2%;font-size:clamp(50px,10vw,145px);font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(2,45,79,.1);white-space:nowrap;pointer-events:none">BEHIND THE CAMERA</div>
+
+    <div style="position:relative;width:100%;max-width:1280px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,4vw,56px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-size:clamp(13px,1.4vw,16px);color:#3E5566;font-weight:500;letter-spacing:.02em">درباره من</span>
+        <h1 style="margin:0;font-size:clamp(26px,4vw,48px);font-weight:900;color:var(--ink,#022D4F);line-height:1.4;text-wrap:pretty">مسیری که با یک دوربین کنار پدرم شروع شد</h1>
+        <p style="margin:0;font-size:clamp(14px,1.6vw,18px);color:#55636F;line-height:2.1;max-width:48ch;text-wrap:pretty">من امیرمهدی اسدی هستم؛ عکاس و فیلم‌بردار و فعال در حوزه تولید محتوای تصویری.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="border:1px dashed #D3DCE3;border-radius:10px;padding:8px 14px;font-size:13px;font-weight:700;color:#3E5566">متولد ۱۳۸۰</span>
+          <span style="border:1px dashed #D3DCE3;border-radius:10px;padding:8px 14px;font-size:13px;font-weight:700;color:#3E5566">مشهد، خراسان رضوی</span>
+          <span style="border:1px dashed #D3DCE3;border-radius:10px;padding:8px 14px;font-size:13px;font-weight:700;color:#3E5566">فعالیت حرفه‌ای از ۱۳۹۹</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:4px">
+          <a href="Amirmahdi%20Asadi%20-%20Home.dc.html#booking" style="display:flex;align-items:center;gap:10px;background:var(--ink,#022D4F);color:#fff;padding:14px 24px;border-radius:10px;font-size:15px;font-weight:700" style-hover="background:#185E82">
+            <span>رزرو وقت</span>
+            <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:16px;">north_west</span>
+          </a>
+          <a href="Amirmahdi%20Asadi%20-%20Portfolio.dc.html" style="display:flex;align-items:center;gap:10px;background:#fff;color:var(--ink,#022D4F);padding:14px 24px;border-radius:10px;font-size:15px;font-weight:700;border:1px solid #B9C6D0" style-hover="background:#E3EBF1">
+            <span>نمونه‌کارها</span>
+          </a>
+        </div>
+      </div>
+      <div style="position:relative">
+        <div style="position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:repeating-linear-gradient(135deg,#e6e6e6 0 12px,#f2f2f2 12px 24px);filter:var(--photo-filter,grayscale(1));display:grid;place-items:center">
+          <span style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:#8C9AA6;letter-spacing:.06em;text-align:center;padding:8px">portrait 4:5<br>عکس پرتره امیرمهدی</span>
+        </div>
+        <div style="position:absolute;inset-inline-end:0;bottom:0;width:18px;height:22%;background:#fff;border-radius:12px 0 0 0"></div>
+        <div style="position:absolute;inset-inline-end:0;bottom:22px;width:2px;height:calc(22% - 22px);background:#185E82"></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-block:clamp(24px,4vw,48px)">
+    <div style="width:100%;max-width:1280px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:clamp(14px,2vw,20px)">
+        <div style="background:#E8EEF3;border-radius:14px;padding:26px 20px;display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center">
+          <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:30px;color:#185E82">photo_camera</span>
+          <span style="font-size:clamp(26px,3.4vw,40px);font-weight:900;color:var(--ink,#022D4F);line-height:1.2">۶</span>
+          <span style="font-size:14px;font-weight:700;color:#3E5566">سال تجربه حرفه‌ای</span>
+        </div>
+        <div style="background:#E8EEF3;border-radius:14px;padding:26px 20px;display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center">
+          <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:30px;color:#185E82">photo_library</span>
+          <span style="font-size:clamp(26px,3.4vw,40px);font-weight:900;color:var(--ink,#022D4F);line-height:1.2">۲۰۰+</span>
+          <span style="font-size:14px;font-weight:700;color:#3E5566">پروژه</span>
+        </div>
+        <div style="background:#E8EEF3;border-radius:14px;padding:26px 20px;display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center">
+          <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:30px;color:#185E82">museum</span>
+          <span style="font-size:clamp(26px,3.4vw,40px);font-weight:900;color:var(--ink,#022D4F);line-height:1.2">۱۲</span>
+          <span style="font-size:14px;font-weight:700;color:#3E5566">نمایشگاه گروهی</span>
+        </div>
+        <div style="background:#E8EEF3;border-radius:14px;padding:26px 20px;display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center">
+          <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:30px;color:#185E82">trophy</span>
+          <span style="font-size:clamp(26px,3.4vw,40px);font-weight:900;color:var(--ink,#022D4F);line-height:1.2">۶</span>
+          <span style="font-size:14px;font-weight:700;color:#3E5566">برگزیده جشنواره</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-block:clamp(30px,4.5vw,64px)">
+    <div style="width:100%;max-width:1280px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(24px,4vw,52px);align-items:start">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+          <span style="width:3px;height:22px;background:#185E82;border-radius:2px"></span>
+          <h2 style="margin:0;font-size:clamp(18px,2.2vw,26px);font-weight:900;color:var(--ink,#022D4F)">داستان من</h2>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <p style="margin:0;font-size:15px;line-height:2.2;color:#55636F;text-wrap:pretty">داستان من با تصویر، خیلی زودتر از آن‌چه به یک مسیر حرفه‌ای تبدیل شود آغاز شد؛ از ۶ سالگی، زمانی که در کنار پدرم عکاسی را تجربه کردم. همان تجربه‌های ابتدایی، به‌مرور به علاقه‌ای جدی تبدیل شدند و از سال ۱۳۹۹، فعالیت حرفه‌ای خودم را در عرصه عکاسی آغاز کردم.</p>
+          <p style="margin:0;font-size:15px;line-height:2.2;color:#55636F;text-wrap:pretty">در میان شاخه‌های مختلف عکاسی، عکاسی مستند برای من جایگاه ویژه‌ای دارد؛ چرا که باور دارم گاهی واقعی‌ترین لحظه‌ها، بدون نیاز به ساختن یا اغراق، بیشترین قدرت را برای روایت کردن دارند.</p>
+          <p style="margin:0;font-size:15px;line-height:2.2;color:#55636F;text-wrap:pretty">امروز در کنار عکاسی و تصویربرداری، در حوزه تولید محتوا نیز فعالیت می‌کنم و تلاش می‌کنم هر پروژه را با نگاهی دقیق، خلاقانه و متناسب با نیاز مخاطب پیش ببرم. برای من، یک همکاری موفق فقط به ثبت تصاویر باکیفیت محدود نمی‌شود؛ رضایت مخاطب، تعهد به زمان‌بندی و تحویل سریع فایل‌ها بخش مهمی از تجربه‌ای است که می‌خواهم برای هر پروژه خلق کنم.</p>
+          <p style="margin:0;font-size:15px;line-height:2.2;color:#55636F;text-wrap:pretty">این وب‌سایت، مجموعه‌ای از نمونه‌کارها، پروژه‌ها، تجربه‌ها و روایت‌های تصویری من است؛ بخشی از مسیری که با یک دوربین در کنار پدرم شروع شد و همچنان ادامه دارد.</p>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:0">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+          <span style="width:3px;height:22px;background:#185E82;border-radius:2px"></span>
+          <h2 style="margin:0;font-size:clamp(18px,2.2vw,26px);font-weight:900;color:var(--ink,#022D4F)">مسیر کاری</h2>
+        </div>
+        <div style="display:flex;gap:16px">
+          <div style="width:1px;background:#E0E6EB;margin-inline-start:8px;flex-shrink:0"></div>
+          <div style="display:flex;flex-direction:column;gap:24px;flex:1">
+            <div style="position:relative;display:flex;flex-direction:column;gap:6px">
+              <span style="position:absolute;inset-inline-start:-25px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--ink,#022D4F)"></span>
+              <span style="font-size:12px;color:#8C9AA6;letter-spacing:.06em">۱۳۸۶</span>
+              <h3 style="margin:0;font-size:15px;font-weight:900;color:var(--ink,#022D4F)">کوچک‌ترین عکاس ایران</h3>
+              <p style="margin:0;font-size:13px;line-height:2;color:#55636F">در ۶ سالگی و در کنار پدرم، در جشنواره عکس دریا به‌عنوان کوچک‌ترین عکاس ایران انتخاب شدم.</p>
+            </div>
+            <div style="position:relative;display:flex;flex-direction:column;gap:6px">
+              <span style="position:absolute;inset-inline-start:-25px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--ink,#022D4F)"></span>
+              <span style="font-size:12px;color:#8C9AA6;letter-spacing:.06em">آموزش</span>
+              <h3 style="margin:0;font-size:15px;font-weight:900;color:var(--ink,#022D4F)">دو مدرک عکاسی</h3>
+              <p style="margin:0;font-size:13px;line-height:2;color:#55636F">مدرک عکاسی از سازمان فنی و حرفه‌ای و جهاد دانشگاهی.</p>
+            </div>
+            <div style="position:relative;display:flex;flex-direction:column;gap:6px">
+              <span style="position:absolute;inset-inline-start:-25px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--ink,#022D4F)"></span>
+              <span style="font-size:12px;color:#8C9AA6;letter-spacing:.06em">۱۳۹۹</span>
+              <h3 style="margin:0;font-size:15px;font-weight:900;color:var(--ink,#022D4F)">شروع فعالیت حرفه‌ای</h3>
+              <p style="margin:0;font-size:13px;line-height:2;color:#55636F">ورود جدی به عکاسی، با علاقه ویژه به عکاسی مستند.</p>
+            </div>
+            <div style="position:relative;display:flex;flex-direction:column;gap:6px">
+              <span style="position:absolute;inset-inline-start:-25px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--ink,#022D4F)"></span>
+              <span style="font-size:12px;color:#8C9AA6;letter-spacing:.06em">انجمن‌ها</span>
+              <h3 style="margin:0;font-size:15px;font-weight:900;color:var(--ink,#022D4F)">عضویت در انجمن‌های عکاسی</h3>
+              <p style="margin:0;font-size:13px;line-height:2;color:#55636F">موسسه عکاسان خراسان رضوی، کانون عکس سینمای جوان مشهد و خانه عکس جهاد دانشگاهی مشهد.</p>
+            </div>
+            <div style="position:relative;display:flex;flex-direction:column;gap:6px">
+              <span style="position:absolute;inset-inline-start:-25px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--ink,#022D4F)"></span>
+              <span style="font-size:12px;color:#8C9AA6;letter-spacing:.06em">امروز</span>
+              <h3 style="margin:0;font-size:15px;font-weight:900;color:var(--ink,#022D4F)">عکاس و تصویربردار</h3>
+              <p style="margin:0;font-size:13px;line-height:2;color:#55636F">عکاس خبرگزاری مهر، عکاس و تصویربردار شرکت فرس و شرکت پارسینو، تصویربردار شرکت‌های تبلیغاتی و فعال در تولید محتوای تصویری.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-block:clamp(28px,4vw,56px)">
+    <div style="width:100%;max-width:1280px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)">
+      <div style="position:relative;border-top:1px dashed #D3DCE3;border-bottom:1px dashed #D3DCE3;padding-block:clamp(26px,4vw,48px);display:grid;place-items:center">
+        <div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:clamp(10px,1.6vw,18px);padding:clamp(18px,2.6vw,34px) clamp(22px,5vw,72px);text-align:center">
+          <span style="position:absolute;top:0;inset-inline-start:0;width:26px;height:26px;border-top:2px solid #B9C6D0;border-inline-start:2px solid #B9C6D0"></span>
+          <span style="position:absolute;bottom:0;inset-inline-end:0;width:26px;height:26px;border-bottom:2px solid #B9C6D0;border-inline-end:2px solid #B9C6D0"></span>
+          <span style="font-size:clamp(14px,1.6vw,18px);font-weight:700;color:#8C9AA6">زندگی از نگاه من</span>
+          <blockquote style="margin:0;font-size:clamp(24px,4.4vw,54px);font-weight:900;color:var(--ink,#022D4F);line-height:1.5;text-wrap:balance">زندگی من آن‌چیزی است که برایش می‌جنگم</blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-block:clamp(30px,4.5vw,64px);background:#F5F8FA">
+    <div style="width:100%;max-width:1280px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+          <span style="width:3px;height:22px;background:#185E82;border-radius:2px"></span>
+          <h2 style="margin:0;font-size:clamp(18px,2.2vw,26px);font-weight:900;color:var(--ink,#022D4F)">طرز کار من</h2>
+        </div>
+      <p style="margin:0 0 28px;font-size:14px;color:#8C9AA6">چهار قدم ثابت، از اولین تماس تا تحویل فایل‌ها</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:clamp(14px,2vw,22px)">
+        <article style="background:#fff;border:1px solid #E3EBF1;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:13px;font-weight:900;color:#8C9AA6;letter-spacing:.1em">۰۱</span>
+          <h3 style="margin:0;font-size:16px;font-weight:900;color:var(--ink,#022D4F)">گفت‌وگوی اول</h3>
+          <p style="margin:0;font-size:13px;line-height:2;color:#55636F">می‌پرسم عکس‌ها کجا قرار است استفاده شوند و چه حسی باید داشته باشند.</p>
+        </article>
+        <article style="background:#fff;border:1px solid #E3EBF1;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:13px;font-weight:900;color:#8C9AA6;letter-spacing:.1em">۰۲</span>
+          <h3 style="margin:0;font-size:16px;font-weight:900;color:var(--ink,#022D4F)">برنامه و قرارداد</h3>
+          <p style="margin:0;font-size:13px;line-height:2;color:#55636F">لوکیشن، زمان، تعداد فریم و هزینه شفاف نوشته می‌شود و بعد کار شروع می‌شود.</p>
+        </article>
+        <article style="background:#fff;border:1px solid #E3EBF1;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:13px;font-weight:900;color:#8C9AA6;letter-spacing:.1em">۰۳</span>
+          <h3 style="margin:0;font-size:16px;font-weight:900;color:var(--ink,#022D4F)">روز عکاسی</h3>
+          <p style="margin:0;font-size:13px;line-height:2;color:#55636F">بدون عجله؛ اول کمی حرف می‌زنیم تا جلوی دوربین راحت باشی.</p>
+        </article>
+        <article style="background:#fff;border:1px solid #E3EBF1;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:13px;font-weight:900;color:#8C9AA6;letter-spacing:.1em">۰۴</span>
+          <h3 style="margin:0;font-size:16px;font-weight:900;color:var(--ink,#022D4F)">انتخاب و تحویل</h3>
+          <p style="margin:0;font-size:13px;line-height:2;color:#55636F">گالری انتخاب می‌فرستم، روتوش نهایی انجام می‌شود و فایل‌ها سر وقت تحویل می‌شود.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-block:clamp(30px,4.5vw,64px)">
+    <div style="width:100%;max-width:1280px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(24px,4vw,52px);align-items:start">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+          <span style="width:3px;height:22px;background:#185E82;border-radius:2px"></span>
+          <h2 style="margin:0;font-size:clamp(18px,2.2vw,26px);font-weight:900;color:var(--ink,#022D4F)">تجهیزاتی که با آن کار می‌کنم</h2>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:center;gap:14px;border:1px dashed #D3DCE3;border-radius:12px;padding:16px 18px" style-hover="border-color:#022D4F;border-style:solid">
+            <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:20px;color:#185E82">photo_camera</span>
+            <span style="flex:1;font-size:14px;font-weight:700;color:var(--ink,#022D4F)">بدنه <span dir="ltr" style="font-family:system-ui,-apple-system,'Segoe UI',sans-serif">Sony a7 IV</span></span>
+            <span style="font-size:12px;color:#8C9AA6;text-align:end">عکس و ویدیو</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;border:1px dashed #D3DCE3;border-radius:12px;padding:16px 18px" style-hover="border-color:#022D4F;border-style:solid">
+            <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:20px;color:#185E82">camera</span>
+            <span style="flex:1;font-size:14px;font-weight:700;color:var(--ink,#022D4F)">لنزهای ۱۴-۲۴، ۲۴-۷۰ و ۷۰-۲۰۰</span>
+            <span style="font-size:12px;color:#8C9AA6;text-align:end">واید تا تله</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;border:1px dashed #D3DCE3;border-radius:12px;padding:16px 18px" style-hover="border-color:#022D4F;border-style:solid">
+            <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:20px;color:#185E82">flash_on</span>
+            <span style="flex:1;font-size:14px;font-weight:700;color:var(--ink,#022D4F)">فلاش استودیویی</span>
+            <span style="font-size:12px;color:#8C9AA6;text-align:end">آتلیه و محصول</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;border:1px dashed #D3DCE3;border-radius:12px;padding:16px 18px" style-hover="border-color:#022D4F;border-style:solid">
+            <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:20px;color:#185E82">emoji_objects</span>
+            <span style="flex:1;font-size:14px;font-weight:700;color:var(--ink,#022D4F)">نور ثابت و نور <span dir="ltr" style="font-family:system-ui,-apple-system,'Segoe UI',sans-serif">RGB</span></span>
+            <span style="font-size:12px;color:#8C9AA6;text-align:end">عکس و ویدیو</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;border:1px dashed #D3DCE3;border-radius:12px;padding:16px 18px" style-hover="border-color:#022D4F;border-style:solid">
+            <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:20px;color:#185E82">360</span>
+            <span style="flex:1;font-size:14px;font-weight:700;color:var(--ink,#022D4F)">دوربین <span dir="ltr" style="font-family:system-ui,-apple-system,'Segoe UI',sans-serif">Insta360</span></span>
+            <span style="font-size:12px;color:#8C9AA6;text-align:end">ویدیوی ۳۶۰ درجه</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;border:1px dashed #D3DCE3;border-radius:12px;padding:16px 18px" style-hover="border-color:#022D4F;border-style:solid">
+            <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:20px;color:#185E82">mic</span>
+            <span style="flex:1;font-size:14px;font-weight:700;color:var(--ink,#022D4F)">گیمبال و رکوردر یقه‌ای</span>
+            <span style="font-size:12px;color:#8C9AA6;text-align:end">تصویربرداری و صدا</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+          <span style="width:3px;height:22px;background:#185E82;border-radius:2px"></span>
+          <h2 style="margin:0;font-size:clamp(18px,2.2vw,26px);font-weight:900;color:var(--ink,#022D4F)">مدارک و عضویت‌ها</h2>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:center;gap:14px;border:1px dashed #D3DCE3;border-radius:12px;padding:16px 18px" style-hover="border-color:#022D4F;border-style:solid">
+            <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:20px;color:#185E82">school</span>
+            <span style="flex:1;font-size:14px;font-weight:700;color:var(--ink,#022D4F)">مدرک عکاسی سازمان فنی و حرفه‌ای</span>
+            <span style="font-size:12px;color:#8C9AA6;text-align:end">مدرک</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;border:1px dashed #D3DCE3;border-radius:12px;padding:16px 18px" style-hover="border-color:#022D4F;border-style:solid">
+            <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:20px;color:#185E82">school</span>
+            <span style="flex:1;font-size:14px;font-weight:700;color:var(--ink,#022D4F)">مدرک عکاسی جهاد دانشگاهی</span>
+            <span style="font-size:12px;color:#8C9AA6;text-align:end">مدرک</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;border:1px dashed #D3DCE3;border-radius:12px;padding:16px 18px" style-hover="border-color:#022D4F;border-style:solid">
+            <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:20px;color:#185E82">groups</span>
+            <span style="flex:1;font-size:14px;font-weight:700;color:var(--ink,#022D4F)">موسسه عکاسان خراسان رضوی</span>
+            <span style="font-size:12px;color:#8C9AA6;text-align:end">عضو</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;border:1px dashed #D3DCE3;border-radius:12px;padding:16px 18px" style-hover="border-color:#022D4F;border-style:solid">
+            <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:20px;color:#185E82">groups</span>
+            <span style="flex:1;font-size:14px;font-weight:700;color:var(--ink,#022D4F)">کانون عکس سینمای جوان مشهد</span>
+            <span style="font-size:12px;color:#8C9AA6;text-align:end">عضو</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;border:1px dashed #D3DCE3;border-radius:12px;padding:16px 18px" style-hover="border-color:#022D4F;border-style:solid">
+            <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:20px;color:#185E82">groups</span>
+            <span style="flex:1;font-size:14px;font-weight:700;color:var(--ink,#022D4F)">خانه عکس جهاد دانشگاهی مشهد</span>
+            <span style="font-size:12px;color:#8C9AA6;text-align:end">عضو</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-block:clamp(30px,4.5vw,64px);background:#F5F8FA">
+    <div style="width:100%;max-width:1280px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+          <span style="width:3px;height:22px;background:#185E82;border-radius:2px"></span>
+          <h2 style="margin:0;font-size:clamp(18px,2.2vw,26px);font-weight:900;color:var(--ink,#022D4F)">افتخارات و جوایز</h2>
+        </div>
+      <p style="margin:0 0 28px;font-size:14px;color:#8C9AA6">برگزیده‌ها و آثار پذیرفته‌شده در جشنواره‌های عکس</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(14px,2vw,22px)">
+        <article style="background:#fff;border:1px solid #E3EBF1;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+            <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:26px;color:#185E82">trophy</span>
+            <span style="font-size:12px;font-weight:700;color:#8C9AA6">بین‌المللی</span>
+          </div>
+          <h3 style="margin:0;font-size:16px;font-weight:900;color:var(--ink,#022D4F);line-height:1.7">نفر اول</h3>
+          <p style="margin:0;font-size:13px;line-height:2;color:#55636F">جشنواره بین‌المللی خورشید ولایت</p>
+        </article>
+        <article style="background:#fff;border:1px solid #E3EBF1;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+            <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:26px;color:#185E82">trophy</span>
+            <span style="font-size:12px;font-weight:700;color:#8C9AA6">ملی</span>
+          </div>
+          <h3 style="margin:0;font-size:16px;font-weight:900;color:var(--ink,#022D4F);line-height:1.7">نفر دوم</h3>
+          <p style="margin:0;font-size:13px;line-height:2;color:#55636F">جشنواره ملی سوگواری هنر عاشورا — بجنورد</p>
+        </article>
+        <article style="background:#fff;border:1px solid #E3EBF1;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+            <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:26px;color:#185E82">trophy</span>
+            <span style="font-size:12px;font-weight:700;color:#8C9AA6">ملی</span>
+          </div>
+          <h3 style="margin:0;font-size:16px;font-weight:900;color:var(--ink,#022D4F);line-height:1.7">نفر دوم</h3>
+          <p style="margin:0;font-size:13px;line-height:2;color:#55636F">جشنواره برق و رسانه — وزارت برق</p>
+        </article>
+        <article style="background:#fff;border:1px solid #E3EBF1;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+            <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:26px;color:#185E82">trophy</span>
+            <span style="font-size:12px;font-weight:700;color:#8C9AA6">۱۳۸۶</span>
+          </div>
+          <h3 style="margin:0;font-size:16px;font-weight:900;color:var(--ink,#022D4F);line-height:1.7">کوچک‌ترین عکاس ایران</h3>
+          <p style="margin:0;font-size:13px;line-height:2;color:#55636F">جشنواره عکس دریا</p>
+        </article>
+      </div>
+      <div style="display:flex;flex-direction:column;margin-top:26px;border-top:1px dashed #D3DCE3">
+        <div style="display:flex;align-items:center;gap:16px;padding-block:16px;border-bottom:1px dashed #D3DCE3">
+          <span style="font-size:12px;font-weight:900;color:#8C9AA6;min-width:84px">شایسته تقدیر</span>
+          <span style="flex:1;font-size:14px;line-height:1.9;color:#3E5566">پذیرش سه عکس و عنوان شایسته تقدیر — جشنواره انرژی تجدیدپذیر</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;padding-block:16px;border-bottom:1px dashed #D3DCE3">
+          <span style="font-size:12px;font-weight:900;color:#8C9AA6;min-width:84px">پذیرش</span>
+          <span style="flex:1;font-size:14px;line-height:1.9;color:#3E5566">ششمین جشنواره روستایی و عشایر «آسمان هشتم»</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;padding-block:16px;border-bottom:1px dashed #D3DCE3">
+          <span style="font-size:12px;font-weight:900;color:#8C9AA6;min-width:84px">پذیرش</span>
+          <span style="flex:1;font-size:14px;line-height:1.9;color:#3E5566">جشنواره عکس نور</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;padding-block:16px;border-bottom:1px dashed #D3DCE3">
+          <span style="font-size:12px;font-weight:900;color:#8C9AA6;min-width:84px">پذیرش</span>
+          <span style="flex:1;font-size:14px;line-height:1.9;color:#3E5566">پذیرش چندین عکس در سایت <span dir="ltr" style="font-family:system-ui,-apple-system,'Segoe UI',sans-serif">35AWARDS</span></span>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;padding-block:16px">
+          <span style="font-size:12px;font-weight:900;color:#8C9AA6;min-width:84px">پذیرش</span>
+          <span style="flex:1;font-size:14px;line-height:1.9;color:#3E5566">جشنواره روایت همدلی</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-block:clamp(30px,4.5vw,64px)">
+    <div style="width:100%;max-width:1280px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+          <span style="width:3px;height:22px;background:#185E82;border-radius:2px"></span>
+          <h2 style="margin:0;font-size:clamp(18px,2.2vw,26px);font-weight:900;color:var(--ink,#022D4F)">سوابق همکاری</h2>
+        </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:clamp(12px,1.6vw,18px);margin-bottom:clamp(36px,5vw,56px)">
+        <article style="border:1px solid #E3EBF1;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:6px">
+          <span style="font-size:15px;font-weight:900;color:var(--ink,#022D4F)">خبرگزاری مهر</span>
+          <span style="font-size:13px;color:#55636F">عکاس</span>
+        </article>
+        <article style="border:1px solid #E3EBF1;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:6px">
+          <span style="font-size:15px;font-weight:900;color:var(--ink,#022D4F)">شرکت فرس</span>
+          <span style="font-size:13px;color:#55636F">عکاس و تصویربردار</span>
+        </article>
+        <article style="border:1px solid #E3EBF1;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:6px">
+          <span style="font-size:15px;font-weight:900;color:var(--ink,#022D4F)">شرکت پارسینو</span>
+          <span style="font-size:13px;color:#55636F">عکاس و تصویربردار</span>
+        </article>
+        <article style="border:1px solid #E3EBF1;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:6px">
+          <span style="font-size:15px;font-weight:900;color:var(--ink,#022D4F)">شرکت‌های تبلیغاتی</span>
+          <span style="font-size:13px;color:#55636F">تصویربردار</span>
+        </article>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+          <span style="width:3px;height:22px;background:#185E82;border-radius:2px"></span>
+          <h2 style="margin:0;font-size:clamp(18px,2.2vw,26px);font-weight:900;color:var(--ink,#022D4F)">نمایشگاه‌های گروهی</h2>
+        </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));column-gap:clamp(24px,4vw,52px);border-top:1px dashed #E0E6EB">
+        <div style="display:flex;align-items:center;gap:16px;padding-block:16px;border-bottom:1px dashed #E0E6EB">
+            <span style="font-size:13px;font-weight:900;color:#8C9AA6;min-width:30px">۰۱</span>
+            <span style="flex:1;font-size:14px;line-height:1.9;color:#3E5566">نمایشگاه گروهی «آن‌کادر» — مشهد</span>
+          </div>
+        <div style="display:flex;align-items:center;gap:16px;padding-block:16px;border-bottom:1px dashed #E0E6EB">
+            <span style="font-size:13px;font-weight:900;color:#8C9AA6;min-width:30px">۰۲</span>
+            <span style="flex:1;font-size:14px;line-height:1.9;color:#3E5566">نمایشگاه «عطر رمضان»</span>
+          </div>
+        <div style="display:flex;align-items:center;gap:16px;padding-block:16px;border-bottom:1px dashed #E0E6EB">
+            <span style="font-size:13px;font-weight:900;color:#8C9AA6;min-width:30px">۰۳</span>
+            <span style="flex:1;font-size:14px;line-height:1.9;color:#3E5566">پنجمین نمایشگاه سالانه موسسه عکاسان خراسان رضوی</span>
+          </div>
+        <div style="display:flex;align-items:center;gap:16px;padding-block:16px;border-bottom:1px dashed #E0E6EB">
+            <span style="font-size:13px;font-weight:900;color:#8C9AA6;min-width:30px">۰۴</span>
+            <span style="flex:1;font-size:14px;line-height:1.9;color:#3E5566">ششمین نمایشگاه سالانه موسسه عکاسان خراسان رضوی</span>
+          </div>
+        <div style="display:flex;align-items:center;gap:16px;padding-block:16px;border-bottom:1px dashed #E0E6EB">
+            <span style="font-size:13px;font-weight:900;color:#8C9AA6;min-width:30px">۰۵</span>
+            <span style="flex:1;font-size:14px;line-height:1.9;color:#3E5566">چهارمین نمایشگاه دوسالانه موسسه عکاسان خراسان رضوی</span>
+          </div>
+        <div style="display:flex;align-items:center;gap:16px;padding-block:16px;border-bottom:1px dashed #E0E6EB">
+            <span style="font-size:13px;font-weight:900;color:#8C9AA6;min-width:30px">۰۶</span>
+            <span style="flex:1;font-size:14px;line-height:1.9;color:#3E5566">نمایشگاه دوسالانه کانون عکس انجمن سینمای جوان</span>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-block:clamp(24px,4vw,52px)">
+    <div style="width:100%;max-width:1280px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)">
+      <div style="position:relative;background:var(--ink,#022D4F);border-radius:16px;overflow:hidden;padding:clamp(28px,4vw,52px);display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;align-items:center">
+        <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start">
+          <h2 style="margin:0;font-size:clamp(20px,2.8vw,34px);font-weight:900;color:#fff;line-height:1.5;text-wrap:pretty">بیا درباره پروژه‌ات حرف بزنیم</h2>
+          <p style="margin:0;font-size:clamp(14px,1.6vw,18px);color:#C4D3DF">اولین جلسه مشاوره رایگان است.</p>
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+            <a href="Amirmahdi%20Asadi%20-%20Home.dc.html#booking" style="display:flex;align-items:center;gap:10px;background:#fff;color:var(--ink,#022D4F);padding:13px 22px;border-radius:10px;font-size:15px;font-weight:700" style-hover="background:#E3EBF1">
+              <span>رزرو وقت</span>
+              <span style="font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;width:1em;overflow:hidden;font-feature-settings:'liga';font-size:17px">calendar_month</span>
+            </a>
+            <a href="Amirmahdi%20Asadi%20-%20Course.dc.html" style="display:flex;align-items:center;gap:10px;border:1px solid #2A5878;color:#fff;padding:13px 22px;border-radius:10px;font-size:15px;font-weight:700" style-hover="background:#134669">
+              <span>دیدن دوره‌ها</span>
+            </a>
+          </div>
+        </div>
+        <div style="aspect-ratio:16/9;border-radius:12px;background:repeating-linear-gradient(135deg,#0E3E62 0 12px,#164A6E 12px 24px);display:grid;place-items:center">
+          <span style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:#8FA9BE;text-align:center;padding:8px">16:9<br>عکس آتلیه</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:var(--ink,#022D4F);padding-block:clamp(30px,4vw,52px) 22px">
+    <div style="width:100%;max-width:1280px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:clamp(22px,3vw,40px)">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:inline-flex;align-items:center;gap:10px;border:1px solid #2A5878;border-radius:12px;padding:14px 16px;align-self:flex-start">
+          <img src="assets/logo-mark-white.png" alt="لوگوی امیرمهدی اسدی" style="height:32px;width:auto;display:block" />
+          <span style="display:flex;flex-direction:column;line-height:1.2">
+            <span style="font-size:17px;font-weight:900;color:#fff">امیرمهدی اسدی</span>
+            <span style="font-size:10px;font-weight:500;color:#8FA9BE;letter-spacing:.18em">PHOTO &amp; VIDEO</span>
+          </span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <a href="Amirmahdi%20Asadi%20-%20Home.dc.html#contact" style="width:42px;height:42px;border:1px solid #2A5878;border-radius:10px;display:grid;place-items:center;color:#fff" style-hover="background:#134669"><span style="font-family:lenz-icon;font-size:18px">&#xe003;</span></a>
+          <a href="Amirmahdi%20Asadi%20-%20Home.dc.html#contact" style="width:42px;height:42px;border:1px solid #2A5878;border-radius:10px;display:grid;place-items:center;color:#fff" style-hover="background:#134669"><span style="font-family:lenz-icon;font-size:18px">&#xe00c;</span></a>
+          <a href="Amirmahdi%20Asadi%20-%20Home.dc.html#contact" style="width:42px;height:42px;border:1px solid #2A5878;border-radius:10px;display:grid;place-items:center;color:#fff" style-hover="background:#134669"><span style="font-family:lenz-icon;font-size:18px">&#xe000;</span></a>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <h3 style="margin:0;font-size:15px;font-weight:900;color:#fff">دسترسی سریع</h3>
+        <a href="Amirmahdi%20Asadi%20-%20Home.dc.html" style="display:flex;align-items:center;gap:10px;font-size:13px;color:#C4D3DF" style-hover="color:#fff"><span style="width:6px;height:6px;background:#8FA9BE"></span>خانه</a>
+        <a href="Amirmahdi%20Asadi%20-%20Home.dc.html#portfolio" style="display:flex;align-items:center;gap:10px;font-size:13px;color:#C4D3DF" style-hover="color:#fff"><span style="width:6px;height:6px;background:#8FA9BE"></span>نمونه‌کارها</a>
+        <a href="Amirmahdi%20Asadi%20-%20Courses.dc.html" style="display:flex;align-items:center;gap:10px;font-size:13px;color:#C4D3DF" style-hover="color:#fff"><span style="width:6px;height:6px;background:#8FA9BE"></span>دوره‌ها</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <h3 style="margin:0;font-size:15px;font-weight:900;color:#fff">تماس</h3>
+        <div style="background:#0B3A5E;border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:flex-start;gap:10px">
+            <span style="font-family:lenz-icon;font-size:17px;color:#8FA9BE">&#xe002;</span>
+            <span style="font-size:13px;line-height:1.9;color:#C4D3DF">مشهد، خراسان رضوی — با هماهنگی قبلی</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="font-family:lenz-icon;font-size:17px;color:#8FA9BE">&#xe005;</span>
+            <span style="font-size:13px;color:#C4D3DF">۰۹۱۲۰۰۰۰۰۰۰</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="width:100%;max-width:1280px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)">
+      <div style="margin-top:28px;padding-top:18px;border-top:1px dashed #2A5878;display:flex;align-items:center;justify-content:center">
+        <span style="font-size:12px;color:#8FA9BE;text-align:center">تمامی حقوق این سایت و تصاویر متعلق به امیرمهدی اسدی است.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;inkColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#022D4F&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#022D4F&quot;,&quot;#185E82&quot;,&quot;#0B3A5E&quot;,&quot;#000000&quot;],&quot;section&quot;:&quot;ظاهر&quot;},&quot;photoTone&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;سیاه‌وسفید&quot;,&quot;رنگی&quot;],&quot;default&quot;:&quot;سیاه‌وسفید&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;ظاهر&quot;},&quot;showGuides&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;ظاهر&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() { this.applyVars(); }
+  componentDidUpdate() { this.applyVars(); }
+
+  applyVars() {
+    const r = document.documentElement.style;
+    r.setProperty('--ink', this.props.inkColor || '#022D4F');
+    r.setProperty('--photo-filter', (this.props.photoTone || 'سیاه‌وسفید') === 'رنگی' ? 'none' : 'grayscale(1)');
+    r.setProperty('--guides', this.props.showGuides === false ? 'none' : 'block');
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la /Users/hooman/Documents/Codes/Lenz-Plus; echo ---; ls -la /Users/hooman/Documents/Codes/Studiare-Extentions 2>&1 | head -50)",
+      "Read(//Users/hooman/Documents/Codes/Studiare-Extentions/**)",
+      "Bash(unzip -l Theme.zip)",
+      "Bash(cd /Users/hooman/Documents/Codes/Studiare-Extentions; find studiare-extensions -type f | grep -v node_modules | head -200; echo ---; find .claude tools -maxdepth 3 | head -40; cat README.md)",
+      "Bash(python3 -)",
+      "Bash(cd /Users/hooman/Documents/Codes/Studiare-Extentions && ls -la && ls -la studiare-extensions && wc -l CLAUDE.md)",
+      "Read(//Users/hooman/Documents/Codes/Studiare-Extentions/studiare-extensions/**)",
+      "Bash(sort -k2)",
+      "Bash(cd /Users/hooman/Documents/Codes/Studiare-Extentions && ls tools && wc -l tools/* phpcs.xml.dist && cat phpcs.xml.dist && cat studiare-extensions/studiare-extensions.php studiare-extensions/includes/Plugin.php studiare-extensions/includes/Autoloader.php studiare-extensions/uninstall.php)",
+      "Bash(cd /Users/hooman/Documents/Codes/Studiare-Extentions/studiare-extensions/includes/Core && cat Module.php Asset.php Arr.php Color.php Site.php)",
+      "Read(//Users/hooman/Documents/Codes/Studiare-Extentions/studiare-extensions/includes/Core/**)",
+      "Bash(cd /Users/hooman/Documents/Codes/Studiare-Extentions/studiare-extensions/includes/Core && cat Theme_Bridge.php)",
+      "Read(//Users/hooman/Documents/Codes/Studiare-Extentions/.claude/**)",
+      "Read(//Users/hooman/.claude/skills/graphify/**)",
+      "Bash(cd /Users/hooman/Documents/Codes/Studiare-Extentions/studiare-extensions/includes/Core && grep -n \"function \\\\|const \\\\|studiare\\\\|Studiare\\\\|Theme_Bridge\\\\|stx\\\\|'sc_\\\\|codebean\" Sanitizer.php Persian.php Icon_Library.php Search_Query.php)",
+      "Bash(unzip -l template_files-1789313116690-fuiy.zip)",
+      "Bash(python3 -c ' *)",
+      "Bash(cd /Users/hooman/Documents/Codes/Studiare-Extentions/studiare-extensions/includes/Core && sed -n 1,130p Sanitizer.php && sed -n 1,60p Icon_Library.php && sed -n 1,60p Search_Query.php && sed -n 190,252p Search_Query.php && sed -n 1,35p Persian.php)",
+      "Bash(grep -n -i -E \"^#+ |claude install|CLAUDE.md|hook|--update|--watch|graphify-out/\" ~/.claude/skills/graphify/SKILL.md | head -80; ls ~/.claude/skills/graphify/references)",
+      "Read(//Users/hooman/.claude/skills/graphify/references/**)",
+      "Bash(awk -F: '{print $2}')",
+      "Bash(cd /Users/hooman/Documents/Codes/Studiare-Extentions/studiare-extensions/includes/Core && sed -n 60,225p Icon_Library.php && sed -n 60,190p Search_Query.php)",
+      "Bash(unzip -p template_files-1789313116690-fuiy.zip lenz/assets/css/lenz-icons.min.css)",
+      "Bash(grep -v \"^\\\\s*\\\\*\\\\s*$\")",
+      "Bash(awk -F\"'\" '{print $4}')",
+      "Bash(php -v)",
+      "Bash(php -m)",
+      "Read(//Users/hooman/Documents/Codes/**)",
+      "Bash(awk -F: '{print $1}')",
+      "Bash(awk -F: '{print $NF}')",
+      "Bash(cd /Users/hooman/Documents/Codes/Lenz-Plus/Design && grep -n \"مسیر کاری\\\\|زندگی از نگاه من\\\\|شایسته تقدیر\\\\|نمایشگاه‌های گروهی\" \"Amirmahdi Asadi - About.dc.html\" | head; sed -n '/مسیر کاری/,/۱۳۸۶/p' \"Amirmahdi Asadi - About.dc.html\" | cut -c1-400; echo ----; sed -n '/زندگی از نگاه من/,+3p' \"Amirmahdi Asadi - About.dc.html\" | cut -c1-500; grep -n -B8 \"زندگی از نگاه من\" \"Amirmahdi Asadi - About.dc.html\" | cut -c1-400)",
+      "Bash(grep -v \"^\\\\s*\\\\*\\\\s*$\\\\|^\\\\s*/\\\\*\\\\*\")",
+      "Bash(cd /Users/hooman/Documents/Codes/Studiare-Extentions/studiare-extensions && ls -la assets/icons/packs languages && grep -c '^msgid ' languages/studiare-extensions-fa_IR.po && grep -c '\"key\"' assets/icons/catalog.json && grep -n \"ICONS\\\\b\\\\|^export const ICONS\" ../tools/icon-map.mjs | head -3 && grep -n \"fa:\\\\|label:\" ../tools/icon-map.mjs | sed -n 1,6p)",
+      "Read(//Users/hooman/Documents/Codes/tools/**)",
+      "Bash(sips -g pixelWidth -g pixelHeight -g hasAlpha IMG_8139.PNG IMG_8140.PNG Screenshot_13-9-2026_18525_amirmahdiphoto.ir.jpeg pasted-1789370743354-0.png)",
+      "Bash(grep -v \"^$\")",
+      "Bash(sips -g pixelWidth -g pixelHeight *.png)",
+      "Bash(awk '{print $4}')",
+      "Bash(grep -E \"^lenz/[^/]+/?$|^lenz/[^/]+/[^/]+/$\")",
+      "Bash(unzip -p template_files-1789313116690-fuiy.zip lenz/style.css)",
+      "Bash(grep -E \"lenz/inc/\\(PostTypes|Taxonomies|Widgets|Shortcodes|Components\\)/[^/]+$|lenz/plugins/[^/]+$|lenz/template-parts/[^/]+/[^/]+$\")",
+      "Bash(graphify --help)",
+      "mcp__claude-in-chrome__tabs_context_mcp",
+      "ClaudeInChromeDomain(127.0.0.1:8888)"
+    ],
+    "additionalDirectories": [
+      "/Users/hooman/Documents/Codes/Lenz-Plus"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Grep",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/hooman/.local/bin/graphify hook-guard search"
+          }
+        ]
+      },
+      {
+        "matcher": "Read|Glob",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/hooman/.local/bin/graphify hook-guard read"
+          }
+        ]
+      }
+    ]
+  }
+}

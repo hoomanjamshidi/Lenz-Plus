@@ -1,0 +1,27 @@
+# graphify reads .gitignore first, then this file (last match wins).
+# The graph is code only (AST, no LLM cost): the plugin plus the reference
+# copies of the Lenz theme and the Studiare Extensions plugin.
+
+# Reference copies are git-ignored but belong in the graph.
+!reference/
+
+# Not code, or generated: keep them out of the graph.
+Design/
+.claude/
+docs/
+tools/
+reference/lenz-demo/
+*.md
+*.txt
+*.json
+*.xml
+*.po
+*.pot
+*.mo
+*.min.js
+*.min.css
+*.svg
+*.png
+*.jpg
+*.jpeg
+*.webp

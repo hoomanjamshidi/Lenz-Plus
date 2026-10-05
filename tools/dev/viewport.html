@@ -1,0 +1,58 @@
+<!doctype html>
+<!--
+  Viewport harness for the local test site (copied to .dev/wp/viewport.html by tools/dev-site.sh).
+  The Chrome window used for checks is maximised, so resize_window cannot produce a 390px
+  viewport; an iframe of an exact width gets real media queries instead. Same origin as the
+  site, so scripts can inspect frames[0].document.
+
+    /viewport.html?a=/&w=390                       one page at 390×844
+    /viewport.html?a=/about/&w=1440&h=900          one page at 1440×900 (scaled to fit)
+    /viewport.html?a=/about/&b=/design/About&w=390 site beside its design mockup
+  `b=/design/<Page>` resolves to Design/Amirmahdi Asadi - <Page>.dc.html (symlinked as /design).
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Viewport</title>
+<style>
+	html, body { margin: 0; background: #2b2f36; font: 12px/1.4 system-ui, sans-serif; color: #cfd6de; }
+	.bar { display: flex; gap: 16px; padding: 6px 12px; }
+	.stage { display: flex; gap: 16px; padding: 0 12px 12px; align-items: flex-start; }
+	.frame { flex: none; transform-origin: top left; background: #fff; box-shadow: 0 0 0 1px #444; }
+	.cell { flex: none; overflow: hidden; }
+	iframe { display: block; border: 0; }
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<div class="stage" id="stage"></div>
+<script>
+	const q = new URLSearchParams(location.search);
+	const w = parseInt(q.get('w') || '390', 10);
+	const h = parseInt(q.get('h') || (w <= 480 ? '844' : '900'), 10);
+	const resolve = (u) => {
+		const m = /^\/design\/(\w+)$/.exec(u || '');
+		return m ? '/design/' + encodeURIComponent('Amirmahdi Asadi - ' + m[1] + '.dc.html') : u;
+	};
+	const urls = [q.get('a') || '/', q.get('b')].filter(Boolean).map(resolve);
+	const available = innerWidth - 24 - 16 * (urls.length - 1);
+	const scale = Math.min(1, available / urls.length / w);
+	document.getElementById('bar').textContent = urls.join('  |  ') + `  —  ${w}×${h}` + (scale < 1 ? ` (shown at ${Math.round(scale * 100)}%)` : '');
+	const stage = document.getElementById('stage');
+	urls.forEach((url) => {
+		const cell = document.createElement('div');
+		cell.className = 'cell';
+		cell.style.width = w * scale + 'px';
+		cell.style.height = h * scale + 'px';
+		const frame = document.createElement('iframe');
+		frame.className = 'frame';
+		frame.src = url;
+		frame.width = w;
+		frame.height = h;
+		frame.style.transform = `scale(${scale})`;
+		cell.appendChild(frame);
+		stage.appendChild(cell);
+	});
+</script>
+</body>
+</html>

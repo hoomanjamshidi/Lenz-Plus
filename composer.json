@@ -1,0 +1,20 @@
+{
+	"name": "lenz-plus/lenz-plus-dev",
+	"description": "Development tools for the Lenz Plus plugin (coding standards only; nothing here ships).",
+	"type": "project",
+	"license": "proprietary",
+	"require-dev": {
+		"wp-coding-standards/wpcs": "^3.1",
+		"phpcompatibility/phpcompatibility-wp": "^2.1",
+		"dealerdirect/phpcodesniffer-composer-installer": "^1.0"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	},
+	"scripts": {
+		"lint": "phpcs",
+		"fix": "phpcbf"
+	}
+}
