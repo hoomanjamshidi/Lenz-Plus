@@ -65,7 +65,7 @@ lenz-plus/                           ← the plugin (zip this folder)
 │   └── modules/<module>/            css/js sources + generated *.min.*
 └── languages/                       .pot, fa_IR .po/.mo
 docs/                                ROADMAP.md (resume point), reference/*.md
-tools/                               build-icons.mjs, icon-map.mjs, minify.mjs, build-zip.sh, dev-site.sh (+ dev/: test mu-plugin, license stub)
+tools/                               build-icons.mjs, icon-map.mjs, minify.mjs, build-zip.sh, i18n.sh, dev-site.sh (+ dev/: test mu-plugin, license stub, viewport harness)
 phpcs.xml.dist, composer.json        WordPress-Extra + PHPCompatibilityWP (7.4+)
 reference/                           (ignored) Lenz theme copy, Lenz demo files, Studiare plugin, its guide and tools
 .dev/                                (ignored) local test site (wp/), WP-CLI (bin/wp, wrapper bin/lwp), downloads
@@ -100,13 +100,19 @@ Details and sources: `docs/reference/lenz-theme.md`.
 | Mobile support block | `mobile-menu-support-show`, `-top-text`, `-top-link`, `-bottom-text`, `-bottom-link` |
 | Post types | `portfolio` (`portfolio-cat`, `portfolio-tag`; meta `_gallery`, `_external_links`), `video` (`video-cat`, `video-tag`), `expert` (`_position`, `_socials`, `_careers`); posts `_views` |
 | Templates | `get_header()` → `main#page-body` (`.page-width` = 1440px boxed) → content → `get_footer()`; page meta `_show_title`, `_show_breadcrumb` (`"false"` hides) |
-| Scripts / styles | styles `lenz`, `lenz-icons`, `lenz-custom`; script `lenz` (jQuery, `lenzVars`); FA5 free `lenz-font-awesome`; icon font classes `lenz-icon-*` |
+| Scripts / styles | styles `lenz`, `lenz-icons`, `lenz-custom`, `lenz-font-awesome` (Font Awesome **6.6 Free**, v5 names kept as aliases), all on every front-end page; script `lenz` (jQuery, `lenzVars`); icon font classes `lenz-icon-*` (styled through `[class^=lenz-icon-]`, `[class*=" lenz-icon-"]`) |
 | Layers | `#overlay` 100, sticky header 99, `#mobile-menu` 10000 |
 | Breakpoints | body classes `desktop` (>1200) / `tablet` (769–1200) / `mobile` (≤768); `.hide-desktop-1200`, `.hide-mobile` (≤767) |
 
 ## Module contracts
 
 Each module section records the contracts that are not obvious from the code (markup shared by PHP and JS, theme quirks, cache rules). Write them when the module lands; keep them current.
+
+### Core and admin (phase 1)
+- **Theme options.** `Theme_Bridge::option()` reads `$GLOBALS['lenz']` when Redux has filled it, else the `lenz` option row. Never call Lenz's `Options::get_options()`: when the global is empty it returns only the defaults passed to it. Switches go through `Theme_Bridge::flag()` (`"1"` / `""`, missing = the field's default).
+- **Palette.** `Theme_Bridge::palette()` returns the theme colours keyed by the CSS variable that carries them (`--primary-1` => `#000000`). Admin previews print these on their wrapper, because Lenz's stylesheets are not loaded in wp-admin; front-end CSS uses the variables directly with the same defaults as fallbacks.
+- **Icons.** SVG packs come from `assets/icons/` (built from `tools/icon-map.mjs`). Two font packs need Lenz (`Icon_Library::is_available()`): `fontawesome` (FA6 Free, weights `far`/`fas`, `fa_class()`) and `lenz` (`lenz_class()` → `lenz-icon-<glyph>`, empty when the font has no glyph). `Icon_Library::svg( 'lenz', $key )` falls back lenz → lucide → tabler, so a font pack always has an SVG fallback. Put the `lenz-icon-*` class first in the attribute (Lenz's selector is `[class^=…]`).
+- **Admin look.** Identical to Studiare Extensions (indigo `--lzp-brand`, Vazirmatn bundled); only names and copy change. Ported files keep their structure so fixes can flow between the two plugins.
 
 ### Bottom navigation (phase 2)
 - Decisions taken: no `dark_mode` item (Lenz has no dark mode); one colour set falling back to Lenz variables; the cart always opens our own sheet (Lenz's mini cart is hover only); the "theme menu" action opens Lenz's `#mobile-menu`; z-index below 100 and hidden while `body.mobile-menu-opened`.
@@ -127,11 +133,7 @@ Each module section records the contracts that are not obvious from the code (ma
 - **Syntax check:** `find lenz-plus -name '*.php' -exec php -l {} \;` and `node --check` on every JS source.
 - **Minify:** after editing front-end CSS/JS run `node tools/minify.mjs` (esbuild via npx). The plugin serves the `.min` copies unless SCRIPT_DEBUG; build-zip.sh runs it too. Edit the sources, never the `.min` files.
 - **Icons:** edit `tools/icon-map.mjs` (semantic key → name per pack, Persian label, keywords, Font Awesome class, Lenz glyph), then run `node tools/build-icons.mjs`. Packs are downloaded from jsDelivr at build time and committed.
-- **Translations (WP-CLI wrapper `.dev/bin/lwp`):**
-  1. `.dev/bin/lwp i18n make-pot lenz-plus lenz-plus/languages/lenz-plus.pot --domain=lenz-plus --exclude=assets`
-  2. `.dev/bin/lwp i18n update-po lenz-plus/languages/lenz-plus.pot lenz-plus/languages/`
-  3. Translate the new entries in `lenz-plus-fa_IR.po`. Use Persian punctuation («») and ZWNJ (نیم‌فاصله).
-  4. `.dev/bin/lwp i18n make-mo lenz-plus/languages/lenz-plus-fa_IR.po lenz-plus/languages/`
+- **Translations:** `bash tools/i18n.sh` regenerates `lenz-plus.pot`, updates `lenz-plus-fa_IR.po` (new entries are filled from Studiare Extensions' fa_IR translations when the English source is identical) and lists the entries still untranslated. Translate those in the `.po` (Persian punctuation «», ZWNJ نیم‌فاصله; one line per entry), then `bash tools/i18n.sh mo` compiles the `.mo`. Needs gettext (`brew install gettext`) and `.dev/bin/lwp`.
 - **Knowledge graph:** the post-commit hook rebuilds code nodes after every commit; run `graphify update .` by hand after large changes. `.graphifyignore` keeps the graph code-only (no LLM cost) and re-includes `reference/`.
 - **Package:** `bash tools/build-zip.sh` creates `dist/lenz-plus-<version>.zip`.
 - **Release:** bump `Version` and `LENZ_PLUS_VERSION` in `lenz-plus.php`, update `Stable tag` and the changelog in `readme.txt`. Bump the version to ship preset changes.
@@ -142,7 +144,7 @@ Each module section records the contracts that are not obvious from the code (ma
 2. `vendor/bin/phpcs` reports 0 errors and 0 warnings.
 3. `node tools/minify.mjs`.
 4. Browser check on the local site (Claude in Chrome, viewport harness `/viewport.html`) at 390×844 and 1440×900, RTL: no console errors, nothing new in `.dev/wp/wp-content/debug.log`. Widgets are compared side by side with their `.dc.html` design (`&b=/design/<Page>`).
-5. New strings in `.pot` / `.po` / `.mo`.
+5. Translations: `bash tools/i18n.sh` reports 0 untranslated, then `bash tools/i18n.sh mo`.
 6. Module contracts in this file updated; tasks ticked in `docs/ROADMAP.md`.
 7. Commit `Phase N: <summary>` (the hook updates the graph).
 

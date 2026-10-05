@@ -90,7 +90,7 @@ async function main() {
   }
 
   const catalog = {
-    icons: ICONS.map(({ key, label, keywords, fa }) => ({ key, label, keywords, fa })),
+    icons: ICONS.map(({ key, label, keywords, fa, lenz = '', lenzActive = '' }) => ({ key, label, keywords, fa, lenz, lenzActive })),
     packs: Object.fromEntries(
       Object.entries(PACKS).map(([id, p]) => [
         id,

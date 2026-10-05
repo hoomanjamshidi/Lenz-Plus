@@ -4,7 +4,7 @@ This file is the **resume point**. Every session starts here (see the `lenz-plus
 
 Status keys: `[ ]` to do · `[x]` done · `[~]` started (see Notes) · `[-]` dropped (say why)
 
-**Current phase:** 1
+**Current phase:** 2
 
 Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, browser check at 390 and 1440, translations, CLAUDE.md contracts, graphify update, commit `Phase N: …`).
 
@@ -24,20 +24,21 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - [x] graphify post-commit hook, commit "Phase 0"
 
 ## Phase 1 — Plugin skeleton, Core, Admin (اسکلت افزونه)
-- [ ] `lenz-plus.php`, `uninstall.php`, `includes/Plugin.php`, `includes/Autoloader.php`
-- [ ] Core: `Module`, `Sanitizer`, `Asset`, `Arr`, `Color`, `Site`, `Persian`
-- [ ] Core: `Search_Query` (Lenz hub pages)
-- [ ] Core: `Icon_Library` (FA5 free pack loaded by Lenz, new `lenz` pack of `lenz-icon-*` glyphs)
-- [ ] Core: `Theme_Bridge` for Lenz (`is_active`, `option`, `palette`, `font`, account URLs, reserve link, mobile menu location, `is_course`, experts)
-- [ ] Admin: `Admin`, `Ajax_Controller`, `Fields`, `views/layout.php`, `views/dashboard.php`
-- [ ] Admin assets: `admin.css` (same look, Lenz+ brand), `admin.js` (`window.LZP`, `window.lzpAdmin`), bundled Vazirmatn
-- [ ] Icons: `tools/icon-map.mjs` (+ Material icons of the designs), `node tools/build-icons.mjs` → `assets/icons/`
-- [ ] Languages: `.pot`, `lenz-plus-fa_IR.po/.mo`
-- [ ] Verify: activates without errors, menu Lenz+, dashboard, theme chip; also without Lenz active
+- [x] `lenz-plus.php`, `uninstall.php`, `includes/Plugin.php`, `includes/Autoloader.php`
+- [x] Core: `Module`, `Sanitizer`, `Asset`, `Arr`, `Color`, `Site`, `Persian`
+- [x] Core: `Search_Query` (Lenz hub pages)
+- [x] Core: `Icon_Library` (Font Awesome 6 Free loaded by Lenz, new `lenz` font pack of `lenz-icon-*` glyphs)
+- [x] Core: `Theme_Bridge` for Lenz (`is_active`, `option` with `get_option` fallback, `flag`, `palette` keyed by CSS variable, `font`)
+- [x] Admin: `Admin`, `Ajax_Controller`, `Fields`, `views/layout.php`, `views/dashboard.php`
+- [x] Admin assets: `admin.css` (same look, Lenz+ brand, previews on Lenz variables), `admin.js` (`window.LZP`, `window.lzpAdmin`), bundled Vazirmatn
+- [x] Icons: `tools/icon-map.mjs` (`lenz` glyphs, `material` mapping, 21 new keys for the designs), `node tools/build-icons.mjs` → `assets/icons/` (97 icons, 6 packs)
+- [x] Languages: `.pot`, `lenz-plus-fa_IR.po/.mo` via `tools/i18n.sh` (Studiare compendium)
+- [x] Verify: activates without errors, menu Lenz+, dashboard, theme chip; also without Lenz active
 
 ## Phase 2 — Bottom navigation (منوی پایین موبایل)
 - [ ] Port `Modules/Bottom_Nav/*` PHP (Module, Schema, Styles, Item_Types, Item_Resolver, Renderer, Style_Vars, Frontend, Search_Scope, Live_Search, views)
 - [ ] Drop `dark_mode`, Studiare native-bar replacement, Studiare lifts; one colour set (no light/dark pair)
+- [ ] `Theme_Bridge`: account URLs (`header-account-link(-guest)`), reserve link/text, mobile menu location
 - [ ] Lenz menu action (`#header-mobile-menu-btn` click, or `#mobile-menu`/`#overlay`/`body.mobile-menu-opened`), WP-menu sheet fallback (`main-menu-mobile`)
 - [ ] Cart sheet (always ours), count fragment `lzp-bn-cart-count`
 - [ ] Account links from Lenz options, reserve item from `header-reserve-link`
@@ -61,6 +62,7 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - [ ] Widgets: `Heading`, `Text`, `Button`
 - [ ] Admin: Library tab (create, duplicate, restore, delete, edit with Elementor), settings tabs, `builder-admin.css/js`
 - [ ] `sync_kit_colors`
+- [ ] `uninstall.php`: delete `lzp_template` posts and `_lzp_*` meta
 - [ ] Verify: create/edit a template, widgets render in the editor and on the front end
 
 ## Phase 5 — Header and footer (هدر و فوتر)
@@ -79,6 +81,7 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 ## Phase 7 — Forms and requests inbox (فرم‌ها)
 - [ ] `Public_Form`, `Contact_Messages` (`lzp_message`), `Contact_Inbox` («درخواست‌ها»), `Newsletter` (`lzp_subscriber` + topic)
 - [ ] Widgets `Request_Form`, `Newsletter_Form`
+- [ ] `uninstall.php`: delete `lzp_message` and `lzp_subscriber` posts
 - [ ] Verify: JS and no-JS posts, honeypot, rate limit, CSV export, email copy
 
 ## Phase 8 — Portfolio archive and project (نمونه‌کارها)
@@ -96,6 +99,7 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - [ ] Verify against `Blog.dc.html` and `Article.dc.html` (page 2, category, search, TOC, progress, copy link)
 
 ## Phase 10 — Courses (دوره‌ها)
+- [ ] Course flag and `expert` helpers (Builder `Context`, not `Theme_Bridge`: they are plugin data)
 - [ ] Course details meta box on `product` (status, format, schedule, capacity, level, lists, curriculum, FAQ, instructor = `expert`, registration mode)
 - [ ] `Single_Course` (`template_include` for course products only)
 - [ ] Widgets `Course_Grid`, `Course_Hero`, `Checklist_Grid`, `Curriculum`, `Course_Outcome`, `Instructor_Box`, `Course_Buy_Box`, `Mobile_Buy_Bar`
@@ -118,7 +122,9 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 ---
 
 ## Notes
-- Phase 0: the local site runs the real Lenz files except `Redux/RTL_License_*.php` (ionCube), replaced by `tools/dev/RTL_License_stub.php` on the test copy only. Consequences: the Lenz options panel is hidden and `$GLOBALS['lenz']` is never filled, so `Theme_Bridge::option()` must fall back to `get_option( 'lenz' )` (phase 1). See `CLAUDE.md` → Testing.
+- Phase 0: the local site runs the real Lenz files except `Redux/RTL_License_*.php` (ionCube), replaced by `tools/dev/RTL_License_stub.php` on the test copy only. Consequences: the Lenz options panel is hidden and `$GLOBALS['lenz']` is never filled, so `Theme_Bridge::option()` falls back to `get_option( 'lenz' )`. See `CLAUDE.md` → Testing.
 - Phase 0: the Lenz demo XML has pages only (no portfolio items, posts, products or experts). Seed sample content in the phase that needs it (8 portfolio, 9 blog, 10 courses + experts).
 - Phase 0: `resize_window` cannot shrink the maximised Chrome window; use `/viewport.html?a=…&w=390` for phone checks.
+- Phase 1: Lenz loads Font Awesome 6.6 Free (not FA5); the plugin's `fontawesome` pack uses `far`/`fas`. The `lenz` font pack covers 29 semantic keys; the rest fall back to SVG.
+- Phase 1: `debug.log` on the test site also gets Lenz's own booking-table queries failing on SQLite; filter with `grep -n 'lenz-plus\|Fatal'`.
 - Phase 0: the design mockups have no breakpoints and break at 390px (e.g. the Home hero's 3-column grid): every widget needs its own phone layout.

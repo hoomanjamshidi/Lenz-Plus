@@ -66,7 +66,7 @@ Keep the design's `auto-fit` / `minmax()` / `clamp()` behaviour, then add explic
 
 ## 6. Icons
 
-No Material Symbols font and no CDN. Map each ligature to a semantic key of `Core\Icon_Library` (`tools/icon-map.mjs`; add missing keys there and rebuild with `node tools/build-icons.mjs`). Theme glyphs (`lenz-icon` U+E0xx: telegram e000, quote e001, location e002, instagram e003, phone e005, whatsapp e00c, website e00d, call e00e, chevron-down e01d, square-tick e024, play e02f, play-circle e034, search e040) map to the `lenz` pack keys when Lenz is active, with an SVG fallback. `north_west` is the RTL "forward" arrow used on every CTA: use the `arrow-forward` key (mirrored for LTR).
+No Material Symbols font and no CDN. Every ligature used in the designs is already mapped to a semantic key of `Core\Icon_Library`: the `material` field in `tools/icon-map.mjs` (e.g. `north_west` → `arrow-forward`, `calendar_month` → `calendar`, `photo_camera` → `camera`, `request_quote` → `receipt`). A new ligature gets a new key there, then `node tools/build-icons.mjs`. Theme glyphs (`<icon lenz="U+E0xx">`: telegram e000, quote e001, location e002, instagram e003, phone e005, whatsapp e00c, website e00d, call e00e, chevron-down e01d, square-tick e024, play e02f, play-circle e034, search e040) map to keys with a `lenz` field; widgets draw them with `Icon_Library::lenz_class()` when Lenz is active and fall back to the SVG pack otherwise. `arrow-forward` points up-left (RTL forward): mirror it with `transform: scaleX(-1)` under `[dir=ltr]`.
 
 ## 7. Preset
 

@@ -1,0 +1,824 @@
+{
+ "icons": [
+  {
+   "key": "home",
+   "label": "خانه",
+   "keywords": "home house خانه",
+   "fa": "fa-home",
+   "lenz": "house",
+   "lenzActive": ""
+  },
+  {
+   "key": "search",
+   "label": "جستجو",
+   "keywords": "search find جستجو",
+   "fa": "fa-search",
+   "lenz": "search-normal",
+   "lenzActive": ""
+  },
+  {
+   "key": "cart",
+   "label": "سبد خرید",
+   "keywords": "cart shop سبد خرید",
+   "fa": "fa-shopping-cart",
+   "lenz": "cart",
+   "lenzActive": "cart-bold"
+  },
+  {
+   "key": "bag",
+   "label": "کیف خرید",
+   "keywords": "bag shopping کیف",
+   "fa": "fa-shopping-bag",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "basket",
+   "label": "سبد",
+   "keywords": "basket سبد",
+   "fa": "fa-shopping-basket",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "user",
+   "label": "کاربر",
+   "keywords": "user account profile کاربر حساب",
+   "fa": "fa-user",
+   "lenz": "user",
+   "lenzActive": ""
+  },
+  {
+   "key": "user-circle",
+   "label": "پروفایل",
+   "keywords": "user circle profile پروفایل",
+   "fa": "fa-user-circle",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "users",
+   "label": "کاربران",
+   "keywords": "users team community کاربران",
+   "fa": "fa-users",
+   "lenz": "group",
+   "lenzActive": ""
+  },
+  {
+   "key": "login",
+   "label": "ورود",
+   "keywords": "login sign in ورود",
+   "fa": "fa-sign-in",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "logout",
+   "label": "خروج",
+   "keywords": "logout sign out خروج",
+   "fa": "fa-sign-out",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "menu",
+   "label": "منو",
+   "keywords": "menu hamburger منو",
+   "fa": "fa-bars",
+   "lenz": "menu",
+   "lenzActive": ""
+  },
+  {
+   "key": "grid",
+   "label": "دسته‌ها",
+   "keywords": "grid apps categories دسته",
+   "fa": "fa-th-large",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "more",
+   "label": "بیشتر",
+   "keywords": "more dots ellipsis بیشتر",
+   "fa": "fa-ellipsis-h",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "more-vertical",
+   "label": "بیشتر (عمودی)",
+   "keywords": "more vertical dots بیشتر",
+   "fa": "fa-ellipsis-v",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "arrow-up",
+   "label": "بالا",
+   "keywords": "arrow up top بالا",
+   "fa": "fa-arrow-up",
+   "lenz": "top",
+   "lenzActive": ""
+  },
+  {
+   "key": "chevron-up",
+   "label": "فلش بالا",
+   "keywords": "chevron caret up فلش",
+   "fa": "fa-chevron-up",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "heart",
+   "label": "علاقه‌مندی",
+   "keywords": "heart wishlist favorite علاقه",
+   "fa": "fa-heart",
+   "lenz": "heart",
+   "lenzActive": "heart-fill"
+  },
+  {
+   "key": "bell",
+   "label": "اعلان",
+   "keywords": "bell notification اعلان",
+   "fa": "fa-bell",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "book",
+   "label": "کتاب",
+   "keywords": "book course کتاب دوره",
+   "fa": "fa-book",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "book-open",
+   "label": "کتاب باز",
+   "keywords": "book open lesson درس",
+   "fa": "fa-book-open",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "graduation",
+   "label": "آموزش",
+   "keywords": "graduation school academy آموزش دوره",
+   "fa": "fa-graduation-cap",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "play",
+   "label": "پخش",
+   "keywords": "play video course پخش",
+   "fa": "fa-play-circle",
+   "lenz": "play",
+   "lenzActive": ""
+  },
+  {
+   "key": "video",
+   "label": "ویدیو",
+   "keywords": "video camera ویدیو",
+   "fa": "fa-video",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "headphones",
+   "label": "پادکست",
+   "keywords": "headphones podcast audio پادکست",
+   "fa": "fa-headphones",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "chat",
+   "label": "گفتگو",
+   "keywords": "chat message comment گفتگو پیام",
+   "fa": "fa-comment",
+   "lenz": "message-square-chat",
+   "lenzActive": ""
+  },
+  {
+   "key": "support",
+   "label": "پشتیبانی",
+   "keywords": "support headset help پشتیبانی",
+   "fa": "fa-headset",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "phone",
+   "label": "تماس",
+   "keywords": "phone call تماس تلفن",
+   "fa": "fa-phone",
+   "lenz": "call",
+   "lenzActive": ""
+  },
+  {
+   "key": "mail",
+   "label": "ایمیل",
+   "keywords": "mail email envelope ایمیل",
+   "fa": "fa-envelope",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "whatsapp",
+   "label": "واتساپ",
+   "keywords": "whatsapp واتساپ",
+   "fa": "fab fa-whatsapp",
+   "lenz": "whatsapp",
+   "lenzActive": ""
+  },
+  {
+   "key": "telegram",
+   "label": "تلگرام",
+   "keywords": "telegram تلگرام",
+   "fa": "fab fa-telegram-plane",
+   "lenz": "telegram",
+   "lenzActive": ""
+  },
+  {
+   "key": "instagram",
+   "label": "اینستاگرام",
+   "keywords": "instagram اینستاگرام",
+   "fa": "fab fa-instagram",
+   "lenz": "instagram",
+   "lenzActive": ""
+  },
+  {
+   "key": "x",
+   "label": "ایکس (توییتر)",
+   "keywords": "x twitter توییتر ایکس",
+   "fa": "fab fa-x-twitter",
+   "lenz": "x",
+   "lenzActive": ""
+  },
+  {
+   "key": "linkedin",
+   "label": "لینکدین",
+   "keywords": "linkedin لینکدین",
+   "fa": "fab fa-linkedin",
+   "lenz": "linkedin",
+   "lenzActive": ""
+  },
+  {
+   "key": "bookmark",
+   "label": "نشان",
+   "keywords": "bookmark save نشان",
+   "fa": "fa-bookmark",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "settings",
+   "label": "تنظیمات",
+   "keywords": "settings gear cog تنظیمات",
+   "fa": "fa-cog",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "moon",
+   "label": "ماه (تاریک)",
+   "keywords": "moon dark night تاریک",
+   "fa": "fa-moon",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "sun",
+   "label": "خورشید (روشن)",
+   "keywords": "sun light روشن",
+   "fa": "fa-sun",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "category",
+   "label": "لایه‌ها",
+   "keywords": "category layers stack لایه دسته",
+   "fa": "fa-layer-group",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "compass",
+   "label": "کاوش",
+   "keywords": "compass explore کاوش",
+   "fa": "fa-compass",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "fire",
+   "label": "داغ",
+   "keywords": "fire hot trending داغ پرطرفدار",
+   "fa": "fa-fire",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "star",
+   "label": "ستاره",
+   "keywords": "star rating ستاره",
+   "fa": "fa-star",
+   "lenz": "star",
+   "lenzActive": ""
+  },
+  {
+   "key": "gift",
+   "label": "هدیه",
+   "keywords": "gift present هدیه",
+   "fa": "fa-gift",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "tag",
+   "label": "برچسب",
+   "keywords": "tag label برچسب",
+   "fa": "fa-tag",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "discount",
+   "label": "تخفیف",
+   "keywords": "discount percent sale تخفیف",
+   "fa": "fa-percent",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "wallet",
+   "label": "کیف پول",
+   "keywords": "wallet money کیف پول",
+   "fa": "fa-wallet",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "calendar",
+   "label": "تقویم",
+   "keywords": "calendar event تقویم رویداد",
+   "fa": "fa-calendar-alt",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "clock",
+   "label": "زمان",
+   "keywords": "clock time زمان",
+   "fa": "fa-clock",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "download",
+   "label": "دانلود",
+   "keywords": "download دانلود",
+   "fa": "fa-download",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "plus",
+   "label": "افزودن",
+   "keywords": "plus add افزودن",
+   "fa": "fa-plus",
+   "lenz": "plus",
+   "lenzActive": ""
+  },
+  {
+   "key": "info",
+   "label": "اطلاعات",
+   "keywords": "info about درباره اطلاعات",
+   "fa": "fa-info-circle",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "help",
+   "label": "راهنما",
+   "keywords": "help question faq راهنما سوال",
+   "fa": "fa-question-circle",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "map-pin",
+   "label": "آدرس",
+   "keywords": "map pin location آدرس نقشه",
+   "fa": "fa-map-marker-alt",
+   "lenz": "location",
+   "lenzActive": ""
+  },
+  {
+   "key": "ticket",
+   "label": "تیکت",
+   "keywords": "ticket support تیکت",
+   "fa": "fa-ticket-alt",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "trophy",
+   "label": "جایزه",
+   "keywords": "trophy award جایزه",
+   "fa": "fa-trophy",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "award",
+   "label": "مدرک",
+   "keywords": "award certificate badge مدرک گواهی",
+   "fa": "fa-award",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "notes",
+   "label": "مقاله",
+   "keywords": "notes article file document مقاله",
+   "fa": "fa-file-alt",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "news",
+   "label": "وبلاگ",
+   "keywords": "news blog newspaper وبلاگ اخبار",
+   "fa": "fa-newspaper",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "list",
+   "label": "فهرست",
+   "keywords": "list items فهرست",
+   "fa": "fa-list-ul",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "chart",
+   "label": "آمار",
+   "keywords": "chart stats dashboard آمار",
+   "fa": "fa-chart-bar",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "store",
+   "label": "فروشگاه",
+   "keywords": "store shop فروشگاه",
+   "fa": "fa-store",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "share",
+   "label": "اشتراک‌گذاری",
+   "keywords": "share اشتراک",
+   "fa": "fa-share-alt",
+   "lenz": "share",
+   "lenzActive": ""
+  },
+  {
+   "key": "lock",
+   "label": "قفل",
+   "keywords": "lock secure قفل",
+   "fa": "fa-lock",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "sparkles",
+   "label": "ویژه",
+   "keywords": "sparkles special new ویژه جدید",
+   "fa": "fa-sparkles",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "close",
+   "label": "بستن",
+   "keywords": "close x بستن",
+   "fa": "fa-times",
+   "lenz": "close",
+   "lenzActive": ""
+  },
+  {
+   "key": "check",
+   "label": "تیک",
+   "keywords": "check done تیک",
+   "fa": "fa-check",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "eye",
+   "label": "نمایش",
+   "keywords": "eye view نمایش",
+   "fa": "fa-eye",
+   "lenz": "eye",
+   "lenzActive": ""
+  },
+  {
+   "key": "image",
+   "label": "تصویر",
+   "keywords": "image photo gallery تصویر",
+   "fa": "fa-image",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "code",
+   "label": "کد",
+   "keywords": "code developer کد",
+   "fa": "fa-code",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "palette",
+   "label": "رنگ",
+   "keywords": "palette color رنگ",
+   "fa": "fa-palette",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "sliders",
+   "label": "تنظیم",
+   "keywords": "sliders adjust تنظیم",
+   "fa": "fa-sliders-h",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "mobile",
+   "label": "موبایل",
+   "keywords": "mobile phone device موبایل",
+   "fa": "fa-mobile-alt",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "copy",
+   "label": "کپی",
+   "keywords": "copy duplicate کپی",
+   "fa": "fa-copy",
+   "lenz": "document-copy",
+   "lenzActive": ""
+  },
+  {
+   "key": "trash",
+   "label": "حذف",
+   "keywords": "trash delete حذف",
+   "fa": "fa-trash-alt",
+   "lenz": "trash",
+   "lenzActive": ""
+  },
+  {
+   "key": "grip",
+   "label": "جابجایی",
+   "keywords": "grip drag move جابجایی",
+   "fa": "fa-grip-vertical",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "wrench",
+   "label": "آچار",
+   "keywords": "wrench tool fix repair debug آچار ابزار تعمیر",
+   "fa": "fa-wrench",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "chevron-down",
+   "label": "فلش پایین",
+   "keywords": "chevron caret down فلش",
+   "fa": "fa-chevron-down",
+   "lenz": "chevron-down",
+   "lenzActive": ""
+  },
+  {
+   "key": "arrow-forward",
+   "label": "فلش ادامه",
+   "keywords": "arrow forward next more ادامه بیشتر",
+   "fa": "fa-arrow-left",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "camera",
+   "label": "دوربین",
+   "keywords": "camera photo photography دوربین عکاسی",
+   "fa": "fa-camera",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "images",
+   "label": "گالری",
+   "keywords": "images gallery photos portfolio گالری نمونه کار",
+   "fa": "fa-images",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "landmark",
+   "label": "موزه",
+   "keywords": "museum exhibition landmark موزه نمایشگاه",
+   "fa": "fa-landmark",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "mosque",
+   "label": "مسجد",
+   "keywords": "mosque religious ritual مسجد مذهبی",
+   "fa": "fa-mosque",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "stadium",
+   "label": "رویداد",
+   "keywords": "stadium event sport رویداد ورزشگاه",
+   "fa": "fa-ticket-alt",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "lightbulb",
+   "label": "ایده",
+   "keywords": "idea lightbulb creative ایده خلاقیت",
+   "fa": "fa-lightbulb",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "bolt",
+   "label": "فلاش",
+   "keywords": "flash bolt light فلاش نور",
+   "fa": "fa-bolt",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "mic",
+   "label": "میکروفون",
+   "keywords": "mic microphone audio میکروفون صدا",
+   "fa": "fa-microphone",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "rotate-360",
+   "label": "۳۶۰ درجه",
+   "keywords": "360 panorama rotate چرخش پاناروما",
+   "fa": "fa-rotate",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "smile",
+   "label": "رضایت",
+   "keywords": "smile happy satisfied رضایت لبخند",
+   "fa": "fa-smile",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "receipt",
+   "label": "فاکتور",
+   "keywords": "receipt invoice quote price فاکتور قیمت برآورد",
+   "fa": "fa-file-invoice",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "tv",
+   "label": "پخش زنده",
+   "keywords": "live tv stream online پخش زنده آنلاین",
+   "fa": "fa-tv",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "review",
+   "label": "نقد و بازخورد",
+   "keywords": "review feedback critique نقد بازخورد",
+   "fa": "fa-comment-dots",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "user-check",
+   "label": "ثبت‌نام",
+   "keywords": "register enroll user check ثبت نام",
+   "fa": "fa-user-check",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "presentation",
+   "label": "کارگاه",
+   "keywords": "workshop presentation class کارگاه کلاس",
+   "fa": "fa-chalkboard-teacher",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "link",
+   "label": "لینک",
+   "keywords": "link url copy لینک پیوند",
+   "fa": "fa-link",
+   "lenz": "",
+   "lenzActive": ""
+  },
+  {
+   "key": "globe",
+   "label": "وب‌سایت",
+   "keywords": "website globe web وبسایت سایت",
+   "fa": "fa-globe",
+   "lenz": "website",
+   "lenzActive": ""
+  },
+  {
+   "key": "quote",
+   "label": "نقل‌قول",
+   "keywords": "quote testimonial نقل قول نظر",
+   "fa": "fa-quote-right",
+   "lenz": "quote",
+   "lenzActive": ""
+  },
+  {
+   "key": "play-circle",
+   "label": "پخش ویدیو",
+   "keywords": "play video circle پخش ویدیو",
+   "fa": "fa-play-circle",
+   "lenz": "play-circle",
+   "lenzActive": ""
+  },
+  {
+   "key": "check-square",
+   "label": "تیک مربعی",
+   "keywords": "check square done checklist تیک فهرست",
+   "fa": "fa-check-square",
+   "lenz": "square-tick",
+   "lenzActive": ""
+  }
+ ],
+ "packs": {
+  "lucide": {
+   "label": "Lucide",
+   "license": "ISC",
+   "source": "lucide-static@1.47.0",
+   "hasFilled": false,
+   "fallback": "tabler"
+  },
+  "tabler": {
+   "label": "Tabler",
+   "license": "MIT",
+   "source": "@tabler/icons@3.48.0",
+   "hasFilled": true,
+   "fallback": null
+  },
+  "phosphor": {
+   "label": "Phosphor",
+   "license": "MIT",
+   "source": "@phosphor-icons/core@2.1.1",
+   "hasFilled": true,
+   "fallback": "tabler"
+  },
+  "phosphor-duotone": {
+   "label": "Phosphor Duotone",
+   "license": "MIT",
+   "source": "@phosphor-icons/core@2.1.1",
+   "hasFilled": true,
+   "fallback": "tabler"
+  },
+  "heroicons": {
+   "label": "Heroicons",
+   "license": "MIT",
+   "source": "heroicons@2.2.0",
+   "hasFilled": true,
+   "fallback": "tabler"
+  },
+  "bootstrap": {
+   "label": "Bootstrap Icons",
+   "license": "MIT",
+   "source": "bootstrap-icons@1.13.1",
+   "hasFilled": true,
+   "fallback": "tabler"
+  }
+ }
+}

@@ -29,7 +29,6 @@
 			<property name="prefixes" type="array">
 				<element value="LenzPlus"/>
 				<element value="lenz_plus"/>
-				<element value="lzp"/>
 			</property>
 		</properties>
 	</rule>
