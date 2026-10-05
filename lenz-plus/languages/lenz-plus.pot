@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-05T16:15:50+00:00\n"
+"POT-Creation-Date: 2026-10-05T17:00:21+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: lenz-plus\n"
@@ -187,7 +187,7 @@ msgid "Loaded by the Lenz theme"
 msgstr ""
 
 #. translators: %d: number of search results.
-#: includes/Core/Search_Query.php:185
+#: includes/Core/Search_Query.php:189
 #, php-format
 msgid "%d result"
 msgid_plural "%d results"
@@ -195,9 +195,904 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: search term.
-#: includes/Core/Search_Query.php:187
+#: includes/Core/Search_Query.php:191
+#: includes/Modules/Bottom_Nav/views/search-results.php:26
 #, php-format
 msgid "Nothing found for “%s”."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Frontend.php:216
+msgid "Toggle submenu"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Frontend.php:217
+msgid "Live results are unavailable right now. Press Search to see all results."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Resolver.php:284
+#: includes/Modules/Bottom_Nav/Module.php:150
+#: includes/Modules/Bottom_Nav/views/admin.php:601
+msgid "Login"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:30
+#: includes/Modules/Bottom_Nav/Item_Types.php:32
+#: includes/Modules/Bottom_Nav/views/admin.php:686
+msgid "Home"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:31
+msgid "Links to the site front page."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:38
+msgid "Custom link"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:39
+msgid "Any page, category, phone number or external URL."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:40
+msgid "Link"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:46
+msgid "Archive"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:47
+msgid "Links to the list of a content type (portfolio, videos, blog, shop) and stays active on its items."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:55
+msgid "Booking"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:56
+msgid "Links to the booking page of the Lenz \"Reserve\" header button, or to your own URL."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:57
+msgid "Book a session"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:63
+#: includes/Modules/Bottom_Nav/Item_Types.php:65
+#: includes/Modules/Bottom_Nav/views/sheet-search.php:39
+msgid "Search"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:64
+msgid "Opens a search sheet."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:71
+#: includes/Modules/Bottom_Nav/Item_Types.php:73
+#: includes/Modules/Bottom_Nav/views/admin.php:690
+msgid "Cart"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:72
+msgid "Live item count; opens a cart sheet or the cart page."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:79
+#: includes/Modules/Bottom_Nav/Item_Types.php:81
+msgid "Account"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:80
+msgid "User dashboard, or login for guests."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:87
+#: includes/Modules/Bottom_Nav/Item_Types.php:89
+#: includes/Modules/Bottom_Nav/views/admin.php:612
+msgid "Menu"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:88
+msgid "Opens the Lenz mobile menu or a WordPress menu."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:95
+msgid "Content sheet"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:96
+msgid "Shows an Elementor template or shortcode in a sheet."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:97
+msgid "More"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:103
+msgid "Back to top"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:104
+msgid "Smoothly scrolls to the top of the page."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:105
+msgid "Top"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:111
+msgid "Click an element"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:112
+msgid "Advanced: clicks any element on the page by CSS selector."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:113
+msgid "Action"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Module.php:27
+msgid "Mobile bottom navigation"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Module.php:31
+msgid "An app-like tab bar for phones with five styles, live cart count and fully custom buttons."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Module.php:140
+#: includes/Modules/Bottom_Nav/views/admin.php:247
+msgid "Requires WooCommerce"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Module.php:141
+msgid "Add a URL"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Module.php:142
+msgid "Choose a menu"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Module.php:143
+msgid "Add content"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Module.php:144
+msgid "Add a booking URL"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Module.php:145
+msgid "Choose a content type"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Module.php:146
+msgid "Add a selector or URL"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Module.php:147
+msgid "This button stays hidden on the site until this is fixed."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Module.php:148
+#: includes/Modules/Bottom_Nav/views/admin.php:660
+msgid "Guests only"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Module.php:149
+msgid "Members only"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Module.php:151
+msgid "Delete this button?"
+msgstr ""
+
+#. translators: %s: button label.
+#: includes/Modules/Bottom_Nav/Module.php:153
+#, php-format
+msgid "\"%s\" will be removed from the bar."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Module.php:154
+#: includes/Modules/Bottom_Nav/views/admin.php:489
+msgid "Delete"
+msgstr ""
+
+#. translators: %d: maximum number of buttons.
+#: includes/Modules/Bottom_Nav/Module.php:156
+#, php-format
+msgid "You can add up to %d buttons."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Module.php:157
+msgid "Choose an icon image"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Module.php:158
+msgid "Use this image"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Module.php:159
+msgid "No icons match your search."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Module.php:160
+msgid "— Select —"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Module.php:239
+msgid "page"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Styles.php:28
+msgid "Classic"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Styles.php:29
+msgid "Edge-to-edge bar with a soft pill behind the active icon."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Styles.php:35
+msgid "Floating glass"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Styles.php:36
+msgid "A floating frosted capsule with a sliding highlight."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Styles.php:42
+#: includes/Modules/Bottom_Nav/views/admin.php:45
+msgid "Center button"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Styles.php:43
+msgid "Curved notch with a raised round button for your featured item."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Styles.php:49
+msgid "Bubble"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Styles.php:50
+msgid "The active icon pops up into a bubble that glides between items."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Styles.php:56
+msgid "Expanding pill"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/Styles.php:57
+msgid "Icons only; the active item expands into a pill with its label."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:37
+msgid "Background"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:38
+#: includes/Modules/Bottom_Nav/views/admin.php:714
+msgid "Icons"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:39
+#: includes/Modules/Bottom_Nav/views/admin.php:198
+msgid "Labels"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:40
+msgid "Active item"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:41
+msgid "Active highlight"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:42
+msgid "Badge"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:43
+#: includes/Modules/Bottom_Nav/views/admin.php:667
+msgid "Badge text"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:44
+msgid "Border"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:46
+msgid "Center button icon"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:73
+#: includes/Modules/Bottom_Nav/views/admin.php:117
+msgid "Style"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:74
+#: includes/Modules/Bottom_Nav/views/admin.php:230
+msgid "Buttons"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:75
+#: includes/Modules/Bottom_Nav/views/admin.php:273
+msgid "Colours"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:76
+msgid "Size & font"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:77
+#: includes/Modules/Bottom_Nav/views/admin.php:391
+msgid "Behaviour"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:89
+msgid "Active"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:90
+msgid "Inactive"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:92
+msgid "Enable the bottom navigation"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:114
+msgid "Choose a style"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:115
+msgid "Every style works with any number of buttons. The previews use your real buttons."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:133
+#: includes/Modules/Bottom_Nav/views/admin.php:136
+msgid "Icon pack"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:134
+msgid "Switching packs re-draws every button. You can still give any button its own icon, image or SVG."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:159
+msgid "Needs the Lenz theme"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:168
+msgid "Font Awesome weight"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:170
+#: includes/Modules/Bottom_Nav/views/admin.php:376
+msgid "Regular"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:171
+msgid "Solid"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:175
+msgid "Lenz ships Font Awesome Free: fewer icons have a Regular (outline) version than a Solid one."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:180
+msgid "Line thickness"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:189
+msgid "Filled icon for the active button"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:190
+msgid "Packs with filled variants (Phosphor, Heroicons, Bootstrap, Tabler, Font Awesome, and the Lenz cart and heart icons) swap to the solid icon on the current page."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:204
+msgid "Show labels"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:206
+msgid "Always"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:207
+msgid "Active only"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:208
+msgid "Icons only"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:212
+msgid "Hidden labels stay available to screen readers."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:218
+msgid "This style shows the label of the active button only, by design."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:233
+msgid "Drag to reorder, tap a button to edit it. 3 to 5 buttons feel best on phones."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:238
+msgid "Add button"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:259
+msgid "No buttons yet. Add your first one."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:264
+msgid "More than 5 buttons still fit, but labels get smaller. Consider moving extras into a menu or content sheet."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:274
+msgid "Leave a colour empty to follow your Lenz theme colours automatically, including its dark demo palette."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:290
+msgid "Size and shape"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:294
+msgid "Bar height"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:295
+msgid "Icon size"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:296
+msgid "Corner radius"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:297
+msgid "Distance from screen edges"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:298
+msgid "Maximum width (tablets)"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:301
+msgid "Show on screens narrower than"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:306
+msgid "768px covers phones; raise it to include tablets."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:314
+msgid "Shadow"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:316
+#: includes/Modules/Bottom_Nav/views/admin.php:328
+msgid "None"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:317
+msgid "Soft"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:318
+#: includes/Modules/Bottom_Nav/views/admin.php:377
+msgid "Medium"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:319
+msgid "Strong"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:324
+msgid "Animation"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:326
+msgid "Springy"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:327
+msgid "Smooth"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:330
+msgid "Visitors who ask their device for reduced motion never see animations."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:334
+msgid "Frosted glass background"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:337
+msgid "Slightly translucent with a blur of the page behind it."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:346
+msgid "Font"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:347
+msgid "By default labels use the main font you picked in Lenz → Typography."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:353
+msgid "Font family"
+msgstr ""
+
+#. translators: %s: font family name.
+#: includes/Modules/Bottom_Nav/views/admin.php:356
+#, php-format
+msgid "Theme font (%s)"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:357
+msgid "Inherit from the page"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:358
+msgid "Custom…"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:363
+msgid "Custom font family"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:368
+msgid "The font must already be loaded on your site."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:371
+msgid "Label size"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:374
+msgid "Label weight"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:378
+msgid "Semi-bold"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:379
+msgid "Bold"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:395
+msgid "Hide while scrolling down"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:395
+msgid "Gives more room to content; the bar returns as soon as the visitor scrolls up."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:396
+msgid "Haptic feedback"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:396
+msgid "A tiny vibration on tap (Android devices that support it)."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:399
+msgid "Stacking order (z-index)"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:403
+msgid "Raise it if a chat widget covers the bar. The default (990) keeps it above the Lenz sticky header and below its full-screen video player."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:412
+msgid "Where to show"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:416
+msgid "Hide on the checkout page"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:416
+msgid "Keeps buyers focused on completing the order."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:417
+msgid "Hide on the cart page"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:418
+msgid "Hide on single product pages"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:418
+msgid "Leaves the bottom of the screen to a product page's own buy bar."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:421
+msgid "Hide on these pages or posts (IDs)"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:425
+msgid "Comma separated IDs, e.g. landing pages that have their own call to action."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:435
+msgid "Live preview"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:438
+msgid "Preview visitor"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:439
+msgid "Member"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:440
+msgid "Guest"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:460
+msgid "Tap the buttons to try the animation. Colours and font follow your Lenz settings."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:470
+msgid "Drag to reorder"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:476
+msgid "Center"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:482
+msgid "Move up"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:483
+msgid "Move down"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:484
+#: includes/Modules/Bottom_Nav/views/admin.php:485
+msgid "Show this button"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:488
+msgid "Duplicate"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:497
+msgid "Button type"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:509
+msgid "Label"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:514
+msgid "Icon"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:516
+msgid "From pack"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:518
+msgid "Image"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:525
+msgid "Choose icon"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:530
+msgid "Any Font Awesome 6 Free class (far, fas or fab) loaded by Lenz."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:534
+msgid "Media library"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:535
+msgid "Square PNG, WebP or SVG files look best."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:539
+msgid "Use fill=\"currentColor\" or stroke=\"currentColor\" so the icon follows the bar colours. Scripts are removed on save."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:544
+msgid "Link (URL)"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:546
+msgid "Pages, categories, tel:+98…, https://t.me/… — anything goes."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:547
+msgid "Optional. Leave empty to use the link of the Lenz header \"Reserve\" button."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:548
+msgid "Optional. Leave empty to use the Lenz header account link, else the WooCommerce \"My account\" page."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:549
+msgid "Optional fallback, used when the element is not on the page."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:554
+msgid "Open in a new tab"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:560
+msgid "Content type"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:562
+msgid "Leave the label empty to show the content type's own name."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:566
+msgid "Search in"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:568
+msgid "Leave all unchecked to search everything."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:574
+msgid "Live results while typing (AJAX)"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:575
+msgid "Matching results appear in the sheet without leaving the page. Pressing Search still opens the full results page."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:582
+msgid "On tap"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:585
+msgid "Open the cart sheet"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:586
+msgid "Go to the cart page"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:587
+msgid "Go to checkout"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:594
+msgid "Hide the count when the cart is empty"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:600
+msgid "Label for guests"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:606
+msgid "Show the user's avatar instead of the icon"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:615
+msgid "Lenz mobile menu"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:616
+msgid "A WordPress menu in a sheet"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:622
+msgid "Which menu"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:627
+msgid "Content"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:629
+msgid "Text / shortcode"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:630
+msgid "Elementor template"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:635
+msgid "Template or page"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:640
+msgid "Text, HTML or shortcode"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:645
+msgid "CSS selector of the element to click"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:647
+msgid "For example .lenz-account-btn taps the Lenz header account button."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:651
+msgid "Sheet title"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:656
+msgid "Show to"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:659
+msgid "Everyone"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:661
+msgid "Logged-in users only"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:668
+msgid "e.g. New"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:674
+msgid "Make it the center button"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:675
+msgid "Used by the \"Center button\" style. Without a choice, the middle button is used."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:688
+msgid "Shop / courses"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:689
+msgid "My account"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:707
+msgid "Choose an icon"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:708
+#: includes/Modules/Bottom_Nav/views/sheet.php:24
+msgid "Close"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/admin.php:712
+msgid "Search icons… (e.g. cart, سبد)"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/nav.php:15
+msgid "Mobile navigation"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/search-results.php:29
+msgid "Check the spelling or try a shorter word."
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/search-results.php:33
+msgid "Results"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/search-results.php:63
+msgid "See all results"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/sheet-search.php:20
+msgid "Search for:"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/sheet-search.php:29
+msgid "What are you looking for?"
+msgstr ""
+
+#: includes/Modules/Bottom_Nav/views/sheet-search.php:45
+msgid "Results appear as you type."
 msgstr ""
 
 #. translators: %s: minimum PHP version.

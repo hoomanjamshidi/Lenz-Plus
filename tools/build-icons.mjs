@@ -20,24 +20,34 @@ const CDN = 'https://cdn.jsdelivr.net/npm';
 
 /**
  * Fetches a file from the CDN; resolves to null on 404 so optional
- * variants (filled icons) can be probed without special casing.
+ * variants (filled icons) can be probed without special casing. Network
+ * errors are retried a few times: hundreds of requests run in parallel and
+ * a single dropped DNS lookup would otherwise abort the whole build.
  */
-async function fetchText(url) {
-  const res = await fetch(url);
-  if (res.status === 404) return null;
-  if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-  return res.text();
+async function fetchText(url, attempts = 4) {
+  try {
+    const res = await fetch(url);
+    if (res.status === 404) return null;
+    if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+    return res.text();
+  } catch (err) {
+    if (attempts <= 1) throw err;
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    return fetchText(url, attempts - 1);
+  }
 }
 
 /**
- * Normalises an SVG for inline use: strips comments, XML prologs, sizing,
- * classes and invisible helper paths, and collapses whitespace.
+ * Normalises an SVG for inline use: strips comments, XML prologs, the root
+ * element's sizing, classes and namespaces, invisible helper paths, and
+ * collapses whitespace. Sizing is removed from the root <svg> only: shapes
+ * such as <rect> need their own width/height (Lucide's calendar, image, …).
  */
 function cleanSvg(svg) {
   return svg
     .replace(/<\?xml[^>]*>/g, '')
     .replace(/<!--[\s\S]*?-->/g, '')
-    .replace(/\s(width|height|class|xmlns(:\w+)?)="[^"]*"/g, '')
+    .replace(/<svg\b[^>]*>/, (tag) => tag.replace(/\s(width|height|class|xmlns(:\w+)?)="[^"]*"/g, ''))
     .replace(/<path stroke="none" d="M0 0h24v24H0z" fill="none"\s*\/>/g, '')
     .replace(/\s+/g, ' ')
     .replace(/\s*(\/?>)/g, '$1')

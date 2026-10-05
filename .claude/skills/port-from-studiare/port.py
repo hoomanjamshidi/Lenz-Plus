@@ -45,7 +45,8 @@ RENAMES = [
 NEEDS_REVIEW = re.compile(
     r"studiare|Studiare|codebean|scdarkcolors|darkMode|--primary_color|--secondary_color|"
     r"--font_body|--dark_|--menu_heading|--fallback-font|\bsc_|\bstudi_|\.sc-|sc-cart|"
-    r"off-canvas|register-modal|mobile-btm|fonawesome|fontawesome|استادیار|Theme_Bridge|is_course|teacher"
+    r"off-canvas|register-modal|mobile-btm|fonawesome|fontawesome|استادیار|Theme_Bridge|is_course|teacher|"
+    r"\bdark\b|'dark'|dark_mode|_course\b|replace_theme_nav|lift_fixed_elements|back_to_top|guest_action|login"
 )
 
 

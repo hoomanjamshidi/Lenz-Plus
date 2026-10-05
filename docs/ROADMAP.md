@@ -4,7 +4,7 @@ This file is the **resume point**. Every session starts here (see the `lenz-plus
 
 Status keys: `[ ]` to do · `[x]` done · `[~]` started (see Notes) · `[-]` dropped (say why)
 
-**Current phase:** 2
+**Current phase:** 3
 
 Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, browser check at 390 and 1440, translations, CLAUDE.md contracts, graphify update, commit `Phase N: …`).
 
@@ -36,16 +36,19 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - [x] Verify: activates without errors, menu Lenz+, dashboard, theme chip; also without Lenz active
 
 ## Phase 2 — Bottom navigation (منوی پایین موبایل)
-- [ ] Port `Modules/Bottom_Nav/*` PHP (Module, Schema, Styles, Item_Types, Item_Resolver, Renderer, Style_Vars, Frontend, Search_Scope, Live_Search, views)
-- [ ] Drop `dark_mode`, Studiare native-bar replacement, Studiare lifts; one colour set (no light/dark pair)
-- [ ] `Theme_Bridge`: account URLs (`header-account-link(-guest)`), reserve link/text, mobile menu location
-- [ ] Lenz menu action (`#header-mobile-menu-btn` click, or `#mobile-menu`/`#overlay`/`body.mobile-menu-opened`), WP-menu sheet fallback (`main-menu-mobile`)
-- [ ] Cart sheet (always ours), count fragment `lzp-bn-cart-count`
-- [ ] Account links from Lenz options, reserve item from `header-reserve-link`
-- [ ] CSS tokens fall back to Lenz variables, z-index < 100, hidden while the Lenz menu is open, footer spacing
-- [ ] `bottom-nav.js`, `bottom-nav-admin.js` (preview mirrors `nav.php`)
-- [ ] Admin panel views/admin.php with Lenz preview variables
-- [ ] Verify: 5 styles × 2/4/5/7 items, light and Lenz dark-demo palettes, current page, search sheet + live results, cart, menu, Back button
+- [x] Port `Modules/Bottom_Nav/*` PHP (Module, Schema, Styles, Item_Types, Item_Resolver, Renderer, Style_Vars, Frontend, Search_Scope, Live_Search, views)
+- [x] Drop `dark_mode`, Studiare native-bar replacement, Studiare lifts, `guest_action` (login popup), `cart_action=auto`; one colour set (`--lzp-bn-o-*`)
+- [x] `Theme_Bridge`: `account_url()`, `reserve_link()`
+- [x] Lenz menu action (`#header-mobile-menu-btn` click, else `#mobile-menu`/`#overlay`/`body.mobile-menu-opened`), WP-menu sheet fallback (`main-menu-mobile`)
+- [x] Cart sheet (always ours) with Lenz's mini-cart template and quantity AJAX; count fragment `lzp-bn-cart-count`
+- [x] Account links from Lenz options; new `reserve` (booking) and `archive` (post type list) button types; Lenz-flavoured default set (home, portfolio, booking, search, menu)
+- [x] CSS tokens on Lenz variables, z-index 990, hidden while the Lenz menu is open; `lenz` icon pack as default
+- [x] `bottom-nav.js`, `bottom-nav-admin.js` (preview mirrors `nav.php`, Lenz glyphs, archive/reserve rules)
+- [x] Admin panel `views/admin.php` with Lenz preview variables, font and icon fonts
+- [x] Live search honours Lenz `exclude_post_types`
+- [x] Fix in `tools/build-icons.mjs`: keep `<rect>` width/height (was stripped from every element; Studiare's Lucide pack has 10 broken icons), fetch retries
+- [x] Verify (390/1440 via harness): default set, current page (home, portfolio archive), Lenz menu open/close, search sheet + live results + Esc + Back, notch style + featured button, cart sheet + badge + quantity AJAX fragments, Lenz dark demo palette, admin preview + save, hidden at 1440, no console errors, empty debug.log
+- [ ] Deferred to phase 12 (full matrix): every style × 2/4/5/7 items on the front end, plain permalinks, content sheet, back to top, selector, guest account view
 
 ## Phase 3 — Support button (دکمه پشتیبانی)
 - [ ] Port `Modules/Support_Button/*` (channels incl. Bale/Eitaa, native `<details>`, greeting)

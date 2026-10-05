@@ -112,6 +112,38 @@ final class Theme_Bridge {
 	}
 
 	/**
+	 * Where the theme's header account button points (Header → Account): the
+	 * admin's link for members or for guests, '' when it is not set (callers
+	 * fall back to WooCommerce's account page or the WordPress login).
+	 *
+	 * @param bool $logged_in Link for logged-in visitors (else for guests).
+	 */
+	public static function account_url( bool $logged_in ): string {
+		return self::is_active() ? (string) self::option( $logged_in ? 'header-account-link' : 'header-account-link-guest', '' ) : '';
+	}
+
+	/**
+	 * The theme's header "Reserve" button (Header → Reserve): its link and text,
+	 * with Lenz's own defaults (`/booking`, «رزرو وقت») when never saved.
+	 * Both are '' when Lenz is not active.
+	 *
+	 * @return array{url:string, text:string}
+	 */
+	public static function reserve_link(): array {
+		if ( ! self::is_active() ) {
+			return array(
+				'url'  => '',
+				'text' => '',
+			);
+		}
+
+		return array(
+			'url'  => (string) self::option( 'header-reserve-link', home_url( 'booking' ) ),
+			'text' => (string) self::option( 'header-reserve-text', '' ),
+		);
+	}
+
+	/**
 	 * The stored option row: the Redux global when it holds values, else the
 	 * database row (WordPress caches it per request).
 	 *

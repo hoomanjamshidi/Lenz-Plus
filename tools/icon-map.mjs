@@ -87,7 +87,7 @@ export const PACKS = {
  */
 export const ICONS = [
   { key: 'home', label: 'خانه', keywords: 'home house خانه', fa: 'fa-home', lenz: 'house', names: { lucide: 'house', tabler: 'home', phosphor: 'house', heroicons: 'home', bootstrap: 'house' } },
-  { key: 'search', label: 'جستجو', keywords: 'search find جستجو', fa: 'fa-search', lenz: 'search-normal', names: { lucide: 'search', tabler: 'search', phosphor: 'magnifying-glass', heroicons: 'magnifying-glass', bootstrap: 'search' } },
+  { key: 'search', label: 'جستجو', keywords: 'search find جستجو', fa: 'fa-search', lenz: 'search-2', names: { lucide: 'search', tabler: 'search', phosphor: 'magnifying-glass', heroicons: 'magnifying-glass', bootstrap: 'search' } },
   { key: 'cart', label: 'سبد خرید', keywords: 'cart shop سبد خرید', fa: 'fa-shopping-cart', lenz: 'cart', lenzActive: 'cart-bold', names: { lucide: 'shopping-cart', tabler: 'shopping-cart', phosphor: 'shopping-cart-simple', heroicons: 'shopping-cart', bootstrap: 'cart' } },
   { key: 'bag', label: 'کیف خرید', keywords: 'bag shopping کیف', fa: 'fa-shopping-bag', names: { lucide: 'shopping-bag', tabler: 'shopping-bag', phosphor: 'shopping-bag', heroicons: 'shopping-bag', bootstrap: 'bag' } },
   { key: 'basket', label: 'سبد', keywords: 'basket سبد', fa: 'fa-shopping-basket', names: { lucide: 'shopping-basket', tabler: 'basket', phosphor: 'basket', heroicons: null, bootstrap: 'basket' } },

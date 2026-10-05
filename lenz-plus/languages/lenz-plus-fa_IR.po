@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lenz Plus 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/lenz-plus\n"
-"POT-Creation-Date: 2026-10-05T16:14:43+00:00\n"
+"POT-Creation-Date: 2026-10-05T16:32:06+00:00\n"
 "PO-Revision-Date: 2026-10-05T16:14:43+00:00\n"
 "Last-Translator: Hooman Jamshidi\n"
 "Language-Team: Persian\n"
@@ -183,17 +183,912 @@ msgid "Loaded by the Lenz theme"
 msgstr "بارگذاری‌شده توسط قالب لنز"
 
 #. translators: %d: number of search results.
-#: includes/Core/Search_Query.php:185
+#: includes/Core/Search_Query.php:189
 #, php-format
 msgid "%d result"
 msgid_plural "%d results"
 msgstr[0] "%d نتیجه"
 
 #. translators: %s: search term.
-#: includes/Core/Search_Query.php:187
+#: includes/Core/Search_Query.php:191
+#: includes/Modules/Bottom_Nav/views/search-results.php:26
 #, php-format
 msgid "Nothing found for “%s”."
 msgstr "نتیجه‌ای برای «%s» پیدا نشد."
+
+#: includes/Modules/Bottom_Nav/Frontend.php:216
+msgid "Toggle submenu"
+msgstr "باز و بسته کردن زیرمنو"
+
+#: includes/Modules/Bottom_Nav/Frontend.php:217
+msgid "Live results are unavailable right now. Press Search to see all results."
+msgstr "نتایج زنده الان در دسترس نیست. برای دیدن همه نتایج، دکمه «جستجو» را بزنید."
+
+#: includes/Modules/Bottom_Nav/Item_Resolver.php:284
+#: includes/Modules/Bottom_Nav/Module.php:150
+#: includes/Modules/Bottom_Nav/views/admin.php:601
+msgid "Login"
+msgstr "ورود"
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:30
+#: includes/Modules/Bottom_Nav/Item_Types.php:32
+#: includes/Modules/Bottom_Nav/views/admin.php:686
+msgid "Home"
+msgstr "خانه"
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:31
+msgid "Links to the site front page."
+msgstr "لینک به صفحه اصلی سایت."
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:38
+msgid "Custom link"
+msgstr "لینک دلخواه"
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:39
+msgid "Any page, category, phone number or external URL."
+msgstr "هر صفحه، دسته‌بندی، شماره تلفن یا آدرس خارجی."
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:40
+msgid "Link"
+msgstr "لینک"
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:46
+msgid "Archive"
+msgstr "بایگانی"
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:47
+msgid "Links to the list of a content type (portfolio, videos, blog, shop) and stays active on its items."
+msgstr "به فهرست یک نوع محتوا (نمونه‌کارها، ویدیوها، بلاگ، فروشگاه) لینک می‌دهد و روی موردهای آن هم فعال می‌ماند."
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:55
+msgid "Booking"
+msgstr "رزرو"
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:56
+msgid "Links to the booking page of the Lenz \"Reserve\" header button, or to your own URL."
+msgstr "به صفحهٔ رزرو دکمهٔ «رزرو» هدر لنز، یا به نشانی دلخواه شما لینک می‌دهد."
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:57
+msgid "Book a session"
+msgstr "رزرو وقت"
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:63
+#: includes/Modules/Bottom_Nav/Item_Types.php:65
+#: includes/Modules/Bottom_Nav/views/sheet-search.php:39
+msgid "Search"
+msgstr "جستجو"
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:64
+msgid "Opens a search sheet."
+msgstr "یک پنل جستجو باز می‌کند."
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:71
+#: includes/Modules/Bottom_Nav/Item_Types.php:73
+#: includes/Modules/Bottom_Nav/views/admin.php:690
+msgid "Cart"
+msgstr "سبد خرید"
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:72
+msgid "Live item count; opens a cart sheet or the cart page."
+msgstr "تعداد اقلام به‌صورت زنده؛ پنل سبد خرید یا صفحهٔ سبد را باز می‌کند."
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:79
+#: includes/Modules/Bottom_Nav/Item_Types.php:81
+msgid "Account"
+msgstr "حساب کاربری"
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:80
+msgid "User dashboard, or login for guests."
+msgstr "پیشخوان کاربر، یا ورود برای مهمان‌ها."
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:87
+#: includes/Modules/Bottom_Nav/Item_Types.php:89
+#: includes/Modules/Bottom_Nav/views/admin.php:612
+msgid "Menu"
+msgstr "منو"
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:88
+msgid "Opens the Lenz mobile menu or a WordPress menu."
+msgstr "منوی موبایل لنز یا یک منوی وردپرس را باز می‌کند."
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:95
+msgid "Content sheet"
+msgstr "پنل محتوا"
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:96
+msgid "Shows an Elementor template or shortcode in a sheet."
+msgstr "یک قالب المنتور یا شورت‌کد را در پنل نمایش می‌دهد."
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:97
+msgid "More"
+msgstr "بیشتر"
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:103
+msgid "Back to top"
+msgstr "بازگشت به بالا"
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:104
+msgid "Smoothly scrolls to the top of the page."
+msgstr "به نرمی به بالای صفحه می‌رود."
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:105
+msgid "Top"
+msgstr "بالا"
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:111
+msgid "Click an element"
+msgstr "کلیک روی یک المان"
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:112
+msgid "Advanced: clicks any element on the page by CSS selector."
+msgstr "پیشرفته: با سلکتور CSS روی هر المانی در صفحه کلیک می‌کند."
+
+#: includes/Modules/Bottom_Nav/Item_Types.php:113
+msgid "Action"
+msgstr "عملیات"
+
+#: includes/Modules/Bottom_Nav/Module.php:27
+msgid "Mobile bottom navigation"
+msgstr "منوی پایین موبایل"
+
+#: includes/Modules/Bottom_Nav/Module.php:31
+msgid "An app-like tab bar for phones with five styles, live cart count and fully custom buttons."
+msgstr "نوار پایینی شبیه اپلیکیشن برای موبایل با ۵ استایل، شمارنده زنده سبد خرید و دکمه‌های کاملاً دلخواه."
+
+#: includes/Modules/Bottom_Nav/Module.php:140
+#: includes/Modules/Bottom_Nav/views/admin.php:247
+msgid "Requires WooCommerce"
+msgstr "نیازمند ووکامرس"
+
+#: includes/Modules/Bottom_Nav/Module.php:141
+msgid "Add a URL"
+msgstr "لینک را وارد کنید"
+
+#: includes/Modules/Bottom_Nav/Module.php:142
+msgid "Choose a menu"
+msgstr "یک منو انتخاب کنید"
+
+#: includes/Modules/Bottom_Nav/Module.php:143
+msgid "Add content"
+msgstr "محتوا را وارد کنید"
+
+#: includes/Modules/Bottom_Nav/Module.php:144
+msgid "Add a booking URL"
+msgstr "نشانی رزرو را وارد کنید"
+
+#: includes/Modules/Bottom_Nav/Module.php:145
+msgid "Choose a content type"
+msgstr "نوع محتوا را انتخاب کنید"
+
+#: includes/Modules/Bottom_Nav/Module.php:146
+msgid "Add a selector or URL"
+msgstr "سلکتور یا لینک را وارد کنید"
+
+#: includes/Modules/Bottom_Nav/Module.php:147
+msgid "This button stays hidden on the site until this is fixed."
+msgstr "تا رفع این مورد، این دکمه در سایت نمایش داده نمی‌شود."
+
+#: includes/Modules/Bottom_Nav/Module.php:148
+#: includes/Modules/Bottom_Nav/views/admin.php:660
+msgid "Guests only"
+msgstr "فقط مهمان‌ها"
+
+#: includes/Modules/Bottom_Nav/Module.php:149
+msgid "Members only"
+msgstr "فقط اعضا"
+
+#: includes/Modules/Bottom_Nav/Module.php:151
+msgid "Delete this button?"
+msgstr "این دکمه حذف شود؟"
+
+#. translators: %s: button label.
+#: includes/Modules/Bottom_Nav/Module.php:153
+#, php-format
+msgid "\"%s\" will be removed from the bar."
+msgstr "«%s» از نوار حذف می‌شود."
+
+#: includes/Modules/Bottom_Nav/Module.php:154
+#: includes/Modules/Bottom_Nav/views/admin.php:489
+msgid "Delete"
+msgstr "حذف"
+
+#. translators: %d: maximum number of buttons.
+#: includes/Modules/Bottom_Nav/Module.php:156
+#, php-format
+msgid "You can add up to %d buttons."
+msgstr "حداکثر %d دکمه می‌توانید اضافه کنید."
+
+#: includes/Modules/Bottom_Nav/Module.php:157
+msgid "Choose an icon image"
+msgstr "انتخاب تصویر آیکون"
+
+#: includes/Modules/Bottom_Nav/Module.php:158
+msgid "Use this image"
+msgstr "استفاده از این تصویر"
+
+#: includes/Modules/Bottom_Nav/Module.php:159
+msgid "No icons match your search."
+msgstr "آیکونی با این جستجو پیدا نشد."
+
+#: includes/Modules/Bottom_Nav/Module.php:160
+msgid "— Select —"
+msgstr "— انتخاب کنید —"
+
+#: includes/Modules/Bottom_Nav/Module.php:239
+msgid "page"
+msgstr "برگه"
+
+#: includes/Modules/Bottom_Nav/Styles.php:28
+msgid "Classic"
+msgstr "کلاسیک"
+
+#: includes/Modules/Bottom_Nav/Styles.php:29
+msgid "Edge-to-edge bar with a soft pill behind the active icon."
+msgstr "نوار تمام‌عرض با کپسول ملایم پشت آیکون فعال."
+
+#: includes/Modules/Bottom_Nav/Styles.php:35
+msgid "Floating glass"
+msgstr "شیشه‌ای شناور"
+
+#: includes/Modules/Bottom_Nav/Styles.php:36
+msgid "A floating frosted capsule with a sliding highlight."
+msgstr "کپسول شناور مات با هایلایت لغزان."
+
+#: includes/Modules/Bottom_Nav/Styles.php:42
+#: includes/Modules/Bottom_Nav/views/admin.php:45
+msgid "Center button"
+msgstr "دکمه مرکزی"
+
+#: includes/Modules/Bottom_Nav/Styles.php:43
+msgid "Curved notch with a raised round button for your featured item."
+msgstr "بریدگی منحنی با دکمه گرد برجسته برای دکمه ویژه شما."
+
+#: includes/Modules/Bottom_Nav/Styles.php:49
+msgid "Bubble"
+msgstr "حبابی"
+
+#: includes/Modules/Bottom_Nav/Styles.php:50
+msgid "The active icon pops up into a bubble that glides between items."
+msgstr "آیکون فعال داخل حبابی می‌پرد که بین دکمه‌ها سُر می‌خورد."
+
+#: includes/Modules/Bottom_Nav/Styles.php:56
+msgid "Expanding pill"
+msgstr "کپسول بازشونده"
+
+#: includes/Modules/Bottom_Nav/Styles.php:57
+msgid "Icons only; the active item expands into a pill with its label."
+msgstr "فقط آیکون؛ دکمه فعال همراه با عنوانش به شکل کپسول باز می‌شود."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:37
+msgid "Background"
+msgstr "پس‌زمینه"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:38
+#: includes/Modules/Bottom_Nav/views/admin.php:714
+msgid "Icons"
+msgstr "آیکون‌ها"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:39
+#: includes/Modules/Bottom_Nav/views/admin.php:198
+msgid "Labels"
+msgstr "عنوان‌ها"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:40
+msgid "Active item"
+msgstr "دکمه فعال"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:41
+msgid "Active highlight"
+msgstr "هایلایت فعال"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:42
+msgid "Badge"
+msgstr "نشان (Badge)"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:43
+#: includes/Modules/Bottom_Nav/views/admin.php:667
+msgid "Badge text"
+msgstr "متن نشان"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:44
+msgid "Border"
+msgstr "حاشیه"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:46
+msgid "Center button icon"
+msgstr "آیکون دکمه مرکزی"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:73
+#: includes/Modules/Bottom_Nav/views/admin.php:117
+msgid "Style"
+msgstr "استایل"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:74
+#: includes/Modules/Bottom_Nav/views/admin.php:230
+msgid "Buttons"
+msgstr "دکمه‌ها"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:75
+#: includes/Modules/Bottom_Nav/views/admin.php:273
+msgid "Colours"
+msgstr "رنگ‌ها"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:76
+msgid "Size & font"
+msgstr "ابعاد و فونت"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:77
+#: includes/Modules/Bottom_Nav/views/admin.php:391
+msgid "Behaviour"
+msgstr "رفتار"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:89
+msgid "Active"
+msgstr "فعال"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:90
+msgid "Inactive"
+msgstr "غیرفعال"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:92
+msgid "Enable the bottom navigation"
+msgstr "فعال‌سازی منوی پایین"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:114
+msgid "Choose a style"
+msgstr "یک استایل انتخاب کنید"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:115
+msgid "Every style works with any number of buttons. The previews use your real buttons."
+msgstr "همه استایل‌ها با هر تعداد دکمه به‌خوبی کار می‌کنند. پیش‌نمایش‌ها با دکمه‌های واقعی شما ساخته می‌شوند."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:133
+#: includes/Modules/Bottom_Nav/views/admin.php:136
+msgid "Icon pack"
+msgstr "پک آیکون"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:134
+msgid "Switching packs re-draws every button. You can still give any button its own icon, image or SVG."
+msgstr "با تغییر پک، آیکون همه دکمه‌ها عوض می‌شود. همچنان می‌توانید به هر دکمه آیکون، تصویر یا SVG اختصاصی بدهید."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:159
+msgid "Needs the Lenz theme"
+msgstr "به قالب لنز نیاز دارد"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:168
+msgid "Font Awesome weight"
+msgstr "ضخامت Font Awesome"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:170
+#: includes/Modules/Bottom_Nav/views/admin.php:376
+msgid "Regular"
+msgstr "معمولی"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:171
+msgid "Solid"
+msgstr "توپر"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:175
+msgid "Lenz ships Font Awesome Free: fewer icons have a Regular (outline) version than a Solid one."
+msgstr "لنز نسخهٔ رایگان Font Awesome را دارد: آیکن‌های کمتری نسخهٔ Regular (خطی) دارند تا Solid."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:180
+msgid "Line thickness"
+msgstr "ضخامت خطوط"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:189
+msgid "Filled icon for the active button"
+msgstr "آیکون توپر برای دکمه فعال"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:190
+msgid "Packs with filled variants (Phosphor, Heroicons, Bootstrap, Tabler, Font Awesome, and the Lenz cart and heart icons) swap to the solid icon on the current page."
+msgstr "بسته‌هایی که نسخهٔ توپر دارند (Phosphor، Heroicons، Bootstrap، Tabler، Font Awesome و آیکن‌های سبد و قلب لنز) در صفحهٔ فعلی به آیکن توپر تغییر می‌کنند."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:204
+msgid "Show labels"
+msgstr "نمایش عنوان‌ها"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:206
+msgid "Always"
+msgstr "همیشه"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:207
+msgid "Active only"
+msgstr "فقط دکمه فعال"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:208
+msgid "Icons only"
+msgstr "فقط آیکون"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:212
+msgid "Hidden labels stay available to screen readers."
+msgstr "عنوان‌های پنهان همچنان برای صفحه‌خوان‌ها در دسترس هستند."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:218
+msgid "This style shows the label of the active button only, by design."
+msgstr "این استایل در طراحی خود فقط عنوان دکمه فعال را نشان می‌دهد."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:233
+msgid "Drag to reorder, tap a button to edit it. 3 to 5 buttons feel best on phones."
+msgstr "برای تغییر ترتیب بکشید و برای ویرایش روی دکمه بزنید. ۳ تا ۵ دکمه در موبایل بهترین حس را دارد."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:238
+msgid "Add button"
+msgstr "افزودن دکمه"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:259
+msgid "No buttons yet. Add your first one."
+msgstr "هنوز دکمه‌ای ندارید. اولین دکمه را اضافه کنید."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:264
+msgid "More than 5 buttons still fit, but labels get smaller. Consider moving extras into a menu or content sheet."
+msgstr "بیش از ۵ دکمه هم جا می‌شود، اما عنوان‌ها کوچک‌تر می‌شوند. بهتر است موارد اضافه را در یک منو یا پنل محتوا قرار دهید."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:274
+msgid "Leave a colour empty to follow your Lenz theme colours automatically, including its dark demo palette."
+msgstr "رنگ را خالی بگذارید تا خودکار از رنگ‌های قالب لنز، از جمله پالت دموی تیره، پیروی کند."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:290
+msgid "Size and shape"
+msgstr "اندازه و شکل"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:294
+msgid "Bar height"
+msgstr "ارتفاع نوار"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:295
+msgid "Icon size"
+msgstr "اندازه آیکون"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:296
+msgid "Corner radius"
+msgstr "گردی گوشه‌ها"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:297
+msgid "Distance from screen edges"
+msgstr "فاصله از لبه‌های صفحه"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:298
+msgid "Maximum width (tablets)"
+msgstr "حداکثر عرض (تبلت)"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:301
+msgid "Show on screens narrower than"
+msgstr "نمایش در صفحه‌های باریک‌تر از"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:306
+msgid "768px covers phones; raise it to include tablets."
+msgstr "مقدار ۷۶۸ پیکسل همه گوشی‌ها را پوشش می‌دهد؛ برای تبلت‌ها آن را بیشتر کنید."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:314
+msgid "Shadow"
+msgstr "سایه"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:316
+#: includes/Modules/Bottom_Nav/views/admin.php:328
+msgid "None"
+msgstr "هیچ"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:317
+msgid "Soft"
+msgstr "ملایم"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:318
+#: includes/Modules/Bottom_Nav/views/admin.php:377
+msgid "Medium"
+msgstr "متوسط"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:319
+msgid "Strong"
+msgstr "پررنگ"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:324
+msgid "Animation"
+msgstr "انیمیشن"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:326
+msgid "Springy"
+msgstr "فنری"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:327
+msgid "Smooth"
+msgstr "نرم"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:330
+msgid "Visitors who ask their device for reduced motion never see animations."
+msgstr "بازدیدکنندگانی که در دستگاه خود «کاهش حرکت» را فعال کرده‌اند انیمیشنی نمی‌بینند."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:334
+msgid "Frosted glass background"
+msgstr "پس‌زمینه شیشه‌ای مات"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:337
+msgid "Slightly translucent with a blur of the page behind it."
+msgstr "کمی شفاف همراه با تاری محتوای پشت آن."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:346
+msgid "Font"
+msgstr "فونت"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:347
+msgid "By default labels use the main font you picked in Lenz → Typography."
+msgstr "به‌طور پیش‌فرض برچسب‌ها از فونت اصلی‌ای استفاده می‌کنند که در لنز ← تایپوگرافی انتخاب کرده‌اید."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:353
+msgid "Font family"
+msgstr "خانواده فونت"
+
+#. translators: %s: font family name.
+#: includes/Modules/Bottom_Nav/views/admin.php:356
+#, php-format
+msgid "Theme font (%s)"
+msgstr "فونت قالب (%s)"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:357
+msgid "Inherit from the page"
+msgstr "ارث‌بری از صفحه"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:358
+msgid "Custom…"
+msgstr "دلخواه…"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:363
+msgid "Custom font family"
+msgstr "نام فونت دلخواه"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:368
+msgid "The font must already be loaded on your site."
+msgstr "این فونت باید از قبل در سایت شما بارگذاری شده باشد."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:371
+msgid "Label size"
+msgstr "اندازه عنوان"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:374
+msgid "Label weight"
+msgstr "ضخامت عنوان"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:378
+msgid "Semi-bold"
+msgstr "نیمه‌ضخیم"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:379
+msgid "Bold"
+msgstr "ضخیم"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:395
+msgid "Hide while scrolling down"
+msgstr "مخفی شدن هنگام اسکرول به پایین"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:395
+msgid "Gives more room to content; the bar returns as soon as the visitor scrolls up."
+msgstr "فضای بیشتری به محتوا می‌دهد؛ با اسکرول به بالا نوار بلافاصله برمی‌گردد."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:396
+msgid "Haptic feedback"
+msgstr "لرزش هنگام لمس"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:396
+msgid "A tiny vibration on tap (Android devices that support it)."
+msgstr "لرزش بسیار کوتاه هنگام لمس (در دستگاه‌های اندرویدی پشتیبانی‌کننده)."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:399
+msgid "Stacking order (z-index)"
+msgstr "ترتیب لایه (z-index)"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:403
+msgid "Raise it if a chat widget covers the bar. The default (990) keeps it above the Lenz sticky header and below its full-screen video player."
+msgstr "اگر ابزارک گفتگو نوار را پوشاند، آن را بیشتر کنید. مقدار پیش‌فرض (۹۹۰) نوار را بالای هدر چسبان لنز و زیر پخش‌کنندهٔ ویدیوی تمام‌صفحهٔ آن نگه می‌دارد."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:412
+msgid "Where to show"
+msgstr "محل نمایش"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:416
+msgid "Hide on the checkout page"
+msgstr "مخفی در صفحه تسویه حساب"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:416
+msgid "Keeps buyers focused on completing the order."
+msgstr "خریدار را روی تکمیل سفارش متمرکز نگه می‌دارد."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:417
+msgid "Hide on the cart page"
+msgstr "مخفی در صفحه سبد خرید"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:418
+msgid "Hide on single product pages"
+msgstr "پنهان در صفحهٔ تک محصول"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:418
+msgid "Leaves the bottom of the screen to a product page's own buy bar."
+msgstr "پایین صفحه را برای نوار خرید خود صفحهٔ محصول خالی می‌گذارد."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:421
+msgid "Hide on these pages or posts (IDs)"
+msgstr "مخفی در این برگه‌ها یا نوشته‌ها (شناسه)"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:425
+msgid "Comma separated IDs, e.g. landing pages that have their own call to action."
+msgstr "شناسه‌ها را با کاما جدا کنید؛ مثلاً صفحات فرودی که دکمه اقدام اختصاصی دارند."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:435
+msgid "Live preview"
+msgstr "پیش‌نمایش زنده"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:438
+msgid "Preview visitor"
+msgstr "نوع بازدیدکننده پیش‌نمایش"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:439
+msgid "Member"
+msgstr "عضو"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:440
+msgid "Guest"
+msgstr "مهمان"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:460
+msgid "Tap the buttons to try the animation. Colours and font follow your Lenz settings."
+msgstr "روی دکمه‌ها بزنید تا انیمیشن را ببینید. رنگ‌ها و فونت از تنظیمات لنز شما پیروی می‌کنند."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:470
+msgid "Drag to reorder"
+msgstr "برای جابه‌جایی بکشید"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:476
+msgid "Center"
+msgstr "وسط"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:482
+msgid "Move up"
+msgstr "انتقال به بالا"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:483
+msgid "Move down"
+msgstr "انتقال به پایین"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:484
+#: includes/Modules/Bottom_Nav/views/admin.php:485
+msgid "Show this button"
+msgstr "نمایش این دکمه"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:488
+msgid "Duplicate"
+msgstr "تکثیر"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:497
+msgid "Button type"
+msgstr "نوع دکمه"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:509
+msgid "Label"
+msgstr "عنوان"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:514
+msgid "Icon"
+msgstr "آیکون"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:516
+msgid "From pack"
+msgstr "از پک"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:518
+msgid "Image"
+msgstr "تصویر"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:525
+msgid "Choose icon"
+msgstr "انتخاب آیکون"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:530
+msgid "Any Font Awesome 6 Free class (far, fas or fab) loaded by Lenz."
+msgstr "هر کلاس Font Awesome 6 رایگان (far، fas یا fab) که لنز بارگذاری می‌کند."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:534
+msgid "Media library"
+msgstr "کتابخانه رسانه"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:535
+msgid "Square PNG, WebP or SVG files look best."
+msgstr "فایل‌های مربعی PNG، WebP یا SVG بهترین نتیجه را دارند."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:539
+msgid "Use fill=\"currentColor\" or stroke=\"currentColor\" so the icon follows the bar colours. Scripts are removed on save."
+msgstr "از fill=\"currentColor\" یا stroke=\"currentColor\" استفاده کنید تا آیکون از رنگ‌های نوار پیروی کند. اسکریپت‌ها هنگام ذخیره حذف می‌شوند."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:544
+msgid "Link (URL)"
+msgstr "لینک (URL)"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:546
+msgid "Pages, categories, tel:+98…, https://t.me/… — anything goes."
+msgstr "برگه‌ها، دسته‌بندی‌ها، tel:+98…، https://t.me/… و هر لینک دیگری."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:547
+msgid "Optional. Leave empty to use the link of the Lenz header \"Reserve\" button."
+msgstr "اختیاری. خالی بگذارید تا از لینک دکمهٔ «رزرو» هدر لنز استفاده شود."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:548
+msgid "Optional. Leave empty to use the Lenz header account link, else the WooCommerce \"My account\" page."
+msgstr "اختیاری. خالی بگذارید تا از لینک حساب کاربری هدر لنز و در غیر این صورت از صفحهٔ «حساب کاربری من» ووکامرس استفاده شود."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:549
+msgid "Optional fallback, used when the element is not on the page."
+msgstr "جایگزین اختیاری؛ وقتی المان در صفحه نباشد استفاده می‌شود."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:554
+msgid "Open in a new tab"
+msgstr "باز شدن در زبانه جدید"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:560
+msgid "Content type"
+msgstr "نوع محتوا"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:562
+msgid "Leave the label empty to show the content type's own name."
+msgstr "برچسب را خالی بگذارید تا نام خود نوع محتوا نمایش داده شود."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:566
+msgid "Search in"
+msgstr "جستجو در"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:568
+msgid "Leave all unchecked to search everything."
+msgstr "اگر هیچ‌کدام را انتخاب نکنید، در همه محتوای سایت جستجو می‌شود."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:574
+msgid "Live results while typing (AJAX)"
+msgstr "نمایش زنده نتایج هنگام تایپ (AJAX)"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:575
+msgid "Matching results appear in the sheet without leaving the page. Pressing Search still opens the full results page."
+msgstr "نتایج مرتبط بدون ترک صفحه در همان پنل نمایش داده می‌شوند. زدن دکمه «جستجو» همچنان صفحه کامل نتایج را باز می‌کند."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:582
+msgid "On tap"
+msgstr "با لمس دکمه"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:585
+msgid "Open the cart sheet"
+msgstr "باز شدن پنل سبد خرید"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:586
+msgid "Go to the cart page"
+msgstr "رفتن به صفحه سبد خرید"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:587
+msgid "Go to checkout"
+msgstr "رفتن به تسویه حساب"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:594
+msgid "Hide the count when the cart is empty"
+msgstr "مخفی کردن عدد وقتی سبد خالی است"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:600
+msgid "Label for guests"
+msgstr "عنوان برای مهمان‌ها"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:606
+msgid "Show the user's avatar instead of the icon"
+msgstr "نمایش تصویر پروفایل کاربر به جای آیکون"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:615
+msgid "Lenz mobile menu"
+msgstr "منوی موبایل لنز"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:616
+msgid "A WordPress menu in a sheet"
+msgstr "یک فهرست وردپرس در پنل"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:622
+msgid "Which menu"
+msgstr "کدام فهرست"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:627
+msgid "Content"
+msgstr "محتوا"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:629
+msgid "Text / shortcode"
+msgstr "متن / شورت‌کد"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:630
+msgid "Elementor template"
+msgstr "قالب المنتور"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:635
+msgid "Template or page"
+msgstr "قالب یا برگه"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:640
+msgid "Text, HTML or shortcode"
+msgstr "متن، HTML یا شورت‌کد"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:645
+msgid "CSS selector of the element to click"
+msgstr "سلکتور CSS المانی که کلیک شود"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:647
+msgid "For example .lenz-account-btn taps the Lenz header account button."
+msgstr "برای نمونه ‎.lenz-account-btn دکمهٔ حساب کاربری هدر لنز را می‌زند."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:651
+msgid "Sheet title"
+msgstr "عنوان پنل"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:656
+msgid "Show to"
+msgstr "نمایش برای"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:659
+msgid "Everyone"
+msgstr "همه"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:661
+msgid "Logged-in users only"
+msgstr "فقط کاربران واردشده"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:668
+msgid "e.g. New"
+msgstr "مثلاً جدید"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:674
+msgid "Make it the center button"
+msgstr "دکمه مرکزی باشد"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:675
+msgid "Used by the \"Center button\" style. Without a choice, the middle button is used."
+msgstr "در استایل «دکمه مرکزی» استفاده می‌شود. اگر انتخاب نکنید، دکمه وسط برجسته می‌شود."
+
+#: includes/Modules/Bottom_Nav/views/admin.php:688
+msgid "Shop / courses"
+msgstr "فروشگاه / دوره‌ها"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:689
+msgid "My account"
+msgstr "حساب کاربری من"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:707
+msgid "Choose an icon"
+msgstr "انتخاب آیکون"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:708
+#: includes/Modules/Bottom_Nav/views/sheet.php:24
+msgid "Close"
+msgstr "بستن"
+
+#: includes/Modules/Bottom_Nav/views/admin.php:712
+msgid "Search icons… (e.g. cart, سبد)"
+msgstr "جستجوی آیکون… (مثلاً سبد یا cart)"
+
+#: includes/Modules/Bottom_Nav/views/nav.php:15
+msgid "Mobile navigation"
+msgstr "ناوبری موبایل"
+
+#: includes/Modules/Bottom_Nav/views/search-results.php:29
+msgid "Check the spelling or try a shorter word."
+msgstr "املای کلمه را بررسی کنید یا کلمه کوتاه‌تری را امتحان کنید."
+
+#: includes/Modules/Bottom_Nav/views/search-results.php:33
+msgid "Results"
+msgstr "نتایج"
+
+#: includes/Modules/Bottom_Nav/views/search-results.php:63
+msgid "See all results"
+msgstr "مشاهده همه نتایج"
+
+#: includes/Modules/Bottom_Nav/views/sheet-search.php:20
+msgid "Search for:"
+msgstr "جستجو برای:"
+
+#: includes/Modules/Bottom_Nav/views/sheet-search.php:29
+msgid "What are you looking for?"
+msgstr "دنبال چه می‌گردید؟"
+
+#: includes/Modules/Bottom_Nav/views/sheet-search.php:45
+msgid "Results appear as you type."
+msgstr "نتایج همزمان با تایپ نمایش داده می‌شوند."
 
 #. translators: %s: minimum PHP version.
 #: lenz-plus.php:35

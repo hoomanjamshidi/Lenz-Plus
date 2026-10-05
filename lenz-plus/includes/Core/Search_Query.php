@@ -24,12 +24,16 @@ final class Search_Query {
 
 	/**
 	 * Post types a visitor can search in: public types that WordPress search
-	 * includes, minus media (attachments are not useful search results).
+	 * includes, minus media (attachments are not useful search results) and
+	 * minus the types Lenz removes from its results page (General →
+	 * `exclude_post_types`), so a live result is always on the full page too.
 	 *
 	 * @return array<string, string> Post type name => plural label.
 	 */
 	public static function searchable_types(): array {
-		$types = array();
+		$excluded   = (array) Theme_Bridge::option( 'exclude_post_types', array() );
+		$excluded[] = 'attachment';
+		$types      = array();
 
 		foreach ( get_post_types(
 			array(
@@ -38,7 +42,7 @@ final class Search_Query {
 			),
 			'objects'
 		) as $type ) {
-			if ( 'attachment' !== $type->name ) {
+			if ( ! in_array( $type->name, $excluded, true ) ) {
 				$types[ $type->name ] = $type->labels->name;
 			}
 		}

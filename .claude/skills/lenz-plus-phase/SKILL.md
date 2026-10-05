@@ -36,13 +36,14 @@ node tools/minify.mjs                 # after any front-end CSS/JS change
 
 Then:
 1. **Browser check** with Claude in Chrome through the viewport harness (the window is maximised, `resize_window` has no effect): `http://127.0.0.1:8888/viewport.html?a=/<path>/&w=390` and `&w=1440` (exact-width iframe, same origin, inspect with `frames[0].document`). Check the phase's features, RTL, no console errors (`read_console_messages`), nothing new in `.dev/wp/wp-content/debug.log` (`grep -n 'lenz-plus\|Fatal'`). For design widgets add `&b=/design/<Page>` to see the mockup beside the page and compare spacing, type, colours and states.
-2. **Translations:** `bash tools/i18n.sh` (pot + po update, reuses Studiare's translations, lists what is left) → translate the listed entries in `lenz-plus-fa_IR.po` (Persian punctuation «», ZWNJ) → `bash tools/i18n.sh mo`.
+2. **Translations:** `bash tools/i18n.sh` (pot + po update, reuses Studiare's translations, lists what is left) → translate the listed entries with `python3 tools/po-fill.py` (JSON on stdin; Persian punctuation «», ZWNJ) → `bash tools/i18n.sh mo`.
 3. **Docs:** tick the remaining tasks, set **Current phase** to the next phase, clear Notes that no longer apply, update `CLAUDE.md` (layout tree and contracts).
 4. **Commit** (the user asked for one commit per phase):
    ```bash
    git add -A && git commit -m "Phase N: <short summary>" -m "<what landed, 2–5 lines>"
    ```
    End the message with the Co-Authored-By line from the session's attribution instructions. The post-commit hook rebuilds the graph; if it is missing, run `graphify update .`.
+   Then push: `git push` (remote `origin` = github.com/hoomanjamshidi/Lenz-Plus, public; the user chose to publish it as is).
 5. **Report to the user in Persian:** what landed, what was verified and how, anything skipped or deferred (and why), and what the next phase starts with. Then stop and wait: the user moves to the next phase.
 
 ## Rules of thumb
