@@ -62,12 +62,8 @@ $slot_defaults = array(
 	'fab-icon'   => $surface,
 );
 
-// Lenz's CSS variables and font, recreated so previews resolve the same defaults as the site
-// (the theme's stylesheets are not loaded in wp-admin; Module loads its icon fonts and body font).
-$preview_vars = '--main-font:' . Theme_Bridge::font() . ';';
-foreach ( $palette as $preview_var => $preview_value ) {
-	$preview_vars .= $preview_var . ':' . $preview_value . ';';
-}
+// Lenz's CSS variables and font, recreated so previews resolve the same defaults as the site.
+$preview_vars = Theme_Bridge::preview_vars();
 
 $panel_tabs = array(
 	'style'    => array( 'palette', __( 'Style', 'lenz-plus' ) ),

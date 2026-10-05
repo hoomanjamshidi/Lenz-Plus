@@ -9,6 +9,7 @@ namespace LenzPlus\Admin;
 
 use LenzPlus\Core\Icon_Library;
 use LenzPlus\Core\Module;
+use LenzPlus\Core\Theme_Bridge;
 use LenzPlus\Plugin;
 
 defined( 'ABSPATH' ) || exit;
@@ -183,6 +184,27 @@ final class Admin {
 	 */
 	public function page_url( ?Module $module = null ): string {
 		return admin_url( 'admin.php?page=' . ( $module ? $module->admin_slug() : self::MENU_SLUG ) );
+	}
+
+	/**
+	 * Lenz's icon fonts (Font Awesome, `lenz-icon`) and the font chosen in
+	 * Lenz → Typography, for module previews: wp-admin does not load the
+	 * theme's stylesheets.
+	 */
+	public static function enqueue_theme_preview_assets(): void {
+		if ( ! Theme_Bridge::is_active() ) {
+			return;
+		}
+
+		$theme_url = get_template_directory_uri();
+		wp_enqueue_style( 'lzp-theme-fontawesome', $theme_url . '/assets/libs/fontawesome/css/fa.min.css', array(), LENZ_PLUS_VERSION );
+		wp_enqueue_style( 'lzp-theme-icons', $theme_url . '/assets/css/lenz-icons.min.css', array(), LENZ_PLUS_VERSION );
+
+		// The font name is sanitized (no dots or slashes), so it cannot leave the fonts folder.
+		$font = Theme_Bridge::font();
+		if ( is_readable( get_template_directory() . '/assets/css/fonts/' . $font . '.min.css' ) ) {
+			wp_enqueue_style( 'lzp-theme-font', $theme_url . '/assets/css/fonts/' . rawurlencode( $font ) . '.min.css', array(), LENZ_PLUS_VERSION );
+		}
 	}
 
 	/**

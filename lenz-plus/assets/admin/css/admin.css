@@ -384,6 +384,15 @@ body.lzp-admin-page #wpfooter {
 	color: var(--lzp-brand-strong);
 }
 
+/* Inline action inside help text (e.g. "Use it" next to a suggested value). */
+.lzp-btn--sm {
+	min-height: 30px;
+	margin-inline-start: 6px;
+	padding: 0 12px;
+	border-radius: 9px;
+	font-size: 12px;
+}
+
 .lzp-btn__spinner {
 	display: none;
 	width: 16px;

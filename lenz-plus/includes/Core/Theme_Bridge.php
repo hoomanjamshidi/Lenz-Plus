@@ -102,6 +102,20 @@ final class Theme_Bridge {
 	}
 
 	/**
+	 * The palette and font as one declaration list (`--main-font:…;--body:…;`)
+	 * for admin previews, which print it on their wrapper so the front-end
+	 * stylesheets resolve the same defaults there as on the site.
+	 */
+	public static function preview_vars(): string {
+		$vars = '--main-font:' . self::font() . ';';
+		foreach ( self::palette() as $name => $value ) {
+			$vars .= $name . ':' . $value . ';';
+		}
+
+		return $vars;
+	}
+
+	/**
 	 * The body font family chosen in Lenz → Typography (default IRANYekanXFANum).
 	 */
 	public static function font(): string {
@@ -141,6 +155,18 @@ final class Theme_Bridge {
 			'url'  => (string) self::option( 'header-reserve-link', home_url( 'booking' ) ),
 			'text' => (string) self::option( 'header-reserve-text', '' ),
 		);
+	}
+
+	/**
+	 * The phone number the admin put in the support box of Lenz's mobile menu
+	 * (Header → Mobile menu → support "top text"), or '' when none is saved.
+	 * Lenz's own default there is demo data, so only a saved value counts, and
+	 * only when it holds at least seven digits (Latin, Persian or Arabic).
+	 */
+	public static function support_phone(): string {
+		$text = self::is_active() ? trim( (string) self::option( 'mobile-menu-support-top-text', '' ) ) : '';
+
+		return preg_match_all( '/[0-9\x{06F0}-\x{06F9}\x{0660}-\x{0669}]/u', $text ) >= 7 ? $text : '';
 	}
 
 	/**

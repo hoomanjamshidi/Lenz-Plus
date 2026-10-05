@@ -58,7 +58,7 @@ lenz-plus/                           ← the plugin (zip this folder)
 │   └── Modules/
 │       ├── Bottom_Nav/              mobile bottom bar: Module, Schema, Styles, Item_Types, Item_Resolver, Archive_Types,
 │       │                            Renderer, Style_Vars, Frontend, Search_Scope, Live_Search, views/ (nav, sheets, admin)
-│       ├── Support_Button/          floating contact button
+│       ├── Support_Button/          floating contact button: Module, Schema, Channels, Frontend, views/ (button, admin)
 │       └── Builder/                 templates, presets, Elementor widgets, header/footer, page/blog/portfolio/course rendering, forms
 ├── assets/
 │   ├── admin/                       admin.css, admin.js (window.LZP shell), fonts/Vazirmatn (bundled, OFL)
@@ -129,13 +129,19 @@ Each module section records the contracts that are not obvious from the code (ma
 - **Adding a button type.** `Item_Types::all()`, a `build_<type>()` in `Item_Resolver`, a JS action in `bottom-nav.js` if needed, editor fields in `views/admin.php` (`data-item-show-if="type=<type>"`), and `itemProblem()` / `itemLabel()` rules in the admin JS. **Adding a style:** `Styles::all()` + a `.lzp-bn--style-<id>` section in bottom-nav.css; test with 2, 4, 5 and 7 items, RTL, and the Lenz dark demo palette.
 
 ### Support button (phase 3)
-- Carries over Studiare's contracts (markup contract with the admin JS, works without JS through `<details>`, channels keyed by id, never call them «کانال» in Persian). Lifting: `--lzp-sb-lift` over the bottom nav and the Builder mobile buy bar only.
+- **Markup contract.** `views/button.php` and `renderWidget()` in `support-button-admin.js` produce the same markup; `channelUrl()` there mirrors `Channels::url()` (the admin shows the resolved link under each field). Change them together.
+- **Works without JS.** The menu is a native `<details>`/`<summary>`. support-button.js only adds outside-tap/Esc closing, the closing animation (`is-closing`) and the greeting (once per session, `sessionStorage.lzpSupportGreeting`). With one ready channel the button is a plain link and no script loads (unless the greeting is on).
+- **Channels.** A fixed set keyed by id (`channels.<id>.value` binds directly with `data-lzp-bind`); `order` keeps their order and `Schema::complete_order()` adds channels from newer versions. A channel shows only when it is on and `Channels::url()` returns a link. Persian/Arabic digits are converted, local Iranian mobiles (09…) get 98 for wa.me and t.me. Bale and Eitaa use the official glyphs stored in `Channels` (Lenz's `bale-border`/`eitaa-border` glyphs need the theme). Never call them «کانال» in Persian: the UI says «راه‌های ارتباطی».
+- **Colours.** The main button defaults to Lenz's primary button (`--btn_primary_bg` / `--btn_primary_color`), the panel to `--secondary-1` / `--primary-1` / `--text-main`; channel brand colours stay on unless switched off.
+- **Lenz suggestion.** `Theme_Bridge::support_phone()` offers the number saved in Lenz's mobile-menu support box (only a saved value with 7+ digits: Lenz's default there is demo data). The admin shows it under the Phone channel with «استفاده کن», which fills the field and switches the channel on (`[data-lzp-fill]`).
+- **Lifting and layers.** Pure CSS: `--lzp-sb-lift` over the bottom nav (`body.lzp-bn-on` + `--lzp-bn-space`, back to the safe area with `lzp-bn-is-hidden`) and `--lzp-sb-bar` over the Builder's mobile buy bar (`:has(.lzp-buybar--mobile/.lzp-buybar--tablet.is-visible)`). Lenz itself has no fixed bottom elements. Default z-index 985 (under the bottom nav, its sheets and Lenz's full-screen video); hidden while `body.mobile-menu-opened`.
 
 ### Builder (phases 4–11)
 - Brand palette defaults come from the designs: ink `#022D4F`, accent `#185E82`, text `#55636F`, sub `#3E5566`, muted `#8C9AA6`, line `#E3EBF1`, dashed `#D3DCE3`, chip `#E8EEF3`, soft `#F5F8FA`, dark surface `#0B3A5E`. The design props become global settings: `photo_tone` (grayscale/colour photos, `--lzp-photo-filter`) and `guides` (decorative guide lines, `--lzp-guides`).
 - The designs have no media queries: every widget adds real breakpoints (1024 and 767) where `auto-fit` / `clamp()` is not enough.
 - Header/footer replacement follows Elementor Pro's `theme-support.php` approach (`get_header` / `get_footer`), keeps `#container` and `wp_footer()`, and backs off when Elementor Pro has its own header/footer conditions.
 - Courses are WooCommerce products flagged by the plugin's course meta box; other products keep Lenz's own product page.
+- **Lenz's global reset.** style.min.css resets almost every element (`a, div, span, p, li, ul, h1…h6, …`) to `margin:0; padding:0; border:0; font-size:inherit; line-height:2` and `ol, ul { list-style:none }`. Every widget sets its own line-height, margins and list styles instead of relying on browser defaults.
 
 ## Workflows
 

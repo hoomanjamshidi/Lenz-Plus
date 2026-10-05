@@ -4,7 +4,7 @@ This file is the **resume point**. Every session starts here (see the `lenz-plus
 
 Status keys: `[ ]` to do · `[x]` done · `[~]` started (see Notes) · `[-]` dropped (say why)
 
-**Current phase:** 3
+**Current phase:** 4
 
 Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, browser check at 390 and 1440, translations, CLAUDE.md contracts, graphify update, commit `Phase N: …`).
 
@@ -51,10 +51,12 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - [ ] Deferred to phase 12 (full matrix): every style × 2/4/5/7 items on the front end, plain permalinks, content sheet, back to top, selector, guest account view
 
 ## Phase 3 — Support button (دکمه پشتیبانی)
-- [ ] Port `Modules/Support_Button/*` (channels incl. Bale/Eitaa, native `<details>`, greeting)
-- [ ] Tokens from Lenz variables; lifts: bottom nav, Builder mobile buy bar
-- [ ] "Import from theme" suggestion from `mobile-menu-support-*`
-- [ ] Verify: with and without JS, one channel = plain link, lifting over the bottom nav
+- [x] Port `Modules/Support_Button/*` (channels incl. Bale/Eitaa, native `<details>`, greeting)
+- [x] Tokens from Lenz variables (primary button, surface, ink, `--main-font`); Studiare lifts, dark rules and `--lzp-sb-btt` removed; z-index 985; hidden while the Lenz menu is open
+- [x] Lifts: bottom nav, Builder mobile buy bar
+- [x] "Import from theme": `Theme_Bridge::support_phone()` + «استفاده کن» under the Phone channel
+- [x] Shared preview helpers: `Theme_Bridge::preview_vars()`, `Admin::enqueue_theme_preview_assets()` (used by both modules)
+- [x] Verify: suggestion fill + save, single channel = plain `tel:` link without script (Persian digits converted), lifted 24px above the bottom nav, two channels = `<details>` menu with brand colours, greeting, hidden while the Lenz menu is open, 1440 corner + label, no console errors, empty debug.log
 
 ## Phase 4 — Builder foundation (زیرساخت صفحه‌ساز)
 - [ ] `Builder/Module`, `Schema` (kinds, brand defaults from the design, `photo_tone`, `guides`)

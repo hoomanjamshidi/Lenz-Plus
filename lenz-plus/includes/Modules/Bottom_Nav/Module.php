@@ -7,6 +7,7 @@
 
 namespace LenzPlus\Modules\Bottom_Nav;
 
+use LenzPlus\Admin\Admin;
 use LenzPlus\Core\Icon_Library;
 use LenzPlus\Core\Module as Base_Module;
 use LenzPlus\Core\Sanitizer;
@@ -81,17 +82,8 @@ final class Module extends Base_Module {
 		// The preview renders with the real front-end stylesheet.
 		wp_enqueue_style( 'lzp-bottom-nav', LENZ_PLUS_URL . 'assets/modules/bottom-nav/css/bottom-nav.css', array(), LENZ_PLUS_VERSION );
 
-		if ( Theme_Bridge::is_active() ) {
-			// The theme's icon fonts, for the "Font Awesome" and "Lenz icons" packs in previews.
-			wp_enqueue_style( 'lzp-theme-fontawesome', get_template_directory_uri() . '/assets/libs/fontawesome/css/fa.min.css', array(), LENZ_PLUS_VERSION );
-			wp_enqueue_style( 'lzp-theme-icons', get_template_directory_uri() . '/assets/css/lenz-icons.min.css', array(), LENZ_PLUS_VERSION );
-
-			// The font chosen in Lenz → Typography (sanitized: no dots or slashes), so labels look as on the site.
-			$font = Theme_Bridge::font();
-			if ( is_readable( get_template_directory() . '/assets/css/fonts/' . $font . '.min.css' ) ) {
-				wp_enqueue_style( 'lzp-theme-font', get_template_directory_uri() . '/assets/css/fonts/' . rawurlencode( $font ) . '.min.css', array(), LENZ_PLUS_VERSION );
-			}
-		}
+		// Lenz's icon fonts (the "Font Awesome" and "Lenz icons" packs) and its body font.
+		Admin::enqueue_theme_preview_assets();
 
 		wp_enqueue_script(
 			'lzp-bottom-nav-admin',
