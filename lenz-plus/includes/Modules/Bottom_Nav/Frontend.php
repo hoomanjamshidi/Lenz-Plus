@@ -65,10 +65,11 @@ final class Frontend {
 		wp_enqueue_style( self::HANDLE, Asset::url( 'assets/modules/bottom-nav/css/bottom-nav.css' ), $style_deps, LENZ_PLUS_VERSION );
 		wp_add_inline_style( self::HANDLE, Style_Vars::inline_css( $settings ) );
 
+		Asset::register_shared();
 		wp_enqueue_script(
 			self::HANDLE,
 			Asset::url( 'assets/modules/bottom-nav/js/bottom-nav.js' ),
-			array(),
+			array( Asset::LENZ_MENU ),
 			LENZ_PLUS_VERSION,
 			array(
 				'in_footer' => true,

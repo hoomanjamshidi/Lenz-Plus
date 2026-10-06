@@ -170,6 +170,95 @@ final class Theme_Bridge {
 	}
 
 	/**
+	 * The theme's logo as an `<img>`: the header logo (`logo-img`) or the
+	 * footer one (`footer-logo-img`, Lenz's white version). Like the theme,
+	 * Lenz's own logo files stand in when nothing is saved; '' when Lenz is
+	 * set to a text logo there. Without Lenz: the Customizer's site logo.
+	 *
+	 * @param string $area `header` or `footer`.
+	 */
+	public static function logo_html( string $area ): string {
+		$alt = array( 'alt' => get_bloginfo( 'name' ) );
+
+		if ( ! self::is_active() ) {
+			$logo_id = (int) get_theme_mod( 'custom_logo' );
+
+			return $logo_id ? (string) wp_get_attachment_image( $logo_id, 'full', false, $alt ) : '';
+		}
+
+		$prefix = 'footer' === $area ? 'footer-' : '';
+		if ( 'text' === self::option( $prefix . 'logo-type', 'img' ) ) {
+			return '';
+		}
+
+		$image = self::option( $prefix . 'logo-img', '' );
+		if ( is_array( $image ) && ! empty( $image['id'] ) ) {
+			return (string) wp_get_attachment_image( (int) $image['id'], 'full', false, $alt );
+		}
+
+		$url = is_array( $image ) ? (string) ( $image['url'] ?? '' ) : (string) $image;
+		if ( '' === $url && defined( 'LENZ_URI' ) ) {
+			$url = LENZ_URI . ( 'footer' === $area ? 'assets/images/logo-white.svg' : 'assets/images/logo.svg' );
+		}
+
+		return '' !== $url ? sprintf( '<img src="%1$s" alt="%2$s">', esc_url( $url ), esc_attr( $alt['alt'] ) ) : '';
+	}
+
+	/**
+	 * One of Lenz's two footer menus: its menu location and the column title
+	 * saved in Footer → menu 1/2 title ('' when never saved).
+	 *
+	 * @param int $number 1 or 2.
+	 * @return array{location:string, title:string}
+	 */
+	public static function footer_menu( int $number ): array {
+		return array(
+			'location' => 'footer-menu' . $number,
+			'title'    => self::is_active() ? (string) self::option( 'footer-menu-' . $number . '-title', '' ) : '',
+		);
+	}
+
+	/**
+	 * Footer texts the admin saved in Lenz (Footer → about, copyright). Only
+	 * saved values count: Lenz's defaults there are its demo studio's copy.
+	 *
+	 * @param string $key `about` or `copyright`.
+	 */
+	public static function footer_text( string $key ): string {
+		$options = array(
+			'about'     => 'footer-about',
+			'copyright' => 'footer-copyright-text',
+		);
+
+		return self::is_active() && isset( $options[ $key ] ) ? trim( (string) self::option( $options[ $key ], '' ) ) : '';
+	}
+
+	/**
+	 * Branches saved in Lenz's footer (Footer → addresses), in order. Redux
+	 * stores the repeater as one list per field.
+	 *
+	 * @return array<int, array{title:string, address:string, link:string, phone:string}>
+	 */
+	public static function footer_addresses(): array {
+		$rows = self::is_active() ? self::option( 'footer-addresses', array() ) : array();
+		if ( ! is_array( $rows ) || empty( $rows['footer-address-title'] ) || ! is_array( $rows['footer-address-title'] ) ) {
+			return array();
+		}
+
+		$list = array();
+		foreach ( $rows['footer-address-title'] as $index => $title ) {
+			$list[] = array(
+				'title'   => (string) $title,
+				'address' => (string) ( $rows['footer-address-location'][ $index ] ?? '' ),
+				'link'    => (string) ( $rows['footer-address-link'][ $index ] ?? '' ),
+				'phone'   => (string) ( $rows['footer-address-phone'][ $index ] ?? '' ),
+			);
+		}
+
+		return $list;
+	}
+
+	/**
 	 * The stored option row: the Redux global when it holds values, else the
 	 * database row (WordPress caches it per request).
 	 *

@@ -21,7 +21,7 @@ defined( 'ABSPATH' ) || exit;
  */
 final class Assets {
 
-	/** Shared stylesheet: design utilities and the basic widgets. */
+	/** Shared stylesheet and script: design utilities, basic widgets, header and footer parts. */
 	public const HANDLE = 'lzp-builder';
 
 	/** Inline-only style: the brand tokens every Lenz+ stylesheet depends on. */
@@ -47,6 +47,7 @@ final class Assets {
 	public function register(): void {
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_assets' ), 1 );
 		add_action( 'elementor/frontend/after_register_styles', array( $this, 'register_assets' ) );
+		add_action( 'elementor/frontend/after_register_scripts', array( $this, 'register_assets' ) );
 	}
 
 	/**
@@ -64,6 +65,29 @@ final class Assets {
 		wp_add_inline_style( self::TOKENS_HANDLE, $this->tokens_css() );
 
 		wp_register_style( self::HANDLE, Asset::url( 'assets/modules/builder/css/builder.css' ), array( self::TOKENS_HANDLE ), LENZ_PLUS_VERSION );
+
+		Asset::register_shared();
+		wp_register_script(
+			self::HANDLE,
+			Asset::url( 'assets/modules/builder/js/builder.js' ),
+			array( Asset::LENZ_MENU ),
+			LENZ_PLUS_VERSION,
+			array(
+				'in_footer' => true,
+				'strategy'  => 'defer',
+			)
+		);
+		wp_add_inline_script( self::HANDLE, 'window.lzpBuilder = ' . wp_json_encode( $this->script_config() ) . ';', 'before' );
+	}
+
+	/** Settings and strings for builder.js (`window.lzpBuilder`). */
+	private function script_config(): array {
+		return array(
+			'breakpoint' => (int) $this->module->settings()['breakpoint'],
+			'i18n'       => array(
+				'close' => __( 'Close', 'lenz-plus' ),
+			),
+		);
 	}
 
 	/**

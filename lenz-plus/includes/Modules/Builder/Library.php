@@ -411,6 +411,9 @@ final class Library {
 			if ( class_exists( '\Elementor\Core\Files\CSS\Post' ) ) {
 				\Elementor\Core\Files\CSS\Post::create( $post_id )->delete();
 			}
+
+			// Elementor's element cache keeps the old markup (and element IDs) for a day; the new CSS would not match it.
+			delete_post_meta( $post_id, '_elementor_element_cache' );
 		}
 
 		update_post_meta( $post_id, self::META_HASH, self::data_hash( $post_id ) );

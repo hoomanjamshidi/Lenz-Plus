@@ -2,10 +2,14 @@
 /**
  * Settings schema and defaults for the page templates module (Builder).
  *
- * Template kinds grow with the roadmap: page designs first, then headers and
- * footers, portfolio, blog and course templates. The brand palette and the
+ * Template kinds grow with the roadmap: page designs and headers/footers
+ * first, then portfolio, blog and course templates. The brand palette and the
  * global look options come from the design mockups in Design/ (their
  * `inkColor`, `photoTone` and `showGuides` props).
+ *
+ * Header and footer slots store a template post ID as a string, or one of the
+ * keywords `theme` (Lenz's own header/footer), `none` (print nothing) and
+ * `same` (the phone slot mirrors the desktop slot).
  *
  * @package LenzPlus
  */
@@ -23,13 +27,19 @@ defined( 'ABSPATH' ) || exit;
 final class Schema {
 
 	/** Template kinds, in the order the admin shows them. */
-	public const TYPES = array( 'home', 'about', 'services', 'courses' );
+	public const TYPES = array( 'header', 'footer', 'home', 'about', 'services', 'courses' );
 
 	/**
 	 * Whole-page designs: "Create page" copies them into a regular page, and
 	 * they are edited and previewed with the site's header and footer.
 	 */
 	public const PAGE_TYPES = array( 'home', 'about', 'services', 'courses' );
+
+	/** Kinds that replace a part of every page, one slot per device. */
+	public const AREAS = array( 'header', 'footer' );
+
+	/** Sticky header modes: off, always on screen, or back on screen when scrolling up. */
+	public const STICKY_MODES = array( 'none', 'always', 'scroll_up' );
 
 	/** How photos look in the designs: black and white (the mockups' default) or in colour. */
 	public const PHOTO_TONES = array( 'grayscale', 'color' );
@@ -64,17 +74,30 @@ final class Schema {
 	 * Every setting's default. Empty brand colours mean "the design's colour".
 	 * Icons default to Lenz's own glyphs (with Lucide for keys the theme font
 	 * lacks), the same mix the mockups use; without Lenz they are all SVG.
+	 * The designs' header stays on screen (sticky with a blurred background).
 	 */
 	public static function defaults(): array {
 		return array(
-			'enabled' => false,
-			'options' => array(
+			'enabled'    => false,
+			'header'     => array(
+				'desktop'        => 'theme',
+				'mobile'         => 'same',
+				'sticky_desktop' => 'always',
+				'sticky_mobile'  => 'always',
+			),
+			'footer'     => array(
+				'desktop' => 'theme',
+				'mobile'  => 'same',
+			),
+			// 1024 is Elementor's tablet breakpoint, where the designs' menu row stops fitting.
+			'breakpoint' => 1024,
+			'options'    => array(
 				'icon_pack'      => Theme_Bridge::is_active() ? Icon_Library::LENZ : 'lucide',
 				'persian_digits' => true,
 				'photo_tone'     => self::PHOTO_TONES[0],
 				'guides'         => true,
 			),
-			'brand'   => array_merge(
+			'brand'      => array_merge(
 				array_fill_keys( array_keys( self::BRAND_DEFAULTS ), '' ),
 				array( 'radius' => 16 )
 			),
@@ -93,9 +116,36 @@ final class Schema {
 			'max'  => 40,
 		);
 
+		$ref    = array( 'type' => 'key' );
+		$sticky = array(
+			'type'    => 'enum',
+			'options' => self::STICKY_MODES,
+		);
+
 		return array(
-			'enabled' => array( 'type' => 'bool' ),
-			'options' => array(
+			'enabled'    => array( 'type' => 'bool' ),
+			'header'     => array(
+				'type'   => 'group',
+				'fields' => array(
+					'desktop'        => $ref,
+					'mobile'         => $ref,
+					'sticky_desktop' => $sticky,
+					'sticky_mobile'  => $sticky,
+				),
+			),
+			'footer'     => array(
+				'type'   => 'group',
+				'fields' => array(
+					'desktop' => $ref,
+					'mobile'  => $ref,
+				),
+			),
+			'breakpoint' => array(
+				'type' => 'int',
+				'min'  => 600,
+				'max'  => 1440,
+			),
+			'options'    => array(
 				'type'   => 'group',
 				'fields' => array(
 					// Font Awesome is left out: the designs' icons have no Font Awesome look.
@@ -111,7 +161,7 @@ final class Schema {
 					'guides'         => array( 'type' => 'bool' ),
 				),
 			),
-			'brand'   => array(
+			'brand'      => array(
 				'type'   => 'group',
 				'fields' => $brand,
 			),

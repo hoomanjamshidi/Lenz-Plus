@@ -17,10 +17,15 @@ defined( 'ABSPATH' ) || exit;
  */
 final class Thumbs {
 
-	private const INK   = '#022d4f';
-	private const LINE  = '#e3ebf1';
-	private const SOFT  = '#f5f8fa';
-	private const WHITE = '#ffffff';
+	private const INK    = '#022d4f';
+	private const LINE   = '#e3ebf1';
+	private const SOFT   = '#f5f8fa';
+	private const WHITE  = '#ffffff';
+	private const MUTED  = '#8c9aa6';
+	private const STRONG = '#b9c6d0';
+	private const PANEL  = '#0b3a5e';
+	private const ON_INK = '#c4d3df';
+	private const RULE   = '#2a5878';
 
 	/**
 	 * SVG markup for a preset key, a template kind or `theme` / `none` / `same`.
@@ -58,6 +63,66 @@ final class Thumbs {
 		);
 	}
 
+	/** The header preset (and any header template): logo, menu, booking and phone over a page. */
+	private static function draw_header(): string {
+		return self::r( 0, 0, 240, 150, self::SOFT, 0 )
+			. self::r( 0, 0, 240, 34, self::WHITE, 0 ) . self::r( 0, 34, 240, 1, self::LINE, 0 )
+			. self::r( 208, 10, 14, 14, self::INK, 3 ) . self::r( 170, 11, 32, 6, self::INK, 2 ) . self::r( 180, 19, 22, 3, self::MUTED, 1 )
+			. self::r( 136, 15, 18, 4, self::INK, 2 ) . self::r( 110, 15, 18, 4, self::STRONG, 2 ) . self::r( 84, 15, 18, 4, self::STRONG, 2 )
+			. self::r( 32, 10, 36, 14, self::INK, 4 ) . self::r( 12, 10, 14, 14, self::WHITE, 4, self::LINE )
+			. self::r( 20, 52, 200, 40, self::WHITE, 6, self::LINE ) . self::r( 124, 100, 96, 34, self::WHITE, 6, self::LINE ) . self::r( 20, 100, 96, 34, self::WHITE, 6, self::LINE );
+	}
+
+	/** The full footer: brand box, two link columns and the contact card on ink. */
+	private static function draw_footer(): string {
+		return self::footer_frame()
+			. self::brand( 172 )
+			. self::r( 182, 96, 46, 3, self::ON_INK, 1 ) . self::r( 188, 104, 40, 3, self::ON_INK, 1 )
+			. self::links( 130 ) . self::links( 86 )
+			. self::r( 12, 64, 64, 50, self::PANEL, 6 ) . self::r( 22, 76, 44, 3, self::ON_INK, 1 ) . self::r( 30, 88, 36, 3, self::ON_INK, 1 ) . self::r( 26, 100, 40, 3, self::ON_INK, 1 );
+	}
+
+	/** The compact footer: brand box, one link column and the contact card on ink. */
+	private static function draw_footer_compact(): string {
+		return self::footer_frame()
+			. self::brand( 172 )
+			. self::links( 112 )
+			. self::r( 12, 64, 84, 50, self::PANEL, 6 ) . self::r( 24, 76, 60, 3, self::ON_INK, 1 ) . self::r( 34, 88, 50, 3, self::ON_INK, 1 ) . self::r( 30, 100, 54, 3, self::ON_INK, 1 );
+	}
+
+	/** Page above an ink band with a dashed rule and the copyright line. */
+	private static function footer_frame(): string {
+		return self::r( 0, 0, 240, 150, self::SOFT, 0 )
+			. self::r( 20, 12, 200, 26, self::WHITE, 6, self::LINE )
+			. self::r( 0, 48, 240, 102, self::INK, 0 )
+			. '<path d="M12 128h216" stroke="' . self::RULE . '" stroke-dasharray="4 3"/>'
+			. self::r( 90, 136, 60, 3, self::MUTED, 1 );
+	}
+
+	/**
+	 * The framed logo box and social squares of the footer's first column.
+	 *
+	 * @param float $x Left edge.
+	 */
+	private static function brand( $x ): string {
+		return self::r( $x, 62, 56, 22, self::INK, 4, self::RULE ) . self::r( $x + 40, 67, 10, 12, self::WHITE, 2 ) . self::r( $x + 8, 70, 28, 5, self::WHITE, 2 )
+			. self::r( $x + 42, 112, 12, 12, self::INK, 3, self::RULE ) . self::r( $x + 26, 112, 12, 12, self::INK, 3, self::RULE ) . self::r( $x + 10, 112, 12, 12, self::INK, 3, self::RULE );
+	}
+
+	/**
+	 * A link column: a white title and bulleted lines.
+	 *
+	 * @param float $x Left edge.
+	 */
+	private static function links( $x ): string {
+		$svg = self::r( $x + 10, 64, 26, 5, self::WHITE, 2 );
+		foreach ( array( 78, 90, 102, 114 ) as $y ) {
+			$svg .= self::r( $x + 32, $y, 4, 4, self::MUTED, 0 ) . self::r( $x + 4, $y, 24, 4, self::ON_INK, 1 );
+		}
+
+		return $svg;
+	}
+
 	/**
 	 * The theme option, "nothing", "same as desktop", and custom templates.
 	 *
@@ -72,7 +137,7 @@ final class Thumbs {
 		}
 
 		if ( 'none' === $key ) {
-			return self::r( 0, 0, 240, 150, self::SOFT, 0 ) . '<path d="M100 55l40 40M140 55l-40 40" stroke="#b9c6d0" stroke-width="6" stroke-linecap="round"/>';
+			return self::r( 0, 0, 240, 150, self::SOFT, 0 ) . '<path d="M100 55l40 40M140 55l-40 40" stroke="' . self::STRONG . '" stroke-width="6" stroke-linecap="round"/>';
 		}
 
 		if ( 'same' === $key ) {

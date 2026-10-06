@@ -27,8 +27,20 @@ $elementor = Library::elementor_status();
 
 $panel_tabs = array(
 	'pages'   => array( 'home', __( 'Pages', 'lenz-plus' ) ),
+	'parts'   => array( 'sliders', __( 'Header & footer', 'lenz-plus' ) ),
 	'library' => array( 'grid', __( 'Templates', 'lenz-plus' ) ),
 	'brand'   => array( 'palette', __( 'Colours & options', 'lenz-plus' ) ),
+);
+
+$sticky_options = array(
+	'none'      => __( 'Off', 'lenz-plus' ),
+	'always'    => __( 'Always', 'lenz-plus' ),
+	'scroll_up' => __( 'Smart', 'lenz-plus' ),
+);
+
+$area_titles = array(
+	'header' => array( __( 'Header on desktop', 'lenz-plus' ), __( 'Header on phones & tablets', 'lenz-plus' ) ),
+	'footer' => array( __( 'Footer on desktop', 'lenz-plus' ), __( 'Footer on phones & tablets', 'lenz-plus' ) ),
 );
 
 $brand_labels = array(
@@ -121,6 +133,49 @@ foreach ( Icon_Library::catalog()['packs'] as $pack_id => $pack ) {
 						<p><?php esc_html_e( 'Editing a page never changes the design it came from, so you can make as many pages as you like.', 'lenz-plus' ); ?></p>
 					</header>
 					<div class="lzp-home-pages" data-lzp-home-pages></div>
+				</div>
+			</section>
+
+			<section class="lzp-panel" role="tabpanel" id="lzp-panel-parts" aria-labelledby="lzp-tab-parts">
+				<div class="lzp-card">
+					<header class="lzp-card__head">
+						<h2><?php esc_html_e( 'Replace Lenz\'s header and footer', 'lenz-plus' ); ?></h2>
+						<p><?php esc_html_e( 'Pick a design for each device. Nothing changes for visitors until the module is switched on (top of this page) and the settings are saved; the eye button previews any choice right away. Lenz\'s mobile menu, its scripts and the rest of the page stay as they are.', 'lenz-plus' ); ?></p>
+					</header>
+				</div>
+
+				<?php foreach ( $area_titles as $area => $titles ) : ?>
+					<div class="lzp-card">
+						<header class="lzp-card__head">
+							<h2 class="lzp-device-title"><?php echo $ui_icon( 'grid' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> <?php echo esc_html( $titles[0] ); ?></h2>
+							<p><?php esc_html_e( 'Shown on screens wider than the breakpoint below.', 'lenz-plus' ); ?></p>
+						</header>
+						<div class="lzp-tpl-grid" data-lzp-picker="<?php echo esc_attr( $area ); ?>" data-path="<?php echo esc_attr( $area ); ?>.desktop" data-keywords="theme,none"></div>
+					</div>
+
+					<div class="lzp-card">
+						<header class="lzp-card__head">
+							<h2 class="lzp-device-title"><?php echo $ui_icon( 'mobile' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> <?php echo esc_html( $titles[1] ); ?></h2>
+							<p><?php esc_html_e( 'Each device gets only its own version: the same design, a different one, Lenz\'s, or nothing.', 'lenz-plus' ); ?></p>
+						</header>
+						<div class="lzp-tpl-grid" data-lzp-picker="<?php echo esc_attr( $area ); ?>" data-path="<?php echo esc_attr( $area ); ?>.mobile" data-keywords="same,theme,none"></div>
+					</div>
+				<?php endforeach; ?>
+
+				<div class="lzp-card">
+					<header class="lzp-card__head">
+						<h2><?php esc_html_e( 'Sticky header', 'lenz-plus' ); ?></h2>
+						<p><?php esc_html_e( 'Keeps the Lenz+ header at the top of the screen, as in the designs. Smart hides it while visitors scroll down and brings it back as soon as they scroll up. Lenz\'s own header follows the theme\'s setting.', 'lenz-plus' ); ?></p>
+					</header>
+					<div class="lzp-fields lzp-fields--2">
+						<?php
+						Fields::segmented( 'header.sticky_desktop', __( 'Desktop', 'lenz-plus' ), $sticky_options );
+						Fields::segmented( 'header.sticky_mobile', __( 'Phones & tablets', 'lenz-plus' ), $sticky_options );
+						?>
+					</div>
+					<div class="lzp-fields lzp-fields--after-grid">
+						<?php Fields::range( 'breakpoint', __( 'Phone & tablet breakpoint', 'lenz-plus' ), 600, 1440, 1, 'px', array( 'help' => __( 'At this width and below, the phone header and footer are shown. 1024 matches Elementor\'s tablet breakpoint.', 'lenz-plus' ) ) ); ?>
+					</div>
 				</div>
 			</section>
 

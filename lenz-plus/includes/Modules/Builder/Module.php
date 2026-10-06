@@ -52,6 +52,8 @@ final class Module extends Base_Module {
 	 */
 	public static function type_labels(): array {
 		return array(
+			'header'   => __( 'Header', 'lenz-plus' ),
+			'footer'   => __( 'Footer', 'lenz-plus' ),
 			'home'     => __( 'Home page', 'lenz-plus' ),
 			'about'    => __( 'About page', 'lenz-plus' ),
 			'services' => __( 'Services page', 'lenz-plus' ),
@@ -73,6 +75,7 @@ final class Module extends Base_Module {
 	public function register(): void {
 		( new Template_Post_Type( $this ) )->register();
 		( new Assets( $this ) )->register();
+		( new Header_Footer( $this ) )->register();
 
 		if ( did_action( 'elementor/loaded' ) ) {
 			( new Integration( $this ) )->register();
@@ -92,7 +95,7 @@ final class Module extends Base_Module {
 	/** Template choice and preview links for this request. */
 	public function resolver(): Resolver {
 		if ( null === $this->resolver ) {
-			$this->resolver = new Resolver();
+			$this->resolver = new Resolver( $this );
 		}
 
 		return $this->resolver;
@@ -123,13 +126,22 @@ final class Module extends Base_Module {
 		}
 
 		return array(
-			'elementor'  => Library::elementor_status(),
-			'typeLabels' => self::type_labels(),
-			'templates'  => Library::all( $this ),
-			'pages'      => Design_Pages::all(),
-			'pageKinds'  => self::page_kinds(),
-			'presets'    => Library::catalog_for_js(),
-			'i18n'       => $this->admin_strings(),
+			'elementor'     => Library::elementor_status(),
+			'typeLabels'    => self::type_labels(),
+			'keywordThumbs' => array(
+				'theme' => Thumbs::svg( 'theme' ),
+				'none'  => Thumbs::svg( 'none' ),
+				'same'  => Thumbs::svg( 'same' ),
+			),
+			'themePreview'  => array(
+				'header' => $this->resolver()->preview_url( 'header', 'theme' ),
+				'footer' => $this->resolver()->preview_url( 'footer', 'theme' ),
+			),
+			'templates'     => Library::all( $this ),
+			'pages'         => Design_Pages::all(),
+			'pageKinds'     => self::page_kinds(),
+			'presets'       => Library::catalog_for_js(),
+			'i18n'          => $this->admin_strings(),
 		);
 	}
 
@@ -178,6 +190,14 @@ final class Module extends Base_Module {
 	/** Strings used by builder-admin.js. */
 	private function admin_strings(): array {
 		return array(
+			'themeHeader'     => __( 'Lenz\'s header', 'lenz-plus' ),
+			'themeFooter'     => __( 'Lenz\'s footer', 'lenz-plus' ),
+			'themeDesc'       => __( 'Keep the theme\'s own design.', 'lenz-plus' ),
+			'none'            => __( 'Nothing', 'lenz-plus' ),
+			'noneDesc'        => __( 'Hide it on this device.', 'lenz-plus' ),
+			'same'            => __( 'Same as desktop', 'lenz-plus' ),
+			'sameDesc'        => __( 'Use the desktop choice on phones too.', 'lenz-plus' ),
+			'inUse'           => __( 'In use', 'lenz-plus' ),
 			'preview'         => __( 'Preview', 'lenz-plus' ),
 			'previewOf'       => __( 'Preview', 'lenz-plus' ),
 			'noSample'        => __( 'Nothing to preview yet.', 'lenz-plus' ),

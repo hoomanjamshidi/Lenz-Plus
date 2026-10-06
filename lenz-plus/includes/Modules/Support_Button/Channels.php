@@ -96,7 +96,7 @@ final class Channels {
 
 	/**
 	 * Switched-on channels that resolve to a link, in the saved order. Used by
-	 * the floating button and by the Contact details widget, so the admin
+	 * the floating button and by the Social links widget, so the admin
 	 * types each channel once.
 	 *
 	 * @param array $settings Support button settings.

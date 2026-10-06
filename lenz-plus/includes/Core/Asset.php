@@ -17,6 +17,30 @@ defined( 'ABSPATH' ) || exit;
 /** URLs and contents of front-end assets (minified unless SCRIPT_DEBUG). */
 final class Asset {
 
+	/** Shared script that opens Lenz's mobile menu (`window.lzpLenzMenu`). */
+	public const LENZ_MENU = 'lzp-lenz-menu';
+
+	/**
+	 * Registers the scripts several modules depend on. Safe to call more than
+	 * once; each module calls it before enqueuing its own script.
+	 */
+	public static function register_shared(): void {
+		if ( wp_script_is( self::LENZ_MENU, 'registered' ) ) {
+			return;
+		}
+
+		wp_register_script(
+			self::LENZ_MENU,
+			self::url( 'assets/modules/shared/js/lenz-menu.js' ),
+			array(),
+			LENZ_PLUS_VERSION,
+			array(
+				'in_footer' => true,
+				'strategy'  => 'defer',
+			)
+		);
+	}
+
 	/**
 	 * @param string $path Path inside the plugin, e.g. `assets/modules/builder/css/slider.css`.
 	 */

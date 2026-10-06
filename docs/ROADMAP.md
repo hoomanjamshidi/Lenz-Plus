@@ -4,7 +4,7 @@ This file is the **resume point**. Every session starts here (see the `lenz-plus
 
 Status keys: `[ ]` to do · `[x]` done · `[~]` started (see Notes) · `[-]` dropped (say why)
 
-**Current phase:** 5
+**Current phase:** 6
 
 Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, browser check at 390 and 1440, translations, CLAUDE.md contracts, graphify update, commit `Phase N: …`).
 
@@ -71,13 +71,15 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - [x] Verify: create a template, widgets in the editor and on the front end (light and ink surfaces, 390/1440), "Create page", "Make it the home page", brand colour save → `--lzp-ink`
 
 ## Phase 5 — Header and footer (هدر و فوتر)
-- [ ] Port `Renderer` and `Presets/Blocks` (moved from phase 4); `header` / `footer` kinds in `Schema::TYPES`, header/footer choice in the admin
-- [ ] `Header_Footer` for Lenz (Elementor Pro `theme-support.php` approach, keep `#container`, back off when Pro has header/footer conditions)
-- [ ] Widgets: `Site_Logo`, `Nav_Menu` (+ drawer), `Header_Action` (CTA + phone icon), `Brand_Box`, `Social_Links`, `Link_Column`, `Contact_Box`, `Copyright`
-- [ ] Presets: header (desktop + 64px mobile bar), footer full + footer simple
-- [ ] Verify: desktop/mobile slots, sticky + blur, Lenz mobile menu still works, admin bar offset
+- [x] Port `Renderer` (moved from phase 4); `header` / `footer` kinds in `Schema::TYPES`, device slots, sticky modes and breakpoint in the schema, «هدر و فوتر» admin tab with pickers (`data-lzp-picker`) and previews (`Presets/Blocks` moves to phase 6, its first user)
+- [x] `Header_Footer` for Lenz: buffers header.php on `get_header` (require_once) and footer.php from `get_footer` to `wp_footer`, swaps only `#header-container` / `#site-footer`, keeps `#container`, backs off when Elementor Pro has its own header/footer
+- [x] Widgets: `Site_Logo`, `Nav_Menu` (+ drawer, or Lenz's mobile menu), `Header_Action` (CTA + phone icon), `Brand_Box`, `Social_Links`, `Link_Column`, `Contact_Box`, `Copyright`
+- [x] Presets: header (desktop row + 64px phone bar), footer full + footer compact
+- [x] Shared `lenz-menu.js` (`window.lzpLenzMenu.open()`), used by the bottom nav and the header menu button
+- [x] Verify: desktop/mobile slots (same, mixed with Lenz's header), sticky + blur, Lenz mobile menu from both buttons, drawer (focus, Esc, sub-menus), dropdown, admin bar offset, editor, 390/1440
 
 ## Phase 6 — Static widgets, About and Services (درباره و خدمات)
+- [ ] Port `Presets/Blocks` (moved from phase 5) with the shared section helpers the About/Services presets need
 - [ ] `Page_Hero` (split, text-only), `CTA_Band`, `Stats`, `Icon_Features`, `Process_Steps`, `Faq`
 - [ ] `Framed_Band`, `Timeline`, `Awards`, `Simple_List`, `Quote`
 - [ ] `Service_Detail`, `Anchor_Tiles`, `Pricing_Plans`
@@ -137,3 +139,6 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - Phase 4: the Claude in Chrome extension may be disconnected. Fallback used for phase 4: headless Microsoft Edge (installed) driven by `puppeteer-core` from a scratch folder (`npm i puppeteer-core`, `executablePath: '/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge'`), logging in with "remember me" so `lzp_template` previews (404 for visitors) work.
 - Phase 4: Lenz's Elementor "posts archive" widget uses Elementor Pro classes without checking for Pro (fatal in the editor and in Elementor's global-classes scan). The test mu-plugin stands in for them (`tools/dev/lzp-dev/elementor-pro.php`); real Lenz sites have Pro. Not our bug: never work around it in the plugin.
 - Phase 4: Builder kinds grow per phase (`Schema::TYPES`, `Module::type_labels()`, `page_kinds()`, `Thumbs`): add a kind only with its first preset. Font Awesome is not offered as a builder icon pack (the designs use Material-like line icons and Lenz glyphs).
+- Phase 5: test data. Footer menus «خدمات» (`footer-menu1`) and «دسترسی سریع» (`footer-menu2`) with custom links; a sub-item under «Sample Page» in «Main»; support button channels Instagram/Telegram/WhatsApp switched on (for the footer socials); a Lenz footer branch (`.dev/bin/lwp option update lenz --format=json` with `{"footer-addresses":{"footer-address-title":["دفتر مشهد"],"footer-address-location":["مشهد، خراسان رضوی — با هماهنگی قبلی"],"footer-address-link":[""],"footer-address-phone":["0912 000 0000"]}}`). Builder enabled with the «Header» and «Footer» presets on both devices.
+- Phase 5: `Library::install()` from WP-CLI (no user) takes the raw-meta path; it now also clears `_elementor_element_cache`, else Elementor serves the old markup whose element IDs no longer match the new CSS (the header rows fell back to columns).
+- Phase 5: Lenz's `overflow-x: hidden` on body and `#container` breaks `position: sticky`; builder.css switches them to `overflow-x: clip` while our header is on. On phones the admin bar is anchored to Lenz's relatively positioned body; builder.css moves it back into the html margin.

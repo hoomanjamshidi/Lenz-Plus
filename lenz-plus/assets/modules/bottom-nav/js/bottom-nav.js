@@ -452,38 +452,9 @@
 			return Sheets.open( link.getAttribute( 'aria-controls' ), link );
 		},
 
-		/**
-		 * Lenz's mobile menu (#mobile-menu, printed on every page). Its open
-		 * code is private to the theme's script, so the header button is
-		 * clicked when it exists; otherwise (e.g. an Elementor header) the same
-		 * three changes are made here. The theme's close handlers (#overlay,
-		 * .mobile-menu-close) work either way.
-		 */
+		/** Lenz's mobile menu, through the shared opener (lenz-menu.js). */
 		'theme-menu'() {
-			const menu = document.getElementById( 'mobile-menu' );
-			if ( ! menu ) {
-				return false;
-			}
-
-			const button = document.getElementById( 'header-mobile-menu-btn' );
-			afterClick( () => {
-				if ( button ) {
-					button.click();
-					return;
-				}
-
-				const overlay = document.getElementById( 'overlay' );
-				document.body.classList.add( 'mobile-menu-opened' );
-				menu.classList.remove( 'closed' );
-				if ( overlay ) {
-					if ( window.jQuery ) {
-						window.jQuery( overlay ).fadeIn();
-					} else {
-						overlay.style.display = 'block';
-					}
-				}
-			} );
-			return true;
+			return Boolean( window.lzpLenzMenu ) && window.lzpLenzMenu.open();
 		},
 
 		selector( link ) {

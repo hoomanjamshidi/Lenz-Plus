@@ -30,6 +30,16 @@ final class Integration {
 		'Heading',
 		'Text',
 		'Button',
+		// Header.
+		'Site_Logo',
+		'Nav_Menu',
+		'Header_Action',
+		// Footer.
+		'Brand_Box',
+		'Social_Links',
+		'Link_Column',
+		'Contact_Box',
+		'Copyright',
 	);
 
 	/** @var Module|null */
@@ -123,6 +133,7 @@ final class Integration {
 					'chip'     => __( 'Tile', 'lenz-plus' ),
 					'ink'      => __( 'Ink band (dark)', 'lenz-plus' ),
 					'ink-card' => __( 'Dark card', 'lenz-plus' ),
+					'bar'      => __( 'Header bar (translucent)', 'lenz-plus' ),
 				),
 				'prefix_class' => 'lzp-surface-',
 				'description'  => __( 'Uses the brand colours from Lenz+ → Page templates. Dark surfaces switch the text inside to light colours. A background set in the Style tab still wins.', 'lenz-plus' ),

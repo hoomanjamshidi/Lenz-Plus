@@ -25,7 +25,26 @@ final class Catalog {
 	 * @return array<string, array{type:string, label:string, description:string, build:callable}>
 	 */
 	public static function all(): array {
-		return array();
+		return array(
+			'header'         => array(
+				'type'        => 'header',
+				'label'       => __( 'Header', 'lenz-plus' ),
+				'description' => __( 'Logo and name, the menu, a booking button and the phone, on a translucent bar; a compact bar with the menu button on phones.', 'lenz-plus' ),
+				'build'       => array( Header::class, 'main' ),
+			),
+			'footer'         => array(
+				'type'        => 'footer',
+				'label'       => __( 'Footer', 'lenz-plus' ),
+				'description' => __( 'Brand box with a description and social buttons, both footer menus and the contact card, on the ink band.', 'lenz-plus' ),
+				'build'       => array( Footer::class, 'full' ),
+			),
+			'footer-compact' => array(
+				'type'        => 'footer',
+				'label'       => __( 'Compact footer', 'lenz-plus' ),
+				'description' => __( 'Brand box, quick links and the contact card, as on the about and project pages.', 'lenz-plus' ),
+				'build'       => array( Footer::class, 'compact' ),
+			),
+		);
 	}
 
 	/**

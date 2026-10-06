@@ -1,9 +1,9 @@
 /**
  * Lenz Plus — page templates admin.
  *
- * Renders the template library (with live preview) and the pages tab
- * (designs → new pages) on top of the shared admin store (window.LZP from
- * admin.js).
+ * Renders the header/footer pickers, the template library (with live
+ * preview) and the pages tab (designs → new pages) on top of the shared admin
+ * store (window.LZP from admin.js).
  */
 ( function () {
 	'use strict';
@@ -49,6 +49,36 @@
 	// Template kinds in the order the settings list them (Module::type_labels()).
 	const kinds = Object.keys( data.typeLabels || {} );
 	const findTemplate = ( id ) => templates.find( ( tpl ) => String( tpl.id ) === String( id ) );
+	const AREAS = [ 'header', 'footer' ];
+
+	/** Every stored reference to a template, to show "In use" badges. */
+	function usedIds() {
+		const used = new Set();
+		AREAS.forEach( ( area ) => {
+			used.add( String( store.get( area + '.desktop' ) ) );
+			used.add( String( store.get( area + '.mobile' ) ) );
+		} );
+
+		return used;
+	}
+
+	function keywordOption( keyword, type ) {
+		const titles = {
+			theme: type === 'header' ? t.themeHeader : t.themeFooter,
+			none: t.none,
+			same: t.same,
+		};
+		const descs = { theme: t.themeDesc, none: t.noneDesc, same: t.sameDesc };
+
+		return {
+			value: keyword,
+			title: titles[ keyword ],
+			desc: descs[ keyword ],
+			thumb: ( data.keywordThumbs || {} )[ keyword ] || '',
+			previewUrl: keyword === 'theme' ? ( data.themePreview || {} )[ type ] : '',
+			editUrl: '',
+		};
+	}
 
 	/* ---------------------------------------------------------------------
 	 * Preview dialog
@@ -122,6 +152,88 @@
 		fit();
 	}
 
+	app.addEventListener( 'click', ( event ) => {
+		const preview = event.target.closest( '[data-preview]' );
+		if ( preview ) {
+			event.preventDefault();
+			openPreview( preview.dataset.preview, preview.dataset.title || '' );
+		}
+	} );
+
+	/* ---------------------------------------------------------------------
+	 * Pickers (header/footer per device)
+	 * ------------------------------------------------------------------- */
+
+	function cardHtml( option, name ) {
+		const chips = [];
+		if ( option.preset ) {
+			chips.push( '<span class="lzp-chip lzp-chip--accent">' + escapeHtml( t.preset ) + '</span>' );
+		}
+		if ( option.modified ) {
+			chips.push( '<span class="lzp-chip">' + escapeHtml( t.modified ) + '</span>' );
+		}
+
+		const actions = [];
+		if ( option.previewUrl ) {
+			actions.push( '<button type="button" class="lzp-icon-btn" data-preview="' + escapeHtml( option.previewUrl ) + '" data-title="' + escapeHtml( option.title ) + '" title="' + escapeHtml( t.preview ) + '" aria-label="' + escapeHtml( t.preview ) + '">' + ICONS.eye + '</button>' );
+		}
+		if ( option.editUrl ) {
+			actions.push( '<a class="lzp-icon-btn" href="' + escapeHtml( option.editUrl ) + '" target="_blank" rel="noopener" title="' + escapeHtml( t.edit ) + '" aria-label="' + escapeHtml( t.edit ) + '">' + ICONS.edit + '</a>' );
+		}
+
+		return '<label class="lzp-tpl-card">' +
+			'<input type="radio" name="' + escapeHtml( name ) + '" value="' + escapeHtml( option.value ) + '">' +
+			'<span class="lzp-tpl-card__thumb">' + option.thumb + '<i class="lzp-tpl-card__check">' + ICONS.check + '</i></span>' +
+			'<span class="lzp-tpl-card__body">' +
+				'<span class="lzp-tpl-card__title">' + escapeHtml( option.title ) + '</span>' +
+				( option.desc ? '<span class="lzp-tpl-card__desc">' + escapeHtml( option.desc ) + '</span>' : '' ) +
+				( chips.length ? '<span class="lzp-tpl-card__chips">' + chips.join( '' ) + '</span>' : '' ) +
+			'</span>' +
+			( actions.length ? '<span class="lzp-tpl-card__actions">' + actions.join( '' ) + '</span>' : '' ) +
+		'</label>';
+	}
+
+	function renderPicker( host ) {
+		const type = host.dataset.lzpPicker;
+		const keywords = ( host.dataset.keywords || '' ).split( ',' ).filter( Boolean );
+		const name = 'lzp-pick-' + host.dataset.path.replace( /\W/g, '-' );
+		const presets = {};
+		( data.presets || [] ).forEach( ( preset ) => {
+			presets[ preset.key ] = preset;
+		} );
+
+		const options = keywords.map( ( keyword ) => keywordOption( keyword, type ) ).concat(
+			ofType( type ).map( ( tpl ) => ( {
+				value: String( tpl.id ),
+				title: tpl.title,
+				desc: tpl.preset && presets[ tpl.preset ] ? presets[ tpl.preset ].description : t.custom,
+				thumb: tpl.thumb,
+				preset: Boolean( tpl.preset ),
+				modified: tpl.modified,
+				previewUrl: tpl.previewUrl,
+				editUrl: tpl.editUrl,
+			} ) )
+		);
+
+		host.innerHTML = options.map( ( option ) => cardHtml( option, name ) ).join( '' );
+		syncPicker( host );
+	}
+
+	function syncPicker( host ) {
+		const value = String( store.get( host.dataset.path ) );
+		host.querySelectorAll( 'input[type="radio"]' ).forEach( ( input ) => {
+			input.checked = input.value === value;
+		} );
+	}
+
+	app.addEventListener( 'change', ( event ) => {
+		const input = event.target;
+		const picker = input.closest && input.closest( '[data-lzp-picker]' );
+		if ( picker && input.type === 'radio' && input.checked ) {
+			store.set( picker.dataset.path, input.value );
+		}
+	} );
+
 	/* ---------------------------------------------------------------------
 	 * Library
 	 * ------------------------------------------------------------------- */
@@ -138,6 +250,7 @@
 		}
 
 		const labels = data.typeLabels || {};
+		const used = usedIds();
 
 		host.innerHTML = kinds.map( ( type ) => {
 			const list = ofType( type );
@@ -147,6 +260,7 @@
 					'<div class="lzp-lib-card__body">' +
 						'<h4>' + escapeHtml( tpl.title ) + '</h4>' +
 						'<div class="lzp-tpl-card__chips">' +
+							( used.has( String( tpl.id ) ) ? '<span class="lzp-chip lzp-chip--accent">' + escapeHtml( t.inUse ) + '</span>' : '' ) +
 							( tpl.preset ? '<span class="lzp-chip">' + escapeHtml( t.preset ) + '</span>' : '' ) +
 							( tpl.modified ? '<span class="lzp-chip">' + escapeHtml( t.modified ) + '</span>' : '' ) +
 						'</div>' +
@@ -589,15 +703,27 @@
 	 * ------------------------------------------------------------------- */
 
 	function renderAll() {
+		app.querySelectorAll( '[data-lzp-picker]' ).forEach( renderPicker );
 		renderLibrary();
 		renderHomeDesigns();
 		renderHomePages();
 	}
 
-	// A reset or a reload of the settings redraws everything.
+	// A reset or a reload of the settings redraws everything; a picked slot updates its picker and the badges.
 	store.subscribe( ( path ) => {
 		if ( path === '*' ) {
 			renderAll();
+			return;
+		}
+
+		app.querySelectorAll( '[data-lzp-picker]' ).forEach( ( host ) => {
+			if ( host.dataset.path === path ) {
+				syncPicker( host );
+			}
+		} );
+
+		if ( /^(header|footer)\.(desktop|mobile)$/.test( path ) ) {
+			renderLibrary();
 		}
 	} );
 
