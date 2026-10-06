@@ -12,10 +12,12 @@ namespace LenzPlus;
 
 defined( 'ABSPATH' ) || exit;
 
+/** Maps `LenzPlus\\` classes to files under includes/. */
 final class Autoloader {
 
 	private const PREFIX = __NAMESPACE__ . '\\';
 
+	/** Hooks this class into WordPress. */
 	public static function register(): void {
 		spl_autoload_register( array( __CLASS__, 'load' ) );
 	}

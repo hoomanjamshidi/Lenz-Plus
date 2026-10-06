@@ -15,6 +15,7 @@ use LenzPlus\Core\Icon_Library;
 
 defined( 'ABSPATH' ) || exit;
 
+/** Turns resolved items into the bar and sheet markup. */
 final class Renderer {
 
 	/** @var array Module settings. */
@@ -32,6 +33,7 @@ final class Renderer {
 		$this->items    = $items;
 	}
 
+	/** Markup of the bar and its sheets. */
 	public function render(): string {
 		ob_start();
 

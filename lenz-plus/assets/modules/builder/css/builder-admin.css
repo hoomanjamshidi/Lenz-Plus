@@ -1,0 +1,660 @@
+/**
+ * Lenz Plus — page templates admin (extends admin.css).
+ *
+ * Sections: layout · template cards · rules · category picker · library ·
+ * preview dialog · responsive
+ */
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+.lzp-module-body--wide {
+	grid-template-columns: minmax(0, 1fr);
+}
+
+.lzp-inline-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.lzp-device-title {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.lzp-admin .lzp-device-title .lzp-ico {
+	color: var(--lzp-brand);
+}
+
+/* ==========================================================================
+   Template cards (pickers)
+   ========================================================================== */
+
+.lzp-tpl-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+	gap: 14px;
+}
+
+/* A setting under a template picker (Blog tab). */
+.lzp-fields--after-grid {
+	margin-top: 22px;
+}
+
+.lzp-tpl-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	border: 2px solid var(--lzp-line);
+	border-radius: 18px;
+	background: var(--lzp-surface);
+	cursor: pointer;
+	transition: border-color 0.2s ease, box-shadow 0.25s ease, transform 0.25s var(--lzp-ease);
+}
+
+.lzp-tpl-card:hover {
+	transform: translateY(-2px);
+	box-shadow: var(--lzp-shadow-pop);
+}
+
+.lzp-tpl-card input {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.lzp-tpl-card:has(input:checked) {
+	border-color: var(--lzp-brand);
+	box-shadow: 0 0 0 4px rgba(91, 76, 240, 0.12);
+}
+
+.lzp-tpl-card:has(input:focus-visible) {
+	box-shadow: var(--lzp-focus);
+}
+
+.lzp-tpl-card__thumb {
+	position: relative;
+	display: block;
+	aspect-ratio: 8 / 5;
+	overflow: hidden;
+	border-bottom: 1px solid var(--lzp-line);
+	background: #f4f6f7;
+}
+
+.lzp-thumb {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+/* Style cards showing a wireframe (live search results): the frame follows the drawing. */
+.lzp-style-card__stage--thumb {
+	height: auto;
+	aspect-ratio: 8 / 5;
+	background: #f4f6f7;
+}
+
+.lzp-tpl-card__check {
+	position: absolute;
+	inset-block-start: 10px;
+	inset-inline-end: 10px;
+	display: grid;
+	place-items: center;
+	width: 26px;
+	height: 26px;
+	border-radius: 50%;
+	background: var(--lzp-brand);
+	color: #fff;
+	opacity: 0;
+	transform: scale(0.5);
+	transition: opacity 0.2s ease, transform 0.3s var(--lzp-ease);
+}
+
+.lzp-tpl-card__check svg {
+	width: 15px;
+	height: 15px;
+}
+
+.lzp-tpl-card:has(input:checked) .lzp-tpl-card__check {
+	opacity: 1;
+	transform: none;
+}
+
+.lzp-tpl-card__body {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	gap: 4px;
+	padding: 12px 14px 10px;
+}
+
+.lzp-tpl-card__title {
+	color: var(--lzp-ink);
+	font-weight: 800;
+	line-height: 1.6;
+}
+
+.lzp-tpl-card__desc {
+	color: var(--lzp-muted);
+	font-size: 12px;
+	line-height: 1.7;
+}
+
+.lzp-tpl-card__chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	margin-top: 2px;
+}
+
+.lzp-tpl-card__actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 4px;
+	padding: 0 10px 10px;
+}
+
+.lzp-tpl-card__actions .lzp-icon-btn,
+.lzp-lib-card__actions .lzp-icon-btn {
+	width: 34px;
+	height: 34px;
+}
+
+.lzp-admin .lzp-icon-btn svg {
+	width: 18px;
+	height: 18px;
+}
+
+/* ==========================================================================
+   Rules
+   ========================================================================== */
+
+.lzp-rules {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.lzp-admin .lzp-rules__empty {
+	padding: 18px;
+	border: 2px dashed var(--lzp-line);
+	border-radius: 14px;
+	color: var(--lzp-muted);
+	text-align: center;
+}
+
+.lzp-rule {
+	display: grid;
+	grid-template-columns: auto minmax(0, 1.6fr) auto minmax(180px, 1fr) auto;
+	align-items: center;
+	gap: 12px;
+	padding: 12px 14px;
+	border: 1px solid var(--lzp-line);
+	border-radius: 14px;
+	background: var(--lzp-surface-2);
+}
+
+.lzp-rule__num {
+	display: grid;
+	place-items: center;
+	width: 28px;
+	height: 28px;
+	border-radius: 8px;
+	background: var(--lzp-brand-soft);
+	color: var(--lzp-brand);
+	font-size: 13px;
+	font-weight: 800;
+}
+
+.lzp-rule__cats {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	min-width: 0;
+}
+
+.lzp-rule__pick {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 4px;
+	min-height: 40px;
+	padding: 6px 10px;
+	border: 1px solid var(--lzp-line-strong);
+	border-radius: 10px;
+	background: var(--lzp-surface);
+	color: var(--lzp-ink);
+	font-family: inherit;
+	font-size: 13px;
+	text-align: start;
+	cursor: pointer;
+}
+
+.lzp-rule__pick:hover,
+.lzp-rule__pick:focus-visible {
+	border-color: var(--lzp-brand);
+	outline: none;
+}
+
+.lzp-rule__pick.is-empty {
+	border-style: dashed;
+	color: var(--lzp-muted);
+}
+
+.lzp-admin .lzp-rule__warn {
+	color: var(--lzp-warn);
+	font-size: 11.5px;
+}
+
+.lzp-rule__children {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	color: var(--lzp-ink-2);
+	font-size: 12.5px;
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+.lzp-rule__select select {
+	width: 100%;
+}
+
+.lzp-rule__tools {
+	display: flex;
+	gap: 2px;
+}
+
+.lzp-rule__tools .lzp-icon-btn {
+	width: 32px;
+	height: 32px;
+}
+
+.lzp-rule__tools .lzp-icon-btn:disabled {
+	opacity: 0.35;
+	cursor: default;
+}
+
+/* ==========================================================================
+   Category picker popover
+   ========================================================================== */
+
+.lzp-term-picker {
+	position: absolute;
+	inset-block-start: calc(100% + 6px);
+	inset-inline-start: 0;
+	z-index: 40;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	width: min(340px, 90vw);
+	padding: 10px;
+	border: 1px solid var(--lzp-line);
+	border-radius: 14px;
+	background: var(--lzp-surface);
+	box-shadow: var(--lzp-shadow-pop);
+}
+
+.lzp-term-picker__list {
+	display: flex;
+	flex-direction: column;
+	max-height: 280px;
+	overflow-y: auto;
+}
+
+.lzp-term-picker .lzp-check {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 8px;
+	padding-inline-start: calc(8px + var(--depth, 0) * 18px);
+	border-radius: 8px;
+	font-size: 13px;
+	cursor: pointer;
+}
+
+.lzp-term-picker .lzp-check:hover {
+	background: var(--lzp-surface-2);
+}
+
+.lzp-term-picker .lzp-check span {
+	flex: 1;
+}
+
+.lzp-term-picker .lzp-check em {
+	color: var(--lzp-muted);
+	font-size: 11px;
+	font-style: normal;
+}
+
+.lzp-admin .lzp-term-picker__empty {
+	padding: 12px;
+	color: var(--lzp-muted);
+	text-align: center;
+}
+
+/* ==========================================================================
+   Library
+   ========================================================================== */
+
+.lzp-library,
+.lzp-page-designs {
+	display: flex;
+	flex-direction: column;
+	gap: 26px;
+}
+
+.lzp-admin .lzp-lib-group h3 {
+	display: flex;
+	align-items: center;
+	margin: 0 0 12px;
+	font-size: 14px;
+	font-weight: 800;
+}
+
+.lzp-lib-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+	gap: 14px;
+}
+
+.lzp-lib-card {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	border: 1px solid var(--lzp-line);
+	border-radius: 16px;
+	background: var(--lzp-surface);
+	transition: box-shadow 0.25s ease;
+}
+
+.lzp-lib-card:hover {
+	box-shadow: var(--lzp-shadow-pop);
+}
+
+.lzp-lib-card__thumb {
+	display: block;
+	aspect-ratio: 8 / 5;
+	padding: 0;
+	overflow: hidden;
+	border: 0;
+	border-bottom: 1px solid var(--lzp-line);
+	background: #f4f6f7;
+	cursor: zoom-in;
+}
+
+.lzp-lib-card__body {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	padding: 12px 14px 4px;
+}
+
+.lzp-admin .lzp-lib-card__body h4 {
+	margin: 0;
+	color: var(--lzp-ink);
+	font-size: 14px;
+	font-weight: 800;
+	line-height: 1.6;
+}
+
+.lzp-lib-card__actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 4px;
+	padding: 8px 12px 12px;
+}
+
+.lzp-lib-card__actions .lzp-btn {
+	margin-inline-end: auto;
+}
+
+.lzp-btn--sm {
+	min-height: 34px;
+	padding: 0 12px;
+	font-size: 12.5px;
+}
+
+.lzp-btn--sm svg {
+	width: 16px;
+	height: 16px;
+}
+
+.lzp-new-dialog .lzp-dialog__body {
+	padding-top: 8px;
+}
+
+/* ==========================================================================
+   Home pages
+   ========================================================================== */
+
+.lzp-home-designs {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 16px;
+}
+
+.lzp-home-card {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	border: 1px solid var(--lzp-line);
+	border-radius: 16px;
+	background: var(--lzp-surface);
+	transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.lzp-home-card:hover {
+	border-color: var(--lzp-brand);
+	box-shadow: var(--lzp-shadow-pop);
+}
+
+.lzp-home-card__thumb {
+	display: block;
+	aspect-ratio: 8 / 5;
+	padding: 0;
+	overflow: hidden;
+	border: 0;
+	border-bottom: 1px solid var(--lzp-line);
+	background: #f4f6f7;
+	cursor: zoom-in;
+}
+
+.lzp-home-card__body {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	gap: 6px;
+	padding: 14px 16px 6px;
+}
+
+.lzp-admin .lzp-home-card__body h3 {
+	margin: 0;
+	color: var(--lzp-ink);
+	font-size: 15px;
+	font-weight: 800;
+	line-height: 1.6;
+}
+
+.lzp-admin .lzp-home-card__body p {
+	margin: 0;
+	color: var(--lzp-muted);
+	font-size: 12.5px;
+	line-height: 1.9;
+}
+
+.lzp-home-card__actions {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	padding: 10px 14px 14px;
+}
+
+.lzp-home-card__actions .lzp-btn {
+	margin-inline-end: auto;
+}
+
+.lzp-page-list {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.lzp-page-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px 16px;
+	margin: 0;
+	padding: 12px 0;
+	border-top: 1px solid var(--lzp-line);
+}
+
+.lzp-page-row:first-child {
+	border-top: 0;
+}
+
+.lzp-page-row__main {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px 10px;
+	min-width: 0;
+}
+
+.lzp-admin .lzp-page-row__title {
+	color: var(--lzp-ink);
+	font-size: 14px;
+	font-weight: 800;
+	text-decoration: none;
+}
+
+.lzp-admin .lzp-page-row__title:hover {
+	color: var(--lzp-brand);
+}
+
+.lzp-page-row__from {
+	color: var(--lzp-muted);
+	font-size: 12px;
+}
+
+.lzp-page-row__actions {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+/* ==========================================================================
+   Preview dialog
+   ========================================================================== */
+
+.lzp-dialog.lzp-preview-dialog {
+	width: min(1480px, calc(100vw - 32px));
+	max-width: none;
+	height: calc(100vh - 48px);
+	max-height: none;
+}
+
+.lzp-preview-dialog[open] {
+	display: flex;
+	flex-direction: column;
+}
+
+.lzp-preview-dialog__head {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px;
+	padding: 14px 18px 6px;
+}
+
+.lzp-admin .lzp-preview-dialog__head h2 {
+	flex: 1;
+	margin: 0;
+	font-size: 15px;
+	font-weight: 800;
+}
+
+.lzp-preview-dialog__head .lzp-segmented__option span {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.lzp-preview-dialog__head .lzp-segmented__option svg {
+	width: 16px;
+	height: 16px;
+}
+
+.lzp-admin .lzp-preview-dialog__note {
+	padding: 0 18px 10px;
+	color: var(--lzp-muted);
+	font-size: 12px;
+}
+
+.lzp-preview-dialog__stage {
+	position: relative;
+	flex: 1;
+	min-height: 0;
+	overflow: hidden;
+	background:
+		radial-gradient(circle at 20% 10%, rgba(91, 76, 240, 0.08), transparent 55%),
+		#eceef5;
+}
+
+.lzp-preview-dialog__frame {
+	position: absolute;
+	inset-block-start: 12px;
+	inset-inline-start: 50%;
+	translate: 50% 0;
+	overflow: hidden;
+	border-radius: 12px;
+	background: #fff;
+	box-shadow: 0 30px 60px -30px rgba(19, 23, 41, 0.45);
+	transform-origin: top center;
+}
+
+[dir="ltr"] .lzp-preview-dialog__frame {
+	translate: -50% 0;
+}
+
+.lzp-preview-dialog__frame.is-device {
+	border: 10px solid #1b1e2b;
+	border-radius: 28px;
+}
+
+.lzp-preview-dialog__frame iframe {
+	display: block;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+	.lzp-rule {
+		grid-template-columns: auto minmax(0, 1fr) auto;
+	}
+
+	.lzp-rule__children,
+	.lzp-rule__select {
+		grid-column: 2 / -1;
+	}
+
+	.lzp-rule__tools {
+		grid-column: 3;
+		grid-row: 1;
+	}
+}

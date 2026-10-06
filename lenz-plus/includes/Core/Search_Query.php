@@ -15,6 +15,7 @@ namespace LenzPlus\Core;
 
 defined( 'ABSPATH' ) || exit;
 
+/** Live search query and result view models. */
 final class Search_Query {
 
 	/** Shorter terms return nothing; the front-end scripts do not send them. */

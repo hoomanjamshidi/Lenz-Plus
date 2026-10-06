@@ -1,0 +1,51 @@
+/**
+ * Lenz Plus — shared design tokens.
+ *
+ * Derived values for the brand tokens. Assets::tokens_css() prints this file
+ * inline together with the brand colours and global look options from the
+ * settings (--lzp-ink, --lzp-accent…, --lzp-photo-filter, --lzp-guides),
+ * before every Lenz+ stylesheet, so a widget group with its own small
+ * stylesheet does not need builder.css.
+ *
+ * Values follow the mockups in Design/: a 1280px container with
+ * clamp(16px, 4vw, 40px) gutters, flat surfaces with 1px borders (no shadows),
+ * radii from 8px (chips) to 18px (framed bands).
+ */
+
+:root {
+	/* Radii, scaled from the card radius (--lzp-radius, 16px by default). */
+	--lzp-radius-xs: calc(var(--lzp-radius, 16px) * 0.5);
+	--lzp-radius-sm: calc(var(--lzp-radius, 16px) * 0.625);
+	--lzp-radius-md: calc(var(--lzp-radius, 16px) * 0.75);
+	--lzp-radius-lg: calc(var(--lzp-radius, 16px) * 0.875);
+	--lzp-radius-xl: calc(var(--lzp-radius, 16px) * 1.125);
+
+	/* Layout */
+	--lzp-container: 1280px;
+	--lzp-gutter: clamp(16px, 4vw, 40px);
+	--lzp-section-y: clamp(30px, 4.5vw, 64px);
+	--lzp-gap: clamp(14px, 2vw, 22px);
+	--lzp-split-gap: clamp(24px, 4vw, 52px);
+
+	/* Type: the theme's font (Lenz → Typography), sizes from the mockups. */
+	--lzp-font: var(--main-font, inherit);
+	--lzp-fs-h2: clamp(18px, 2.2vw, 26px);
+	--lzp-fs-body: 15px;
+	--lzp-lh-body: 2.2;
+
+	/* Motion */
+	--lzp-ease: cubic-bezier(0.22, 1, 0.36, 1);
+	--lzp-dur: 0.2s;
+
+	/* Space the WordPress admin bar takes at the top of the viewport while scrolling. */
+	--lzp-admin-bar: var(--wp-admin--admin-bar--height, 0px);
+	--lzp-header-offset: 0px;
+}
+
+/* Below 600px WordPress lets the admin bar scroll away with the page, but keeps
+   its height variable, so sticky elements would stop 46px short of the top. */
+@media (max-width: 600px) {
+	:root {
+		--lzp-admin-bar: 0px;
+	}
+}

@@ -9,6 +9,7 @@ namespace LenzPlus\Core;
 
 defined( 'ABSPATH' ) || exit;
 
+/** Array helpers for settings. */
 final class Arr {
 
 	/**

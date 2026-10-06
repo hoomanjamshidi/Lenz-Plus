@@ -23,6 +23,7 @@ namespace LenzPlus\Core;
 
 defined( 'ABSPATH' ) || exit;
 
+/** Schema-driven sanitizer for module settings. */
 final class Sanitizer {
 
 	/**

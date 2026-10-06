@@ -1,0 +1,474 @@
+/**
+ * Lenz Plus — page templates (front end + Elementor preview).
+ *
+ * Every colour comes from the brand tokens printed on :root (--lzp-ink,
+ * --lzp-accent…, see tokens.css), so the designs follow Lenz+ → Page
+ * templates. Dark container surfaces re-map the tokens for everything inside
+ * them. Elementor style controls override these defaults. Logical
+ * properties keep RTL and LTR correct.
+ *
+ * Lenz resets almost every element (margin/padding 0, line-height 2, no list
+ * style) and colours links and headings itself, so every component sets its
+ * own spacing, line-height and colours, with two-class selectors where
+ * Elementor kit rules (`.elementor-kit-N h2`) could otherwise win.
+ *
+ * Sections: surfaces & sticky · shared bits (icons, photos, motifs) ·
+ * heading · text · buttons · accessibility
+ */
+
+/* ==========================================================================
+   Surfaces & sticky (container controls: Lenz+ → brand surface / sticky)
+   ========================================================================== */
+
+.e-con[class*="lzp-surface-"] {
+	color: var(--lzp-text);
+	font-family: var(--lzp-font);
+}
+
+.e-con.lzp-surface-plain,
+.e-con.lzp-surface-card,
+.e-con.lzp-surface-dashed {
+	background-color: var(--lzp-bg);
+	border-radius: var(--lzp-radius);
+}
+
+.e-con.lzp-surface-card {
+	border: 1px solid var(--lzp-line);
+}
+
+/* The mockups' signature card: dashed until hovered. */
+.e-con.lzp-surface-dashed {
+	border: 1px dashed var(--lzp-dashed);
+	transition: border-color var(--lzp-dur) ease;
+}
+
+.e-con.lzp-surface-dashed:hover {
+	border-style: solid;
+	border-color: var(--lzp-ink);
+}
+
+.e-con.lzp-surface-soft {
+	background-color: var(--lzp-soft);
+}
+
+.e-con.lzp-surface-chip {
+	background-color: var(--lzp-chip);
+	border-radius: var(--lzp-radius-lg);
+}
+
+/* Dark surfaces re-map the tokens, so every widget inside switches to light text. */
+.e-con.lzp-surface-ink,
+.e-con.lzp-surface-ink-card {
+	--lzp-text: var(--lzp-on-dark);
+	--lzp-sub: var(--lzp-on-dark);
+	--lzp-muted: var(--lzp-on-dark-muted);
+	--lzp-line: var(--lzp-on-dark-line);
+	--lzp-dashed: var(--lzp-on-dark-line);
+	--lzp-heading: #ffffff;
+	--lzp-chip: var(--lzp-dark-surface);
+	color: var(--lzp-text);
+}
+
+.e-con.lzp-surface-ink {
+	background-color: var(--lzp-ink);
+	border-radius: var(--lzp-radius);
+}
+
+.e-con.lzp-surface-ink-card {
+	background-color: var(--lzp-dark-surface);
+	border: 1px solid #1a4a6e;
+	border-radius: var(--lzp-radius-lg);
+}
+
+/* Full-bleed bands keep square corners. */
+.e-con.e-con-full:not(.e-child):is(.lzp-surface-soft, .lzp-surface-ink) {
+	border-radius: 0;
+}
+
+.e-con.lzp-sticky-all,
+.e-con.lzp-sticky-desktop {
+	position: sticky;
+	top: calc(var(--lzp-sticky-offset, 24px) + var(--lzp-admin-bar) + var(--lzp-header-offset, 0px));
+	align-self: flex-start;
+	z-index: 5;
+}
+
+@media (max-width: 1024px) {
+	.e-con.lzp-sticky-desktop {
+		position: relative;
+		top: auto;
+		align-self: auto;
+	}
+}
+
+/* ==========================================================================
+   Shared bits: icons, photos and the mockups' decorative motifs
+   ========================================================================== */
+
+.lzp-ico {
+	display: inline-block;
+	flex: none;
+	width: 1.15em;
+	height: 1.15em;
+	vertical-align: -0.2em;
+	stroke-width: 1.8;
+}
+
+/* Lenz glyphs (`<i class="lenz-icon-…">`): sized by the font, centred like the SVGs. */
+.lzp-ico--glyph {
+	width: auto;
+	height: auto;
+	font-size: 1.15em;
+	line-height: 1;
+	vertical-align: -0.15em;
+}
+
+/* "Forward" arrows point up-left for RTL; mirror them on LTR sites. */
+[dir="ltr"] .lzp-ico--forward {
+	transform: scaleX(-1);
+}
+
+/* Photos follow the global photo tone (Lenz+ → Page templates: black and white or colour). */
+.lzp-photo,
+.lzp-photo img {
+	filter: var(--lzp-photo-filter, none);
+}
+
+/* The mockups' image notch: a white corner block with a thin accent line above it. */
+.lzp-notch {
+	position: relative;
+}
+
+.lzp-notch::after {
+	content: "";
+	position: absolute;
+	inset-inline-end: 0;
+	bottom: 0;
+	width: 22%;
+	height: 18px;
+	border-start-start-radius: 12px;
+	background: var(--lzp-notch-bg, var(--lzp-bg));
+	box-shadow: 0 -2px 0 0 var(--lzp-accent);
+}
+
+/* Huge outline words behind heroes (AMIRMAHDI PHOTO, LEARN THE LIGHT…). */
+.lzp-watermark {
+	position: absolute;
+	z-index: 0;
+	color: transparent;
+	font-size: clamp(50px, 10vw, 145px);
+	font-weight: 900;
+	line-height: 1;
+	letter-spacing: 0.02em;
+	white-space: nowrap;
+	pointer-events: none;
+	user-select: none;
+	-webkit-text-stroke: 1px color-mix(in srgb, var(--lzp-ink) 10%, transparent);
+}
+
+.lzp-surface-ink .lzp-watermark {
+	-webkit-text-stroke-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Dashed guide lines (Lenz+ → Page templates: guides on/off). */
+.lzp-guides {
+	display: var(--lzp-guides, block);
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	background-image:
+		linear-gradient(to right, transparent calc(50% - 0.5px), #e3e9ee calc(50% - 0.5px), #e3e9ee calc(50% + 0.5px), transparent calc(50% + 0.5px)),
+		linear-gradient(to bottom, transparent calc(100% - 1px), #e5eaef calc(100% - 1px));
+	opacity: 0.9;
+}
+
+.lzp-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 5px 10px;
+	border-radius: var(--lzp-radius-xs);
+	background: var(--lzp-chip);
+	color: var(--lzp-sub);
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 1.6;
+}
+
+.lzp-chip--outline {
+	border: 1px solid var(--lzp-field-line);
+	background: transparent;
+}
+
+@keyframes lzp-fade-up {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+/* Elementor editor only: why a widget shows sample or no content. */
+.lzp-w-hint {
+	padding: 10px 14px;
+	border: 1px dashed var(--lzp-dashed);
+	border-radius: var(--lzp-radius-sm);
+	background: var(--lzp-soft);
+	color: var(--lzp-muted);
+	font-size: 13px;
+	line-height: 1.8;
+}
+
+/* ==========================================================================
+   Heading
+   ========================================================================== */
+
+.lzp-heading {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 28px;
+	font-family: var(--lzp-font);
+}
+
+.lzp-heading__row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 12px 16px;
+}
+
+.lzp-heading__title {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	min-width: 0;
+}
+
+.lzp-heading__bar {
+	flex: none;
+	width: 3px;
+	height: 22px;
+	border-radius: 2px;
+	background: var(--lzp-accent);
+}
+
+.lzp-heading .lzp-heading__index {
+	color: var(--lzp-muted);
+	font-size: 13px;
+	font-weight: 900;
+	line-height: 1;
+	letter-spacing: 0.1em;
+}
+
+.lzp-heading .lzp-heading__text {
+	margin: 0;
+	color: var(--lzp-heading, var(--lzp-ink));
+	font-size: var(--lzp-fs-h2);
+	font-weight: 900;
+	line-height: 1.5;
+}
+
+/* The end-of-row slot (a button, filter chips…) sits at the far side. */
+.lzp-heading__row > :not(.lzp-heading__title) {
+	margin-inline-start: auto;
+}
+
+.lzp-heading .lzp-heading__latin {
+	display: block;
+	margin-top: 6px;
+	color: var(--lzp-muted);
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1.6;
+	letter-spacing: 0.14em;
+	text-align: end;
+	text-transform: uppercase;
+}
+
+.lzp-heading .lzp-heading__sub {
+	margin: 10px 0 0;
+	color: var(--lzp-muted);
+	font-size: 14px;
+	line-height: 1.9;
+}
+
+.lzp-heading--center {
+	align-items: center;
+	text-align: center;
+}
+
+.lzp-heading--center .lzp-heading__row {
+	justify-content: center;
+}
+
+.lzp-heading--center .lzp-heading__latin {
+	text-align: center;
+}
+
+/* ==========================================================================
+   Text
+   ========================================================================== */
+
+.lzp-text {
+	color: var(--lzp-text);
+	font-family: var(--lzp-font);
+	font-size: var(--lzp-fs-body);
+	line-height: var(--lzp-lh-body);
+	text-wrap: pretty;
+}
+
+/* Lenz zeroes paragraph margins; restore the rhythm between paragraphs and lists. */
+.lzp-text :is(p, ul, ol) {
+	margin: 0;
+	line-height: inherit;
+}
+
+.lzp-text :is(p, ul, ol) + :is(p, ul, ol) {
+	margin-top: 1em;
+}
+
+.lzp-text :is(ul, ol) {
+	padding-inline-start: 1.4em;
+	list-style: disc;
+}
+
+.lzp-text ol {
+	list-style: decimal;
+}
+
+.lzp-text a {
+	color: var(--lzp-accent);
+	text-decoration: underline;
+	text-underline-offset: 4px;
+}
+
+.lzp-text--lead {
+	font-size: clamp(14px, 1.6vw, 18px);
+	line-height: 2.05;
+}
+
+.lzp-text--muted {
+	color: var(--lzp-muted);
+	font-size: 14px;
+	line-height: 1.9;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.lzp-btn-wrap {
+	display: flex;
+}
+
+.lzp-btn {
+	display: inline-flex;
+	flex-grow: var(--lzp-btn-grow, 0);
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	min-height: 44px;
+	margin: 0;
+	padding: 13px 22px;
+	border: 1px solid transparent;
+	border-radius: var(--lzp-radius-sm);
+	font-family: var(--lzp-font);
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 1.4;
+	text-decoration: none;
+	white-space: nowrap;
+	cursor: pointer;
+	transition: background-color var(--lzp-dur) ease, border-color var(--lzp-dur) ease, color var(--lzp-dur) ease;
+}
+
+.lzp-btn--lg {
+	padding: 14px 24px;
+}
+
+.lzp-btn--sm {
+	min-height: 40px;
+	padding: 10px 16px;
+	font-size: 13px;
+}
+
+/* Two classes: Lenz colours every link (`a { color: var(--primary-1) }`). */
+.lzp-btn.lzp-btn--primary {
+	background: var(--lzp-ink);
+	color: #ffffff;
+}
+
+.lzp-btn.lzp-btn--primary:hover {
+	background: var(--lzp-accent);
+	color: #ffffff;
+}
+
+.lzp-btn.lzp-btn--secondary {
+	border-color: var(--lzp-line-strong);
+	background: #ffffff;
+	color: var(--lzp-ink);
+}
+
+.lzp-btn.lzp-btn--secondary:hover,
+.lzp-btn.lzp-btn--light:hover {
+	background: var(--lzp-line);
+	color: var(--lzp-ink);
+}
+
+.lzp-btn.lzp-btn--light {
+	background: #ffffff;
+	color: var(--lzp-ink);
+}
+
+.lzp-btn.lzp-btn--outline-dark {
+	border-color: var(--lzp-on-dark-line);
+	background: transparent;
+	color: #ffffff;
+}
+
+.lzp-btn.lzp-btn--outline-dark:hover {
+	background: var(--lzp-on-dark-hover);
+	color: #ffffff;
+}
+
+.lzp-btn.lzp-btn--link {
+	min-height: 0;
+	padding: 4px 0;
+	border: 0;
+	border-radius: 0;
+	background: none;
+	color: var(--lzp-heading, var(--lzp-ink));
+	text-decoration: underline;
+	text-underline-offset: 6px;
+}
+
+.lzp-btn.lzp-btn--link:hover {
+	color: var(--lzp-accent);
+}
+
+/* The forward arrow of the mockups' CTAs. */
+.lzp-btn .lzp-ico {
+	font-size: 15px;
+}
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
+
+/* Lenz gives links and buttons a transparent outline; show ours on keyboard focus. */
+:is(.lzp-btn, .lzp-heading a):focus-visible {
+	outline: 3px solid color-mix(in srgb, var(--lzp-accent) 55%, transparent);
+	outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.lzp-btn,
+	.e-con.lzp-surface-dashed {
+		transition: none;
+	}
+}

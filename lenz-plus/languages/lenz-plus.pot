@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-05T17:12:48+00:00\n"
+"POT-Creation-Date: 2026-10-06T07:22:16+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: lenz-plus\n"
@@ -33,6 +33,8 @@ msgid "Hooman Jamshidi"
 msgstr ""
 
 #: includes/Admin/Admin.php:59
+#: includes/Modules/Builder/Elementor/Integration.php:69
+#: includes/Modules/Builder/Elementor/Integration.php:106
 msgid "Lenz+"
 msgstr ""
 
@@ -79,6 +81,7 @@ msgid "Yes, reset"
 msgstr ""
 
 #: includes/Admin/Admin.php:230
+#: includes/Modules/Builder/Module.php:217
 msgid "Cancel"
 msgstr ""
 
@@ -107,10 +110,12 @@ msgid "Invalid settings payload."
 msgstr ""
 
 #: includes/Admin/Ajax_Controller.php:88
+#: includes/Modules/Builder/Library_Ajax.php:41
 msgid "Your session expired. Reload the page and try again."
 msgstr ""
 
 #: includes/Admin/Ajax_Controller.php:92
+#: includes/Modules/Builder/Library_Ajax.php:45
 msgid "You are not allowed to change these settings."
 msgstr ""
 
@@ -187,7 +192,7 @@ msgid "Loaded by the Lenz theme"
 msgstr ""
 
 #. translators: %d: number of search results.
-#: includes/Core/Search_Query.php:189
+#: includes/Core/Search_Query.php:190
 #, php-format
 msgid "%d result"
 msgid_plural "%d results"
@@ -195,7 +200,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: search term.
-#: includes/Core/Search_Query.php:191
+#: includes/Core/Search_Query.php:192
 #: includes/Modules/Bottom_Nav/views/search-results.php:26
 #, php-format
 msgid "Nothing found for “%s”."
@@ -210,7 +215,7 @@ msgid "Live results are unavailable right now. Press Search to see all results."
 msgstr ""
 
 #: includes/Modules/Bottom_Nav/Item_Resolver.php:284
-#: includes/Modules/Bottom_Nav/Module.php:142
+#: includes/Modules/Bottom_Nav/Module.php:151
 #: includes/Modules/Bottom_Nav/views/admin.php:597
 msgid "Login"
 msgstr ""
@@ -234,6 +239,7 @@ msgid "Any page, category, phone number or external URL."
 msgstr ""
 
 #: includes/Modules/Bottom_Nav/Item_Types.php:40
+#: includes/Modules/Builder/Elementor/Widgets/Button.php:124
 msgid "Link"
 msgstr ""
 
@@ -254,6 +260,7 @@ msgid "Links to the booking page of the Lenz \"Reserve\" header button, or to yo
 msgstr ""
 
 #: includes/Modules/Bottom_Nav/Item_Types.php:57
+#: includes/Modules/Builder/Elementor/Widgets/Button.php:117
 msgid "Book a session"
 msgstr ""
 
@@ -332,139 +339,142 @@ msgstr ""
 msgid "Action"
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Module.php:28
+#: includes/Modules/Bottom_Nav/Module.php:30
 msgid "Mobile bottom navigation"
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Module.php:32
+#: includes/Modules/Bottom_Nav/Module.php:35
 msgid "An app-like tab bar for phones with five styles, live cart count and fully custom buttons."
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Module.php:132
+#: includes/Modules/Bottom_Nav/Module.php:141
 #: includes/Modules/Bottom_Nav/views/admin.php:243
 msgid "Requires WooCommerce"
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Module.php:133
+#: includes/Modules/Bottom_Nav/Module.php:142
 msgid "Add a URL"
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Module.php:134
+#: includes/Modules/Bottom_Nav/Module.php:143
 msgid "Choose a menu"
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Module.php:135
+#: includes/Modules/Bottom_Nav/Module.php:144
 msgid "Add content"
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Module.php:136
+#: includes/Modules/Bottom_Nav/Module.php:145
 msgid "Add a booking URL"
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Module.php:137
+#: includes/Modules/Bottom_Nav/Module.php:146
 msgid "Choose a content type"
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Module.php:138
+#: includes/Modules/Bottom_Nav/Module.php:147
 msgid "Add a selector or URL"
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Module.php:139
+#: includes/Modules/Bottom_Nav/Module.php:148
 msgid "This button stays hidden on the site until this is fixed."
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Module.php:140
+#: includes/Modules/Bottom_Nav/Module.php:149
 #: includes/Modules/Bottom_Nav/views/admin.php:656
 msgid "Guests only"
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Module.php:141
+#: includes/Modules/Bottom_Nav/Module.php:150
 msgid "Members only"
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Module.php:143
+#: includes/Modules/Bottom_Nav/Module.php:152
 msgid "Delete this button?"
 msgstr ""
 
 #. translators: %s: button label.
-#: includes/Modules/Bottom_Nav/Module.php:145
+#: includes/Modules/Bottom_Nav/Module.php:154
 #, php-format
 msgid "\"%s\" will be removed from the bar."
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Module.php:146
+#: includes/Modules/Bottom_Nav/Module.php:155
 #: includes/Modules/Bottom_Nav/views/admin.php:485
+#: includes/Modules/Builder/Module.php:189
 msgid "Delete"
 msgstr ""
 
 #. translators: %d: maximum number of buttons.
-#: includes/Modules/Bottom_Nav/Module.php:148
+#: includes/Modules/Bottom_Nav/Module.php:157
 #, php-format
 msgid "You can add up to %d buttons."
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Module.php:149
+#: includes/Modules/Bottom_Nav/Module.php:158
 msgid "Choose an icon image"
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Module.php:150
+#: includes/Modules/Bottom_Nav/Module.php:159
 msgid "Use this image"
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Module.php:151
+#: includes/Modules/Bottom_Nav/Module.php:160
 msgid "No icons match your search."
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Module.php:152
+#: includes/Modules/Bottom_Nav/Module.php:161
 msgid "— Select —"
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Module.php:231
+#: includes/Modules/Bottom_Nav/Module.php:240
 msgid "page"
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Styles.php:28
+#: includes/Modules/Bottom_Nav/Styles.php:29
 msgid "Classic"
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Styles.php:29
+#: includes/Modules/Bottom_Nav/Styles.php:30
 msgid "Edge-to-edge bar with a soft pill behind the active icon."
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Styles.php:35
+#: includes/Modules/Bottom_Nav/Styles.php:36
 msgid "Floating glass"
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Styles.php:36
+#: includes/Modules/Bottom_Nav/Styles.php:37
 msgid "A floating frosted capsule with a sliding highlight."
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Styles.php:42
+#: includes/Modules/Bottom_Nav/Styles.php:43
 #: includes/Modules/Bottom_Nav/views/admin.php:45
 msgid "Center button"
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Styles.php:43
+#: includes/Modules/Bottom_Nav/Styles.php:44
 msgid "Curved notch with a raised round button for your featured item."
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Styles.php:49
+#: includes/Modules/Bottom_Nav/Styles.php:50
 msgid "Bubble"
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Styles.php:50
+#: includes/Modules/Bottom_Nav/Styles.php:51
 msgid "The active icon pops up into a bubble that glides between items."
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Styles.php:56
+#: includes/Modules/Bottom_Nav/Styles.php:57
 msgid "Expanding pill"
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Styles.php:57
+#: includes/Modules/Bottom_Nav/Styles.php:58
 msgid "Icons only; the active item expands into a pill with its label."
 msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:37
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:289
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:375
 msgid "Background"
 msgstr ""
 
@@ -505,6 +515,7 @@ msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:69
 #: includes/Modules/Bottom_Nav/views/admin.php:113
+#: includes/Modules/Builder/Elementor/Widgets/Button.php:134
 msgid "Style"
 msgstr ""
 
@@ -529,11 +540,13 @@ msgid "Behaviour"
 msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:85
+#: includes/Modules/Builder/views/admin.php:72
 #: includes/Modules/Support_Button/views/admin.php:80
 msgid "Active"
 msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:86
+#: includes/Modules/Builder/views/admin.php:73
 #: includes/Modules/Support_Button/views/admin.php:81
 msgid "Inactive"
 msgstr ""
@@ -675,6 +688,8 @@ msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:312
 #: includes/Modules/Bottom_Nav/views/admin.php:324
+#: includes/Modules/Builder/Elementor/Integration.php:118
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:119
 msgid "None"
 msgstr ""
 
@@ -684,6 +699,7 @@ msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:314
 #: includes/Modules/Bottom_Nav/views/admin.php:373
+#: includes/Modules/Builder/Elementor/Widgets/Button.php:66
 msgid "Medium"
 msgstr ""
 
@@ -855,6 +871,9 @@ msgid "Drag to reorder"
 msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:472
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:199
+#: includes/Modules/Builder/Elementor/Widgets/Button.php:173
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:183
 msgid "Center"
 msgstr ""
 
@@ -874,6 +893,7 @@ msgid "Show this button"
 msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:484
+#: includes/Modules/Builder/Module.php:187
 msgid "Duplicate"
 msgstr ""
 
@@ -887,6 +907,7 @@ msgid "Label"
 msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:510
+#: includes/Modules/Builder/Elementor/Widgets/Button.php:155
 #: includes/Modules/Support_Button/views/admin.php:181
 #: includes/Modules/Support_Button/views/admin.php:227
 msgid "Icon"
@@ -1079,7 +1100,8 @@ msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:704
 #: includes/Modules/Bottom_Nav/views/sheet.php:24
-#: includes/Modules/Support_Button/Module.php:105
+#: includes/Modules/Builder/Module.php:207
+#: includes/Modules/Support_Button/Module.php:114
 #: includes/Modules/Support_Button/views/button.php:77
 msgid "Close"
 msgstr ""
@@ -1114,6 +1136,820 @@ msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/sheet-search.php:45
 msgid "Results appear as you type."
+msgstr ""
+
+#: includes/Modules/Builder/Design_Pages.php:81
+msgid "About me"
+msgstr ""
+
+#: includes/Modules/Builder/Design_Pages.php:82
+msgid "Services"
+msgstr ""
+
+#: includes/Modules/Builder/Design_Pages.php:83
+msgid "Courses"
+msgstr ""
+
+#: includes/Modules/Builder/Design_Pages.php:86
+#: includes/Modules/Builder/Module.php:55
+#: includes/Modules/Builder/Module.php:235
+msgid "Home page"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Integration.php:114
+msgid "Brand surface"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Integration.php:119
+msgid "White"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Integration.php:120
+msgid "Card (with border)"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Integration.php:121
+msgid "Card (dashed border)"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Integration.php:122
+msgid "Soft band"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Integration.php:123
+msgid "Tile"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Integration.php:124
+msgid "Ink band (dark)"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Integration.php:125
+msgid "Dark card"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Integration.php:128
+msgid "Uses the brand colours from Lenz+ → Page templates. Dark surfaces switch the text inside to light colours. A background set in the Style tab still wins."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Integration.php:135
+msgid "Sticky while scrolling"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Integration.php:139
+#: includes/Modules/Support_Button/Module.php:111
+msgid "Off"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Integration.php:140
+msgid "Desktop only"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Integration.php:141
+msgid "All devices"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Integration.php:145
+msgid "Keeps a column (e.g. the buy box) in view inside its parent. The parent must be taller than this container."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Integration.php:152
+msgid "Distance from top"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:191
+#: includes/Modules/Builder/Elementor/Widgets/Button.php:165
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:173
+msgid "Alignment"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:195
+#: includes/Modules/Builder/Elementor/Widgets/Button.php:169
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:179
+msgid "Start"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:203
+#: includes/Modules/Builder/Elementor/Widgets/Button.php:177
+msgid "End"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:239
+#: includes/Modules/Builder/views/admin.php:162
+msgid "Colour"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:249
+msgid "Hover colour"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:306
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:398
+msgid "Border radius"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:317
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:409
+msgid "Padding"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:358
+msgid "Normal"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:358
+msgid "Hover"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:366
+msgid "Text colour"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:384
+msgid "Border colour"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:419
+msgid "Height"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:451
+msgid "Columns"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:473
+msgid "Space between"
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Button.php:30
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:33
+#: includes/Modules/Builder/Elementor/Widgets/Text.php:27
+#, php-format
+msgid "%s (Lenz+)"
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Button.php:30
+#: includes/Modules/Builder/Elementor/Widgets/Button.php:110
+#: includes/Modules/Builder/Elementor/Widgets/Button.php:197
+#: includes/Modules/Support_Button/views/admin.php:291
+msgid "Button"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Button.php:50
+msgid "Ink"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Button.php:51
+msgid "White with border"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Button.php:52
+msgid "White (for dark areas)"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Button.php:53
+msgid "Outline (for dark areas)"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Button.php:54
+msgid "Text link"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Button.php:65
+msgid "Small"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Button.php:67
+msgid "Large"
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Button.php:115
+#: includes/Modules/Builder/Elementor/Widgets/Text.php:27
+#: includes/Modules/Builder/Elementor/Widgets/Text.php:42
+#: includes/Modules/Builder/Elementor/Widgets/Text.php:47
+#: includes/Modules/Builder/Elementor/Widgets/Text.php:91
+msgid "Text"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Button.php:144
+msgid "Size"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Button.php:181
+msgid "Full width"
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:33
+msgid "Section heading"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:100
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:212
+msgid "Heading"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:105
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:213
+#: includes/Modules/Support_Button/views/admin.php:275
+msgid "Title"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:107
+msgid "Section title"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:116
+msgid "HTML tag"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:132
+msgid "Number before the title"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:142
+msgid "Accent bar"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:152
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:214
+msgid "Latin subtitle"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:163
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:215
+#: includes/Modules/Support_Button/views/admin.php:276
+msgid "Subtitle"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:193
+#: includes/Modules/Support_Button/views/admin.php:242
+msgid "Button text"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:203
+msgid "Button link"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:220
+msgid "Accent bar colour"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:230
+msgid "Space below"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Text.php:49
+msgid "Write your text here."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Text.php:56
+msgid "Tone"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Text.php:60
+#: includes/Modules/Builder/views/admin.php:37
+msgid "Body text"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Text.php:61
+msgid "Lead (larger)"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Text.php:62
+msgid "Muted (smaller)"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Text.php:72
+msgid "Max width"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Text.php:97
+msgid "Link colour"
+msgstr ""
+
+#. translators: %s: original template name.
+#: includes/Modules/Builder/Library.php:176
+#, php-format
+msgid "%s (copy)"
+msgstr ""
+
+#: includes/Modules/Builder/Library.php:298
+msgid "Lenz+ ink"
+msgstr ""
+
+#: includes/Modules/Builder/Library.php:299
+msgid "Lenz+ accent"
+msgstr ""
+
+#: includes/Modules/Builder/Library.php:300
+msgid "Lenz+ text"
+msgstr ""
+
+#: includes/Modules/Builder/Library.php:301
+msgid "Lenz+ secondary text"
+msgstr ""
+
+#: includes/Modules/Builder/Library.php:302
+msgid "Lenz+ muted"
+msgstr ""
+
+#: includes/Modules/Builder/Library.php:303
+msgid "Lenz+ soft background"
+msgstr ""
+
+#: includes/Modules/Builder/Library.php:304
+msgid "Lenz+ border"
+msgstr ""
+
+#: includes/Modules/Builder/Library.php:305
+msgid "Lenz+ dark surface"
+msgstr ""
+
+#: includes/Modules/Builder/Library_Ajax.php:62
+#: includes/Modules/Builder/Module.php:221
+msgid "Elementor is required to edit templates."
+msgstr ""
+
+#: includes/Modules/Builder/Library_Ajax.php:66
+#: includes/Modules/Builder/Library_Ajax.php:70
+msgid "Template not found."
+msgstr ""
+
+#: includes/Modules/Builder/Library_Ajax.php:74
+msgid "Page not found."
+msgstr ""
+
+#: includes/Modules/Builder/Library_Ajax.php:86
+#: includes/Modules/Builder/Module.php:208
+#: includes/Modules/Builder/views/admin.php:141
+msgid "New template"
+msgstr ""
+
+#: includes/Modules/Builder/Library_Ajax.php:160
+msgid "Unknown action."
+msgstr ""
+
+#: includes/Modules/Builder/Library_Ajax.php:175
+msgid "That did not work. Please try again."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:35
+msgid "Page templates"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:40
+msgid "Ready-made Elementor designs of your site's pages, with the brand palette, photo tone and guide lines of the designs."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:56
+msgid "About page"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:57
+msgid "Services page"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:58
+msgid "Courses page"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:144
+msgid "Home pages"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:145
+msgid "About pages"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:146
+msgid "Services pages"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:147
+msgid "Courses pages"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:181
+#: includes/Modules/Builder/Module.php:182
+msgid "Preview"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:183
+msgid "Nothing to preview yet."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:184
+msgid "Previews show a design right away — nothing changes for visitors until you save."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:185
+msgid "Custom template"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:186
+msgid "Edit with Elementor"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:188
+msgid "Restore original"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:190
+msgid "Rename"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:191
+msgid "Delete this template?"
+msgstr ""
+
+#. translators: %s: template name.
+#: includes/Modules/Builder/Module.php:193
+#, php-format
+msgid "\"%s\" goes to the trash. Pages made from it keep their own copy."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:194
+msgid "Restore the original design?"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:195
+msgid "Your Elementor changes to this template will be replaced by the original design. Duplicate it first if you want to keep your version."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:196
+msgid "Restore"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:197
+msgid "Template created."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:198
+msgid "Template duplicated."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:199
+msgid "Original design restored."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:200
+msgid "Template deleted."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:201
+msgid "Ready-made designs installed."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:202
+msgid "Template renamed."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:203
+msgid "Desktop"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:204
+msgid "Tablet"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:205
+msgid "Mobile"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:206
+msgid "Open in new tab"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:209
+msgid "Name"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:210
+msgid "Kind"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:211
+msgid "Start from"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:212
+msgid "Blank canvas"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:213
+msgid "Create & open Elementor"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:214
+msgid "Create"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:215
+msgid "New name"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:216
+msgid "Save"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:218
+msgid "Ready-made"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:219
+msgid "Edited"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:220
+msgid "No templates of this kind yet."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:222
+msgid "Brand colours added to Elementor's global colours."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:223
+msgid "Flexbox containers activated."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:224
+msgid "Create page"
+msgstr ""
+
+#. translators: %s: design name.
+#: includes/Modules/Builder/Module.php:226
+#, php-format
+msgid "New page from \"%s\""
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:227
+msgid "Page name"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:228
+msgid "Publish now"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:229
+msgid "Off: the page is saved as a draft that only you can see."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:230
+msgid "Use it as the site's home page"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:231
+msgid "Visitors see it at the site address. The page is published."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:232
+msgid "Page created."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:233
+msgid "No ready-made designs of this kind yet. Create a template of this kind in the Templates tab to make pages from it."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:234
+msgid "No pages yet. Create one from a design above."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:236
+msgid "Draft"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:237
+msgid "Published"
+msgstr ""
+
+#. translators: %s: design name.
+#: includes/Modules/Builder/Module.php:239
+#, php-format
+msgid "From \"%s\""
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:240
+msgid "View"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:241
+msgid "Make it the home page"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:242
+msgid "This page is now the site's home page."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:243
+msgid "Edit the design"
+msgstr ""
+
+#: includes/Modules/Builder/Template_Post_Type.php:41
+msgid "Lenz+ templates"
+msgstr ""
+
+#: includes/Modules/Builder/Template_Post_Type.php:42
+msgid "Lenz+ template"
+msgstr ""
+
+#: includes/Modules/Builder/Template_Post_Type.php:43
+msgid "Edit template"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:29
+msgid "Pages"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:30
+msgid "Templates"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:31
+msgid "Colours & options"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:35
+msgid "Ink (headings, primary buttons, dark bands)"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:36
+msgid "Accent (hover, accent bars, icons)"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:38
+msgid "Secondary text"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:39
+msgid "Muted text"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:40
+msgid "Page and card background"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:41
+msgid "Soft band background"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:42
+msgid "Chips and tiles"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:43
+msgid "Borders"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:44
+msgid "Strong borders (white buttons)"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:45
+msgid "Dashed borders"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:46
+msgid "Form field borders"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:47
+msgid "Cards on dark bands"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:48
+msgid "Text on dark bands"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:49
+msgid "Muted text on dark bands"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:50
+msgid "Borders on dark bands"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:51
+msgid "Hover on dark bands"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:52
+msgid "Success"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:53
+msgid "Warning"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:75
+msgid "Enable page templates"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:85
+msgid "Elementor is not active. The designs are Elementor templates, so install and activate the free Elementor plugin first."
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:86
+msgid "Install Elementor"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:92
+msgid "The designs use Elementor's Flexbox Containers, which are switched off on this site. Turn them on to display and edit the templates."
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:93
+msgid "Turn on containers"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:112
+msgid "Ready-made pages"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:113
+msgid "Home, about, services and courses pages. Pick a design and create a new page from it. The page is a normal Elementor page: change the texts and pictures, move or remove sections, add your own. Portfolio items, posts and courses come from your site automatically."
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:120
+msgid "Pages made from these designs"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:121
+msgid "Editing a page never changes the design it came from, so you can make as many pages as you like."
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:131
+msgid "Template library"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:132
+msgid "Every design is a normal Elementor template: edit it, duplicate it to try variations, or restore a ready-made design to its original state."
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:137
+msgid "Reinstall missing designs"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:152
+msgid "Look of the designs"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:153
+msgid "Applied to every design at once, like the options of the original mockups."
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:159
+msgid "Photos"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:161
+msgid "Black and white"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:167
+msgid "Guide lines behind the heroes"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:168
+msgid "The thin dashed lines and rule-of-thirds grids of the designs."
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:170
+msgid "Icon style in the designs"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:170
+msgid "Lenz icons use the theme's own glyphs where it has them, like the designs."
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:173
+msgid "Persian digits"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:174
+msgid "Show prices, counts and years as ۱۲۳ with Persian separators on Persian sites."
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:183
+msgid "Brand colours"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:184
+msgid "Every design uses these colours; the defaults are the designs' own. Anything you set on a widget in Elementor overrides them."
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:188
+msgid "Add to Elementor global colours"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:194
+msgid "Design default"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:198
+msgid "Corner roundness (cards)"
 msgstr ""
 
 #: includes/Modules/Support_Button/Channels.php:42
@@ -1182,33 +2018,29 @@ msgid "Any page or link: tickets, FAQ or an online chat service."
 msgstr ""
 
 #: includes/Modules/Support_Button/Frontend.php:181
-#: includes/Modules/Support_Button/Module.php:104
+#: includes/Modules/Support_Button/Module.php:113
 #: includes/Modules/Support_Button/Schema.php:38
 #: includes/Modules/Support_Button/views/admin.php:244
 msgid "Support"
 msgstr ""
 
-#: includes/Modules/Support_Button/Module.php:28
+#: includes/Modules/Support_Button/Module.php:30
 msgid "Floating support button"
 msgstr ""
 
-#: includes/Modules/Support_Button/Module.php:32
+#: includes/Modules/Support_Button/Module.php:35
 msgid "A corner button that opens Telegram, WhatsApp, Bale, Eitaa and more, and moves out of the way of the bottom navigation."
 msgstr ""
 
-#: includes/Modules/Support_Button/Module.php:100
+#: includes/Modules/Support_Button/Module.php:109
 msgid "Not set"
 msgstr ""
 
-#: includes/Modules/Support_Button/Module.php:101
+#: includes/Modules/Support_Button/Module.php:110
 msgid "Check the value"
 msgstr ""
 
-#: includes/Modules/Support_Button/Module.php:102
-msgid "Off"
-msgstr ""
-
-#: includes/Modules/Support_Button/Module.php:103
+#: includes/Modules/Support_Button/Module.php:112
 msgid "Opens:"
 msgstr ""
 
@@ -1354,10 +2186,6 @@ msgstr ""
 msgid "With a single channel switched on, the button opens it directly and shows its logo."
 msgstr ""
 
-#: includes/Modules/Support_Button/views/admin.php:242
-msgid "Button text"
-msgstr ""
-
 #: includes/Modules/Support_Button/views/admin.php:245
 msgid "Also read out by screen readers when the text is hidden."
 msgstr ""
@@ -1398,14 +2226,6 @@ msgstr ""
 msgid "Leave both empty to show the channels only."
 msgstr ""
 
-#: includes/Modules/Support_Button/views/admin.php:275
-msgid "Title"
-msgstr ""
-
-#: includes/Modules/Support_Button/views/admin.php:276
-msgid "Subtitle"
-msgstr ""
-
 #: includes/Modules/Support_Button/views/admin.php:284
 msgid "Leave a colour empty to follow your Lenz theme colours (its primary button) automatically, including its dark demo palette."
 msgstr ""
@@ -1416,10 +2236,6 @@ msgstr ""
 
 #: includes/Modules/Support_Button/views/admin.php:287
 msgid "Telegram blue, WhatsApp green and so on. Off: every channel uses the button colour."
-msgstr ""
-
-#: includes/Modules/Support_Button/views/admin.php:291
-msgid "Button"
 msgstr ""
 
 #: includes/Modules/Support_Button/views/admin.php:292

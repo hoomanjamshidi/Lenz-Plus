@@ -20,26 +20,32 @@ defined( 'ABSPATH' ) || exit;
  */
 final class Module extends Base_Module {
 
+	/** Module id: the option name suffix and the admin page slug. */
 	public function id(): string {
 		return 'bottom_nav';
 	}
 
+	/** Feature name in the admin menu and on the dashboard. */
 	public function title(): string {
 		return __( 'Mobile bottom navigation', 'lenz-plus' );
 	}
 
+	/** One-line summary on the dashboard card. */
 	public function description(): string {
 		return __( 'An app-like tab bar for phones with five styles, live cart count and fully custom buttons.', 'lenz-plus' );
 	}
 
+	/** Semantic icon key for the admin menu and the dashboard card. */
 	public function icon(): string {
 		return 'grid';
 	}
 
+	/** Default settings (see Schema). */
 	public function defaults(): array {
 		return Schema::defaults();
 	}
 
+	/** Cleans posted settings with the schema. */
 	public function sanitize( array $input ): array {
 		$clean          = Sanitizer::apply( Schema::fields(), $input, Schema::defaults() );
 		$clean['items'] = $this->sanitize_items( $clean['items'] );
@@ -71,11 +77,13 @@ final class Module extends Base_Module {
 		return $settings;
 	}
 
+	/** Prints the settings panel. */
 	public function render_admin(): void {
 		$module = $this;
 		require __DIR__ . '/views/admin.php';
 	}
 
+	/** Loads the panel script and the front-end stylesheet its live preview uses. */
 	public function enqueue_admin_assets(): void {
 		wp_enqueue_media();
 
@@ -94,6 +102,7 @@ final class Module extends Base_Module {
 		);
 	}
 
+	/** Data for the panel script (`window.lzpAdmin.moduleData`). */
 	public function admin_script_data(): array {
 		$settings = $this->settings();
 

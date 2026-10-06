@@ -9,6 +9,7 @@ namespace LenzPlus\Core;
 
 defined( 'ABSPATH' ) || exit;
 
+/** Colour helpers. */
 final class Color {
 
 	/**

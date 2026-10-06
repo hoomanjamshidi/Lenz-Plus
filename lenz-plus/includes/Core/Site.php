@@ -9,6 +9,7 @@ namespace LenzPlus\Core;
 
 defined( 'ABSPATH' ) || exit;
 
+/** Site language and direction. */
 final class Site {
 
 	/** Language codes written right-to-left. */

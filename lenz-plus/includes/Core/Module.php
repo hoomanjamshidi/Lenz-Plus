@@ -14,6 +14,7 @@ namespace LenzPlus\Core;
 
 defined( 'ABSPATH' ) || exit;
 
+/** Base of every feature module: settings storage, defaults, enable switch and admin hooks. */
 abstract class Module {
 
 	private const OPTION_PREFIX = 'lenz_plus_';
@@ -56,6 +57,7 @@ abstract class Module {
 		}
 	}
 
+	/** The `wp_options` row that stores this module's settings. */
 	public function option_name(): string {
 		return self::OPTION_PREFIX . $this->id();
 	}
@@ -65,6 +67,7 @@ abstract class Module {
 		return 'lenz-plus-' . str_replace( '_', '-', $this->id() );
 	}
 
+	/** Saved settings merged with the defaults (memoized per request). */
 	public function settings(): array {
 		if ( null === $this->settings ) {
 			$stored         = get_option( $this->option_name(), array() );
@@ -75,6 +78,7 @@ abstract class Module {
 		return $this->settings;
 	}
 
+	/** Whether the feature is switched on. */
 	public function is_enabled(): bool {
 		return ! empty( $this->settings()['enabled'] );
 	}
@@ -91,6 +95,7 @@ abstract class Module {
 		return $this->settings();
 	}
 
+	/** Switches the feature on or off without touching its other settings. */
 	public function set_enabled( bool $enabled ): void {
 		$settings            = $this->settings();
 		$settings['enabled'] = $enabled;
@@ -98,6 +103,7 @@ abstract class Module {
 		$this->settings = null;
 	}
 
+	/** Restores the defaults and returns them. */
 	public function reset(): array {
 		delete_option( $this->option_name() );
 		$this->settings = null;

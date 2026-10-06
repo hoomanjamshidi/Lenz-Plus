@@ -14,6 +14,7 @@ namespace LenzPlus\Core;
 
 defined( 'ABSPATH' ) || exit;
 
+/** URLs and contents of front-end assets (minified unless SCRIPT_DEBUG). */
 final class Asset {
 
 	/**

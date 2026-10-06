@@ -20,26 +20,32 @@ defined( 'ABSPATH' ) || exit;
  */
 final class Module extends Base_Module {
 
+	/** Module id: the option name suffix and the admin page slug. */
 	public function id(): string {
 		return 'support_button';
 	}
 
+	/** Feature name in the admin menu and on the dashboard. */
 	public function title(): string {
 		return __( 'Floating support button', 'lenz-plus' );
 	}
 
+	/** One-line summary on the dashboard card. */
 	public function description(): string {
 		return __( 'A corner button that opens Telegram, WhatsApp, Bale, Eitaa and more, and moves out of the way of the bottom navigation.', 'lenz-plus' );
 	}
 
+	/** Semantic icon key for the admin menu and the dashboard card. */
 	public function icon(): string {
 		return 'support';
 	}
 
+	/** Default settings (see Schema). */
 	public function defaults(): array {
 		return Schema::defaults();
 	}
 
+	/** Cleans posted settings with the schema. */
 	public function sanitize( array $input ): array {
 		$clean          = Sanitizer::apply( Schema::fields(), $input, Schema::defaults() );
 		$clean['order'] = Schema::complete_order( $clean['order'] );
@@ -62,11 +68,13 @@ final class Module extends Base_Module {
 		return $settings;
 	}
 
+	/** Prints the settings panel. */
 	public function render_admin(): void {
 		$module = $this;
 		require __DIR__ . '/views/admin.php';
 	}
 
+	/** Loads the panel script and the front-end stylesheet its live preview uses. */
 	public function enqueue_admin_assets(): void {
 		// The preview renders with the real front-end stylesheet, in Lenz's font.
 		wp_enqueue_style( 'lzp-support-button', LENZ_PLUS_URL . 'assets/modules/support-button/css/support-button.css', array(), LENZ_PLUS_VERSION );
@@ -81,6 +89,7 @@ final class Module extends Base_Module {
 		);
 	}
 
+	/** Data for the panel script (`window.lzpAdmin.moduleData`). */
 	public function admin_script_data(): array {
 		$channels = array();
 		foreach ( Channels::all() as $id => $channel ) {

@@ -12,6 +12,7 @@ namespace LenzPlus\Modules\Bottom_Nav;
 
 defined( 'ABSPATH' ) || exit;
 
+/** The bar styles and their metadata. */
 final class Styles {
 
 	public const DEFAULT_STYLE = 'floating';

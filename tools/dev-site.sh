@@ -50,6 +50,7 @@ sed -e "s#{SQLITE_IMPLEMENTATION_FOLDER_PATH}#$SQLITE#" -e "s#{SQLITE_PLUGIN}#sq
 	"$SQLITE/db.copy" > "$WP_DIR/wp-content/db.php"
 mkdir -p "$WP_DIR/wp-content/uploads" "$WP_DIR/wp-content/mu-plugins"
 cp "$ROOT/tools/dev/lzp-dev.php" "$WP_DIR/wp-content/mu-plugins/lzp-dev.php"
+cp -R "$ROOT/tools/dev/lzp-dev" "$WP_DIR/wp-content/mu-plugins/"
 # Viewport harness (exact-width iframes) and the design mockups on the same origin.
 cp "$ROOT/tools/dev/viewport.html" "$WP_DIR/viewport.html"
 ln -sfn "$ROOT/Design" "$WP_DIR/design"

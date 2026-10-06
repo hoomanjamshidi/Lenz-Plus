@@ -16,6 +16,7 @@ use LenzPlus\Core\Search_Query;
 
 defined( 'ABSPATH' ) || exit;
 
+/** Public admin-ajax endpoint for the search sheet's live results. */
 final class Live_Search {
 
 	public const ACTION = 'lzp_live_search';
@@ -38,6 +39,7 @@ final class Live_Search {
 		$this->module = $module;
 	}
 
+	/** Hooks this class into WordPress. */
 	public function register(): void {
 		add_action( 'wp_ajax_' . self::ACTION, array( $this, 'handle' ) );
 		add_action( 'wp_ajax_nopriv_' . self::ACTION, array( $this, 'handle' ) );

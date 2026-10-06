@@ -22,6 +22,25 @@ register_shutdown_function(
 	}
 );
 
+// Lenz uses two Elementor Pro classes without checking for Pro, which the test site cannot
+// have. Registered last, so a real Elementor Pro autoloader always wins.
+spl_autoload_register(
+	static function ( $class_name ) {
+		if ( in_array( $class_name, array( 'ElementorPro\\Core\\Utils', 'ElementorPro\\Modules\\QueryControl\\Module' ), true ) ) {
+			require_once __DIR__ . '/lzp-dev/elementor-pro.php';
+		}
+	}
+);
+add_action(
+	'elementor/controls/register',
+	static function ( $controls ) {
+		if ( ! defined( 'ELEMENTOR_PRO_VERSION' ) && ! $controls->get_control( 'query' ) ) {
+			require_once __DIR__ . '/lzp-dev/elementor-pro.php';
+			$controls->register( new \ElementorPro\Modules\QueryControl\Controls\Query() );
+		}
+	}
+);
+
 /*
  * Lenz's Redux compiler (encrypted Redux/Save.php) writes uploads/lenz.css when the options are
  * saved, but the options panel is hidden on this unlicensed copy. When the `lenz` option holds

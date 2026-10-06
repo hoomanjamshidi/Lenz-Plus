@@ -161,13 +161,14 @@ final class Fields {
 	 * @param string $path     Settings path.
 	 * @param string $label    Field label.
 	 * @param string $fallback CSS colour shown when the value is empty (the theme default).
-	 * @param array  $args     Shared args.
+	 * @param array  $args     Shared args, plus `default_label`: placeholder of the empty
+	 *                         state when the fallback is not the theme's colour.
 	 */
 	public static function color( string $path, string $label, string $fallback, array $args = array() ): void {
 		self::open( 'color', $args );
 		?>
 		<span class="lzp-field__label"><?php echo esc_html( $label ); ?></span>
-		<div class="lzp-color" data-lzp-color="<?php echo esc_attr( $path ); ?>" data-fallback="<?php echo esc_attr( $fallback ); ?>"></div>
+		<div class="lzp-color" data-lzp-color="<?php echo esc_attr( $path ); ?>" data-fallback="<?php echo esc_attr( $fallback ); ?>"<?php echo empty( $args['default_label'] ) ? '' : ' data-default-label="' . esc_attr( $args['default_label'] ) . '"'; ?>></div>
 		<?php
 		self::help( $args );
 		self::close();

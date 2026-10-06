@@ -4,7 +4,7 @@ This file is the **resume point**. Every session starts here (see the `lenz-plus
 
 Status keys: `[ ]` to do · `[x]` done · `[~]` started (see Notes) · `[-]` dropped (say why)
 
-**Current phase:** 4
+**Current phase:** 5
 
 Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, browser check at 390 and 1440, translations, CLAUDE.md contracts, graphify update, commit `Phase N: …`).
 
@@ -59,18 +59,19 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - [x] Verify: suggestion fill + save, single channel = plain `tel:` link without script (Persian digits converted), lifted 24px above the bottom nav, two channels = `<details>` menu with brand colours, greeting, hidden while the Lenz menu is open, 1440 corner + label, no console errors, empty debug.log
 
 ## Phase 4 — Builder foundation (زیرساخت صفحه‌ساز)
-- [ ] `Builder/Module`, `Schema` (kinds, brand defaults from the design, `photo_tone`, `guides`)
-- [ ] `Template_Post_Type` (`lzp_template`), `Library` (+ hash upgrade), `Library_Ajax`, `Presets/Catalog`, `Presets/El`, `Presets/Blocks`
-- [ ] `Renderer`, `Assets` (`lzp-tokens`, `lzp-builder`, per-page handles), `Resolver`, `Context`, `Design_Pages`
-- [ ] `tokens.css` (brand tokens + design utilities: notch, watermark, guides, chips, buttons, dashed card, ink band, fadeUp; breakpoints 1024/767)
-- [ ] Elementor `Integration` (category Lenz+, container `lzp_surface`), `Widgets/Base`, `Page_Base`, `Parts`, `Picture`
-- [ ] Widgets: `Heading`, `Text`, `Button`
-- [ ] Admin: Library tab (create, duplicate, restore, delete, edit with Elementor), settings tabs, `builder-admin.css/js`
-- [ ] `sync_kit_colors`
-- [ ] `uninstall.php`: delete `lzp_template` posts and `_lzp_*` meta
-- [ ] Verify: create/edit a template, widgets render in the editor and on the front end
+- [x] `Builder/Module`, `Schema` (kinds, brand defaults from the design, `photo_tone`, `guides`)
+- [x] `Template_Post_Type` (`lzp_template`), `Library` (+ hash upgrade), `Library_Ajax`, `Presets/Catalog`, `Presets/El` (`Presets/Blocks` moves to phase 5, its first user)
+- [x] `Assets` (`lzp-tokens` inline, `lzp-builder`), `Resolver`, `Context`, `Design_Pages`, `Thumbs` (`Renderer` moves to phase 5 with the header/footer)
+- [x] `tokens.css` (brand-derived tokens, radius scale, spacing, type) + design utilities in `builder.css` (surfaces, notch, watermark, guides, chips, buttons, fadeUp)
+- [x] Elementor `Integration` (category Lenz+, container `lzp_surface`, `lzp_sticky`), `Widgets/Base` (`Page_Base`, `Parts`, `Picture` move to the phases that first use them: 6, 8, 9)
+- [x] Widgets: `Heading`, `Text`, `Button` (shared `Heading::markup()` / `Button::markup()`)
+- [x] Admin: Pages, Templates and Colours & options tabs, `builder-admin.css/js`
+- [x] `sync_kit_colors` («افزودن به رنگ‌های سراسری المنتور»)
+- [x] `uninstall.php`: delete `lzp_template` posts (their meta goes with them) and `_lzp_design`
+- [x] Verify: create a template, widgets in the editor and on the front end (light and ink surfaces, 390/1440), "Create page", "Make it the home page", brand colour save → `--lzp-ink`
 
 ## Phase 5 — Header and footer (هدر و فوتر)
+- [ ] Port `Renderer` and `Presets/Blocks` (moved from phase 4); `header` / `footer` kinds in `Schema::TYPES`, header/footer choice in the admin
 - [ ] `Header_Footer` for Lenz (Elementor Pro `theme-support.php` approach, keep `#container`, back off when Pro has header/footer conditions)
 - [ ] Widgets: `Site_Logo`, `Nav_Menu` (+ drawer), `Header_Action` (CTA + phone icon), `Brand_Box`, `Social_Links`, `Link_Column`, `Contact_Box`, `Copyright`
 - [ ] Presets: header (desktop + 64px mobile bar), footer full + footer simple
@@ -133,3 +134,6 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - Phase 1: Lenz loads Font Awesome 6.6 Free (not FA5); the plugin's `fontawesome` pack uses `far`/`fas`. The `lenz` font pack covers 29 semantic keys; the rest fall back to SVG.
 - Phase 1: `debug.log` on the test site also gets Lenz's own booking-table queries failing on SQLite; filter with `grep -n 'lenz-plus\|Fatal'`.
 - Phase 0: the design mockups have no breakpoints and break at 390px (e.g. the Home hero's 3-column grid): every widget needs its own phone layout.
+- Phase 4: the Claude in Chrome extension may be disconnected. Fallback used for phase 4: headless Microsoft Edge (installed) driven by `puppeteer-core` from a scratch folder (`npm i puppeteer-core`, `executablePath: '/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge'`), logging in with "remember me" so `lzp_template` previews (404 for visitors) work.
+- Phase 4: Lenz's Elementor "posts archive" widget uses Elementor Pro classes without checking for Pro (fatal in the editor and in Elementor's global-classes scan). The test mu-plugin stands in for them (`tools/dev/lzp-dev/elementor-pro.php`); real Lenz sites have Pro. Not our bug: never work around it in the plugin.
+- Phase 4: Builder kinds grow per phase (`Schema::TYPES`, `Module::type_labels()`, `page_kinds()`, `Thumbs`): add a kind only with its first preset. Font Awesome is not offered as a builder icon pack (the designs use Material-like line icons and Lenz glyphs).

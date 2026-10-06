@@ -373,7 +373,7 @@
 
 			host.innerHTML =
 				'<label class="lzp-color__swatch"><input type="color" tabindex="-1" aria-hidden="true"></label>' +
-				'<input type="text" class="lzp-color__text" spellcheck="false" autocomplete="off" aria-label="' + escapeHtml( label ) + '" placeholder="' + escapeHtml( i18n.themeDefault ) + '">' +
+				'<input type="text" class="lzp-color__text" spellcheck="false" autocomplete="off" aria-label="' + escapeHtml( label ) + '" placeholder="' + escapeHtml( host.dataset.defaultLabel || i18n.themeDefault ) + '">' +
 				'<button type="button" class="lzp-icon-btn lzp-color__reset" title="' + escapeHtml( i18n.resetColor ) + '" aria-label="' + escapeHtml( i18n.resetColor ) + '">' + RESET_ICON + '</button>';
 
 			const picker = host.querySelector( 'input[type="color"]' );
