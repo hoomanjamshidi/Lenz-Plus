@@ -73,6 +73,17 @@ final class Post_Content extends Section_Base {
 			)
 		);
 
+		$this->add_control(
+			'boxed',
+			array(
+				'label'        => __( 'On a soft card', 'lenz-plus' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => '',
+				'return_value' => 'yes',
+				'description'  => __( 'As the course page\'s introduction.', 'lenz-plus' ),
+			)
+		);
+
 		$this->add_responsive_control(
 			'max_width',
 			array(
@@ -110,7 +121,7 @@ final class Post_Content extends Section_Base {
 		Context::run_post(
 			$post,
 			static function ( \WP_Post $item ) use ( $s ) {
-				echo '<div class="lzp-prose' . ( 'lg' === $s['size'] ? ' lzp-prose--lg' : '' ) . '">';
+				echo '<div class="lzp-prose' . ( 'lg' === $s['size'] ? ' lzp-prose--lg' : '' ) . ( 'yes' === $s['boxed'] ? ' lzp-prose--boxed' : '' ) . '">';
 				echo Post_Parts::content( $item )['html']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- the post content after WordPress's own filters.
 				wp_link_pages(
 					array(

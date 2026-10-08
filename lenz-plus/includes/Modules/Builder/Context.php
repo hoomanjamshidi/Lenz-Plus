@@ -66,8 +66,16 @@ final class Context {
 		return self::$samples[ $post_type ];
 	}
 
+	/** The newest open course (else any course) to show a course template with, 0 when there is none. */
+	public static function sample_course(): int {
+		$open = Course_Data::course_ids( 1, array( 'open' ) );
+		$any  = $open ? $open : Course_Data::course_ids( 1 );
+
+		return $any ? $any[0] : 0;
+	}
+
 	/** Post types whose single pages the item widgets (content, project header…) read. */
-	public const ITEM_TYPES = array( 'post', 'portfolio' );
+	public const ITEM_TYPES = array( 'post', 'portfolio', 'product' );
 
 	/**
 	 * The post the item widgets show: the post or project being viewed, the
@@ -92,7 +100,11 @@ final class Context {
 			return null;
 		}
 
-		$sample = self::sample_id( in_array( $kind, array( 'portfolio', 'portfolio_archive' ), true ) ? 'portfolio' : 'post' );
+		if ( 'course' === $kind ) {
+			$sample = self::sample_course();
+		} else {
+			$sample = self::sample_id( in_array( $kind, array( 'portfolio', 'portfolio_archive' ), true ) ? 'portfolio' : 'post' );
+		}
 
 		return $sample ? get_post( $sample ) : null;
 	}

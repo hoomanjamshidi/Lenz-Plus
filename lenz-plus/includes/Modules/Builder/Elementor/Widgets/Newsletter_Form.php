@@ -212,7 +212,7 @@ final class Newsletter_Form extends Form_Base {
 			Newsletter::hidden_fields( Newsletter::ACTION, $this->get_id(), $id ),
 			$fields,
 			$button,
-			self::result_html( $result, (string) $s['success_text'] )
+			self::form_result_html( $result, (string) $s['success_text'] )
 		);
 
 		if ( 'form' === $s['layout'] ) {

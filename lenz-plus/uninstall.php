@@ -28,8 +28,8 @@ function lenz_plus_uninstall_site(): void {
 		wp_delete_post( $lenz_plus_post_id, true );
 	}
 
-	// The design a page was made from, and the project details added to Lenz's portfolio items.
-	foreach ( array( '_lzp_design', '_lzp_project', '_lzp_featured' ) as $lenz_plus_meta_key ) {
+	// The design a page was made from, and the details added to Lenz's portfolio items and to course products.
+	foreach ( array( '_lzp_design', '_lzp_project', '_lzp_featured', '_lzp_course', '_lzp_is_course' ) as $lenz_plus_meta_key ) {
 		delete_post_meta_by_key( $lenz_plus_meta_key );
 	}
 

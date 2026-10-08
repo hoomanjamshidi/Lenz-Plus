@@ -80,6 +80,24 @@ final class Catalog {
 				'description' => __( 'Reading progress, breadcrumb, header with author and share buttons, the featured image, the text beside a table of contents, comments, related articles and the newsletter band.', 'lenz-plus' ),
 				'build'       => array( Blog::class, 'single' ),
 			),
+			'courses'           => array(
+				'type'        => 'courses',
+				'label'       => __( 'Courses', 'lenz-plus' ),
+				'description' => __( 'Title, course cards with status and format chips (open, coming soon with a waitlist, held), how classes are held and the waitlist band.', 'lenz-plus' ),
+				'build'       => array( Courses::class, 'page' ),
+			),
+			'course-single'     => array(
+				'type'        => 'course',
+				'label'       => __( 'Course', 'lenz-plus' ),
+				'description' => __( 'Hero with facts and the intro video, what you learn, curriculum, who it is for, outcome, instructor, questions, the buy box, the registration form and the phone buy bar.', 'lenz-plus' ),
+				'build'       => array( Courses::class, 'single' ),
+			),
+			'course-sidebar'    => array(
+				'type'        => 'course',
+				'label'       => __( 'Course with a sticky buy box', 'lenz-plus' ),
+				'description' => __( 'The same course page with the buy box beside the content, following the visitor while scrolling.', 'lenz-plus' ),
+				'build'       => array( Courses::class, 'single_sidebar' ),
+			),
 		);
 	}
 

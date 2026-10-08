@@ -75,6 +75,15 @@ final class Integration {
 		'Popular_Posts',
 		'Post_Search',
 		'Promo_Box',
+		// Courses.
+		'Course_Grid',
+		'Course_Hero',
+		'Checklist_Grid',
+		'Curriculum',
+		'Course_Outcome',
+		'Instructor_Box',
+		'Course_Buy_Box',
+		'Mobile_Buy_Bar',
 		// Forms.
 		'Request_Form',
 		'Newsletter_Form',

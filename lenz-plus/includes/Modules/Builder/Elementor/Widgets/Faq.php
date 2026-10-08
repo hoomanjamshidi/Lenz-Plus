@@ -13,6 +13,8 @@ namespace LenzPlus\Modules\Builder\Elementor\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Repeater;
+use LenzPlus\Modules\Builder\Context;
+use LenzPlus\Modules\Builder\Course_Data;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -46,6 +48,19 @@ final class Faq extends Section_Base {
 	protected function register_controls(): void {
 		$this->start_content_section( 'section_content', __( 'Questions', 'lenz-plus' ) );
 
+		$this->add_control(
+			'source',
+			array(
+				'label'   => __( 'Questions', 'lenz-plus' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'custom',
+				'options' => array(
+					'custom' => __( 'Typed here', 'lenz-plus' ),
+					'course' => __( 'The course\'s questions', 'lenz-plus' ),
+				),
+			)
+		);
+
 		$repeater = new Repeater();
 		$repeater->add_control(
 			'question',
@@ -76,6 +91,7 @@ final class Faq extends Section_Base {
 					array( 'question' => __( 'A common question?', 'lenz-plus' ) ),
 				),
 				'title_field' => '{{{ question }}}',
+				'condition'   => array( 'source' => 'custom' ),
 			)
 		);
 
@@ -136,9 +152,29 @@ final class Faq extends Section_Base {
 		$this->end_controls_section();
 	}
 
+	/** The course source reads the viewed course. */
+	protected function is_dynamic_content(): bool {
+		return true;
+	}
+
 	/** Prints the accordion and its structured data. */
 	protected function render(): void {
 		$s = $this->get_settings_for_display();
+
+		if ( 'course' === $s['source'] ) {
+			$id         = Context::current_item( 'product' );
+			$s['items'] = array();
+			foreach ( $id && Course_Data::is_course( $id ) ? Course_Data::details( $id )['faq'] : array() as $pair ) {
+				$s['items'][] = array(
+					'question' => (string) $pair[0],
+					'answer'   => esc_html( (string) $pair[1] ),
+				);
+			}
+			if ( ! $s['items'] ) {
+				$this->editor_hint( __( 'Nothing to show yet: fill in the questions in the course\'s details.', 'lenz-plus' ) );
+			}
+		}
+
 		if ( empty( $s['items'] ) ) {
 			return;
 		}

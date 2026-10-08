@@ -81,6 +81,11 @@ final class Resolver {
 			return 'post';
 		}
 
+		// Only courses: other products keep Lenz's own product page.
+		if ( is_singular( 'product' ) && Course_Data::is_course( (int) get_queried_object_id() ) ) {
+			return 'course';
+		}
+
 		// Searches count only when they are limited to posts (the blog's search box sends post_type=post):
 		// site-wide results mix pages, projects and products, which post cards cannot show.
 		if ( is_home() || is_category() || is_tag() || is_author() || is_date() || ( is_search() && array( 'post' ) === (array) get_query_var( 'post_type' ) ) ) {
@@ -136,7 +141,7 @@ final class Resolver {
 			return $page ? (string) get_permalink( $page ) : ( 'posts' === get_option( 'show_on_front' ) ? home_url( '/' ) : '' );
 		}
 
-		$sample = Context::sample_id( $kind );
+		$sample = 'course' === $kind ? Context::sample_course() : Context::sample_id( $kind );
 
 		return $sample ? (string) get_permalink( $sample ) : '';
 	}

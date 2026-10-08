@@ -1408,6 +1408,18 @@
 	line-height: 1.8;
 }
 
+.lzp-prose--boxed {
+	padding: clamp(20px, 3vw, 32px);
+	border-radius: var(--lzp-radius);
+	background: var(--lzp-panel, var(--lzp-soft));
+	color: var(--lzp-sub);
+	font-size: clamp(14px, 1.5vw, 16px);
+}
+
+.lzp-prose--boxed > * {
+	max-width: 80ch;
+}
+
 .lzp-prose__table {
 	overflow-x: auto;
 }

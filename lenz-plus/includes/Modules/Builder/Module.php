@@ -62,6 +62,7 @@ final class Module extends Base_Module {
 			'portfolio'         => __( 'Project page', 'lenz-plus' ),
 			'blog'              => __( 'Post list', 'lenz-plus' ),
 			'post'              => __( 'Article', 'lenz-plus' ),
+			'course'            => __( 'Course page', 'lenz-plus' ),
 		);
 	}
 
@@ -91,6 +92,7 @@ final class Module extends Base_Module {
 		if ( is_admin() ) {
 			( new Contact_Inbox() )->register();
 			( new Project_Meta_Box() )->register();
+			( new Course_Meta_Box() )->register();
 			add_action( 'admin_init', array( Library::class, 'maybe_upgrade' ) );
 			( new Library_Ajax( $this ) )->register();
 		}
@@ -148,6 +150,7 @@ final class Module extends Base_Module {
 				'portfolio'         => __( 'Lenz\'s project page', 'lenz-plus' ),
 				'blog'              => __( 'Lenz\'s post list', 'lenz-plus' ),
 				'post'              => __( 'Lenz\'s article page', 'lenz-plus' ),
+				'course'            => __( 'Lenz\'s product page', 'lenz-plus' ),
 			),
 			'routes'        => Schema::ROUTE_TYPES,
 			'templates'     => Library::all( $this ),

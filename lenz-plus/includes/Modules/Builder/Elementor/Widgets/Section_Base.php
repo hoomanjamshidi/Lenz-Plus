@@ -12,6 +12,7 @@ namespace LenzPlus\Modules\Builder\Elementor\Widgets;
 use Elementor\Controls_Manager;
 use LenzPlus\Modules\Builder\Assets;
 use LenzPlus\Modules\Builder\Elementor\Picture;
+use LenzPlus\Modules\Builder\Public_Form;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -201,15 +202,16 @@ abstract class Section_Base extends Base {
 
 	/**
 	 * Category chips (links to the category pages) and the number of items,
-	 * shared by the portfolio and post grids. filter.js turns the chips into
-	 * in-place filters when the grid holds all its items.
+	 * shared by the portfolio, post and course grids. filter.js turns the
+	 * chips into in-place filters when the grid holds all its items.
 	 *
 	 * @param array $args {
-	 *     @type string $taxonomy  Taxonomy of the chips.
+	 *     @type string $taxonomy  Taxonomy of the chips ('' when `chips` lists them).
+	 *     @type array  $chips     Slug => [label, url] instead of a taxonomy's terms.
 	 *     @type int[]  $exclude   Term IDs left out (e.g. "Uncategorized").
 	 *     @type string $all_label Label of the "All" chip.
 	 *     @type string $all_url   Link of the "All" chip.
-	 *     @type int    $current   Term being viewed (0 = "All").
+	 *     @type mixed  $current   Term ID or chip slug being viewed (0 or '' = "All").
 	 *     @type int    $total     Number of items listed (-1 hides the count).
 	 *     @type string $one       Count text for one item (`%s` = number).
 	 *     @type string $many      Count text for more items.
@@ -217,28 +219,39 @@ abstract class Section_Base extends Base {
 	 * }
 	 */
 	protected static function filter_bar_html( array $args ): string {
-		$terms = get_terms(
-			array(
-				'taxonomy'   => $args['taxonomy'],
-				'hide_empty' => true,
-				'exclude'    => $args['exclude'] ?? array(),
-			)
-		);
+		$items = array();
+
+		if ( ! empty( $args['chips'] ) ) {
+			foreach ( $args['chips'] as $slug => $chip ) {
+				$items[] = array( (string) $slug, $chip[0], $chip[1], (string) $args['current'] === (string) $slug );
+			}
+		} else {
+			$terms = get_terms(
+				array(
+					'taxonomy'   => $args['taxonomy'],
+					'hide_empty' => true,
+					'exclude'    => $args['exclude'] ?? array(),
+				)
+			);
+			foreach ( is_array( $terms ) ? $terms : array() as $term ) {
+				$items[] = array( $term->slug, $term->name, (string) get_term_link( $term ), (int) $args['current'] === (int) $term->term_id );
+			}
+		}
 
 		$chips = sprintf(
 			'<a class="lzp-filter-chip" href="%1$s" data-lzp-cat=""%2$s>%3$s</a>',
 			esc_url( $args['all_url'] ),
-			0 === (int) $args['current'] ? ' aria-current="page"' : '',
+			empty( $args['current'] ) ? ' aria-current="page"' : '',
 			esc_html( $args['all_label'] )
 		);
 
-		foreach ( is_array( $terms ) ? $terms : array() as $term ) {
+		foreach ( $items as $item ) {
 			$chips .= sprintf(
 				'<a class="lzp-filter-chip" href="%1$s" data-lzp-cat="%2$s"%3$s>%4$s</a>',
-				esc_url( (string) get_term_link( $term ) ),
-				esc_attr( $term->slug ),
-				(int) $args['current'] === (int) $term->term_id ? ' aria-current="page"' : '',
-				esc_html( $term->name )
+				esc_url( $item[2] ),
+				esc_attr( $item[0] ),
+				$item[3] ? ' aria-current="page"' : '',
+				esc_html( $item[1] )
 			);
 		}
 
@@ -258,5 +271,23 @@ abstract class Section_Base extends Base {
 			$chips,
 			$count
 		);
+	}
+
+	/**
+	 * The status line and the "done" panel of a public form (request,
+	 * sign-up, waitlist). After a plain post the result arrives in the URL;
+	 * with JavaScript forms.js fills the same elements.
+	 *
+	 * @param string $result  Result of a plain post ('' when none).
+	 * @param string $success Success message.
+	 */
+	protected static function form_result_html( string $result, string $success ): string {
+		$errors = Public_Form::error_messages();
+		$error  = $errors[ $result ] ?? '';
+
+		return '<p class="lzp-form__status' . ( '' !== $error ? ' is-error' : '' ) . '" role="status" aria-live="polite">' . esc_html( $error ) . '</p>'
+			. '<div class="lzp-form__done" data-lzp-form-done tabindex="-1"' . ( 'ok' === $result ? '' : ' hidden' ) . '>'
+			. self::icon( 'check', 'lzp-form__done-icon' )
+			. '<span>' . esc_html( $success ) . '</span></div>';
 	}
 }

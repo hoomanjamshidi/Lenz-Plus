@@ -11,6 +11,8 @@ namespace LenzPlus\Modules\Builder\Elementor\Widgets;
 
 use Elementor\Controls_Manager;
 use LenzPlus\Modules\Builder\Context;
+use LenzPlus\Modules\Builder\Course_Data;
+use LenzPlus\Modules\Builder\Design_Pages;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -86,7 +88,7 @@ final class Breadcrumb extends Section_Base {
 		} elseif ( is_post_type_archive() || is_home() ) {
 			$trail[] = array( is_home() ? self::list_step( 'post' )[0] : post_type_archive_title( '', false ), '' );
 		} elseif ( $post ) {
-			$trail[] = self::list_step( $post->post_type );
+			$trail[] = 'product' === $post->post_type && Course_Data::is_course( (int) $post->ID ) ? self::courses_step() : self::list_step( $post->post_type );
 			$trail[] = array( get_the_title( $post ), '' );
 		}
 
@@ -119,10 +121,35 @@ final class Breadcrumb extends Section_Base {
 		return array( $object ? (string) $object->labels->name : '', $url ? $url : '' );
 	}
 
+	/**
+	 * The courses page made from the courses design, else the shop.
+	 *
+	 * @return array{0:string, 1:string}
+	 */
+	private static function courses_step(): array {
+		foreach ( Design_Pages::all() as $page ) {
+			if ( 'courses' === $page['kind'] && 'publish' === $page['status'] ) {
+				return array( $page['title'], $page['viewUrl'] );
+			}
+		}
+
+		return self::list_step( 'product' );
+	}
+
 	/** Prints the trail. */
 	protected function render(): void {
-		$s     = $this->get_settings_for_display();
-		$trail = self::trail( (string) $s['home_label'] );
+		$s = $this->get_settings_for_display();
+
+		echo self::html( (string) $s['home_label'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in html().
+	}
+
+	/**
+	 * Trail markup, also printed inside the course hero.
+	 *
+	 * @param string $home Home label.
+	 */
+	public static function html( string $home ): string {
+		$trail = self::trail( $home );
 		$last  = count( $trail ) - 1;
 
 		$items = '';
@@ -132,6 +159,6 @@ final class Breadcrumb extends Section_Base {
 				: '<a href="' . esc_url( $step[1] ) . '">' . esc_html( $step[0] ) . '</a>' ) . '</li>';
 		}
 
-		echo '<nav class="lzp-crumbs" aria-label="' . esc_attr__( 'Breadcrumb', 'lenz-plus' ) . '"><ol>' . $items . '</ol></nav>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above.
+		return '<nav class="lzp-crumbs" aria-label="' . esc_attr__( 'Breadcrumb', 'lenz-plus' ) . '"><ol>' . $items . '</ol></nav>';
 	}
 }

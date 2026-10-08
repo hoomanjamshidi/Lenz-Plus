@@ -111,11 +111,10 @@ final class Newsletter extends Public_Form {
 		$topic    = isset( $_POST['topic'] ) ? sanitize_text_field( wp_unslash( $_POST['topic'] ) ) : '';
 		// phpcs:enable
 
-		$saved = self::saved_widget( $document, $form, self::WIDGET );
-		if ( null === $saved ) {
+		$settings = self::form_settings( $document, $form );
+		if ( null === $settings ) {
 			$this->respond( 'error' );
 		}
-		$settings = array_merge( self::defaults(), array_intersect_key( $saved, self::defaults() ) );
 
 		$contact = self::normalize_contact( $contact, 'email_phone' === $settings['contact'] );
 		if ( '' === $contact ) {
@@ -177,6 +176,34 @@ final class Newsletter extends Public_Form {
 		}
 
 		return '';
+	}
+
+	/**
+	 * Options of the saved form a sign-up comes from: a Sign-up widget, or
+	 * the waitlist form of a coming-soon card in a Course grid (email or
+	 * mobile, the grid's waitlist). Null when the request points at neither.
+	 *
+	 * @param int    $document_id Elementor document holding the widget.
+	 * @param string $element_id  Widget element ID.
+	 * @return array{contact:string, list_name:string}|null
+	 */
+	private static function form_settings( int $document_id, string $element_id ): ?array {
+		$saved = self::saved_widget( $document_id, $element_id, self::WIDGET );
+		if ( null !== $saved ) {
+			return array_merge( self::defaults(), array_intersect_key( $saved, self::defaults() ) );
+		}
+
+		$grid = self::saved_widget( $document_id, $element_id, 'lzp-course-grid' );
+		if ( null === $grid ) {
+			return null;
+		}
+
+		$list = isset( $grid['waitlist_list'] ) && '' !== $grid['waitlist_list'] ? (string) $grid['waitlist_list'] : __( 'Course waitlist', 'lenz-plus' );
+
+		return array(
+			'contact'   => 'email_phone',
+			'list_name' => $list,
+		);
 	}
 
 	/** Streams every sign-up as a CSV file. */

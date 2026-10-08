@@ -36,6 +36,9 @@ final class Assets {
 	/** Post lists and articles (stylesheet, and the share, table of contents and progress script). */
 	public const BLOG_HANDLE = 'lzp-blog';
 
+	/** Course grids and course pages (stylesheet, and the video dialog and buy bar script). */
+	public const COURSES_HANDLE = 'lzp-courses';
+
 	/** In-place category filter of the portfolio and post grids. */
 	public const FILTER_HANDLE = 'lzp-filter';
 
@@ -83,6 +86,7 @@ final class Assets {
 		wp_register_style( self::SECTIONS_HANDLE, Asset::url( 'assets/modules/builder/css/sections.css' ), array( self::HANDLE ), LENZ_PLUS_VERSION );
 		wp_register_style( self::PORTFOLIO_HANDLE, Asset::url( 'assets/modules/builder/css/portfolio.css' ), array( self::SECTIONS_HANDLE ), LENZ_PLUS_VERSION );
 		wp_register_style( self::BLOG_HANDLE, Asset::url( 'assets/modules/builder/css/blog.css' ), array( self::SECTIONS_HANDLE ), LENZ_PLUS_VERSION );
+		wp_register_style( self::COURSES_HANDLE, Asset::url( 'assets/modules/builder/css/courses.css' ), array( self::SECTIONS_HANDLE ), LENZ_PLUS_VERSION );
 		wp_register_style( self::FORMS_HANDLE, Asset::url( 'assets/modules/builder/css/forms.css' ), array( self::SECTIONS_HANDLE ), LENZ_PLUS_VERSION );
 
 		Asset::register_shared();
@@ -120,6 +124,19 @@ final class Assets {
 			)
 		);
 		wp_add_inline_script( self::BLOG_HANDLE, 'window.lzpBlog = ' . wp_json_encode( array( 'i18n' => array( 'copied' => __( 'Link copied', 'lenz-plus' ) ) ) ) . ';', 'before' );
+
+		wp_register_script(
+			self::COURSES_HANDLE,
+			Asset::url( 'assets/modules/builder/js/courses.js' ),
+			array(),
+			LENZ_PLUS_VERSION,
+			array(
+				'in_footer' => true,
+				'strategy'  => 'defer',
+			)
+		);
+
+		wp_add_inline_script( self::COURSES_HANDLE, 'window.lzpCourses = ' . wp_json_encode( array( 'i18n' => array( 'close' => __( 'Close', 'lenz-plus' ) ) ) ) . ';', 'before' );
 
 		wp_register_script(
 			self::FORMS_HANDLE,

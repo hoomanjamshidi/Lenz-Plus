@@ -1,6 +1,6 @@
 <?php
 /**
- * A route page (portfolio or post list, project or article) rendered with a Lenz+
+ * A route page (portfolio or post list, project, article or course) rendered with a Lenz+
  * Elementor template, between Lenz's header and footer.
  *
  * Loaded through `template_include`, so it runs in the global scope. A single
@@ -27,6 +27,13 @@ get_header();
 echo '<main class="lzp-route-body">';
 
 if ( is_singular() ) {
+	// WooCommerce's notices (added to cart, errors) normally print in its own templates.
+	if ( is_singular( 'product' ) && function_exists( 'woocommerce_output_all_notices' ) ) {
+		echo '<div class="lzp-route-notices">';
+		woocommerce_output_all_notices();
+		echo '</div>';
+	}
+
 	while ( have_posts() ) :
 		the_post();
 

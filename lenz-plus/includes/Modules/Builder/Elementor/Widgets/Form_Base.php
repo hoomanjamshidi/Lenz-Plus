@@ -11,7 +11,6 @@ namespace LenzPlus\Modules\Builder\Elementor\Widgets;
 
 use Elementor\Controls_Manager;
 use LenzPlus\Modules\Builder\Assets;
-use LenzPlus\Modules\Builder\Public_Form;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -55,23 +54,5 @@ abstract class Form_Base extends Section_Base {
 				'default' => $default_value,
 			)
 		);
-	}
-
-	/**
-	 * The status line and the "done" panel shared by both forms. After a
-	 * plain post the result arrives in the URL; with JavaScript forms.js
-	 * fills the same elements.
-	 *
-	 * @param string $result  Result of a plain post ('' when none).
-	 * @param string $success Success message.
-	 */
-	protected static function result_html( string $result, string $success ): string {
-		$errors = Public_Form::error_messages();
-		$error  = $errors[ $result ] ?? '';
-
-		return '<p class="lzp-form__status' . ( '' !== $error ? ' is-error' : '' ) . '" role="status" aria-live="polite">' . esc_html( $error ) . '</p>'
-			. '<div class="lzp-form__done" data-lzp-form-done tabindex="-1"' . ( 'ok' === $result ? '' : ' hidden' ) . '>'
-			. self::icon( 'check', 'lzp-form__done-icon' )
-			. '<span>' . esc_html( $success ) . '</span></div>';
 	}
 }

@@ -276,7 +276,7 @@ final class Request_Form extends Form_Base {
 			Contact_Messages::hidden_fields( Contact_Messages::ACTION, $this->get_id(), $id ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in hidden_fields().
 			$inputs, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in field_html().
 			$foot, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above.
-			self::result_html( $result, (string) $s['success_text'] ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in result_html().
+			self::form_result_html( $result, (string) $s['success_text'] ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in form_result_html().
 		);
 	}
 

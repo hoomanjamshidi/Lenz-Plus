@@ -27,10 +27,14 @@
 		const count = grid.querySelector( '[data-lzp-count]' );
 		const persian = Boolean( count && /[۰-۹]/.test( count.textContent ) );
 
+		// The server may already have filtered the list (a chip link followed without JavaScript).
+		const current = grid.querySelector( '[data-lzp-cat][aria-current]' );
+		const start = current ? current.dataset.lzpCat : '';
+
 		grid.classList.add( 'is-filtering' );
 		chips.forEach( ( chip ) => {
 			chip.setAttribute( 'role', 'button' );
-			chip.setAttribute( 'aria-pressed', chip.dataset.lzpCat === '' ? 'true' : 'false' );
+			chip.setAttribute( 'aria-pressed', chip.dataset.lzpCat === start ? 'true' : 'false' );
 		} );
 
 		const apply = ( slug ) => {

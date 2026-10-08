@@ -204,6 +204,52 @@ final class Thumbs {
 		return self::draw_blog_single();
 	}
 
+	/** The courses page: title, chips, three course cards (one on ink) and the ink waitlist band. */
+	private static function draw_courses(): string {
+		$svg = self::page_frame()
+			. self::r( 196, 18, 30, 4, self::MUTED, 1 ) . self::r( 126, 26, 100, 8, self::INK, 2 )
+			. self::r( 206, 42, 20, 8, self::INK, 3 ) . self::r( 180, 42, 22, 8, self::WHITE, 3, self::STRONG ) . self::r( 154, 42, 22, 8, self::WHITE, 3, self::STRONG );
+		foreach ( array( 160, 88 ) as $x ) {
+			$svg .= self::r( $x, 56, 66, 64, self::WHITE, 5, self::LINE ) . self::r( $x, 56, 66, 26, self::STRONG, 5 ) . self::r( $x + 20, 88, 40, 4, self::INK, 1 ) . self::r( $x + 6, 108, 22, 7, self::INK, 2 );
+		}
+
+		return $svg . self::r( 16, 56, 66, 64, self::INK, 5 ) . self::r( 46, 64, 28, 6, self::PANEL, 2 ) . self::r( 30, 76, 44, 4, self::WHITE, 1 ) . self::r( 22, 100, 54, 7, self::WHITE, 2 ) . self::r( 22, 110, 54, 7, self::WHITE, 2 )
+			. self::r( 0, 128, 240, 22, self::INK, 0 );
+	}
+
+	/** The course page: hero with facts and a video cover, ticked boxes, curriculum rows and the buy box. */
+	private static function draw_course_single(): string {
+		$svg = self::page_frame()
+			. self::r( 186, 20, 40, 6, self::INK, 3 ) . self::r( 136, 30, 90, 8, self::INK, 2 ) . self::r( 146, 42, 80, 3, self::STRONG, 1 );
+		foreach ( array( 196, 166, 136 ) as $x ) {
+			$svg .= self::r( $x, 50, 12, 12, self::WHITE, 3, self::DASH ) . self::r( $x - 16, 54, 14, 3, self::INK, 1 );
+		}
+		$svg .= self::r( 14, 20, 100, 46, self::STRONG, 5 ) . '<circle cx="64" cy="43" r="9" fill="' . self::INK . '"/>';
+		foreach ( array( 156, 84, 12 ) as $x ) {
+			$svg .= self::r( $x, 74, 70, 14, self::WHITE, 3, self::DASH );
+		}
+
+		return $svg . self::r( 12, 94, 216, 10, self::WHITE, 3, self::LINE ) . self::r( 12, 108, 216, 10, self::WHITE, 3, self::LINE )
+			. self::r( 12, 124, 216, 22, self::WHITE, 4, self::LINE ) . self::r( 160, 129, 58, 5, self::INK, 2 ) . self::r( 160, 137, 40, 6, self::INK, 2 );
+	}
+
+	/** The course page with the buy box sticky beside the content. */
+	private static function draw_course_sidebar(): string {
+		$svg = self::page_frame()
+			. self::r( 186, 20, 40, 6, self::INK, 3 ) . self::r( 136, 30, 90, 8, self::INK, 2 ) . self::r( 14, 20, 100, 40, self::STRONG, 5 );
+		foreach ( array( 70, 88, 106, 124 ) as $y ) {
+			$svg .= self::r( 90, $y, 136, 14, self::WHITE, 3, self::DASH );
+		}
+
+		return $svg . self::r( 14, 70, 68, 70, self::WHITE, 5, self::LINE ) . self::r( 24, 80, 48, 5, self::INK, 2 ) . self::r( 24, 90, 34, 6, self::INK, 2 ) . self::r( 24, 100, 48, 8, self::INK, 3 )
+			. self::r( 24, 114, 48, 2, self::LINE, 0 ) . self::r( 24, 120, 48, 2, self::LINE, 0 ) . self::r( 24, 126, 48, 2, self::LINE, 0 );
+	}
+
+	/** Custom templates of the course kind look like the ready-made one. */
+	private static function draw_course(): string {
+		return self::draw_course_single();
+	}
+
 	/** White page under a header strip, for the page designs. */
 	private static function page_frame(): string {
 		return self::r( 0, 0, 240, 150, self::WHITE, 0 )
