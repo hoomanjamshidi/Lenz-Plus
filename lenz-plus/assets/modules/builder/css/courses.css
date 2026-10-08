@@ -275,70 +275,6 @@
 	min-width: 0;
 }
 
-.lzp-play {
-	position: absolute;
-	z-index: 2;
-	inset: 0;
-	display: grid;
-	place-items: center;
-	width: 72px;
-	height: 72px;
-	margin: auto;
-	border-radius: 50%;
-	background: color-mix(in srgb, var(--lzp-ink) 85%, transparent);
-	color: #ffffff;
-	font-size: 25px;
-	text-decoration: none;
-	transition: background-color var(--lzp-dur) ease;
-}
-
-.lzp-play:hover {
-	background: var(--lzp-ink);
-	color: #ffffff;
-}
-
-/* The video dialog opened by the play button (courses.js). */
-.lzp-video-dialog {
-	width: min(960px, 92vw);
-	max-width: none;
-	padding: 0;
-	overflow: visible;
-	border: 0;
-	border-radius: var(--lzp-radius);
-	background: #000000;
-}
-
-.lzp-video-dialog::backdrop {
-	background: rgba(2, 20, 35, 0.8);
-}
-
-.lzp-video-dialog video,
-.lzp-video-dialog iframe {
-	display: block;
-	width: 100%;
-	aspect-ratio: 16 / 9;
-	border: 0;
-	border-radius: var(--lzp-radius);
-}
-
-.lzp-video-dialog .lzp-video-dialog__close {
-	position: absolute;
-	top: -52px;
-	inset-inline-end: 0;
-	display: grid;
-	place-items: center;
-	width: 44px;
-	height: 44px;
-	margin: 0;
-	padding: 0;
-	border: 0;
-	border-radius: 50%;
-	background: #ffffff;
-	color: var(--lzp-ink);
-	font-size: 20px;
-	cursor: pointer;
-}
-
 /* ==========================================================================
    Ticked boxes
    ========================================================================== */
@@ -771,15 +707,14 @@ body.lzp-bn-on.lzp-bn-is-hidden .lzp-buybar {
    Accessibility
    ========================================================================== */
 
-:is(.lzp-course-card__title a, .lzp-play, .lzp-buybox__phone a, .lzp-video-dialog__close):focus-visible {
+:is(.lzp-course-card__title a, .lzp-buybox__phone a):focus-visible {
 	outline: 3px solid color-mix(in srgb, var(--lzp-accent) 55%, transparent);
 	outline-offset: 3px;
 }
 
 @media (prefers-reduced-motion: reduce) {
 	.lzp-buybar,
-	.lzp-ticks .lzp-tick,
-	.lzp-play {
+	.lzp-ticks .lzp-tick {
 		transition: none;
 	}
 }

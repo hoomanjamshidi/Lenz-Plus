@@ -4,7 +4,7 @@ This file is the **resume point**. Every session starts here (see the `lenz-plus
 
 Status keys: `[ ]` to do · `[x]` done · `[~]` started (see Notes) · `[-]` dropped (say why)
 
-**Current phase:** 11
+**Current phase:** 12
 
 Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, browser check at 390 and 1440, translations, CLAUDE.md contracts, graphify update, commit `Phase N: …`).
 
@@ -116,10 +116,10 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - [x] Verify against `Courses.dc.html` and `Course.dc.html` at 390 and 1440; register → checkout with the course; request-form mode links #enroll; waitlist card stores list + topic; chips (in place and `?lzp_course=`); buy bar; video dialog; editor sample
 
 ## Phase 11 — Home page (صفحه اصلی)
-- [ ] `Page_Hero` filmstrip variant + video `<dialog>`
-- [ ] `Service_Cards`, `Testimonials`
-- [ ] `Presets/Home.php` (all sections, booking form in the ink frame)
-- [ ] Verify against `Home.dc.html`; "Use as the site's home page"
+- [x] `Page_Hero` filmstrip variant + video `<dialog>`
+- [x] `Service_Cards`, `Testimonials`
+- [x] `Presets/Home.php` (all sections, booking form in the ink frame)
+- [x] Verify against `Home.dc.html`; "Use as the site's home page"
 
 ## Phase 12 — QA, translations, release (انتشار)
 - [ ] Full test matrix (CLAUDE.md "Testing")
@@ -132,6 +132,7 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 
 ## Notes
 - Phase 6: `docs/reference/*.md` (Lenz integration map, Studiare architecture, design inventory) were never committed: `.gitignore`'s `reference/` also matched `docs/reference/`. Fixed to `/reference/`; the facts that matter live in CLAUDE.md. A fresh clone needs `reference/` re-extracted from `Theme.zip` and `Studiare-Extentions.zip` (lenz/, lenz-demo/, studiare-extensions/, studiare-CLAUDE.md).
+- Phase 11: test data. Page «خانه» (`/`) created from the home preset and set as the front page (was page 2400, a Lenz demo page); its hero has a test video URL (`uploads/test.mp4`, missing file: only the dialog is tested). Also added: `Photo_Frame`, `Icon_Features` look `boxed`, `Post_Grid` look `dashed`, `Portfolio_Grid` title (chips in the title row), shared `video.js`.
 - Phase 10: test data. 6 course products (3 open: cart offline, form offline, cart online; 1 soon; 2 archive) with details, an `expert` «امیرمهدی اسدی», Courses page `/courses/` from the preset, route `course` = «Course». Phase 5 footer data restored (footer menus, Lenz branch, support channels).
 - Phase 9: test data. 9 posts in 5 categories (light, gear, edit, business, video) with photos, excerpts, H2s, a quote, a numbered list and `_views`; the first one is sticky; author 1 renamed «امیرمهدی اسدی» with a bio. Front page = Lenz demo «home» (2400), posts page = «blog» (1789), 6 posts per page. Routes set to the blog presets.
 - Phase 8: test data. 8 portfolio items with generated photos in 6 categories (`portfolio-cat`: portrait, religious, product, event, video, doc); «کمپین تصویری کالکشن عطر نُوا» (ID 2433 on the test site) has a 6-photo gallery, project details and the featured flag; «تیزر کافه لَم» has an external video link. Routes set to the two portfolio presets. Test page `/portfolio-test/` (grid with in-place filter + featured cards).

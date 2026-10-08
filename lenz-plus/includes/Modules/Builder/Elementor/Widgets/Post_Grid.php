@@ -127,6 +127,19 @@ final class Post_Grid extends Blog_Base {
 			)
 		);
 
+		$this->add_control(
+			'look',
+			array(
+				'label'   => __( 'Look', 'lenz-plus' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'plain',
+				'options' => array(
+					'plain'  => __( 'Plain', 'lenz-plus' ),
+					'dashed' => __( 'Dashed cards (home page)', 'lenz-plus' ),
+				),
+			)
+		);
+
 		$this->add_ratio_control( 'ratio', '4/3' );
 		$this->add_columns_control( '.lzp-posts', array( 2, 2, 1 ) );
 		$this->end_controls_section();
@@ -188,7 +201,7 @@ final class Post_Grid extends Blog_Base {
 			echo $bar; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in filter_bar_html().
 		}
 
-		echo '<ul class="lzp-posts lzp-grid">';
+		echo '<ul class="lzp-posts lzp-grid' . ( 'dashed' === $s['look'] ? ' lzp-posts--dashed' : '' ) . '">';
 		foreach ( $query->posts as $post ) {
 			echo self::card_html( $post, (string) $s['ratio'], 'yes' === $s['excerpt'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in card_html().
 		}

@@ -13,6 +13,15 @@
 	font-family: var(--lzp-font);
 }
 
+/* With a section title the chips sit at the end of the title row. */
+.lzp-pf > .lzp-heading {
+	margin-bottom: 26px;
+}
+
+.lzp-heading__row > .lzp-filter-bar {
+	margin-bottom: 0;
+}
+
 /* Photos keep their own shapes in as many ~250px columns as fit. */
 .lzp-pf__grid {
 	margin: 0;

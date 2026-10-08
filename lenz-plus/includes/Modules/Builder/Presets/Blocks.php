@@ -173,6 +173,13 @@ final class Blocks {
 		return home_url( '/' );
 	}
 
+	/** The posts page, or the home page when the site has none. */
+	public static function blog_url(): string {
+		$page = (int) get_option( 'page_for_posts' );
+
+		return $page ? (string) get_permalink( $page ) : home_url( '/' );
+	}
+
 	/** The WooCommerce shop (where course products are listed), or the home page. */
 	public static function courses_url(): string {
 		$url = function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'shop' ) : '';

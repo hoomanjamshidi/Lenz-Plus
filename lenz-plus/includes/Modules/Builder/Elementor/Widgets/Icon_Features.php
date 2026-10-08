@@ -5,6 +5,9 @@
  * and the arrow at the end, the same rows become the services page's jump
  * tiles («عکاسی حرفه‌ای ↖»), laid out in a grid.
  *
+ * With icons in dashed boxes and no row border they become the home page's
+ * promises («رضایت مخاطب در اولویت»).
+ *
  * Latin words inside Persian names (Sony a7 IV, RGB) keep their direction
  * thanks to `unicode-bidi: plaintext` on the name.
  *
@@ -130,6 +133,19 @@ final class Icon_Features extends Section_Base {
 			)
 		);
 
+		$this->add_control(
+			'look',
+			array(
+				'label'   => __( 'Look', 'lenz-plus' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'rows',
+				'options' => array(
+					'rows'  => __( 'Dashed rows', 'lenz-plus' ),
+					'boxed' => __( 'Icons in dashed boxes', 'lenz-plus' ),
+				),
+			)
+		);
+
 		$this->add_columns_control( '.lzp-rows', array( 1, 1, 1 ), 4 );
 		$this->end_controls_section();
 
@@ -159,10 +175,17 @@ final class Icon_Features extends Section_Base {
 			return;
 		}
 
-		echo '<ul class="lzp-rows lzp-grid lzp-rows--' . esc_attr( 'lg' === $s['size'] ? 'lg' : 'md' ) . '">';
+		$boxed   = 'boxed' === $s['look'];
+		$classes = 'lzp-rows lzp-grid lzp-rows--' . ( 'lg' === $s['size'] ? 'lg' : 'md' ) . ( $boxed ? ' lzp-rows--boxed' : '' );
+		echo '<ul class="' . esc_attr( $classes ) . '">';
 		foreach ( $s['items'] as $index => $item ) {
 			$link = $this->link_attrs( 'row-' . $index, $item['link'] ?? array() );
-			$body = ( '' !== (string) $item['icon'] ? self::icon( (string) $item['icon'], 'lzp-rows__icon' ) : '' )
+			$icon = '' !== (string) $item['icon'] ? self::icon( (string) $item['icon'], 'lzp-rows__icon' ) : '';
+			if ( $boxed && '' !== $icon ) {
+				$icon = '<span class="lzp-rows__box">' . $icon . '</span>';
+			}
+
+			$body = $icon
 				. '<span class="lzp-rows__title">' . esc_html( (string) $item['title'] ) . '</span>'
 				. ( '' !== (string) $item['note'] ? '<span class="lzp-rows__note">' . esc_html( (string) $item['note'] ) . '</span>' : '' );
 

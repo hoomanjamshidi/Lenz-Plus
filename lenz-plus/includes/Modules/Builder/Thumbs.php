@@ -91,6 +91,23 @@ final class Thumbs {
 			. self::r( 12, 64, 84, 50, self::PANEL, 6 ) . self::r( 24, 76, 60, 3, self::ON_INK, 1 ) . self::r( 34, 88, 50, 3, self::ON_INK, 1 ) . self::r( 30, 100, 54, 3, self::ON_INK, 1 );
 	}
 
+	/** The home page: film strip, text and showreel, four service cards, a masonry and the ink booking frame. */
+	private static function draw_home(): string {
+		$svg = self::page_frame()
+			. self::r( 212, 18, 16, 56, self::INK, 2 ) . self::r( 214, 22, 3, 48, self::WHITE, 1 ) . self::r( 223, 22, 3, 48, self::WHITE, 1 )
+			. self::r( 160, 24, 44, 4, self::MUTED, 1 ) . self::r( 124, 32, 80, 8, self::INK, 2 ) . self::r( 140, 44, 64, 3, self::STRONG, 1 )
+			. self::r( 172, 54, 32, 9, self::INK, 3 ) . self::r( 136, 54, 32, 9, self::WHITE, 3, self::STRONG )
+			. self::r( 22, 18, 82, 56, self::STRONG, 5 ) . '<circle cx="63" cy="46" r="8" fill="' . self::INK . '"/>';
+		foreach ( array( 172, 118, 64, 10 ) as $x ) {
+			$svg .= self::r( $x + 4, 82, 50, 24, self::WHITE, 4, self::DASH ) . self::r( $x + 40, 87, 8, 8, self::PANEL, 2 ) . self::r( $x + 18, 99, 30, 3, self::INK, 1 );
+		}
+		foreach ( array( 172, 118, 64, 10 ) as $i => $x ) {
+			$svg .= self::r( $x + 4, 112, 50, 0 === $i % 2 ? 14 : 10, self::STRONG, 3 );
+		}
+
+		return $svg . self::r( 12, 130, 216, 18, self::INK, 4 ) . self::r( 18, 134, 204, 10, self::WHITE, 2 );
+	}
+
 	/** The about page: text hero with a portrait, number tiles, story and timeline, ink call to action. */
 	private static function draw_about(): string {
 		$svg = self::page_frame()

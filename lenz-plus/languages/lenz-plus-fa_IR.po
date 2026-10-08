@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lenz Plus 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/lenz-plus\n"
-"POT-Creation-Date: 2026-10-08T17:41:38+00:00\n"
+"POT-Creation-Date: 2026-10-08T20:40:16+00:00\n"
 "PO-Revision-Date: 2026-10-05T16:14:43+00:00\n"
 "Last-Translator: Hooman Jamshidi\n"
 "Language-Team: Persian\n"
@@ -33,8 +33,8 @@ msgid "Hooman Jamshidi"
 msgstr "هومن جمشیدی"
 
 #: includes/Admin/Admin.php:59
-#: includes/Modules/Builder/Elementor/Integration.php:126
-#: includes/Modules/Builder/Elementor/Integration.php:163
+#: includes/Modules/Builder/Elementor/Integration.php:129
+#: includes/Modules/Builder/Elementor/Integration.php:166
 msgid "Lenz+"
 msgstr "لنز+"
 
@@ -241,8 +241,9 @@ msgstr "هر صفحه، دسته‌بندی، شماره تلفن یا آدرس 
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:97
 #: includes/Modules/Builder/Elementor/Widgets/Header_Action.php:76
 #: includes/Modules/Builder/Elementor/Widgets/Header_Action.php:122
-#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:81
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:84
 #: includes/Modules/Builder/Elementor/Widgets/Section_Base.php:180
+#: includes/Modules/Builder/Elementor/Widgets/Service_Cards.php:90
 #: includes/Modules/Builder/Elementor/Widgets/Site_Logo.php:189
 #: includes/Modules/Builder/Elementor/Widgets/Social_Links.php:140
 msgid "Link"
@@ -271,7 +272,7 @@ msgstr "به صفحهٔ رزرو دکمهٔ «رزرو» هدر لنز، یا ب
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:117
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:69
 #: includes/Modules/Builder/Elementor/Widgets/Header_Action.php:211
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:155
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:175
 msgid "Book a session"
 msgstr "رزرو وقت"
 
@@ -710,7 +711,7 @@ msgstr "سایه"
 
 #: includes/Modules/Bottom_Nav/views/admin.php:312
 #: includes/Modules/Bottom_Nav/views/admin.php:324
-#: includes/Modules/Builder/Elementor/Integration.php:175
+#: includes/Modules/Builder/Elementor/Integration.php:178
 #: includes/Modules/Builder/Elementor/Widgets/Base.php:119
 #: includes/Modules/Builder/Elementor/Widgets/Request_Form.php:205
 msgid "None"
@@ -725,7 +726,7 @@ msgstr "ملایم"
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:66
 #: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:133
 #: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:83
-#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:127
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:130
 msgid "Medium"
 msgstr "متوسط"
 
@@ -934,7 +935,7 @@ msgstr "نوع دکمه"
 #: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:50
 #: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:102
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:60
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:219
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:309
 #: includes/Modules/Builder/Elementor/Widgets/Request_Form.php:87
 #: includes/Modules/Builder/Elementor/Widgets/Stats.php:68
 #: includes/Modules/Builder/Elementor/Widgets/Stats.php:135
@@ -949,8 +950,9 @@ msgstr "عنوان"
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:79
 #: includes/Modules/Builder/Elementor/Widgets/Header_Action.php:87
 #: includes/Modules/Builder/Elementor/Widgets/Header_Action.php:111
-#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:55
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:58
 #: includes/Modules/Builder/Elementor/Widgets/Section_Base.php:192
+#: includes/Modules/Builder/Elementor/Widgets/Service_Cards.php:54
 #: includes/Modules/Builder/Elementor/Widgets/Social_Links.php:123
 #: includes/Modules/Builder/Elementor/Widgets/Stats.php:51
 #: includes/Modules/Support_Button/views/admin.php:181
@@ -1148,8 +1150,8 @@ msgstr "انتخاب آیکون"
 
 #: includes/Modules/Bottom_Nav/views/admin.php:704
 #: includes/Modules/Bottom_Nav/views/sheet.php:24
-#: includes/Modules/Builder/Assets.php:139
-#: includes/Modules/Builder/Assets.php:168
+#: includes/Modules/Builder/Assets.php:152
+#: includes/Modules/Builder/Assets.php:181
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:399
 #: includes/Modules/Builder/Module.php:257
 #: includes/Modules/Support_Button/Module.php:114
@@ -1189,7 +1191,7 @@ msgstr "دنبال چه می‌گردید؟"
 msgid "Results appear as you type."
 msgstr "نتایج همزمان با تایپ نمایش داده می‌شوند."
 
-#: includes/Modules/Builder/Assets.php:126
+#: includes/Modules/Builder/Assets.php:129
 msgid "Link copied"
 msgstr "لینک کپی شد"
 
@@ -1275,7 +1277,7 @@ msgstr "پوشش رویداد"
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:77
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:82
 #: includes/Modules/Builder/Elementor/Widgets/Promo_Box.php:73
-#: includes/Modules/Builder/Presets/Catalog.php:85
+#: includes/Modules/Builder/Presets/Catalog.php:91
 msgid "Courses"
 msgstr "دوره‌ها"
 
@@ -1599,85 +1601,88 @@ msgid "One per line, as \"Question | answer\"."
 msgstr "هر کدام در یک خط به شکل «پرسش | پاسخ»."
 
 #: includes/Modules/Builder/Design_Pages.php:81
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:92
-#: includes/Modules/Builder/Presets/Catalog.php:49
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:102
+#: includes/Modules/Builder/Presets/Catalog.php:55
 msgid "About me"
 msgstr "درباره من"
 
 #: includes/Modules/Builder/Design_Pages.php:82
-#: includes/Modules/Builder/Presets/Catalog.php:55
+#: includes/Modules/Builder/Elementor/Widgets/Service_Cards.php:48
+#: includes/Modules/Builder/Elementor/Widgets/Service_Cards.php:99
+#: includes/Modules/Builder/Presets/Catalog.php:61
 msgid "Services"
 msgstr "خدمات"
 
 #: includes/Modules/Builder/Design_Pages.php:86
 #: includes/Modules/Builder/Module.php:57
 #: includes/Modules/Builder/Module.php:285
+#: includes/Modules/Builder/Presets/Catalog.php:49
 msgid "Home page"
 msgstr "صفحه اصلی"
 
-#: includes/Modules/Builder/Elementor/Integration.php:171
+#: includes/Modules/Builder/Elementor/Integration.php:174
 msgid "Brand surface"
 msgstr "زمینه برند"
 
-#: includes/Modules/Builder/Elementor/Integration.php:176
+#: includes/Modules/Builder/Elementor/Integration.php:179
 msgid "White"
 msgstr "سفید"
 
-#: includes/Modules/Builder/Elementor/Integration.php:177
+#: includes/Modules/Builder/Elementor/Integration.php:180
 msgid "Card (with border)"
 msgstr "کارت (با حاشیه)"
 
-#: includes/Modules/Builder/Elementor/Integration.php:178
+#: includes/Modules/Builder/Elementor/Integration.php:181
 msgid "Card (dashed border)"
 msgstr "کارت (حاشیه خط‌چین)"
 
-#: includes/Modules/Builder/Elementor/Integration.php:179
+#: includes/Modules/Builder/Elementor/Integration.php:182
 msgid "Soft band"
 msgstr "نوار روشن"
 
-#: includes/Modules/Builder/Elementor/Integration.php:180
+#: includes/Modules/Builder/Elementor/Integration.php:183
 msgid "Tile"
 msgstr "کاشی"
 
-#: includes/Modules/Builder/Elementor/Integration.php:181
+#: includes/Modules/Builder/Elementor/Integration.php:184
 msgid "Ink band (dark)"
 msgstr "نوار جوهری (تیره)"
 
-#: includes/Modules/Builder/Elementor/Integration.php:182
+#: includes/Modules/Builder/Elementor/Integration.php:185
 msgid "Dark card"
 msgstr "کارت تیره"
 
-#: includes/Modules/Builder/Elementor/Integration.php:183
+#: includes/Modules/Builder/Elementor/Integration.php:186
 msgid "Header bar (translucent)"
 msgstr "نوار هدر (نیمه‌شفاف)"
 
-#: includes/Modules/Builder/Elementor/Integration.php:186
+#: includes/Modules/Builder/Elementor/Integration.php:189
 msgid "Uses the brand colours from Lenz+ → Page templates. Dark surfaces switch the text inside to light colours. A background set in the Style tab still wins."
 msgstr "از رنگ‌های برند در Lenz+ ← قالب‌های صفحه استفاده می‌کند. روی سطح‌های تیره، متن‌های داخل روشن می‌شوند. پس‌زمینه‌ای که در زبانه «استایل» تنظیم شود اولویت دارد."
 
-#: includes/Modules/Builder/Elementor/Integration.php:193
+#: includes/Modules/Builder/Elementor/Integration.php:196
 msgid "Sticky while scrolling"
 msgstr "چسبان هنگام اسکرول"
 
-#: includes/Modules/Builder/Elementor/Integration.php:197
+#: includes/Modules/Builder/Elementor/Integration.php:200
 #: includes/Modules/Builder/views/admin.php:40
 #: includes/Modules/Support_Button/Module.php:111
 msgid "Off"
 msgstr "خاموش"
 
-#: includes/Modules/Builder/Elementor/Integration.php:198
+#: includes/Modules/Builder/Elementor/Integration.php:201
 msgid "Desktop only"
 msgstr "فقط دسکتاپ"
 
-#: includes/Modules/Builder/Elementor/Integration.php:199
+#: includes/Modules/Builder/Elementor/Integration.php:202
 msgid "All devices"
 msgstr "همه دستگاه‌ها"
 
-#: includes/Modules/Builder/Elementor/Integration.php:203
+#: includes/Modules/Builder/Elementor/Integration.php:206
 msgid "Keeps a column (e.g. the buy box) in view inside its parent. The parent must be taller than this container."
 msgstr "یک ستون (مثلاً باکس خرید) را هنگام اسکرول داخل والدش ثابت نگه می‌دارد. ارتفاع والد باید از این کانتینر بیشتر باشد."
 
-#: includes/Modules/Builder/Elementor/Integration.php:210
+#: includes/Modules/Builder/Elementor/Integration.php:213
 msgid "Distance from top"
 msgstr "فاصله از بالا"
 
@@ -1827,13 +1832,14 @@ msgstr "یک نوشته وبلاگ منتشر کنید تا اطلاعات وا�
 #: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:30
 #: includes/Modules/Builder/Elementor/Widgets/Header_Action.php:35
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:33
-#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:34
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:37
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:32
 #: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:36
 #: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:31
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:39
 #: includes/Modules/Builder/Elementor/Widgets/Newsletter_Form.php:37
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:38
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:42
+#: includes/Modules/Builder/Elementor/Widgets/Photo_Frame.php:31
 #: includes/Modules/Builder/Elementor/Widgets/Photo_Grid.php:30
 #: includes/Modules/Builder/Elementor/Widgets/Popular_Posts.php:29
 #: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:38
@@ -1853,11 +1859,13 @@ msgstr "یک نوشته وبلاگ منتشر کنید تا اطلاعات وا�
 #: includes/Modules/Builder/Elementor/Widgets/Reading_Progress.php:28
 #: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:34
 #: includes/Modules/Builder/Elementor/Widgets/Request_Form.php:37
+#: includes/Modules/Builder/Elementor/Widgets/Service_Cards.php:33
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:37
 #: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:33
 #: includes/Modules/Builder/Elementor/Widgets/Site_Logo.php:33
 #: includes/Modules/Builder/Elementor/Widgets/Social_Links.php:39
 #: includes/Modules/Builder/Elementor/Widgets/Stats.php:30
+#: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:31
 #: includes/Modules/Builder/Elementor/Widgets/Text.php:27
 #: includes/Modules/Builder/Elementor/Widgets/Timeline.php:30
 #, php-format
@@ -1908,18 +1916,21 @@ msgstr "توضیحات"
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:79
 #: includes/Modules/Builder/Elementor/Widgets/Newsletter_Form.php:83
 #: includes/Modules/Builder/Elementor/Widgets/Newsletter_Form.php:160
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:124
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:136
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:221
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:144
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:156
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:311
 #: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:61
 #: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:116
 #: includes/Modules/Builder/Elementor/Widgets/Promo_Box.php:80
 #: includes/Modules/Builder/Elementor/Widgets/Promo_Box.php:99
+#: includes/Modules/Builder/Elementor/Widgets/Service_Cards.php:81
+#: includes/Modules/Builder/Elementor/Widgets/Service_Cards.php:129
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:86
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:107
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:211
 #: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:90
 #: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:141
+#: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:115
 #: includes/Modules/Builder/Elementor/Widgets/Text.php:27
 #: includes/Modules/Builder/Elementor/Widgets/Text.php:42
 #: includes/Modules/Builder/Elementor/Widgets/Text.php:47
@@ -1956,6 +1967,8 @@ msgstr "ارتفاع لوگو"
 #: includes/Modules/Builder/Elementor/Widgets/Site_Logo.php:166
 #: includes/Modules/Builder/Elementor/Widgets/Site_Logo.php:238
 #: includes/Modules/Builder/Elementor/Widgets/Social_Links.php:132
+#: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:61
+#: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:116
 #: includes/Modules/Builder/Module.php:259
 #: includes/Modules/Builder/Project_Meta_Box.php:76
 msgid "Name"
@@ -1990,7 +2003,7 @@ msgid "Current page"
 msgstr "صفحه فعلی"
 
 #: includes/Modules/Builder/Elementor/Widgets/Breadcrumb.php:115
-#: includes/Modules/Builder/Presets/Catalog.php:73
+#: includes/Modules/Builder/Presets/Catalog.php:79
 msgid "Blog"
 msgstr "وبلاگ"
 
@@ -2036,7 +2049,7 @@ msgstr "بزرگ"
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:144
 #: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:129
 #: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:79
-#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:123
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:126
 msgid "Size"
 msgstr "اندازه"
 
@@ -2052,11 +2065,13 @@ msgstr "تمام‌عرض"
 #: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:156
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:173
 #: includes/Modules/Builder/Elementor/Widgets/Featured_Projects.php:76
-#: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:134
+#: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:147
 #: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:144
 #: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:111
 #: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:97
 #: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:111
+#: includes/Modules/Builder/Elementor/Widgets/Service_Cards.php:114
+#: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:112
 msgid "Cards"
 msgstr "کارت‌ها"
 
@@ -2079,16 +2094,16 @@ msgstr "برچسب"
 #: includes/Modules/Builder/Elementor/Widgets/Featured_Projects.php:78
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:105
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:213
-#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:64
-#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:150
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:67
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:166
 #: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:93
 #: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:145
 #: includes/Modules/Builder/Elementor/Widgets/Newsletter_Form.php:72
 #: includes/Modules/Builder/Elementor/Widgets/Newsletter_Form.php:159
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:100
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:220
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:120
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:310
 #: includes/Modules/Builder/Elementor/Widgets/Popular_Posts.php:44
-#: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:136
+#: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:149
 #: includes/Modules/Builder/Elementor/Widgets/Post_Header.php:109
 #: includes/Modules/Builder/Elementor/Widgets/Post_Search.php:44
 #: includes/Modules/Builder/Elementor/Widgets/Post_Toc.php:45
@@ -2099,6 +2114,8 @@ msgstr "برچسب"
 #: includes/Modules/Builder/Elementor/Widgets/Promo_Box.php:98
 #: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:67
 #: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:113
+#: includes/Modules/Builder/Elementor/Widgets/Service_Cards.php:63
+#: includes/Modules/Builder/Elementor/Widgets/Service_Cards.php:128
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:66
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:210
 #: includes/Modules/Builder/Elementor/Widgets/Timeline.php:59
@@ -2146,7 +2163,8 @@ msgstr "تگ عنوان"
 #: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:163
 #: includes/Modules/Builder/Elementor/Widgets/Checklist.php:110
 #: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:108
-#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:143
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:159
+#: includes/Modules/Builder/Elementor/Widgets/Service_Cards.php:121
 #: includes/Modules/Builder/Elementor/Widgets/Social_Links.php:166
 #: includes/Modules/Builder/Elementor/Widgets/Stats.php:127
 msgid "Icon colour"
@@ -2262,9 +2280,9 @@ msgstr "اختیاری: لینک نقشه، tel:، mailto: یا وب‌سایت.
 
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:106
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:120
-#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:49
-#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:91
-#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:136
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:52
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:94
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:152
 msgid "Rows"
 msgstr "ردیف‌ها"
 
@@ -2311,7 +2329,7 @@ msgstr "کادر خرید"
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:50
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:107
 #: includes/Modules/Builder/Elementor/Widgets/Newsletter_Form.php:59
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:63
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:72
 msgid "Layout"
 msgstr "چیدمان"
 
@@ -2392,7 +2410,7 @@ msgstr "شبکه دوره‌ها"
 
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:86
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:205
-#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:107
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:118
 #: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:106
 #: includes/Modules/Support_Button/views/admin.php:340
 msgid "All"
@@ -2487,13 +2505,13 @@ msgid "Course hero"
 msgstr "هیروی دوره"
 
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:70
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:197
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:287
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:198
 msgid "Outline word"
 msgstr "کلمه توخالی"
 
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:80
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:208
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:298
 #: includes/Modules/Builder/Elementor/Widgets/Post_Header.php:99
 #: includes/Modules/Builder/Elementor/Widgets/Project_Header.php:60
 msgid "Guide lines"
@@ -2501,8 +2519,8 @@ msgstr "خطوط راهنما"
 
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:89
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:45
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:58
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:218
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:67
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:308
 #: includes/Modules/Builder/Elementor/Widgets/Post_Header.php:108
 #: includes/Modules/Builder/Elementor/Widgets/Project_Header.php:69
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:52
@@ -2553,14 +2571,18 @@ msgstr "دیدن نمونه‌کارها"
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:84
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:91
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:87
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:164
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:167
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:241
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:244
+#: includes/Modules/Builder/Elementor/Widgets/Photo_Frame.php:46
+#: includes/Modules/Builder/Elementor/Widgets/Photo_Frame.php:47
 #: includes/Modules/Builder/Elementor/Widgets/Photo_Grid.php:51
+#: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:77
 msgid "Photo"
 msgstr "عکس"
 
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:97
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:173
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:250
+#: includes/Modules/Builder/Elementor/Widgets/Photo_Frame.php:53
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:178
 msgid "Placeholder text"
 msgstr "متن جای‌نگهدار"
@@ -2669,14 +2691,14 @@ msgstr "پروژه‌های شاخص"
 
 #: includes/Modules/Builder/Elementor/Widgets/Featured_Projects.php:42
 #: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:53
-#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:58
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:69
 #: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:58
 #: includes/Modules/Builder/Elementor/Widgets/Stats.php:89
 msgid "Projects"
 msgstr "پروژه"
 
 #: includes/Modules/Builder/Elementor/Widgets/Featured_Projects.php:47
-#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:72
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:83
 msgid "Number of projects"
 msgstr "تعداد پروژه‌ها"
 
@@ -2695,7 +2717,7 @@ msgid "Summary"
 msgstr "خلاصه"
 
 #: includes/Modules/Builder/Elementor/Widgets/Featured_Projects.php:119
-#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:162
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:173
 msgid "No projects yet. Add portfolio items in Lenz → Portfolios."
 msgstr "هنوز پروژه‌ای نیست. نمونه‌کارها را در لنز ← نمونه‌کارها اضافه کنید."
 
@@ -2789,11 +2811,12 @@ msgid "Heading"
 msgstr "عنوان"
 
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:107
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:58
 msgid "Section title"
 msgstr "عنوان بخش"
 
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:116
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:111
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:131
 msgid "HTML tag"
 msgstr "تگ HTML"
 
@@ -2832,47 +2855,61 @@ msgid "Space below"
 msgstr "فاصله پایین"
 
 #. translators: %s: widget name.
-#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:34
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:37
 msgid "Icon rows"
 msgstr "ردیف‌های آیکن‌دار"
 
-#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:66
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:69
 msgid "Item name"
 msgstr "نام مورد"
 
-#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:73
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:76
 msgid "Note at the end"
 msgstr "توضیح انتهای ردیف"
 
-#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:84
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:87
 msgid "A link to a section of the page works too, e.g. #packages."
 msgstr "لینک به بخشی از همین صفحه هم کار می‌کند، مثلاً ‎#packages‎."
 
-#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:97
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:100
 msgid "Camera body"
 msgstr "بدنه دوربین"
 
-#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:98
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:101
 msgid "Photo and video"
 msgstr "عکس و ویدیو"
 
-#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:102
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:105
 msgid "Studio flash"
 msgstr "فلاش استودیویی"
 
-#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:103
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:106
 msgid "Studio and product"
 msgstr "آتلیه و محصول"
 
-#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:113
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:116
 msgid "Arrow at the end of linked rows"
 msgstr "فلش انتهای ردیف‌های لینک‌دار"
 
-#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:128
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:131
 msgid "Large (tiles)"
 msgstr "بزرگ (کاشی)"
 
-#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:151
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:139
+#: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:133
+#: includes/Modules/Builder/Elementor/Widgets/Promo_Box.php:49
+msgid "Look"
+msgstr "ظاهر"
+
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:143
+msgid "Dashed rows"
+msgstr "ردیف‌های خط‌چین"
+
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:144
+msgid "Icons in dashed boxes"
+msgstr "آیکن در قاب خط‌چین"
+
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:167
 #: includes/Modules/Builder/Elementor/Widgets/Request_Form.php:228
 msgid "Note"
 msgstr "یادداشت"
@@ -3184,78 +3221,150 @@ msgid "Band"
 msgstr "نوار"
 
 #. translators: %s: widget name.
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:38
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:42
 msgid "Page hero"
 msgstr "هیروی صفحه"
 
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:67
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:76
 msgid "Text and photo"
 msgstr "متن و عکس"
 
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:68
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:77
 msgid "Text only"
 msgstr "فقط متن"
 
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:76
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:78
+msgid "Film strip, text and photo (home page)"
+msgstr "نوار فیلم، متن و عکس (صفحه اصلی)"
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:86
 msgid "On category, tag, author and search pages"
 msgstr "در صفحه‌های دسته، برچسب، نویسنده و جست‌وجو"
 
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:80
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:90
 msgid "Keep these texts"
 msgstr "همین متن‌ها بماند"
 
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:81
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:91
 msgid "Show what the page lists"
 msgstr "نمایش موضوع همان صفحه"
 
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:83
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:93
 msgid "For list templates: a category page then says which category it shows."
 msgstr "برای قالب‌های فهرست: صفحه هر دسته نام همان دسته را نشان می‌دهد."
 
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:90
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:100
 msgid "Label above the title"
 msgstr "برچسب بالای عنوان"
 
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:103
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:110
+msgid "Bold words before the label"
+msgstr "کلمه‌های پررنگ پیش از برچسب"
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:113
+msgid "For example your name, in front of the label in bold."
+msgstr "مثلاً نام خودت، که پررنگ پیش از برچسب می‌آید."
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:123
 msgid "A story told with light"
 msgstr "داستانی که با نور روایت می‌شود"
 
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:127
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:147
 msgid "A short paragraph that introduces this page."
 msgstr "یک پاراگراف کوتاه که این صفحه را معرفی می‌کند."
 
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:138
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:158
 msgid "A short fact"
 msgstr "یک واقعیت کوتاه"
 
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:145
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:165
 msgid "Facts (chips)"
 msgstr "واقعیت‌ها (برچسب‌ها)"
 
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:176
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:184
+msgid "Film strip and proof"
+msgstr "نوار فیلم و اعتبار"
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:191
+msgid "Word on the film strip"
+msgstr "نوشته روی نوار فیلم"
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:200
+msgid "Faces"
+msgstr "چهره‌ها"
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:211
+msgid "Photos of clients"
+msgstr "عکس مشتری‌ها"
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:214
+msgid "The first three are shown as small circles."
+msgstr "سه عکس اول به شکل دایره‌های کوچک نمایش داده می‌شوند."
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:222
+msgid "Small line"
+msgstr "خط کوچک"
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:224
+msgid "Since 2020"
+msgstr "از سال ۱۳۹۹ تا امروز"
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:231
+msgid "Bold line"
+msgstr "خط پررنگ"
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:233
+msgid "By your side"
+msgstr "کنار شما بوده‌ام"
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:253
+#: includes/Modules/Builder/Elementor/Widgets/Photo_Frame.php:56
 msgid "Shown in the empty frame until a photo is chosen."
 msgstr "تا وقتی عکسی انتخاب نشده، داخل قاب خالی نمایش داده می‌شود."
 
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:183
-#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:115
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:260
+msgid "Video link"
+msgstr "لینک ویدیو"
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:265
+msgid "Adds a play button on the photo. An embed link (YouTube, Aparat…) or a video file; it plays over the page."
+msgstr "یک دکمه پخش روی عکس می‌گذارد. لینک جاسازی (یوتیوب، آپارات و…) یا فایل ویدیو؛ روی همین صفحه پخش می‌شود."
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:273
+#: includes/Modules/Builder/Elementor/Widgets/Photo_Frame.php:74
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:126
 msgid "Corner notch"
 msgstr "بریدگی گوشه"
 
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:192
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:282
 msgid "Decoration"
 msgstr "تزئین"
 
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:201
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:291
 msgid "The large outlined word behind the section. Leave empty to hide it."
 msgstr "کلمه بزرگ توخالی پشت این بخش. برای پنهان کردن، خالی بگذارید."
 
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:212
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:302
+#: includes/Modules/Builder/Elementor/Widgets/Photo_Frame.php:67
 msgid "Also follows the global \"Guide lines\" option of Page templates."
 msgstr "از گزینه سراسری «خطوط راهنما» در قالب‌های صفحه هم پیروی می‌کند."
 
-#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:226
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:316
 msgid "Space above and below"
 msgstr "فاصله بالا و پایین"
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:420
+msgid "Play the video"
+msgstr "پخش ویدیو"
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Photo_Frame.php:31
+msgid "Photo frame"
+msgstr "قاب عکس"
+
+#: includes/Modules/Builder/Elementor/Widgets/Photo_Frame.php:63
+msgid "Rule-of-thirds lines"
+msgstr "خطوط قانون یک‌سوم"
 
 #. translators: %s: widget name.
 #: includes/Modules/Builder/Elementor/Widgets/Photo_Grid.php:30
@@ -3269,6 +3378,7 @@ msgstr "ردیف عکس"
 #: includes/Modules/Builder/Elementor/Widgets/Project_Gallery.php:86
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:131
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:136
+#: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:101
 #: includes/Modules/Builder/views/admin.php:281
 msgid "Photos"
 msgstr "عکس‌ها"
@@ -3312,81 +3422,85 @@ msgid "Portfolio grid"
 msgstr "شبکه نمونه‌کارها"
 
 #: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:62
+msgid "With a title, the category chips sit at the end of the title row (home page)."
+msgstr "با داشتن عنوان، دکمه‌های دسته‌بندی در انتهای ردیف عنوان قرار می‌گیرند (صفحه اصلی)."
+
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:73
 #: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:61
 msgid "Of the page being viewed"
 msgstr "مربوط به صفحه‌ای که نمایش داده می‌شود"
 
-#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:63
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:74
 #: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:62
 msgid "Newest"
 msgstr "جدیدترین‌ها"
 
-#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:65
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:76
 msgid "\"Of the page being viewed\" lists the portfolio archive or category page it is on, with page numbers; anywhere else it shows the newest projects."
 msgstr "«مربوط به صفحه‌ای که نمایش داده می‌شود» پروژه‌های آرشیو یا دسته‌ای را که در آن قرار دارد با شماره صفحه نشان می‌دهد؛ در هر جای دیگر جدیدترین پروژه‌ها را."
 
-#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:77
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:88
 msgid "On archive pages, WordPress's \"Blog pages show at most\" setting decides."
 msgstr "در صفحه‌های آرشیو، تنظیم «حداکثر نوشته در برگه‌های بلاگ» وردپرس تعیین می‌کند."
 
-#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:84
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:95
 #: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:94
 msgid "Category chips"
 msgstr "برچسب‌های دسته‌بندی"
 
-#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:94
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:105
 msgid "Number of projects beside the chips"
 msgstr "تعداد پروژه‌ها کنار برچسب‌ها"
 
-#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:105
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:116
 #: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:104
 msgid "\"All\" chip"
 msgstr "برچسب «همه»"
 
-#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:126
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:137
 msgid "Column width"
 msgstr "عرض ستون"
 
-#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:135
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:146
 msgid "Photos keep their own shapes in as many columns of about this width as fit."
 msgstr "عکس‌ها با همان شکل خودشان در هر تعداد ستونی با تقریباً این عرض که جا شود چیده می‌شوند."
 
-#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:142
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:153
 msgid "Grid"
 msgstr "شبکه‌ای"
 
-#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:143
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:154
 msgid "Project title"
 msgstr "عنوان پروژه"
 
 #. translators: %s: number of projects.
-#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:183
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:195
 #, fuzzy, php-format
 msgid "%s project"
 msgstr "%s پروژه"
 
 #. translators: %s: number of projects.
-#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:185
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:197
 #, php-format
 msgid "%s projects"
 msgstr "%s پروژه"
 
-#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:186
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:198
 msgid "Portfolio categories"
 msgstr "دسته‌بندی نمونه‌کارها"
 
-#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:203
-#: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:208
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:220
+#: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:221
 msgid "Previous page"
 msgstr "صفحه قبل"
 
-#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:204
-#: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:209
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:221
+#: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:222
 msgid "Next page"
 msgstr "صفحه بعد"
 
-#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:208
-#: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:213
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:225
+#: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:226
 #: includes/Modules/Builder/views/admin.php:31
 msgid "Pages"
 msgstr "صفحه‌ها"
@@ -3478,7 +3592,7 @@ msgid "For a page that also shows the Featured post widget (newest posts only)."
 msgstr "برای صفحه‌ای که ابزارک «مقاله شاخص» را هم دارد (فقط برای جدیدترین نوشته‌ها)."
 
 #: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:114
-#: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:137
+#: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:150
 #: includes/Modules/Builder/Elementor/Widgets/Post_Header.php:48
 #: includes/Modules/Builder/Elementor/Widgets/Post_Header.php:110
 msgid "Excerpt"
@@ -3492,19 +3606,27 @@ msgstr "وقتی نوشته‌ای نیست"
 msgid "No articles have been published in this category yet."
 msgstr "در این دسته فعلاً مقاله‌ای منتشر نشده است."
 
+#: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:137
+msgid "Plain"
+msgstr "ساده"
+
+#: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:138
+msgid "Dashed cards (home page)"
+msgstr "کارت‌های خط‌چین (صفحه اصلی)"
+
 #. translators: %s: number of articles.
-#: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:182
+#: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:195
 #, php-format
 msgid "%s article"
 msgstr "%s مقاله"
 
 #. translators: %s: number of articles.
-#: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:184
+#: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:197
 #, php-format
 msgid "%s articles"
 msgstr "%s مقاله"
 
-#: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:185
+#: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:198
 msgid "Blog categories"
 msgstr "دسته‌بندی‌های وبلاگ"
 
@@ -3760,10 +3882,6 @@ msgstr "از فیلد «مشخصات» در جزئیات پروژه."
 msgid "Promo box"
 msgstr "کادر تبلیغ"
 
-#: includes/Modules/Builder/Elementor/Widgets/Promo_Box.php:49
-msgid "Look"
-msgstr "ظاهر"
-
 #: includes/Modules/Builder/Elementor/Widgets/Promo_Box.php:53
 msgid "Soft card"
 msgstr "کارت ملایم"
@@ -3806,6 +3924,7 @@ msgid "Delivery was on time and the photos made a real difference for our brand.
 msgstr "تحویل سر وقت بود و عکس‌ها برای برند ما واقعاً تفاوت ایجاد کردند."
 
 #: includes/Modules/Builder/Elementor/Widgets/Quote.php:78
+#: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:63
 msgid "Client name"
 msgstr "نام مشتری"
 
@@ -4013,6 +4132,23 @@ msgstr "دکمه اول"
 #: includes/Modules/Builder/Elementor/Widgets/Section_Base.php:170
 msgid "Second button"
 msgstr "دکمه دوم"
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Service_Cards.php:33
+msgid "Service cards"
+msgstr "کارت‌های خدمات"
+
+#: includes/Modules/Builder/Elementor/Widgets/Service_Cards.php:65
+msgid "Service name"
+msgstr "نام خدمت"
+
+#: includes/Modules/Builder/Elementor/Widgets/Service_Cards.php:72
+msgid "Latin name"
+msgstr "نام لاتین"
+
+#: includes/Modules/Builder/Elementor/Widgets/Service_Cards.php:84
+msgid "A short description of the service."
+msgstr "توضیح کوتاهی درباره این خدمت."
 
 #. translators: %s: widget name.
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:37
@@ -4243,6 +4379,30 @@ msgstr "کاشی‌ها ردیف را تقسیم می‌کنند و وقتی ا�
 msgid "Tiles"
 msgstr "کاشی"
 
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:31
+#: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:46
+#: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:90
+msgid "Testimonials"
+msgstr "نظرات کاربران"
+
+#: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:52
+msgid "What they said"
+msgstr "متن نظر"
+
+#: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:55
+msgid "A few sentences from a happy client."
+msgstr "چند جمله از یک مشتری راضی."
+
+#: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:69
+#: includes/Modules/Builder/Presets/Catalog.php:73
+msgid "Project"
+msgstr "پروژه"
+
+#: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:105
+msgid "Without a chosen photo the card shows an empty frame."
+msgstr "تا عکسی انتخاب نشود، کارت یک قاب خالی نشان می‌دهد."
+
 #: includes/Modules/Builder/Elementor/Widgets/Text.php:49
 msgid "Write your text here."
 msgstr "متن خود را اینجا بنویسید."
@@ -4415,7 +4575,7 @@ msgid "Post list"
 msgstr "فهرست نوشته‌ها"
 
 #: includes/Modules/Builder/Module.php:64
-#: includes/Modules/Builder/Presets/Catalog.php:79
+#: includes/Modules/Builder/Presets/Catalog.php:85
 #: includes/Modules/Builder/views/admin.php:54
 msgid "Article"
 msgstr "مقاله"
@@ -4744,54 +4904,54 @@ msgid "Brand box, quick links and the contact card, as on the about and project 
 msgstr "باکس برند، دسترسی سریع و کارت تماس، مثل صفحه‌های درباره و پروژه."
 
 #: includes/Modules/Builder/Presets/Catalog.php:50
+msgid "Film strip hero with a showreel, services, about me, key numbers, the portfolio, courses, the blog, testimonials, the booking form and questions."
+msgstr "هیروی نوار فیلم با ویدیوی معرفی، خدمات، درباره من، اعداد کلیدی، نمونه‌کارها، دوره‌ها، بلاگ، نظر مشتری‌ها، فرم رزرو و سؤالات متداول."
+
+#: includes/Modules/Builder/Presets/Catalog.php:56
 msgid "Portrait hero, key numbers, story and career path, a framed motto, working steps, equipment, awards, collaborations and a call to action."
 msgstr "هیرو با پرتره، اعداد کلیدی، داستان و مسیر کاری، جمله در قاب، مراحل کار، تجهیزات، جوایز، سوابق همکاری و دعوت به اقدام."
 
-#: includes/Modules/Builder/Presets/Catalog.php:56
+#: includes/Modules/Builder/Presets/Catalog.php:62
 msgid "Hero, jump tiles, four services with photos (one on the ink band), price cards with add-ons, project steps, FAQ and a call to action."
 msgstr "هیرو، کاشی‌های پرش، چهار خدمت با عکس (یکی روی نوار تیره)، کارت‌های تعرفه با خدمات افزودنی، مسیر پروژه، سؤالات متداول و دعوت به اقدام."
 
-#: includes/Modules/Builder/Presets/Catalog.php:61
+#: includes/Modules/Builder/Presets/Catalog.php:67
 msgid "Portfolio"
 msgstr "نمونه‌کارها"
 
-#: includes/Modules/Builder/Presets/Catalog.php:62
+#: includes/Modules/Builder/Presets/Catalog.php:68
 msgid "Title, category chips and a masonry of the projects with page numbers, the featured projects and a call to action."
 msgstr "عنوان، برچسب‌های دسته‌بندی و چیدمان آجری پروژه‌ها با شماره صفحه، پروژه‌های شاخص و دعوت به اقدام."
 
-#: includes/Modules/Builder/Presets/Catalog.php:67
-msgid "Project"
-msgstr "پروژه"
-
-#: includes/Modules/Builder/Presets/Catalog.php:68
+#: includes/Modules/Builder/Presets/Catalog.php:74
 msgid "Breadcrumb, title with facts, the cover, the project text beside a checklist, the gallery, the client's quote, related projects and a call to action."
 msgstr "مسیر صفحه، عنوان با مشخصات، کاور، متن پروژه کنار چک‌لیست، گالری، نقل‌قول مشتری، پروژه‌های مرتبط و دعوت به اقدام."
 
-#: includes/Modules/Builder/Presets/Catalog.php:74
+#: includes/Modules/Builder/Presets/Catalog.php:80
 msgid "A title that follows the page, the featured article, posts with category chips beside a sidebar (search, most read, courses) and the newsletter band."
 msgstr "عنوانی که با صفحه عوض می‌شود، مقاله شاخص، نوشته‌ها با برچسب‌های دسته کنار ستون کناری (جست‌وجو، پرخواننده‌ترین‌ها، دوره‌ها) و نوار خبرنامه."
 
-#: includes/Modules/Builder/Presets/Catalog.php:80
+#: includes/Modules/Builder/Presets/Catalog.php:86
 msgid "Reading progress, breadcrumb, header with author and share buttons, the featured image, the text beside a table of contents, comments, related articles and the newsletter band."
 msgstr "نوار پیشرفت مطالعه، مسیر صفحه، سربرگ با نویسنده و دکمه‌های اشتراک، تصویر شاخص، متن کنار فهرست مطالب، دیدگاه‌ها، مقالات مرتبط و نوار خبرنامه."
 
-#: includes/Modules/Builder/Presets/Catalog.php:86
+#: includes/Modules/Builder/Presets/Catalog.php:92
 msgid "Title, course cards with status and format chips (open, coming soon with a waitlist, held), how classes are held and the waitlist band."
 msgstr "عنوان، کارت‌های دوره با برچسب وضعیت و شکل برگزاری (در حال ثبت‌نام، به‌زودی با لیست انتظار، برگزارشده)، نحوه برگزاری کلاس‌ها و نوار لیست انتظار."
 
-#: includes/Modules/Builder/Presets/Catalog.php:91
+#: includes/Modules/Builder/Presets/Catalog.php:97
 msgid "Course"
 msgstr "دوره آموزشی"
 
-#: includes/Modules/Builder/Presets/Catalog.php:92
+#: includes/Modules/Builder/Presets/Catalog.php:98
 msgid "Hero with facts and the intro video, what you learn, curriculum, who it is for, outcome, instructor, questions, the buy box, the registration form and the phone buy bar."
 msgstr "هیرو با مشخصات و ویدیوی معرفی، آنچه یاد می‌گیری، سرفصل‌ها، مخاطبان، خروجی، مدرس، پرسش‌ها، کادر خرید، فرم ثبت‌نام و نوار خرید موبایل."
 
-#: includes/Modules/Builder/Presets/Catalog.php:97
+#: includes/Modules/Builder/Presets/Catalog.php:103
 msgid "Course with a sticky buy box"
 msgstr "دوره با کادر خرید چسبان"
 
-#: includes/Modules/Builder/Presets/Catalog.php:98
+#: includes/Modules/Builder/Presets/Catalog.php:104
 msgid "The same course page with the buy box beside the content, following the visitor while scrolling."
 msgstr "همان صفحه دوره با کادر خرید کنار محتوا که هنگام اسکرول همراه بازدیدکننده می‌ماند."
 

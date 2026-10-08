@@ -36,8 +36,11 @@ final class Assets {
 	/** Post lists and articles (stylesheet, and the share, table of contents and progress script). */
 	public const BLOG_HANDLE = 'lzp-blog';
 
-	/** Course grids and course pages (stylesheet, and the video dialog and buy bar script). */
+	/** Course grids and course pages (stylesheet, and the buy bar script). */
 	public const COURSES_HANDLE = 'lzp-courses';
+
+	/** Video dialog of the play buttons (home and course heroes). */
+	public const VIDEO_HANDLE = 'lzp-video';
 
 	/** In-place category filter of the portfolio and post grids. */
 	public const FILTER_HANDLE = 'lzp-filter';
@@ -136,7 +139,17 @@ final class Assets {
 			)
 		);
 
-		wp_add_inline_script( self::COURSES_HANDLE, 'window.lzpCourses = ' . wp_json_encode( array( 'i18n' => array( 'close' => __( 'Close', 'lenz-plus' ) ) ) ) . ';', 'before' );
+		wp_register_script(
+			self::VIDEO_HANDLE,
+			Asset::url( 'assets/modules/builder/js/video.js' ),
+			array(),
+			LENZ_PLUS_VERSION,
+			array(
+				'in_footer' => true,
+				'strategy'  => 'defer',
+			)
+		);
+		wp_add_inline_script( self::VIDEO_HANDLE, 'window.lzpVideo = ' . wp_json_encode( array( 'i18n' => array( 'close' => __( 'Close', 'lenz-plus' ) ) ) ) . ';', 'before' );
 
 		wp_register_script(
 			self::FORMS_HANDLE,

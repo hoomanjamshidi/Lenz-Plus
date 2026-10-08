@@ -26,9 +26,9 @@ abstract class Course_Base extends Section_Base {
 		return array( Assets::HANDLE, Assets::SECTIONS_HANDLE, Assets::COURSES_HANDLE );
 	}
 
-	/** Video dialog and buy bar script. */
+	/** Buy bar and video dialog scripts. */
 	public function get_script_depends(): array {
-		return array( Assets::COURSES_HANDLE );
+		return array( Assets::COURSES_HANDLE, Assets::VIDEO_HANDLE );
 	}
 
 	/** Courses change (seats, cart): never cached by Elementor. */

@@ -607,6 +607,28 @@
 	font-size: 15px;
 }
 
+/* Icons in dashed boxes, no row border (the home page's promises). */
+.lzp-rows--boxed .lzp-rows__item,
+.lzp-rows--boxed .lzp-rows__item:hover {
+	padding: 0;
+	border: 0;
+}
+
+.lzp-rows--boxed .lzp-rows__box {
+	display: grid;
+	flex: none;
+	place-items: center;
+	width: 52px;
+	height: 52px;
+	border: 1px dashed var(--lzp-dashed);
+	border-radius: var(--lzp-radius-md);
+}
+
+.lzp-rows--boxed .lzp-rows__icon {
+	color: var(--lzp-heading, var(--lzp-ink));
+	font-size: 20px;
+}
+
 /* ==========================================================================
    Timeline
    ========================================================================== */
@@ -1720,10 +1742,448 @@
 }
 
 /* ==========================================================================
+   Film strip hero (home page)
+   ========================================================================== */
+
+.lzp-hero--filmstrip {
+	padding-block: clamp(28px, 5vw, 64px) clamp(40px, 6vw, 80px);
+}
+
+.lzp-hero--filmstrip .lzp-hero__inner {
+	grid-template-columns: minmax(0, 86px) minmax(0, 1fr) minmax(0, 0.9fr);
+	gap: clamp(16px, 3vw, 40px);
+}
+
+.lzp-hero--filmstrip .lzp-hero__text {
+	gap: 18px;
+}
+
+.lzp-hero--filmstrip .lzp-hero__eyebrow {
+	font-size: clamp(14px, 1.5vw, 19px);
+	letter-spacing: 0.01em;
+}
+
+.lzp-hero .lzp-hero__eyebrow b {
+	color: var(--lzp-heading, var(--lzp-ink));
+	font-weight: 900;
+}
+
+.lzp-hero--filmstrip .lzp-hero__title {
+	font-size: clamp(26px, 4.2vw, 52px);
+	line-height: 1.35;
+}
+
+.lzp-hero--filmstrip .lzp-hero__lead {
+	max-width: 46ch;
+	font-size: clamp(14px, 1.6vw, 19px);
+	line-height: 2;
+}
+
+/* The ink film strip: sprocket holes on both sides of a vertical word, cut corners at the bottom. */
+.lzp-hero__strip {
+	display: grid;
+	grid-template-columns: 12px minmax(0, 1fr) 12px;
+	gap: 10px;
+	min-height: clamp(320px, 44vw, 520px);
+	padding: 26px 10px;
+	background: var(--lzp-ink);
+	clip-path: polygon(0 0, 0 calc(100% - 20px), 20px 100%, calc(100% - 20px) 100%, 100% calc(100% - 20px), 100% 0);
+}
+
+.lzp-hero__holes {
+	border-radius: 2px;
+	background: repeating-linear-gradient(#ffffff 0 13px, var(--lzp-ink) 13px 26px);
+}
+
+.lzp-hero .lzp-hero__strip-text {
+	place-self: center;
+	color: #ffffff;
+	font-size: clamp(15px, 1.7vw, 24px);
+	font-weight: 900;
+	line-height: 1;
+	letter-spacing: 0.42em;
+	white-space: nowrap;
+	writing-mode: vertical-rl;
+	transform: rotate(180deg);
+}
+
+/* Proof row: overlapping client photos and two short lines. */
+.lzp-hero__proof {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	margin-top: 8px;
+}
+
+.lzp-hero__faces {
+	display: flex;
+	align-items: center;
+}
+
+.lzp-hero .lzp-hero__face {
+	display: block;
+	flex: none;
+	width: 44px;
+	height: 44px;
+	border: 2px solid var(--lzp-bg);
+	border-radius: 50%;
+	object-fit: cover;
+	filter: var(--lzp-photo-filter, none);
+}
+
+.lzp-hero__face + .lzp-hero__face {
+	margin-inline-start: -14px;
+}
+
+.lzp-hero__face--empty {
+	background: repeating-linear-gradient(135deg, #dcdcdc 0 6px, #e5eaef 6px 12px);
+}
+
+.lzp-hero__face--empty + .lzp-hero__face--empty {
+	background: repeating-linear-gradient(135deg, #d2d2d2 0 6px, #e2e2e2 6px 12px);
+}
+
+.lzp-hero__proof-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.lzp-hero .lzp-hero__proof-top {
+	color: var(--lzp-muted);
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+.lzp-hero .lzp-hero__proof-bottom {
+	color: var(--lzp-heading, var(--lzp-ink));
+	font-size: 16px;
+	font-weight: 900;
+	line-height: 1.5;
+}
+
+/* Four guide lines: two verticals (shared) and two horizontals at 22% from the top and 14% from the bottom. */
+.lzp-hero--filmstrip .lzp-hero__guides::after {
+	top: 22%;
+	bottom: 14%;
+	border-block: 1px dashed var(--lzp-line);
+}
+
+.lzp-hero--filmstrip .lzp-hero__watermark {
+	top: 38%;
+	bottom: auto;
+	font-size: clamp(60px, 11vw, 160px);
+}
+
+/* Tablets: the strip stays beside the text, the photo moves under both. */
+@media (max-width: 1024px) {
+	.lzp-hero--filmstrip .lzp-hero__inner {
+		grid-template-columns: minmax(0, 72px) minmax(0, 1fr);
+	}
+
+	.lzp-hero--filmstrip .lzp-hero__strip {
+		min-height: 100%;
+	}
+
+	.lzp-hero--filmstrip .lzp-hero__media {
+		grid-column: 1 / -1;
+		width: min(100%, 520px);
+		justify-self: center;
+	}
+}
+
+/* Phones: the strip becomes a horizontal band above the text. */
+@media (max-width: 767px) {
+	.lzp-hero--filmstrip .lzp-hero__inner {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.lzp-hero--filmstrip .lzp-hero__strip {
+		grid-template-columns: none;
+		grid-template-rows: 10px auto 10px;
+		gap: 8px;
+		min-height: 0;
+		padding: 8px 18px;
+		clip-path: polygon(0 0, 0 100%, calc(100% - 14px) 100%, 100% calc(100% - 14px), 100% 0);
+	}
+
+	.lzp-hero--filmstrip .lzp-hero__holes {
+		background: repeating-linear-gradient(90deg, #ffffff 0 13px, var(--lzp-ink) 13px 26px);
+	}
+
+	.lzp-hero--filmstrip .lzp-hero__strip-text {
+		font-size: 13px;
+		letter-spacing: 0.32em;
+		writing-mode: horizontal-tb;
+		transform: none;
+	}
+}
+
+/* ==========================================================================
+   Play button and video dialog (video.js)
+   ========================================================================== */
+
+.lzp-play {
+	position: absolute;
+	z-index: 2;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	width: 72px;
+	height: 72px;
+	margin: auto;
+	border-radius: 50%;
+	background: color-mix(in srgb, var(--lzp-ink) 85%, transparent);
+	color: #ffffff;
+	font-size: 25px;
+	text-decoration: none;
+	transition: background-color var(--lzp-dur) ease;
+}
+
+.lzp-play:hover {
+	background: var(--lzp-ink);
+	color: #ffffff;
+}
+
+/* The video dialog opened by the play button (courses.js). */
+.lzp-video-dialog {
+	width: min(960px, 92vw);
+	max-width: none;
+	padding: 0;
+	overflow: visible;
+	border: 0;
+	border-radius: var(--lzp-radius);
+	background: #000000;
+}
+
+.lzp-video-dialog::backdrop {
+	background: rgba(2, 20, 35, 0.8);
+}
+
+.lzp-video-dialog video,
+.lzp-video-dialog iframe {
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	border: 0;
+	border-radius: var(--lzp-radius);
+}
+
+.lzp-video-dialog .lzp-video-dialog__close {
+	position: absolute;
+	top: -52px;
+	inset-inline-end: 0;
+	display: grid;
+	place-items: center;
+	width: 44px;
+	height: 44px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: #ffffff;
+	color: var(--lzp-ink);
+	font-size: 20px;
+	cursor: pointer;
+}
+
+/* ==========================================================================
+   Service cards (home page)
+   ========================================================================== */
+
+.lzp-services {
+	gap: clamp(14px, 2vw, 24px);
+	font-family: var(--lzp-font);
+}
+
+.lzp-services .lzp-service {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	height: 100%;
+	padding: 26px 22px;
+	border: 1px dashed var(--lzp-dashed);
+	border-radius: var(--lzp-radius-lg);
+	background: var(--lzp-card, var(--lzp-bg));
+	transition: border-color var(--lzp-dur) ease;
+}
+
+.lzp-services .lzp-service:hover {
+	border-style: solid;
+	border-color: var(--lzp-heading, var(--lzp-ink));
+}
+
+.lzp-service .lzp-service__icon {
+	color: var(--lzp-accent);
+	font-size: 34px;
+}
+
+/* The rule under the names is the names box's border, so a card without a text keeps none. */
+.lzp-service__names {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	padding-bottom: 14px;
+	border-bottom: 1px solid var(--lzp-line);
+}
+
+.lzp-service .lzp-service__title {
+	margin: 0;
+	color: var(--lzp-heading, var(--lzp-ink));
+	font-size: 18px;
+	font-weight: 900;
+	line-height: 1.6;
+}
+
+.lzp-service .lzp-service__latin {
+	color: var(--lzp-muted);
+	font-size: 11px;
+	font-weight: 500;
+	line-height: 1.6;
+	letter-spacing: 0.08em;
+	text-align: end;
+}
+
+.lzp-service .lzp-service__text {
+	margin: 0;
+	color: var(--lzp-text);
+	font-size: 14px;
+	line-height: 2;
+}
+
+.lzp-service .lzp-service__more {
+	display: grid;
+	place-items: center;
+	width: 44px;
+	height: 44px;
+	margin-top: auto;
+	border: 1px solid var(--lzp-line-strong, #e0e6eb);
+	border-radius: var(--lzp-radius-md);
+	color: var(--lzp-heading, var(--lzp-ink));
+	font-size: 16px;
+	text-decoration: none;
+	transition: background-color var(--lzp-dur) ease, color var(--lzp-dur) ease, border-color var(--lzp-dur) ease;
+}
+
+/* The arrow's hit area covers the card, so the whole card opens the service. */
+.lzp-service .lzp-service__more::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+}
+
+.lzp-service.has-link:hover .lzp-service__more {
+	border-color: var(--lzp-ink);
+	background: var(--lzp-ink);
+	color: #ffffff;
+}
+
+/* ==========================================================================
+   Testimonials
+   ========================================================================== */
+
+.lzp-testimonials {
+	gap: clamp(14px, 2vw, 22px);
+	font-family: var(--lzp-font);
+}
+
+.lzp-testimonials .lzp-testimonial {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 18px;
+	align-items: start;
+	height: 100%;
+	margin: 0;
+	padding: 24px;
+	border: 1px solid var(--lzp-card-line, var(--lzp-line));
+	border-radius: var(--lzp-radius-lg);
+	background: var(--lzp-card, var(--lzp-bg));
+}
+
+.lzp-testimonials .lzp-testimonial.has-photo {
+	grid-template-columns: minmax(0, 1fr) 92px;
+}
+
+.lzp-testimonial__body {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.lzp-testimonial .lzp-testimonial__mark {
+	color: var(--lzp-heading, var(--lzp-ink));
+	font-size: 26px;
+}
+
+/* Lenz's single.css frames every blockquote; these are plain text. */
+.lzp-testimonial .lzp-testimonial__text {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	color: var(--lzp-text);
+	font-size: 13px;
+	font-style: normal;
+	line-height: 2.1;
+}
+
+.lzp-testimonial__by {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.lzp-testimonial .lzp-testimonial__name {
+	color: var(--lzp-heading, var(--lzp-ink));
+	font-size: 14px;
+	font-weight: 900;
+	line-height: 1.6;
+}
+
+.lzp-testimonial .lzp-testimonial__role {
+	color: var(--lzp-muted);
+	font-size: 12px;
+	line-height: 1.6;
+}
+
+.lzp-testimonial .lzp-testimonial__photo {
+	border-radius: var(--lzp-radius-md);
+}
+
+/* ==========================================================================
+   Photo frame with rule-of-thirds lines
+   ========================================================================== */
+
+.lzp-frame {
+	position: relative;
+}
+
+.lzp-frame--thirds .lzp-frame__photo {
+	margin: 18px;
+}
+
+.lzp-frame__photo {
+	position: relative;
+}
+
+.lzp-frame__guides {
+	display: var(--lzp-guides, block);
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background:
+		linear-gradient(var(--lzp-line), var(--lzp-line)) 0 33.33% / 100% 1px no-repeat,
+		linear-gradient(var(--lzp-line), var(--lzp-line)) 0 66.66% / 100% 1px no-repeat,
+		linear-gradient(var(--lzp-line), var(--lzp-line)) 33.33% 0 / 1px 100% no-repeat,
+		linear-gradient(var(--lzp-line), var(--lzp-line)) 66.66% 0 / 1px 100% no-repeat;
+}
+
+/* ==========================================================================
    Accessibility
    ========================================================================== */
 
-:is(.lzp-filter-chip, .lzp-rows__item--link, .lzp-cards__link, .lzp-faq__q, .lzp-crumbs a, .lzp-related__card, .lzp-pager a, .lzp-prose a):focus-visible {
+:is(.lzp-filter-chip, .lzp-rows__item--link, .lzp-cards__link, .lzp-faq__q, .lzp-crumbs a, .lzp-related__card, .lzp-pager a, .lzp-prose a, .lzp-play, .lzp-video-dialog__close, .lzp-service__more):focus-visible {
 	outline: 3px solid color-mix(in srgb, var(--lzp-accent) 55%, transparent);
 	outline-offset: 3px;
 }
@@ -1731,7 +2191,10 @@
 @media (prefers-reduced-motion: reduce) {
 	.lzp-rows .lzp-rows__item,
 	.lzp-faq .lzp-faq__sign,
-	.lzp-filter-bar .lzp-filter-chip {
+	.lzp-filter-bar .lzp-filter-chip,
+	.lzp-play,
+	.lzp-services .lzp-service,
+	.lzp-service .lzp-service__more {
 		transition: none;
 	}
 }

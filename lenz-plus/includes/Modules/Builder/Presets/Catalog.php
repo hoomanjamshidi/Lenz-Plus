@@ -44,6 +44,12 @@ final class Catalog {
 				'description' => __( 'Brand box, quick links and the contact card, as on the about and project pages.', 'lenz-plus' ),
 				'build'       => array( Footer::class, 'compact' ),
 			),
+			'home'              => array(
+				'type'        => 'home',
+				'label'       => __( 'Home page', 'lenz-plus' ),
+				'description' => __( 'Film strip hero with a showreel, services, about me, key numbers, the portfolio, courses, the blog, testimonials, the booking form and questions.', 'lenz-plus' ),
+				'build'       => array( Home::class, 'page' ),
+			),
 			'about'             => array(
 				'type'        => 'about',
 				'label'       => __( 'About me', 'lenz-plus' ),

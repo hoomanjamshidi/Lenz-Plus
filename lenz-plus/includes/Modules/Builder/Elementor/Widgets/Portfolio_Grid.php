@@ -53,6 +53,17 @@ final class Portfolio_Grid extends Portfolio_Base {
 		$this->start_content_section( 'section_content', __( 'Projects', 'lenz-plus' ) );
 
 		$this->add_control(
+			'title',
+			array(
+				'label'       => __( 'Section title', 'lenz-plus' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => '',
+				'label_block' => true,
+				'description' => __( 'With a title, the category chips sit at the end of the title row (home page).', 'lenz-plus' ),
+			)
+		);
+
+		$this->add_control(
 			'source',
 			array(
 				'label'       => __( 'Projects', 'lenz-plus' ),
@@ -168,6 +179,7 @@ final class Portfolio_Grid extends Portfolio_Base {
 
 		echo '<div class="lzp-pf"' . ( $in_place ? ' data-lzp-filter' : '' ) . '>';
 
+		$bar = '';
 		if ( 'yes' === $s['filters'] ) {
 			$all_url = get_post_type_archive_link( Portfolio_Data::POST_TYPE );
 			$total   = $archive ? (int) $query->found_posts : count( $query->posts );
@@ -186,6 +198,11 @@ final class Portfolio_Grid extends Portfolio_Base {
 					'label'     => __( 'Portfolio categories', 'lenz-plus' ),
 				)
 			);
+		}
+
+		if ( '' !== (string) $s['title'] ) {
+			echo Heading::markup( array( 'title' => (string) $s['title'] ), $bar ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in Heading::markup() and filter_bar_html().
+		} else {
 			echo $bar; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in filter_bar_html().
 		}
 

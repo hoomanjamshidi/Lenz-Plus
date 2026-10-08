@@ -42,6 +42,7 @@ final class Integration {
 		'Copyright',
 		// Page sections.
 		'Page_Hero',
+		'Service_Cards',
 		'Stats',
 		'Process_Steps',
 		'Card_Grid',
@@ -52,6 +53,8 @@ final class Integration {
 		'Quote',
 		'Service_Detail',
 		'Photo_Grid',
+		'Photo_Frame',
+		'Testimonials',
 		'Pricing_Plans',
 		'Faq',
 		'CTA_Band',

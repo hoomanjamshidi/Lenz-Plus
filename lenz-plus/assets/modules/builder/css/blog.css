@@ -58,6 +58,21 @@
 	border-radius: var(--lzp-radius-md);
 }
 
+/* Dashed cards (home page): the whole card is the link, solid ink border on hover. */
+.lzp-posts--dashed .lzp-post-card__link {
+	gap: 14px;
+	height: 100%;
+	padding: 14px;
+	border: 1px dashed var(--lzp-dashed);
+	border-radius: var(--lzp-radius-lg);
+	transition: border-color var(--lzp-dur) ease;
+}
+
+.lzp-posts--dashed .lzp-post-card__link:hover {
+	border-style: solid;
+	border-color: var(--lzp-heading, var(--lzp-ink));
+}
+
 .lzp-post-card .lzp-post-card__title {
 	color: var(--lzp-heading, var(--lzp-ink));
 	font-size: 16px;
@@ -500,7 +515,8 @@
 	.lzp-post-card .lzp-post-card__title,
 	.lzp-featured-post .lzp-featured-post__title,
 	.lzp-share .lzp-share__btn,
-	.lzp-popular .lzp-popular__title {
+	.lzp-popular .lzp-popular__title,
+	.lzp-posts--dashed .lzp-post-card__link {
 		transition: none;
 	}
 }
