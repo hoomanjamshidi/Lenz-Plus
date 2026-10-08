@@ -4,7 +4,7 @@ This file is the **resume point**. Every session starts here (see the `lenz-plus
 
 Status keys: `[ ]` to do · `[x]` done · `[~]` started (see Notes) · `[-]` dropped (say why)
 
-**Current phase:** 7
+**Current phase:** 8
 
 Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, browser check at 390 and 1440, translations, CLAUDE.md contracts, graphify update, commit `Phase N: …`).
 
@@ -88,10 +88,10 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - [x] Verify against `About.dc.html` and `Services.dc.html` at 390 and 1440 (headless Chrome side by side), editor loads, no console errors
 
 ## Phase 7 — Forms and requests inbox (فرم‌ها)
-- [ ] `Public_Form`, `Contact_Messages` (`lzp_message`), `Contact_Inbox` («درخواست‌ها»), `Newsletter` (`lzp_subscriber` + topic)
-- [ ] Widgets `Request_Form`, `Newsletter_Form`
-- [ ] `uninstall.php`: delete `lzp_message` and `lzp_subscriber` posts
-- [ ] Verify: JS and no-JS posts, honeypot, rate limit, CSV export, email copy
+- [x] `Public_Form`, `Contact_Messages` (`lzp_message`, configurable fields), `Contact_Inbox` («درخواست‌ها»), `Newsletter` (`lzp_subscriber` + list + topic)
+- [x] Widgets `Request_Form` (ink frame / card / none), `Newsletter_Form` (sign-up band: newsletter or waitlist), `forms.css`, `forms.js`; admin «فرم‌ها» tab with counts and CSV
+- [x] `uninstall.php`: delete `lzp_message` and `lzp_subscriber` posts
+- [x] Verify: JS and no-JS posts, invalid fields, honeypot, wrong form id, rate limit, duplicates, Persian digits, CSV export, inbox; the email copy path runs (`wp_mail` failures are caught, the request stays saved)
 
 ## Phase 8 — Portfolio archive and project (نمونه‌کارها)
 - [ ] Project details meta box on `portfolio`
@@ -132,6 +132,7 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 
 ## Notes
 - Phase 6: `docs/reference/*.md` (Lenz integration map, Studiare architecture, design inventory) were never committed: `.gitignore`'s `reference/` also matched `docs/reference/`. Fixed to `/reference/`; the facts that matter live in CLAUDE.md. A fresh clone needs `reference/` re-extracted from `Theme.zip` and `Studiare-Extentions.zip` (lenz/, lenz-demo/, studiare-extensions/, studiare-CLAUDE.md).
+- Phase 7: test page «Forms test» (`/forms-test/`, option `lzp_test_forms_page`) holds both forms in every variant; rate-limit transients: `.dev/bin/lwp transient delete --all`.
 - Phase 6: headless checks use Google Chrome through `puppeteer-core` (scratch script: full-page screenshots after scrolling, so Elementor's lazy backgrounds load; side-by-side slices with the design). Dev helper: re-install every preset and refresh pages made from them with `Library::install( $key, $id )` + `Library::copy_content()` + Elementor `files_manager->clear_cache()`.
 - Phase 0: the local site runs the real Lenz files except `Redux/RTL_License_*.php` (ionCube), replaced by `tools/dev/RTL_License_stub.php` on the test copy only. Consequences: the Lenz options panel is hidden and `$GLOBALS['lenz']` is never filled, so `Theme_Bridge::option()` falls back to `get_option( 'lenz' )`. See `CLAUDE.md` → Testing.
 - Phase 0: the Lenz demo XML has pages only (no portfolio items, posts, products or experts). Seed sample content in the phase that needs it (8 portfolio, 9 blog, 10 courses + experts).

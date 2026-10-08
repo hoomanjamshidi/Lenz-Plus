@@ -15,10 +15,10 @@ defined( 'WP_UNINSTALL_PLUGIN' ) || exit;
 function lenz_plus_uninstall_site(): void {
 	global $wpdb;
 
-	// Page templates (Elementor documents of the `lzp_template` post type); their meta goes with them.
+	// Page templates (Elementor documents of the `lzp_template` post type), requests and sign-ups; their meta goes with them.
 	$lenz_plus_posts = get_posts(
 		array(
-			'post_type'      => array( 'lzp_template' ),
+			'post_type'      => array( 'lzp_template', 'lzp_message', 'lzp_subscriber' ),
 			'post_status'    => 'any',
 			'posts_per_page' => -1,
 			'fields'         => 'ids',

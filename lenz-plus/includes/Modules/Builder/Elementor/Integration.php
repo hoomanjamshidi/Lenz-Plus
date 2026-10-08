@@ -55,6 +55,9 @@ final class Integration {
 		'Pricing_Plans',
 		'Faq',
 		'CTA_Band',
+		// Forms.
+		'Request_Form',
+		'Newsletter_Form',
 	);
 
 	/** @var Module|null */

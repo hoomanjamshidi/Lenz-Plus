@@ -76,12 +76,15 @@ final class Module extends Base_Module {
 		( new Template_Post_Type( $this ) )->register();
 		( new Assets( $this ) )->register();
 		( new Header_Footer( $this ) )->register();
+		( new Contact_Messages() )->register();
+		( new Newsletter() )->register();
 
 		if ( did_action( 'elementor/loaded' ) ) {
 			( new Integration( $this ) )->register();
 		}
 
 		if ( is_admin() ) {
+			( new Contact_Inbox() )->register();
 			add_action( 'admin_init', array( Library::class, 'maybe_upgrade' ) );
 			( new Library_Ajax( $this ) )->register();
 		}

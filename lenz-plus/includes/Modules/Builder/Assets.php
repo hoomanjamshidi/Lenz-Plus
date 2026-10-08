@@ -27,6 +27,9 @@ final class Assets {
 	/** Page sections (heroes, numbers, steps, cards, lists, pricing, FAQ, call-to-action bands). */
 	public const SECTIONS_HANDLE = 'lzp-sections';
 
+	/** Request and sign-up forms (stylesheet and script). */
+	public const FORMS_HANDLE = 'lzp-forms';
+
 	/** Inline-only style: the brand tokens every Lenz+ stylesheet depends on. */
 	public const TOKENS_HANDLE = 'lzp-tokens';
 
@@ -69,6 +72,7 @@ final class Assets {
 
 		wp_register_style( self::HANDLE, Asset::url( 'assets/modules/builder/css/builder.css' ), array( self::TOKENS_HANDLE ), LENZ_PLUS_VERSION );
 		wp_register_style( self::SECTIONS_HANDLE, Asset::url( 'assets/modules/builder/css/sections.css' ), array( self::HANDLE ), LENZ_PLUS_VERSION );
+		wp_register_style( self::FORMS_HANDLE, Asset::url( 'assets/modules/builder/css/forms.css' ), array( self::SECTIONS_HANDLE ), LENZ_PLUS_VERSION );
 
 		Asset::register_shared();
 		wp_register_script(
@@ -82,6 +86,27 @@ final class Assets {
 			)
 		);
 		wp_add_inline_script( self::HANDLE, 'window.lzpBuilder = ' . wp_json_encode( $this->script_config() ) . ';', 'before' );
+
+		wp_register_script(
+			self::FORMS_HANDLE,
+			Asset::url( 'assets/modules/builder/js/forms.js' ),
+			array(),
+			LENZ_PLUS_VERSION,
+			array(
+				'in_footer' => true,
+				'strategy'  => 'defer',
+			)
+		);
+		wp_add_inline_script(
+			self::FORMS_HANDLE,
+			'window.lzpForms = ' . wp_json_encode(
+				array(
+					'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+					'i18n'    => Public_Form::error_messages(),
+				)
+			) . ';',
+			'before'
+		);
 	}
 
 	/** Settings and strings for builder.js (`window.lzpBuilder`). */

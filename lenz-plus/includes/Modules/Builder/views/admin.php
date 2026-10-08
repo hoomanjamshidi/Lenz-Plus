@@ -12,7 +12,9 @@
 
 use LenzPlus\Admin\Fields;
 use LenzPlus\Core\Icon_Library;
+use LenzPlus\Modules\Builder\Contact_Messages;
 use LenzPlus\Modules\Builder\Library;
+use LenzPlus\Modules\Builder\Newsletter;
 use LenzPlus\Modules\Builder\Schema;
 
 defined( 'ABSPATH' ) || exit;
@@ -29,6 +31,7 @@ $panel_tabs = array(
 	'pages'   => array( 'home', __( 'Pages', 'lenz-plus' ) ),
 	'parts'   => array( 'sliders', __( 'Header & footer', 'lenz-plus' ) ),
 	'library' => array( 'grid', __( 'Templates', 'lenz-plus' ) ),
+	'forms'   => array( 'chat', __( 'Forms', 'lenz-plus' ) ),
 	'brand'   => array( 'palette', __( 'Colours & options', 'lenz-plus' ) ),
 );
 
@@ -198,6 +201,42 @@ foreach ( Icon_Library::catalog()['packs'] as $pack_id => $pack ) {
 						</div>
 					</header>
 					<div class="lzp-library" data-lzp-library></div>
+				</div>
+			</section>
+
+			<section class="lzp-panel" role="tabpanel" id="lzp-panel-forms" aria-labelledby="lzp-tab-forms">
+				<div class="lzp-card">
+					<header class="lzp-card__head lzp-card__head--split">
+						<div>
+							<h2><?php esc_html_e( 'Requests', 'lenz-plus' ); ?> <span class="lzp-counter"><?php echo esc_html( number_format_i18n( Contact_Messages::count() ) ); ?></span></h2>
+							<p><?php esc_html_e( 'Bookings, registrations and messages sent through the Request form widget. They are kept here even when email does not work on your host, and each one can also be emailed to you (set the address on the widget).', 'lenz-plus' ); ?></p>
+						</div>
+						<div class="lzp-inline-actions">
+							<a class="lzp-btn lzp-btn--primary" href="<?php echo esc_url( Contact_Messages::inbox_url() ); ?>">
+								<?php echo $ui_icon( 'chat' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								<span><?php esc_html_e( 'Read the requests', 'lenz-plus' ); ?></span>
+							</a>
+							<a class="lzp-btn lzp-btn--soft" href="<?php echo esc_url( Contact_Messages::export_url() ); ?>">
+								<?php echo $ui_icon( 'download' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								<span><?php esc_html_e( 'Download CSV', 'lenz-plus' ); ?></span>
+							</a>
+						</div>
+					</header>
+				</div>
+
+				<div class="lzp-card">
+					<header class="lzp-card__head lzp-card__head--split">
+						<div>
+							<h2><?php esc_html_e( 'Newsletter and waitlists', 'lenz-plus' ); ?> <span class="lzp-counter"><?php echo esc_html( number_format_i18n( Newsletter::count() ) ); ?></span></h2>
+							<p><?php esc_html_e( 'Emails and mobile numbers left in the Sign-up widget, with the list each one joined. Download them to import into your email or SMS service.', 'lenz-plus' ); ?></p>
+						</div>
+						<div class="lzp-inline-actions">
+							<a class="lzp-btn lzp-btn--soft" href="<?php echo esc_url( Newsletter::export_url() ); ?>">
+								<?php echo $ui_icon( 'download' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								<span><?php esc_html_e( 'Download CSV', 'lenz-plus' ); ?></span>
+							</a>
+						</div>
+					</header>
 				</div>
 			</section>
 

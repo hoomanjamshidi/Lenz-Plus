@@ -1181,3 +1181,19 @@
 	font-weight: 700;
 	line-height: 1.7;
 }
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
+
+:is(.lzp-rows__item--link, .lzp-cards__link, .lzp-faq__q):focus-visible {
+	outline: 3px solid color-mix(in srgb, var(--lzp-accent) 55%, transparent);
+	outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.lzp-rows .lzp-rows__item,
+	.lzp-faq .lzp-faq__sign {
+		transition: none;
+	}
+}
