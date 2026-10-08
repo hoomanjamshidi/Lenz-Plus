@@ -44,6 +44,18 @@ final class Catalog {
 				'description' => __( 'Brand box, quick links and the contact card, as on the about and project pages.', 'lenz-plus' ),
 				'build'       => array( Footer::class, 'compact' ),
 			),
+			'about'          => array(
+				'type'        => 'about',
+				'label'       => __( 'About me', 'lenz-plus' ),
+				'description' => __( 'Portrait hero, key numbers, story and career path, a framed motto, working steps, equipment, awards, collaborations and a call to action.', 'lenz-plus' ),
+				'build'       => array( About::class, 'page' ),
+			),
+			'services'       => array(
+				'type'        => 'services',
+				'label'       => __( 'Services', 'lenz-plus' ),
+				'description' => __( 'Hero, jump tiles, four services with photos (one on the ink band), price cards with add-ons, project steps, FAQ and a call to action.', 'lenz-plus' ),
+				'build'       => array( Services::class, 'page' ),
+			),
 		);
 	}
 

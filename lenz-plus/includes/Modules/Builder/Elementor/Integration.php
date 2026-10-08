@@ -40,6 +40,21 @@ final class Integration {
 		'Link_Column',
 		'Contact_Box',
 		'Copyright',
+		// Page sections.
+		'Page_Hero',
+		'Stats',
+		'Process_Steps',
+		'Card_Grid',
+		'Simple_List',
+		'Icon_Features',
+		'Timeline',
+		'Framed_Band',
+		'Quote',
+		'Service_Detail',
+		'Photo_Grid',
+		'Pricing_Plans',
+		'Faq',
+		'CTA_Band',
 	);
 
 	/** @var Module|null */

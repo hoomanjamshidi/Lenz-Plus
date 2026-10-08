@@ -4,7 +4,7 @@ This file is the **resume point**. Every session starts here (see the `lenz-plus
 
 Status keys: `[ ]` to do · `[x]` done · `[~]` started (see Notes) · `[-]` dropped (say why)
 
-**Current phase:** 6
+**Current phase:** 7
 
 Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, browser check at 390 and 1440, translations, CLAUDE.md contracts, graphify update, commit `Phase N: …`).
 
@@ -79,12 +79,13 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - [x] Verify: desktop/mobile slots (same, mixed with Lenz's header), sticky + blur, Lenz mobile menu from both buttons, drawer (focus, Esc, sub-menus), dropdown, admin bar offset, editor, 390/1440
 
 ## Phase 6 — Static widgets, About and Services (درباره و خدمات)
-- [ ] Port `Presets/Blocks` (moved from phase 5) with the shared section helpers the About/Services presets need
-- [ ] `Page_Hero` (split, text-only), `CTA_Band`, `Stats`, `Icon_Features`, `Process_Steps`, `Faq`
-- [ ] `Framed_Band`, `Timeline`, `Awards`, `Simple_List`, `Quote`
-- [ ] `Service_Detail`, `Anchor_Tiles`, `Pricing_Plans`
-- [ ] Presets `About.php`, `Services.php`; "Create page"
-- [ ] Verify against `About.dc.html` and `Services.dc.html` at 390 and 1440
+- [x] `Presets/Blocks` (moved from phase 5): written for Lenz (bands, headings, two-column rows, links); Studiare's version is course/shop specific
+- [x] `Section_Base` + `sections.css`, `Elementor/Picture` (ratio frames, striped placeholders)
+- [x] `Page_Hero` (split, text-only), `CTA_Band`, `Stats`, `Icon_Features`, `Process_Steps`, `Faq`
+- [x] `Framed_Band`, `Timeline`, `Simple_List`, `Quote`; `Awards` became the generic `Card_Grid` (awards, collaborations, areas of work)
+- [x] `Service_Detail`, `Pricing_Plans`, `Photo_Grid`; `Anchor_Tiles` is `Icon_Features` with links and `size=lg`
+- [x] Presets `About.php`, `Services.php`; "Create page"
+- [x] Verify against `About.dc.html` and `Services.dc.html` at 390 and 1440 (headless Chrome side by side), editor loads, no console errors
 
 ## Phase 7 — Forms and requests inbox (فرم‌ها)
 - [ ] `Public_Form`, `Contact_Messages` (`lzp_message`), `Contact_Inbox` («درخواست‌ها»), `Newsletter` (`lzp_subscriber` + topic)
@@ -130,6 +131,8 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 ---
 
 ## Notes
+- Phase 6: `docs/reference/*.md` (Lenz integration map, Studiare architecture, design inventory) were never committed: `.gitignore`'s `reference/` also matched `docs/reference/`. Fixed to `/reference/`; the facts that matter live in CLAUDE.md. A fresh clone needs `reference/` re-extracted from `Theme.zip` and `Studiare-Extentions.zip` (lenz/, lenz-demo/, studiare-extensions/, studiare-CLAUDE.md).
+- Phase 6: headless checks use Google Chrome through `puppeteer-core` (scratch script: full-page screenshots after scrolling, so Elementor's lazy backgrounds load; side-by-side slices with the design). Dev helper: re-install every preset and refresh pages made from them with `Library::install( $key, $id )` + `Library::copy_content()` + Elementor `files_manager->clear_cache()`.
 - Phase 0: the local site runs the real Lenz files except `Redux/RTL_License_*.php` (ionCube), replaced by `tools/dev/RTL_License_stub.php` on the test copy only. Consequences: the Lenz options panel is hidden and `$GLOBALS['lenz']` is never filled, so `Theme_Bridge::option()` falls back to `get_option( 'lenz' )`. See `CLAUDE.md` → Testing.
 - Phase 0: the Lenz demo XML has pages only (no portfolio items, posts, products or experts). Seed sample content in the phase that needs it (8 portfolio, 9 blog, 10 courses + experts).
 - Phase 0: `resize_window` cannot shrink the maximised Chrome window; use `/viewport.html?a=…&w=390` for phone checks.

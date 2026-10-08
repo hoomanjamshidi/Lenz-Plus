@@ -90,6 +90,46 @@ final class Thumbs {
 			. self::r( 12, 64, 84, 50, self::PANEL, 6 ) . self::r( 24, 76, 60, 3, self::ON_INK, 1 ) . self::r( 34, 88, 50, 3, self::ON_INK, 1 ) . self::r( 30, 100, 54, 3, self::ON_INK, 1 );
 	}
 
+	/** The about page: text hero with a portrait, number tiles, story and timeline, ink call to action. */
+	private static function draw_about(): string {
+		$svg = self::page_frame()
+			. self::r( 196, 22, 30, 4, self::MUTED, 1 ) . self::r( 136, 30, 90, 8, self::INK, 2 ) . self::r( 156, 42, 70, 4, self::STRONG, 1 )
+			. self::r( 190, 52, 36, 9, self::INK, 3 ) . self::r( 150, 52, 36, 9, self::WHITE, 3, self::STRONG )
+			. self::r( 18, 16, 60, 60, self::STRONG, 6 ) . self::r( 18, 62, 6, 14, self::WHITE, 0 );
+		foreach ( array( 172, 118, 64, 10 ) as $x ) {
+			$svg .= self::r( $x + 4, 84, 50, 18, self::LINE, 4 );
+		}
+
+		return $svg . self::r( 130, 110, 96, 3, self::INK, 1 ) . self::r( 140, 116, 86, 3, self::STRONG, 1 )
+			. '<path d="M70 110v22" stroke="' . self::LINE . '"/><circle cx="70" cy="113" r="2" fill="' . self::INK . '"/><circle cx="70" cy="125" r="2" fill="' . self::INK . '"/>'
+			. self::r( 20, 112, 42, 3, self::INK, 1 ) . self::r( 30, 124, 32, 3, self::INK, 1 )
+			. self::r( 12, 136, 216, 12, self::INK, 4 );
+	}
+
+	/** The services page: hero with a photo, four jump tiles, the ink service band and price cards. */
+	private static function draw_services(): string {
+		$svg = self::page_frame()
+			. self::r( 196, 22, 30, 4, self::MUTED, 1 ) . self::r( 136, 30, 90, 8, self::INK, 2 ) . self::r( 150, 42, 76, 4, self::STRONG, 1 )
+			. self::r( 190, 52, 36, 9, self::INK, 3 )
+			. self::r( 18, 18, 96, 46, self::STRONG, 6 );
+		foreach ( array( 172, 118, 64, 10 ) as $x ) {
+			$svg .= self::r( $x + 4, 72, 50, 12, self::WHITE, 4, self::STRONG );
+		}
+		$svg .= self::r( 0, 90, 240, 26, self::INK, 0 ) . self::r( 150, 98, 76, 4, self::WHITE, 1 ) . self::r( 18, 95, 70, 16, self::PANEL, 3 );
+		foreach ( array( 172, 118, 64, 10 ) as $i => $x ) {
+			$svg .= self::r( $x + 4, 122, 50, 24, 0 === $i ? self::INK : self::WHITE, 4, 0 === $i ? '' : self::LINE );
+		}
+
+		return $svg;
+	}
+
+	/** White page under a header strip, for the page designs. */
+	private static function page_frame(): string {
+		return self::r( 0, 0, 240, 150, self::WHITE, 0 )
+			. self::r( 0, 0, 240, 12, self::SOFT, 0 ) . self::r( 0, 12, 240, 1, self::LINE, 0 )
+			. self::r( 214, 3, 18, 6, self::INK, 2 ) . self::r( 8, 3, 22, 6, self::INK, 2 );
+	}
+
 	/** Page above an ink band with a dashed rule and the copyright line. */
 	private static function footer_frame(): string {
 		return self::r( 0, 0, 240, 150, self::SOFT, 0 )

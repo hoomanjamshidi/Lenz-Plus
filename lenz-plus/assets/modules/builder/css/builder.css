@@ -57,9 +57,11 @@
 	border-radius: var(--lzp-radius-lg);
 }
 
-/* Dark surfaces re-map the tokens, so every widget inside switches to light text. */
+/* Dark surfaces re-map the tokens, so every widget inside switches to light text.
+   `.lzp-dark` does the same for widgets that paint their own dark card (call to action, highlighted plan). */
 .e-con.lzp-surface-ink,
-.e-con.lzp-surface-ink-card {
+.e-con.lzp-surface-ink-card,
+.lzp-dark {
 	--lzp-text: var(--lzp-on-dark);
 	--lzp-sub: var(--lzp-on-dark);
 	--lzp-muted: var(--lzp-on-dark-muted);
@@ -69,7 +71,35 @@
 	--lzp-chip: var(--lzp-dark-surface);
 	--lzp-panel: var(--lzp-dark-surface);
 	--lzp-hover-bg: var(--lzp-on-dark-hover);
+	--lzp-field-line: var(--lzp-on-dark-line);
+	--lzp-card: var(--lzp-dark-surface);
+	--lzp-card-line: #1a4a6e;
+	--lzp-chip-bg: transparent;
+	--lzp-ph-a: #0e3e62;
+	--lzp-ph-b: #164a6e;
 	color: var(--lzp-text);
+}
+
+/* Buttons on dark surfaces: the ink button turns white and the bordered one turns into an outline. */
+:is(.lzp-surface-ink, .lzp-surface-ink-card, .lzp-dark) .lzp-btn.lzp-btn--primary {
+	background: #ffffff;
+	color: var(--lzp-ink);
+}
+
+:is(.lzp-surface-ink, .lzp-surface-ink-card, .lzp-dark) .lzp-btn.lzp-btn--primary:hover {
+	background: var(--lzp-line);
+	color: var(--lzp-ink);
+}
+
+:is(.lzp-surface-ink, .lzp-surface-ink-card, .lzp-dark) .lzp-btn.lzp-btn--secondary {
+	border-color: var(--lzp-on-dark-line);
+	background: transparent;
+	color: #ffffff;
+}
+
+:is(.lzp-surface-ink, .lzp-surface-ink-card, .lzp-dark) .lzp-btn.lzp-btn--secondary:hover {
+	background: var(--lzp-on-dark-hover);
+	color: #ffffff;
 }
 
 .e-con.lzp-surface-ink {
@@ -266,6 +296,11 @@
 	height: 22px;
 	border-radius: 2px;
 	background: var(--lzp-accent);
+}
+
+/* The mockups' dark bands use a white bar. */
+:is(.lzp-surface-ink, .lzp-surface-ink-card, .lzp-dark) .lzp-heading__bar {
+	background: #ffffff;
 }
 
 .lzp-heading .lzp-heading__index {

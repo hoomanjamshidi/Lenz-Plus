@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-06T13:06:31+00:00\n"
+"POT-Creation-Date: 2026-10-08T16:32:47+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: lenz-plus\n"
@@ -33,8 +33,8 @@ msgid "Hooman Jamshidi"
 msgstr ""
 
 #: includes/Admin/Admin.php:59
-#: includes/Modules/Builder/Elementor/Integration.php:79
-#: includes/Modules/Builder/Elementor/Integration.php:116
+#: includes/Modules/Builder/Elementor/Integration.php:94
+#: includes/Modules/Builder/Elementor/Integration.php:131
 msgid "Lenz+"
 msgstr ""
 
@@ -240,9 +240,12 @@ msgstr ""
 
 #: includes/Modules/Bottom_Nav/Item_Types.php:40
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:124
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:90
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:97
 #: includes/Modules/Builder/Elementor/Widgets/Header_Action.php:76
 #: includes/Modules/Builder/Elementor/Widgets/Header_Action.php:122
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:81
+#: includes/Modules/Builder/Elementor/Widgets/Section_Base.php:179
 #: includes/Modules/Builder/Elementor/Widgets/Site_Logo.php:189
 #: includes/Modules/Builder/Elementor/Widgets/Social_Links.php:140
 msgid "Link"
@@ -266,7 +269,9 @@ msgstr ""
 
 #: includes/Modules/Bottom_Nav/Item_Types.php:57
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:117
+#: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:69
 #: includes/Modules/Builder/Elementor/Widgets/Header_Action.php:211
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:135
 msgid "Book a session"
 msgstr ""
 
@@ -508,6 +513,7 @@ msgid "Active highlight"
 msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:42
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:64
 msgid "Badge"
 msgstr ""
 
@@ -702,7 +708,7 @@ msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:312
 #: includes/Modules/Bottom_Nav/views/admin.php:324
-#: includes/Modules/Builder/Elementor/Integration.php:128
+#: includes/Modules/Builder/Elementor/Integration.php:143
 #: includes/Modules/Builder/Elementor/Widgets/Base.php:119
 msgid "None"
 msgstr ""
@@ -714,6 +720,9 @@ msgstr ""
 #: includes/Modules/Bottom_Nav/views/admin.php:314
 #: includes/Modules/Bottom_Nav/views/admin.php:373
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:66
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:133
+#: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:83
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:127
 msgid "Medium"
 msgstr ""
 
@@ -917,16 +926,25 @@ msgid "Button type"
 msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:505
+#: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:50
+#: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:102
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:199
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:68
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:135
 #: includes/Modules/Support_Button/views/admin.php:162
 msgid "Label"
 msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:510
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:155
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:55
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:79
 #: includes/Modules/Builder/Elementor/Widgets/Header_Action.php:87
 #: includes/Modules/Builder/Elementor/Widgets/Header_Action.php:111
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:55
+#: includes/Modules/Builder/Elementor/Widgets/Section_Base.php:191
 #: includes/Modules/Builder/Elementor/Widgets/Social_Links.php:123
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:51
 #: includes/Modules/Support_Button/views/admin.php:181
 #: includes/Modules/Support_Button/views/admin.php:227
 msgid "Icon"
@@ -1120,7 +1138,7 @@ msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:704
 #: includes/Modules/Bottom_Nav/views/sheet.php:24
-#: includes/Modules/Builder/Assets.php:88
+#: includes/Modules/Builder/Assets.php:92
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:399
 #: includes/Modules/Builder/Module.php:227
 #: includes/Modules/Support_Button/Module.php:114
@@ -1161,10 +1179,13 @@ msgid "Results appear as you type."
 msgstr ""
 
 #: includes/Modules/Builder/Design_Pages.php:81
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:72
+#: includes/Modules/Builder/Presets/Catalog.php:49
 msgid "About me"
 msgstr ""
 
 #: includes/Modules/Builder/Design_Pages.php:82
+#: includes/Modules/Builder/Presets/Catalog.php:55
 msgid "Services"
 msgstr ""
 
@@ -1178,69 +1199,69 @@ msgstr ""
 msgid "Home page"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:124
+#: includes/Modules/Builder/Elementor/Integration.php:139
 msgid "Brand surface"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:129
+#: includes/Modules/Builder/Elementor/Integration.php:144
 msgid "White"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:130
+#: includes/Modules/Builder/Elementor/Integration.php:145
 msgid "Card (with border)"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:131
+#: includes/Modules/Builder/Elementor/Integration.php:146
 msgid "Card (dashed border)"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:132
+#: includes/Modules/Builder/Elementor/Integration.php:147
 msgid "Soft band"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:133
+#: includes/Modules/Builder/Elementor/Integration.php:148
 msgid "Tile"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:134
+#: includes/Modules/Builder/Elementor/Integration.php:149
 msgid "Ink band (dark)"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:135
+#: includes/Modules/Builder/Elementor/Integration.php:150
 msgid "Dark card"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:136
+#: includes/Modules/Builder/Elementor/Integration.php:151
 msgid "Header bar (translucent)"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:139
+#: includes/Modules/Builder/Elementor/Integration.php:154
 msgid "Uses the brand colours from Lenz+ → Page templates. Dark surfaces switch the text inside to light colours. A background set in the Style tab still wins."
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:146
+#: includes/Modules/Builder/Elementor/Integration.php:161
 msgid "Sticky while scrolling"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:150
+#: includes/Modules/Builder/Elementor/Integration.php:165
 #: includes/Modules/Builder/views/admin.php:36
 #: includes/Modules/Support_Button/Module.php:111
 msgid "Off"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:151
+#: includes/Modules/Builder/Elementor/Integration.php:166
 msgid "Desktop only"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:152
+#: includes/Modules/Builder/Elementor/Integration.php:167
 msgid "All devices"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:156
+#: includes/Modules/Builder/Elementor/Integration.php:171
 msgid "Keeps a column (e.g. the buy box) in view inside its parent. The parent must be taller than this container."
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:163
+#: includes/Modules/Builder/Elementor/Integration.php:178
 msgid "Distance from top"
 msgstr ""
 
@@ -1255,12 +1276,14 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:169
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:179
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:138
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:156
 msgid "Start"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Base.php:203
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:177
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:146
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:155
 msgid "End"
 msgstr ""
 
@@ -1315,15 +1338,29 @@ msgstr ""
 #. translators: %s: widget name.
 #: includes/Modules/Builder/Elementor/Widgets/Brand_Box.php:32
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:30
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:32
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:36
 #: includes/Modules/Builder/Elementor/Widgets/Copyright.php:33
+#: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:30
+#: includes/Modules/Builder/Elementor/Widgets/Faq.php:32
+#: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:30
 #: includes/Modules/Builder/Elementor/Widgets/Header_Action.php:35
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:33
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:34
 #: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:36
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:39
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:37
+#: includes/Modules/Builder/Elementor/Widgets/Photo_Grid.php:30
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:34
+#: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:31
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:28
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:37
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:33
 #: includes/Modules/Builder/Elementor/Widgets/Site_Logo.php:33
 #: includes/Modules/Builder/Elementor/Widgets/Social_Links.php:39
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:30
 #: includes/Modules/Builder/Elementor/Widgets/Text.php:27
+#: includes/Modules/Builder/Elementor/Widgets/Timeline.php:30
 #, php-format
 msgid "%s (Lenz+)"
 msgstr ""
@@ -1356,13 +1393,29 @@ msgstr ""
 #. translators: %s: widget name.
 #: includes/Modules/Builder/Elementor/Widgets/Brand_Box.php:76
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:115
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:81
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:172
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:88
 #: includes/Modules/Builder/Elementor/Widgets/Copyright.php:53
+#: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:60
+#: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:109
 #: includes/Modules/Builder/Elementor/Widgets/Header_Action.php:64
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:104
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:116
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:201
+#: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:61
+#: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:116
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:86
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:107
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:211
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:90
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:141
 #: includes/Modules/Builder/Elementor/Widgets/Text.php:27
 #: includes/Modules/Builder/Elementor/Widgets/Text.php:42
 #: includes/Modules/Builder/Elementor/Widgets/Text.php:47
 #: includes/Modules/Builder/Elementor/Widgets/Text.php:91
+#: includes/Modules/Builder/Elementor/Widgets/Timeline.php:68
+#: includes/Modules/Builder/Elementor/Widgets/Timeline.php:114
 msgid "Text"
 msgstr ""
 
@@ -1384,6 +1437,10 @@ msgid "Logo height"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Brand_Box.php:115
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:55
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:147
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:59
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:79
 #: includes/Modules/Builder/Elementor/Widgets/Site_Logo.php:166
 #: includes/Modules/Builder/Elementor/Widgets/Site_Logo.php:238
 #: includes/Modules/Builder/Elementor/Widgets/Social_Links.php:132
@@ -1421,6 +1478,7 @@ msgid "Text link"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:65
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:134
 msgid "Small"
 msgstr ""
 
@@ -1429,11 +1487,97 @@ msgid "Large"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:144
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:129
+#: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:79
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:123
 msgid "Size"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:181
 msgid "Full width"
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:32
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:47
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:99
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:156
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:144
+#: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:111
+msgid "Cards"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:64
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:170
+msgid "Tag"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:72
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:171
+#: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:56
+#: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:118
+#: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:50
+#: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:108
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:105
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:213
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:64
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:150
+#: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:93
+#: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:145
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:80
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:200
+#: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:52
+#: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:115
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:66
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:210
+#: includes/Modules/Builder/Elementor/Widgets/Timeline.php:59
+#: includes/Modules/Builder/Elementor/Widgets/Timeline.php:113
+#: includes/Modules/Support_Button/views/admin.php:275
+msgid "Title"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:74
+msgid "Card title"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:105
+msgid "International"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:106
+msgid "First place"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:107
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:113
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:119
+msgid "Name of the festival"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:111
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:117
+msgid "National"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:112
+msgid "Second place"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:118
+msgid "Selected work"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:142
+#: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:97
+msgid "Title tag"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:163
+#: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:108
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:143
+#: includes/Modules/Builder/Elementor/Widgets/Social_Links.php:166
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:127
+msgid "Icon colour"
 msgstr ""
 
 #. translators: %s: widget name.
@@ -1445,16 +1589,6 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:58
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:117
 msgid "Contact"
-msgstr ""
-
-#: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:56
-#: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:118
-#: includes/Modules/Builder/Elementor/Widgets/Heading.php:105
-#: includes/Modules/Builder/Elementor/Widgets/Heading.php:213
-#: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:93
-#: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:145
-#: includes/Modules/Support_Button/views/admin.php:275
-msgid "Title"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:65
@@ -1476,10 +1610,14 @@ msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:106
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:120
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:49
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:91
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:136
 msgid "Rows"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:119
+#: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:106
 #: includes/Modules/Support_Button/views/admin.php:67
 msgid "Card"
 msgstr ""
@@ -1501,6 +1639,130 @@ msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Copyright.php:65
 msgid "Dashed line above"
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:30
+msgid "Call to action"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:45
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:52
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:198
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:52
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:209
+msgid "Texts"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:53
+msgid "Let's talk about your project"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:63
+msgid "The first consultation is free."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:72
+msgid "See the portfolio"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:79
+#: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:84
+#: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:91
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:144
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:147
+#: includes/Modules/Builder/Elementor/Widgets/Photo_Grid.php:51
+msgid "Photo"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:97
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:153
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:178
+msgid "Placeholder text"
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Faq.php:32
+msgid "FAQ"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Faq.php:47
+#: includes/Modules/Builder/Elementor/Widgets/Faq.php:71
+#: includes/Modules/Builder/Elementor/Widgets/Faq.php:131
+msgid "Questions"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Faq.php:53
+#: includes/Modules/Builder/Elementor/Widgets/Faq.php:134
+#: includes/Modules/Support_Button/views/admin.php:37
+msgid "Question"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Faq.php:55
+#: includes/Modules/Builder/Elementor/Widgets/Faq.php:75
+#: includes/Modules/Builder/Elementor/Widgets/Faq.php:76
+msgid "A common question?"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Faq.php:62
+#: includes/Modules/Builder/Elementor/Widgets/Faq.php:135
+msgid "Answer"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Faq.php:64
+msgid "A short, clear answer."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Faq.php:85
+msgid "First answer open"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Faq.php:95
+msgid "Close the others when one opens"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Faq.php:105
+msgid "FAQ data for Google"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Faq.php:109
+msgid "Adds FAQPage structured data. Turn it off if an SEO plugin already adds it for this page."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Faq.php:116
+msgid "Maximum width"
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:30
+msgid "Framed statement"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:45
+#: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:59
+#: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:101
+#: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:103
+msgid "Statement"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:52
+msgid "Life as I see it"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:62
+msgid "My life is what I fight for"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:69
+msgid "Icon after the statement"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:84
+msgid "Large (one line)"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:92
+msgid "Film-strip ticks"
 msgstr ""
 
 #. translators: %s: widget name.
@@ -1561,6 +1823,7 @@ msgid "Section title"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:116
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:91
 msgid "HTML tag"
 msgstr ""
 
@@ -1574,6 +1837,7 @@ msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:152
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:214
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:76
 msgid "Latin subtitle"
 msgstr ""
 
@@ -1585,12 +1849,14 @@ msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:193
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:191
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:98
 #: includes/Modules/Support_Button/views/admin.php:242
 msgid "Button text"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:203
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:245
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:106
 msgid "Button link"
 msgstr ""
 
@@ -1600,6 +1866,51 @@ msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:230
 msgid "Space below"
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:34
+msgid "Icon rows"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:66
+msgid "Item name"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:73
+msgid "Note at the end"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:84
+msgid "A link to a section of the page works too, e.g. #packages."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:97
+msgid "Camera body"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:98
+msgid "Photo and video"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:102
+msgid "Studio flash"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:103
+msgid "Studio and product"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:113
+msgid "Arrow at the end of linked rows"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:128
+msgid "Large (tiles)"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:151
+msgid "Note"
 msgstr ""
 
 #. translators: %s: widget name.
@@ -1689,6 +2000,7 @@ msgid "Levels"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:107
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:57
 msgid "Layout"
 msgstr ""
 
@@ -1804,6 +2116,378 @@ msgid "Show the submenu of %s"
 msgstr ""
 
 #. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:37
+msgid "Page hero"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:61
+msgid "Text and photo"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:62
+msgid "Text only"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:70
+msgid "Label above the title"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:83
+msgid "A story told with light"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:107
+msgid "A short paragraph that introduces this page."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:118
+msgid "A short fact"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:125
+msgid "Facts (chips)"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:156
+msgid "Shown in the empty frame until a photo is chosen."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:163
+msgid "Corner notch"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:172
+msgid "Decoration"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:177
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:198
+msgid "Outline word"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:181
+msgid "The large outlined word behind the section. Leave empty to hide it."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:188
+msgid "Guide lines"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:192
+msgid "Also follows the global \"Guide lines\" option of Page templates."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:206
+msgid "Space above and below"
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Photo_Grid.php:30
+msgid "Photo row"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Photo_Grid.php:45
+#: includes/Modules/Builder/Elementor/Widgets/Photo_Grid.php:72
+#: includes/Modules/Builder/Elementor/Widgets/Photo_Grid.php:89
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:131
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:136
+#: includes/Modules/Builder/views/admin.php:214
+msgid "Photos"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Photo_Grid.php:63
+#: includes/Modules/Builder/Elementor/Widgets/Photo_Grid.php:76
+#: includes/Modules/Builder/Elementor/Widgets/Photo_Grid.php:77
+#: includes/Modules/Builder/Elementor/Widgets/Photo_Grid.php:78
+#: includes/Modules/Builder/Elementor/Widgets/Photo_Grid.php:79
+#: includes/Modules/Builder/Elementor/Widgets/Photo_Grid.php:91
+msgid "Caption"
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:34
+msgid "Pricing plans"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:49
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:125
+msgid "Plans"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:57
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:130
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:134
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:135
+msgid "Plan name"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:72
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:148
+msgid "Price"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:80
+msgid "Unit"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:82
+msgid "Toman"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:88
+msgid "Included (one per line)"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:91
+msgid ""
+"First item\n"
+"Second item\n"
+"Third item"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:100
+msgid "Ask for a quote"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:115
+msgid "Highlight"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:131
+msgid "Popular"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:149
+msgid "Included"
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:31
+msgid "Process steps"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:46
+#: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:71
+msgid "Steps"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:54
+msgid "Step title"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:64
+msgid "What happens in this step."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:75
+msgid "First conversation"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:76
+msgid "Plan and contract"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:77
+msgid "Shooting day"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:78
+msgid "Selection and delivery"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:87
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:45
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:77
+msgid "Numbers"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:114
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:57
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:60
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:134
+msgid "Number"
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:28
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:43
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:76
+msgid "Quote"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:48
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:78
+msgid "Quotation"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:51
+msgid "Delivery was on time and the photos made a real difference for our brand."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:61
+msgid "Client name"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:68
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:80
+msgid "Role"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:70
+msgid "Brand manager"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Section_Base.php:75
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:55
+msgid "Shape"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Section_Base.php:93
+msgid "Small title above"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Section_Base.php:169
+msgid "First button"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Section_Base.php:169
+msgid "Second button"
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:37
+msgid "Service"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:68
+msgid "Professional photography"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:89
+msgid "What this service covers and how it is done."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:96
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:212
+msgid "Chips title"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:98
+msgid "Good for"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:109
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:120
+msgid "Portraits"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:116
+msgid "Chips"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:121
+msgid "Products"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:122
+msgid "Brands"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:140
+msgid "One photo"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:141
+msgid "Two staggered photos"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:142
+msgid "Two tall photos (reels)"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:143
+msgid "No photos"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:151
+msgid "Photos at the"
+msgstr ""
+
+#. translators: %d: photo number.
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:168
+#, php-format
+msgid "Photo %d"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:191
+msgid "Two photos use 3:4, tall photos 9:16."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:203
+msgid "A large outlined word above the section, as on the dark band of the mockups."
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:33
+msgid "Simple list"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:48
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:109
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:129
+msgid "Lines"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:59
+msgid "Label and text"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:60
+msgid "Text and value"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:61
+msgid "Title over text"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:69
+msgid "Numbers instead of labels"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:81
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:140
+msgid "Label / title"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:84
+msgid "The label before the text, or the title above it."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:92
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:115
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:119
+msgid "A line of text"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:99
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:142
+msgid "Value"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:102
+msgid "Shown at the end of the line in the \"Text and value\" shape."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:114
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:118
+msgid "Accepted"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:134
+msgid "Rule colour"
+msgstr ""
+
+#. translators: %s: widget name.
 #: includes/Modules/Builder/Elementor/Widgets/Site_Logo.php:33
 msgid "Logo and name"
 msgstr ""
@@ -1873,12 +2557,38 @@ msgstr ""
 msgid "Instagram, Telegram, WhatsApp, Bale and Eitaa channels switched on in Lenz+ → Support button."
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Social_Links.php:166
-msgid "Icon colour"
-msgstr ""
-
 #: includes/Modules/Builder/Elementor/Widgets/Social_Links.php:190
 msgid "No accounts yet: switch on Instagram, Telegram, WhatsApp, Bale or Eitaa in Lenz+ → Support button, or add links here."
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:30
+msgid "Key numbers"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:70
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:84
+msgid "Years of experience"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:89
+msgid "Projects"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:94
+msgid "Awards"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:104
+msgid "Smallest tile width"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:113
+msgid "Tiles share the row and wrap when they would get narrower than this."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:120
+msgid "Tiles"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Text.php:49
@@ -1904,6 +2614,45 @@ msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Text.php:72
 msgid "Max width"
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Timeline.php:30
+#: includes/Modules/Builder/Elementor/Widgets/Timeline.php:92
+msgid "Timeline"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Timeline.php:45
+#: includes/Modules/Builder/Elementor/Widgets/Timeline.php:78
+msgid "Stops"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Timeline.php:51
+msgid "Date or label"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Timeline.php:61
+msgid "A milestone"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Timeline.php:71
+msgid "What happened then."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Timeline.php:84
+msgid "Today"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Timeline.php:97
+msgid "Line colour"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Timeline.php:106
+msgid "Dot colour"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Timeline.php:112
+msgid "Date"
 msgstr ""
 
 #. translators: %s: original template name.
@@ -2278,6 +3027,14 @@ msgstr ""
 msgid "Brand box, quick links and the contact card, as on the about and project pages."
 msgstr ""
 
+#: includes/Modules/Builder/Presets/Catalog.php:50
+msgid "Portrait hero, key numbers, story and career path, a framed motto, working steps, equipment, awards, collaborations and a call to action."
+msgstr ""
+
+#: includes/Modules/Builder/Presets/Catalog.php:56
+msgid "Hero, jump tiles, four services with photos (one on the ink band), price cards with add-ons, project steps, FAQ and a call to action."
+msgstr ""
+
 #: includes/Modules/Builder/Template_Post_Type.php:41
 msgid "Lenz+ templates"
 msgstr ""
@@ -2490,10 +3247,6 @@ msgstr ""
 msgid "Applied to every design at once, like the options of the original mockups."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:214
-msgid "Photos"
-msgstr ""
-
 #: includes/Modules/Builder/views/admin.php:216
 msgid "Black and white"
 msgstr ""
@@ -2648,10 +3401,6 @@ msgstr ""
 
 #: includes/Modules/Support_Button/views/admin.php:36
 msgid "Headset"
-msgstr ""
-
-#: includes/Modules/Support_Button/views/admin.php:37
-msgid "Question"
 msgstr ""
 
 #: includes/Modules/Support_Button/views/admin.php:38

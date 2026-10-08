@@ -6,7 +6,7 @@ Studiare-Extentions.zip
 Design/uploads/*.zip
 
 # Local reference copies (extracted theme, Studiare plugin) and the test site.
-reference/
+/reference/
 .dev/
 
 # Build output and dependencies.
