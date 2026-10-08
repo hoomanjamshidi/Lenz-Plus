@@ -1,7 +1,9 @@
 <?php
 /**
  * Renders groups of pages with an Elementor template instead of Lenz's own
- * layout: the portfolio list (archive and categories) and project pages.
+ * layout: the portfolio list (archive and categories), project pages, post
+ * lists (posts page, categories, tags, authors, dates, blog searches) and
+ * articles.
  * Each route has one template (Page templates → Site pages); `theme` keeps
  * Lenz's layout. The theme header and footer stay in place.
  *

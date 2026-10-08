@@ -68,6 +68,18 @@ final class Catalog {
 				'description' => __( 'Breadcrumb, title with facts, the cover, the project text beside a checklist, the gallery, the client\'s quote, related projects and a call to action.', 'lenz-plus' ),
 				'build'       => array( Portfolio::class, 'single' ),
 			),
+			'blog-archive'      => array(
+				'type'        => 'blog',
+				'label'       => __( 'Blog', 'lenz-plus' ),
+				'description' => __( 'A title that follows the page, the featured article, posts with category chips beside a sidebar (search, most read, courses) and the newsletter band.', 'lenz-plus' ),
+				'build'       => array( Blog::class, 'archive' ),
+			),
+			'blog-single'       => array(
+				'type'        => 'post',
+				'label'       => __( 'Article', 'lenz-plus' ),
+				'description' => __( 'Reading progress, breadcrumb, header with author and share buttons, the featured image, the text beside a table of contents, comments, related articles and the newsletter band.', 'lenz-plus' ),
+				'build'       => array( Blog::class, 'single' ),
+			),
 		);
 	}
 

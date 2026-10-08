@@ -1,6 +1,6 @@
 <?php
 /**
- * A route page (portfolio list or project page) rendered with a Lenz+
+ * A route page (portfolio or post list, project or article) rendered with a Lenz+
  * Elementor template, between Lenz's header and footer.
  *
  * Loaded through `template_include`, so it runs in the global scope. A single

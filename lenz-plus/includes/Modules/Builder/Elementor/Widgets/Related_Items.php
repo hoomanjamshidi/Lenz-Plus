@@ -13,6 +13,7 @@ namespace LenzPlus\Modules\Builder\Elementor\Widgets;
 use Elementor\Controls_Manager;
 use LenzPlus\Modules\Builder\Context;
 use LenzPlus\Modules\Builder\Elementor\Picture;
+use LenzPlus\Modules\Builder\Elementor\Post_Parts;
 use LenzPlus\Modules\Builder\Portfolio_Data;
 
 defined( 'ABSPATH' ) || exit;
@@ -87,6 +88,19 @@ final class Related_Items extends Portfolio_Base {
 				'default' => 3,
 				'min'     => 1,
 				'max'     => 12,
+			)
+		);
+
+		$this->add_control(
+			'look',
+			array(
+				'label'   => __( 'Cards', 'lenz-plus' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'plain',
+				'options' => array(
+					'plain' => __( 'Photo with text under it', 'lenz-plus' ),
+					'card'  => __( 'White card with a border', 'lenz-plus' ),
+				),
 			)
 		);
 
@@ -176,9 +190,10 @@ final class Related_Items extends Portfolio_Base {
 		}
 
 		printf(
-			'<div class="lzp-related">%1$s<ul class="lzp-related__grid lzp-grid">%2$s</ul></div>',
+			'<div class="lzp-related lzp-related--%3$s">%1$s<ul class="lzp-related__grid lzp-grid">%2$s</ul></div>',
 			'' !== (string) $s['title'] ? Heading::markup( array( 'title' => (string) $s['title'] ), $action ) : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in Heading::markup().
-			$cards // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in card_html().
+			$cards, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in card_html().
+			esc_attr( 'card' === $s['look'] ? 'card' : 'plain' )
 		);
 	}
 
@@ -196,12 +211,13 @@ final class Related_Items extends Portfolio_Base {
 			$terms = Portfolio_Data::terms( $post_id );
 			$meta  = array_filter( array( $terms ? $terms[0]->name : '', self::digits( Portfolio_Data::year( $post_id ) ) ) );
 		} else {
-			$cats = get_the_category( $post_id );
-			$meta = array_filter( array( $cats ? $cats[0]->name : '', self::digits( (string) get_the_date( '', $post_id ) ) ) );
+			$post = get_post( $post_id );
+			$cats = $post ? Post_Parts::categories( $post ) : array();
+			$meta = array_filter( array( $cats ? $cats[0]->name : '', $post ? Post_Parts::reading_label( $post ) : '' ) );
 		}
 
 		return sprintf(
-			'<li><a class="lzp-related__card" href="%1$s"><span class="lzp-related__media">%2$s%3$s</span><span class="lzp-related__title">%4$s</span><span class="lzp-related__meta">%5$s</span></a></li>',
+			'<li><a class="lzp-related__card" href="%1$s"><span class="lzp-related__media">%2$s%3$s</span><span class="lzp-related__body"><span class="lzp-related__meta">%5$s</span><span class="lzp-related__title">%4$s</span></span></a></li>',
 			esc_url( (string) get_permalink( $post_id ) ),
 			Picture::frame(
 				array( 'id' => (int) get_post_thumbnail_id( $post_id ) ),

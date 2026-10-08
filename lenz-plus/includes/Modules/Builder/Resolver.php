@@ -77,6 +77,16 @@ final class Resolver {
 			return 'portfolio_archive';
 		}
 
+		if ( is_singular( 'post' ) ) {
+			return 'post';
+		}
+
+		// Searches count only when they are limited to posts (the blog's search box sends post_type=post):
+		// site-wide results mix pages, projects and products, which post cards cannot show.
+		if ( is_home() || is_category() || is_tag() || is_author() || is_date() || ( is_search() && array( 'post' ) === (array) get_query_var( 'post_type' ) ) ) {
+			return 'blog';
+		}
+
 		return '';
 	}
 
@@ -118,6 +128,12 @@ final class Resolver {
 			$url = post_type_exists( 'portfolio' ) ? get_post_type_archive_link( 'portfolio' ) : '';
 
 			return $url ? $url : '';
+		}
+
+		if ( 'blog' === $kind ) {
+			$page = (int) get_option( 'page_for_posts' );
+
+			return $page ? (string) get_permalink( $page ) : ( 'posts' === get_option( 'show_on_front' ) ? home_url( '/' ) : '' );
 		}
 
 		$sample = Context::sample_id( $kind );

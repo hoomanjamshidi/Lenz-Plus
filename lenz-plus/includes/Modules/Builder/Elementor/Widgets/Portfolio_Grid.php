@@ -8,7 +8,7 @@
  * On the portfolio archive (and its categories) it lists the page being
  * viewed, with page numbers, and the chips link to the category pages.
  * Elsewhere it lists the newest projects; when they all fit on the page,
- * portfolio.js filters them in place instead of following the chip links.
+ * filter.js filters them in place instead of following the chip links.
  *
  * @package LenzPlus
  */
@@ -45,7 +45,7 @@ final class Portfolio_Grid extends Portfolio_Base {
 
 	/** The in-place filter script. */
 	public function get_script_depends(): array {
-		return array( Assets::PORTFOLIO_HANDLE );
+		return array( Assets::FILTER_HANDLE );
 	}
 
 	/** Content (source, filters) and style controls. */
@@ -166,10 +166,27 @@ final class Portfolio_Grid extends Portfolio_Base {
 		// All projects on one page: the chips can filter in place.
 		$in_place = ! $archive && (int) $query->found_posts <= count( $query->posts );
 
-		echo '<div class="lzp-pf"' . ( $in_place ? ' data-lzp-pf-filter' : '' ) . '>';
+		echo '<div class="lzp-pf"' . ( $in_place ? ' data-lzp-filter' : '' ) . '>';
 
 		if ( 'yes' === $s['filters'] ) {
-			$this->filters_html( $s, $archive, $archive ? (int) $query->found_posts : count( $query->posts ) );
+			$all_url = get_post_type_archive_link( Portfolio_Data::POST_TYPE );
+			$total   = $archive ? (int) $query->found_posts : count( $query->posts );
+
+			$bar = self::filter_bar_html(
+				array(
+					'taxonomy'  => Portfolio_Data::TAXONOMY,
+					'all_label' => (string) $s['all_label'],
+					'all_url'   => $all_url ? $all_url : home_url( '/' ),
+					'current'   => $archive && is_tax( Portfolio_Data::TAXONOMY ) ? (int) get_queried_object_id() : 0,
+					'total'     => 'yes' === $s['show_count'] ? $total : -1,
+					/* translators: %s: number of projects. */
+					'one'       => __( '%s project', 'lenz-plus' ),
+					/* translators: %s: number of projects. */
+					'many'      => __( '%s projects', 'lenz-plus' ),
+					'label'     => __( 'Portfolio categories', 'lenz-plus' ),
+				)
+			);
+			echo $bar; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in filter_bar_html().
 		}
 
 		echo '<ul class="lzp-pf__grid">';
@@ -193,70 +210,6 @@ final class Portfolio_Grid extends Portfolio_Base {
 		}
 
 		echo '</div>';
-	}
-
-	/**
-	 * Category chips (links to the category pages) and the number of projects.
-	 *
-	 * @param array $s       Settings.
-	 * @param bool  $archive Whether the grid lists the page being viewed.
-	 * @param int   $total   Number of projects listed.
-	 */
-	private function filters_html( array $s, bool $archive, int $total ): void {
-		$terms   = get_terms(
-			array(
-				'taxonomy'   => Portfolio_Data::TAXONOMY,
-				'hide_empty' => true,
-			)
-		);
-		$current = $archive && is_tax( Portfolio_Data::TAXONOMY ) ? (int) get_queried_object_id() : 0;
-		$all_url = get_post_type_archive_link( Portfolio_Data::POST_TYPE );
-
-		$chips = sprintf(
-			'<a class="lzp-pf__chip" href="%1$s" data-lzp-cat=""%2$s>%3$s</a>',
-			esc_url( $all_url ? $all_url : home_url( '/' ) ),
-			0 === $current ? ' aria-current="page"' : '',
-			esc_html( (string) $s['all_label'] )
-		);
-
-		foreach ( is_array( $terms ) ? $terms : array() as $term ) {
-			$chips .= sprintf(
-				'<a class="lzp-pf__chip" href="%1$s" data-lzp-cat="%2$s"%3$s>%4$s</a>',
-				esc_url( (string) get_term_link( $term ) ),
-				esc_attr( $term->slug ),
-				$current === (int) $term->term_id ? ' aria-current="page"' : '',
-				esc_html( $term->name )
-			);
-		}
-
-		$count = '';
-		if ( 'yes' === $s['show_count'] ) {
-			$count = sprintf(
-				'<span class="lzp-pf__count" data-lzp-count data-one="%2$s" data-many="%3$s" aria-live="polite">%1$s</span>',
-				esc_html( self::count_text( $total ) ),
-				/* translators: %s: number of projects. */
-				esc_attr( __( '%s project', 'lenz-plus' ) ),
-				/* translators: %s: number of projects. */
-				esc_attr( __( '%s projects', 'lenz-plus' ) )
-			);
-		}
-
-		printf(
-			'<div class="lzp-pf__bar"><nav class="lzp-pf__chips" aria-label="%1$s">%2$s</nav>%3$s</div>',
-			esc_attr__( 'Portfolio categories', 'lenz-plus' ),
-			$chips, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above.
-			$count // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above.
-		);
-	}
-
-	/**
-	 * «۱۲ پروژه».
-	 *
-	 * @param int $total Number of projects.
-	 */
-	private static function count_text( int $total ): string {
-		/* translators: %s: number of projects. */
-		return sprintf( _n( '%s project', '%s projects', $total, 'lenz-plus' ), self::num( $total ) );
 	}
 
 	/**

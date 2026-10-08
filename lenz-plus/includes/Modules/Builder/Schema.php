@@ -28,7 +28,7 @@ defined( 'ABSPATH' ) || exit;
 final class Schema {
 
 	/** Template kinds, in the order the admin shows them. */
-	public const TYPES = array( 'header', 'footer', 'home', 'about', 'services', 'courses', 'portfolio_archive', 'portfolio' );
+	public const TYPES = array( 'header', 'footer', 'home', 'about', 'services', 'courses', 'portfolio_archive', 'portfolio', 'blog', 'post' );
 
 	/**
 	 * Whole-page designs: "Create page" copies them into a regular page, and
@@ -38,9 +38,11 @@ final class Schema {
 
 	/**
 	 * Kinds that replace the theme's layout of a group of pages (Page_Routes):
-	 * the portfolio list (archive and categories) and a project page.
+	 * the portfolio list (archive and categories), a project page, the post
+	 * lists (posts page, categories, tags, authors, dates, blog searches) and
+	 * an article.
 	 */
-	public const ROUTE_TYPES = array( 'portfolio_archive', 'portfolio' );
+	public const ROUTE_TYPES = array( 'portfolio_archive', 'portfolio', 'blog', 'post' );
 
 	/** Kinds that replace a part of every page, one slot per device. */
 	public const AREAS = array( 'header', 'footer' );

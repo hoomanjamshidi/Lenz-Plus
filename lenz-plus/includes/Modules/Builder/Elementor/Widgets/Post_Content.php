@@ -60,6 +60,19 @@ final class Post_Content extends Section_Base {
 			)
 		);
 
+		$this->add_control(
+			'size',
+			array(
+				'label'   => __( 'Text size', 'lenz-plus' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'md',
+				'options' => array(
+					'md' => __( 'Medium (project pages)', 'lenz-plus' ),
+					'lg' => __( 'Large (articles)', 'lenz-plus' ),
+				),
+			)
+		);
+
 		$this->add_responsive_control(
 			'max_width',
 			array(
@@ -87,6 +100,7 @@ final class Post_Content extends Section_Base {
 
 	/** Prints the text. */
 	protected function render(): void {
+		$s    = $this->get_settings_for_display();
 		$post = Context::post();
 		if ( ! $post ) {
 			$this->editor_hint( __( 'Publish a post or a project to see its text here.', 'lenz-plus' ) );
@@ -95,8 +109,8 @@ final class Post_Content extends Section_Base {
 
 		Context::run_post(
 			$post,
-			static function ( \WP_Post $item ) {
-				echo '<div class="lzp-prose">';
+			static function ( \WP_Post $item ) use ( $s ) {
+				echo '<div class="lzp-prose' . ( 'lg' === $s['size'] ? ' lzp-prose--lg' : '' ) . '">';
 				echo Post_Parts::content( $item )['html']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- the post content after WordPress's own filters.
 				wp_link_pages(
 					array(

@@ -64,6 +64,17 @@ final class Integration {
 		'Post_Content',
 		'Related_Items',
 		'Breadcrumb',
+		// Blog.
+		'Post_Grid',
+		'Featured_Post',
+		'Post_Header',
+		'Post_Image',
+		'Post_Toc',
+		'Reading_Progress',
+		'Post_Comments',
+		'Popular_Posts',
+		'Post_Search',
+		'Promo_Box',
 		// Forms.
 		'Request_Form',
 		'Newsletter_Form',

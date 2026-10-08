@@ -198,4 +198,65 @@ abstract class Section_Base extends Base {
 			}
 		}
 	}
+
+	/**
+	 * Category chips (links to the category pages) and the number of items,
+	 * shared by the portfolio and post grids. filter.js turns the chips into
+	 * in-place filters when the grid holds all its items.
+	 *
+	 * @param array $args {
+	 *     @type string $taxonomy  Taxonomy of the chips.
+	 *     @type int[]  $exclude   Term IDs left out (e.g. "Uncategorized").
+	 *     @type string $all_label Label of the "All" chip.
+	 *     @type string $all_url   Link of the "All" chip.
+	 *     @type int    $current   Term being viewed (0 = "All").
+	 *     @type int    $total     Number of items listed (-1 hides the count).
+	 *     @type string $one       Count text for one item (`%s` = number).
+	 *     @type string $many      Count text for more items.
+	 *     @type string $label     Accessible name of the chip list.
+	 * }
+	 */
+	protected static function filter_bar_html( array $args ): string {
+		$terms = get_terms(
+			array(
+				'taxonomy'   => $args['taxonomy'],
+				'hide_empty' => true,
+				'exclude'    => $args['exclude'] ?? array(),
+			)
+		);
+
+		$chips = sprintf(
+			'<a class="lzp-filter-chip" href="%1$s" data-lzp-cat=""%2$s>%3$s</a>',
+			esc_url( $args['all_url'] ),
+			0 === (int) $args['current'] ? ' aria-current="page"' : '',
+			esc_html( $args['all_label'] )
+		);
+
+		foreach ( is_array( $terms ) ? $terms : array() as $term ) {
+			$chips .= sprintf(
+				'<a class="lzp-filter-chip" href="%1$s" data-lzp-cat="%2$s"%3$s>%4$s</a>',
+				esc_url( (string) get_term_link( $term ) ),
+				esc_attr( $term->slug ),
+				(int) $args['current'] === (int) $term->term_id ? ' aria-current="page"' : '',
+				esc_html( $term->name )
+			);
+		}
+
+		$count = '';
+		if ( $args['total'] >= 0 ) {
+			$count = sprintf(
+				'<span class="lzp-filter-bar__count" data-lzp-count data-one="%2$s" data-many="%3$s" aria-live="polite">%1$s</span>',
+				esc_html( sprintf( 1 === (int) $args['total'] ? $args['one'] : $args['many'], self::num( (int) $args['total'] ) ) ),
+				esc_attr( $args['one'] ),
+				esc_attr( $args['many'] )
+			);
+		}
+
+		return sprintf(
+			'<div class="lzp-filter-bar"><nav class="lzp-filter-bar__chips" aria-label="%1$s">%2$s</nav>%3$s</div>',
+			esc_attr( $args['label'] ),
+			$chips,
+			$count
+		);
+	}
 }

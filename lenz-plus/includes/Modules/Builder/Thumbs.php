@@ -167,6 +167,43 @@ final class Thumbs {
 		return self::draw_portfolio_single();
 	}
 
+	/** The blog page: title, a wide featured card, cards beside a sidebar and the ink newsletter band. */
+	private static function draw_blog_archive(): string {
+		$svg = self::page_frame()
+			. self::r( 196, 18, 30, 4, self::MUTED, 1 ) . self::r( 126, 26, 100, 8, self::INK, 2 )
+			. self::r( 14, 42, 212, 30, self::WHITE, 5, self::LINE ) . self::r( 120, 42, 106, 30, self::STRONG, 5 ) . self::r( 30, 50, 70, 5, self::INK, 2 ) . self::r( 40, 60, 60, 3, self::STRONG, 1 );
+		foreach ( array( array( 156, 80 ), array( 84, 80 ), array( 156, 106 ), array( 84, 106 ) ) as $card ) {
+			$svg .= self::r( $card[0], $card[1], 66, 16, self::STRONG, 3 ) . self::r( $card[0] + 20, $card[1] + 19, 46, 3, self::INK, 1 );
+		}
+
+		return $svg . self::r( 14, 80, 62, 14, self::WHITE, 4, self::LINE ) . self::r( 14, 98, 62, 22, self::WHITE, 4, self::LINE ) . self::r( 14, 124, 62, 10, self::SOFT, 4 )
+			. self::r( 0, 136, 240, 14, self::INK, 0 );
+	}
+
+	/** The article page: header with a byline, a wide image, the text beside a table of contents. */
+	private static function draw_blog_single(): string {
+		$svg = self::page_frame()
+			. self::r( 0, 13, 120, 2, self::INK, 0 )
+			. self::r( 186, 20, 24, 5, self::LINE, 2 ) . self::r( 90, 30, 120, 7, self::INK, 2 ) . self::r( 70, 41, 140, 3, self::STRONG, 1 )
+			. self::r( 196, 50, 14, 14, self::STRONG, 7 ) . self::r( 30, 52, 30, 10, self::WHITE, 3, self::LINE )
+			. self::r( 30, 70, 180, 34, self::STRONG, 5 );
+		foreach ( array( 112, 118, 124, 130, 136 ) as $y ) {
+			$svg .= self::r( 92, $y, 118, 3, self::STRONG, 1 );
+		}
+
+		return $svg . self::r( 30, 110, 54, 32, self::WHITE, 4, self::LINE ) . self::r( 44, 118, 32, 3, self::INK, 1 ) . self::r( 50, 126, 26, 3, self::STRONG, 1 ) . self::r( 46, 132, 30, 3, self::STRONG, 1 );
+	}
+
+	/** Custom templates of the post list kind look like the ready-made one. */
+	private static function draw_blog(): string {
+		return self::draw_blog_archive();
+	}
+
+	/** Custom templates of the article kind look like the ready-made one. */
+	private static function draw_post(): string {
+		return self::draw_blog_single();
+	}
+
 	/** White page under a header strip, for the page designs. */
 	private static function page_frame(): string {
 		return self::r( 0, 0, 240, 150, self::WHITE, 0 )

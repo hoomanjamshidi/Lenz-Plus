@@ -18,6 +18,7 @@ namespace LenzPlus\Modules\Builder\Elementor\Widgets;
 use Elementor\Controls_Manager;
 use Elementor\Repeater;
 use LenzPlus\Modules\Builder\Elementor\Picture;
+use LenzPlus\Modules\Builder\Elementor\Post_Parts;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -42,6 +43,11 @@ final class Page_Hero extends Section_Base {
 		return 'eicon-header';
 	}
 
+	/** Archive titles depend on the page being viewed. */
+	protected function is_dynamic_content(): bool {
+		return true;
+	}
+
 	/** Panel search terms. */
 	public function get_keywords(): array {
 		return array_merge( parent::get_keywords(), array( 'hero', 'banner', 'title', 'هیرو', 'بنر' ) );
@@ -61,6 +67,20 @@ final class Page_Hero extends Section_Base {
 					'split' => __( 'Text and photo', 'lenz-plus' ),
 					'text'  => __( 'Text only', 'lenz-plus' ),
 				),
+			)
+		);
+
+		$this->add_control(
+			'title_source',
+			array(
+				'label'       => __( 'On category, tag, author and search pages', 'lenz-plus' ),
+				'type'        => Controls_Manager::SELECT,
+				'default'     => 'custom',
+				'options'     => array(
+					'custom'  => __( 'Keep these texts', 'lenz-plus' ),
+					'archive' => __( 'Show what the page lists', 'lenz-plus' ),
+				),
+				'description' => __( 'For list templates: a category page then says which category it shows.', 'lenz-plus' ),
 			)
 		);
 
@@ -222,7 +242,17 @@ final class Page_Hero extends Section_Base {
 
 	/** Prints the hero. */
 	protected function render(): void {
-		$s     = $this->get_settings_for_display();
+		$s = $this->get_settings_for_display();
+
+		if ( 'archive' === $s['title_source'] ) {
+			$archive = Post_Parts::archive();
+			if ( '' !== $archive['title'] ) {
+				$s['eyebrow'] = $archive['eyebrow'];
+				$s['title']   = $archive['title'];
+				$s['lead']    = $archive['text'];
+			}
+		}
+
 		$split = 'split' === $s['layout'];
 		$tag   = 'h2' === $s['tag'] ? 'h2' : 'h1';
 

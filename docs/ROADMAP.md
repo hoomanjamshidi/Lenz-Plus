@@ -4,7 +4,7 @@ This file is the **resume point**. Every session starts here (see the `lenz-plus
 
 Status keys: `[ ]` to do · `[x]` done · `[~]` started (see Notes) · `[-]` dropped (say why)
 
-**Current phase:** 9
+**Current phase:** 10
 
 Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, browser check at 390 and 1440, translations, CLAUDE.md contracts, graphify update, commit `Phase N: …`).
 
@@ -101,11 +101,11 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - [x] Verify against `Portfolio.dc.html` and `Project.dc.html` at 390 and 1440, filter by click and keyboard, admin tab, meta box, editor sample
 
 ## Phase 9 — Blog archive and article (بلاگ)
-- [ ] `Blog_Pages` + `views/blog.php`
-- [ ] Port and restyle blog widgets (`Post_Grid`, `Post_Title`, `Post_Meta`, `Post_Toc`, `Post_Share`, `Reading_Progress`, `Post_Image`, `Post_Author`, `Post_Comments`, `Post_Categories`)
-- [ ] New: `Featured_Post`, `Popular_Posts` (`_views`), `Promo_Box`, sidebar search
-- [ ] Presets blog archive + article
-- [ ] Verify against `Blog.dc.html` and `Article.dc.html` (page 2, category, search, TOC, progress, copy link)
+- [x] `Blog_Pages` + `views/blog.php` → the `blog` and `post` kinds of `Page_Routes` (shared `views/route.php`)
+- [x] Blog widgets: `Post_Grid` (chips + in-place filter, pages), `Post_Header` (title, meta, excerpt, author, share — replaces Post_Title/Post_Meta/Post_Author/Post_Share/Post_Categories), `Post_Toc`, `Reading_Progress`, `Post_Image`, `Post_Comments` (Lenz's comment template); `Post_Content` gains the article size; `Related_Items` gains article cards
+- [x] New: `Featured_Post`, `Popular_Posts` (`_views`), `Promo_Box`, `Post_Search` (sidebar search); shared chip bar + filter.js
+- [x] Presets blog archive + article
+- [x] Verify against `Blog.dc.html` and `Article.dc.html` at 390 and 1440; page 2, category, author, search titles; TOC tracking and progress (headless); copy link shows (clipboard itself cannot be exercised headless)
 
 ## Phase 10 — Courses (دوره‌ها)
 - [ ] Course flag and `expert` helpers (Builder `Context`, not `Theme_Bridge`: they are plugin data)
@@ -132,6 +132,7 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 
 ## Notes
 - Phase 6: `docs/reference/*.md` (Lenz integration map, Studiare architecture, design inventory) were never committed: `.gitignore`'s `reference/` also matched `docs/reference/`. Fixed to `/reference/`; the facts that matter live in CLAUDE.md. A fresh clone needs `reference/` re-extracted from `Theme.zip` and `Studiare-Extentions.zip` (lenz/, lenz-demo/, studiare-extensions/, studiare-CLAUDE.md).
+- Phase 9: test data. 9 posts in 5 categories (light, gear, edit, business, video) with photos, excerpts, H2s, a quote, a numbered list and `_views`; the first one is sticky; author 1 renamed «امیرمهدی اسدی» with a bio. Front page = Lenz demo «home» (2400), posts page = «blog» (1789), 6 posts per page. Routes set to the blog presets.
 - Phase 8: test data. 8 portfolio items with generated photos in 6 categories (`portfolio-cat`: portrait, religious, product, event, video, doc); «کمپین تصویری کالکشن عطر نُوا» (ID 2433 on the test site) has a 6-photo gallery, project details and the featured flag; «تیزر کافه لَم» has an external video link. Routes set to the two portfolio presets. Test page `/portfolio-test/` (grid with in-place filter + featured cards).
 - Phase 8: headless full-page screenshots do not paint lazy images below the fold; the scratch script now sets the viewport to the page height first.
 - Phase 7: test page «Forms test» (`/forms-test/`, option `lzp_test_forms_page`) holds both forms in every variant; rate-limit transients: `.dev/bin/lwp transient delete --all`.

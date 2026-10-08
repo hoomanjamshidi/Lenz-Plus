@@ -30,8 +30,14 @@ final class Assets {
 	/** Request and sign-up forms (stylesheet and script). */
 	public const FORMS_HANDLE = 'lzp-forms';
 
-	/** Portfolio grids, featured projects and project pages (stylesheet and the filter script). */
+	/** Portfolio grids, featured projects and project pages. */
 	public const PORTFOLIO_HANDLE = 'lzp-portfolio';
+
+	/** Post lists and articles (stylesheet, and the share, table of contents and progress script). */
+	public const BLOG_HANDLE = 'lzp-blog';
+
+	/** In-place category filter of the portfolio and post grids. */
+	public const FILTER_HANDLE = 'lzp-filter';
 
 	/** Inline-only style: the brand tokens every Lenz+ stylesheet depends on. */
 	public const TOKENS_HANDLE = 'lzp-tokens';
@@ -76,6 +82,7 @@ final class Assets {
 		wp_register_style( self::HANDLE, Asset::url( 'assets/modules/builder/css/builder.css' ), array( self::TOKENS_HANDLE ), LENZ_PLUS_VERSION );
 		wp_register_style( self::SECTIONS_HANDLE, Asset::url( 'assets/modules/builder/css/sections.css' ), array( self::HANDLE ), LENZ_PLUS_VERSION );
 		wp_register_style( self::PORTFOLIO_HANDLE, Asset::url( 'assets/modules/builder/css/portfolio.css' ), array( self::SECTIONS_HANDLE ), LENZ_PLUS_VERSION );
+		wp_register_style( self::BLOG_HANDLE, Asset::url( 'assets/modules/builder/css/blog.css' ), array( self::SECTIONS_HANDLE ), LENZ_PLUS_VERSION );
 		wp_register_style( self::FORMS_HANDLE, Asset::url( 'assets/modules/builder/css/forms.css' ), array( self::SECTIONS_HANDLE ), LENZ_PLUS_VERSION );
 
 		Asset::register_shared();
@@ -92,8 +99,8 @@ final class Assets {
 		wp_add_inline_script( self::HANDLE, 'window.lzpBuilder = ' . wp_json_encode( $this->script_config() ) . ';', 'before' );
 
 		wp_register_script(
-			self::PORTFOLIO_HANDLE,
-			Asset::url( 'assets/modules/builder/js/portfolio.js' ),
+			self::FILTER_HANDLE,
+			Asset::url( 'assets/modules/builder/js/filter.js' ),
 			array(),
 			LENZ_PLUS_VERSION,
 			array(
@@ -101,6 +108,18 @@ final class Assets {
 				'strategy'  => 'defer',
 			)
 		);
+
+		wp_register_script(
+			self::BLOG_HANDLE,
+			Asset::url( 'assets/modules/builder/js/blog.js' ),
+			array(),
+			LENZ_PLUS_VERSION,
+			array(
+				'in_footer' => true,
+				'strategy'  => 'defer',
+			)
+		);
+		wp_add_inline_script( self::BLOG_HANDLE, 'window.lzpBlog = ' . wp_json_encode( array( 'i18n' => array( 'copied' => __( 'Link copied', 'lenz-plus' ) ) ) ) . ';', 'before' );
 
 		wp_register_script(
 			self::FORMS_HANDLE,

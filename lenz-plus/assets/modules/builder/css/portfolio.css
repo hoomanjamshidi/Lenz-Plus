@@ -1,72 +1,16 @@
 /**
- * Lenz Plus — portfolio widgets (Portfolio_Base): the masonry grid with its
- * category chips, featured project cards, the project header's fact boxes
+ * Lenz Plus — portfolio widgets (Portfolio_Base): the masonry grid,
+ * featured project cards, the project header's fact boxes
  * and the project photos. Loaded after sections.css, whose photo frames,
  * hero, grids and notch these build on.
  */
 
 /* ==========================================================================
-   Grid: chips, masonry, vertical titles
+   Grid: masonry, vertical titles (the chip bar is in sections.css)
    ========================================================================== */
 
 .lzp-pf {
 	font-family: var(--lzp-font);
-}
-
-.lzp-pf__bar {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: 10px;
-	margin-bottom: clamp(16px, 2.5vw, 32px);
-}
-
-.lzp-pf__chips {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 10px;
-}
-
-.lzp-pf .lzp-pf__chip {
-	display: inline-flex;
-	align-items: center;
-	min-height: 44px;
-	padding: 10px 18px;
-	border: 1px solid var(--lzp-field-line);
-	border-radius: var(--lzp-radius-sm);
-	background: var(--lzp-bg);
-	color: var(--lzp-ink);
-	font-size: 14px;
-	font-weight: 700;
-	line-height: 1.4;
-	text-decoration: none;
-	transition: border-color var(--lzp-dur) ease, background-color var(--lzp-dur) ease;
-}
-
-.lzp-pf .lzp-pf__chip:hover {
-	border-color: var(--lzp-ink);
-	color: var(--lzp-ink);
-}
-
-.lzp-pf .lzp-pf__chip[aria-current],
-.lzp-pf .lzp-pf__chip[aria-pressed="true"] {
-	border-color: var(--lzp-ink);
-	background: var(--lzp-ink);
-	color: #ffffff;
-}
-
-/* aria-pressed takes over once the chips filter in place. */
-.lzp-pf.is-filtering .lzp-pf__chip[aria-current]:not([aria-pressed="true"]) {
-	border-color: var(--lzp-field-line);
-	background: var(--lzp-bg);
-	color: var(--lzp-ink);
-}
-
-.lzp-pf .lzp-pf__count {
-	margin-inline-start: auto;
-	color: var(--lzp-muted);
-	font-size: 13px;
-	line-height: 1.6;
 }
 
 /* Photos keep their own shapes in as many ~250px columns as fit. */
@@ -374,14 +318,13 @@
    Accessibility
    ========================================================================== */
 
-:is(.lzp-pf__chip, .lzp-pf__link, .lzp-feat__title a, .lzp-feat__more):focus-visible {
+:is(.lzp-pf__link, .lzp-feat__title a, .lzp-feat__more):focus-visible {
 	outline: 3px solid color-mix(in srgb, var(--lzp-accent) 55%, transparent);
 	outline-offset: 3px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.lzp-pf__link .lzp-pic__img,
-	.lzp-pf .lzp-pf__chip {
+	.lzp-pf__link .lzp-pic__img {
 		transition: none;
 	}
 

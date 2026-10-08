@@ -60,6 +60,8 @@ final class Module extends Base_Module {
 			'courses'           => __( 'Courses page', 'lenz-plus' ),
 			'portfolio_archive' => __( 'Portfolio list', 'lenz-plus' ),
 			'portfolio'         => __( 'Project page', 'lenz-plus' ),
+			'blog'              => __( 'Post list', 'lenz-plus' ),
+			'post'              => __( 'Article', 'lenz-plus' ),
 		);
 	}
 
@@ -144,6 +146,8 @@ final class Module extends Base_Module {
 			'themeTitles'   => array(
 				'portfolio_archive' => __( 'Lenz\'s portfolio list', 'lenz-plus' ),
 				'portfolio'         => __( 'Lenz\'s project page', 'lenz-plus' ),
+				'blog'              => __( 'Lenz\'s post list', 'lenz-plus' ),
+				'post'              => __( 'Lenz\'s article page', 'lenz-plus' ),
 			),
 			'routes'        => Schema::ROUTE_TYPES,
 			'templates'     => Library::all( $this ),

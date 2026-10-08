@@ -1,10 +1,11 @@
 /**
- * Lenz Plus — portfolio grid filters.
+ * Lenz Plus — category filters of the portfolio and post grids.
  *
  * The category chips are links to the category pages and work on their
- * own. When a grid holds all its projects (`data-lzp-pf-filter`), this
- * filters them in place instead: the chips become toggle buttons
- * (aria-pressed), hidden projects get `hidden`, and the count follows.
+ * own. When a grid holds all its items (`data-lzp-filter`), this filters
+ * them in place instead: the chips become toggle buttons (aria-pressed),
+ * items whose `data-lzp-cats` lack the slug get `hidden`, the count follows,
+ * and an empty message (`data-lzp-empty`) shows when nothing is left.
  */
 ( function () {
 	'use strict';
@@ -21,7 +22,8 @@
 
 	function initGrid( grid ) {
 		const chips = grid.querySelectorAll( '[data-lzp-cat]' );
-		const items = grid.querySelectorAll( '.lzp-pf__item' );
+		const items = grid.querySelectorAll( '[data-lzp-cats]' );
+		const empty = grid.querySelector( '[data-lzp-empty]' );
 		const count = grid.querySelector( '[data-lzp-count]' );
 		const persian = Boolean( count && /[۰-۹]/.test( count.textContent ) );
 
@@ -40,6 +42,10 @@
 			} );
 
 			chips.forEach( ( chip ) => chip.setAttribute( 'aria-pressed', chip.dataset.lzpCat === slug ? 'true' : 'false' ) );
+
+			if ( empty ) {
+				empty.hidden = shown > 0;
+			}
 
 			if ( count ) {
 				const template = shown === 1 ? count.dataset.one : count.dataset.many;
@@ -71,7 +77,7 @@
 	 * ------------------------------------------------------------------- */
 
 	function initScope( scope ) {
-		scope.querySelectorAll( '[data-lzp-pf-filter]' ).forEach( ( grid ) => {
+		scope.querySelectorAll( '[data-lzp-filter]' ).forEach( ( grid ) => {
 			if ( ! grid.hasAttribute( 'data-lzp-ready' ) ) {
 				grid.setAttribute( 'data-lzp-ready', '' );
 				initGrid( grid );

@@ -50,6 +50,8 @@ $area_titles = array(
 $route_titles = array(
 	'portfolio_archive' => array( __( 'Portfolio list', 'lenz-plus' ), __( 'The portfolio archive and its category pages.', 'lenz-plus' ) ),
 	'portfolio'         => array( __( 'Project page', 'lenz-plus' ), __( 'Every portfolio item. Its title, text, photos and the Project details box below Lenz\'s gallery fill the design.', 'lenz-plus' ) ),
+	'blog'              => array( __( 'Post list', 'lenz-plus' ), __( 'The posts page, categories, tags, authors, date archives and searches from the blog\'s search box.', 'lenz-plus' ) ),
+	'post'              => array( __( 'Article', 'lenz-plus' ), __( 'Every blog post: its title, excerpt, featured image, text, headings (for the table of contents) and comments fill the design.', 'lenz-plus' ) ),
 );
 
 $brand_labels = array(

@@ -1343,6 +1343,71 @@
 	color: var(--lzp-sub);
 }
 
+.lzp-prose--lg {
+	color: var(--lzp-sub);
+	font-size: 16px;
+	line-height: 2.3;
+}
+
+.lzp-prose--lg :is(p, ul, ol, blockquote, figure, pre, table) {
+	margin-bottom: 20px;
+}
+
+.lzp-prose--lg h2 {
+	margin-top: 38px;
+	font-size: clamp(19px, 2.2vw, 24px);
+}
+
+.lzp-prose--lg li {
+	font-size: 15px;
+	line-height: 2.1;
+}
+
+/* Numbered steps as in the mockups' article: a muted «۰۱» beside each item. */
+.lzp-prose--lg ol {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	padding: 0;
+	counter-reset: lzp-ol;
+	list-style: none;
+}
+
+.lzp-prose--lg ol > li {
+	display: flex;
+	align-items: flex-start;
+	gap: 14px;
+	counter-increment: lzp-ol;
+}
+
+.lzp-prose--lg ol > li::before {
+	content: counter(lzp-ol, decimal-leading-zero);
+	flex: none;
+	padding-top: 5px;
+	color: var(--lzp-muted);
+	font-size: 13px;
+	font-weight: 900;
+	line-height: 1.8;
+}
+
+.lzp-prose--lg blockquote {
+	margin-block: 6px 26px;
+	padding: 22px 24px;
+	border-start-end-radius: var(--lzp-radius-md);
+	border-end-end-radius: var(--lzp-radius-md);
+	border-inline-start-color: var(--lzp-ink);
+	background: var(--lzp-panel, var(--lzp-soft));
+	font-size: clamp(15px, 1.8vw, 19px);
+	line-height: 2.1;
+}
+
+.lzp-prose figcaption {
+	margin-top: 8px;
+	color: var(--lzp-muted);
+	font-size: 12px;
+	line-height: 1.8;
+}
+
 .lzp-prose__table {
 	overflow-x: auto;
 }
@@ -1397,6 +1462,36 @@
 	font-size: 15px;
 	font-weight: 900;
 	line-height: 1.7;
+}
+
+.lzp-related__body {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+/* Projects: the title first, then «category · year». */
+.lzp-related--plain .lzp-related__meta {
+	order: 1;
+}
+
+/* Articles: white cards with a border, «category · minutes» above the title. */
+.lzp-related--card .lzp-related__card {
+	gap: 0;
+	overflow: hidden;
+	height: 100%;
+	border: 1px solid var(--lzp-card-line, var(--lzp-line));
+	border-radius: var(--lzp-radius-lg);
+	background: var(--lzp-card, var(--lzp-bg));
+}
+
+.lzp-related--card .lzp-related__media .lzp-pic {
+	border-radius: 0;
+}
+
+.lzp-related--card .lzp-related__body {
+	gap: 10px;
+	padding: 18px;
 }
 
 .lzp-related .lzp-related__card:hover .lzp-related__title {
@@ -1472,17 +1567,159 @@
 }
 
 /* ==========================================================================
+   Sidebar cards and the promo box (blog and article sidebars)
+   ========================================================================== */
+
+.lzp-side-card {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	padding: 22px;
+	border: 1px solid var(--lzp-card-line, var(--lzp-line));
+	border-radius: var(--lzp-radius);
+	background: var(--lzp-card, var(--lzp-bg));
+	font-family: var(--lzp-font);
+}
+
+.lzp-side-card .lzp-side-card__title {
+	margin: 0;
+	color: var(--lzp-heading, var(--lzp-ink));
+	font-size: 15px;
+	font-weight: 900;
+	line-height: 1.6;
+}
+
+.lzp-promo--soft {
+	gap: 12px;
+	border-color: transparent;
+	background: var(--lzp-panel, var(--lzp-soft));
+}
+
+.lzp-promo--dashed {
+	align-items: flex-start;
+	gap: 12px;
+	border: 1px dashed var(--lzp-dashed);
+	border-radius: var(--lzp-radius-lg);
+}
+
+.lzp-promo .lzp-promo__label {
+	color: var(--lzp-muted);
+	font-size: 13px;
+	line-height: 1.6;
+}
+
+.lzp-promo .lzp-promo__title {
+	margin: 0;
+	color: var(--lzp-heading, var(--lzp-ink));
+	font-size: 15px;
+	font-weight: 900;
+	line-height: 1.7;
+}
+
+.lzp-promo--dashed .lzp-promo__title {
+	font-size: 16px;
+}
+
+.lzp-promo .lzp-promo__text {
+	margin: 0;
+	color: var(--lzp-text);
+	font-size: 13px;
+	line-height: 2;
+}
+
+.lzp-promo--dashed .lzp-promo__text {
+	font-size: 14px;
+	line-height: 2.1;
+}
+
+/* The soft card's button fills the card, as in the mockups' sidebars. */
+.lzp-promo--soft .lzp-btn-row,
+.lzp-promo--soft .lzp-btn {
+	width: 100%;
+}
+
+.lzp-promo .lzp-btn {
+	padding: 12px 16px;
+	font-size: 13px;
+}
+
+.lzp-promo--dashed .lzp-btn {
+	font-size: 14px;
+}
+
+/* ==========================================================================
+   Category chip bar (portfolio and post grids; filter.js filters in place)
+   ========================================================================== */
+
+.lzp-filter-bar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: clamp(16px, 2.5vw, 32px);
+}
+
+.lzp-filter-bar__chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.lzp-filter-bar .lzp-filter-chip {
+	display: inline-flex;
+	align-items: center;
+	min-height: 44px;
+	padding: 10px 18px;
+	border: 1px solid var(--lzp-field-line);
+	border-radius: var(--lzp-radius-sm);
+	background: var(--lzp-bg);
+	color: var(--lzp-ink);
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.4;
+	text-decoration: none;
+	transition: border-color var(--lzp-dur) ease, background-color var(--lzp-dur) ease;
+}
+
+.lzp-filter-bar .lzp-filter-chip:hover {
+	border-color: var(--lzp-ink);
+	color: var(--lzp-ink);
+}
+
+.lzp-filter-bar .lzp-filter-chip[aria-current],
+.lzp-filter-bar .lzp-filter-chip[aria-pressed="true"] {
+	border-color: var(--lzp-ink);
+	background: var(--lzp-ink);
+	color: #ffffff;
+}
+
+/* aria-pressed takes over once the chips filter in place. */
+.is-filtering .lzp-filter-bar .lzp-filter-chip[aria-current]:not([aria-pressed="true"]) {
+	border-color: var(--lzp-field-line);
+	background: var(--lzp-bg);
+	color: var(--lzp-ink);
+}
+
+.lzp-filter-bar .lzp-filter-bar__count {
+	margin-inline-start: auto;
+	color: var(--lzp-muted);
+	font-size: 13px;
+	line-height: 1.6;
+}
+
+/* ==========================================================================
    Accessibility
    ========================================================================== */
 
-:is(.lzp-rows__item--link, .lzp-cards__link, .lzp-faq__q, .lzp-crumbs a, .lzp-related__card, .lzp-pager a, .lzp-prose a):focus-visible {
+:is(.lzp-filter-chip, .lzp-rows__item--link, .lzp-cards__link, .lzp-faq__q, .lzp-crumbs a, .lzp-related__card, .lzp-pager a, .lzp-prose a):focus-visible {
 	outline: 3px solid color-mix(in srgb, var(--lzp-accent) 55%, transparent);
 	outline-offset: 3px;
 }
 
 @media (prefers-reduced-motion: reduce) {
 	.lzp-rows .lzp-rows__item,
-	.lzp-faq .lzp-faq__sign {
+	.lzp-faq .lzp-faq__sign,
+	.lzp-filter-bar .lzp-filter-chip {
 		transition: none;
 	}
 }
