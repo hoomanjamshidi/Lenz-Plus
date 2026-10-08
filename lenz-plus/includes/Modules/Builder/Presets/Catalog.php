@@ -26,35 +26,47 @@ final class Catalog {
 	 */
 	public static function all(): array {
 		return array(
-			'header'         => array(
+			'header'            => array(
 				'type'        => 'header',
 				'label'       => __( 'Header', 'lenz-plus' ),
 				'description' => __( 'Logo and name, the menu, a booking button and the phone, on a translucent bar; a compact bar with the menu button on phones.', 'lenz-plus' ),
 				'build'       => array( Header::class, 'main' ),
 			),
-			'footer'         => array(
+			'footer'            => array(
 				'type'        => 'footer',
 				'label'       => __( 'Footer', 'lenz-plus' ),
 				'description' => __( 'Brand box with a description and social buttons, both footer menus and the contact card, on the ink band.', 'lenz-plus' ),
 				'build'       => array( Footer::class, 'full' ),
 			),
-			'footer-compact' => array(
+			'footer-compact'    => array(
 				'type'        => 'footer',
 				'label'       => __( 'Compact footer', 'lenz-plus' ),
 				'description' => __( 'Brand box, quick links and the contact card, as on the about and project pages.', 'lenz-plus' ),
 				'build'       => array( Footer::class, 'compact' ),
 			),
-			'about'          => array(
+			'about'             => array(
 				'type'        => 'about',
 				'label'       => __( 'About me', 'lenz-plus' ),
 				'description' => __( 'Portrait hero, key numbers, story and career path, a framed motto, working steps, equipment, awards, collaborations and a call to action.', 'lenz-plus' ),
 				'build'       => array( About::class, 'page' ),
 			),
-			'services'       => array(
+			'services'          => array(
 				'type'        => 'services',
 				'label'       => __( 'Services', 'lenz-plus' ),
 				'description' => __( 'Hero, jump tiles, four services with photos (one on the ink band), price cards with add-ons, project steps, FAQ and a call to action.', 'lenz-plus' ),
 				'build'       => array( Services::class, 'page' ),
+			),
+			'portfolio-archive' => array(
+				'type'        => 'portfolio_archive',
+				'label'       => __( 'Portfolio', 'lenz-plus' ),
+				'description' => __( 'Title, category chips and a masonry of the projects with page numbers, the featured projects and a call to action.', 'lenz-plus' ),
+				'build'       => array( Portfolio::class, 'archive' ),
+			),
+			'portfolio-single'  => array(
+				'type'        => 'portfolio',
+				'label'       => __( 'Project', 'lenz-plus' ),
+				'description' => __( 'Breadcrumb, title with facts, the cover, the project text beside a checklist, the gallery, the client\'s quote, related projects and a call to action.', 'lenz-plus' ),
+				'build'       => array( Portfolio::class, 'single' ),
 			),
 		);
 	}

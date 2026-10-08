@@ -30,6 +30,7 @@ $elementor = Library::elementor_status();
 $panel_tabs = array(
 	'pages'   => array( 'home', __( 'Pages', 'lenz-plus' ) ),
 	'parts'   => array( 'sliders', __( 'Header & footer', 'lenz-plus' ) ),
+	'routes'  => array( 'images', __( 'Site pages', 'lenz-plus' ) ),
 	'library' => array( 'grid', __( 'Templates', 'lenz-plus' ) ),
 	'forms'   => array( 'chat', __( 'Forms', 'lenz-plus' ) ),
 	'brand'   => array( 'palette', __( 'Colours & options', 'lenz-plus' ) ),
@@ -44,6 +45,11 @@ $sticky_options = array(
 $area_titles = array(
 	'header' => array( __( 'Header on desktop', 'lenz-plus' ), __( 'Header on phones & tablets', 'lenz-plus' ) ),
 	'footer' => array( __( 'Footer on desktop', 'lenz-plus' ), __( 'Footer on phones & tablets', 'lenz-plus' ) ),
+);
+
+$route_titles = array(
+	'portfolio_archive' => array( __( 'Portfolio list', 'lenz-plus' ), __( 'The portfolio archive and its category pages.', 'lenz-plus' ) ),
+	'portfolio'         => array( __( 'Project page', 'lenz-plus' ), __( 'Every portfolio item. Its title, text, photos and the Project details box below Lenz\'s gallery fill the design.', 'lenz-plus' ) ),
 );
 
 $brand_labels = array(
@@ -180,6 +186,25 @@ foreach ( Icon_Library::catalog()['packs'] as $pack_id => $pack ) {
 						<?php Fields::range( 'breakpoint', __( 'Phone & tablet breakpoint', 'lenz-plus' ), 600, 1440, 1, 'px', array( 'help' => __( 'At this width and below, the phone header and footer are shown. 1024 matches Elementor\'s tablet breakpoint.', 'lenz-plus' ) ) ); ?>
 					</div>
 				</div>
+			</section>
+
+			<section class="lzp-panel" role="tabpanel" id="lzp-panel-routes" aria-labelledby="lzp-tab-routes">
+				<div class="lzp-card">
+					<header class="lzp-card__head">
+						<h2><?php esc_html_e( 'Replace Lenz\'s page layouts', 'lenz-plus' ); ?></h2>
+						<p><?php esc_html_e( 'Pick a design for each group of pages. The design fills itself from each page\'s own content. Nothing changes for visitors until the module is switched on and the settings are saved; the eye button previews any choice on a real page.', 'lenz-plus' ); ?></p>
+					</header>
+				</div>
+
+				<?php foreach ( $route_titles as $route => $route_title ) : ?>
+					<div class="lzp-card">
+						<header class="lzp-card__head">
+							<h2><?php echo esc_html( $route_title[0] ); ?></h2>
+							<p><?php echo esc_html( $route_title[1] ); ?></p>
+						</header>
+						<div class="lzp-tpl-grid" data-lzp-picker="<?php echo esc_attr( $route ); ?>" data-path="routes.<?php echo esc_attr( $route ); ?>" data-keywords="theme"></div>
+					</div>
+				<?php endforeach; ?>
 			</section>
 
 			<section class="lzp-panel" role="tabpanel" id="lzp-panel-library" aria-labelledby="lzp-tab-library">

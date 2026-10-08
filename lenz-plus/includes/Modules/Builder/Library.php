@@ -365,8 +365,8 @@ final class Library {
 			'_wp_page_template'           => 'elementor_canvas',
 		);
 
-		if ( in_array( $type, Schema::PAGE_TYPES, true ) ) {
-			// A page design is a whole page: edit and preview it the way the pages made from it look.
+		if ( in_array( $type, array_merge( Schema::PAGE_TYPES, Schema::ROUTE_TYPES ), true ) ) {
+			// Whole-page designs and route layouts: edit and preview them between the site's header and footer.
 			$meta = array_merge( $meta, Design_Pages::page_meta() );
 		}
 

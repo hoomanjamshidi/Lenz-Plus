@@ -3,10 +3,10 @@
  * Decides which template a request uses and builds preview links.
  *
  * Page designs need no decision: pages made from them carry their own
- * Elementor content. Headers and footers get one slot per device. Admins can
- * force any header or footer through nonce-protected preview parameters,
- * which is how the admin previews work before anything is saved. Later kinds
- * (portfolio, blog and course pages) add their rules here.
+ * Elementor content. Headers and footers get one slot per device; routes
+ * (portfolio list, project page…) one template each. Admins can force any
+ * header, footer or route template through nonce-protected preview
+ * parameters, which is how the admin previews work before anything is saved.
  *
  * @package LenzPlus
  */
@@ -25,7 +25,7 @@ final class Resolver {
 	/** @var Module */
 	private $module;
 
-	/** @var array<string, ?string>|null Memoized preview parameters, by area. */
+	/** @var array<string, ?string>|null Memoized preview parameters, by area or route. */
 	private $preview = null;
 
 	/**
@@ -65,6 +65,66 @@ final class Resolver {
 		);
 	}
 
+	/**
+	 * Route this request belongs to (Schema::ROUTE_TYPES), '' for none.
+	 */
+	public function route_kind(): string {
+		if ( is_singular( 'portfolio' ) ) {
+			return 'portfolio';
+		}
+
+		if ( is_post_type_archive( 'portfolio' ) || is_tax( array( 'portfolio-cat', 'portfolio-tag' ) ) ) {
+			return 'portfolio_archive';
+		}
+
+		return '';
+	}
+
+	/**
+	 * Template replacing the theme's layout for this request, 0 to keep it.
+	 */
+	public function route_template(): int {
+		$kind = $this->route_kind();
+		if ( '' === $kind ) {
+			return 0;
+		}
+
+		$preview = $this->preview()[ $kind ];
+		if ( null !== $preview ) {
+			return $this->to_route_id( $preview, $kind );
+		}
+
+		return $this->module->is_enabled() ? $this->to_route_id( (string) $this->module->settings()['routes'][ $kind ], $kind ) : 0;
+	}
+
+	/**
+	 * @param string $ref  Stored reference (template ID or `theme`).
+	 * @param string $kind Route kind.
+	 */
+	private function to_route_id( string $ref, string $kind ): int {
+		$id = is_numeric( $ref ) ? (int) $ref : 0;
+
+		return Template_Post_Type::is_usable( $id, array( $kind ) ) ? $id : 0;
+	}
+
+	/**
+	 * A page of a route to preview its templates on: the portfolio archive,
+	 * or the newest project ('' when there is none yet).
+	 *
+	 * @param string $kind Route kind.
+	 */
+	public static function sample_url( string $kind ): string {
+		if ( 'portfolio_archive' === $kind ) {
+			$url = post_type_exists( 'portfolio' ) ? get_post_type_archive_link( 'portfolio' ) : '';
+
+			return $url ? $url : '';
+		}
+
+		$sample = Context::sample_id( $kind );
+
+		return $sample ? (string) get_permalink( $sample ) : '';
+	}
+
 	/** Whether this request is an admin preview. */
 	public function is_preview(): bool {
 		return array() !== array_filter(
@@ -87,14 +147,23 @@ final class Resolver {
 			return is_numeric( $ref ) ? (string) get_permalink( (int) $ref ) : '';
 		}
 
+		$args = array(
+			'lzp_preview_' . $type => $ref,
+			'_lzpnonce'            => wp_create_nonce( self::PREVIEW_NONCE ),
+		);
+
 		if ( in_array( $type, Schema::AREAS, true ) ) {
-			return add_query_arg(
-				array(
-					'lzp_preview_' . $type => $ref,
-					'_lzpnonce'            => wp_create_nonce( self::PREVIEW_NONCE ),
-				),
-				home_url( '/' )
-			);
+			return add_query_arg( $args, home_url( '/' ) );
+		}
+
+		if ( in_array( $type, Schema::ROUTE_TYPES, true ) ) {
+			$url = self::sample_url( $type );
+			if ( '' !== $url ) {
+				return add_query_arg( $args, $url );
+			}
+
+			// Nothing to show it on yet: the template itself, with sample content.
+			return is_numeric( $ref ) ? (string) get_permalink( (int) $ref ) : '';
 		}
 
 		return '';
@@ -127,11 +196,12 @@ final class Resolver {
 			return $this->preview;
 		}
 
-		$this->preview = array_fill_keys( Schema::AREAS, null );
+		$types         = array_merge( Schema::AREAS, Schema::ROUTE_TYPES );
+		$this->preview = array_fill_keys( $types, null );
 
 		// phpcs:disable WordPress.Security.NonceVerification.Recommended -- verified right below.
 		$requested = array();
-		foreach ( Schema::AREAS as $area ) {
+		foreach ( $types as $area ) {
 			if ( isset( $_GET[ 'lzp_preview_' . $area ] ) ) {
 				$requested[ $area ] = sanitize_key( wp_unslash( $_GET[ 'lzp_preview_' . $area ] ) );
 			}

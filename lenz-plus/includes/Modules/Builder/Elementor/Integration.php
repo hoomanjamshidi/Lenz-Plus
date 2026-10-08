@@ -55,6 +55,15 @@ final class Integration {
 		'Pricing_Plans',
 		'Faq',
 		'CTA_Band',
+		// Portfolio and single items.
+		'Portfolio_Grid',
+		'Featured_Projects',
+		'Project_Header',
+		'Project_Gallery',
+		'Checklist',
+		'Post_Content',
+		'Related_Items',
+		'Breadcrumb',
 		// Forms.
 		'Request_Form',
 		'Newsletter_Form',

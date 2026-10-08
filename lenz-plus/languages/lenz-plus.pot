@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-08T16:46:13+00:00\n"
+"POT-Creation-Date: 2026-10-08T17:07:07+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: lenz-plus\n"
@@ -33,8 +33,8 @@ msgid "Hooman Jamshidi"
 msgstr ""
 
 #: includes/Admin/Admin.php:59
-#: includes/Modules/Builder/Elementor/Integration.php:97
-#: includes/Modules/Builder/Elementor/Integration.php:134
+#: includes/Modules/Builder/Elementor/Integration.php:106
+#: includes/Modules/Builder/Elementor/Integration.php:143
 msgid "Lenz+"
 msgstr ""
 
@@ -81,7 +81,7 @@ msgid "Yes, reset"
 msgstr ""
 
 #: includes/Admin/Admin.php:230
-#: includes/Modules/Builder/Module.php:240
+#: includes/Modules/Builder/Module.php:260
 msgid "Cancel"
 msgstr ""
 
@@ -224,6 +224,7 @@ msgstr ""
 #: includes/Modules/Bottom_Nav/Item_Types.php:30
 #: includes/Modules/Bottom_Nav/Item_Types.php:32
 #: includes/Modules/Bottom_Nav/views/admin.php:682
+#: includes/Modules/Builder/Elementor/Widgets/Breadcrumb.php:57
 msgid "Home"
 msgstr ""
 
@@ -419,7 +420,7 @@ msgstr ""
 
 #: includes/Modules/Bottom_Nav/Module.php:155
 #: includes/Modules/Bottom_Nav/views/admin.php:485
-#: includes/Modules/Builder/Module.php:212
+#: includes/Modules/Builder/Module.php:232
 msgid "Delete"
 msgstr ""
 
@@ -561,13 +562,13 @@ msgid "Behaviour"
 msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:85
-#: includes/Modules/Builder/views/admin.php:87
+#: includes/Modules/Builder/views/admin.php:93
 #: includes/Modules/Support_Button/views/admin.php:80
 msgid "Active"
 msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:86
-#: includes/Modules/Builder/views/admin.php:88
+#: includes/Modules/Builder/views/admin.php:94
 #: includes/Modules/Support_Button/views/admin.php:81
 msgid "Inactive"
 msgstr ""
@@ -631,7 +632,7 @@ msgid "Show labels"
 msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:202
-#: includes/Modules/Builder/views/admin.php:40
+#: includes/Modules/Builder/views/admin.php:41
 #: includes/Modules/Support_Button/views/admin.php:257
 msgid "Always"
 msgstr ""
@@ -710,7 +711,7 @@ msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:312
 #: includes/Modules/Bottom_Nav/views/admin.php:324
-#: includes/Modules/Builder/Elementor/Integration.php:146
+#: includes/Modules/Builder/Elementor/Integration.php:155
 #: includes/Modules/Builder/Elementor/Widgets/Base.php:119
 #: includes/Modules/Builder/Elementor/Widgets/Request_Form.php:205
 msgid "None"
@@ -920,7 +921,7 @@ msgid "Show this button"
 msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:484
-#: includes/Modules/Builder/Module.php:210
+#: includes/Modules/Builder/Module.php:230
 msgid "Duplicate"
 msgstr ""
 
@@ -942,6 +943,7 @@ msgstr ""
 #: includes/Modules/Bottom_Nav/views/admin.php:510
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:155
 #: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:55
+#: includes/Modules/Builder/Elementor/Widgets/Checklist.php:95
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:79
 #: includes/Modules/Builder/Elementor/Widgets/Header_Action.php:87
 #: includes/Modules/Builder/Elementor/Widgets/Header_Action.php:111
@@ -1073,6 +1075,8 @@ msgid "Which menu"
 msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:623
+#: includes/Modules/Builder/Elementor/Widgets/Post_Content.php:52
+#: includes/Modules/Builder/Elementor/Widgets/Post_Content.php:82
 msgid "Content"
 msgstr ""
 
@@ -1142,9 +1146,9 @@ msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:704
 #: includes/Modules/Bottom_Nav/views/sheet.php:24
-#: includes/Modules/Builder/Assets.php:117
+#: includes/Modules/Builder/Assets.php:132
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:399
-#: includes/Modules/Builder/Module.php:230
+#: includes/Modules/Builder/Module.php:250
 #: includes/Modules/Support_Button/Module.php:114
 #: includes/Modules/Support_Button/views/button.php:77
 msgid "Close"
@@ -1188,7 +1192,7 @@ msgstr ""
 #: includes/Modules/Builder/Contact_Messages.php:79
 #: includes/Modules/Builder/Contact_Messages.php:80
 #: includes/Modules/Builder/Contact_Messages.php:535
-#: includes/Modules/Builder/views/admin.php:211
+#: includes/Modules/Builder/views/admin.php:236
 msgid "Requests"
 msgstr ""
 
@@ -1329,73 +1333,73 @@ msgstr ""
 
 #: includes/Modules/Builder/Design_Pages.php:86
 #: includes/Modules/Builder/Module.php:57
-#: includes/Modules/Builder/Module.php:258
+#: includes/Modules/Builder/Module.php:278
 msgid "Home page"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:142
+#: includes/Modules/Builder/Elementor/Integration.php:151
 msgid "Brand surface"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:147
+#: includes/Modules/Builder/Elementor/Integration.php:156
 msgid "White"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:148
+#: includes/Modules/Builder/Elementor/Integration.php:157
 msgid "Card (with border)"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:149
+#: includes/Modules/Builder/Elementor/Integration.php:158
 msgid "Card (dashed border)"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:150
+#: includes/Modules/Builder/Elementor/Integration.php:159
 msgid "Soft band"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:151
+#: includes/Modules/Builder/Elementor/Integration.php:160
 msgid "Tile"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:152
+#: includes/Modules/Builder/Elementor/Integration.php:161
 msgid "Ink band (dark)"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:153
+#: includes/Modules/Builder/Elementor/Integration.php:162
 msgid "Dark card"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:154
+#: includes/Modules/Builder/Elementor/Integration.php:163
 msgid "Header bar (translucent)"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:157
+#: includes/Modules/Builder/Elementor/Integration.php:166
 msgid "Uses the brand colours from Lenz+ → Page templates. Dark surfaces switch the text inside to light colours. A background set in the Style tab still wins."
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:164
+#: includes/Modules/Builder/Elementor/Integration.php:173
 msgid "Sticky while scrolling"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:168
-#: includes/Modules/Builder/views/admin.php:39
+#: includes/Modules/Builder/Elementor/Integration.php:177
+#: includes/Modules/Builder/views/admin.php:40
 #: includes/Modules/Support_Button/Module.php:111
 msgid "Off"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:169
+#: includes/Modules/Builder/Elementor/Integration.php:178
 msgid "Desktop only"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:170
+#: includes/Modules/Builder/Elementor/Integration.php:179
 msgid "All devices"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:174
+#: includes/Modules/Builder/Elementor/Integration.php:183
 msgid "Keeps a column (e.g. the buy box) in view inside its parent. The parent must be taller than this container."
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:181
+#: includes/Modules/Builder/Elementor/Integration.php:190
 msgid "Distance from top"
 msgstr ""
 
@@ -1422,7 +1426,7 @@ msgid "End"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Base.php:239
-#: includes/Modules/Builder/views/admin.php:256
+#: includes/Modules/Builder/views/admin.php:281
 msgid "Colour"
 msgstr ""
 
@@ -1471,12 +1475,15 @@ msgstr ""
 
 #. translators: %s: widget name.
 #: includes/Modules/Builder/Elementor/Widgets/Brand_Box.php:32
+#: includes/Modules/Builder/Elementor/Widgets/Breadcrumb.php:30
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:30
 #: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:32
+#: includes/Modules/Builder/Elementor/Widgets/Checklist.php:31
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:36
 #: includes/Modules/Builder/Elementor/Widgets/Copyright.php:33
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:30
 #: includes/Modules/Builder/Elementor/Widgets/Faq.php:32
+#: includes/Modules/Builder/Elementor/Widgets/Featured_Projects.php:32
 #: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:30
 #: includes/Modules/Builder/Elementor/Widgets/Header_Action.php:35
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:33
@@ -1486,9 +1493,14 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Newsletter_Form.php:37
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:37
 #: includes/Modules/Builder/Elementor/Widgets/Photo_Grid.php:30
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:38
+#: includes/Modules/Builder/Elementor/Widgets/Post_Content.php:32
 #: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:34
 #: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:31
-#: includes/Modules/Builder/Elementor/Widgets/Quote.php:28
+#: includes/Modules/Builder/Elementor/Widgets/Project_Gallery.php:33
+#: includes/Modules/Builder/Elementor/Widgets/Project_Header.php:34
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:31
+#: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:33
 #: includes/Modules/Builder/Elementor/Widgets/Request_Form.php:37
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:37
 #: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:33
@@ -1531,6 +1543,8 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:115
 #: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:81
 #: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:172
+#: includes/Modules/Builder/Elementor/Widgets/Checklist.php:70
+#: includes/Modules/Builder/Elementor/Widgets/Checklist.php:105
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:88
 #: includes/Modules/Builder/Elementor/Widgets/Copyright.php:53
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:60
@@ -1577,14 +1591,44 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Brand_Box.php:115
 #: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:55
 #: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:147
-#: includes/Modules/Builder/Elementor/Widgets/Quote.php:59
-#: includes/Modules/Builder/Elementor/Widgets/Quote.php:79
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:76
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:98
 #: includes/Modules/Builder/Elementor/Widgets/Request_Form.php:74
 #: includes/Modules/Builder/Elementor/Widgets/Site_Logo.php:166
 #: includes/Modules/Builder/Elementor/Widgets/Site_Logo.php:238
 #: includes/Modules/Builder/Elementor/Widgets/Social_Links.php:132
-#: includes/Modules/Builder/Module.php:232
+#: includes/Modules/Builder/Module.php:252
+#: includes/Modules/Builder/Project_Meta_Box.php:76
 msgid "Name"
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Breadcrumb.php:30
+#: includes/Modules/Builder/Elementor/Widgets/Breadcrumb.php:50
+#: includes/Modules/Builder/Elementor/Widgets/Breadcrumb.php:63
+#: includes/Modules/Builder/Elementor/Widgets/Breadcrumb.php:135
+msgid "Breadcrumb"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Breadcrumb.php:55
+msgid "Home label"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Breadcrumb.php:64
+#: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:88
+#: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:144
+#: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:150
+#: includes/Modules/Builder/Elementor/Widgets/Social_Links.php:103
+#: includes/Modules/Builder/Elementor/Widgets/Social_Links.php:148
+msgid "Links"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Breadcrumb.php:65
+msgid "Current page"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Breadcrumb.php:113
+msgid "Blog"
 msgstr ""
 
 #. translators: %s: widget name.
@@ -1643,8 +1687,10 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:47
 #: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:99
 #: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:156
+#: includes/Modules/Builder/Elementor/Widgets/Featured_Projects.php:76
 #: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:144
 #: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:111
+#: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:97
 msgid "Cards"
 msgstr ""
 
@@ -1659,6 +1705,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:118
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:50
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:108
+#: includes/Modules/Builder/Elementor/Widgets/Featured_Projects.php:78
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:105
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:213
 #: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:64
@@ -1671,6 +1718,9 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:200
 #: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:52
 #: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:115
+#: includes/Modules/Builder/Elementor/Widgets/Project_Header.php:70
+#: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:66
+#: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:99
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:66
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:210
 #: includes/Modules/Builder/Elementor/Widgets/Timeline.php:59
@@ -1716,11 +1766,45 @@ msgid "Title tag"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:163
+#: includes/Modules/Builder/Elementor/Widgets/Checklist.php:110
 #: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:108
 #: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:143
 #: includes/Modules/Builder/Elementor/Widgets/Social_Links.php:166
 #: includes/Modules/Builder/Elementor/Widgets/Stats.php:127
 msgid "Icon colour"
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Checklist.php:31
+msgid "Checklist"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Checklist.php:51
+#: includes/Modules/Builder/Elementor/Widgets/Checklist.php:56
+#: includes/Modules/Builder/Elementor/Widgets/Checklist.php:80
+#: includes/Modules/Builder/Elementor/Widgets/Checklist.php:104
+#: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:48
+#: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:53
+msgid "Items"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Checklist.php:60
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:55
+msgid "Typed here"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Checklist.php:61
+msgid "The project's \"What was done\""
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Checklist.php:72
+#: includes/Modules/Builder/Elementor/Widgets/Checklist.php:84
+#: includes/Modules/Builder/Elementor/Widgets/Checklist.php:85
+msgid "A finished step"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Checklist.php:132
+msgid "Nothing to list: fill in \"What was done\" in the project's details."
 msgstr ""
 
 #. translators: %s: widget name.
@@ -1792,6 +1876,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:45
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:52
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:198
+#: includes/Modules/Builder/Elementor/Widgets/Project_Header.php:69
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:52
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:209
 msgid "Texts"
@@ -1874,6 +1959,47 @@ msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Faq.php:116
 msgid "Maximum width"
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Featured_Projects.php:32
+msgid "Featured projects"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Featured_Projects.php:42
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:53
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:58
+#: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:57
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:89
+msgid "Projects"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Featured_Projects.php:47
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:72
+msgid "Number of projects"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Featured_Projects.php:58
+msgid "Alternate photo sides"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Featured_Projects.php:68
+msgid "Link text"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Featured_Projects.php:70
+msgid "View project"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Featured_Projects.php:79
+#: includes/Modules/Builder/Elementor/Widgets/Project_Header.php:71
+#: includes/Modules/Builder/Project_Meta_Box.php:53
+msgid "Summary"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Featured_Projects.php:119
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:162
+msgid "No projects yet. Add portfolio items in Lenz → Portfolios."
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Form_Base.php:52
@@ -1998,6 +2124,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:191
 #: includes/Modules/Builder/Elementor/Widgets/Newsletter_Form.php:148
 #: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:98
+#: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:75
 #: includes/Modules/Builder/Elementor/Widgets/Request_Form.php:148
 #: includes/Modules/Support_Button/views/admin.php:242
 msgid "Button text"
@@ -2088,14 +2215,6 @@ msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:78
 msgid "— Choose a menu —"
-msgstr ""
-
-#: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:88
-#: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:144
-#: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:150
-#: includes/Modules/Builder/Elementor/Widgets/Social_Links.php:103
-#: includes/Modules/Builder/Elementor/Widgets/Social_Links.php:148
-msgid "Links"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:96
@@ -2387,6 +2506,7 @@ msgid "Shown in the empty frame until a photo is chosen."
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:163
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:115
 msgid "Corner notch"
 msgstr ""
 
@@ -2404,6 +2524,7 @@ msgid "The large outlined word behind the section. Leave empty to hide it."
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:188
+#: includes/Modules/Builder/Elementor/Widgets/Project_Header.php:60
 msgid "Guide lines"
 msgstr ""
 
@@ -2423,9 +2544,11 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Photo_Grid.php:45
 #: includes/Modules/Builder/Elementor/Widgets/Photo_Grid.php:72
 #: includes/Modules/Builder/Elementor/Widgets/Photo_Grid.php:89
+#: includes/Modules/Builder/Elementor/Widgets/Project_Gallery.php:43
+#: includes/Modules/Builder/Elementor/Widgets/Project_Gallery.php:86
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:131
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:136
-#: includes/Modules/Builder/views/admin.php:253
+#: includes/Modules/Builder/views/admin.php:278
 msgid "Photos"
 msgstr ""
 
@@ -2436,6 +2559,125 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Photo_Grid.php:79
 #: includes/Modules/Builder/Elementor/Widgets/Photo_Grid.php:91
 msgid "Caption"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Base.php:45
+msgid "Shows the project being viewed. Add a portfolio item (Lenz → Portfolios) to see it here."
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:38
+msgid "Portfolio grid"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:62
+msgid "Of the page being viewed"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:63
+msgid "Newest"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:65
+msgid "\"Of the page being viewed\" lists the portfolio archive or category page it is on, with page numbers; anywhere else it shows the newest projects."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:77
+msgid "On archive pages, WordPress's \"Blog pages show at most\" setting decides."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:84
+msgid "Category chips"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:94
+msgid "Number of projects beside the chips"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:105
+msgid "\"All\" chip"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:107
+#: includes/Modules/Support_Button/views/admin.php:340
+msgid "All"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:126
+msgid "Column width"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:135
+msgid "Photos keep their own shapes in as many columns of about this width as fit."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:142
+msgid "Grid"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:143
+msgid "Project title"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:186
+msgid "Previous page"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:187
+msgid "Next page"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:191
+#: includes/Modules/Builder/views/admin.php:31
+msgid "Pages"
+msgstr ""
+
+#. translators: %s: number of projects.
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:238
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:259
+#, php-format
+msgid "%s project"
+msgid_plural "%s projects"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: number of projects.
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:240
+#, php-format
+msgid "%s projects"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:246
+msgid "Portfolio categories"
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Post_Content.php:32
+msgid "Post content"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Post_Content.php:58
+msgid "Shows the text of the post or project being viewed. While its template is edited, the newest one stands in."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Post_Content.php:66
+msgid "Line length"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Post_Content.php:75
+msgid "Leave empty to fill the column."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Post_Content.php:84
+msgid "Headings"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Post_Content.php:92
+msgid "Publish a post or a project to see its text here."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Post_Content.php:103
+msgid "Post pages"
 msgstr ""
 
 #. translators: %s: widget name.
@@ -2543,32 +2785,122 @@ msgid "Number"
 msgstr ""
 
 #. translators: %s: widget name.
-#: includes/Modules/Builder/Elementor/Widgets/Quote.php:28
-#: includes/Modules/Builder/Elementor/Widgets/Quote.php:43
-#: includes/Modules/Builder/Elementor/Widgets/Quote.php:76
+#: includes/Modules/Builder/Elementor/Widgets/Project_Gallery.php:33
+msgid "Project photos"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Project_Gallery.php:48
+msgid "Show"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Project_Gallery.php:52
+msgid "Cover (featured image)"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Project_Gallery.php:53
+msgid "Gallery photos"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Project_Gallery.php:61
+msgid "Skip"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Project_Gallery.php:66
+msgid "Gallery items shown by the widgets above this one."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Project_Gallery.php:73
+msgid "How many"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Project_Gallery.php:78
+msgid "0 shows all the rest."
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Project_Header.php:34
+#: includes/Modules/Builder/Elementor/Widgets/Project_Header.php:44
+msgid "Project header"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Project_Header.php:49
+msgid "Fact boxes"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Project_Header.php:53
+msgid "From the Facts field of the project's details."
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:31
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:46
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:51
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:95
 msgid "Quote"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Quote.php:48
-#: includes/Modules/Builder/Elementor/Widgets/Quote.php:78
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:56
+msgid "The project's client quote"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:64
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:97
 msgid "Quotation"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Quote.php:51
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:67
 msgid "Delivery was on time and the photos made a real difference for our brand."
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Quote.php:61
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:78
 msgid "Client name"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Quote.php:68
-#: includes/Modules/Builder/Elementor/Widgets/Quote.php:80
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:86
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:99
+#: includes/Modules/Builder/Project_Meta_Box.php:77
 msgid "Role"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Quote.php:70
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:88
 msgid "Brand manager"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Quote.php:119
+msgid "Nothing to show: fill in the client's quote in the project's details."
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:33
+msgid "Related items"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:58
+msgid "Blog posts"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:68
+msgid "Related projects"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:77
+msgid "All projects"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:78
+msgid "Links to the full list. Leave empty to hide it."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:85
+msgid "Number of items"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:100
+msgid "Details"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:154
+msgid "Nothing to show yet: there are no other items of this kind."
 msgstr ""
 
 #. translators: %s: widget name.
@@ -2924,10 +3256,6 @@ msgstr ""
 msgid "Years of experience"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Stats.php:89
-msgid "Projects"
-msgstr ""
-
 #: includes/Modules/Builder/Elementor/Widgets/Stats.php:94
 msgid "Awards"
 msgstr ""
@@ -2953,7 +3281,7 @@ msgid "Tone"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Text.php:60
-#: includes/Modules/Builder/views/admin.php:52
+#: includes/Modules/Builder/views/admin.php:58
 msgid "Body text"
 msgstr ""
 
@@ -3047,7 +3375,7 @@ msgid "Lenz+ dark surface"
 msgstr ""
 
 #: includes/Modules/Builder/Library_Ajax.php:62
-#: includes/Modules/Builder/Module.php:244
+#: includes/Modules/Builder/Module.php:264
 msgid "Elementor is required to edit templates."
 msgstr ""
 
@@ -3061,8 +3389,8 @@ msgid "Page not found."
 msgstr ""
 
 #: includes/Modules/Builder/Library_Ajax.php:86
-#: includes/Modules/Builder/Module.php:231
-#: includes/Modules/Builder/views/admin.php:199
+#: includes/Modules/Builder/Module.php:251
+#: includes/Modules/Builder/views/admin.php:224
 msgid "New template"
 msgstr ""
 
@@ -3104,263 +3432,281 @@ msgstr ""
 msgid "Courses page"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:159
+#: includes/Modules/Builder/Module.php:61
+#: includes/Modules/Builder/views/admin.php:51
+msgid "Portfolio list"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:62
+#: includes/Modules/Builder/views/admin.php:52
+msgid "Project page"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:145
+msgid "Lenz's portfolio list"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:146
+msgid "Lenz's project page"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:179
 msgid "Home pages"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:160
+#: includes/Modules/Builder/Module.php:180
 msgid "About pages"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:161
+#: includes/Modules/Builder/Module.php:181
 msgid "Services pages"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:162
+#: includes/Modules/Builder/Module.php:182
 msgid "Courses pages"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:196
+#: includes/Modules/Builder/Module.php:216
 msgid "Lenz's header"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:197
+#: includes/Modules/Builder/Module.php:217
 msgid "Lenz's footer"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:198
+#: includes/Modules/Builder/Module.php:218
 msgid "Keep the theme's own design."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:199
+#: includes/Modules/Builder/Module.php:219
 msgid "Nothing"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:200
+#: includes/Modules/Builder/Module.php:220
 msgid "Hide it on this device."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:201
+#: includes/Modules/Builder/Module.php:221
 msgid "Same as desktop"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:202
+#: includes/Modules/Builder/Module.php:222
 msgid "Use the desktop choice on phones too."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:203
+#: includes/Modules/Builder/Module.php:223
 msgid "In use"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:204
-#: includes/Modules/Builder/Module.php:205
+#: includes/Modules/Builder/Module.php:224
+#: includes/Modules/Builder/Module.php:225
 msgid "Preview"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:206
+#: includes/Modules/Builder/Module.php:226
 msgid "Nothing to preview yet."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:207
+#: includes/Modules/Builder/Module.php:227
 msgid "Previews show a design right away — nothing changes for visitors until you save."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:208
+#: includes/Modules/Builder/Module.php:228
 msgid "Custom template"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:209
+#: includes/Modules/Builder/Module.php:229
 msgid "Edit with Elementor"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:211
+#: includes/Modules/Builder/Module.php:231
 msgid "Restore original"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:213
+#: includes/Modules/Builder/Module.php:233
 msgid "Rename"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:214
+#: includes/Modules/Builder/Module.php:234
 msgid "Delete this template?"
 msgstr ""
 
 #. translators: %s: template name.
-#: includes/Modules/Builder/Module.php:216
+#: includes/Modules/Builder/Module.php:236
 #, php-format
 msgid "\"%s\" goes to the trash. Pages made from it keep their own copy."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:217
+#: includes/Modules/Builder/Module.php:237
 msgid "Restore the original design?"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:218
+#: includes/Modules/Builder/Module.php:238
 msgid "Your Elementor changes to this template will be replaced by the original design. Duplicate it first if you want to keep your version."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:219
+#: includes/Modules/Builder/Module.php:239
 msgid "Restore"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:220
+#: includes/Modules/Builder/Module.php:240
 msgid "Template created."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:221
+#: includes/Modules/Builder/Module.php:241
 msgid "Template duplicated."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:222
+#: includes/Modules/Builder/Module.php:242
 msgid "Original design restored."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:223
+#: includes/Modules/Builder/Module.php:243
 msgid "Template deleted."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:224
+#: includes/Modules/Builder/Module.php:244
 msgid "Ready-made designs installed."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:225
+#: includes/Modules/Builder/Module.php:245
 msgid "Template renamed."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:226
-#: includes/Modules/Builder/views/admin.php:175
+#: includes/Modules/Builder/Module.php:246
+#: includes/Modules/Builder/views/admin.php:181
 msgid "Desktop"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:227
+#: includes/Modules/Builder/Module.php:247
 msgid "Tablet"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:228
+#: includes/Modules/Builder/Module.php:248
 msgid "Mobile"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:229
+#: includes/Modules/Builder/Module.php:249
 msgid "Open in new tab"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:233
+#: includes/Modules/Builder/Module.php:253
 msgid "Kind"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:234
+#: includes/Modules/Builder/Module.php:254
 msgid "Start from"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:235
+#: includes/Modules/Builder/Module.php:255
 msgid "Blank canvas"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:236
+#: includes/Modules/Builder/Module.php:256
 msgid "Create & open Elementor"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:237
+#: includes/Modules/Builder/Module.php:257
 msgid "Create"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:238
+#: includes/Modules/Builder/Module.php:258
 msgid "New name"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:239
+#: includes/Modules/Builder/Module.php:259
 msgid "Save"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:241
+#: includes/Modules/Builder/Module.php:261
 msgid "Ready-made"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:242
+#: includes/Modules/Builder/Module.php:262
 msgid "Edited"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:243
+#: includes/Modules/Builder/Module.php:263
 msgid "No templates of this kind yet."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:245
+#: includes/Modules/Builder/Module.php:265
 msgid "Brand colours added to Elementor's global colours."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:246
+#: includes/Modules/Builder/Module.php:266
 msgid "Flexbox containers activated."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:247
+#: includes/Modules/Builder/Module.php:267
 msgid "Create page"
 msgstr ""
 
 #. translators: %s: design name.
-#: includes/Modules/Builder/Module.php:249
+#: includes/Modules/Builder/Module.php:269
 #, php-format
 msgid "New page from \"%s\""
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:250
+#: includes/Modules/Builder/Module.php:270
 msgid "Page name"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:251
+#: includes/Modules/Builder/Module.php:271
 msgid "Publish now"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:252
+#: includes/Modules/Builder/Module.php:272
 msgid "Off: the page is saved as a draft that only you can see."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:253
+#: includes/Modules/Builder/Module.php:273
 msgid "Use it as the site's home page"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:254
+#: includes/Modules/Builder/Module.php:274
 msgid "Visitors see it at the site address. The page is published."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:255
+#: includes/Modules/Builder/Module.php:275
 msgid "Page created."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:256
+#: includes/Modules/Builder/Module.php:276
 msgid "No ready-made designs of this kind yet. Create a template of this kind in the Templates tab to make pages from it."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:257
+#: includes/Modules/Builder/Module.php:277
 msgid "No pages yet. Create one from a design above."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:259
+#: includes/Modules/Builder/Module.php:279
 msgid "Draft"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:260
+#: includes/Modules/Builder/Module.php:280
 msgid "Published"
 msgstr ""
 
 #. translators: %s: design name.
-#: includes/Modules/Builder/Module.php:262
+#: includes/Modules/Builder/Module.php:282
 #, php-format
 msgid "From \"%s\""
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:263
+#: includes/Modules/Builder/Module.php:283
 msgid "View"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:264
+#: includes/Modules/Builder/Module.php:284
 msgid "Make it the home page"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:265
+#: includes/Modules/Builder/Module.php:285
 msgid "This page is now the site's home page."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:266
+#: includes/Modules/Builder/Module.php:286
 msgid "Edit the design"
 msgstr ""
 
@@ -3378,7 +3724,7 @@ msgid "Newsletter and waitlists (Lenz+)"
 msgstr ""
 
 #: includes/Modules/Builder/Newsletter.php:243
-#: includes/Modules/Builder/views/admin.php:230
+#: includes/Modules/Builder/views/admin.php:255
 msgid "Newsletter and waitlists"
 msgstr ""
 
@@ -3410,6 +3756,70 @@ msgstr ""
 msgid "Hero, jump tiles, four services with photos (one on the ink band), price cards with add-ons, project steps, FAQ and a call to action."
 msgstr ""
 
+#: includes/Modules/Builder/Presets/Catalog.php:61
+msgid "Portfolio"
+msgstr ""
+
+#: includes/Modules/Builder/Presets/Catalog.php:62
+msgid "Title, category chips and a masonry of the projects with page numbers, the featured projects and a call to action."
+msgstr ""
+
+#: includes/Modules/Builder/Presets/Catalog.php:67
+msgid "Project"
+msgstr ""
+
+#: includes/Modules/Builder/Presets/Catalog.php:68
+msgid "Breadcrumb, title with facts, the cover, the project text beside a checklist, the gallery, the client's quote, related projects and a call to action."
+msgstr ""
+
+#: includes/Modules/Builder/Project_Meta_Box.php:33
+msgid "Project details (Lenz+)"
+msgstr ""
+
+#: includes/Modules/Builder/Project_Meta_Box.php:50
+msgid "Shown by the Lenz+ project widgets (project header, checklist, quote, featured projects). Leave a field empty to hide its part."
+msgstr ""
+
+#: includes/Modules/Builder/Project_Meta_Box.php:55
+msgid "One or two sentences under the title. Empty: the excerpt."
+msgstr ""
+
+#: includes/Modules/Builder/Project_Meta_Box.php:58
+msgid "Year"
+msgstr ""
+
+#: includes/Modules/Builder/Project_Meta_Box.php:60
+msgid "Empty: the year it was published."
+msgstr ""
+
+#: includes/Modules/Builder/Project_Meta_Box.php:63
+msgid "Facts"
+msgstr ""
+
+#: includes/Modules/Builder/Project_Meta_Box.php:65
+msgid "One per line, as \"Label: value\" (e.g. Client: Nova). The first three also appear on featured project cards."
+msgstr ""
+
+#: includes/Modules/Builder/Project_Meta_Box.php:68
+msgid "What was done"
+msgstr ""
+
+#: includes/Modules/Builder/Project_Meta_Box.php:70
+msgid "One step per line, shown as a checklist."
+msgstr ""
+
+#: includes/Modules/Builder/Project_Meta_Box.php:73
+msgid "Client's quote"
+msgstr ""
+
+#: includes/Modules/Builder/Project_Meta_Box.php:81
+msgid "Featured"
+msgstr ""
+
+#: includes/Modules/Builder/Project_Meta_Box.php:82
+msgid "Show it in \"Featured projects\""
+msgstr ""
+
 #: includes/Modules/Builder/Public_Form.php:177
 msgid "Please check the highlighted fields and try again."
 msgstr ""
@@ -3434,272 +3844,288 @@ msgstr ""
 msgid "Edit template"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:31
-msgid "Pages"
-msgstr ""
-
 #: includes/Modules/Builder/views/admin.php:32
 msgid "Header & footer"
 msgstr ""
 
 #: includes/Modules/Builder/views/admin.php:33
-msgid "Templates"
+msgid "Site pages"
 msgstr ""
 
 #: includes/Modules/Builder/views/admin.php:34
-msgid "Forms"
+msgid "Templates"
 msgstr ""
 
 #: includes/Modules/Builder/views/admin.php:35
+msgid "Forms"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:36
 msgid "Colours & options"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:41
+#: includes/Modules/Builder/views/admin.php:42
 msgid "Smart"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:45
+#: includes/Modules/Builder/views/admin.php:46
 msgid "Header on desktop"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:45
+#: includes/Modules/Builder/views/admin.php:46
 msgid "Header on phones & tablets"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:46
+#: includes/Modules/Builder/views/admin.php:47
 msgid "Footer on desktop"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:46
+#: includes/Modules/Builder/views/admin.php:47
 msgid "Footer on phones & tablets"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:50
-msgid "Ink (headings, primary buttons, dark bands)"
-msgstr ""
-
 #: includes/Modules/Builder/views/admin.php:51
-msgid "Accent (hover, accent bars, icons)"
+msgid "The portfolio archive and its category pages."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:53
-msgid "Secondary text"
-msgstr ""
-
-#: includes/Modules/Builder/views/admin.php:54
-msgid "Muted text"
-msgstr ""
-
-#: includes/Modules/Builder/views/admin.php:55
-msgid "Page and card background"
+#: includes/Modules/Builder/views/admin.php:52
+msgid "Every portfolio item. Its title, text, photos and the Project details box below Lenz's gallery fill the design."
 msgstr ""
 
 #: includes/Modules/Builder/views/admin.php:56
-msgid "Soft band background"
+msgid "Ink (headings, primary buttons, dark bands)"
 msgstr ""
 
 #: includes/Modules/Builder/views/admin.php:57
-msgid "Chips and tiles"
-msgstr ""
-
-#: includes/Modules/Builder/views/admin.php:58
-msgid "Borders"
+msgid "Accent (hover, accent bars, icons)"
 msgstr ""
 
 #: includes/Modules/Builder/views/admin.php:59
-msgid "Strong borders (white buttons)"
+msgid "Secondary text"
 msgstr ""
 
 #: includes/Modules/Builder/views/admin.php:60
-msgid "Dashed borders"
+msgid "Muted text"
 msgstr ""
 
 #: includes/Modules/Builder/views/admin.php:61
-msgid "Form field borders"
+msgid "Page and card background"
 msgstr ""
 
 #: includes/Modules/Builder/views/admin.php:62
-msgid "Cards on dark bands"
+msgid "Soft band background"
 msgstr ""
 
 #: includes/Modules/Builder/views/admin.php:63
-msgid "Text on dark bands"
+msgid "Chips and tiles"
 msgstr ""
 
 #: includes/Modules/Builder/views/admin.php:64
-msgid "Muted text on dark bands"
+msgid "Borders"
 msgstr ""
 
 #: includes/Modules/Builder/views/admin.php:65
-msgid "Borders on dark bands"
+msgid "Strong borders (white buttons)"
 msgstr ""
 
 #: includes/Modules/Builder/views/admin.php:66
-msgid "Hover on dark bands"
+msgid "Dashed borders"
 msgstr ""
 
 #: includes/Modules/Builder/views/admin.php:67
-msgid "Success"
+msgid "Form field borders"
 msgstr ""
 
 #: includes/Modules/Builder/views/admin.php:68
+msgid "Cards on dark bands"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:69
+msgid "Text on dark bands"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:70
+msgid "Muted text on dark bands"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:71
+msgid "Borders on dark bands"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:72
+msgid "Hover on dark bands"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:73
+msgid "Success"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:74
 msgid "Warning"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:90
+#: includes/Modules/Builder/views/admin.php:96
 msgid "Enable page templates"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:100
+#: includes/Modules/Builder/views/admin.php:106
 msgid "Elementor is not active. The designs are Elementor templates, so install and activate the free Elementor plugin first."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:101
+#: includes/Modules/Builder/views/admin.php:107
 msgid "Install Elementor"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:107
+#: includes/Modules/Builder/views/admin.php:113
 msgid "The designs use Elementor's Flexbox Containers, which are switched off on this site. Turn them on to display and edit the templates."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:108
+#: includes/Modules/Builder/views/admin.php:114
 msgid "Turn on containers"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:127
+#: includes/Modules/Builder/views/admin.php:133
 msgid "Ready-made pages"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:128
+#: includes/Modules/Builder/views/admin.php:134
 msgid "Home, about, services and courses pages. Pick a design and create a new page from it. The page is a normal Elementor page: change the texts and pictures, move or remove sections, add your own. Portfolio items, posts and courses come from your site automatically."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:135
+#: includes/Modules/Builder/views/admin.php:141
 msgid "Pages made from these designs"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:136
+#: includes/Modules/Builder/views/admin.php:142
 msgid "Editing a page never changes the design it came from, so you can make as many pages as you like."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:145
+#: includes/Modules/Builder/views/admin.php:151
 msgid "Replace Lenz's header and footer"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:146
+#: includes/Modules/Builder/views/admin.php:152
 msgid "Pick a design for each device. Nothing changes for visitors until the module is switched on (top of this page) and the settings are saved; the eye button previews any choice right away. Lenz's mobile menu, its scripts and the rest of the page stay as they are."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:154
+#: includes/Modules/Builder/views/admin.php:160
 msgid "Shown on screens wider than the breakpoint below."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:162
+#: includes/Modules/Builder/views/admin.php:168
 msgid "Each device gets only its own version: the same design, a different one, Lenz's, or nothing."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:170
+#: includes/Modules/Builder/views/admin.php:176
 msgid "Sticky header"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:171
+#: includes/Modules/Builder/views/admin.php:177
 msgid "Keeps the Lenz+ header at the top of the screen, as in the designs. Smart hides it while visitors scroll down and brings it back as soon as they scroll up. Lenz's own header follows the theme's setting."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:176
+#: includes/Modules/Builder/views/admin.php:182
 msgid "Phones & tablets"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:180
+#: includes/Modules/Builder/views/admin.php:186
 msgid "Phone & tablet breakpoint"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:180
+#: includes/Modules/Builder/views/admin.php:186
 msgid "At this width and below, the phone header and footer are shown. 1024 matches Elementor's tablet breakpoint."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:189
-msgid "Template library"
-msgstr ""
-
-#: includes/Modules/Builder/views/admin.php:190
-msgid "Every design is a normal Elementor template: edit it, duplicate it to try variations, or restore a ready-made design to its original state."
+#: includes/Modules/Builder/views/admin.php:194
+msgid "Replace Lenz's page layouts"
 msgstr ""
 
 #: includes/Modules/Builder/views/admin.php:195
+msgid "Pick a design for each group of pages. The design fills itself from each page's own content. Nothing changes for visitors until the module is switched on and the settings are saved; the eye button previews any choice on a real page."
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:214
+msgid "Template library"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:215
+msgid "Every design is a normal Elementor template: edit it, duplicate it to try variations, or restore a ready-made design to its original state."
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:220
 msgid "Reinstall missing designs"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:212
+#: includes/Modules/Builder/views/admin.php:237
 msgid "Bookings, registrations and messages sent through the Request form widget. They are kept here even when email does not work on your host, and each one can also be emailed to you (set the address on the widget)."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:217
+#: includes/Modules/Builder/views/admin.php:242
 msgid "Read the requests"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:221
-#: includes/Modules/Builder/views/admin.php:236
+#: includes/Modules/Builder/views/admin.php:246
+#: includes/Modules/Builder/views/admin.php:261
 msgid "Download CSV"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:231
+#: includes/Modules/Builder/views/admin.php:256
 msgid "Emails and mobile numbers left in the Sign-up widget, with the list each one joined. Download them to import into your email or SMS service."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:246
+#: includes/Modules/Builder/views/admin.php:271
 msgid "Look of the designs"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:247
+#: includes/Modules/Builder/views/admin.php:272
 msgid "Applied to every design at once, like the options of the original mockups."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:255
+#: includes/Modules/Builder/views/admin.php:280
 msgid "Black and white"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:261
+#: includes/Modules/Builder/views/admin.php:286
 msgid "Guide lines behind the heroes"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:262
+#: includes/Modules/Builder/views/admin.php:287
 msgid "The thin dashed lines and rule-of-thirds grids of the designs."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:264
+#: includes/Modules/Builder/views/admin.php:289
 msgid "Icon style in the designs"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:264
+#: includes/Modules/Builder/views/admin.php:289
 msgid "Lenz icons use the theme's own glyphs where it has them, like the designs."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:267
+#: includes/Modules/Builder/views/admin.php:292
 msgid "Persian digits"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:268
+#: includes/Modules/Builder/views/admin.php:293
 msgid "Show prices, counts and years as ۱۲۳ with Persian separators on Persian sites."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:277
+#: includes/Modules/Builder/views/admin.php:302
 msgid "Brand colours"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:278
+#: includes/Modules/Builder/views/admin.php:303
 msgid "Every design uses these colours; the defaults are the designs' own. Anything you set on a widget in Elementor overrides them."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:282
+#: includes/Modules/Builder/views/admin.php:307
 msgid "Add to Elementor global colours"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:288
+#: includes/Modules/Builder/views/admin.php:313
 msgid "Design default"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:292
+#: includes/Modules/Builder/views/admin.php:317
 msgid "Corner roundness (cards)"
 msgstr ""
 
@@ -4023,10 +4449,6 @@ msgstr ""
 
 #: includes/Modules/Support_Button/views/admin.php:338
 msgid "Devices"
-msgstr ""
-
-#: includes/Modules/Support_Button/views/admin.php:340
-msgid "All"
 msgstr ""
 
 #: includes/Modules/Support_Button/views/admin.php:341

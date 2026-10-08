@@ -58,13 +58,14 @@
 			used.add( String( store.get( area + '.desktop' ) ) );
 			used.add( String( store.get( area + '.mobile' ) ) );
 		} );
+		( data.routes || [] ).forEach( ( kind ) => used.add( String( store.get( 'routes.' + kind ) ) ) );
 
 		return used;
 	}
 
 	function keywordOption( keyword, type ) {
 		const titles = {
-			theme: type === 'header' ? t.themeHeader : t.themeFooter,
+			theme: ( data.themeTitles || {} )[ type ] || ( type === 'header' ? t.themeHeader : t.themeFooter ),
 			none: t.none,
 			same: t.same,
 		};

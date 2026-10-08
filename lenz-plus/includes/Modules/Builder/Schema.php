@@ -9,7 +9,8 @@
  *
  * Header and footer slots store a template post ID as a string, or one of the
  * keywords `theme` (Lenz's own header/footer), `none` (print nothing) and
- * `same` (the phone slot mirrors the desktop slot).
+ * `same` (the phone slot mirrors the desktop slot). Routes (portfolio list,
+ * project page…) store a template ID or `theme`.
  *
  * @package LenzPlus
  */
@@ -27,13 +28,19 @@ defined( 'ABSPATH' ) || exit;
 final class Schema {
 
 	/** Template kinds, in the order the admin shows them. */
-	public const TYPES = array( 'header', 'footer', 'home', 'about', 'services', 'courses' );
+	public const TYPES = array( 'header', 'footer', 'home', 'about', 'services', 'courses', 'portfolio_archive', 'portfolio' );
 
 	/**
 	 * Whole-page designs: "Create page" copies them into a regular page, and
 	 * they are edited and previewed with the site's header and footer.
 	 */
 	public const PAGE_TYPES = array( 'home', 'about', 'services', 'courses' );
+
+	/**
+	 * Kinds that replace the theme's layout of a group of pages (Page_Routes):
+	 * the portfolio list (archive and categories) and a project page.
+	 */
+	public const ROUTE_TYPES = array( 'portfolio_archive', 'portfolio' );
 
 	/** Kinds that replace a part of every page, one slot per device. */
 	public const AREAS = array( 'header', 'footer' );
@@ -89,6 +96,8 @@ final class Schema {
 				'desktop' => 'theme',
 				'mobile'  => 'same',
 			),
+			// `theme` keeps Lenz's own layout; a template ID replaces it.
+			'routes'     => array_fill_keys( self::ROUTE_TYPES, 'theme' ),
 			// 1024 is Elementor's tablet breakpoint, where the designs' menu row stops fitting.
 			'breakpoint' => 1024,
 			'options'    => array(
@@ -139,6 +148,10 @@ final class Schema {
 					'desktop' => $ref,
 					'mobile'  => $ref,
 				),
+			),
+			'routes'     => array(
+				'type'   => 'group',
+				'fields' => array_fill_keys( self::ROUTE_TYPES, $ref ),
 			),
 			'breakpoint' => array(
 				'type' => 'int',

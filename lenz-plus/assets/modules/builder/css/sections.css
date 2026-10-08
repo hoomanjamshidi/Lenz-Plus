@@ -755,6 +755,9 @@
 
 .lzp-framed .lzp-framed__text {
 	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
 	color: var(--lzp-heading, var(--lzp-ink));
 	font-size: clamp(24px, 4.4vw, 54px);
 	font-weight: 900;
@@ -806,9 +809,13 @@
 	font-size: 28px;
 }
 
+/* Lenz's single.css frames every blockquote (dashed border, padding); the mockups' quotes are plain text. */
 .lzp-quote .lzp-quote__text {
 	max-width: 62ch;
 	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
 	color: var(--lzp-sub);
 	font-size: clamp(15px, 1.8vw, 20px);
 	line-height: 2.1;
@@ -1183,10 +1190,292 @@
 }
 
 /* ==========================================================================
+   Breadcrumb
+   ========================================================================== */
+
+.lzp-crumbs {
+	font-family: var(--lzp-font);
+}
+
+.lzp-crumbs ol {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px;
+	margin: 0;
+	padding: 0;
+	color: var(--lzp-muted);
+	font-size: 13px;
+	line-height: 1.8;
+	list-style: none;
+}
+
+.lzp-crumbs li {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	line-height: inherit;
+}
+
+.lzp-crumbs li + li::before {
+	content: "/";
+	color: var(--lzp-muted);
+}
+
+.lzp-crumbs a {
+	color: var(--lzp-muted);
+	text-decoration: none;
+}
+
+.lzp-crumbs a:hover {
+	color: var(--lzp-heading, var(--lzp-ink));
+}
+
+.lzp-crumbs [aria-current] {
+	color: var(--lzp-sub);
+}
+
+/* ==========================================================================
+   Checklist
+   ========================================================================== */
+
+.lzp-check {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin: 0;
+	padding: 0;
+	font-family: var(--lzp-font);
+	list-style: none;
+}
+
+.lzp-check .lzp-check__item {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	color: var(--lzp-sub);
+	font-size: 14px;
+	line-height: 1.9;
+}
+
+.lzp-check__item > span {
+	line-height: inherit;
+}
+
+.lzp-check .lzp-check__icon {
+	color: var(--lzp-heading, var(--lzp-ink));
+	font-size: 17px;
+}
+
+/* ==========================================================================
+   Post content (prose)
+   ========================================================================== */
+
+.lzp-prose {
+	color: var(--lzp-text);
+	font-family: var(--lzp-font);
+	font-size: 15px;
+	line-height: 2.2;
+	text-wrap: pretty;
+	overflow-wrap: break-word;
+}
+
+.lzp-prose :is(p, ul, ol, blockquote, figure, pre, table) {
+	margin: 0 0 14px;
+	line-height: inherit;
+}
+
+.lzp-prose > :last-child {
+	margin-bottom: 0;
+}
+
+.lzp-prose :is(h2, h3, h4) {
+	margin: 1.6em 0 0.6em;
+	color: var(--lzp-heading, var(--lzp-ink));
+	font-weight: 900;
+	line-height: 1.6;
+	scroll-margin-top: calc(var(--lzp-header-offset, 0px) + var(--lzp-admin-bar) + 24px);
+}
+
+.lzp-prose > :is(h2, h3, h4):first-child {
+	margin-top: 0;
+}
+
+.lzp-prose h2 {
+	font-size: clamp(18px, 2.2vw, 24px);
+}
+
+.lzp-prose h3 {
+	font-size: 18px;
+}
+
+.lzp-prose :is(ul, ol) {
+	padding-inline-start: 1.4em;
+	list-style: disc;
+}
+
+.lzp-prose ol {
+	list-style: decimal;
+}
+
+.lzp-prose li {
+	line-height: inherit;
+}
+
+.lzp-prose a {
+	color: var(--lzp-accent);
+	text-decoration: underline;
+	text-underline-offset: 4px;
+}
+
+.lzp-prose img {
+	max-width: 100%;
+	height: auto;
+	border-radius: var(--lzp-radius-md);
+	filter: var(--lzp-photo-filter, none);
+}
+
+.lzp-prose blockquote {
+	padding: 4px 18px;
+	border: 0;
+	border-radius: 0;
+	border-inline-start: 3px solid var(--lzp-accent);
+	color: var(--lzp-sub);
+}
+
+.lzp-prose__table {
+	overflow-x: auto;
+}
+
+.lzp-prose__pages {
+	margin-top: 20px;
+}
+
+/* ==========================================================================
+   Related items
+   ========================================================================== */
+
+.lzp-related {
+	font-family: var(--lzp-font);
+}
+
+.lzp-related .lzp-heading {
+	margin-bottom: 22px;
+}
+
+.lzp-related__grid {
+	gap: clamp(12px, 1.8vw, 18px);
+}
+
+.lzp-related .lzp-related__card {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	color: var(--lzp-heading, var(--lzp-ink));
+	text-decoration: none;
+}
+
+.lzp-related__media {
+	position: relative;
+}
+
+.lzp-related__media .lzp-pic {
+	border-radius: var(--lzp-radius-md);
+}
+
+.lzp-related .lzp-related__play {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	color: #ffffff;
+	font-size: 26px;
+	transform: translate(-50%, -50%);
+}
+
+.lzp-related .lzp-related__title {
+	color: var(--lzp-heading, var(--lzp-ink));
+	font-size: 15px;
+	font-weight: 900;
+	line-height: 1.7;
+}
+
+.lzp-related .lzp-related__card:hover .lzp-related__title {
+	color: var(--lzp-accent);
+}
+
+.lzp-related .lzp-related__meta {
+	color: var(--lzp-muted);
+	font-size: 12px;
+	line-height: 1.6;
+}
+
+/* ==========================================================================
+   Page numbers (portfolio and post lists)
+   ========================================================================== */
+
+.lzp-pager {
+	margin-top: clamp(24px, 3vw, 40px);
+	font-family: var(--lzp-font);
+}
+
+.lzp-pager .nav-links {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 8px;
+}
+
+.lzp-pager .page-numbers {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 44px;
+	height: 44px;
+	padding: 0 12px;
+	border: 1px solid var(--lzp-field-line);
+	border-radius: var(--lzp-radius-sm);
+	color: var(--lzp-ink);
+	font-size: 14px;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.lzp-pager a.page-numbers:hover {
+	border-color: var(--lzp-ink);
+}
+
+.lzp-pager .page-numbers.current {
+	border-color: var(--lzp-ink);
+	background: var(--lzp-ink);
+	color: #ffffff;
+}
+
+.lzp-pager .page-numbers.dots {
+	border-color: transparent;
+}
+
+/* The chevron points down; turn it to the reading direction. */
+.lzp-pager .lzp-pager__prev {
+	transform: rotate(-90deg);
+}
+
+.lzp-pager .lzp-pager__next {
+	transform: rotate(90deg);
+}
+
+[dir="ltr"] .lzp-pager .lzp-pager__prev {
+	transform: rotate(90deg);
+}
+
+[dir="ltr"] .lzp-pager .lzp-pager__next {
+	transform: rotate(-90deg);
+}
+
+/* ==========================================================================
    Accessibility
    ========================================================================== */
 
-:is(.lzp-rows__item--link, .lzp-cards__link, .lzp-faq__q):focus-visible {
+:is(.lzp-rows__item--link, .lzp-cards__link, .lzp-faq__q, .lzp-crumbs a, .lzp-related__card, .lzp-pager a, .lzp-prose a):focus-visible {
 	outline: 3px solid color-mix(in srgb, var(--lzp-accent) 55%, transparent);
 	outline-offset: 3px;
 }

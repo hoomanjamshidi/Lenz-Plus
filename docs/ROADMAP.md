@@ -4,7 +4,7 @@ This file is the **resume point**. Every session starts here (see the `lenz-plus
 
 Status keys: `[ ]` to do · `[x]` done · `[~]` started (see Notes) · `[-]` dropped (say why)
 
-**Current phase:** 8
+**Current phase:** 9
 
 Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, browser check at 390 and 1440, translations, CLAUDE.md contracts, graphify update, commit `Phase N: …`).
 
@@ -94,15 +94,15 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - [x] Verify: JS and no-JS posts, invalid fields, honeypot, wrong form id, rate limit, duplicates, Persian digits, CSV export, inbox; the email copy path runs (`wp_mail` failures are caught, the request stays saved)
 
 ## Phase 8 — Portfolio archive and project (نمونه‌کارها)
-- [ ] Project details meta box on `portfolio`
-- [ ] `Portfolio_Pages` (`template_include` for single and archives/terms)
-- [ ] Widgets `Portfolio_Grid`, `Featured_Projects`, `Project_Header`, `Project_Gallery`, `Checklist`, `Related_Items`, `Breadcrumb`
-- [ ] Presets portfolio archive + project single
-- [ ] Verify against `Portfolio.dc.html` and `Project.dc.html`
+- [x] Project details meta box on `portfolio` (`Project_Meta_Box`, `Portfolio_Data`)
+- [x] `Portfolio_Pages` became the generic `Page_Routes` (`template_include` for the portfolio archive/terms and single; blog and courses join in phases 9–10), admin «صفحه‌های سایت» tab, previews
+- [x] Widgets `Portfolio_Grid` (+ in-place filter), `Featured_Projects`, `Project_Header`, `Project_Gallery`, `Checklist`, `Related_Items`, `Breadcrumb`; `Post_Content` (+ `Post_Parts`, `Context::post()`) moved here from phase 9; `Quote` reads the project's quote
+- [x] Presets portfolio archive + project single
+- [x] Verify against `Portfolio.dc.html` and `Project.dc.html` at 390 and 1440, filter by click and keyboard, admin tab, meta box, editor sample
 
 ## Phase 9 — Blog archive and article (بلاگ)
 - [ ] `Blog_Pages` + `views/blog.php`
-- [ ] Port and restyle blog widgets (`Post_Grid`, `Post_Title`, `Post_Meta`, `Post_Content`, `Post_Toc`, `Post_Share`, `Reading_Progress`, `Post_Image`, `Post_Author`, `Post_Comments`, `Post_Categories`)
+- [ ] Port and restyle blog widgets (`Post_Grid`, `Post_Title`, `Post_Meta`, `Post_Toc`, `Post_Share`, `Reading_Progress`, `Post_Image`, `Post_Author`, `Post_Comments`, `Post_Categories`)
 - [ ] New: `Featured_Post`, `Popular_Posts` (`_views`), `Promo_Box`, sidebar search
 - [ ] Presets blog archive + article
 - [ ] Verify against `Blog.dc.html` and `Article.dc.html` (page 2, category, search, TOC, progress, copy link)
@@ -132,6 +132,8 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 
 ## Notes
 - Phase 6: `docs/reference/*.md` (Lenz integration map, Studiare architecture, design inventory) were never committed: `.gitignore`'s `reference/` also matched `docs/reference/`. Fixed to `/reference/`; the facts that matter live in CLAUDE.md. A fresh clone needs `reference/` re-extracted from `Theme.zip` and `Studiare-Extentions.zip` (lenz/, lenz-demo/, studiare-extensions/, studiare-CLAUDE.md).
+- Phase 8: test data. 8 portfolio items with generated photos in 6 categories (`portfolio-cat`: portrait, religious, product, event, video, doc); «کمپین تصویری کالکشن عطر نُوا» (ID 2433 on the test site) has a 6-photo gallery, project details and the featured flag; «تیزر کافه لَم» has an external video link. Routes set to the two portfolio presets. Test page `/portfolio-test/` (grid with in-place filter + featured cards).
+- Phase 8: headless full-page screenshots do not paint lazy images below the fold; the scratch script now sets the viewport to the page height first.
 - Phase 7: test page «Forms test» (`/forms-test/`, option `lzp_test_forms_page`) holds both forms in every variant; rate-limit transients: `.dev/bin/lwp transient delete --all`.
 - Phase 6: headless checks use Google Chrome through `puppeteer-core` (scratch script: full-page screenshots after scrolling, so Elementor's lazy backgrounds load; side-by-side slices with the design). Dev helper: re-install every preset and refresh pages made from them with `Library::install( $key, $id )` + `Library::copy_content()` + Elementor `files_manager->clear_cache()`.
 - Phase 0: the local site runs the real Lenz files except `Redux/RTL_License_*.php` (ionCube), replaced by `tools/dev/RTL_License_stub.php` on the test copy only. Consequences: the Lenz options panel is hidden and `$GLOBALS['lenz']` is never filled, so `Theme_Bridge::option()` falls back to `get_option( 'lenz' )`. See `CLAUDE.md` → Testing.

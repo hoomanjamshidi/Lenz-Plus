@@ -52,12 +52,14 @@ final class Module extends Base_Module {
 	 */
 	public static function type_labels(): array {
 		return array(
-			'header'   => __( 'Header', 'lenz-plus' ),
-			'footer'   => __( 'Footer', 'lenz-plus' ),
-			'home'     => __( 'Home page', 'lenz-plus' ),
-			'about'    => __( 'About page', 'lenz-plus' ),
-			'services' => __( 'Services page', 'lenz-plus' ),
-			'courses'  => __( 'Courses page', 'lenz-plus' ),
+			'header'            => __( 'Header', 'lenz-plus' ),
+			'footer'            => __( 'Footer', 'lenz-plus' ),
+			'home'              => __( 'Home page', 'lenz-plus' ),
+			'about'             => __( 'About page', 'lenz-plus' ),
+			'services'          => __( 'Services page', 'lenz-plus' ),
+			'courses'           => __( 'Courses page', 'lenz-plus' ),
+			'portfolio_archive' => __( 'Portfolio list', 'lenz-plus' ),
+			'portfolio'         => __( 'Project page', 'lenz-plus' ),
 		);
 	}
 
@@ -76,6 +78,7 @@ final class Module extends Base_Module {
 		( new Template_Post_Type( $this ) )->register();
 		( new Assets( $this ) )->register();
 		( new Header_Footer( $this ) )->register();
+		( new Page_Routes( $this ) )->register();
 		( new Contact_Messages() )->register();
 		( new Newsletter() )->register();
 
@@ -85,6 +88,7 @@ final class Module extends Base_Module {
 
 		if ( is_admin() ) {
 			( new Contact_Inbox() )->register();
+			( new Project_Meta_Box() )->register();
 			add_action( 'admin_init', array( Library::class, 'maybe_upgrade' ) );
 			( new Library_Ajax( $this ) )->register();
 		}
@@ -136,16 +140,32 @@ final class Module extends Base_Module {
 				'none'  => Thumbs::svg( 'none' ),
 				'same'  => Thumbs::svg( 'same' ),
 			),
-			'themePreview'  => array(
-				'header' => $this->resolver()->preview_url( 'header', 'theme' ),
-				'footer' => $this->resolver()->preview_url( 'footer', 'theme' ),
+			'themePreview'  => $this->theme_previews(),
+			'themeTitles'   => array(
+				'portfolio_archive' => __( 'Lenz\'s portfolio list', 'lenz-plus' ),
+				'portfolio'         => __( 'Lenz\'s project page', 'lenz-plus' ),
 			),
+			'routes'        => Schema::ROUTE_TYPES,
 			'templates'     => Library::all( $this ),
 			'pages'         => Design_Pages::all(),
 			'pageKinds'     => self::page_kinds(),
 			'presets'       => Library::catalog_for_js(),
 			'i18n'          => $this->admin_strings(),
 		);
+	}
+
+	/**
+	 * Preview link of the theme's own layout, per header/footer area and route.
+	 *
+	 * @return array<string, string>
+	 */
+	private function theme_previews(): array {
+		$previews = array();
+		foreach ( array_merge( Schema::AREAS, Schema::ROUTE_TYPES ) as $type ) {
+			$previews[ $type ] = $this->resolver()->preview_url( $type, 'theme' );
+		}
+
+		return $previews;
 	}
 
 	/**

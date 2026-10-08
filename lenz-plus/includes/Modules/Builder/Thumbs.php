@@ -26,6 +26,7 @@ final class Thumbs {
 	private const PANEL  = '#0b3a5e';
 	private const ON_INK = '#c4d3df';
 	private const RULE   = '#2a5878';
+	private const DASH   = '#d3dce3';
 
 	/**
 	 * SVG markup for a preset key, a template kind or `theme` / `none` / `same`.
@@ -121,6 +122,49 @@ final class Thumbs {
 		}
 
 		return $svg;
+	}
+
+	/** The portfolio list: title, chips and a masonry of photos with vertical titles. */
+	private static function draw_portfolio_archive(): string {
+		$svg     = self::page_frame()
+			. self::r( 196, 20, 30, 4, self::MUTED, 1 ) . self::r( 126, 28, 100, 8, self::INK, 2 ) . self::r( 146, 40, 80, 3, self::STRONG, 1 )
+			. self::r( 206, 50, 20, 8, self::INK, 3 ) . self::r( 180, 50, 22, 8, self::WHITE, 3, self::STRONG ) . self::r( 154, 50, 22, 8, self::WHITE, 3, self::STRONG );
+		$columns = array(
+			array( 172, array( 40, 28, 22 ) ),
+			array( 118, array( 26, 44, 20 ) ),
+			array( 64, array( 34, 24, 32 ) ),
+			array( 10, array( 22, 38, 30 ) ),
+		);
+		foreach ( $columns as $column ) {
+			$y = 64;
+			foreach ( $column[1] as $h ) {
+				$svg .= self::r( $column[0] + 4, $y, 50, $h, self::STRONG, 4 ) . self::r( $column[0] + 47, $y + $h - 10, 3, 8, self::WHITE, 0 );
+				$y   += $h + 4;
+			}
+		}
+
+		return $svg;
+	}
+
+	/** The project page: breadcrumb, title with fact boxes, a wide cover and a row of photos. */
+	private static function draw_portfolio_single(): string {
+		$svg = self::page_frame()
+			. self::r( 176, 18, 50, 3, self::MUTED, 1 )
+			. self::r( 196, 26, 30, 6, self::LINE, 3 ) . self::r( 126, 36, 100, 8, self::INK, 2 ) . self::r( 146, 48, 80, 3, self::STRONG, 1 );
+		foreach ( array( 70, 14 ) as $x ) {
+			$svg .= self::r( $x, 26, 50, 12, self::WHITE, 3, self::DASH ) . self::r( $x, 42, 50, 12, self::WHITE, 3, self::DASH );
+		}
+		$svg .= self::r( 14, 62, 212, 50, self::STRONG, 6 );
+		foreach ( array( 172, 118, 64, 10 ) as $x ) {
+			$svg .= self::r( $x + 4, 118, 50, 30, self::STRONG, 4 );
+		}
+
+		return $svg;
+	}
+
+	/** Custom templates of the project kind look like the ready-made one. */
+	private static function draw_portfolio(): string {
+		return self::draw_portfolio_single();
 	}
 
 	/** White page under a header strip, for the page designs. */

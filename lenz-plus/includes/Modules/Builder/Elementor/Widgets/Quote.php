@@ -1,7 +1,8 @@
 <?php
 /**
  * A client's words on a soft card: Lenz's quote glyph, the quotation and
- * the person's name and role (the project page's testimonial).
+ * the person's name and role (the project page's testimonial), typed in the
+ * widget or taken from the project's details.
  *
  * @package LenzPlus
  */
@@ -9,6 +10,8 @@
 namespace LenzPlus\Modules\Builder\Elementor\Widgets;
 
 use Elementor\Controls_Manager;
+use LenzPlus\Modules\Builder\Context;
+use LenzPlus\Modules\Builder\Portfolio_Data;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -43,31 +46,47 @@ final class Quote extends Section_Base {
 		$this->start_content_section( 'section_content', __( 'Quote', 'lenz-plus' ) );
 
 		$this->add_control(
+			'source',
+			array(
+				'label'   => __( 'Quote', 'lenz-plus' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'custom',
+				'options' => array(
+					'custom'  => __( 'Typed here', 'lenz-plus' ),
+					'project' => __( 'The project\'s client quote', 'lenz-plus' ),
+				),
+			)
+		);
+
+		$this->add_control(
 			'text',
 			array(
-				'label'   => __( 'Quotation', 'lenz-plus' ),
-				'type'    => Controls_Manager::TEXTAREA,
-				'rows'    => 4,
-				'default' => __( 'Delivery was on time and the photos made a real difference for our brand.', 'lenz-plus' ),
-				'dynamic' => array( 'active' => true ),
+				'label'     => __( 'Quotation', 'lenz-plus' ),
+				'type'      => Controls_Manager::TEXTAREA,
+				'rows'      => 4,
+				'default'   => __( 'Delivery was on time and the photos made a real difference for our brand.', 'lenz-plus' ),
+				'dynamic'   => array( 'active' => true ),
+				'condition' => array( 'source' => 'custom' ),
 			)
 		);
 
 		$this->add_control(
 			'name',
 			array(
-				'label'   => __( 'Name', 'lenz-plus' ),
-				'type'    => Controls_Manager::TEXT,
-				'default' => __( 'Client name', 'lenz-plus' ),
+				'label'     => __( 'Name', 'lenz-plus' ),
+				'type'      => Controls_Manager::TEXT,
+				'default'   => __( 'Client name', 'lenz-plus' ),
+				'condition' => array( 'source' => 'custom' ),
 			)
 		);
 
 		$this->add_control(
 			'role',
 			array(
-				'label'   => __( 'Role', 'lenz-plus' ),
-				'type'    => Controls_Manager::TEXT,
-				'default' => __( 'Brand manager', 'lenz-plus' ),
+				'label'     => __( 'Role', 'lenz-plus' ),
+				'type'      => Controls_Manager::TEXT,
+				'default'   => __( 'Brand manager', 'lenz-plus' ),
+				'condition' => array( 'source' => 'custom' ),
 			)
 		);
 
@@ -81,9 +100,26 @@ final class Quote extends Section_Base {
 		$this->end_controls_section();
 	}
 
+	/** The project source reads the viewed project. */
+	protected function is_dynamic_content(): bool {
+		return true;
+	}
+
 	/** Prints the quote. */
 	protected function render(): void {
 		$s = $this->get_settings_for_display();
+
+		if ( 'project' === $s['source'] ) {
+			$post_id   = Context::current_item( Portfolio_Data::POST_TYPE );
+			$details   = $post_id ? Portfolio_Data::details( $post_id ) : Portfolio_Data::empty_details();
+			$s['text'] = $details['quote'];
+			$s['name'] = $details['quote_name'];
+			$s['role'] = $details['quote_role'];
+			if ( '' === $s['text'] ) {
+				$this->editor_hint( __( 'Nothing to show: fill in the client\'s quote in the project\'s details.', 'lenz-plus' ) );
+			}
+		}
+
 		if ( '' === (string) $s['text'] ) {
 			return;
 		}

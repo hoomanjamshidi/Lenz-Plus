@@ -10,6 +10,7 @@
 namespace LenzPlus\Modules\Builder\Presets;
 
 use LenzPlus\Core\Theme_Bridge;
+use LenzPlus\Modules\Builder\Design_Pages;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -154,6 +155,22 @@ final class Blocks {
 		$url = post_type_exists( 'portfolio' ) ? get_post_type_archive_link( 'portfolio' ) : '';
 
 		return $url ? $url : home_url( '/' );
+	}
+
+	/**
+	 * A published page made from a design of a kind (the services page…), or
+	 * the home page when there is none yet.
+	 *
+	 * @param string $kind Page design kind.
+	 */
+	public static function design_page_url( string $kind ): string {
+		foreach ( Design_Pages::all() as $page ) {
+			if ( $kind === $page['kind'] && 'publish' === $page['status'] ) {
+				return $page['viewUrl'];
+			}
+		}
+
+		return home_url( '/' );
 	}
 
 	/** The WooCommerce shop (where course products are listed), or the home page. */
