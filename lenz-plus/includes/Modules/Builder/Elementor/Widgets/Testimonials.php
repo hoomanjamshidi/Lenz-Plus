@@ -91,7 +91,7 @@ final class Testimonials extends Section_Base {
 				'type'        => Controls_Manager::REPEATER,
 				'fields'      => $repeater->get_controls(),
 				'default'     => array( array(), array(), array() ),
-				'title_field' => '{{{ name }}}',
+				'title_field' => '{{ name }}',
 			)
 		);
 

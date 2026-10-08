@@ -74,7 +74,8 @@ abstract class Public_Form {
 	 * @param string $widget      Elementor widget name the element must be.
 	 */
 	protected static function saved_widget( int $document_id, string $element_id, string $widget ): ?array {
-		if ( ! $document_id || '' === $element_id || ! Library::elementor_active() || 'trash' === get_post_status( $document_id ) ) {
+		// Published documents only: a draft by a lower-privileged editor must not be able to send mail.
+		if ( ! $document_id || '' === $element_id || ! Library::elementor_active() || 'publish' !== get_post_status( $document_id ) ) {
 			return null;
 		}
 
@@ -188,7 +189,14 @@ abstract class Public_Form {
 	 * @param int    $window Window in seconds.
 	 */
 	protected function within_rate_limit( string $bucket, int $limit, int $window ): bool {
-		$ip  = isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '';
+		$ip = isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '';
+		/**
+		 * The visitor's address for the form rate limit. Behind a proxy or CDN that does not
+		 * restore REMOTE_ADDR, every visitor shares one address: return the real one here.
+		 *
+		 * @param string $ip REMOTE_ADDR.
+		 */
+		$ip  = (string) apply_filters( 'lenz_plus_client_ip', $ip );
 		$key = 'lzp_' . $bucket . '_' . md5( $ip . wp_salt( 'nonce' ) );
 
 		$count = (int) get_transient( $key );
@@ -256,7 +264,13 @@ abstract class Public_Form {
 		// A byte order mark lets Excel read the file as UTF-8.
 		fwrite( $out, "\xEF\xBB\xBF" ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fwrite
 		// An explicit, empty escape character: RFC 4180 quoting only (PHP 8.4 deprecates the default).
+		// Visitor text starting with = + - @ would run as a formula in Excel: a leading quote keeps it text.
 		$put = static function ( array $cells ) use ( $out ): void {
+			foreach ( $cells as $i => $cell ) {
+				if ( is_string( $cell ) && preg_match( '/^[=+\-@\t\r]/u', $cell ) ) {
+					$cells[ $i ] = "'" . $cell;
+				}
+			}
 			fputcsv( $out, $cells, ',', '"', '' );
 		};
 

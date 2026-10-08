@@ -119,7 +119,7 @@ final class Card_Grid extends Section_Base {
 						'text'  => __( 'Name of the festival', 'lenz-plus' ),
 					),
 				),
-				'title_field' => '{{{ title }}}',
+				'title_field' => '{{ title }}',
 			)
 		);
 

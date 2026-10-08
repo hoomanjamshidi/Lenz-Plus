@@ -77,7 +77,7 @@ final class Checklist_Grid extends Course_Base {
 					array( 'text' => __( 'Something you will learn', 'lenz-plus' ) ),
 					array( 'text' => __( 'Something you will learn', 'lenz-plus' ) ),
 				),
-				'title_field' => '{{{ text }}}',
+				'title_field' => '{{ text }}',
 				'condition'   => array( 'source' => 'custom' ),
 			)
 		);

@@ -149,7 +149,7 @@ final class Social_Links extends Base {
 				'type'        => Controls_Manager::REPEATER,
 				'fields'      => $repeater->get_controls(),
 				'default'     => array(),
-				'title_field' => '{{{ label }}}',
+				'title_field' => '{{ label }}',
 				'condition'   => array( 'source' => 'custom' ),
 			)
 		);

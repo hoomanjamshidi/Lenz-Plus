@@ -77,7 +77,7 @@ final class Process_Steps extends Section_Base {
 					array( 'title' => __( 'Shooting day', 'lenz-plus' ) ),
 					array( 'title' => __( 'Selection and delivery', 'lenz-plus' ) ),
 				),
-				'title_field' => '{{{ title }}}',
+				'title_field' => '{{ title }}',
 			)
 		);
 

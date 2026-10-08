@@ -90,7 +90,7 @@ final class Faq extends Section_Base {
 					array( 'question' => __( 'A common question?', 'lenz-plus' ) ),
 					array( 'question' => __( 'A common question?', 'lenz-plus' ) ),
 				),
-				'title_field' => '{{{ question }}}',
+				'title_field' => '{{ question }}',
 				'condition'   => array( 'source' => 'custom' ),
 			)
 		);
@@ -184,7 +184,8 @@ final class Faq extends Section_Base {
 
 		echo '<div class="lzp-faq">';
 		foreach ( $s['items'] as $index => $item ) {
-			$answer = wp_kses_post( $this->parse_text_editor( (string) $item['answer'] ) );
+			// Course answers are plain text from the product's details box: paragraphs only, no shortcodes.
+			$answer = wp_kses_post( 'course' === $s['source'] ? wpautop( (string) $item['answer'] ) : $this->parse_text_editor( (string) $item['answer'] ) );
 
 			printf(
 				'<details class="lzp-faq__item"%1$s%2$s><summary class="lzp-faq__q"><span class="lzp-faq__question">%3$s</span>%4$s</summary><div class="lzp-faq__a">%5$s</div></details>',

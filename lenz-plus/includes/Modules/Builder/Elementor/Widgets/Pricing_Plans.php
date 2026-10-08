@@ -134,7 +134,7 @@ final class Pricing_Plans extends Section_Base {
 					array( 'name' => __( 'Plan name', 'lenz-plus' ) ),
 					array( 'name' => __( 'Plan name', 'lenz-plus' ) ),
 				),
-				'title_field' => '{{{ name }}}',
+				'title_field' => '{{ name }}',
 			)
 		);
 

@@ -166,7 +166,7 @@ final class Page_Hero extends Section_Base {
 				'type'        => Controls_Manager::REPEATER,
 				'fields'      => $repeater->get_controls(),
 				'default'     => array(),
-				'title_field' => '{{{ text }}}',
+				'title_field' => '{{ text }}',
 			)
 		);
 

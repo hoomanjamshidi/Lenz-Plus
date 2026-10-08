@@ -78,7 +78,7 @@ final class Photo_Grid extends Section_Base {
 					array( 'caption' => __( 'Caption', 'lenz-plus' ) ),
 					array( 'caption' => __( 'Caption', 'lenz-plus' ) ),
 				),
-				'title_field' => '{{{ caption }}}',
+				'title_field' => '{{ caption }}',
 			)
 		);
 

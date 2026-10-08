@@ -119,7 +119,7 @@ final class Simple_List extends Section_Base {
 						'text'  => __( 'A line of text', 'lenz-plus' ),
 					),
 				),
-				'title_field' => '{{{ label }}} {{{ text }}}',
+				'title_field' => '{{ label }} {{ text }}',
 			)
 		);
 

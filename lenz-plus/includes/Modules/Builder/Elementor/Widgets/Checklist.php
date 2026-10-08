@@ -84,7 +84,7 @@ final class Checklist extends Section_Base {
 					array( 'text' => __( 'A finished step', 'lenz-plus' ) ),
 					array( 'text' => __( 'A finished step', 'lenz-plus' ) ),
 				),
-				'title_field' => '{{{ text }}}',
+				'title_field' => '{{ text }}',
 				'condition'   => array( 'source' => 'custom' ),
 			)
 		);

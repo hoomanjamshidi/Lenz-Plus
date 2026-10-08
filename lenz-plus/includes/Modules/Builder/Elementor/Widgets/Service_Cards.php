@@ -104,7 +104,7 @@ final class Service_Cards extends Section_Base {
 					array( 'icon' => 'video' ),
 					array( 'icon' => 'stadium' ),
 				),
-				'title_field' => '{{{ title }}}',
+				'title_field' => '{{ title }}',
 			)
 		);
 

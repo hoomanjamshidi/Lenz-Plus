@@ -56,13 +56,15 @@ final class Schema {
 	/**
 	 * Brand tokens → default value, taken from the mockups (Design/*.dc.html).
 	 * Printed as `--lzp-<token>` (underscores become dashes) by Assets.
+	 * `muted` is darker than the mockups' #8c9aa6, which reads at 2.7:1 on
+	 * the soft band: #5d7588 keeps its blue-grey and meets WCAG AA (4.5:1).
 	 */
 	public const BRAND_DEFAULTS = array(
 		'ink'           => '#022d4f',
 		'accent'        => '#185e82',
 		'text'          => '#55636f',
 		'sub'           => '#3e5566',
-		'muted'         => '#8c9aa6',
+		'muted'         => '#5d7588',
 		'bg'            => '#ffffff',
 		'soft'          => '#f5f8fa',
 		'chip'          => '#e8eef3',

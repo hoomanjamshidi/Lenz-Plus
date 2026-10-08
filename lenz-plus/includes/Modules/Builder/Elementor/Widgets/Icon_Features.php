@@ -106,7 +106,7 @@ final class Icon_Features extends Section_Base {
 						'note'  => __( 'Studio and product', 'lenz-plus' ),
 					),
 				),
-				'title_field' => '{{{ title }}}',
+				'title_field' => '{{ title }}',
 			)
 		);
 

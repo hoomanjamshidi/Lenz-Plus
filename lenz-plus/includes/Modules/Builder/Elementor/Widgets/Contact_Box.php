@@ -107,7 +107,7 @@ final class Contact_Box extends Base {
 				'type'        => Controls_Manager::REPEATER,
 				'fields'      => $repeater->get_controls(),
 				'default'     => array(),
-				'title_field' => '{{{ text }}}',
+				'title_field' => '{{ text }}',
 				'condition'   => array( 'source' => 'custom' ),
 			)
 		);

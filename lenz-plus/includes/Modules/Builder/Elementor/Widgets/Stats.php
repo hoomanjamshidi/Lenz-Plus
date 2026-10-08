@@ -94,7 +94,7 @@ final class Stats extends Section_Base {
 						'label' => __( 'Awards', 'lenz-plus' ),
 					),
 				),
-				'title_field' => '{{{ value }}} {{{ label }}}',
+				'title_field' => '{{ value }} {{ label }}',
 			)
 		);
 

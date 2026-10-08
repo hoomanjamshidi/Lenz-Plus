@@ -83,7 +83,7 @@ final class Timeline extends Section_Base {
 					array( 'date' => '1399' ),
 					array( 'date' => __( 'Today', 'lenz-plus' ) ),
 				),
-				'title_field' => '{{{ date }}} — {{{ title }}}',
+				'title_field' => '{{ date }} — {{ title }}',
 			)
 		);
 

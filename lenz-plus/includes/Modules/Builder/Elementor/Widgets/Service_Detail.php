@@ -121,7 +121,7 @@ final class Service_Detail extends Section_Base {
 					array( 'text' => __( 'Products', 'lenz-plus' ) ),
 					array( 'text' => __( 'Brands', 'lenz-plus' ) ),
 				),
-				'title_field' => '{{{ text }}}',
+				'title_field' => '{{ text }}',
 			)
 		);
 

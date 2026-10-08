@@ -128,7 +128,7 @@ final class Request_Form extends Form_Base {
 				'type'        => Controls_Manager::REPEATER,
 				'fields'      => $repeater->get_controls(),
 				'default'     => $defaults['fields'],
-				'title_field' => '{{{ label }}}',
+				'title_field' => '{{ label }}',
 			)
 		);
 

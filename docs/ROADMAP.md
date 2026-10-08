@@ -4,7 +4,7 @@ This file is the **resume point**. Every session starts here (see the `lenz-plus
 
 Status keys: `[ ]` to do · `[x]` done · `[~]` started (see Notes) · `[-]` dropped (say why)
 
-**Current phase:** 12
+**Current phase:** done (1.0.0 released)
 
 Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, browser check at 390 and 1440, translations, CLAUDE.md contracts, graphify update, commit `Phase N: …`).
 
@@ -122,16 +122,17 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - [x] Verify against `Home.dc.html`; "Use as the site's home page"
 
 ## Phase 12 — QA, translations, release (انتشار)
-- [ ] Full test matrix (CLAUDE.md "Testing")
-- [ ] Accessibility review, `/code-review` of the plugin
-- [ ] Complete fa_IR translation
-- [ ] `readme.txt` + changelog, `README.md`, `bash tools/build-zip.sh` → `dist/lenz-plus-1.0.0.zip`
-- [ ] Final CLAUDE.md and graph
+- [x] Full test matrix (CLAUDE.md "Testing")
+- [x] Accessibility review, `/code-review` of the plugin
+- [x] Complete fa_IR translation
+- [x] `readme.txt` + changelog, `README.md`, `bash tools/build-zip.sh` → `dist/lenz-plus-1.0.0.zip`
+- [x] Final CLAUDE.md and graph
 
 ---
 
 ## Notes
 - Phase 6: `docs/reference/*.md` (Lenz integration map, Studiare architecture, design inventory) were never committed: `.gitignore`'s `reference/` also matched `docs/reference/`. Fixed to `/reference/`; the facts that matter live in CLAUDE.md. A fresh clone needs `reference/` re-extracted from `Theme.zip` and `Studiare-Extentions.zip` (lenz/, lenz-demo/, studiare-extensions/, studiare-CLAUDE.md).
+- Phase 12: QA results. Headless Chrome sweeps (scratchpad scripts, SCRIPT_DEBUG off so the `.min` files are served): 15 front-end URLs × 390/1440 with no console errors, no horizontal overflow; all 13 presets open in the Elementor editor; every admin page and tab, Ctrl+S save and reload; bottom nav 5 styles × 2/4/5/7 items × light/dark palettes (pill collapses inactive labels by design); forms, portfolio filter, article TOC/progress, course buy bar/video dialog/checkout, courses chips/waitlist re-run. axe-core (WCAG 2 A/AA): only colour contrast of the mockups' muted grey failed → default `muted` darkened to #5d7588; the bottom nav's inactive labels use Lenz's `--primary-2` (#8b8b8b, 3.4:1) and are left to follow the theme (overridable). Code review fixes: CSV formula injection, `Course_Shop` purchase rules, forms only on published documents, `lenz_plus_client_ip` filter, uninstall includes trash, templates out of REST, repeater `title_field` double braces, course FAQ answers without shortcodes. Test site: `lenz` option restored to the Phase 5 footer branch after the palette tests.
 - Phase 11: test data. Page «خانه» (`/`) created from the home preset and set as the front page (was page 2400, a Lenz demo page); its hero has a test video URL (`uploads/test.mp4`, missing file: only the dialog is tested). Also added: `Photo_Frame`, `Icon_Features` look `boxed`, `Post_Grid` look `dashed`, `Portfolio_Grid` title (chips in the title row), shared `video.js`.
 - Phase 10: test data. 6 course products (3 open: cart offline, form offline, cart online; 1 soon; 2 archive) with details, an `expert` «امیرمهدی اسدی», Courses page `/courses/` from the preset, route `course` = «Course». Phase 5 footer data restored (footer menus, Lenz branch, support channels).
 - Phase 9: test data. 9 posts in 5 categories (light, gear, edit, business, video) with photos, excerpts, H2s, a quote, a numbered list and `_views`; the first one is sticky; author 1 renamed «امیرمهدی اسدی» with a bio. Front page = Lenz demo «home» (2400), posts page = «blog» (1789), 6 posts per page. Routes set to the blog presets.

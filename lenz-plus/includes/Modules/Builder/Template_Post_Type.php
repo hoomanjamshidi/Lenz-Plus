@@ -49,7 +49,7 @@ final class Template_Post_Type {
 				'show_in_menu'        => false,
 				'show_in_nav_menus'   => false,
 				'show_in_admin_bar'   => false,
-				'show_in_rest'        => true,
+				'show_in_rest'        => false,
 				'rewrite'             => false,
 				'query_var'           => self::POST_TYPE,
 				'has_archive'         => false,

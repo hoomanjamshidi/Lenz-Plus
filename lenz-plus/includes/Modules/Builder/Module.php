@@ -84,6 +84,7 @@ final class Module extends Base_Module {
 		( new Page_Routes( $this ) )->register();
 		( new Contact_Messages() )->register();
 		( new Newsletter() )->register();
+		( new Course_Shop() )->register();
 
 		if ( did_action( 'elementor/loaded' ) ) {
 			( new Integration( $this ) )->register();

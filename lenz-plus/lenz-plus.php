@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Lenz Plus
  * Description:       Extra features for the Lenz photography theme: a customizable mobile bottom navigation, a floating support button, and Elementor page templates for the home, about, services, portfolio, courses and blog pages with their header and footer.
- * Version:           0.1.0
+ * Version:           1.0.0
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Hooman Jamshidi
@@ -16,7 +16,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'LENZ_PLUS_VERSION', '0.1.0' );
+define( 'LENZ_PLUS_VERSION', '1.0.0' );
 define( 'LENZ_PLUS_FILE', __FILE__ );
 define( 'LENZ_PLUS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'LENZ_PLUS_URL', plugin_dir_url( __FILE__ ) );
