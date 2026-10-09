@@ -4,7 +4,8 @@
  * Lenz's own gallery (`_gallery` attachment IDs and `_external_links`), its
  * categories, and the project details the plugin adds (Project_Meta_Box):
  * summary, year, facts, the "what was done" list, the client's quote and the
- * "featured" flag.
+ * "featured" flag, and the project type (photo, video or mixed) that picks
+ * the project page's design.
  *
  * @package LenzPlus
  */
@@ -31,12 +32,20 @@ final class Portfolio_Data {
 	public const META_FEATURED = '_lzp_featured';
 
 	/**
+	 * Project types. Each can have its own project page design
+	 * (Page templates → Site pages); photo is the default one.
+	 */
+	public const KINDS = array( 'photo', 'video', 'mixed' );
+
+	/**
 	 * Empty project details.
 	 *
-	 * @return array{summary:string, year:string, facts:array, done:array, quote:string, quote_name:string, quote_role:string}
+	 * @return array{kind:string, summary:string, year:string, facts:array, done:array, quote:string, quote_name:string, quote_role:string}
 	 */
 	public static function empty_details(): array {
 		return array(
+			// One of KINDS, '' to detect it from the gallery.
+			'kind'       => '',
 			'summary'    => '',
 			'year'       => '',
 			// [label, value] pairs («کارفرما» → «برند نُوا»).
@@ -166,6 +175,29 @@ final class Portfolio_Data {
 	}
 
 	/**
+	 * Gallery items of one type, in the gallery's order.
+	 *
+	 * @param int    $post_id Item ID.
+	 * @param string $type    `image`, `video`, or '' for both.
+	 * @return array<int, array{id:int, url:string, type:string}>
+	 */
+	public static function media( int $post_id, string $type = '' ): array {
+		$items = self::gallery( $post_id );
+		if ( '' === $type ) {
+			return $items;
+		}
+
+		return array_values(
+			array_filter(
+				$items,
+				static function ( array $item ) use ( $type ): bool {
+					return $type === $item['type'];
+				}
+			)
+		);
+	}
+
+	/**
 	 * Whether an item is a video project: its gallery opens with a video.
 	 *
 	 * @param int $post_id Item ID.
@@ -174,6 +206,27 @@ final class Portfolio_Data {
 		$gallery = self::gallery( $post_id );
 
 		return $gallery && 'video' === $gallery[0]['type'];
+	}
+
+	/**
+	 * Project type (KINDS): the one chosen in the project details, else
+	 * read from the gallery: no video is a photo project, a gallery that
+	 * opens with a video (the film, followed by its stills) a video project,
+	 * and photos followed by videos a mixed one.
+	 *
+	 * @param int $post_id Item ID.
+	 */
+	public static function kind( int $post_id ): string {
+		$chosen = self::details( $post_id )['kind'];
+		if ( in_array( $chosen, self::KINDS, true ) ) {
+			return $chosen;
+		}
+
+		if ( self::is_video( $post_id ) ) {
+			return 'video';
+		}
+
+		return self::media( $post_id, 'video' ) ? 'mixed' : 'photo';
 	}
 
 	/**

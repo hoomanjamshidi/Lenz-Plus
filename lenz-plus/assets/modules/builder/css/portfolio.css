@@ -323,6 +323,15 @@
 	background: #000000;
 }
 
+/*
+ * Project design bands that hold only gallery slices (videos, stills): a
+ * slice the project has nothing for prints nothing, not even Elementor's
+ * widget wrapper, so the band would be empty padding.
+ */
+.e-con.lzp-hide-empty:not(:has(.elementor-widget)) {
+	display: none;
+}
+
 /* ==========================================================================
    Accessibility
    ========================================================================== */

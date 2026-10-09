@@ -179,6 +179,59 @@ final class Thumbs {
 		return $svg;
 	}
 
+	/** The video project page: title with fact boxes, the film on the ink band, text beside a checklist, more videos. */
+	private static function draw_portfolio_video(): string {
+		$svg = self::page_frame()
+			. self::r( 196, 20, 30, 6, self::LINE, 3 ) . self::r( 126, 30, 100, 8, self::INK, 2 ) . self::r( 146, 42, 80, 3, self::STRONG, 1 );
+		foreach ( array( 70, 14 ) as $x ) {
+			$svg .= self::r( $x, 20, 50, 12, self::WHITE, 3, self::DASH ) . self::r( $x, 36, 50, 12, self::WHITE, 3, self::DASH );
+		}
+		$svg .= self::r( 0, 54, 240, 58, self::INK, 0 ) . self::r( 40, 59, 160, 48, self::PANEL, 4 ) . self::play( 120, 83, 8 );
+		foreach ( array( 120, 14 ) as $x ) {
+			$svg .= self::r( $x, 118, 106, 28, self::STRONG, 4 ) . self::play( $x + 53, 132, 5 );
+		}
+
+		return $svg;
+	}
+
+	/** The photo and video project page: the cover, a row of photos, then the videos on the ink band. */
+	private static function draw_portfolio_mixed(): string {
+		$svg = self::page_frame()
+			. self::r( 196, 20, 30, 6, self::LINE, 3 ) . self::r( 126, 30, 100, 8, self::INK, 2 ) . self::r( 146, 42, 80, 3, self::STRONG, 1 )
+			. self::r( 14, 52, 212, 34, self::STRONG, 5 );
+		foreach ( array( 172, 118, 64, 10 ) as $x ) {
+			$svg .= self::r( $x + 4, 90, 50, 22, self::STRONG, 4 );
+		}
+		$svg .= self::r( 0, 116, 240, 34, self::INK, 0 );
+		foreach ( array( 124, 14 ) as $x ) {
+			$svg .= self::r( $x, 121, 102, 24, self::PANEL, 4 ) . self::play( $x + 51, 133, 5 );
+		}
+
+		return $svg;
+	}
+
+	/**
+	 * A white play button.
+	 *
+	 * @param float $cx Centre X.
+	 * @param float $cy Centre Y.
+	 * @param float $r  Radius.
+	 */
+	private static function play( $cx, $cy, $r ): string {
+		return sprintf(
+			'<circle cx="%1$s" cy="%2$s" r="%3$s" fill="%4$s"/><path d="M%5$s %6$sl%7$s %8$s-%7$s %8$sz" fill="%9$s"/>',
+			$cx,
+			$cy,
+			$r,
+			self::WHITE,
+			$cx - $r * 0.3,
+			$cy - $r * 0.45,
+			$r * 0.8,
+			$r * 0.45,
+			self::INK
+		);
+	}
+
 	/** Custom templates of the project kind look like the ready-made one. */
 	private static function draw_portfolio(): string {
 		return self::draw_portfolio_single();

@@ -249,13 +249,15 @@ final class Portfolio_Grid extends Portfolio_Base {
 			)
 		);
 
+		$play = 'video' === Portfolio_Data::kind( $post_id ) ? self::icon( 'play-circle', 'lzp-pf__play' ) : '';
+
 		printf(
 			'<li class="lzp-pf__item" data-lzp-cats="%1$s"><a class="lzp-pf__link%2$s" href="%3$s">%4$s%5$s<span class="lzp-pf__title">%6$s</span></a></li>',
 			esc_attr( implode( ' ', $cats ) ),
 			$notch ? ' lzp-notch lzp-notch--side' : '',
 			esc_url( (string) get_permalink( $post_id ) ),
 			$photo, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in Picture::frame().
-			Portfolio_Data::is_video( $post_id ) ? self::icon( 'play-circle', 'lzp-pf__play' ) : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- icon markup from the bundled library.
+			$play, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- icon markup from the bundled library.
 			esc_html( $title )
 		);
 	}

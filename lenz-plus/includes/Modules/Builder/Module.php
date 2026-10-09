@@ -141,9 +141,11 @@ final class Module extends Base_Module {
 			'elementor'     => Library::elementor_status(),
 			'typeLabels'    => self::type_labels(),
 			'keywordThumbs' => array(
-				'theme' => Thumbs::svg( 'theme' ),
-				'none'  => Thumbs::svg( 'none' ),
-				'same'  => Thumbs::svg( 'same' ),
+				'theme'       => Thumbs::svg( 'theme' ),
+				'none'        => Thumbs::svg( 'none' ),
+				'same'        => Thumbs::svg( 'same' ),
+				// "Same as the project page" of the project type pickers.
+				'sameProject' => Thumbs::svg( 'portfolio' ),
 			),
 			'themePreview'  => $this->theme_previews(),
 			'themeTitles'   => array(
@@ -154,6 +156,7 @@ final class Module extends Base_Module {
 				'course'            => __( 'Lenz\'s product page', 'lenz-plus' ),
 			),
 			'routes'        => Schema::ROUTE_TYPES,
+			'projectKinds'  => Schema::PROJECT_KINDS,
 			'templates'     => Library::all( $this ),
 			'pages'         => Design_Pages::all(),
 			'pageKinds'     => self::page_kinds(),

@@ -228,7 +228,7 @@ final class Related_Items extends Portfolio_Base {
 					'sizes' => '(max-width: 767px) 100vw, 33vw',
 				)
 			),
-			'portfolio' === $post_type && Portfolio_Data::is_video( $post_id ) ? self::icon( 'play-circle', 'lzp-related__play' ) : '',
+			'portfolio' === $post_type && 'video' === Portfolio_Data::kind( $post_id ) ? self::icon( 'play-circle', 'lzp-related__play' ) : '',
 			esc_html( $title ),
 			esc_html( implode( ' · ', $meta ) )
 		);

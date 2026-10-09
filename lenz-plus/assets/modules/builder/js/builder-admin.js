@@ -59,23 +59,26 @@
 			used.add( String( store.get( area + '.mobile' ) ) );
 		} );
 		( data.routes || [] ).forEach( ( kind ) => used.add( String( store.get( 'routes.' + kind ) ) ) );
+		( data.projectKinds || [] ).forEach( ( kind ) => used.add( String( store.get( 'projects.' + kind ) ) ) );
 
 		return used;
 	}
 
-	function keywordOption( keyword, type ) {
+	// `host` may rename the `same` keyword (data-same-title / data-same-desc / data-same-thumb): it means "same as desktop" for
+	// header/footer slots and "same as the project page" for the project type pickers.
+	function keywordOption( keyword, type, host ) {
 		const titles = {
 			theme: ( data.themeTitles || {} )[ type ] || ( type === 'header' ? t.themeHeader : t.themeFooter ),
 			none: t.none,
-			same: t.same,
+			same: host.dataset.sameTitle || t.same,
 		};
-		const descs = { theme: t.themeDesc, none: t.noneDesc, same: t.sameDesc };
+		const descs = { theme: t.themeDesc, none: t.noneDesc, same: host.dataset.sameDesc || t.sameDesc };
 
 		return {
 			value: keyword,
 			title: titles[ keyword ],
 			desc: descs[ keyword ],
-			thumb: ( data.keywordThumbs || {} )[ keyword ] || '',
+			thumb: ( data.keywordThumbs || {} )[ keyword === 'same' && host.dataset.sameThumb ? host.dataset.sameThumb : keyword ] || '',
 			previewUrl: keyword === 'theme' ? ( data.themePreview || {} )[ type ] : '',
 			editUrl: '',
 		};
@@ -203,7 +206,7 @@
 			presets[ preset.key ] = preset;
 		} );
 
-		const options = keywords.map( ( keyword ) => keywordOption( keyword, type ) ).concat(
+		const options = keywords.map( ( keyword ) => keywordOption( keyword, type, host ) ).concat(
 			ofType( type ).map( ( tpl ) => ( {
 				value: String( tpl.id ),
 				title: tpl.title,

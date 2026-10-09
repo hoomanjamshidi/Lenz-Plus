@@ -49,10 +49,16 @@ $area_titles = array(
 
 $route_titles = array(
 	'portfolio_archive' => array( __( 'Portfolio list', 'lenz-plus' ), __( 'The portfolio archive and its category pages.', 'lenz-plus' ) ),
-	'portfolio'         => array( __( 'Project page', 'lenz-plus' ), __( 'Every portfolio item. Its title, text, photos and the Project details box below Lenz\'s gallery fill the design.', 'lenz-plus' ) ),
+	'portfolio'         => array( __( 'Project page', 'lenz-plus' ), __( 'Every portfolio item (photo projects, and the other types unless they get their own design below). Its title, text, photos and the Project details box below Lenz\'s gallery fill the design.', 'lenz-plus' ) ),
 	'blog'              => array( __( 'Post list', 'lenz-plus' ), __( 'The posts page, categories, tags, authors, date archives and searches from the blog\'s search box.', 'lenz-plus' ) ),
 	'post'              => array( __( 'Article', 'lenz-plus' ), __( 'Every blog post: its title, excerpt, featured image, text, headings (for the table of contents) and comments fill the design.', 'lenz-plus' ) ),
 	'course'            => array( __( 'Course page', 'lenz-plus' ), __( 'WooCommerce products marked as courses (Course details box on the product editor). Other products keep Lenz\'s product page.', 'lenz-plus' ) ),
+);
+
+// Project types with their own design (Schema::PROJECT_KINDS), shown under the project page.
+$project_titles = array(
+	'video' => array( __( 'Video project page', 'lenz-plus' ), __( 'Portfolio items whose gallery starts with a video, or marked as video projects in their Project details box.', 'lenz-plus' ) ),
+	'mixed' => array( __( 'Photo and video project page', 'lenz-plus' ), __( 'Portfolio items with photos followed by videos, or marked as photo and video projects.', 'lenz-plus' ) ),
 );
 
 $brand_labels = array(
@@ -207,6 +213,18 @@ foreach ( Icon_Library::catalog()['packs'] as $pack_id => $pack ) {
 						</header>
 						<div class="lzp-tpl-grid" data-lzp-picker="<?php echo esc_attr( $route ); ?>" data-path="routes.<?php echo esc_attr( $route ); ?>" data-keywords="theme"></div>
 					</div>
+
+					<?php if ( 'portfolio' === $route ) : ?>
+						<?php foreach ( $project_titles as $project => $project_title ) : ?>
+							<div class="lzp-card">
+								<header class="lzp-card__head">
+									<h2><?php echo esc_html( $project_title[0] ); ?></h2>
+									<p><?php echo esc_html( $project_title[1] ); ?></p>
+								</header>
+								<div class="lzp-tpl-grid" data-lzp-picker="portfolio" data-path="projects.<?php echo esc_attr( $project ); ?>" data-keywords="same" data-same-thumb="sameProject" data-same-title="<?php esc_attr_e( 'Same as the project page', 'lenz-plus' ); ?>" data-same-desc="<?php esc_attr_e( 'Use the design chosen for every project above.', 'lenz-plus' ); ?>"></div>
+							</div>
+						<?php endforeach; ?>
+					<?php endif; ?>
 				<?php endforeach; ?>
 			</section>
 

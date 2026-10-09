@@ -44,6 +44,9 @@ final class Schema {
 	 */
 	public const ROUTE_TYPES = array( 'portfolio_archive', 'portfolio', 'blog', 'post', 'course' );
 
+	/** Project types with their own project page setting (the photo type uses `routes.portfolio`). */
+	public const PROJECT_KINDS = array( 'video', 'mixed' );
+
 	/** Kinds that replace a part of every page, one slot per device. */
 	public const AREAS = array( 'header', 'footer' );
 
@@ -102,6 +105,8 @@ final class Schema {
 			),
 			// `theme` keeps Lenz's own layout; a template ID replaces it.
 			'routes'     => array_fill_keys( self::ROUTE_TYPES, 'theme' ),
+			// Project page per project type (Portfolio_Data::KINDS): `same` uses `routes.portfolio`, which serves photo projects.
+			'projects'   => array_fill_keys( self::PROJECT_KINDS, 'same' ),
 			// 1024 is Elementor's tablet breakpoint, where the designs' menu row stops fitting.
 			'breakpoint' => 1024,
 			'options'    => array(
@@ -156,6 +161,10 @@ final class Schema {
 			'routes'     => array(
 				'type'   => 'group',
 				'fields' => array_fill_keys( self::ROUTE_TYPES, $ref ),
+			),
+			'projects'   => array(
+				'type'   => 'group',
+				'fields' => array_fill_keys( self::PROJECT_KINDS, $ref ),
 			),
 			'breakpoint' => array(
 				'type' => 'int',

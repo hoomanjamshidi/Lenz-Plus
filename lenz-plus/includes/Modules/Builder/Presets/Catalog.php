@@ -22,7 +22,7 @@ final class Catalog {
 	/**
 	 * Every preset, in admin order.
 	 *
-	 * @return array<string, array{type:string, label:string, description:string, build:callable}>
+	 * @return array<string, array{type:string, label:string, description:string, build:callable, project?:string}>
 	 */
 	public static function all(): array {
 		return array(
@@ -70,9 +70,24 @@ final class Catalog {
 			),
 			'portfolio-single'  => array(
 				'type'        => 'portfolio',
-				'label'       => __( 'Project', 'lenz-plus' ),
-				'description' => __( 'Breadcrumb, title with facts, the cover, the project text beside a checklist, the gallery, the client\'s quote, related projects and a call to action.', 'lenz-plus' ),
+				'project'     => 'photo',
+				'label'       => __( 'Photo project', 'lenz-plus' ),
+				'description' => __( 'Breadcrumb, title with facts, the cover, the project text beside a checklist, the gallery photos, the client\'s quote, related projects and a call to action.', 'lenz-plus' ),
 				'build'       => array( Portfolio::class, 'single' ),
+			),
+			'portfolio-video'   => array(
+				'type'        => 'portfolio',
+				'project'     => 'video',
+				'label'       => __( 'Video project', 'lenz-plus' ),
+				'description' => __( 'Title with facts, the film in a wide player on the ink band, the project text beside a checklist, the other videos, stills, the client\'s quote, related projects and a call to action.', 'lenz-plus' ),
+				'build'       => array( Portfolio::class, 'video' ),
+			),
+			'portfolio-mixed'   => array(
+				'type'        => 'portfolio',
+				'project'     => 'mixed',
+				'label'       => __( 'Photo and video project', 'lenz-plus' ),
+				'description' => __( 'Title with facts, the cover, the project text beside a checklist, the photos, the videos on the ink band, the client\'s quote, related projects and a call to action.', 'lenz-plus' ),
+				'build'       => array( Portfolio::class, 'mixed' ),
 			),
 			'blog-archive'      => array(
 				'type'        => 'blog',
@@ -123,6 +138,16 @@ final class Catalog {
 	 */
 	public static function get( string $key ): ?array {
 		return self::all()[ $key ] ?? null;
+	}
+
+	/**
+	 * Project type (Portfolio_Data::KINDS) a project page preset is made
+	 * for, '' for other presets and custom templates.
+	 *
+	 * @param string $key Preset key.
+	 */
+	public static function project_kind( string $key ): string {
+		return (string) ( self::all()[ $key ]['project'] ?? '' );
 	}
 
 	/**

@@ -4,7 +4,14 @@
  * frame, or a slice of the project's gallery (Lenz's gallery box, external
  * links included) in a row of equal frames. The mockups' project page uses
  * three of them: the cover, four 4:5 photos, then two 3:2 photos; "Skip"
- * and "How many" pick each slice. Videos play in place.
+ * and "How many" pick each slice, "Media" limits it to photos or videos
+ * (the video and mixed project designs show them in separate sections).
+ * Videos play in place; the project's first video (its film) gets the
+ * cover as its poster, as on Lenz's own project page.
+ *
+ * An optional title is printed only with the items, and nothing at all is
+ * printed when the slice is empty, so a project without videos shows no
+ * empty "Videos" section (the presets' bands carry `lzp-hide-empty`).
  *
  * @package LenzPlus
  */
@@ -56,6 +63,21 @@ final class Project_Gallery extends Portfolio_Base {
 		);
 
 		$this->add_control(
+			'media',
+			array(
+				'label'     => __( 'Media', 'lenz-plus' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => '',
+				'options'   => array(
+					''      => __( 'Photos and videos', 'lenz-plus' ),
+					'image' => __( 'Photos only', 'lenz-plus' ),
+					'video' => __( 'Videos only', 'lenz-plus' ),
+				),
+				'condition' => array( 'source' => 'gallery' ),
+			)
+		);
+
+		$this->add_control(
 			'offset',
 			array(
 				'label'       => __( 'Skip', 'lenz-plus' ),
@@ -79,6 +101,17 @@ final class Project_Gallery extends Portfolio_Base {
 			)
 		);
 
+		$this->add_control(
+			'title',
+			array(
+				'label'       => __( 'Title', 'lenz-plus' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => '',
+				'label_block' => true,
+				'description' => __( 'Shown above the items, and hidden with them when the project has none.', 'lenz-plus' ),
+			)
+		);
+
 		$this->add_ratio_control( 'ratio', '4/5' );
 		$this->add_columns_control( '.lzp-pgal', array( 4, 2, 1 ) );
 		$this->end_controls_section();
@@ -96,8 +129,11 @@ final class Project_Gallery extends Portfolio_Base {
 			return;
 		}
 
-		$items = $this->items( $s, $post_id );
-		$ratio = (string) $s['ratio'];
+		$items  = $this->items( $s, $post_id );
+		$ratio  = (string) $s['ratio'];
+		$videos = Portfolio_Data::media( $post_id, 'video' );
+		$film   = $videos ? $videos[0]['url'] : '';
+		$poster = $film ? (string) get_the_post_thumbnail_url( $post_id, 'large' ) : '';
 
 		if ( ! $items ) {
 			if ( ! $this->in_editor() ) {
@@ -107,10 +143,14 @@ final class Project_Gallery extends Portfolio_Base {
 			$items = array_fill( 0, 'cover' === $s['source'] ? 1 : max( 1, (int) $s['count'] ), null );
 		}
 
+		if ( '' !== (string) $s['title'] ) {
+			echo Heading::markup( array( 'title' => (string) $s['title'] ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in Heading::markup().
+		}
+
 		// The cover is one wide frame whatever the column setting says (inline beats Elementor's per-widget rule).
 		echo '<ul class="lzp-pgal lzp-grid' . ( 'cover' === $s['source'] ? ' lzp-pgal--cover" style="--lzp-cols:1' : '' ) . '">';
 		foreach ( $items as $item ) {
-			echo '<li class="lzp-pgal__item">' . $this->item_html( $item, $ratio, get_the_title( $post_id ) ) . '</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in item_html().
+			echo '<li class="lzp-pgal__item">' . $this->item_html( $item, $ratio, get_the_title( $post_id ), null !== $item && $item['url'] === $film ? $poster : '' ) . '</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in item_html().
 		}
 		echo '</ul>';
 	}
@@ -137,21 +177,29 @@ final class Project_Gallery extends Portfolio_Base {
 
 		$count = (int) $s['count'];
 
-		return array_slice( Portfolio_Data::gallery( $post_id ), max( 0, (int) $s['offset'] ), $count > 0 ? $count : null );
+		return array_slice( Portfolio_Data::media( $post_id, (string) $s['media'] ), max( 0, (int) $s['offset'] ), $count > 0 ? $count : null );
 	}
 
 	/**
 	 * One frame: an image, a video that plays in place, or an empty frame.
 	 *
-	 * @param array|null $item  Gallery item, null for an empty frame.
-	 * @param string     $ratio Frame ratio.
-	 * @param string     $alt   Alternative text.
+	 * @param array|null $item   Gallery item, null for an empty frame.
+	 * @param string     $ratio  Frame ratio.
+	 * @param string     $alt    Alternative text.
+	 * @param string     $poster Poster of a video ('' for its first frame).
 	 */
-	private function item_html( ?array $item, string $ratio, string $alt ): string {
+	private function item_html( ?array $item, string $ratio, string $alt, string $poster = '' ): string {
 		if ( null !== $item && 'video' === $item['type'] ) {
 			$style = in_array( $ratio, Picture::RATIOS, true ) ? ' style="--lzp-ratio:' . esc_attr( str_replace( '/', ' / ', $ratio ) ) . '"' : '';
+			$src   = $item['url'];
+			if ( '' === $poster && false === strpos( $src, '#' ) ) {
+				// iOS Safari paints no frame for preload="metadata" until a start time is given.
+				$src .= '#t=0.1';
+			}
 
-			return '<div class="lzp-pic lzp-pgal__video"' . $style . '><video class="lzp-pic__img" src="' . esc_url( $item['url'] ) . '" controls preload="metadata" playsinline></video></div>';
+			return '<div class="lzp-pic lzp-pgal__video"' . $style . '><video class="lzp-pic__img" src="' . esc_url( $src ) . '"'
+				. ( '' !== $poster ? ' poster="' . esc_url( $poster ) . '"' : '' )
+				. ' controls preload="metadata" playsinline aria-label="' . esc_attr( $alt ) . '"></video></div>';
 		}
 
 		return Picture::frame(

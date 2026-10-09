@@ -4,7 +4,7 @@ This file is the **resume point**. Every session starts here (see the `lenz-plus
 
 Status keys: `[ ]` to do · `[x]` done · `[~]` started (see Notes) · `[-]` dropped (say why)
 
-**Current phase:** done (1.0.0 released)
+**Current phase:** done (1.1.0: project pages per project type)
 
 Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, browser check at 390 and 1440, translations, CLAUDE.md contracts, graphify update, commit `Phase N: …`).
 
@@ -128,9 +128,17 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - [x] `readme.txt` + changelog, `README.md`, `bash tools/build-zip.sh` → `dist/lenz-plus-1.0.0.zip`
 - [x] Final CLAUDE.md and graph
 
+## Phase 13 — Project pages per project type (صفحه پروژه عکاسی، ویدیویی، ترکیبی)
+- [x] Project type: `Portfolio_Data::kind()` (chosen in the Project details box, else from the gallery), `media()`
+- [x] Settings `projects.video|mixed` (template or same as the project page), `Resolver` picks by type; admin pickers under «صفحه پروژه»; previews and editor samples of the matching type
+- [x] `Project_Gallery`: media filter (photos / videos), title, film poster, prints nothing when empty; `lzp-hide-empty` bands
+- [x] Presets `portfolio-video`, `portfolio-mixed` (+ thumbnails); `portfolio-single` becomes «پروژه عکاسی» (photo slices only)
+- [x] Verify: each type gets its template, empty video band hidden, 390/1440, editor sample, admin pickers; translations; 1.1.0
+
 ---
 
 ## Notes
+- Phase 13: test data. The dev site had been rebuilt (no portfolio items): seeded 3 projects with generated photos and ffmpeg test videos (2441 photo, 2442 video: 2 videos + 3 photos, 2443 mixed: 6 photos + 2 videos), presets installed, routes `portfolio` = 2448, `projects.video` = 2449, `projects.mixed` = 2450.
 - Phase 6: `docs/reference/*.md` (Lenz integration map, Studiare architecture, design inventory) were never committed: `.gitignore`'s `reference/` also matched `docs/reference/`. Fixed to `/reference/`; the facts that matter live in CLAUDE.md. A fresh clone needs `reference/` re-extracted from `Theme.zip` and `Studiare-Extentions.zip` (lenz/, lenz-demo/, studiare-extensions/, studiare-CLAUDE.md).
 - Phase 12: QA results. Headless Chrome sweeps (scratchpad scripts, SCRIPT_DEBUG off so the `.min` files are served): 15 front-end URLs × 390/1440 with no console errors, no horizontal overflow; all 13 presets open in the Elementor editor; every admin page and tab, Ctrl+S save and reload; bottom nav 5 styles × 2/4/5/7 items × light/dark palettes (pill collapses inactive labels by design); forms, portfolio filter, article TOC/progress, course buy bar/video dialog/checkout, courses chips/waitlist re-run. axe-core (WCAG 2 A/AA): only colour contrast of the mockups' muted grey failed → default `muted` darkened to #5d7588; the bottom nav's inactive labels use Lenz's `--primary-2` (#8b8b8b, 3.4:1) and are left to follow the theme (overridable). Code review fixes: CSV formula injection, `Course_Shop` purchase rules, forms only on published documents, `lenz_plus_client_ip` filter, uninstall includes trash, templates out of REST, repeater `title_field` double braces, course FAQ answers without shortcodes. Test site: `lenz` option restored to the Phase 5 footer branch after the palette tests.
 - Phase 11: test data. Page «خانه» (`/`) created from the home preset and set as the front page (was page 2400, a Lenz demo page); its hero has a test video URL (`uploads/test.mp4`, missing file: only the dialog is tested). Also added: `Photo_Frame`, `Icon_Features` look `boxed`, `Post_Grid` look `dashed`, `Portfolio_Grid` title (chips in the title row), shared `video.js`.

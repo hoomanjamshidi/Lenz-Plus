@@ -9,6 +9,8 @@
 
 namespace LenzPlus\Modules\Builder;
 
+use LenzPlus\Modules\Builder\Presets\Catalog;
+
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -66,6 +68,45 @@ final class Context {
 		return self::$samples[ $post_type ];
 	}
 
+	/**
+	 * A project of a type (Portfolio_Data::KINDS) to show a project page
+	 * design with: the usual sample when it is of that type, else the
+	 * newest of that type among the latest projects with a gallery, else the
+	 * usual sample.
+	 *
+	 * @param string $project_kind Project type, '' for any.
+	 */
+	public static function sample_project( string $project_kind ): int {
+		$sample = self::sample_id( Portfolio_Data::POST_TYPE );
+		if ( '' === $project_kind || ! $sample || Portfolio_Data::kind( $sample ) === $project_kind ) {
+			return $sample;
+		}
+
+		$key = Portfolio_Data::POST_TYPE . ':' . $project_kind;
+		if ( ! isset( self::$samples[ $key ] ) ) {
+			self::$samples[ $key ] = $sample;
+
+			$ids = get_posts(
+				array(
+					'post_type'      => Portfolio_Data::POST_TYPE,
+					'post_status'    => 'publish',
+					'posts_per_page' => 20,
+					'fields'         => 'ids',
+					'no_found_rows'  => true,
+					'meta_key'       => '_gallery', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- editor and previews only.
+				)
+			);
+			foreach ( $ids as $id ) {
+				if ( Portfolio_Data::kind( (int) $id ) === $project_kind ) {
+					self::$samples[ $key ] = (int) $id;
+					break;
+				}
+			}
+		}
+
+		return self::$samples[ $key ];
+	}
+
 	/** The newest open course (else any course) to show a course template with, 0 when there is none. */
 	public static function sample_course(): int {
 		$open = Course_Data::course_ids( 1, array( 'open' ) );
@@ -102,6 +143,8 @@ final class Context {
 
 		if ( 'course' === $kind ) {
 			$sample = self::sample_course();
+		} elseif ( 'portfolio' === $kind ) {
+			$sample = self::sample_project( Catalog::project_kind( (string) get_post_meta( self::current_template_id(), Template_Post_Type::META_PRESET, true ) ) );
 		} else {
 			$sample = self::sample_id( in_array( $kind, array( 'portfolio', 'portfolio_archive' ), true ) ? 'portfolio' : 'post' );
 		}

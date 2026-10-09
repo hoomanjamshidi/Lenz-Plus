@@ -4,7 +4,8 @@
  *
  * Page designs need no decision: pages made from them carry their own
  * Elementor content. Headers and footers get one slot per device; routes
- * (portfolio list, project page…) one template each. Admins can force any
+ * (portfolio list, project page…) one template each, and video and mixed
+ * projects may have their own project page. Admins can force any
  * header, footer or route template through nonce-protected preview
  * parameters, which is how the admin previews work before anything is saved.
  *
@@ -12,6 +13,8 @@
  */
 
 namespace LenzPlus\Modules\Builder;
+
+use LenzPlus\Modules\Builder\Presets\Catalog;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -109,7 +112,23 @@ final class Resolver {
 			return $this->to_route_id( $preview, $kind );
 		}
 
-		return $this->module->is_enabled() ? $this->to_route_id( (string) $this->module->settings()['routes'][ $kind ], $kind ) : 0;
+		if ( ! $this->module->is_enabled() ) {
+			return 0;
+		}
+
+		$settings = $this->module->settings();
+		$ref      = (string) $settings['routes'][ $kind ];
+
+		if ( 'portfolio' === $kind ) {
+			// Video and mixed projects may have their own design; `same` (or a deleted one) keeps the project page's.
+			$project = Portfolio_Data::kind( (int) get_queried_object_id() );
+			$own     = isset( $settings['projects'][ $project ] ) ? $this->to_route_id( (string) $settings['projects'][ $project ], $kind ) : 0;
+			if ( $own ) {
+				return $own;
+			}
+		}
+
+		return $this->to_route_id( $ref, $kind );
 	}
 
 	/**
@@ -126,9 +145,10 @@ final class Resolver {
 	 * A page of a route to preview its templates on: the portfolio archive,
 	 * or the newest project ('' when there is none yet).
 	 *
-	 * @param string $kind Route kind.
+	 * @param string $kind    Route kind.
+	 * @param string $project Project type to look for on the project route ('' for any).
 	 */
-	public static function sample_url( string $kind ): string {
+	public static function sample_url( string $kind, string $project = '' ): string {
 		if ( 'portfolio_archive' === $kind ) {
 			$url = post_type_exists( 'portfolio' ) ? get_post_type_archive_link( 'portfolio' ) : '';
 
@@ -141,7 +161,13 @@ final class Resolver {
 			return $page ? (string) get_permalink( $page ) : ( 'posts' === get_option( 'show_on_front' ) ? home_url( '/' ) : '' );
 		}
 
-		$sample = 'course' === $kind ? Context::sample_course() : Context::sample_id( $kind );
+		if ( 'course' === $kind ) {
+			$sample = Context::sample_course();
+		} elseif ( 'portfolio' === $kind ) {
+			$sample = Context::sample_project( $project );
+		} else {
+			$sample = Context::sample_id( $kind );
+		}
 
 		return $sample ? (string) get_permalink( $sample ) : '';
 	}
@@ -178,7 +204,9 @@ final class Resolver {
 		}
 
 		if ( in_array( $type, Schema::ROUTE_TYPES, true ) ) {
-			$url = self::sample_url( $type );
+			// A video or mixed project design is previewed on a project of its type.
+			$project = is_numeric( $ref ) ? Catalog::project_kind( (string) get_post_meta( (int) $ref, Template_Post_Type::META_PRESET, true ) ) : '';
+			$url     = self::sample_url( $type, $project );
 			if ( '' !== $url ) {
 				return add_query_arg( $args, $url );
 			}

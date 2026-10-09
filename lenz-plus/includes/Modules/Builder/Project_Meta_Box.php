@@ -1,7 +1,7 @@
 <?php
 /**
- * «Project details (Lenz+)» box on Lenz's portfolio editor: the summary
- * under the title, the year, fact boxes (client, duration, output…), the
+ * «Project details (Lenz+)» box on Lenz's portfolio editor: the project
+ * type (which project page design it gets), the summary under the title, the year, fact boxes (client, duration, output…), the
  * "what was done" checklist, the client's quote and the "featured" flag.
  * Lenz's own gallery box stays as it is; the project widgets read both.
  *
@@ -45,10 +45,23 @@ final class Project_Meta_Box {
 			$facts[] = $fact[0] . ': ' . $fact[1];
 		}
 
+		$detected = '' === $d['kind'] ? Portfolio_Data::kind( (int) $post->ID ) : '';
+		$kinds    = self::kind_labels();
+
 		wp_nonce_field( self::NONCE, self::NONCE . '_nonce' );
 		?>
 		<p class="description"><?php esc_html_e( 'Shown by the Lenz+ project widgets (project header, checklist, quote, featured projects). Leave a field empty to hide its part.', 'lenz-plus' ); ?></p>
 		<table class="form-table" role="presentation">
+			<tr>
+				<th scope="row"><label for="lzp-project-kind"><?php esc_html_e( 'Project type', 'lenz-plus' ); ?></label></th>
+				<td><select id="lzp-project-kind" name="lzp_project[kind]">
+					<option value=""><?php echo esc_html( '' !== $detected ? sprintf( /* translators: %s: detected project type. */ __( 'From the gallery (now: %s)', 'lenz-plus' ), $kinds[ $detected ] ) : __( 'From the gallery', 'lenz-plus' ) ); ?></option>
+					<?php foreach ( $kinds as $kind => $label ) : ?>
+						<option value="<?php echo esc_attr( $kind ); ?>" <?php selected( $d['kind'], $kind ); ?>><?php echo esc_html( $label ); ?></option>
+					<?php endforeach; ?>
+				</select>
+				<p class="description"><?php esc_html_e( 'Each type can have its own project page design (Lenz+ → Page templates → Site pages). From the gallery: no video is a photo project, a gallery that starts with a video is a video project, photos followed by videos are a photo and video project.', 'lenz-plus' ); ?></p></td>
+			</tr>
 			<tr>
 				<th scope="row"><label for="lzp-project-summary"><?php esc_html_e( 'Summary', 'lenz-plus' ); ?></label></th>
 				<td><textarea class="large-text" rows="3" id="lzp-project-summary" name="lzp_project[summary]"><?php echo esc_textarea( $d['summary'] ); ?></textarea>
@@ -114,6 +127,7 @@ final class Project_Meta_Box {
 			$post_id,
 			Portfolio_Data::META,
 			array(
+				'kind'       => in_array( $get( 'kind' ), Portfolio_Data::KINDS, true ) ? $get( 'kind' ) : '',
 				'summary'    => trim( sanitize_textarea_field( $get( 'summary' ) ) ),
 				'year'       => trim( sanitize_text_field( $get( 'year' ) ) ),
 				'facts'      => $facts,
@@ -129,6 +143,19 @@ final class Project_Meta_Box {
 		} else {
 			delete_post_meta( $post_id, Portfolio_Data::META_FEATURED );
 		}
+	}
+
+	/**
+	 * Project type → label.
+	 *
+	 * @return array<string, string>
+	 */
+	public static function kind_labels(): array {
+		return array(
+			'photo' => __( 'Photo project', 'lenz-plus' ),
+			'video' => __( 'Video project', 'lenz-plus' ),
+			'mixed' => __( 'Photo and video project', 'lenz-plus' ),
+		);
 	}
 
 	/**
