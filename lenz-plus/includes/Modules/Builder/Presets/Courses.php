@@ -103,9 +103,10 @@ final class Courses {
 			Blocks::band(
 				self::content(),
 				array(
-					'pad'        => array( 56, 40 ),
-					'pad_tablet' => array( 40, 24 ),
-					'pad_mobile' => array( 24, 16 ),
+					// No top padding: the hero's own bottom padding already spaces it.
+					'pad'        => array( 0, 40, 56 ),
+					'pad_tablet' => array( 0, 24, 40 ),
+					'pad_mobile' => array( 0, 16, 24 ),
 					'gap'        => 48,
 					'gap_tablet' => 36,
 					'gap_mobile' => 28,
@@ -174,9 +175,9 @@ final class Courses {
 					),
 				),
 				array(
-					'pad'        => array( 56, 40 ),
-					'pad_tablet' => array( 40, 24 ),
-					'pad_mobile' => array( 24, 16 ),
+					'pad'        => array( 0, 40, 56 ),
+					'pad_tablet' => array( 0, 24, 40 ),
+					'pad_mobile' => array( 0, 16, 24 ),
 				)
 			),
 			self::enroll(),

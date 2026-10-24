@@ -3,7 +3,7 @@ Tags: lenz, photography, bottom navigation, elementor, rtl
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,6 +52,13 @@ It is built for Lenz and reads its colours, logo, menus and options. Without Len
 No. Updates refresh only the ready-made templates you have not edited, and pages created from a design never change by themselves.
 
 == Changelog ==
+
+= 1.1.2 =
+* Course prices on sale show the struck-through regular price and the discount percent next to the current price (buy box, mobile buy bar, course hero and course cards), with the currency after the amount.
+* Course page: the request form section (#enroll) appears only for courses that register through the form; courses sold through the checkout show only the cart button.
+
+= 1.1.1 =
+* Course page: the introduction card's text fills the card's width, and the space between the course hero and the content is no longer doubled.
 
 = 1.1.0 =
 * Project pages for video projects (the film first, then the other videos and stills) and for photo and video projects (the photos, then the videos on the dark band), next to the photo project page.

@@ -672,6 +672,32 @@ html.lzp-lock {
 	font-size: 19px;
 }
 
+/* Account button: the member's name sits after a divider, as in Lenz's header. */
+.lzp-account-btn .lzp-account-btn__name {
+	max-width: 12em;
+	overflow: hidden;
+	padding-inline-start: 10px;
+	border-inline-start: 1px solid var(--lzp-field-line);
+	line-height: 24px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.lzp-actions .lzp-account-btn:has(.lzp-account-btn__name) {
+	padding-inline: 12px 14px;
+}
+
+/* Phones keep the bar compact: the icon alone. */
+@media (max-width: 767px) {
+	.lzp-account-btn .lzp-account-btn__name {
+		display: none;
+	}
+
+	.lzp-actions .lzp-account-btn:has(.lzp-account-btn__name) {
+		padding-inline: 10px;
+	}
+}
+
 /* ==========================================================================
    Navigation menu (Nav_Menu)
    ========================================================================== */

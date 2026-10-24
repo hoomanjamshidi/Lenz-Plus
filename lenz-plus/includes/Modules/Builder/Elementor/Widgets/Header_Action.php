@@ -1,11 +1,13 @@
 <?php
 /**
  * The end of the mockups' header row: an ink call-to-action («رزرو وقت» with
- * a calendar icon) and a square icon button (the phone).
+ * a calendar icon), the account button (like Lenz's header: a user icon, plus
+ * the member's name once logged in) and a square icon button (the phone).
  *
- * Both follow the site's own settings when left empty: the button takes
- * Lenz's header "Reserve" link and text, and the icon button calls the
- * site's phone (see phone_url()).
+ * All follow the site's own settings when left empty: the button takes
+ * Lenz's header "Reserve" link and text, the account button Lenz's account
+ * links (see Site::account_url()), and the icon button calls the site's
+ * phone (see phone_url()).
  *
  * @package LenzPlus
  */
@@ -13,6 +15,7 @@
 namespace LenzPlus\Modules\Builder\Elementor\Widgets;
 
 use Elementor\Controls_Manager;
+use LenzPlus\Core\Site;
 use LenzPlus\Core\Theme_Bridge;
 use LenzPlus\Modules\Support_Button\Channels;
 use LenzPlus\Plugin;
@@ -42,7 +45,7 @@ final class Header_Action extends Base {
 
 	/** Panel search terms. */
 	public function get_keywords(): array {
-		return array_merge( parent::get_keywords(), array( 'button', 'booking', 'phone', 'رزرو', 'تماس' ) );
+		return array_merge( parent::get_keywords(), array( 'button', 'booking', 'phone', 'account', 'رزرو', 'تماس', 'حساب کاربری' ) );
 	}
 
 	/** Button and icon button controls. */
@@ -93,6 +96,8 @@ final class Header_Action extends Base {
 		);
 
 		$this->end_controls_section();
+
+		$this->register_account_controls();
 
 		$this->start_content_section( 'section_icon', __( 'Icon button', 'lenz-plus' ) );
 
@@ -145,6 +150,55 @@ final class Header_Action extends Base {
 		$this->end_controls_section();
 	}
 
+	/** Account button controls. */
+	private function register_account_controls(): void {
+		$this->start_content_section( 'section_account', __( 'Account button', 'lenz-plus' ) );
+
+		$this->add_control(
+			'show_account',
+			array(
+				'label'   => __( 'Show the account button', 'lenz-plus' ),
+				'type'    => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+			)
+		);
+
+		$this->add_control(
+			'account_name',
+			array(
+				'label'       => __( 'Show the user\'s name', 'lenz-plus' ),
+				'type'        => Controls_Manager::SWITCHER,
+				'default'     => 'yes',
+				'description' => __( 'Logged-in visitors only, and not on phones. Guests see the icon.', 'lenz-plus' ),
+				'condition'   => array( 'show_account' => 'yes' ),
+			)
+		);
+
+		$this->add_control(
+			'account_icon',
+			array(
+				'label'     => __( 'Icon', 'lenz-plus' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'user',
+				'options'   => self::icon_options( false ),
+				'condition' => array( 'show_account' => 'yes' ),
+			)
+		);
+
+		$this->add_control(
+			'account_link',
+			array(
+				'label'       => __( 'Link', 'lenz-plus' ),
+				'type'        => Controls_Manager::URL,
+				'dynamic'     => array( 'active' => true ),
+				'description' => __( 'Empty: Lenz\'s header account links (members and guests), else the WooCommerce account page.', 'lenz-plus' ),
+				'condition'   => array( 'show_account' => 'yes' ),
+			)
+		);
+
+		$this->end_controls_section();
+	}
+
 	/** Prints the buttons. */
 	protected function render(): void {
 		$s    = $this->get_settings_for_display();
@@ -152,6 +206,10 @@ final class Header_Action extends Base {
 
 		if ( 'yes' === $s['show_cta'] ) {
 			$html .= $this->cta_html( $s );
+		}
+
+		if ( 'yes' === $s['show_account'] ) {
+			$html .= self::account_html( $s );
 		}
 
 		if ( 'yes' === $s['show_icon'] ) {
@@ -201,6 +259,27 @@ final class Header_Action extends Base {
 				'icon'    => (string) $s['cta_icon'],
 				'attrs'   => $attrs,
 			)
+		);
+	}
+
+	/**
+	 * The account button: the icon alone for guests (named «ورود» for screen
+	 * readers), the icon and the member's display name once logged in.
+	 *
+	 * @param array $s Settings.
+	 */
+	private static function account_html( array $s ): string {
+		$logged_in = is_user_logged_in();
+		$url       = ! empty( $s['account_link']['url'] ) ? (string) $s['account_link']['url'] : Site::account_url( $logged_in );
+		$name      = $logged_in && 'yes' === $s['account_name'] ? wp_get_current_user()->display_name : '';
+		$label     = $logged_in ? __( 'My account', 'lenz-plus' ) : __( 'Login', 'lenz-plus' );
+
+		return sprintf(
+			'<a class="lzp-icon-btn lzp-account-btn" href="%1$s"%2$s>%3$s%4$s</a>',
+			esc_url( $url ),
+			'' === $name ? ' aria-label="' . esc_attr( $label ) . '"' : ' title="' . esc_attr( $label ) . '"',
+			self::icon( (string) $s['account_icon'] ),
+			'' === $name ? '' : '<span class="lzp-account-btn__name">' . esc_html( $name ) . '</span>'
 		);
 	}
 

@@ -37,6 +37,9 @@ final class Course_Data {
 
 	public const REGISTRATIONS = array( 'cart', 'form' );
 
+	/** HTML id of the request form band that form registration scrolls to. */
+	public const ENROLL_ID = 'enroll';
+
 	/** Seats left at or below which cards say «۴ ظرفیت باقی‌مانده» instead of «در حال ثبت‌نام». */
 	private const FEW_SEATS = 5;
 
@@ -195,15 +198,63 @@ final class Course_Data {
 	}
 
 	/**
-	 * Price markup with the site's digits ('' when there is no price).
+	 * Price markup with the site's digits ('' when there is no price): the
+	 * current price, and on sale the struck-through regular price with the
+	 * discount percent. Our own markup rather than WooCommerce's, because
+	 * Lenz makes its `bdi` a flex box (every amount on its own line, the
+	 * currency floating above the number).
 	 *
 	 * @param int $product_id Product ID.
 	 */
 	public static function price_html( int $product_id ): string {
 		$product = self::has_woo() ? wc_get_product( $product_id ) : null;
-		$html    = $product ? (string) $product->get_price_html() : '';
+		if ( ! $product || '' === $product->get_price() ) {
+			return '';
+		}
 
-		return '' !== $html ? Base::digits_html( $html ) : '';
+		// Courses are simple products; anything else keeps WooCommerce's ranges.
+		if ( ! $product->is_type( 'simple' ) ) {
+			return Base::digits_html( (string) $product->get_price_html() );
+		}
+
+		$now = (float) wc_get_price_to_display( $product );
+		if ( $now <= 0 ) {
+			return '<span class="lzp-price"><span class="lzp-price__now">' . esc_html__( 'Free', 'lenz-plus' ) . '</span></span>';
+		}
+
+		$was = $product->is_on_sale() ? (float) wc_get_price_to_display( $product, array( 'price' => $product->get_regular_price() ) ) : 0.0;
+		if ( $was <= $now ) {
+			return '<span class="lzp-price"><span class="lzp-price__now">' . self::money( $now ) . '</span></span>';
+		}
+
+		$off = (int) round( ( $was - $now ) / $was * 100 );
+
+		return sprintf(
+			'<span class="lzp-price is-on-sale"><span class="lzp-price__now"><span class="screen-reader-text">%1$s </span>%2$s</span><span class="lzp-price__was"><del><span class="screen-reader-text">%3$s </span>%4$s</del>%5$s</span></span>',
+			esc_html__( 'Current price:', 'lenz-plus' ),
+			self::money( $now ),
+			esc_html__( 'Original price:', 'lenz-plus' ),
+			self::money( $was ),
+			$off > 0
+				/* translators: %s: discount percent. */
+				? '<span class="lzp-price__off">' . esc_html( sprintf( __( '%s%% off', 'lenz-plus' ), Base::digits( (string) $off ) ) ) . '</span>'
+				: ''
+		);
+	}
+
+	/**
+	 * An amount with the store's separators and currency symbol.
+	 *
+	 * @param float $amount Amount.
+	 */
+	private static function money( float $amount ): string {
+		$number = '<span class="lzp-price__amount">' . esc_html( Base::digits( number_format( $amount, wc_get_price_decimals(), wc_get_price_decimal_separator(), wc_get_price_thousand_separator() ) ) ) . '</span>';
+		$symbol = '<span class="lzp-price__currency">' . esc_html( html_entity_decode( get_woocommerce_currency_symbol(), ENT_QUOTES, 'UTF-8' ) ) . '</span>';
+
+		// RTL stores read «۱۲۰٬۰۰۰ تومان» whatever the position setting says (as Lenz shows it).
+		$symbol_first = ! is_rtl() && 0 === strpos( (string) get_option( 'woocommerce_currency_pos', 'left' ), 'left' );
+
+		return $symbol_first ? $symbol . ' ' . $number : $number . ' ' . $symbol;
 	}
 
 	/**
@@ -238,7 +289,7 @@ final class Course_Data {
 
 		if ( 'form' === $details['registration'] || ! self::has_woo() ) {
 			$action['label'] = __( 'Register', 'lenz-plus' );
-			$action['url']   = '#enroll';
+			$action['url']   = '#' . self::ENROLL_ID;
 
 			return $action;
 		}

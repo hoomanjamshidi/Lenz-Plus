@@ -172,8 +172,17 @@
 .lzp-hero__text {
 	display: flex;
 	flex-direction: column;
+	align-items: var(--lzp-hero-align, stretch);
 	gap: 18px;
 	min-width: 0;
+	text-align: var(--lzp-hero-align, start);
+}
+
+/* Rows inside the text (chips, buttons, proof) follow the chosen alignment. */
+.lzp-hero__text > .lzp-hero__chips,
+.lzp-hero__text > .lzp-btn-row,
+.lzp-hero__text > .lzp-hero__proof {
+	justify-content: var(--lzp-hero-align, start);
 }
 
 .lzp-hero--text .lzp-hero__text {
@@ -1438,10 +1447,6 @@
 	font-size: clamp(14px, 1.5vw, 16px);
 }
 
-.lzp-prose--boxed > * {
-	max-width: 80ch;
-}
-
 .lzp-prose__table {
 	overflow-x: auto;
 }
@@ -1792,7 +1797,8 @@
 
 .lzp-hero__holes {
 	border-radius: 2px;
-	background: repeating-linear-gradient(#ffffff 0 13px, var(--lzp-ink) 13px 26px);
+	/* `round` fits a whole number of holes (each centred in its tile), so none is cut at the ends. */
+	background: linear-gradient(var(--lzp-ink) 25%, #ffffff 25% 75%, var(--lzp-ink) 75%) 0 0 / 100% 26px round;
 }
 
 .lzp-hero .lzp-hero__strip-text {
@@ -1897,17 +1903,29 @@
 		grid-template-columns: minmax(0, 1fr);
 	}
 
+	/* Under the full-width band the text reads best centred (the widget's alignment control overrides it). */
+	.lzp-hero--filmstrip .lzp-hero__text {
+		--lzp-hero-align: center;
+	}
+
+	/*
+	 * Edge to edge and centred on the screen: sized from the viewport, not from
+	 * the gutters, so padding on a parent container cannot shift it sideways.
+	 */
 	.lzp-hero--filmstrip .lzp-hero__strip {
 		grid-template-columns: none;
 		grid-template-rows: 10px auto 10px;
 		gap: 8px;
+		width: 100vw;
 		min-height: 0;
-		padding: 8px 18px;
-		clip-path: polygon(0 0, 0 100%, calc(100% - 14px) 100%, 100% calc(100% - 14px), 100% 0);
+		margin-inline: calc(50% - 50vw);
+		justify-self: center;
+		padding: 8px var(--lzp-gutter);
+		clip-path: none;
 	}
 
 	.lzp-hero--filmstrip .lzp-hero__holes {
-		background: repeating-linear-gradient(90deg, #ffffff 0 13px, var(--lzp-ink) 13px 26px);
+		background: linear-gradient(90deg, var(--lzp-ink) 25%, #ffffff 25% 75%, var(--lzp-ink) 75%) 0 0 / 26px 100% round;
 	}
 
 	.lzp-hero--filmstrip .lzp-hero__strip-text {

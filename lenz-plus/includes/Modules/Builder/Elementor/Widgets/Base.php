@@ -16,6 +16,7 @@ use Elementor\Controls_Manager;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
+use Elementor\Plugin;
 use Elementor\Widget_Base;
 use LenzPlus\Core\Icon_Library;
 use LenzPlus\Core\Persian;
@@ -53,9 +54,16 @@ abstract class Base extends Widget_Base {
 		return array();
 	}
 
-	/** No extra `.elementor-widget-container` wrapper: lighter DOM, and our markup carries its own classes. */
+	/**
+	 * Drops the `.elementor-widget-container` wrapper only while Elementor's
+	 * Optimized Markup feature is on, like Elementor's own widgets. Without
+	 * that feature (the default on sites made before Elementor 3.24) the
+	 * Advanced tab's margin, padding, background and border target
+	 * `{{WRAPPER}} > .elementor-widget-container`, so a widget without the
+	 * wrapper would ignore them.
+	 */
 	public function has_widget_inner_wrapper(): bool {
-		return false;
+		return ! Plugin::$instance->experiments->is_feature_active( 'e_optimized_markup' );
 	}
 
 	/** Output may depend on the visitor or the viewed item, so Elementor must not cache it by default. */

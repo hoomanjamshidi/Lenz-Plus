@@ -27,4 +27,27 @@ final class Site {
 	public static function direction(): string {
 		return self::is_rtl() ? 'rtl' : 'ltr';
 	}
+
+	/**
+	 * Where an account button points: Lenz's header account link (members or
+	 * guests), else WooCommerce's account page, else the WordPress profile
+	 * (members) or login page (guests).
+	 *
+	 * @param bool $logged_in Link for logged-in visitors (else for guests).
+	 */
+	public static function account_url( bool $logged_in ): string {
+		$candidates = array(
+			Theme_Bridge::account_url( $logged_in ),
+			function_exists( 'wc_get_page_permalink' ) ? (string) wc_get_page_permalink( 'myaccount' ) : '',
+			$logged_in ? admin_url( 'profile.php' ) : wp_login_url(),
+		);
+
+		foreach ( $candidates as $url ) {
+			if ( '' !== $url ) {
+				return $url;
+			}
+		}
+
+		return '';
+	}
 }

@@ -11,6 +11,7 @@
 namespace LenzPlus\Modules\Bottom_Nav;
 
 use LenzPlus\Core\Icon_Library;
+use LenzPlus\Core\Site;
 use LenzPlus\Core\Theme_Bridge;
 
 defined( 'ABSPATH' ) || exit;
@@ -263,12 +264,10 @@ final class Item_Resolver {
 	 * @param array $item  Saved item.
 	 */
 	private function build_account( array $model, array $item ): array {
-		$woo_url        = function_exists( 'wc_get_page_permalink' ) ? (string) wc_get_page_permalink( 'myaccount' ) : '';
 		$model['match'] = 'account';
 
 		if ( is_user_logged_in() ) {
-			$default_url   = self::first_url( Theme_Bridge::account_url( true ), $woo_url, admin_url( 'profile.php' ) );
-			$model['href'] = '' !== $item['url'] ? $item['url'] : $default_url;
+			$model['href'] = '' !== $item['url'] ? $item['url'] : Site::account_url( true );
 
 			if ( $item['show_avatar'] ) {
 				$avatar = get_avatar_url( get_current_user_id(), array( 'size' => 64 ) );
@@ -282,24 +281,9 @@ final class Item_Resolver {
 		}
 
 		$model['label'] = '' !== $item['guest_label'] ? $item['guest_label'] : __( 'Login', 'lenz-plus' );
-		$model['href']  = self::first_url( Theme_Bridge::account_url( false ), $woo_url, wp_login_url() );
+		$model['href']  = Site::account_url( false );
 
 		return $model;
-	}
-
-	/**
-	 * The first non-empty URL of a fallback chain.
-	 *
-	 * @param string ...$urls Candidates, most specific first.
-	 */
-	private static function first_url( string ...$urls ): string {
-		foreach ( $urls as $url ) {
-			if ( '' !== $url ) {
-				return $url;
-			}
-		}
-
-		return '';
 	}
 
 	/**

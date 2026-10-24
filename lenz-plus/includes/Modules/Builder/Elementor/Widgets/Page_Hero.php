@@ -80,6 +80,30 @@ final class Page_Hero extends Section_Base {
 			)
 		);
 
+		// Empty = the layout's own alignment (start; the film strip centres on phones).
+		$this->add_responsive_control(
+			'text_align',
+			array(
+				'label'     => __( 'Text alignment', 'lenz-plus' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => array(
+					'start'  => array(
+						'title' => __( 'Start', 'lenz-plus' ),
+						'icon'  => 'eicon-text-align-right',
+					),
+					'center' => array(
+						'title' => __( 'Center', 'lenz-plus' ),
+						'icon'  => 'eicon-text-align-center',
+					),
+					'end'    => array(
+						'title' => __( 'End', 'lenz-plus' ),
+						'icon'  => 'eicon-text-align-left',
+					),
+				),
+				'selectors' => array( '{{WRAPPER}} .lzp-hero__text' => '--lzp-hero-align: {{VALUE}};' ),
+			)
+		);
+
 		$this->add_control(
 			'title_source',
 			array(
