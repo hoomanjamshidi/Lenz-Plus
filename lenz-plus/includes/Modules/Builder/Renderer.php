@@ -49,6 +49,38 @@ final class Renderer {
 
 		wp_enqueue_style( Assets::HANDLE );
 		wp_enqueue_script( Assets::HANDLE );
+
+		self::enqueue_widget_styles( $template_id );
+	}
+
+	/**
+	 * Enqueues the stylesheets of the widgets a template uses. Elementor adds
+	 * a widget's styles while rendering it, which for a template printed in
+	 * the theme's layout is after `wp_head`: the styles would print in the
+	 * footer, the page would paint unstyled first and then shift.
+	 *
+	 * @param int $template_id Template ID.
+	 */
+	private static function enqueue_widget_styles( int $template_id ): void {
+		$document = \Elementor\Plugin::$instance->documents->get( $template_id );
+		if ( ! $document ) {
+			return;
+		}
+
+		$widgets = \Elementor\Plugin::$instance->widgets_manager;
+		$walk    = static function ( array $elements ) use ( &$walk, $widgets ): void {
+			foreach ( $elements as $element ) {
+				if ( 'widget' === ( $element['elType'] ?? '' ) ) {
+					$widget = $widgets->get_widget_types( (string) ( $element['widgetType'] ?? '' ) );
+					foreach ( $widget ? $widget->get_style_depends() : array() as $handle ) {
+						wp_enqueue_style( $handle );
+					}
+				}
+				$walk( (array) ( $element['elements'] ?? array() ) );
+			}
+		};
+
+		$walk( (array) $document->get_elements_data() );
 	}
 
 	/**

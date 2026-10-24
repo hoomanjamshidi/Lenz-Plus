@@ -4,6 +4,9 @@
  * a bordered card, for the sticky sidebar. The section being read is marked
  * while scrolling (blog.js). Hidden when the article has too few headings.
  *
+ * The `inline` look is a native `<details>` box for the top of an article
+ * without a sidebar: open by default, folded with one tap.
+ *
  * @package LenzPlus
  */
 
@@ -45,6 +48,19 @@ final class Post_Toc extends Blog_Base {
 				'label'   => __( 'Title', 'lenz-plus' ),
 				'type'    => Controls_Manager::TEXT,
 				'default' => __( 'In this article', 'lenz-plus' ),
+			)
+		);
+
+		$this->add_control(
+			'look',
+			array(
+				'label'   => __( 'Look', 'lenz-plus' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'card',
+				'options' => array(
+					'card'   => __( 'Sidebar card', 'lenz-plus' ),
+					'inline' => __( 'Folding box in the text', 'lenz-plus' ),
+				),
 			)
 		);
 
@@ -117,6 +133,17 @@ final class Post_Toc extends Blog_Base {
 						esc_attr( $heading['id'] ),
 						esc_html( $heading['text'] )
 					);
+				}
+
+				if ( 'inline' === $s['look'] ) {
+					printf(
+						'<nav class="lzp-toc lzp-toc--inline" data-lzp-toc aria-label="%1$s"><details open><summary class="lzp-toc__summary">%2$s%3$s</summary><ol class="lzp-toc__list">%4$s</ol></details></nav>',
+						esc_attr( (string) $s['title'] ),
+						esc_html( (string) $s['title'] ),
+						self::icon( 'chevron-down', 'lzp-toc__caret' ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- icon markup.
+						$items // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above.
+					);
+					return;
 				}
 
 				printf(

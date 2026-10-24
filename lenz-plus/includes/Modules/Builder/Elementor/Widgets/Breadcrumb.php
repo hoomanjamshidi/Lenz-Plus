@@ -4,6 +4,11 @@
  * belongs to (portfolio, blog…), its category on category pages, and the
  * current title. Muted 13px links separated by slashes, as in the mockups.
  *
+ * The trail carries schema.org BreadcrumbList microdata, so search results
+ * show it instead of the address. SEO plugins that print their own
+ * breadcrumb data (Yoast, Rank Math, SEOPress, All in One SEO) switch it off
+ * to avoid two lists; the `lenz_plus_breadcrumb_schema` filter decides.
+ *
  * @package LenzPlus
  */
 
@@ -149,16 +154,46 @@ final class Breadcrumb extends Section_Base {
 	 * @param string $home Home label.
 	 */
 	public static function html( string $home ): string {
-		$trail = self::trail( $home );
-		$last  = count( $trail ) - 1;
+		$trail  = self::trail( $home );
+		$last   = count( $trail ) - 1;
+		$schema = self::with_schema();
 
-		$items = '';
+		$items    = '';
+		$position = 0;
 		foreach ( $trail as $index => $step ) {
-			$items .= '<li>' . ( $index === $last || '' === $step[1]
-				? '<span' . ( $index === $last ? ' aria-current="page"' : '' ) . '>' . esc_html( $step[0] ) . '</span>'
-				: '<a href="' . esc_url( $step[1] ) . '">' . esc_html( $step[0] ) . '</a>' ) . '</li>';
+			$current = $index === $last;
+			$linked  = ! $current && '' !== $step[1];
+
+			// Google needs a link on every step but the current page; others stay plain text.
+			if ( ! $schema || ( ! $linked && ! $current ) ) {
+				$items .= '<li>' . ( $linked
+					? '<a href="' . esc_url( $step[1] ) . '">' . esc_html( $step[0] ) . '</a>'
+					: '<span' . ( $current ? ' aria-current="page"' : '' ) . '>' . esc_html( $step[0] ) . '</span>' ) . '</li>';
+				continue;
+			}
+
+			++$position;
+			$items .= '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">'
+				. ( $linked
+					? '<a itemprop="item" href="' . esc_url( $step[1] ) . '"><span itemprop="name">' . esc_html( $step[0] ) . '</span></a>'
+					: '<span itemprop="name" aria-current="page">' . esc_html( $step[0] ) . '</span>' )
+				. '<meta itemprop="position" content="' . $position . '"></li>';
 		}
 
-		return '<nav class="lzp-crumbs" aria-label="' . esc_attr__( 'Breadcrumb', 'lenz-plus' ) . '"><ol>' . $items . '</ol></nav>';
+		$list = $schema ? ' itemscope itemtype="https://schema.org/BreadcrumbList"' : '';
+
+		return '<nav class="lzp-crumbs" aria-label="' . esc_attr__( 'Breadcrumb', 'lenz-plus' ) . '"><ol' . $list . '>' . $items . '</ol></nav>';
+	}
+
+	/** Whether the trail prints its microdata (not when an SEO plugin prints breadcrumb data). */
+	private static function with_schema(): bool {
+		$seo_plugin = defined( 'WPSEO_VERSION' ) || defined( 'RANK_MATH_VERSION' ) || defined( 'SEOPRESS_VERSION' ) || defined( 'AIOSEO_VERSION' );
+
+		/**
+		 * Filters whether the Lenz+ breadcrumb prints schema.org BreadcrumbList microdata.
+		 *
+		 * @param bool $with_schema Default: true unless an SEO plugin is active.
+		 */
+		return (bool) apply_filters( 'lenz_plus_breadcrumb_schema', ! $seo_plugin );
 	}
 }

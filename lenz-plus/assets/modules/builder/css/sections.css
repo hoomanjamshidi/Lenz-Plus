@@ -16,7 +16,7 @@
  *
  * Sections: shared (grid, photo frame, button row, small title) · hero ·
  * numbers · steps · cards · lists · icon rows · timeline · framed statement ·
- * quote · FAQ · call to action · pricing · service · photo row
+ * quote · FAQ · call to action · pricing · service · photo row · brand logos · contact cards · map
  */
 
 /* ==========================================================================
@@ -1266,6 +1266,11 @@
 	color: var(--lzp-sub);
 }
 
+/* Lenz gives every span line-height 2. */
+.lzp-crumbs li span {
+	line-height: inherit;
+}
+
 /* ==========================================================================
    Checklist
    ========================================================================== */
@@ -2198,10 +2203,454 @@
 }
 
 /* ==========================================================================
+   Brand logos (grid, tiles, scrolling strip, row)
+   ========================================================================== */
+
+.lzp-logos {
+	--lzp-logo-h: 40px;
+	--lzp-logos-dur: 30s;
+	font-family: var(--lzp-font);
+}
+
+.lzp-logos .lzp-logos__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.lzp-logos .lzp-logos__item {
+	margin: 0;
+	line-height: 1;
+}
+
+.lzp-logos .lzp-logos__logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: calc(var(--lzp-logo-h) + 44px);
+	padding: 18px 22px;
+	color: var(--lzp-heading, var(--lzp-ink));
+	text-decoration: none;
+	transition: background-color var(--lzp-dur) ease, border-color var(--lzp-dur) ease;
+}
+
+.lzp-logos .lzp-logos__img {
+	display: block;
+	width: auto;
+	max-width: 100%;
+	height: var(--lzp-logo-h);
+	object-fit: contain;
+	transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.lzp-logos .lzp-logos__name {
+	font-size: calc(var(--lzp-logo-h) * 0.45);
+	font-weight: 900;
+	letter-spacing: 0.12em;
+	line-height: 1.2;
+	white-space: nowrap;
+	transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+/* Grey until hovered: logos in many colours sit calmly together. */
+.lzp-logos--mono .lzp-logos__img {
+	filter: grayscale(1);
+	opacity: 0.6;
+}
+
+/* A muted colour rather than opacity: word marks are text and must keep 4.5:1 contrast. */
+.lzp-logos--mono .lzp-logos__name {
+	color: var(--lzp-muted);
+}
+
+.lzp-logos--mono .lzp-logos__logo:is(:hover, :focus-visible) .lzp-logos__img {
+	filter: none;
+	opacity: 1;
+}
+
+.lzp-logos--mono .lzp-logos__logo:is(:hover, :focus-visible) .lzp-logos__name {
+	color: var(--lzp-heading, var(--lzp-ink));
+}
+
+/* Grid with lines: the cells share hairlines (the grid's background shows through 1px gaps). */
+.lzp-logos--grid .lzp-logos__list {
+	gap: 1px;
+	overflow: hidden;
+	border: 1px solid var(--lzp-line);
+	border-radius: var(--lzp-radius-lg);
+	background: var(--lzp-line);
+}
+
+.lzp-logos--grid .lzp-logos__logo {
+	height: 100%;
+	background: var(--lzp-card, var(--lzp-bg));
+}
+
+.lzp-logos--grid .lzp-logos__logo:hover {
+	background: var(--lzp-panel, var(--lzp-soft));
+}
+
+/* Tiles. */
+.lzp-logos--cards .lzp-logos__logo {
+	height: 100%;
+	border: 1px solid transparent;
+	border-radius: var(--lzp-radius-md);
+	background: var(--lzp-panel, var(--lzp-soft));
+}
+
+.lzp-logos--cards .lzp-logos__logo:hover {
+	border-color: var(--lzp-line-strong);
+	background: var(--lzp-card, var(--lzp-bg));
+}
+
+/* Row. */
+.lzp-logos--inline .lzp-logos__list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 8px clamp(16px, 3vw, 40px);
+}
+
+.lzp-logos--inline .lzp-logos__logo {
+	min-height: 0;
+	padding: 10px 6px;
+}
+
+/* Scrolling strip: two copies of the list slide by one list's width, then start over. */
+.lzp-logos .lzp-logos__viewport {
+	overflow: hidden;
+	-webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+	mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.lzp-logos .lzp-logos__track {
+	display: flex;
+	width: max-content;
+	animation: lzp-logos-slide var(--lzp-logos-dur) linear infinite;
+	--lzp-logos-dir: -1;
+}
+
+[dir="rtl"] .lzp-logos .lzp-logos__track,
+.rtl .lzp-logos .lzp-logos__track {
+	--lzp-logos-dir: 1;
+}
+
+.lzp-logos--marquee .lzp-logos__list {
+	display: flex;
+	flex: none;
+	align-items: center;
+	gap: clamp(20px, 4vw, 56px);
+	/* The space after the last logo matches the gaps, so the seam is invisible. */
+	padding-inline-end: clamp(20px, 4vw, 56px);
+}
+
+.lzp-logos--marquee .lzp-logos__logo {
+	min-height: 0;
+	padding: 12px 4px;
+}
+
+.lzp-logos__viewport:is(:hover, :focus-within) .lzp-logos__track {
+	animation-play-state: paused;
+}
+
+@keyframes lzp-logos-slide {
+	to {
+		transform: translateX(calc(50% * var(--lzp-logos-dir)));
+	}
+}
+
+@media (max-width: 767px) {
+	.lzp-logos .lzp-logos__logo {
+		min-height: calc(var(--lzp-logo-h) * 0.8 + 32px);
+		padding: 14px;
+	}
+
+	.lzp-logos .lzp-logos__img {
+		height: calc(var(--lzp-logo-h) * 0.8);
+	}
+}
+
+/* Without motion the strip is a wrapping row and the copy goes away. */
+@media (prefers-reduced-motion: reduce) {
+	.lzp-logos .lzp-logos__viewport {
+		-webkit-mask-image: none;
+		mask-image: none;
+	}
+
+	.lzp-logos .lzp-logos__track {
+		width: auto;
+		animation: none;
+	}
+
+	.lzp-logos--marquee .lzp-logos__list {
+		flex-wrap: wrap;
+		justify-content: center;
+		padding: 0;
+	}
+
+	.lzp-logos--marquee .lzp-logos__list[aria-hidden] {
+		display: none;
+	}
+}
+
+/* ==========================================================================
+   Contact cards (contact pages)
+   ========================================================================== */
+
+.lzp-reach {
+	margin: 0;
+	padding: 0;
+	font-family: var(--lzp-font);
+	list-style: none;
+}
+
+.lzp-reach .lzp-reach__item {
+	display: flex;
+	align-items: flex-start;
+	gap: 14px;
+	margin: 0;
+	line-height: 1.8;
+}
+
+.lzp-reach .lzp-reach__icon {
+	display: grid;
+	flex: none;
+	place-items: center;
+	width: 48px;
+	height: 48px;
+	border-radius: var(--lzp-radius-sm);
+	background: var(--lzp-hover-bg, var(--lzp-chip));
+	color: var(--lzp-heading, var(--lzp-ink));
+	line-height: 1;
+}
+
+.lzp-reach__icon .lzp-ico {
+	width: 22px;
+	height: 22px;
+	font-size: 22px;
+}
+
+.lzp-reach .lzp-reach__body {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	min-width: 0;
+}
+
+.lzp-reach .lzp-reach__title {
+	margin: 0;
+	color: var(--lzp-muted);
+	font-family: var(--lzp-font);
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1.7;
+}
+
+.lzp-reach .lzp-reach__values {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.lzp-reach .lzp-reach__value {
+	color: var(--lzp-heading, var(--lzp-ink));
+	font-size: 15.5px;
+	font-weight: 800;
+	line-height: 1.8;
+	text-decoration: none;
+	overflow-wrap: anywhere;
+}
+
+/* Logical alignment keeps LTR values (numbers, emails) at the start of the RTL line. */
+.lzp-reach .lzp-reach__value[dir="ltr"] {
+	text-align: end;
+	align-self: flex-start;
+}
+
+.lzp-reach a.lzp-reach__value:hover {
+	color: var(--lzp-accent);
+}
+
+.lzp-reach .lzp-reach__note {
+	margin: 2px 0 0;
+	color: var(--lzp-text);
+	font-size: 12.5px;
+	line-height: 1.8;
+}
+
+/* Cards. */
+.lzp-reach--tiles .lzp-reach__item {
+	flex-direction: column;
+	height: 100%;
+	padding: 22px;
+	border: 1px solid var(--lzp-card-line, var(--lzp-line));
+	border-radius: var(--lzp-radius-lg);
+	background: var(--lzp-card, var(--lzp-bg));
+	transition: border-color var(--lzp-dur) ease, transform 0.35s var(--lzp-ease);
+}
+
+.lzp-reach--tiles .lzp-reach__item:hover {
+	border-color: var(--lzp-line-strong);
+	transform: translateY(-3px);
+}
+
+/* On phones the cards stack: the icon goes beside the text to keep them short. */
+@media (max-width: 767px) {
+	.lzp-reach--tiles .lzp-reach__item {
+		flex-direction: row;
+		padding: 16px;
+	}
+}
+
+/* Rows in one panel (on a dark surface in the split layout). */
+.lzp-reach--list {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+}
+
+.lzp-reach--list .lzp-reach__item {
+	padding: 18px 0;
+	border-bottom: 1px solid var(--lzp-card-line, var(--lzp-line));
+}
+
+.lzp-reach--list .lzp-reach__item:first-child {
+	padding-top: 0;
+}
+
+.lzp-reach--list .lzp-reach__item:last-child {
+	padding-bottom: 0;
+	border-bottom: 0;
+}
+
+/* Large values, centred. */
+.lzp-reach--big .lzp-reach__item {
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+	padding: 10px;
+	text-align: center;
+}
+
+.lzp-reach--big .lzp-reach__body {
+	align-items: center;
+}
+
+.lzp-reach--big .lzp-reach__icon {
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+}
+
+.lzp-reach--big .lzp-reach__value {
+	font-size: clamp(17px, 2vw, 22px);
+	font-weight: 900;
+}
+
+.lzp-reach--big .lzp-reach__value[dir="ltr"] {
+	align-self: center;
+}
+
+/* ==========================================================================
+   Map (loaded on click by map.js)
+   ========================================================================== */
+
+.lzp-map {
+	position: relative;
+	overflow: hidden;
+	/* min-width: 0, or the ratio turns the minimum height into a minimum width wider than a phone. */
+	width: 100%;
+	min-width: 0;
+	aspect-ratio: var(--lzp-map-ratio, 16 / 9);
+	min-height: 300px;
+	border: 1px solid var(--lzp-card-line, var(--lzp-line));
+	border-radius: var(--lzp-radius-lg);
+	background-color: var(--lzp-panel, var(--lzp-soft));
+	/* A street grid drawn with gradients: a hint of a map without loading one. */
+	background-image:
+		linear-gradient(var(--lzp-line) 1px, transparent 1px),
+		linear-gradient(90deg, var(--lzp-line) 1px, transparent 1px),
+		linear-gradient(32deg, transparent 49.6%, var(--lzp-line-strong) 49.8%, var(--lzp-line-strong) 50.4%, transparent 50.6%),
+		linear-gradient(-58deg, transparent 49.7%, var(--lzp-line) 49.9%, var(--lzp-line) 50.5%, transparent 50.7%);
+	background-size: 44px 44px, 44px 44px, 100% 100%, 100% 100%;
+	font-family: var(--lzp-font);
+}
+
+.lzp-map .lzp-map__cover {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	padding: 24px;
+	text-align: center;
+}
+
+.lzp-map .lzp-map__pin {
+	display: grid;
+	place-items: center;
+	width: 56px;
+	height: 56px;
+	margin-bottom: 6px;
+	border-radius: 50% 50% 50% 0;
+	background: var(--lzp-ink);
+	box-shadow: 0 14px 30px -12px rgba(2, 45, 79, 0.6);
+	color: #ffffff;
+	line-height: 1;
+	transform: rotate(-45deg);
+}
+
+.lzp-map__pin .lzp-ico {
+	width: 24px;
+	height: 24px;
+	font-size: 24px;
+	transform: rotate(45deg);
+}
+
+.lzp-map .lzp-map__title {
+	margin: 0;
+	color: var(--lzp-heading, var(--lzp-ink));
+	font-size: 17px;
+	font-weight: 900;
+	line-height: 1.7;
+}
+
+.lzp-map .lzp-map__address {
+	max-width: 420px;
+	margin: 0;
+	color: var(--lzp-text);
+	font-size: 13.5px;
+	line-height: 1.9;
+}
+
+.lzp-map .lzp-map__actions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 10px;
+	margin-top: 10px;
+}
+
+.lzp-map .lzp-map__frame {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
+.lzp-map.is-loaded .lzp-map__cover {
+	display: none;
+}
+
+/* ==========================================================================
    Accessibility
    ========================================================================== */
 
-:is(.lzp-filter-chip, .lzp-rows__item--link, .lzp-cards__link, .lzp-faq__q, .lzp-crumbs a, .lzp-related__card, .lzp-pager a, .lzp-prose a, .lzp-play, .lzp-video-dialog__close, .lzp-service__more):focus-visible {
+:is(.lzp-filter-chip, .lzp-rows__item--link, .lzp-cards__link, .lzp-faq__q, .lzp-crumbs a, .lzp-related__card, .lzp-pager a, .lzp-prose a, .lzp-play, .lzp-video-dialog__close, .lzp-service__more, .lzp-logos__logo):focus-visible {
 	outline: 3px solid color-mix(in srgb, var(--lzp-accent) 55%, transparent);
 	outline-offset: 3px;
 }
@@ -2212,7 +2661,12 @@
 	.lzp-filter-bar .lzp-filter-chip,
 	.lzp-play,
 	.lzp-services .lzp-service,
-	.lzp-service .lzp-service__more {
+	.lzp-service .lzp-service__more,
+	.lzp-reach--tiles .lzp-reach__item {
 		transition: none;
+	}
+
+	.lzp-reach--tiles .lzp-reach__item:hover {
+		transform: none;
 	}
 }

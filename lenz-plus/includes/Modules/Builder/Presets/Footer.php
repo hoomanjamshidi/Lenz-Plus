@@ -4,7 +4,9 @@
  *
  * The full footer (home page) has the brand box with a description, both of
  * Lenz's footer menus and the contact card; the compact one (about and
- * project pages) drops the description and the first menu. Columns are
+ * project pages) drops the description and the first menu. The store
+ * footer is the full one with a row of trust badges (eNamad, Zarinpal)
+ * above the copyright line, for sites that sell courses. Columns are
  * 210px wide at least and share the rest, like the mockups'
  * `repeat(auto-fit, minmax(210px, 1fr))` grid.
  *
@@ -33,10 +35,16 @@ final class Footer {
 		return self::footer( false );
 	}
 
+	/** The full footer with the trust badges row. */
+	public static function store(): array {
+		return self::footer( true, true );
+	}
+
 	/**
-	 * @param bool $full Whether the description and the first menu are included.
+	 * @param bool $full  Whether the description and the first menu are included.
+	 * @param bool $trust Whether the trust badges row is included.
 	 */
-	private static function footer( bool $full ): array {
+	private static function footer( bool $full, bool $trust = false ): array {
 		$columns = array(
 			self::column(
 				El::w(
@@ -73,9 +81,49 @@ final class Footer {
 						),
 						$columns
 					),
+					$trust ? self::trust_row() : null,
 					El::w( 'lzp-copyright' ),
 				)
 			),
+		);
+	}
+
+	/** Trust badges beside a line about safe payment, between hairlines. */
+	private static function trust_row(): array {
+		return El::box(
+			array(
+				'dir'        => 'row',
+				'dir_mobile' => 'column',
+				'align'      => 'center',
+				'justify'    => 'space-between',
+				'gap'        => 20,
+				'pad'        => array( 22, 0 ),
+				'border'     => array( array( 1, 0, 0, 0 ), '#1a4a6e' ),
+			),
+			array(
+				El::w(
+					'lzp-text',
+					array(
+						'content'   => '<p><strong>خرید امن و مطمئن</strong><br>پرداخت آنلاین دوره‌ها با درگاه امن زرین‌پال؛ نمادهای اعتماد را برای اطمینان بررسی کنید.</p>',
+						'tone'      => 'muted',
+						'max_width' => El::px( 460 ),
+					),
+					array( 'fill' => true )
+				),
+				El::w(
+					'lzp-trust-badges',
+					array(
+						'title' => '',
+						'items' => Blocks::rows(
+							array(
+								array( 'type' => 'enamad' ),
+								array( 'type' => 'samandehi' ),
+								array( 'type' => 'zarinpal' ),
+							)
+						),
+					)
+				),
+			)
 		);
 	}
 

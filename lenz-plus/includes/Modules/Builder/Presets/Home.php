@@ -2,11 +2,12 @@
 /**
  * The home page of the mockups (Design/… - Home.dc.html): the film strip
  * hero, services, about me, key numbers, the portfolio with category chips,
- * a call to action, the framed «بگو سیـب», courses, the blog, client
- * testimonials, the booking form in the ink frame (#booking) and the FAQ.
+ * the logos of brands worked with, a call to action, the framed «بگو سیـب»,
+ * courses, the blog, client testimonials, the booking form in the ink frame
+ * (#booking) and the FAQ.
  *
- * Section ids (services, about, portfolio, courses, blog, testimonials,
- * booking, faq) are kept so menu links such as `/#booking` keep working.
+ * Section ids (services, about, portfolio, brands, courses, blog,
+ * testimonials, booking, faq) are kept so menu links such as `/#booking` keep working.
  * The Persian copy is the mockups' sample content; images are left empty.
  *
  * @package LenzPlus
@@ -29,6 +30,7 @@ final class Home {
 			self::about(),
 			self::stats(),
 			self::portfolio(),
+			self::brands(),
 			self::cta(),
 			self::smile(),
 			self::courses(),
@@ -226,6 +228,34 @@ final class Home {
 				),
 			),
 			array( 'set' => array( '_element_id' => 'portfolio' ) )
+		);
+	}
+
+	/** «برندهایی که با آن‌ها کار کرده‌ام»: a scrolling strip of word marks until logos are uploaded. */
+	private static function brands(): array {
+		return Blocks::band(
+			array(
+				Blocks::heading( 'برندهایی که با آن‌ها کار کرده‌ام', 'از کافه‌های محله تا برندهای ملی؛ هر کدام قصه‌ای تصویری داشتند.' ),
+				El::w(
+					'lzp-brand-logos',
+					array(
+						'look'  => 'marquee',
+						'items' => Blocks::rows(
+							array(
+								array( 'name' => 'NOVA' ),
+								array( 'name' => 'LAM CAFÉ' ),
+								array( 'name' => 'AVA' ),
+								array( 'name' => 'ROSHAN' ),
+								array( 'name' => 'PARSIAN' ),
+								array( 'name' => 'MAHAN' ),
+								array( 'name' => 'ARTA' ),
+								array( 'name' => 'SAMAN' ),
+							)
+						),
+					)
+				),
+			),
+			array_merge( Blocks::pad_y( 40, 32, 24 ), array( 'set' => array( '_element_id' => 'brands' ) ) )
 		);
 	}
 

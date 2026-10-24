@@ -12,6 +12,8 @@
  *   hero photo). Loads right away with `fetchpriority="high"` and carries
  *   the usual "do not lazy-load" markers, because optimisation plugins
  *   (WP Rocket, LiteSpeed, Smush, Jetpack…) would otherwise lazy-load it.
+ * - `eager`: loads right away without the priority hint (the first row of
+ *   a list page, where several photos share the first screen).
  * - `lazy` (default): native `loading="lazy"`.
  *
  * @package LenzPlus
@@ -51,7 +53,7 @@ final class Picture {
 	 *     @type string $ratio   One of RATIOS ('' keeps the image's own shape).
 	 *     @type string $label   Placeholder label (what the photo should show).
 	 *     @type string $alt     Alt text when the attachment has none.
-	 *     @type string $loading `high` or `lazy`.
+	 *     @type string $loading `high`, `eager` or `lazy`.
 	 *     @type string $sizes   `sizes` attribute.
 	 *     @type string $class   Extra classes on the frame.
 	 *     @type string $tag     `div` or `figure`.
@@ -136,10 +138,17 @@ final class Picture {
 	}
 
 	/**
-	 * @param string $loading `high` or `lazy`.
+	 * @param string $loading `high`, `eager` or `lazy`.
 	 * @return array<string, string>
 	 */
 	private static function loading_attributes( string $loading ): array {
+		if ( 'eager' === $loading ) {
+			return array(
+				'loading'  => 'eager',
+				'decoding' => 'async',
+			);
+		}
+
 		if ( 'high' !== $loading ) {
 			return array(
 				'loading'  => 'lazy',

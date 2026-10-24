@@ -43,6 +43,12 @@ if ( is_singular() ) {
 		}
 
 		echo Renderer::render( $lzp_template_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Elementor output.
+
+		// WooCommerce collects a product's structured data (price, stock, reviews) in the summary
+		// of its own template, which this page replaces; it prints the data in the footer.
+		if ( is_singular( 'product' ) && function_exists( 'WC' ) && isset( WC()->structured_data ) ) {
+			WC()->structured_data->generate_product_data();
+		}
 	endwhile;
 } else {
 	echo Renderer::render( $lzp_template_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Elementor output.

@@ -1167,6 +1167,119 @@ html.lzp-lock {
 }
 
 /* ==========================================================================
+   Trust badges (Trust_Badges): eNamad, Samandehi, Zarinpal…
+   Fixed-height tiles, so a slow badge server never shifts the footer.
+   ========================================================================== */
+
+.lzp-trust {
+	--lzp-badge-h: 88px;
+	font-family: var(--lzp-font);
+}
+
+.lzp-trust .lzp-col-title {
+	margin-bottom: 14px;
+}
+
+.lzp-trust .lzp-trust__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.lzp-trust .lzp-trust__badge {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: calc(var(--lzp-badge-h) * 0.9);
+	height: calc(var(--lzp-badge-h) + 16px);
+	margin: 0;
+	padding: 8px;
+	line-height: 1;
+}
+
+/* Badges are drawn for white backgrounds: on the ink footer they sit on white tiles. */
+.lzp-trust--tiles .lzp-trust__badge {
+	border-radius: var(--lzp-radius-sm);
+	background: #ffffff;
+	box-shadow: 0 0 0 1px var(--lzp-line);
+}
+
+.lzp-trust .lzp-trust__link,
+.lzp-trust .lzp-trust__badge > a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	text-decoration: none;
+}
+
+.lzp-trust .lzp-trust__img {
+	display: block;
+	width: auto;
+	max-width: 160px;
+	height: var(--lzp-badge-h);
+	object-fit: contain;
+}
+
+.lzp-trust .lzp-trust__drawn {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 0 8px;
+	color: var(--lzp-ink);
+}
+
+.lzp-trust--plain .lzp-trust__drawn {
+	color: var(--lzp-heading, var(--lzp-ink));
+}
+
+.lzp-trust__drawn .lzp-ico {
+	flex: none;
+	width: 26px;
+	height: 26px;
+	font-size: 26px;
+	color: #0f9d58;
+}
+
+.lzp-trust .lzp-trust__drawn-text {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	font-size: 11px;
+	line-height: 1.6;
+}
+
+.lzp-trust__drawn-text strong {
+	font-size: 13px;
+	font-weight: 900;
+	line-height: 1.6;
+}
+
+.lzp-trust__drawn-text span {
+	line-height: 1.6;
+	opacity: 0.75;
+}
+
+.lzp-trust .lzp-trust__badge--todo {
+	max-width: 170px;
+	border: 1px dashed currentColor;
+	background: transparent;
+	box-shadow: none;
+	font-size: 11px;
+	line-height: 1.6;
+	text-align: center;
+	opacity: 0.7;
+}
+
+.lzp-trust__link:focus-visible {
+	outline: 3px solid color-mix(in srgb, var(--lzp-accent) 55%, transparent);
+	outline-offset: 3px;
+}
+
+/* ==========================================================================
    Accessibility
    ========================================================================== */
 

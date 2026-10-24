@@ -45,6 +45,9 @@ final class Assets {
 	/** In-place category filter of the portfolio and post grids. */
 	public const FILTER_HANDLE = 'lzp-filter';
 
+	/** Script that loads a map only when the visitor asks for it (Map_Embed). */
+	public const MAP_HANDLE = 'lzp-map';
+
 	/** Inline-only style: the brand tokens every Lenz+ stylesheet depends on. */
 	public const TOKENS_HANDLE = 'lzp-tokens';
 
@@ -108,6 +111,17 @@ final class Assets {
 		wp_register_script(
 			self::FILTER_HANDLE,
 			Asset::url( 'assets/modules/builder/js/filter.js' ),
+			array(),
+			LENZ_PLUS_VERSION,
+			array(
+				'in_footer' => true,
+				'strategy'  => 'defer',
+			)
+		);
+
+		wp_register_script(
+			self::MAP_HANDLE,
+			Asset::url( 'assets/modules/builder/js/map.js' ),
 			array(),
 			LENZ_PLUS_VERSION,
 			array(

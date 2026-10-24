@@ -31,7 +31,8 @@
 }
 
 /* ==========================================================================
-   Post cards
+   Post cards (Post_Grid::card_html(), also the related articles)
+   One markup for every look: the title link is stretched over the article.
    ========================================================================== */
 
 .lzp-post-list {
@@ -39,57 +40,311 @@
 }
 
 .lzp-posts {
-	gap: clamp(14px, 2vw, 24px);
+	gap: clamp(16px, 2.2vw, 28px);
 }
 
 .lzp-post-card[hidden] {
 	display: none;
 }
 
-.lzp-post-card .lzp-post-card__link {
+.lzp-post-card .lzp-post-card__box {
+	position: relative;
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
-	color: var(--lzp-heading, var(--lzp-ink));
-	text-decoration: none;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: var(--lzp-font);
+	line-height: 1.8;
+	isolation: isolate;
 }
 
-.lzp-post-card .lzp-pic {
+.lzp-post-card .lzp-post-card__media {
+	position: relative;
+	overflow: hidden;
 	border-radius: var(--lzp-radius-md);
 }
 
-/* Dashed cards (home page): the whole card is the link, solid ink border on hover. */
-.lzp-posts--dashed .lzp-post-card__link {
-	gap: 14px;
-	height: 100%;
+.lzp-post-card .lzp-post-card__pic {
+	border-radius: inherit;
+}
+
+.lzp-post-card .lzp-pic__img {
+	transition: transform 0.6s var(--lzp-ease);
+}
+
+.lzp-post-card__box:hover .lzp-pic__img {
+	transform: scale(1.05);
+}
+
+.lzp-post-card .lzp-post-card__cat {
+	position: absolute;
+	z-index: 1;
+	inset-block-start: 12px;
+	inset-inline-start: 12px;
+	padding: 4px 11px;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.92);
+	color: var(--lzp-ink);
+	font-size: 11.5px;
+	font-weight: 700;
+	line-height: 1.8;
+	-webkit-backdrop-filter: blur(6px);
+	backdrop-filter: blur(6px);
+}
+
+.lzp-post-card .lzp-post-card__body {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	gap: 10px;
+	padding-block-start: 16px;
+}
+
+.lzp-post-card .lzp-post-card__meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px 16px;
+	color: var(--lzp-muted);
+	font-size: 12px;
+	line-height: 1.6;
+}
+
+.lzp-post-card .lzp-post-card__fact {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	line-height: inherit;
+}
+
+.lzp-post-card__fact .lzp-ico {
+	width: 15px;
+	height: 15px;
+	font-size: 15px;
+	opacity: 0.8;
+}
+
+.lzp-post-card__fact time {
+	line-height: inherit;
+}
+
+.lzp-post-card .lzp-post-card__title {
+	display: -webkit-box;
+	overflow: hidden;
+	margin: 0;
+	color: var(--lzp-heading, var(--lzp-ink));
+	font-family: var(--lzp-font);
+	font-size: 17px;
+	font-weight: 800;
+	line-height: 1.75;
+	text-wrap: pretty;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
+
+.lzp-post-card .lzp-post-card__link {
+	color: inherit;
+	text-decoration: none;
+	transition: color var(--lzp-dur) ease;
+}
+
+/* The whole card is the link's tap target. */
+.lzp-post-card .lzp-post-card__link::after {
+	content: "";
+	position: absolute;
+	z-index: 2;
+	inset: 0;
+	border-radius: inherit;
+}
+
+.lzp-post-card__box:hover .lzp-post-card__link {
+	color: var(--lzp-accent);
+}
+
+.lzp-post-card .lzp-post-card__excerpt {
+	display: -webkit-box;
+	overflow: hidden;
+	margin: 0;
+	color: var(--lzp-text);
+	font-size: 13.5px;
+	line-height: 2;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+}
+
+.lzp-post-card .lzp-post-card__foot {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	margin-block-start: auto;
+	padding-block-start: 14px;
+	border-block-start: 1px solid var(--lzp-card-line, var(--lzp-line));
+}
+
+.lzp-post-card .lzp-post-card__author {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	min-width: 0;
+	line-height: 1.6;
+}
+
+.lzp-post-card .lzp-post-card__avatar {
+	flex: none;
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.lzp-post-card .lzp-post-card__name {
+	overflow: hidden;
+	color: var(--lzp-sub);
+	font-size: 12.5px;
+	font-weight: 600;
+	line-height: inherit;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.lzp-post-card .lzp-post-card__more {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	margin-inline-start: auto;
+	color: var(--lzp-accent);
+	font-size: 12.5px;
+	font-weight: 700;
+	line-height: 1.6;
+	transition: gap var(--lzp-dur) ease;
+}
+
+.lzp-post-card__more .lzp-ico {
+	width: 16px;
+	height: 16px;
+	font-size: 16px;
+}
+
+.lzp-post-card__box:hover .lzp-post-card__more {
+	gap: 10px;
+}
+
+/* Cards: a white card that lifts on hover. */
+.lzp-posts--card .lzp-post-card__box {
+	padding: 10px 10px 16px;
+	border: 1px solid var(--lzp-card-line, var(--lzp-line));
+	border-radius: var(--lzp-radius-lg);
+	background: var(--lzp-card, var(--lzp-bg));
+	transition: transform 0.35s var(--lzp-ease), box-shadow 0.35s var(--lzp-ease), border-color var(--lzp-dur) ease;
+}
+
+.lzp-posts--card .lzp-post-card__body {
+	padding-inline: 8px;
+}
+
+.lzp-posts--card .lzp-post-card__box:hover {
+	border-color: var(--lzp-line-strong);
+	box-shadow: 0 22px 44px -26px rgba(2, 45, 79, 0.45);
+	transform: translateY(-4px);
+}
+
+/* Dashed cards (home page): solid ink border on hover. */
+.lzp-posts--dashed .lzp-post-card__box {
 	padding: 14px;
 	border: 1px dashed var(--lzp-dashed);
 	border-radius: var(--lzp-radius-lg);
 	transition: border-color var(--lzp-dur) ease;
 }
 
-.lzp-posts--dashed .lzp-post-card__link:hover {
+.lzp-posts--dashed .lzp-post-card__box:hover {
 	border-style: solid;
 	border-color: var(--lzp-heading, var(--lzp-ink));
 }
 
-.lzp-post-card .lzp-post-card__title {
-	color: var(--lzp-heading, var(--lzp-ink));
-	font-size: 16px;
-	font-weight: 900;
-	line-height: 1.8;
-	text-wrap: pretty;
-	transition: color var(--lzp-dur) ease;
+/* Text on the photo: a tall photo darkened towards the text. */
+.lzp-posts--overlay .lzp-post-card__box {
+	overflow: hidden;
+	min-height: 380px;
+	border-radius: var(--lzp-radius-lg);
+	background: var(--lzp-ink);
+	--lzp-heading: #ffffff;
+	--lzp-text: rgba(255, 255, 255, 0.82);
+	--lzp-muted: rgba(255, 255, 255, 0.75);
+	--lzp-sub: #ffffff;
+	--lzp-accent: #ffffff;
+	--lzp-card-line: rgba(255, 255, 255, 0.2);
 }
 
-.lzp-post-card__link:hover .lzp-post-card__title {
-	color: var(--lzp-accent);
+.lzp-posts--overlay .lzp-post-card__media {
+	position: absolute;
+	inset: 0;
+	border-radius: 0;
 }
 
-.lzp-post-card .lzp-post-card__excerpt {
-	color: var(--lzp-text);
-	font-size: 13px;
-	line-height: 2;
+.lzp-posts--overlay .lzp-post-card__pic {
+	width: 100%;
+	height: 100%;
+	border-radius: 0;
+}
+
+.lzp-posts--overlay .lzp-pic .lzp-pic__img {
+	height: 100%;
+}
+
+.lzp-posts--overlay .lzp-post-card__media::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to top, rgba(2, 20, 36, 0.92) 0%, rgba(2, 20, 36, 0.55) 45%, rgba(2, 20, 36, 0.05) 75%);
+}
+
+.lzp-posts--overlay .lzp-post-card__body {
+	position: relative;
+	justify-content: flex-end;
+	padding: 22px;
+}
+
+.lzp-posts--overlay .lzp-post-card__foot {
+	flex: none;
+	margin-block-start: 4px;
+}
+
+.lzp-posts--overlay .lzp-post-card__box:hover .lzp-post-card__link {
+	color: #ffffff;
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 6px;
+}
+
+/* Photo beside the text. */
+.lzp-posts--list .lzp-post-card__box {
+	display: grid;
+	grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+	align-items: center;
+	gap: 18px;
+	padding: 10px;
+	border: 1px solid var(--lzp-card-line, var(--lzp-line));
+	border-radius: var(--lzp-radius-lg);
+	background: var(--lzp-card, var(--lzp-bg));
+	transition: border-color var(--lzp-dur) ease, box-shadow 0.35s var(--lzp-ease);
+}
+
+.lzp-posts--list .lzp-post-card__body {
+	padding-block: 6px;
+	padding-inline-end: 8px;
+}
+
+.lzp-posts--list .lzp-post-card__box:hover {
+	border-color: var(--lzp-line-strong);
+	box-shadow: 0 18px 36px -26px rgba(2, 45, 79, 0.4);
+}
+
+@media (max-width: 520px) {
+	.lzp-posts--list .lzp-post-card__box {
+		grid-template-columns: minmax(0, 1fr);
+	}
 }
 
 .lzp-post-list .lzp-posts__empty {
@@ -327,6 +582,100 @@
 	display: inline;
 }
 
+/* Centred header (minimal and cover articles). */
+.lzp-hero--center {
+	--lzp-hero-align: center;
+}
+
+.lzp-hero--center .lzp-hero__inner {
+	margin-inline: auto;
+}
+
+.lzp-hero--center .lzp-post-meta,
+.lzp-hero--center .lzp-byline {
+	justify-content: center;
+}
+
+.lzp-hero--center .lzp-share {
+	margin-inline-start: 0;
+}
+
+/* Text beside the featured image. */
+.lzp-hero--article-split {
+	padding-block: clamp(10px, 2vw, 24px) clamp(26px, 4vw, 48px);
+}
+
+.lzp-hero--article-split .lzp-hero__inner {
+	max-width: var(--lzp-container);
+	grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+}
+
+.lzp-hero--article-split .lzp-hero__media {
+	border-radius: var(--lzp-radius-xl);
+}
+
+@media (max-width: 900px) {
+	.lzp-hero--article-split .lzp-hero__inner {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+/* Text on the featured image: the photo fills the band and darkens towards the text. */
+.lzp-hero--cover {
+	display: flex;
+	align-items: flex-end;
+	min-height: clamp(420px, 70vh, 680px);
+	padding-block: clamp(90px, 14vw, 160px) clamp(30px, 5vw, 56px);
+	background: var(--lzp-ink);
+}
+
+.lzp-hero--cover .lzp-hero__media {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	margin: 0;
+	border-radius: 0;
+}
+
+.lzp-hero--cover .lzp-hero__media .lzp-pic__img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.lzp-hero--cover::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	background: linear-gradient(to top, rgba(2, 20, 36, 0.94) 0%, rgba(2, 20, 36, 0.6) 45%, rgba(2, 20, 36, 0.15) 100%);
+	pointer-events: none;
+}
+
+.lzp-hero--cover .lzp-hero__inner {
+	z-index: 1;
+}
+
+.lzp-hero--cover .lzp-post-meta .lzp-chip {
+	background: rgba(255, 255, 255, 0.16);
+	color: #ffffff;
+}
+
+.lzp-hero--cover .lzp-byline {
+	border-top-color: rgba(255, 255, 255, 0.22);
+}
+
+.lzp-hero--cover .lzp-share .lzp-share__btn {
+	border-color: rgba(255, 255, 255, 0.28);
+	background: rgba(255, 255, 255, 0.08);
+	color: #ffffff;
+}
+
+.lzp-hero--cover .lzp-share .lzp-share__btn:hover {
+	background: rgba(255, 255, 255, 0.2);
+	color: #ffffff;
+}
+
 /* ==========================================================================
    Sidebar cards: table of contents, popular posts, search (the card itself is in sections.css)
    ========================================================================== */
@@ -503,20 +852,248 @@
 }
 
 /* ==========================================================================
+   Folding table of contents, author box, previous and next post
+   ========================================================================== */
+
+.lzp-toc--inline details {
+	border: 1px solid var(--lzp-card-line, var(--lzp-line));
+	border-radius: var(--lzp-radius-md);
+	background: var(--lzp-panel, var(--lzp-soft));
+	font-family: var(--lzp-font);
+}
+
+.lzp-toc--inline .lzp-toc__summary {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	min-height: 52px;
+	padding: 12px 20px;
+	color: var(--lzp-heading, var(--lzp-ink));
+	font-size: 15px;
+	font-weight: 900;
+	line-height: 1.6;
+	list-style: none;
+	cursor: pointer;
+}
+
+.lzp-toc--inline .lzp-toc__summary::-webkit-details-marker {
+	display: none;
+}
+
+.lzp-toc--inline .lzp-toc__caret {
+	width: 18px;
+	height: 18px;
+	font-size: 18px;
+	transition: transform var(--lzp-dur) ease;
+}
+
+.lzp-toc--inline details[open] .lzp-toc__caret {
+	transform: rotate(180deg);
+}
+
+.lzp-toc--inline .lzp-toc__list {
+	gap: 8px;
+	padding: 0 20px 18px;
+	counter-reset: lzp-toc;
+}
+
+.lzp-toc--inline .lzp-toc__item {
+	counter-increment: lzp-toc;
+}
+
+.lzp-toc--inline .lzp-toc__item--h2 .lzp-toc__link::before {
+	content: counter(lzp-toc) ". ";
+	color: var(--lzp-muted);
+}
+
+.lzp-toc--inline .lzp-toc__summary:focus-visible {
+	outline: 3px solid color-mix(in srgb, var(--lzp-accent) 55%, transparent);
+	outline-offset: 2px;
+	border-radius: var(--lzp-radius-md);
+}
+
+.lzp-author {
+	display: flex;
+	align-items: flex-start;
+	gap: 20px;
+	padding: clamp(18px, 3vw, 28px);
+	border: 1px solid var(--lzp-card-line, var(--lzp-line));
+	border-radius: var(--lzp-radius-lg);
+	background: var(--lzp-card, var(--lzp-bg));
+	font-family: var(--lzp-font);
+}
+
+.lzp-author .lzp-author__avatar {
+	flex: none;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	object-fit: cover;
+	filter: var(--lzp-photo-filter, none);
+}
+
+.lzp-author .lzp-author__body {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	min-width: 0;
+}
+
+.lzp-author .lzp-author__label {
+	color: var(--lzp-muted);
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.6;
+}
+
+.lzp-author .lzp-author__name {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 900;
+	line-height: 1.6;
+}
+
+.lzp-author .lzp-author__name a {
+	color: var(--lzp-heading, var(--lzp-ink));
+	text-decoration: none;
+}
+
+.lzp-author .lzp-author__bio {
+	margin: 0;
+	color: var(--lzp-text);
+	font-size: 14px;
+	line-height: 2;
+}
+
+.lzp-author .lzp-author__more {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	width: fit-content;
+	min-height: 44px;
+	color: var(--lzp-accent);
+	font-size: 13px;
+	font-weight: 700;
+	line-height: 1.6;
+	text-decoration: none;
+}
+
+@media (max-width: 520px) {
+	.lzp-author {
+		flex-direction: column;
+	}
+}
+
+.lzp-post-nav {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 14px;
+	font-family: var(--lzp-font);
+}
+
+.lzp-post-nav .lzp-post-nav__link {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	padding: 10px;
+	border: 1px solid var(--lzp-card-line, var(--lzp-line));
+	border-radius: var(--lzp-radius-md);
+	background: var(--lzp-card, var(--lzp-bg));
+	color: var(--lzp-heading, var(--lzp-ink));
+	text-decoration: none;
+	transition: border-color var(--lzp-dur) ease;
+}
+
+.lzp-post-nav .lzp-post-nav__link--next {
+	flex-direction: row-reverse;
+	text-align: end;
+}
+
+.lzp-post-nav .lzp-post-nav__link:hover {
+	border-color: var(--lzp-line-strong);
+}
+
+.lzp-post-nav .lzp-post-nav__pic {
+	flex: none;
+	width: 72px;
+	border-radius: var(--lzp-radius-sm);
+}
+
+.lzp-post-nav .lzp-post-nav__text {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	min-width: 0;
+	line-height: 1.6;
+}
+
+.lzp-post-nav .lzp-post-nav__label {
+	color: var(--lzp-muted);
+	font-size: 12px;
+	line-height: 1.6;
+}
+
+.lzp-post-nav .lzp-post-nav__title {
+	display: -webkit-box;
+	overflow: hidden;
+	font-size: 14px;
+	font-weight: 800;
+	line-height: 1.7;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
+
+.lzp-post-nav__link:hover .lzp-post-nav__title {
+	color: var(--lzp-accent);
+}
+
+@media (max-width: 600px) {
+	.lzp-post-nav {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+/* ==========================================================================
    Accessibility
    ========================================================================== */
 
-:is(.lzp-post-card__link, .lzp-featured-post, .lzp-byline__name, .lzp-share__btn, .lzp-toc__link, .lzp-popular__link):focus-visible {
+:is(.lzp-featured-post, .lzp-byline__name, .lzp-author__more, .lzp-post-nav__link, .lzp-share__btn, .lzp-toc__link, .lzp-popular__link):focus-visible {
 	outline: 3px solid color-mix(in srgb, var(--lzp-accent) 55%, transparent);
 	outline-offset: 3px;
 }
 
+.lzp-post-card .lzp-post-card__link:focus-visible {
+	outline: 3px solid color-mix(in srgb, var(--lzp-accent) 55%, transparent);
+	outline-offset: 3px;
+}
+
+/* Where :has() works the ring goes round the whole card, which the title link is stretched over. */
+@supports selector(:has(a)) {
+	.lzp-post-card .lzp-post-card__link:focus-visible {
+		outline: none;
+	}
+
+	.lzp-post-card__box:has(.lzp-post-card__link:focus-visible) {
+		outline: 3px solid color-mix(in srgb, var(--lzp-accent) 55%, transparent);
+		outline-offset: 3px;
+	}
+}
+
 @media (prefers-reduced-motion: reduce) {
-	.lzp-post-card .lzp-post-card__title,
+	.lzp-post-card .lzp-post-card__box,
+	.lzp-post-card .lzp-pic__img,
+	.lzp-post-card .lzp-post-card__link,
+	.lzp-post-card .lzp-post-card__more,
 	.lzp-featured-post .lzp-featured-post__title,
 	.lzp-share .lzp-share__btn,
 	.lzp-popular .lzp-popular__title,
-	.lzp-posts--dashed .lzp-post-card__link {
+	.lzp-posts--dashed .lzp-post-card__box {
 		transition: none;
+	}
+
+	.lzp-post-card__box:hover,
+	.lzp-post-card__box:hover .lzp-pic__img {
+		transform: none;
 	}
 }

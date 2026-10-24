@@ -1,8 +1,14 @@
 <?php
 /**
- * Post cards of the blog page: a 4:3 photo, the category chip with the date
- * and reading time, the title and the excerpt, with optional category chips
- * above and page numbers below.
+ * Post cards of the blog page: the photo with the category chip, the date
+ * and reading time, the title, a short excerpt and the author with a "read
+ * more" line, with optional category chips above and page numbers below.
+ *
+ * Looks: `card` (a white card that lifts on hover), `overlay` (the text on
+ * the photo), `list` (photo beside the text), `plain` (no frame) and
+ * `dashed` (the home page's dashed cards). Every look shares one markup:
+ * an `<article>` whose title link is stretched over the card, so the card
+ * is one tap target while screen readers hear only the title.
  *
  * On a post list (posts page, category, tag, author, date, blog search) it
  * lists the page being viewed and the chips link to the category pages.
@@ -119,6 +125,38 @@ final class Post_Grid extends Blog_Base {
 		);
 
 		$this->add_control(
+			'excerpt_words',
+			array(
+				'label'     => __( 'Excerpt length (words)', 'lenz-plus' ),
+				'type'      => Controls_Manager::NUMBER,
+				'default'   => 18,
+				'min'       => 5,
+				'max'       => 60,
+				'condition' => array( 'excerpt' => 'yes' ),
+			)
+		);
+
+		$this->add_control(
+			'show_author',
+			array(
+				'label'        => __( 'Author', 'lenz-plus' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'yes',
+				'return_value' => 'yes',
+			)
+		);
+
+		$this->add_control(
+			'more_text',
+			array(
+				'label'       => __( '"Read more" text', 'lenz-plus' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => __( 'Read more', 'lenz-plus' ),
+				'description' => __( 'Empty: no "read more" line.', 'lenz-plus' ),
+			)
+		);
+
+		$this->add_control(
 			'empty_text',
 			array(
 				'label'   => __( 'When there are no posts', 'lenz-plus' ),
@@ -132,11 +170,8 @@ final class Post_Grid extends Blog_Base {
 			array(
 				'label'   => __( 'Look', 'lenz-plus' ),
 				'type'    => Controls_Manager::SELECT,
-				'default' => 'plain',
-				'options' => array(
-					'plain'  => __( 'Plain', 'lenz-plus' ),
-					'dashed' => __( 'Dashed cards (home page)', 'lenz-plus' ),
-				),
+				'default' => 'card',
+				'options' => self::looks(),
 			)
 		);
 
@@ -149,6 +184,21 @@ final class Post_Grid extends Blog_Base {
 		$this->add_text_style( 'title', '.lzp-post-card__title', array( 'label' => __( 'Title', 'lenz-plus' ) ) );
 		$this->add_text_style( 'excerpt', '.lzp-post-card__excerpt', array( 'label' => __( 'Excerpt', 'lenz-plus' ) ) );
 		$this->end_controls_section();
+	}
+
+	/**
+	 * Card looks → label.
+	 *
+	 * @return array<string, string>
+	 */
+	public static function looks(): array {
+		return array(
+			'card'    => __( 'Cards', 'lenz-plus' ),
+			'overlay' => __( 'Text on the photo', 'lenz-plus' ),
+			'list'    => __( 'Photo beside the text', 'lenz-plus' ),
+			'plain'   => __( 'Plain', 'lenz-plus' ),
+			'dashed'  => __( 'Dashed cards (home page)', 'lenz-plus' ),
+		);
 	}
 
 	/**
@@ -201,9 +251,20 @@ final class Post_Grid extends Blog_Base {
 			echo $bar; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in filter_bar_html().
 		}
 
-		echo '<ul class="lzp-posts lzp-grid' . ( 'dashed' === $s['look'] ? ' lzp-posts--dashed' : '' ) . '">';
-		foreach ( $query->posts as $post ) {
-			echo self::card_html( $post, (string) $s['ratio'], 'yes' === $s['excerpt'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in card_html().
+		$look = isset( self::looks()[ $s['look'] ] ) ? (string) $s['look'] : 'card';
+		$card = array(
+			'ratio'   => (string) $s['ratio'],
+			'excerpt' => 'yes' === $s['excerpt'] ? max( 5, (int) $s['excerpt_words'] ) : 0,
+			'author'  => 'yes' === $s['show_author'],
+			'more'    => (string) $s['more_text'],
+			'look'    => $look,
+		);
+
+		echo '<ul class="lzp-posts lzp-grid lzp-posts--' . esc_attr( $look ) . '">';
+		foreach ( $query->posts as $index => $post ) {
+			// The first photos of a list page are above the fold: no lazy loading for the first row.
+			$card['loading'] = $archive && $index < 3 && ! is_paged() ? 'eager' : 'lazy';
+			echo self::card_html( $post, $card ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in card_html().
 		}
 		echo '</ul>';
 
@@ -247,33 +308,105 @@ final class Post_Grid extends Blog_Base {
 	}
 
 	/**
-	 * One card.
+	 * One card (also used by Related_Items for articles).
 	 *
-	 * @param \WP_Post $post    Post.
-	 * @param string   $ratio   Photo ratio.
-	 * @param bool     $excerpt Whether the excerpt shows.
+	 * @param \WP_Post $post Post.
+	 * @param array    $o {
+	 *     @type string $look    One of looks().
+	 *     @type string $ratio   Photo ratio.
+	 *     @type int    $excerpt Excerpt length in words (0 = none).
+	 *     @type bool   $author  Whether the author shows.
+	 *     @type string $more    "Read more" text ('' = none).
+	 *     @type string $loading `lazy` or `eager`.
+	 *     @type string $tag     Title tag (h2, h3).
+	 *     @type string $sizes   `sizes` of the photo.
+	 * }
 	 */
-	private static function card_html( \WP_Post $post, string $ratio, bool $excerpt ): string {
-		$title = get_the_title( $post );
-		$cats  = wp_list_pluck( Post_Parts::categories( $post ), 'slug' );
-		$text  = $excerpt ? wp_strip_all_tags( get_the_excerpt( $post ) ) : '';
+	public static function card_html( \WP_Post $post, array $o = array() ): string {
+		$o = array_merge(
+			array(
+				'look'    => 'card',
+				'ratio'   => '4/3',
+				'excerpt' => 18,
+				'author'  => true,
+				'more'    => '',
+				'loading' => 'lazy',
+				'tag'     => 'h3',
+				'sizes'   => '(max-width: 767px) 100vw, (max-width: 1024px) 50vw, 400px',
+			),
+			$o
+		);
+
+		$title      = get_the_title( $post );
+		$categories = Post_Parts::categories( $post );
+		$tag        = in_array( $o['tag'], array( 'h2', 'h3', 'h4' ), true ) ? $o['tag'] : 'h3';
+		$text       = $o['excerpt'] > 0 ? self::excerpt( $post, (int) $o['excerpt'] ) : '';
+		$photo      = Picture::frame(
+			array( 'id' => (int) get_post_thumbnail_id( $post ) ),
+			array(
+				'ratio'   => 'overlay' === $o['look'] ? '' : $o['ratio'],
+				'alt'     => '',
+				'class'   => 'lzp-photo lzp-post-card__pic',
+				'sizes'   => $o['sizes'],
+				'loading' => 'eager' === $o['loading'] ? 'eager' : 'lazy',
+			)
+		);
+
+		$foot = ( $o['author'] ? self::author_html( $post ) : '' )
+			. ( '' !== $o['more'] ? '<span class="lzp-post-card__more" aria-hidden="true">' . esc_html( $o['more'] ) . self::icon( 'arrow-forward' ) . '</span>' : '' );
 
 		return sprintf(
-			'<li class="lzp-post-card" data-lzp-cats="%1$s"><a class="lzp-post-card__link" href="%2$s">%3$s%4$s<span class="lzp-post-card__title">%5$s</span>%6$s</a></li>',
-			esc_attr( implode( ' ', $cats ) ),
+			'<li class="lzp-post-card" data-lzp-cats="%1$s"><article class="lzp-post-card__box"><div class="lzp-post-card__media">%2$s%3$s</div><div class="lzp-post-card__body">%4$s<%5$s class="lzp-post-card__title"><a class="lzp-post-card__link" href="%6$s">%7$s</a></%5$s>%8$s%9$s</div></article></li>',
+			esc_attr( implode( ' ', wp_list_pluck( $categories, 'slug' ) ) ),
+			$photo,
+			$categories ? '<span class="lzp-chip lzp-post-card__cat">' . esc_html( $categories[0]->name ) . '</span>' : '',
+			self::meta_line_html( $post ),
+			$tag,
 			esc_url( (string) get_permalink( $post ) ),
-			Picture::frame(
-				array( 'id' => (int) get_post_thumbnail_id( $post ) ),
-				array(
-					'ratio' => $ratio,
-					'alt'   => $title,
-					'class' => 'lzp-photo',
-					'sizes' => '(max-width: 767px) 100vw, 33vw',
-				)
-			),
-			self::meta_html( $post ),
 			esc_html( $title ),
-			'' !== $text ? '<span class="lzp-post-card__excerpt">' . esc_html( $text ) . '</span>' : ''
+			'' !== $text ? '<p class="lzp-post-card__excerpt">' . esc_html( $text ) . '</p>' : '',
+			'' !== $foot ? '<div class="lzp-post-card__foot">' . $foot . '</div>' : ''
 		);
+	}
+
+	/**
+	 * Date and reading time with their icons.
+	 *
+	 * @param \WP_Post $post Post.
+	 */
+	private static function meta_line_html( \WP_Post $post ): string {
+		return '<div class="lzp-post-card__meta">'
+			. '<span class="lzp-post-card__fact">' . self::icon( 'calendar' ) . Post_Parts::time_html( $post ) . '</span>'
+			. '<span class="lzp-post-card__fact">' . self::icon( 'clock' ) . esc_html( Post_Parts::reading_label( $post, true ) ) . '</span>'
+			. '</div>';
+	}
+
+	/**
+	 * Author picture and name (not a link: the whole card links to the post).
+	 *
+	 * @param \WP_Post $post Post.
+	 */
+	private static function author_html( \WP_Post $post ): string {
+		$author = (int) $post->post_author;
+
+		return '<span class="lzp-post-card__author">'
+			. Post_Parts::avatar( $author, 28, 'lzp-post-card__avatar' )
+			. '<span class="lzp-post-card__name">' . esc_html( get_the_author_meta( 'display_name', $author ) ) . '</span></span>';
+	}
+
+	/**
+	 * The excerpt, or the start of the text, cut to a number of words.
+	 * WordPress's automatic excerpt is 55 words with «[…]»: far too long for a card.
+	 *
+	 * @param \WP_Post $post  Post.
+	 * @param int      $words Words.
+	 */
+	private static function excerpt( \WP_Post $post, int $words ): string {
+		$source = has_excerpt( $post ) ? $post->post_excerpt : excerpt_remove_blocks( strip_shortcodes( $post->post_content ) );
+
+		$text = html_entity_decode( wp_trim_words( $source, $words, '…' ), ENT_QUOTES, 'UTF-8' );
+
+		// A cut sentence ends with «…» rather than «.…».
+		return (string) preg_replace( '/[\s.,،؛:!?]+…$/u', '…', $text );
 	}
 }

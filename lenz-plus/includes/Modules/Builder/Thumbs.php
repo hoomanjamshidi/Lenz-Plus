@@ -91,6 +91,55 @@ final class Thumbs {
 			. self::r( 12, 64, 84, 50, self::PANEL, 6 ) . self::r( 24, 76, 60, 3, self::ON_INK, 1 ) . self::r( 34, 88, 50, 3, self::ON_INK, 1 ) . self::r( 30, 100, 54, 3, self::ON_INK, 1 );
 	}
 
+	/** The store footer: the full footer with white trust badge tiles above the copyright. */
+	private static function draw_footer_store(): string {
+		$svg = self::footer_frame()
+			. self::brand( 172 )
+			. self::links( 130 ) . self::links( 86 )
+			. self::r( 12, 64, 64, 40, self::PANEL, 6 ) . self::r( 22, 76, 44, 3, self::ON_INK, 1 ) . self::r( 30, 88, 36, 3, self::ON_INK, 1 )
+			. self::r( 150, 111, 78, 3, self::ON_INK, 1 ) . self::r( 166, 118, 62, 3, self::ON_INK, 1 );
+		foreach ( array( 12, 32, 52 ) as $x ) {
+			$svg .= self::r( $x, 108, 16, 16, self::WHITE, 3 );
+		}
+
+		return $svg;
+	}
+
+	/** The classic contact page (and any contact template): text hero, four cards, the form beside the map. */
+	private static function draw_contact(): string {
+		$svg = self::page_frame()
+			. self::r( 196, 20, 30, 4, self::MUTED, 1 ) . self::r( 126, 28, 100, 8, self::INK, 2 ) . self::r( 150, 40, 76, 4, self::STRONG, 1 ) . self::r( 190, 50, 36, 9, self::INK, 3 );
+		foreach ( array( 172, 118, 64, 10 ) as $x ) {
+			$svg .= self::r( $x + 4, 66, 50, 22, self::WHITE, 4, self::LINE ) . self::r( $x + 40, 70, 9, 9, self::LINE, 2 ) . self::r( $x + 16, 82, 32, 3, self::INK, 1 );
+		}
+
+		return $svg . self::r( 126, 96, 100, 46, self::WHITE, 5, self::LINE ) . self::r( 134, 104, 84, 7, self::SOFT, 2 ) . self::r( 134, 114, 84, 7, self::SOFT, 2 ) . self::r( 186, 128, 32, 8, self::INK, 3 )
+			. self::r( 14, 96, 104, 46, self::SOFT, 5, self::LINE ) . '<path d="M14 120h104M50 96v46M84 96v46" stroke="' . self::LINE . '"/>' . self::r( 60, 112, 10, 10, self::INK, 5 );
+	}
+
+	/** The split contact page: contact rows on ink beside the form, a wide map. */
+	private static function draw_contact_split(): string {
+		$svg = self::page_frame() . self::r( 140, 16, 86, 74, self::INK, 6 );
+		foreach ( array( 30, 48, 66 ) as $y ) {
+			$svg .= self::r( 210, $y, 9, 9, self::PANEL, 2 ) . self::r( 160, $y + 2, 44, 3, self::ON_INK, 1 ) . self::r( 172, $y + 7, 32, 2, self::RULE, 1 );
+		}
+		$svg .= self::r( 70, 18, 60, 6, self::INK, 2 ) . self::r( 14, 30, 116, 9, self::SOFT, 2, self::LINE ) . self::r( 14, 43, 116, 9, self::SOFT, 2, self::LINE ) . self::r( 14, 56, 116, 22, self::SOFT, 2, self::LINE ) . self::r( 90, 82, 40, 8, self::INK, 3 );
+
+		return $svg . self::r( 14, 98, 212, 30, self::SOFT, 5, self::LINE ) . '<path d="M14 113h212M80 98v30M160 98v30" stroke="' . self::LINE . '"/>' . self::r( 115, 108, 10, 10, self::INK, 5 )
+			. self::r( 14, 134, 212, 12, self::INK, 4 );
+	}
+
+	/** The minimal contact page: a centred title, three large values, the map and the ink form. */
+	private static function draw_contact_minimal(): string {
+		$svg = self::page_frame() . self::r( 80, 20, 80, 7, self::INK, 2 ) . self::r( 95, 31, 50, 3, self::STRONG, 1 );
+		foreach ( array( 170, 108, 46 ) as $x ) {
+			$svg .= '<circle cx="' . ( $x + 12 ) . '" cy="48" r="6" fill="' . self::LINE . '"/>' . self::r( $x - 6, 58, 36, 5, self::INK, 2 );
+		}
+
+		return $svg . self::r( 30, 72, 180, 30, self::SOFT, 5, self::LINE ) . '<path d="M30 87h180M90 72v30M150 72v30" stroke="' . self::LINE . '"/>' . self::r( 115, 82, 10, 10, self::INK, 5 )
+			. self::r( 30, 108, 180, 38, self::INK, 5 ) . self::r( 40, 116, 160, 7, self::PANEL, 2 ) . self::r( 40, 126, 160, 7, self::PANEL, 2 ) . self::r( 40, 136, 34, 6, self::WHITE, 2 );
+	}
+
 	/** The home page: film strip, text and showreel, four service cards, a masonry and the ink booking frame. */
 	private static function draw_home(): string {
 		$svg = self::page_frame()
@@ -248,6 +297,47 @@ final class Thumbs {
 
 		return $svg . self::r( 14, 80, 62, 14, self::WHITE, 4, self::LINE ) . self::r( 14, 98, 62, 22, self::WHITE, 4, self::LINE ) . self::r( 14, 124, 62, 10, self::SOFT, 4 )
 			. self::r( 0, 136, 240, 14, self::INK, 0 );
+	}
+
+	/** Article with a cover: the title on the full-width image, a centred column. */
+	private static function draw_blog_single_cover(): string {
+		$svg = self::page_frame()
+			. self::r( 0, 12, 240, 62, self::STRONG, 0 ) . self::r( 0, 44, 240, 30, self::INK, 0 )
+			. self::r( 100, 48, 40, 4, self::ON_INK, 1 ) . self::r( 60, 56, 120, 7, self::WHITE, 2 ) . self::r( 90, 67, 60, 3, self::ON_INK, 1 )
+			. self::r( 60, 82, 120, 12, self::SOFT, 3, self::LINE );
+		foreach ( array( 100, 106, 112, 118, 124, 130 ) as $y ) {
+			$svg .= self::r( 60, $y, 120, 3, self::STRONG, 1 );
+		}
+
+		return $svg . self::r( 60, 136, 120, 10, self::WHITE, 3, self::LINE );
+	}
+
+	/** Article with the image beside the title, then the text beside a sidebar. */
+	private static function draw_blog_single_split(): string {
+		$svg = self::page_frame()
+			. self::r( 0, 13, 120, 2, self::INK, 0 )
+			. self::r( 186, 22, 30, 5, self::LINE, 2 ) . self::r( 130, 32, 86, 7, self::INK, 2 ) . self::r( 140, 43, 76, 3, self::STRONG, 1 ) . self::r( 180, 52, 36, 10, self::WHITE, 3, self::LINE )
+			. self::r( 22, 20, 98, 50, self::STRONG, 6 );
+		foreach ( array( 80, 86, 92, 98, 104, 110, 116 ) as $y ) {
+			$svg .= self::r( 92, $y, 124, 3, self::STRONG, 1 );
+		}
+
+		return $svg . self::r( 92, 124, 124, 20, self::WHITE, 4, self::LINE ) . self::r( 196, 129, 14, 10, self::LINE, 5 )
+			. self::r( 24, 80, 58, 30, self::WHITE, 4, self::LINE ) . self::r( 36, 88, 38, 3, self::INK, 1 ) . self::r( 42, 96, 32, 3, self::STRONG, 1 )
+			. self::r( 24, 116, 58, 28, self::INK, 4 );
+	}
+
+	/** Minimal article: a narrow column with a centred header. */
+	private static function draw_blog_single_minimal(): string {
+		$svg = self::page_frame()
+			. self::r( 0, 13, 120, 2, self::INK, 0 )
+			. self::r( 104, 22, 32, 5, self::LINE, 2 ) . self::r( 70, 32, 100, 7, self::INK, 2 ) . self::r( 85, 43, 70, 3, self::STRONG, 1 )
+			. self::r( 62, 54, 116, 34, self::STRONG, 5 );
+		foreach ( array( 96, 102, 108, 114, 120 ) as $y ) {
+			$svg .= self::r( 74, $y, 92, 3, self::STRONG, 1 );
+		}
+
+		return $svg . self::r( 74, 128, 92, 16, self::WHITE, 4, self::LINE ) . self::r( 80, 132, 8, 8, self::LINE, 4 ) . self::r( 92, 134, 40, 3, self::INK, 1 );
 	}
 
 	/** The article page: header with a byline, a wide image, the text beside a table of contents. */

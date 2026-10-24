@@ -81,6 +81,7 @@ final class Design_Pages {
 			'about'    => __( 'About me', 'lenz-plus' ),
 			'services' => __( 'Services', 'lenz-plus' ),
 			'courses'  => __( 'Courses', 'lenz-plus' ),
+			'contact'  => __( 'Contact us', 'lenz-plus' ),
 		);
 
 		return $titles[ $kind ] ?? __( 'Home page', 'lenz-plus' );

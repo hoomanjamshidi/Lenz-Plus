@@ -196,12 +196,36 @@ final class Theme_Bridge {
 			return (string) wp_get_attachment_image( (int) $image['id'], 'full', false, $alt );
 		}
 
-		$url = is_array( $image ) ? (string) ( $image['url'] ?? '' ) : (string) $image;
+		$url  = is_array( $image ) ? (string) ( $image['url'] ?? '' ) : (string) $image;
+		$size = '';
 		if ( '' === $url && defined( 'LENZ_URI' ) ) {
-			$url = LENZ_URI . ( 'footer' === $area ? 'assets/images/logo-white.svg' : 'assets/images/logo.svg' );
+			$file = 'footer' === $area ? 'assets/images/logo-white.svg' : 'assets/images/logo.svg';
+			$url  = LENZ_URI . $file;
+			$size = self::svg_size_attrs( get_template_directory() . '/' . $file );
 		}
 
-		return '' !== $url ? sprintf( '<img src="%1$s" alt="%2$s">', esc_url( $url ), esc_attr( $alt['alt'] ) ) : '';
+		return '' !== $url ? sprintf( '<img src="%1$s" alt="%2$s"%3$s>', esc_url( $url ), esc_attr( $alt['alt'] ), $size ) : '';
+	}
+
+	/**
+	 * `width` / `height` attributes read from a local SVG's root element, so
+	 * the browser reserves the logo's space before it loads ('' when unknown).
+	 *
+	 * @param string $path SVG file.
+	 */
+	private static function svg_size_attrs( string $path ): string {
+		static $sizes = array();
+
+		if ( ! isset( $sizes[ $path ] ) ) {
+			// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- a local theme file, read once per request.
+			$head = is_readable( $path ) ? (string) file_get_contents( $path, false, null, 0, 400 ) : '';
+
+			$sizes[ $path ] = preg_match( '/<svg[^>]*\swidth="(\d+(?:\.\d+)?)"[^>]*\sheight="(\d+(?:\.\d+)?)"/u', $head, $m )
+				? sprintf( ' width="%d" height="%d"', (int) round( (float) $m[1] ), (int) round( (float) $m[2] ) )
+				: '';
+		}
+
+		return $sizes[ $path ];
 	}
 
 	/**

@@ -1,16 +1,16 @@
-# Graph Report - Lenz-Plus  (2026-10-09)
+# Graph Report - Lenz-Plus  (2026-10-25)
 
 ## Corpus Check
-- 609 files · ~498,264 words
+- 610 files · ~499,438 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3943 nodes · 6341 edges · 371 communities (168 shown, 203 thin omitted)
-- Extraction: 80% EXTRACTED · 20% INFERRED · 0% AMBIGUOUS · INFERRED: 1264 edges (avg confidence: 0.79)
+- 3992 nodes · 6365 edges · 378 communities (171 shown, 207 thin omitted)
+- Extraction: 81% EXTRACTED · 19% INFERRED · 0% AMBIGUOUS · INFERRED: 1237 edges (avg confidence: 0.79)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `9bceda32`
+- Built from commit: `17caffe6`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -20,7 +20,7 @@
 - self
 - Slider
 - Channels
-- PublicScripts
+- AdminUI
 - MJ\WPORM\Blueprint
 - Blocks
 - AJAX
@@ -36,10 +36,9 @@
 - Post_Categories
 - Item_Resolver
 - Header_Footer
-- Sanitizer
 - builder-admin.js
-- studiare-extensions/includes/Core/Icon_Library.php
-- Page_Base
+- studiare-extensions/includes/Core/Theme_Bridge.php
+- Timeline
 - Module
 - Resolver
 - Parts
@@ -80,7 +79,7 @@
 - ProductsSlider
 - Testimonial
 - Elementor\Widget_Base
-- ArchiveFilter
+- Options.php
 - blog.js
 - Sanitizer
 - Contact_Details
@@ -94,13 +93,14 @@
 - Search_Results
 - video-player.js
 - AboutItem
-- Button
+- Admin
 - Theme_Bridge
 - GroupImages
 - Marquee
 - Portfolio_Data
 - Contact_Inbox
-- ReserveWeekDays.php
+- Course_Data
+- ReserveSubjects.php
 - VideoPortfolios
 - Scripts
 - Portfolio
@@ -109,19 +109,19 @@
 - Fields
 - Icon_Library
 - Library
-- Category_Grid
+- Reservation
 - Frontend
 - Countdown
 - Heading
 - Base
 - Nav_Menu
-- Picture
+- Blog_Base
 - Design_Pages
 - Item_Resolver
 - Link_Column
 - lenz-plus/assets/modules/bottom-nav/js/bottom-nav.js
 - Contact_Box
-- functions/comments.php
+- Header_Action
 - MiniCart
 - studiare-extensions/includes/Core/Site.php
 - Module
@@ -134,7 +134,7 @@
 - Pricing_Plans
 - Product_Spotlight
 - post.php
-- Persian
+- .jalali_date
 - Button
 - Faq
 - Logo_Strip
@@ -152,9 +152,9 @@
 - Renderer
 - Account
 - Module
-- Dark_Toggle
+- Page_Hero
 - Events
-- Home_Base
+- Features
 - Fields
 - Icon_List
 - Search_Query
@@ -178,8 +178,8 @@
 - FilmstripText
 - Products
 - Integration
-- Category_Parts
-- Schema
+- ServiceItem
+- Plugin
 - Product_Content
 - Product_Excerpt
 - Product_Highlights
@@ -198,7 +198,7 @@
 - Frontend
 - booking.js
 - reservation.js
-- Copyright
+- Courses
 - Info
 - Expert
 - El
@@ -216,20 +216,20 @@
 - Expert
 - Portfolio
 - Video
-- shortcode-booking.php
+- Contact_Form
 - Category
 - Tag
 - Category
 - Tag
 - V1_5_0_0
-- Live_Search
-- Live_Search
+- Asset
+- Project_Gallery
 - Product_Breadcrumb
 - Admin
 - Product_Title
-- Elementor
+- PublicScripts
 - Ajax_Controller
-- Asset
+- Heading
 - lenz-plus/assets/modules/builder/js/builder.js
 - Arr
 - Autoloader
@@ -237,40 +237,45 @@
 - Color
 - Context
 - Resolver
-- TGMPA_Utils
-- Media
-- Course_Teacher
+- Ajax_Controller
+- Notices
+- File
 - lenz-plus/assets/modules/support-button/js/support-button.js
 - Post_Tags
-- Archive_Title
+- Post_Parts.php
 - Cart
 - Post_Author
 - Post_Comments
-- Post_Parts.php
+- Post_Content
 - Post_Nav
 - Post_Share
 - Post_Title
-- Blog_Base
+- Reading_Progress
 - Footer
 - Header
-- Heading
+- Blog_Breadcrumb
 - Archive_Types
 - Module
 - Wishlist.php
-- ReservePackagesMeta.php
+- ReservePackagesMeta
 - Module
 - Portfolio_Grid
 - Related_Items
-- Picture.php
 - Text
 - Project_Meta_Box
 - Site
-- ReserveDayTimes
-- Fix
-- Search_Scope
-- IconPicker
+- ReserveWeekDays.php
+- Product_Attributes
+- Course_Enroll_Band
+- .is_rtl
 - Portfolio
 - Course
+- MenuItems
+- AdminScripts
+- Page_Base
+- Arr
+- GetDayTimes
+- Home_Base
 
 ## God Nodes (most connected - your core abstractions)
 1. `Utils` - 307 edges
@@ -289,21 +294,21 @@
   reference/lenz/functions/archive.php → reference/lenz/inc/Utils/utils-options.php
 - `lenz_init()` --calls--> `Options`  [INFERRED]
   reference/lenz/functions/init.php → reference/lenz/inc/Utils/utils-options.php
-- `lenz_comment_fields()` --calls--> `Utils`  [EXTRACTED]
-  reference/lenz/functions/comments.php → reference/lenz/inc/Utils.php
-- `lenz_save_comment_stars()` --calls--> `Utils`  [EXTRACTED]
-  reference/lenz/functions/comments.php → reference/lenz/inc/Utils.php
-- `lenz_comment_star_column()` --calls--> `Utils`  [EXTRACTED]
-  reference/lenz/functions/comments.php → reference/lenz/inc/Utils.php
+- `lenz_register_elementor_widgets()` --calls--> `Options`  [INFERRED]
+  reference/lenz/functions/elementor.php → reference/lenz/inc/Utils/utils-options.php
+- `lenz_include_shortcodes()` --calls--> `Options`  [INFERRED]
+  reference/lenz/functions/init.php → reference/lenz/inc/Utils/utils-options.php
+- `lenz_register_widgets()` --calls--> `Utils`  [EXTRACTED]
+  reference/lenz/functions/init.php → reference/lenz/inc/Utils.php
 
 ## Import Cycles
 - None detected.
 
-## Communities (371 total, 203 thin omitted)
+## Communities (378 total, 207 thin omitted)
 
 ### Community 0 - "Utils"
 Cohesion: 0.02
-Nodes (9): lenz_breadcrumb(), lenz_modify_post_per_page(), lenz_sort_posts(), lenz_register_elementor_widgets(), Heading, DashboardFont, Wishlist, Update (+1 more)
+Nodes (17): lenz_breadcrumb(), lenz_modify_post_per_page(), lenz_sort_posts(), lenz_comment_fields(), lenz_comment_star_column(), lenz_comment_stars(), lenz_save_comment_stars(), Heading (+9 more)
 
 ### Community 1 - "bottom-nav-admin.js"
 Cohesion: 0.07
@@ -313,21 +318,17 @@ Nodes (50): bindControls(), confirmDialog(), createStore(), escapeHtml(), getPat
 Cohesion: 0.09
 Nodes (3): Channels, Frontend, Schema
 
-### Community 5 - "PublicScripts"
-Cohesion: 0.06
-Nodes (6): AdminScripts, MenuItems, File, PublicScripts, Plans, AdminUI
-
 ### Community 6 - "MJ\WPORM\Blueprint"
-Cohesion: 0.13
-Nodes (9): MJ\WPORM\Blueprint, MJ\WPORM\Model, Booking, BookingMeta, ReserveLocations, ReservePackages, ReservePlans, ReserveSubjects (+1 more)
+Cohesion: 0.15
+Nodes (8): MJ\WPORM\Blueprint, MJ\WPORM\Model, Booking, BookingMeta, ReserveLocations, ReservePackages, ReservePlans, ReserveSuggestLocations
 
 ### Community 8 - "AJAX"
-Cohesion: 0.10
-Nodes (4): AJAX, GetAvailableTimes, MiniCartSetQTY, Notices
+Cohesion: 0.11
+Nodes (4): AJAX, GetAvailableTimes, IconPicker, MiniCartSetQTY
 
 ### Community 9 - "ElementorControls"
-Cohesion: 0.04
-Nodes (4): Experts, Portfolios, Reservation, ElementorControls
+Cohesion: 0.06
+Nodes (3): Experts, Portfolios, ElementorControls
 
 ### Community 11 - "builder.js"
 Cohesion: 0.12
@@ -346,12 +347,12 @@ Cohesion: 0.12
 Nodes (21): bind(), bindSheet(), cart(), close(), dark(), enableDragToClose(), focusables(), init() (+13 more)
 
 ### Community 17 - "Library"
-Cohesion: 0.09
+Cohesion: 0.10
 Nodes (3): Library, Module, Catalog
 
-### Community 21 - "Sanitizer"
-Cohesion: 0.08
-Nodes (3): Sanitizer, Library_Ajax, Module
+### Community 18 - "Post_Categories"
+Cohesion: 0.07
+Nodes (6): Category_Parts, WP_Term, Category_Grid, WP_Post, WP_Term, Post_Categories
 
 ### Community 22 - "builder-admin.js"
 Cohesion: 0.14
@@ -386,12 +387,8 @@ Cohesion: 0.21
 Nodes (19): channelGlyph(), channelUrl(), handleUrl(), initChannels(), initPreview(), international(), move(), queueRender() (+11 more)
 
 ### Community 39 - "Base"
-Cohesion: 0.06
-Nodes (8): lenz_admin_enqueue(), lenz_wc_product_footer(), lenz_woocommerce_pagination_icons(), Cards, WC_Product, WP_Post, Base, WC_Product
-
-### Community 40 - "Module"
-Cohesion: 0.05
-Nodes (7): Admin, Ajax_Controller, Arr, Module, Module, Plugin, LenzPlus\Core\Module
+Cohesion: 0.08
+Nodes (5): Cards, WC_Product, WP_Post, Base, WC_Product
 
 ### Community 50 - "init.php"
 Cohesion: 0.12
@@ -413,17 +410,13 @@ Nodes (5): lenz_requests_item_endpoint_content(), lenz_wc_body_classes(), lenz_w
 Cohesion: 0.11
 Nodes (38): buildRow(), close(), commitItems(), decorate(), faClass(), fillChecks(), fillOptions(), hasActiveVariant() (+30 more)
 
-### Community 63 - "ProductsSlider"
+### Community 64 - "Testimonial"
 Cohesion: 0.10
-Nodes (3): Button, ProductsSlider, Sanitizers
+Nodes (3): Button, Testimonial, Sanitizers
 
 ### Community 65 - "Elementor\Widget_Base"
 Cohesion: 0.06
-Nodes (4): Elementor\Widget_Base, AccountButton, Menu, ServiceItem
-
-### Community 66 - "ArchiveFilter"
-Cohesion: 0.15
-Nodes (3): ArchiveFilter, PostToc, WP_Widget
+Nodes (4): Elementor\Widget_Base, AccountButton, Button, Menu
 
 ### Community 67 - "blog.js"
 Cohesion: 0.29
@@ -432,6 +425,10 @@ Nodes (13): announce(), copyText(), hookElementor(), initCategoryMenu(), initCat
 ### Community 72 - "lenz-plus/assets/admin/js/admin.js"
 Cohesion: 0.14
 Nodes (13): bindControls(), confirmDialog(), createStore(), escapeHtml(), getPath(), initColorFields(), initModuleSwitches(), paintRange() (+5 more)
+
+### Community 73 - "Theme_Bridge"
+Cohesion: 0.09
+Nodes (3): Sanitizer, WP_Term, Theme_Bridge
 
 ### Community 79 - "video-player.js"
 Cohesion: 0.27
@@ -445,13 +442,13 @@ Nodes (3): Settings, Scripts, Page
 Cohesion: 0.32
 Nodes (11): formatCount(), hookElementor(), initCount(), initCountdown(), initFilter(), initNewsletter(), initRail(), initScope() (+3 more)
 
+### Community 104 - "Design_Pages"
+Cohesion: 0.12
+Nodes (3): Design_Pages, Library_Ajax, Module
+
 ### Community 107 - "lenz-plus/assets/modules/bottom-nav/js/bottom-nav.js"
 Cohesion: 0.14
 Nodes (17): bind(), bindSheet(), close(), enableDragToClose(), focusables(), init(), isInterceptableLink(), isSamePage() (+9 more)
-
-### Community 109 - "functions/comments.php"
-Cohesion: 0.20
-Nodes (4): lenz_comment_fields(), lenz_comment_star_column(), lenz_comment_stars(), lenz_save_comment_stars()
 
 ### Community 112 - "Module"
 Cohesion: 0.09
@@ -462,12 +459,12 @@ Cohesion: 0.25
 Nodes (4): lenz_add_post_views(), lenz_get_post_views(), lenz_post_thumbnail(), lenz_woocommerce_template_loop_product_thumbnail()
 
 ### Community 136 - "class-tgm-plugin-activation.php"
-Cohesion: 0.25
-Nodes (5): load_tgm_plugin_activation(), TGM_Bulk_Installer, TGM_Bulk_Installer_Skin, tgmpa(), lenz_register_required_plugins()
+Cohesion: 0.15
+Nodes (6): load_tgm_plugin_activation(), TGM_Bulk_Installer, TGM_Bulk_Installer_Skin, tgmpa(), TGMPA_Utils, lenz_register_required_plugins()
 
 ### Community 145 - "Search_Query"
-Cohesion: 0.11
-Nodes (4): WP_Post, Search_Query, WP_Post, Live_Search
+Cohesion: 0.09
+Nodes (5): WP_Post, Search_Query, Live_Search, WP_Post, Search_Scope
 
 ### Community 148 - "Template_Post_Type"
 Cohesion: 0.09
@@ -477,17 +474,21 @@ Nodes (3): Design_Pages, Module, Template_Post_Type
 Cohesion: 0.52
 Nodes (6): digits(), finish(), finishForm(), normalize(), otpField(), write()
 
+### Community 158 - "Search_Query"
+Cohesion: 0.06
+Nodes (6): Persian, WP_Post, Search_Query, Live_Search, WP_Post, Search_Scope
+
 ### Community 162 - "lenz-plus/assets/modules/builder/js/builder-admin.js"
 Cohesion: 0.20
 Nodes (15): applyResult(), cardHtml(), createPageDialog(), designCard(), keywordOption(), newTemplateDialog(), pageKind(), renderAll() (+7 more)
 
-### Community 166 - "Category_Parts"
-Cohesion: 0.24
-Nodes (3): Category_Parts, WP_Term, WP_Post
-
 ### Community 182 - "support-button.js"
 Cohesion: 0.60
 Nodes (5): closeMenu(), greetingDismissed(), hideGreeting(), initGreeting(), initMenu()
+
+### Community 183 - "Frontend"
+Cohesion: 0.13
+Nodes (3): Asset, Frontend, Assets
 
 ### Community 184 - "booking.js"
 Cohesion: 0.60
@@ -505,6 +506,10 @@ Nodes (4): hookElementor(), initContact(), initMap(), initScope()
 Cohesion: 0.70
 Nodes (4): afterLoad(), hookElementor(), init(), initScope()
 
+### Community 310 - "Asset"
+Cohesion: 0.13
+Nodes (3): Asset, Assets, Live_Search
+
 ### Community 318 - "lenz-plus/assets/modules/builder/js/builder.js"
 Cohesion: 0.36
 Nodes (6): boot(), closeMenus(), hideLayer(), initStickyHeader(), showLayer(), toggleSubmenu()
@@ -513,22 +518,26 @@ Nodes (6): boot(), closeMenus(), hideLayer(), initStickyHeader(), showLayer(), t
 Cohesion: 0.60
 Nodes (5): closeMenu(), greetingDismissed(), hideGreeting(), initGreeting(), initMenu()
 
+### Community 368 - ".is_rtl"
+Cohesion: 0.33
+Nodes (3): lenz_admin_enqueue(), lenz_wc_product_footer(), lenz_woocommerce_pagination_icons()
+
 ## Knowledge Gaps
 - **2 isolated node(s):** `TGM_Bulk_Installer`, `TGM_Bulk_Installer_Skin`
   These have ≤1 connection - possible missing edges or undocumented components.
-- **203 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **207 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Utils` connect `Utils` to `Slider`, `PublicScripts`, `MJ\WPORM\Blueprint`, `PostSlider`, `AJAX`, `ElementorControls`, `Archive`, `ReservationSettings`, `Social`, `Gallery`, `Wishlist`, `WC`, `Video`, `Options`, `StrokeText`, `FilmstripText`, `Products`, `Base`, `.can_plugin_activate`, `init.php`, `Career`, `LenzSaveBookingProcess`, `Video`, `WC.php`, `Elementor`, `Info`, `CTA`, `PlanCart`, `ProductsSlider`, `Testimonial`, `Elementor\Widget_Base`, `Expert`, `ArchiveFilter`, `ImageCart`, `AboutItem`, `Button`, `shortcode-booking.php`, `GroupImages`, `ReserveWeekDays.php`, `VideoPortfolios`, `Scripts`, `Wishlist.php`, `Heading`, `ReservePackagesMeta.php`, `functions/comments.php`, `MiniCart`, `ReserveDayTimes`, `IconPicker`, `Portfolio`?**
-  _High betweenness centrality (0.138) - this node is a cross-community bridge._
-- **Why does `Base` connect `Base` to `Product_Badges`, `Search`, `Site_Logo`, `Slider`, `Trust_Badges`, `Account`, `Dark_Toggle`, `Home_Base`, `Icon_List`, `Mobile_Buy_Bar`, `Related_Products`, `Page_Base`, `Text`, `Parts`, `Product_Tabs`, `Category_Parts`, `Product_Content`, `Product_Excerpt`, `Product_Highlights`, `Product_Price`, `Nav_Menu`, `Product_Rating`, `studiare-extensions/includes/Core/Persian.php`, `Product_Reviews`, `Product_Grid`, `Persian`, `Product_Gallery`, `Product_Stock`, `Live_Search`, `Product_Breadcrumb`, `Copyright`, `Post_Parts`, `Product_Title`, `Elementor\Widget_Base`, `Search_Results`, `Course_Teacher`, `Cart`, `studiare-extensions/includes/Core/Theme_Bridge.php`, `Post_Parts.php`, `Blog_Base`, `Icon_Library`, `Parts.php`, `Integration`, `Add_To_Cart`, `Button`?**
-  _High betweenness centrality (0.120) - this node is a cross-community bridge._
-- **Why does `Theme_Bridge` connect `Theme_Bridge` to `Site_Logo`, `Copyright`, `Nav_Menu`, `Module`, `Item_Resolver`, `Link_Column`, `Header_Footer`, `Contact_Box`, `Item_Types`, `Frontend`, `Icon_Library`?**
-  _High betweenness centrality (0.064) - this node is a cross-community bridge._
-- **Are the 489 inferred relationships involving `self` (e.g. with `.color()` and `.range()`) actually correct?**
-  _`self` has 489 INFERRED edges - model-reasoned connections that need verification._
+- **Why does `Utils` connect `Utils` to `Slider`, `AdminUI`, `MJ\WPORM\Blueprint`, `PostSlider`, `AJAX`, `ElementorControls`, `Archive`, `ReservationSettings`, `Social`, `Gallery`, `Wishlist`, `WC`, `Video`, `Options`, `StrokeText`, `FilmstripText`, `Products`, `ServiceItem`, `.can_plugin_activate`, `init.php`, `Career`, `LenzSaveBookingProcess`, `Video`, `WC.php`, `Info`, `Expert`, `ProductsSlider`, `Testimonial`, `Elementor\Widget_Base`, `Options.php`, `ImageCart`, `Notices`, `AboutItem`, `File`, `GroupImages`, `ReserveSubjects.php`, `VideoPortfolios`, `Scripts`, `Reservation`, `Wishlist.php`, `Heading`, `ReservePackagesMeta`, `ReserveWeekDays.php`, `MiniCart`, `Portfolio`, `MenuItems`, `GetDayTimes`, `.time`?**
+  _High betweenness centrality (0.158) - this node is a cross-community bridge._
+- **Why does `Base` connect `Base` to `Product_Badges`, `Search`, `Site_Logo`, `Slider`, `Trust_Badges`, `Account`, `Icon_List`, `Post_Categories`, `Mobile_Buy_Bar`, `Related_Products`, `studiare-extensions/includes/Core/Theme_Bridge.php`, `Text`, `Parts`, `Product_Tabs`, `Product_Content`, `Product_Excerpt`, `Product_Highlights`, `Product_Price`, `Nav_Menu`, `Product_Rating`, `studiare-extensions/includes/Core/Persian.php`, `Product_Reviews`, `Product_Gallery`, `Persian`, `Product_Stock`, `Product_Breadcrumb`, `Product_Title`, `Post_Parts`, `Heading`, `Elementor\Widget_Base`, `Search_Results`, `Post_Parts.php`, `Cart`, `Icon_Library`, `Blog_Base`, `Product_Attributes`, `.is_rtl`, `Parts.php`, `Integration`, `Add_To_Cart`, `Page_Base`, `Home_Base`, `Button`?**
+  _High betweenness centrality (0.106) - this node is a cross-community bridge._
+- **Why does `Theme_Bridge` connect `Theme_Bridge` to `Site_Logo`, `Copyright`, `Nav_Menu`, `Link_Column`, `Header_Footer`, `Contact_Box`, `Admin`, `Item_Types`, `Frontend`, `Icon_Library`?**
+  _High betweenness centrality (0.102) - this node is a cross-community bridge._
+- **Are the 479 inferred relationships involving `self` (e.g. with `.color()` and `.range()`) actually correct?**
+  _`self` has 479 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 30 inferred relationships involving `Utils` (e.g. with `.check_nonce()` and `.check_requires()`) actually correct?**
   _`Utils` has 30 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 110 inferred relationships involving `El` (e.g. with `.academy()` and `.academy_hero()`) actually correct?**

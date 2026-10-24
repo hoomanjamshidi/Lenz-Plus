@@ -4,7 +4,7 @@ This file is the **resume point**. Every session starts here (see the `lenz-plus
 
 Status keys: `[ ]` to do · `[x]` done · `[~]` started (see Notes) · `[-]` dropped (say why)
 
-**Current phase:** done (1.1.0: project pages per project type)
+**Current phase:** done (1.2.0: contact pages, trust badges, post cards, article designs, brand logos, speed and SEO)
 
 Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, browser check at 390 and 1440, translations, CLAUDE.md contracts, graphify update, commit `Phase N: …`).
 
@@ -135,9 +135,19 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - [x] Presets `portfolio-video`, `portfolio-mixed` (+ thumbnails); `portfolio-single` becomes «پروژه عکاسی» (photo slices only)
 - [x] Verify: each type gets its template, empty video band hidden, 390/1440, editor sample, admin pickers; translations; 1.1.0
 
+## Phase 14 — Contact, trust badges, post cards, articles, logos, speed and SEO (تماس، نماد اعتماد، کارت مقاله، مقاله، لوگوها، سرعت و سئو)
+- [x] Post cards: one `<article>` markup with a stretched title link, looks `card` (new default) / `overlay` / `list` / `plain` / `dashed`; excerpt cut to N words, author, «ادامه مطلب»; `Related_Items` uses them for articles
+- [x] `Brand_Logos` (grid, tiles, CSS marquee, row; grey until hover; word marks without logos) + home preset band `#brands`
+- [x] `Trust_Badges` (eNamad, Samandehi, Zarinpal, image, sanitized code) + preset `footer-store`
+- [x] Kind `contact` + `Contact_Cards`, `Map_Embed` (click to load, map.js) + presets `contact`, `contact-split`, `contact-minimal`
+- [x] `Post_Header` layouts (text / split / cover, centred), `Post_Toc` inline look, `Author_Box`, `Post_Nav` + presets `blog-single-cover`, `blog-single-split`, `blog-single-minimal`
+- [x] Speed and SEO audit (Lighthouse on home, blog, article, contact): widget styles of route templates in the head (CLS 0.205 → 0.009), BreadcrumbList microdata, WooCommerce product structured data on course routes, eager first row on list pages, sized default logo, word-mark contrast, contact card titles not headings
+- [x] Verify: 1440 and 390 headless screenshots of the three contact pages, the four article pages, blog list and home; every new preset opens in the Elementor editor; map click; badge code filter; translations; 1.2.0
+
 ---
 
 ## Notes
+- Phase 14: Lighthouse (dev server: no gzip, no cache headers, so performance scores of 48–60 are mostly the server and the theme/Elementor/WooCommerce CSS) found nothing else of ours. Known and left: Elementor's image loading optimisation (4.3) prepends its own `loading="lazy"` to images that already have one (duplicate attribute, harmless: both say lazy); leaving `loading` to Elementor made it mark an off-screen portfolio photo `fetchpriority="high"`, so our explicit attributes stay. The bottom nav's inactive labels follow Lenz's `--primary-2` (3.4:1). Test data: 9 posts in 5 categories with photos (scratch `seed-posts.php`), pages `/lzp-contact/`, `/lzp-contact-split/`, `/lzp-contact-minimal/`, front page «خانه» from the home preset (`/lzp-home`), footer = «Footer with trust badges», `routes.post` = the cover article; WP-CLI writes of Elementor data with iframes need `--user=admin` (kses).
 - Phase 13: test data. The dev site had been rebuilt (no portfolio items): seeded 3 projects with generated photos and ffmpeg test videos (2441 photo, 2442 video: 2 videos + 3 photos, 2443 mixed: 6 photos + 2 videos), presets installed, routes `portfolio` = 2448, `projects.video` = 2449, `projects.mixed` = 2450.
 - Phase 6: `docs/reference/*.md` (Lenz integration map, Studiare architecture, design inventory) were never committed: `.gitignore`'s `reference/` also matched `docs/reference/`. Fixed to `/reference/`; the facts that matter live in CLAUDE.md. A fresh clone needs `reference/` re-extracted from `Theme.zip` and `Studiare-Extentions.zip` (lenz/, lenz-demo/, studiare-extensions/, studiare-CLAUDE.md).
 - Phase 12: QA results. Headless Chrome sweeps (scratchpad scripts, SCRIPT_DEBUG off so the `.min` files are served): 15 front-end URLs × 390/1440 with no console errors, no horizontal overflow; all 13 presets open in the Elementor editor; every admin page and tab, Ctrl+S save and reload; bottom nav 5 styles × 2/4/5/7 items × light/dark palettes (pill collapses inactive labels by design); forms, portfolio filter, article TOC/progress, course buy bar/video dialog/checkout, courses chips/waitlist re-run. axe-core (WCAG 2 A/AA): only colour contrast of the mockups' muted grey failed → default `muted` darkened to #5d7588; the bottom nav's inactive labels use Lenz's `--primary-2` (#8b8b8b, 3.4:1) and are left to follow the theme (overridable). Code review fixes: CSV formula injection, `Course_Shop` purchase rules, forms only on published documents, `lenz_plus_client_ip` filter, uninstall includes trash, templates out of REST, repeater `title_field` double braces, course FAQ answers without shortcodes. Test site: `lenz` option restored to the Phase 5 footer branch after the palette tests.

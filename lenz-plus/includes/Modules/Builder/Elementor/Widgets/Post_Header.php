@@ -5,6 +5,11 @@
  * role) and the share buttons with "copy link". Reads the post being viewed
  * (a sample post while the template is edited); each part can be hidden.
  *
+ * Layouts: `text` (the mockups' header; the featured image is a separate
+ * widget), `split` (the text beside the featured image) and `cover` (the
+ * text on the featured image, full width). In the last two the image is the
+ * page's largest paint, so it loads at once with a high priority.
+ *
  * Share links work without JavaScript; blog.js adds "copy link" and the
  * phone's share sheet, which stay hidden until then.
  *
@@ -14,6 +19,7 @@
 namespace LenzPlus\Modules\Builder\Elementor\Widgets;
 
 use Elementor\Controls_Manager;
+use LenzPlus\Modules\Builder\Elementor\Picture;
 use LenzPlus\Modules\Builder\Elementor\Post_Parts;
 
 defined( 'ABSPATH' ) || exit;
@@ -42,6 +48,57 @@ final class Post_Header extends Blog_Base {
 	/** Content and style controls. */
 	protected function register_controls(): void {
 		$this->start_content_section( 'section_content', __( 'Article header', 'lenz-plus' ) );
+
+		$this->add_control(
+			'layout',
+			array(
+				'label'   => __( 'Layout', 'lenz-plus' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'text',
+				'options' => array(
+					'text'  => __( 'Text only', 'lenz-plus' ),
+					'split' => __( 'Text beside the featured image', 'lenz-plus' ),
+					'cover' => __( 'Text on the featured image', 'lenz-plus' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'align',
+			array(
+				'label'     => __( 'Alignment', 'lenz-plus' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'start',
+				'options'   => array(
+					'start'  => __( 'Start', 'lenz-plus' ),
+					'center' => __( 'Centre', 'lenz-plus' ),
+				),
+				'condition' => array( 'layout!' => 'split' ),
+			)
+		);
+
+		$this->add_ratio_control( 'ratio', '4/3', array( 'condition' => array( 'layout' => 'split' ) ) );
+
+		$this->add_responsive_control(
+			'cover_height',
+			array(
+				'label'      => __( 'Height', 'lenz-plus' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'vh' ),
+				'range'      => array(
+					'px' => array(
+						'min' => 300,
+						'max' => 900,
+					),
+					'vh' => array(
+						'min' => 30,
+						'max' => 100,
+					),
+				),
+				'condition'  => array( 'layout' => 'cover' ),
+				'selectors'  => array( '{{WRAPPER}} .lzp-hero--cover' => 'min-height: {{SIZE}}{{UNIT}};' ),
+			)
+		);
 
 		foreach ( array(
 			'show_meta'    => __( 'Category, date and reading time', 'lenz-plus' ),
@@ -117,7 +174,8 @@ final class Post_Header extends Blog_Base {
 
 		$this->with_post(
 			static function ( \WP_Post $post ) use ( $s ) {
-				$text = 'yes' === $s['show_meta'] ? Post_Grid::meta_html( $post, true, true ) : '';
+				$layout = in_array( $s['layout'], array( 'split', 'cover' ), true ) ? (string) $s['layout'] : 'text';
+				$text   = 'yes' === $s['show_meta'] ? Post_Grid::meta_html( $post, true, true ) : '';
 
 				$text .= '<h1 class="lzp-hero__title">' . esc_html( get_the_title( $post ) ) . '</h1>';
 
@@ -133,10 +191,30 @@ final class Post_Header extends Blog_Base {
 					$text .= '<div class="lzp-byline">' . $byline . '</div>';
 				}
 
+				$photo = 'text' === $layout ? '' : Picture::frame(
+					array( 'id' => (int) get_post_thumbnail_id( $post ) ),
+					array(
+						'ratio'   => 'split' === $layout ? (string) $s['ratio'] : '',
+						'alt'     => get_the_title( $post ),
+						'loading' => 'high',
+						'sizes'   => 'split' === $layout ? '(max-width: 767px) 100vw, 50vw' : '100vw',
+						'class'   => 'lzp-photo lzp-hero__media',
+						'tag'     => 'figure',
+					)
+				);
+
+				$classes = 'lzp-hero lzp-hero--article lzp-hero--article-' . $layout
+					. ( 'split' === $layout ? '' : ' lzp-hero--text' )
+					. ( 'cover' === $layout ? ' lzp-hero--cover lzp-dark' : '' )
+					. ( 'split' !== $layout && 'center' === $s['align'] ? ' lzp-hero--center' : '' );
+
 				printf(
-					'<div class="lzp-hero lzp-hero--text lzp-hero--article">%1$s<div class="lzp-hero__inner"><div class="lzp-hero__text">%2$s</div></div></div>',
-					'yes' === $s['guides'] ? '<span class="lzp-hero__guides" aria-hidden="true"></span>' : '',
-					$text // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped while building.
+					'<div class="%1$s">%2$s%3$s<div class="lzp-hero__inner"><div class="lzp-hero__text">%4$s</div>%5$s</div></div>',
+					esc_attr( $classes ),
+					'yes' === $s['guides'] && 'cover' !== $layout ? '<span class="lzp-hero__guides" aria-hidden="true"></span>' : '',
+					'cover' === $layout ? $photo : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Picture::frame() escapes.
+					$text, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped while building.
+					'split' === $layout ? $photo : '' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Picture::frame() escapes.
 				);
 			}
 		);

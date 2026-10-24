@@ -11,6 +11,13 @@
  * everything from the post being viewed: header, featured image, text with
  * a table of contents in the sidebar, comments and related articles.
  *
+ * Three more article pages share those widgets: `cover` (the title on the
+ * full-width featured image, a narrow centred text with a folding table of
+ * contents), `split` (the title beside the featured image, the text beside
+ * a sidebar with the contents, the most read and a promo) and `minimal` (a narrow reading column with nothing
+ * beside it). All three end with the author box, the previous and next
+ * articles, comments and related articles.
+ *
  * @package LenzPlus
  */
 
@@ -172,24 +179,191 @@ final class Blog {
 					'pad_mobile' => array( 0, 16, 30 ),
 				)
 			),
-			Blocks::band(
+			self::related(),
+			self::newsletter(),
+		);
+	}
+
+	/** Title on the full-width featured image, a centred reading column with a folding table of contents. */
+	public static function cover(): array {
+		return array(
+			El::box( array( 'pad' => 0 ), array( El::w( 'lzp-reading-progress' ) ) ),
+			Blocks::bleed(
 				array(
 					El::w(
-						'lzp-related-items',
+						'lzp-post-header',
 						array(
-							'post_type'      => 'post',
-							'look'           => 'card',
-							'title'          => 'مقالات مرتبط',
-							'button_text'    => 'همه مقالات',
-							'columns'        => '3',
-							'columns_tablet' => '2',
-							'columns_mobile' => '1',
+							'layout' => 'cover',
+							'align'  => 'center',
 						)
 					),
-				),
-				array_merge( Blocks::pad_y( 56, 40, 28 ), array( 'surface' => 'soft' ) )
+				)
 			),
+			Blocks::band(
+				array(
+					El::w( 'lzp-breadcrumb', array( 'home_label' => 'خانه' ) ),
+					El::w(
+						'lzp-post-toc',
+						array(
+							'look'    => 'inline',
+							'title'   => 'در این مقاله',
+							'_margin' => El::dims( array( 18, 0, 26, 0 ) ),
+						)
+					),
+					El::w( 'lzp-post-content', array( 'size' => 'lg' ) ),
+				),
+				self::column_band( 780, array( 30, 0, 40 ) )
+			),
+			self::closing( 780 ),
+			self::related(),
 			self::newsletter(),
+		);
+	}
+
+	/** Title beside the featured image, the text beside a sticky sidebar. */
+	public static function split(): array {
+		return array(
+			El::box( array( 'pad' => 0 ), array( El::w( 'lzp-reading-progress' ) ) ),
+			Blocks::band(
+				array( El::w( 'lzp-breadcrumb', array( 'home_label' => 'خانه' ) ) ),
+				array(
+					'pad'        => array( 30, 40, 6 ),
+					'pad_tablet' => array( 24, 24, 4 ),
+					'pad_mobile' => array( 18, 16, 2 ),
+				)
+			),
+			Blocks::bleed(
+				array(
+					El::w(
+						'lzp-post-header',
+						array(
+							'layout' => 'split',
+							'guides' => '',
+						)
+					),
+				)
+			),
+			Blocks::band(
+				array(
+					self::with_sidebar(
+						array(
+							El::w( 'lzp-post-content', array( 'size' => 'lg' ) ),
+							El::w( 'lzp-author-box', array( '_margin' => El::dims( array( 36, 0, 0, 0 ) ) ) ),
+							El::w( 'lzp-post-nav', array( '_margin' => El::dims( array( 20, 0, 0, 0 ) ) ) ),
+							El::w( 'lzp-post-comments', array( '_margin' => El::dims( array( 40, 0, 0, 0 ) ) ) ),
+						),
+						array(
+							El::w( 'lzp-post-toc', array( 'title' => 'در این مقاله' ) ),
+							El::w( 'lzp-popular-posts', array( 'title' => 'پرخواننده‌ترین‌ها' ) ),
+							El::w(
+								'lzp-promo-box',
+								array(
+									'title'        => 'جلسه پرتره',
+									'text'         => 'اگر ترجیح می‌دهی خودت جلوی دوربین بنشینی، یک جلسه رزرو کن.',
+									'primary_text' => 'رزرو وقت',
+									'primary_link' => Blocks::link( Blocks::booking_url() ),
+									'primary_icon' => 'calendar',
+								)
+							),
+						),
+						44
+					),
+				),
+				array(
+					'pad'        => array( 0, 40, 60 ),
+					'pad_tablet' => array( 0, 24, 44 ),
+					'pad_mobile' => array( 0, 16, 30 ),
+				)
+			),
+			self::related(),
+			self::newsletter(),
+		);
+	}
+
+	/** A narrow reading column: centred header, image, text, author and comments. */
+	public static function minimal(): array {
+		return array(
+			Blocks::band(
+				array(
+					El::w( 'lzp-reading-progress' ),
+					El::w( 'lzp-breadcrumb', array( 'home_label' => 'خانه' ) ),
+				),
+				self::column_band( 700, array( 36, 0, 22 ) )
+			),
+			Blocks::bleed(
+				array(
+					El::w(
+						'lzp-post-header',
+						array(
+							'align'        => 'center',
+							'show_excerpt' => 'yes',
+							'guides'       => '',
+						)
+					),
+				)
+			),
+			Blocks::band(
+				array( El::w( 'lzp-post-image' ) ),
+				self::column_band( 900, array( 0, 0, 34 ) )
+			),
+			Blocks::band(
+				array( El::w( 'lzp-post-content', array( 'size' => 'lg' ) ) ),
+				self::column_band( 700, array( 0, 0, 36 ) )
+			),
+			self::closing( 700 ),
+			self::newsletter(),
+		);
+	}
+
+	/**
+	 * A band boxed to a reading width.
+	 *
+	 * @param int   $width Box width.
+	 * @param int[] $pad   Top, sides (ignored: the gutters apply) and bottom padding.
+	 */
+	private static function column_band( int $width, array $pad ): array {
+		return array(
+			'boxed'      => $width,
+			'pad'        => array( $pad[0], 40, $pad[2] ),
+			'pad_tablet' => array( (int) round( $pad[0] * 0.8 ), 24, (int) round( $pad[2] * 0.8 ) ),
+			'pad_mobile' => array( (int) round( $pad[0] * 0.6 ), 16, (int) round( $pad[2] * 0.6 ) ),
+		);
+	}
+
+	/**
+	 * Author box, previous and next articles and comments, in a reading column.
+	 *
+	 * @param int $width Column width.
+	 */
+	private static function closing( int $width ): array {
+		return Blocks::band(
+			array(
+				El::w( 'lzp-author-box' ),
+				El::w( 'lzp-post-nav', array( '_margin' => El::dims( array( 20, 0, 0, 0 ) ) ) ),
+				El::w( 'lzp-post-comments', array( '_margin' => El::dims( array( 40, 0, 0, 0 ) ) ) ),
+			),
+			self::column_band( $width, array( 0, 0, 60 ) )
+		);
+	}
+
+	/** Related articles on the soft band. */
+	private static function related(): array {
+		return Blocks::band(
+			array(
+				El::w(
+					'lzp-related-items',
+					array(
+						'post_type'      => 'post',
+						'look'           => 'card',
+						'title'          => 'مقالات مرتبط',
+						'button_text'    => 'همه مقالات',
+						'columns'        => '3',
+						'columns_tablet' => '2',
+						'columns_mobile' => '1',
+					)
+				),
+			),
+			array_merge( Blocks::pad_y( 56, 40, 28 ), array( 'surface' => 'soft' ) )
 		);
 	}
 

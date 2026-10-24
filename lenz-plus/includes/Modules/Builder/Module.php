@@ -58,6 +58,7 @@ final class Module extends Base_Module {
 			'about'             => __( 'About page', 'lenz-plus' ),
 			'services'          => __( 'Services page', 'lenz-plus' ),
 			'courses'           => __( 'Courses page', 'lenz-plus' ),
+			'contact'           => __( 'Contact page', 'lenz-plus' ),
 			'portfolio_archive' => __( 'Portfolio list', 'lenz-plus' ),
 			'portfolio'         => __( 'Project page', 'lenz-plus' ),
 			'blog'              => __( 'Post list', 'lenz-plus' ),
@@ -192,6 +193,7 @@ final class Module extends Base_Module {
 			'about'    => __( 'About pages', 'lenz-plus' ),
 			'services' => __( 'Services pages', 'lenz-plus' ),
 			'courses'  => __( 'Courses pages', 'lenz-plus' ),
+			'contact'  => __( 'Contact pages', 'lenz-plus' ),
 		);
 
 		$kinds = array();
