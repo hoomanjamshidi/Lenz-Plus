@@ -30,6 +30,16 @@ final class Library {
 	/** Hash of the preset data at install time, to detect later edits. */
 	private const META_HASH = '_lzp_preset_hash';
 
+	/**
+	 * Set while one request installs presets. Installing every design takes
+	 * seconds; without it, admin pages loading at the same time after an
+	 * update (a second tab, the redirect, the library) each installed a copy.
+	 */
+	private const LOCK_OPTION = 'lenz_plus_presets_lock';
+
+	/** Seconds after which a lock left by a request that died is taken over. */
+	private const LOCK_TTL = 300;
+
 	/** Whether Elementor is loaded. */
 	public static function elementor_active(): bool {
 		return did_action( 'elementor/loaded' ) && class_exists( '\Elementor\Plugin' );
@@ -54,22 +64,19 @@ final class Library {
 
 	/** Installs every preset that is not installed yet (or was deleted). */
 	public static function install_missing(): int {
-		if ( ! self::elementor_active() ) {
+		if ( ! self::elementor_active() || ! self::lock() ) {
 			return 0;
 		}
 
-		$installed = self::installed_map();
-		$count     = 0;
-
-		foreach ( Catalog::keys() as $key ) {
-			$post_id = $installed[ $key ] ?? 0;
-			if ( $post_id && Template_Post_Type::POST_TYPE === get_post_type( $post_id ) && 'trash' !== get_post_status( $post_id ) ) {
-				continue;
+		$count = 0;
+		try {
+			foreach ( Catalog::keys() as $key ) {
+				if ( ! self::preset_post( $key ) && self::install( $key ) ) {
+					++$count;
+				}
 			}
-
-			if ( self::install( $key ) ) {
-				++$count;
-			}
+		} finally {
+			self::unlock();
 		}
 
 		return $count;
@@ -77,32 +84,196 @@ final class Library {
 
 	/**
 	 * After a plugin update: rewrites the ready-made templates nobody has
-	 * edited with their improved designs, and installs designs added in this
-	 * version. Edited templates are left alone ("Restore original" updates
-	 * them on request), and deleted ones are not brought back.
+	 * edited with their improved designs, installs designs added in this
+	 * version and moves extra copies of a design to the trash (see
+	 * remove_duplicates()). Edited templates are left alone ("Restore
+	 * original" updates them on request).
 	 */
 	public static function maybe_upgrade(): void {
 		// admin_init also runs for visitors' admin-ajax requests; wait for an administrator's page load.
-		if ( wp_doing_ajax() || ! Module::user_can_manage() || ! self::elementor_active() || LENZ_PLUS_VERSION === get_option( self::VERSION_OPTION ) ) {
+		if ( wp_doing_ajax() || ! Module::user_can_manage() || ! self::elementor_active() || LENZ_PLUS_VERSION === get_option( self::VERSION_OPTION ) || ! self::lock() ) {
 			return;
 		}
 
-		$installed = get_option( self::OPTION, false );
+		try {
+			// Another request may have finished the upgrade while this one waited for the lock.
+			wp_cache_delete( self::VERSION_OPTION, 'options' );
+			if ( LENZ_PLUS_VERSION === get_option( self::VERSION_OPTION ) ) {
+				return;
+			}
 
-		// A fresh site installs everything on the first visit to the settings screen instead.
-		if ( is_array( $installed ) ) {
-			foreach ( Catalog::keys() as $key ) {
-				$post_id = (int) ( $installed[ $key ] ?? 0 );
+			// A fresh site installs everything on the first visit to the settings screen instead.
+			if ( is_array( get_option( self::OPTION, false ) ) ) {
+				foreach ( Catalog::keys() as $key ) {
+					$post_id = self::preset_post( $key );
 
-				if ( ! $post_id ) {
-					self::install( $key );
-				} elseif ( Template_Post_Type::POST_TYPE === get_post_type( $post_id ) && 'trash' !== get_post_status( $post_id ) && ! self::is_modified( $post_id ) ) {
-					self::install( $key, $post_id );
+					if ( ! $post_id ) {
+						self::install( $key );
+					} elseif ( ! self::has_data( $post_id ) || ! self::is_modified( $post_id ) ) {
+						// A template left without Elementor data (an install cut short) opens nowhere: rebuild it.
+						self::install( $key, $post_id );
+					}
+				}
+				self::remove_duplicates();
+			}
+
+			update_option( self::VERSION_OPTION, LENZ_PLUS_VERSION, false );
+		} finally {
+			self::unlock();
+		}
+	}
+
+	/** Takes the install lock; false while another request holds it. */
+	private static function lock(): bool {
+		// add_option() inserts or fails on the unique option name, so only one request gets it.
+		if ( add_option( self::LOCK_OPTION, time(), '', false ) ) {
+			return true;
+		}
+
+		wp_cache_delete( self::LOCK_OPTION, 'options' );
+		$since = (int) get_option( self::LOCK_OPTION, 0 );
+		if ( $since && time() - $since < self::LOCK_TTL ) {
+			return false;
+		}
+
+		// A request that died while installing left the lock behind.
+		delete_option( self::LOCK_OPTION );
+
+		return add_option( self::LOCK_OPTION, time(), '', false );
+	}
+
+	/** Releases the install lock. */
+	private static function unlock(): void {
+		delete_option( self::LOCK_OPTION );
+	}
+
+	/**
+	 * The template a preset is installed as, 0 when there is none. A
+	 * template made from the preset but missing from the map (an older copy)
+	 * is adopted instead of installing another one.
+	 *
+	 * @param string $key Preset key.
+	 */
+	private static function preset_post( string $key ): int {
+		$post_id = self::installed_map()[ $key ] ?? 0;
+		if ( $post_id && Template_Post_Type::POST_TYPE === get_post_type( $post_id ) && 'trash' !== get_post_status( $post_id ) ) {
+			return $post_id;
+		}
+
+		$copies = self::preset_copies( $key );
+		if ( ! $copies ) {
+			return 0;
+		}
+
+		$map         = self::installed_map();
+		$map[ $key ] = $copies[0];
+		update_option( self::OPTION, $map, false );
+
+		return $copies[0];
+	}
+
+	/**
+	 * Templates made from a preset (not trashed), oldest first.
+	 *
+	 * @param string $key Preset key.
+	 * @return int[]
+	 */
+	private static function preset_copies( string $key ): array {
+		return array_map(
+			'intval',
+			get_posts(
+				array(
+					'post_type'      => Template_Post_Type::POST_TYPE,
+					'post_status'    => array( 'publish', 'draft', 'pending', 'private', 'future' ),
+					'posts_per_page' => -1,
+					'fields'         => 'ids',
+					'orderby'        => 'ID',
+					'order'          => 'ASC',
+					'no_found_rows'  => true,
+					'meta_key'       => Template_Post_Type::META_PRESET, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- admin upgrade, runs once per version.
+					'meta_value'     => $key, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
+				)
+			)
+		);
+	}
+
+	/**
+	 * Moves extra copies of each preset to the trash: broken copies (no
+	 * Elementor data), and copies nobody edited and nothing uses (no page
+	 * made from them, not chosen as a header, footer or site page). Edited
+	 * or used copies stay, and the trash keeps the rest restorable.
+	 *
+	 * @return int Copies moved to the trash.
+	 */
+	public static function remove_duplicates(): int {
+		$used    = self::used_templates();
+		$removed = 0;
+
+		foreach ( Catalog::keys() as $key ) {
+			$keep = self::preset_post( $key );
+			foreach ( self::preset_copies( $key ) as $post_id ) {
+				$broken = ! self::has_data( $post_id );
+				if ( $post_id === $keep || ( ! $broken && ( in_array( $post_id, $used, true ) || self::is_modified( $post_id ) || self::has_pages( $post_id ) ) ) ) {
+					continue;
+				}
+				if ( wp_trash_post( $post_id ) ) {
+					++$removed;
 				}
 			}
 		}
 
-		update_option( self::VERSION_OPTION, LENZ_PLUS_VERSION, false );
+		return $removed;
+	}
+
+	/**
+	 * Whether a template holds Elementor data (a non-empty element list).
+	 *
+	 * @param int $post_id Template ID.
+	 */
+	private static function has_data( int $post_id ): bool {
+		$data = json_decode( (string) get_post_meta( $post_id, '_elementor_data', true ), true );
+
+		return is_array( $data ) && $data;
+	}
+
+	/**
+	 * Template IDs chosen in the module settings (header and footer slots,
+	 * site pages, project pages).
+	 *
+	 * @return int[]
+	 */
+	private static function used_templates(): array {
+		$settings = get_option( 'lenz_plus_' . Module::ID, array() );
+		$ids      = array();
+
+		foreach ( array( 'header', 'footer', 'routes', 'projects' ) as $group ) {
+			foreach ( (array) ( $settings[ $group ] ?? array() ) as $value ) {
+				if ( is_scalar( $value ) && ctype_digit( (string) $value ) ) {
+					$ids[] = (int) $value;
+				}
+			}
+		}
+
+		return $ids;
+	}
+
+	/**
+	 * Whether a page was made from a template ("Create page").
+	 *
+	 * @param int $template_id Template ID.
+	 */
+	private static function has_pages( int $template_id ): bool {
+		return (bool) get_posts(
+			array(
+				'post_type'      => 'page',
+				'post_status'    => 'any',
+				'posts_per_page' => 1,
+				'fields'         => 'ids',
+				'no_found_rows'  => true,
+				'meta_key'       => Design_Pages::META_DESIGN, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- admin upgrade, runs once per version.
+				'meta_value'     => $template_id, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
+			)
+		);
 	}
 
 	/**

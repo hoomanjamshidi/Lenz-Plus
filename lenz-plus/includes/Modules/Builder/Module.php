@@ -25,9 +25,12 @@ final class Module extends Base_Module {
 	/** @var Resolver|null */
 	private $resolver = null;
 
-	/** Module id: the option name suffix and the admin page slug. */
+	/** Module id: the option name suffix (`lenz_plus_builder`) and the admin page slug. */
+	public const ID = 'builder';
+
+	/** Module id. */
 	public function id(): string {
-		return 'builder';
+		return self::ID;
 	}
 
 	/** Feature name in the admin menu and on the dashboard. */

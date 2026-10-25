@@ -3,7 +3,7 @@ Tags: lenz, photography, bottom navigation, elementor, rtl
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,6 +53,9 @@ It is built for Lenz and reads its colours, logo, menus and options. Without Len
 No. Updates refresh only the ready-made templates you have not edited, and pages created from a design never change by themselves.
 
 == Changelog ==
+
+= 1.3.1 =
+* Fix: after an update, admin pages opening at the same time could each install the ready-made designs, leaving two or three copies of every new design (and copies cut short that opened neither in the preview nor in Elementor). Designs are now installed by one request at a time, an existing copy is reused, and this update moves the extra copies to the trash: those nobody edited and no page or setting uses, and any without Elementor data. A design left without data is rebuilt.
 
 = 1.3.0 =
 * Project booking: a new widget that takes a booking in steps (project type cards, project details, contact details, review) with a tracking code, in four looks, and four booking page designs. Without JavaScript the same form posts as one page.
