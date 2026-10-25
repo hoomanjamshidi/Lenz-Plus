@@ -16,7 +16,6 @@
 namespace LenzPlus\Modules\Builder\Elementor\Widgets;
 
 use Elementor\Controls_Manager;
-use Elementor\Repeater;
 use LenzPlus\Modules\Builder\Contact_Messages;
 
 defined( 'ABSPATH' ) || exit;
@@ -63,70 +62,12 @@ final class Request_Form extends Form_Base {
 			)
 		);
 
-		$repeater = new Repeater();
-		$repeater->add_control(
-			'type',
-			array(
-				'label'   => __( 'Type', 'lenz-plus' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'text',
-				'options' => array(
-					'name'     => __( 'Name', 'lenz-plus' ),
-					'phone'    => __( 'Mobile / phone', 'lenz-plus' ),
-					'email'    => __( 'Email', 'lenz-plus' ),
-					'text'     => __( 'Short text', 'lenz-plus' ),
-					'select'   => __( 'Choice', 'lenz-plus' ),
-					'date'     => __( 'Date or time', 'lenz-plus' ),
-					'textarea' => __( 'Long text', 'lenz-plus' ),
-				),
-			)
-		);
-		$repeater->add_control(
-			'label',
-			array(
-				'label'       => __( 'Label', 'lenz-plus' ),
-				'type'        => Controls_Manager::TEXT,
-				'default'     => __( 'Field', 'lenz-plus' ),
-				'label_block' => true,
-				'description' => __( 'Shown inside the empty field (and read by screen readers).', 'lenz-plus' ),
-			)
-		);
-		$repeater->add_control(
-			'options',
-			array(
-				'label'       => __( 'Choices (one per line)', 'lenz-plus' ),
-				'type'        => Controls_Manager::TEXTAREA,
-				'rows'        => 5,
-				'default'     => '',
-				'condition'   => array( 'type' => 'select' ),
-				'description' => __( 'The label is shown as the first, empty choice.', 'lenz-plus' ),
-			)
-		);
-		$repeater->add_control(
-			'required',
-			array(
-				'label'        => __( 'Required', 'lenz-plus' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'default'      => '',
-				'return_value' => 'yes',
-			)
-		);
-		$repeater->add_control(
-			'wide',
-			array(
-				'label'        => __( 'Full width', 'lenz-plus' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'default'      => '',
-				'return_value' => 'yes',
-			)
-		);
-
 		$this->add_control(
 			'fields',
 			array(
 				'label'       => __( 'Fields', 'lenz-plus' ),
 				'type'        => Controls_Manager::REPEATER,
-				'fields'      => $repeater->get_controls(),
+				'fields'      => self::field_repeater( Contact_Messages::FIELD_TYPES, __( 'Shown inside the empty field (and read by screen readers).', 'lenz-plus' ) ),
 				'default'     => $defaults['fields'],
 				'title_field' => '{{ label }}',
 			)
@@ -166,28 +107,7 @@ final class Request_Form extends Form_Base {
 
 		$this->start_content_section( 'section_sending', __( 'Sending', 'lenz-plus' ) );
 
-		$this->add_control(
-			'notify',
-			array(
-				'label'        => __( 'Email a copy of each request', 'lenz-plus' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'default'      => $defaults['notify'],
-				'return_value' => 'yes',
-				'description'  => __( 'Requests are always kept in Lenz+ → Requests, even when email does not work on your host.', 'lenz-plus' ),
-			)
-		);
-
-		$this->add_control(
-			'email_to',
-			array(
-				'label'       => __( 'Send to', 'lenz-plus' ),
-				'type'        => Controls_Manager::TEXT,
-				'default'     => $defaults['email_to'],
-				'placeholder' => get_option( 'admin_email' ),
-				'description' => __( 'One or more addresses, separated by commas. Empty: the site\'s admin email.', 'lenz-plus' ),
-				'condition'   => array( 'notify' => 'yes' ),
-			)
-		);
+		$this->add_sending_controls( $defaults, __( 'Requests are always kept in Lenz+ → Requests, even when email does not work on your host.', 'lenz-plus' ) );
 
 		$this->end_controls_section();
 
@@ -249,7 +169,7 @@ final class Request_Form extends Form_Base {
 
 		$inputs = '';
 		foreach ( array_values( $fields ) as $index => $field ) {
-			$inputs .= $this->field_html( $id, $index, $field );
+			$inputs .= self::field_html( $id, $index, $field, Contact_Messages::FIELD_TYPES );
 		}
 
 		$button = Button::markup(
@@ -277,55 +197,6 @@ final class Request_Form extends Form_Base {
 			$inputs, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in field_html().
 			$foot, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above.
 			self::form_result_html( $result, (string) $s['success_text'] ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in form_result_html().
-		);
-	}
-
-	/**
-	 * One field with its screen-reader label. Fields are posted by position
-	 * (`f[0]`…), which is how Contact_Messages reads them.
-	 *
-	 * @param string $form_id Form HTML id.
-	 * @param int    $index   Position.
-	 * @param array  $field   Field settings.
-	 */
-	private function field_html( string $form_id, int $index, array $field ): string {
-		$type     = in_array( $field['type'] ?? '', Contact_Messages::FIELD_TYPES, true ) ? $field['type'] : 'text';
-		$label    = (string) ( $field['label'] ?? '' );
-		$required = 'yes' === ( $field['required'] ?? '' );
-		$field_id = $form_id . '-' . $index;
-
-		$attrs = sprintf( ' class="lzp-form__input" id="%1$s" name="f[%2$d]"%3$s', esc_attr( $field_id ), $index, $required ? ' required' : '' );
-
-		switch ( $type ) {
-			case 'select':
-				$options = '<option value="">' . esc_html( $label ) . '</option>';
-				foreach ( Contact_Messages::option_list( (string) ( $field['options'] ?? '' ) ) as $option ) {
-					$options .= sprintf( '<option value="%1$s">%1$s</option>', esc_attr( $option ) );
-				}
-				$control = '<select' . $attrs . '>' . $options . '</select>';
-				break;
-
-			case 'textarea':
-				$control = '<textarea' . $attrs . ' rows="4" maxlength="5000" placeholder="' . esc_attr( $label ) . '"></textarea>';
-				break;
-
-			default:
-				$extra   = array(
-					'name'  => ' type="text" maxlength="100" autocomplete="name"',
-					'phone' => ' type="tel" inputmode="tel" maxlength="20" autocomplete="tel"',
-					'email' => ' type="email" inputmode="email" autocomplete="email"',
-				);
-				$control = '<input' . $attrs . ( $extra[ $type ] ?? ' type="text" maxlength="200"' ) . ' placeholder="' . esc_attr( $label ) . '">';
-		}
-
-		$wide = 'yes' === ( $field['wide'] ?? '' ) || 'textarea' === $type;
-
-		return sprintf(
-			'<p class="lzp-form__field%1$s"><label class="screen-reader-text" for="%2$s">%3$s</label>%4$s</p>',
-			$wide ? ' lzp-form__field--wide' : '',
-			esc_attr( $field_id ),
-			esc_html( $label ),
-			$control
 		);
 	}
 }

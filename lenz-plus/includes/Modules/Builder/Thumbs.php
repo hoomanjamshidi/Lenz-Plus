@@ -105,6 +105,58 @@ final class Thumbs {
 		return $svg;
 	}
 
+	/** The stepped booking page (and any booking template): hero, numbered steps over a card of project cards. */
+	private static function draw_booking(): string {
+		$svg = self::page_frame()
+			. self::r( 196, 18, 30, 4, self::MUTED, 1 ) . self::r( 126, 26, 100, 8, self::INK, 2 ) . self::r( 150, 38, 76, 3, self::STRONG, 1 )
+			. self::r( 30, 50, 180, 92, self::WHITE, 6, self::LINE );
+		foreach ( array( 186, 140, 94, 48 ) as $i => $x ) {
+			$svg .= '<circle cx="' . $x . '" cy="62" r="5" fill="' . ( 0 === $i ? self::INK : self::WHITE ) . '" stroke="' . self::STRONG . '"/>';
+		}
+		foreach ( array( 152, 96, 40 ) as $i => $x ) {
+			$svg .= self::r( $x, 76, 48, 32, 0 === $i ? self::SOFT : self::WHITE, 4, 0 === $i ? self::INK : self::LINE ) . self::r( $x + 34, 81, 8, 8, self::LINE, 2 ) . self::r( $x + 14, 96, 28, 3, self::INK, 1 );
+		}
+
+		return $svg . self::r( 40, 120, 160, 1, self::LINE, 0 ) . self::r( 160, 126, 40, 10, self::INK, 3 ) . self::r( 40, 126, 30, 10, self::WHITE, 3, self::STRONG );
+	}
+
+	/** The booking page with the ink panel: steps and summary beside the form. */
+	private static function draw_booking_split(): string {
+		$svg = self::page_frame() . self::r( 168, 18, 58, 6, self::INK, 2 )
+			. self::r( 14, 32, 212, 108, self::WHITE, 6, self::LINE ) . self::r( 152, 32, 74, 108, self::INK, 6 )
+			. self::r( 164, 44, 50, 6, self::WHITE, 2 ) . self::r( 170, 54, 44, 3, self::ON_INK, 1 );
+		foreach ( array( 70, 82, 94, 106 ) as $i => $y ) {
+			$svg .= '<circle cx="208" cy="' . $y . '" r="4" fill="' . ( 1 === $i ? self::WHITE : 'none' ) . '" stroke="' . self::ON_INK . '"/>' . self::r( 172, $y - 2, 28, 3, self::ON_INK, 1 );
+		}
+
+		return $svg . self::r( 24, 42, 118, 3, self::LINE, 1 ) . self::r( 90, 42, 52, 3, self::INK, 1 )
+			. self::r( 24, 56, 118, 12, self::SOFT, 2, self::LINE ) . self::r( 24, 74, 56, 12, self::SOFT, 2, self::LINE ) . self::r( 86, 74, 56, 12, self::SOFT, 2, self::LINE )
+			. self::r( 24, 92, 118, 24, self::SOFT, 2, self::LINE ) . self::r( 102, 124, 40, 9, self::INK, 3 );
+	}
+
+	/** One question at a time: a progress line and one large step on the soft band. */
+	private static function draw_booking_focus(): string {
+		return self::r( 0, 0, 240, 150, self::SOFT, 0 ) . self::r( 0, 0, 240, 12, self::WHITE, 0 )
+			. self::r( 90, 22, 60, 6, self::INK, 2 ) . self::r( 50, 38, 140, 3, self::LINE, 1 ) . self::r( 105, 38, 85, 3, self::INK, 1 )
+			. self::r( 160, 50, 30, 6, self::LINE, 3 ) . self::r( 90, 60, 100, 9, self::INK, 2 )
+			. self::r( 50, 78, 140, 18, self::WHITE, 4, self::LINE ) . self::r( 50, 100, 140, 18, self::WHITE, 4, self::LINE )
+			. self::r( 140, 128, 50, 11, self::INK, 3 ) . self::r( 50, 128, 40, 11, self::WHITE, 3, self::STRONG );
+	}
+
+	/** The ordinary booking form: hero, one-page form beside contact cards. */
+	private static function draw_booking_simple(): string {
+		$svg = self::page_frame()
+			. self::r( 196, 18, 30, 4, self::MUTED, 1 ) . self::r( 146, 26, 80, 8, self::INK, 2 )
+			. self::r( 82, 44, 144, 100, self::WHITE, 6, self::LINE );
+		foreach ( array( 54, 72, 90 ) as $y ) {
+			$svg .= self::r( 92, $y, 60, 10, self::SOFT, 2, self::LINE ) . self::r( 156, $y, 60, 10, self::SOFT, 2, self::LINE );
+		}
+
+		return $svg . self::r( 92, 108, 124, 20, self::SOFT, 2, self::LINE ) . self::r( 176, 132, 40, 8, self::INK, 3 )
+			. self::r( 14, 44, 60, 30, self::WHITE, 5, self::LINE ) . self::r( 14, 80, 60, 30, self::WHITE, 5, self::LINE )
+			. self::r( 58, 50, 10, 10, self::LINE, 2 ) . self::r( 58, 86, 10, 10, self::LINE, 2 ) . self::r( 24, 64, 40, 3, self::INK, 1 ) . self::r( 24, 100, 40, 3, self::INK, 1 );
+	}
+
 	/** The classic contact page (and any contact template): text hero, four cards, the form beside the map. */
 	private static function draw_contact(): string {
 		$svg = self::page_frame()

@@ -18,7 +18,6 @@
 namespace LenzPlus\Modules\Builder;
 
 use LenzPlus\Admin\Admin;
-use LenzPlus\Core\Persian;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -57,14 +56,6 @@ final class Contact_Messages extends Public_Form {
 	private const RATE_LIMIT = 3;
 
 	private const RATE_WINDOW = 600;
-
-	/** Longest value kept per field type. */
-	private const MAX_LENGTH = array(
-		'name'     => 100,
-		'textarea' => 5000,
-	);
-
-	private const MAX_DEFAULT = 200;
 
 	/** Registers the post type, the form handler, the export and the privacy tools. */
 	public function register(): void {
@@ -161,16 +152,6 @@ final class Contact_Messages extends Public_Form {
 		);
 	}
 
-	/**
-	 * Choices of a select field (one per line).
-	 *
-	 * @param string $options Options setting.
-	 * @return string[]
-	 */
-	public static function option_list( string $options ): array {
-		return array_values( array_filter( array_map( 'trim', preg_split( '/\R/u', $options ) ), 'strlen' ) );
-	}
-
 	/** Number of stored requests. */
 	public static function count(): int {
 		$counts = wp_count_posts( self::POST_TYPE );
@@ -204,8 +185,8 @@ final class Contact_Messages extends Public_Form {
 			$this->respond( 'error' );
 		}
 
-		$answers = self::clean( $posted, $settings['fields'] );
-		$invalid = self::invalid_fields( $answers );
+		$answers = Form_Fields::clean( $posted, $settings['fields'], self::FIELD_TYPES );
+		$invalid = Form_Fields::invalid( $answers );
 		if ( $invalid ) {
 			$this->respond( 'invalid', array( 'fields' => $invalid ) );
 		}
@@ -266,83 +247,6 @@ final class Contact_Messages extends Public_Form {
 	}
 
 	/**
-	 * Each configured field with the visitor's sanitized answer. Fields are
-	 * posted by position (`f[0]`, `f[1]`…), as the widget prints them.
-	 *
-	 * @param array $posted Raw posted values.
-	 * @param array $fields Field settings.
-	 * @return array<int, array{type:string, label:string, required:bool, value:string}>
-	 */
-	private static function clean( array $posted, array $fields ): array {
-		$answers = array();
-
-		foreach ( array_values( $fields ) as $index => $field ) {
-			$type  = in_array( $field['type'] ?? '', self::FIELD_TYPES, true ) ? $field['type'] : 'text';
-			$raw   = isset( $posted[ $index ] ) && is_string( $posted[ $index ] ) ? $posted[ $index ] : '';
-			$value = self::sanitize( $type, $raw );
-
-			$answers[ $index ] = array(
-				'type'     => $type,
-				'label'    => (string) ( $field['label'] ?? '' ),
-				'required' => 'yes' === ( $field['required'] ?? '' ),
-				'value'    => mb_substr( $value, 0, self::MAX_LENGTH[ $type ] ?? self::MAX_DEFAULT ),
-			);
-		}
-
-		return $answers;
-	}
-
-	/**
-	 * One answer, cleaned for its field type.
-	 *
-	 * @param string $type Field type.
-	 * @param string $raw  Posted value.
-	 */
-	private static function sanitize( string $type, string $raw ): string {
-		switch ( $type ) {
-			case 'email':
-				return sanitize_email( $raw );
-			case 'phone':
-				// Visitors type numbers with Persian digits; keep digits, + and the usual separators.
-				return trim( (string) preg_replace( '/[^\d+()\s-]/', '', Persian::latin_digits( sanitize_text_field( $raw ) ) ) );
-			case 'textarea':
-				return trim( sanitize_textarea_field( $raw ) );
-			default:
-				// A chosen option is kept as sent, not matched against the list: a cached page can
-				// show options edited since, and a valid choice would be rejected.
-				return trim( sanitize_text_field( $raw ) );
-		}
-	}
-
-	/**
-	 * Positions of the fields that need fixing.
-	 *
-	 * @param array $answers Cleaned answers.
-	 * @return int[]
-	 */
-	private static function invalid_fields( array $answers ): array {
-		$invalid = array();
-
-		foreach ( $answers as $index => $answer ) {
-			$value = $answer['value'];
-
-			if ( '' === $value ) {
-				if ( $answer['required'] ) {
-					$invalid[] = $index;
-				}
-				continue;
-			}
-
-			if ( ( 'email' === $answer['type'] && ! is_email( $value ) )
-				|| ( 'phone' === $answer['type'] && strlen( (string) preg_replace( '/\D/', '', $value ) ) < 7 ) ) {
-				$invalid[] = $index;
-			}
-		}
-
-		return $invalid;
-	}
-
-	/**
 	 * The parts a request is stored and emailed as.
 	 *
 	 * @param array  $answers   Cleaned answers.
@@ -350,32 +254,21 @@ final class Contact_Messages extends Public_Form {
 	 * @return array{name:string, email:string, phone:string, message:string, pairs:array}
 	 */
 	private static function summarize( array $answers, string $form_name ): array {
-		$out  = array(
-			'name'    => '',
-			'email'   => '',
-			'phone'   => '',
-			'message' => '',
-			'pairs'   => array(),
-		);
 		$long = array();
-
 		foreach ( $answers as $answer ) {
-			if ( '' === $answer['value'] ) {
-				continue;
-			}
-
-			$out['pairs'][] = array( $answer['label'], $answer['value'] );
-
-			if ( 'name' === $answer['type'] && '' === $out['name'] ) {
-				$out['name'] = $answer['value'];
-			} elseif ( in_array( $answer['type'], array( 'email', 'phone' ), true ) && '' === $out[ $answer['type'] ] ) {
-				$out[ $answer['type'] ] = $answer['value'];
-			} elseif ( 'textarea' === $answer['type'] ) {
+			if ( 'textarea' === $answer['type'] && '' !== $answer['value'] ) {
 				$long[] = $answer['value'];
 			}
 		}
 
-		$out['message'] = implode( "\n\n", $long );
+		$out = array(
+			'name'    => Form_Fields::first_of( $answers, 'name' ),
+			'email'   => Form_Fields::first_of( $answers, 'email' ),
+			'phone'   => Form_Fields::first_of( $answers, 'phone' ),
+			'message' => implode( "\n\n", $long ),
+			'pairs'   => Form_Fields::pairs( $answers ),
+		);
+
 		if ( '' === $out['name'] ) {
 			$out['name'] = '' !== $out['phone'] ? $out['phone'] : ( '' !== $out['email'] ? $out['email'] : $form_name );
 		}
@@ -393,10 +286,7 @@ final class Contact_Messages extends Public_Form {
 	 * @param string $email_to  Comma-separated addresses ('' = the site's admin email).
 	 */
 	private static function notify( array $request, string $form_name, int $source, string $email_to ): void {
-		$to = array_values( array_filter( array_map( 'trim', explode( ',', $email_to ) ), 'is_email' ) );
-		if ( ! $to ) {
-			$to = array( (string) get_option( 'admin_email' ) );
-		}
+		$to = self::recipients( $email_to );
 
 		$site  = wp_specialchars_decode( (string) get_bloginfo( 'name' ), ENT_QUOTES );
 		$lines = array(
@@ -426,28 +316,7 @@ final class Contact_Messages extends Public_Form {
 		$subject = sprintf( __( '[%1$s] %2$s: %3$s', 'lenz-plus' ), $site, $form_name, $request['name'] );
 		$body    = implode( "\n", $lines );
 
-		// wp_mail() only catches PHPMailer's own exceptions. On hosts that disable
-		// PHP's mail(), PHPMailer throws an Error instead (a fatal error on PHP 8),
-		// and the visitor would be told a request that is already saved was not sent.
-		try {
-			wp_mail( $to, $subject, $body, $headers );
-		} catch ( \Throwable $error ) {
-			// Core's failure hook, so mail log plugins record it like any other failed email.
-			do_action(
-				'wp_mail_failed', // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- WordPress core hook.
-				new \WP_Error(
-					'wp_mail_failed',
-					$error->getMessage(),
-					array(
-						'to'          => $to,
-						'subject'     => $subject,
-						'message'     => $body,
-						'headers'     => $headers,
-						'attachments' => array(),
-					)
-				)
-			);
-		}
+		self::send_mail( $to, $subject, $body, $headers );
 	}
 
 	/**
@@ -457,16 +326,7 @@ final class Contact_Messages extends Public_Form {
 	 * @return string[]
 	 */
 	public static function answer_lines( int $post_id ): array {
-		$pairs = get_post_meta( $post_id, self::META_FIELDS, true );
-		$lines = array();
-
-		foreach ( is_array( $pairs ) ? $pairs : array() as $pair ) {
-			if ( is_array( $pair ) && 2 === count( $pair ) ) {
-				$lines[] = $pair[0] . ': ' . $pair[1];
-			}
-		}
-
-		return $lines;
+		return Form_Fields::lines( get_post_meta( $post_id, self::META_FIELDS, true ) );
 	}
 
 	/** Streams every request as a CSV file. */
@@ -522,7 +382,7 @@ final class Contact_Messages extends Public_Form {
 	}
 
 	/**
-	 * The requests sent with an email address, for a personal data export.
+	 * The requests and bookings sent with an email address, for a personal data export.
 	 *
 	 * @param string $email Address being exported.
 	 */
@@ -531,9 +391,9 @@ final class Contact_Messages extends Public_Form {
 
 		foreach ( self::find_by_email( (string) $email ) as $post ) {
 			$data[] = array(
-				'group_id'    => 'lenz-plus-requests',
-				'group_label' => __( 'Requests', 'lenz-plus' ),
-				'item_id'     => 'request-' . $post->ID,
+				'group_id'    => 'lenz-plus-' . $post->post_type,
+				'group_label' => self::POST_TYPE === $post->post_type ? __( 'Requests', 'lenz-plus' ) : __( 'Bookings', 'lenz-plus' ),
+				'item_id'     => $post->post_type . '-' . $post->ID,
 				'data'        => array(
 					array(
 						'name'  => __( 'Form', 'lenz-plus' ),
@@ -558,7 +418,7 @@ final class Contact_Messages extends Public_Form {
 	}
 
 	/**
-	 * Deletes the requests sent with an email address.
+	 * Deletes the requests and bookings sent with an email address.
 	 *
 	 * @param string $email Address being erased.
 	 */
@@ -578,7 +438,7 @@ final class Contact_Messages extends Public_Form {
 	}
 
 	/**
-	 * Requests sent with an email address.
+	 * Requests and bookings sent with an email address.
 	 *
 	 * @param string $email Address.
 	 * @return \WP_Post[]
@@ -591,7 +451,8 @@ final class Contact_Messages extends Public_Form {
 
 		return get_posts(
 			array(
-				'post_type'      => self::POST_TYPE,
+				// Bookings keep the visitor's address under the same key.
+				'post_type'      => array( self::POST_TYPE, Booking_Requests::POST_TYPE ),
 				'post_status'    => array( 'private', 'trash' ),
 				'posts_per_page' => 200, // phpcs:ignore WordPress.WP.PostsPerPage.posts_per_page_posts_per_page -- one person's requests; a safety cap.
 				'no_found_rows'  => true,

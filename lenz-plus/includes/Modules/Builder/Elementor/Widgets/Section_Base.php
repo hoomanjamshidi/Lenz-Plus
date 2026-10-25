@@ -280,14 +280,15 @@ abstract class Section_Base extends Base {
 	 *
 	 * @param string $result  Result of a plain post ('' when none).
 	 * @param string $success Success message.
+	 * @param string $extra   More escaped markup inside the "done" panel (a tracking code).
 	 */
-	protected static function form_result_html( string $result, string $success ): string {
+	protected static function form_result_html( string $result, string $success, string $extra = '' ): string {
 		$errors = Public_Form::error_messages();
 		$error  = $errors[ $result ] ?? '';
 
 		return '<p class="lzp-form__status' . ( '' !== $error ? ' is-error' : '' ) . '" role="status" aria-live="polite">' . esc_html( $error ) . '</p>'
 			. '<div class="lzp-form__done" data-lzp-form-done tabindex="-1"' . ( 'ok' === $result ? '' : ' hidden' ) . '>'
 			. self::icon( 'check', 'lzp-form__done-icon' )
-			. '<span>' . esc_html( $success ) . '</span></div>';
+			. '<span>' . esc_html( $success ) . '</span>' . $extra . '</div>';
 	}
 }

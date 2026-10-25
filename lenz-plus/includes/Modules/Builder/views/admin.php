@@ -12,6 +12,7 @@
 
 use LenzPlus\Admin\Fields;
 use LenzPlus\Core\Icon_Library;
+use LenzPlus\Modules\Builder\Booking_Requests;
 use LenzPlus\Modules\Builder\Contact_Messages;
 use LenzPlus\Modules\Builder\Library;
 use LenzPlus\Modules\Builder\Newsletter;
@@ -251,6 +252,25 @@ foreach ( Icon_Library::catalog()['packs'] as $pack_id => $pack ) {
 			</section>
 
 			<section class="lzp-panel" role="tabpanel" id="lzp-panel-forms" aria-labelledby="lzp-tab-forms">
+				<div class="lzp-card">
+					<header class="lzp-card__head lzp-card__head--split">
+						<div>
+							<h2><?php esc_html_e( 'Project bookings', 'lenz-plus' ); ?> <span class="lzp-counter"><?php echo esc_html( number_format_i18n( Booking_Requests::count() ) ); ?></span></h2>
+							<p><?php esc_html_e( 'Projects booked through the Project booking widget, each with a tracking code and a status (new, confirmed, done, cancelled) you change in the list.', 'lenz-plus' ); ?></p>
+						</div>
+						<div class="lzp-inline-actions">
+							<a class="lzp-btn lzp-btn--primary" href="<?php echo esc_url( Booking_Requests::inbox_url() ); ?>">
+								<?php echo $ui_icon( 'calendar' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								<span><?php esc_html_e( 'Open the bookings', 'lenz-plus' ); ?></span>
+							</a>
+							<a class="lzp-btn lzp-btn--soft" href="<?php echo esc_url( Booking_Requests::export_url() ); ?>">
+								<?php echo $ui_icon( 'download' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								<span><?php esc_html_e( 'Download CSV', 'lenz-plus' ); ?></span>
+							</a>
+						</div>
+					</header>
+				</div>
+
 				<div class="lzp-card">
 					<header class="lzp-card__head lzp-card__head--split">
 						<div>

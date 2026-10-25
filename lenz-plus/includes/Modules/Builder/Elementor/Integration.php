@@ -95,6 +95,7 @@ final class Integration {
 		'Mobile_Buy_Bar',
 		// Forms.
 		'Request_Form',
+		'Booking_Form',
 		'Newsletter_Form',
 	);
 

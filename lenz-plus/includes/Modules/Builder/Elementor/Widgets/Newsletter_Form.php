@@ -16,7 +16,7 @@
 namespace LenzPlus\Modules\Builder\Elementor\Widgets;
 
 use Elementor\Controls_Manager;
-use LenzPlus\Modules\Builder\Contact_Messages;
+use LenzPlus\Modules\Builder\Form_Fields;
 use LenzPlus\Modules\Builder\Newsletter;
 
 defined( 'ABSPATH' ) || exit;
@@ -167,7 +167,7 @@ final class Newsletter_Form extends Form_Base {
 		$id     = 'lzp-form-' . $this->get_id();
 		$result = Newsletter::plain_result( 'lzp_signup', $id );
 		$phone  = 'email_phone' === $s['contact'];
-		$topics = Contact_Messages::option_list( (string) $s['topics'] );
+		$topics = Form_Fields::option_list( (string) $s['topics'] );
 
 		$fields = sprintf(
 			'<p class="lzp-form__field"><label class="screen-reader-text" for="%1$s-contact">%2$s</label><input class="lzp-form__input" id="%1$s-contact" name="contact" type="%3$s" required placeholder="%2$s"%4$s></p>',

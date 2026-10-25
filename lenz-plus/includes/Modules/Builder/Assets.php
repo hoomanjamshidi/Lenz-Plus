@@ -180,7 +180,15 @@ final class Assets {
 			'window.lzpForms = ' . wp_json_encode(
 				array(
 					'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-					'i18n'    => Public_Form::error_messages(),
+					'persian' => (bool) $this->module->settings()['options']['persian_digits'],
+					'i18n'    => array_merge(
+						Public_Form::error_messages(),
+						array(
+							/* translators: 1: current step, 2: number of steps. */
+							'step' => __( 'Step %1$s of %2$s', 'lenz-plus' ),
+							'edit' => __( 'Edit', 'lenz-plus' ),
+						)
+					),
 				)
 			) . ';',
 			'before'

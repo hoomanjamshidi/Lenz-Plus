@@ -28,13 +28,13 @@ defined( 'ABSPATH' ) || exit;
 final class Schema {
 
 	/** Template kinds, in the order the admin shows them. */
-	public const TYPES = array( 'header', 'footer', 'home', 'about', 'services', 'courses', 'contact', 'portfolio_archive', 'portfolio', 'blog', 'post', 'course' );
+	public const TYPES = array( 'header', 'footer', 'home', 'about', 'services', 'courses', 'contact', 'booking', 'portfolio_archive', 'portfolio', 'blog', 'post', 'course' );
 
 	/**
 	 * Whole-page designs: "Create page" copies them into a regular page, and
 	 * they are edited and previewed with the site's header and footer.
 	 */
-	public const PAGE_TYPES = array( 'home', 'about', 'services', 'courses', 'contact' );
+	public const PAGE_TYPES = array( 'home', 'about', 'services', 'courses', 'contact', 'booking' );
 
 	/**
 	 * Kinds that replace the theme's layout of a group of pages (Page_Routes):

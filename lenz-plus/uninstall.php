@@ -15,10 +15,10 @@ defined( 'WP_UNINSTALL_PLUGIN' ) || exit;
 function lenz_plus_uninstall_site(): void {
 	global $wpdb;
 
-	// Page templates (Elementor documents of the `lzp_template` post type), requests and sign-ups; their meta goes with them.
+	// Page templates (Elementor documents of the `lzp_template` post type), requests, bookings and sign-ups; their meta goes with them.
 	$lenz_plus_posts = get_posts(
 		array(
-			'post_type'      => array( 'lzp_template', 'lzp_message', 'lzp_subscriber' ),
+			'post_type'      => array( 'lzp_template', 'lzp_message', 'lzp_booking', 'lzp_subscriber' ),
 			// `any` skips trash and auto-drafts, which may still hold visitors' requests.
 			'post_status'    => array_keys( get_post_stati() ),
 			'posts_per_page' => -1,

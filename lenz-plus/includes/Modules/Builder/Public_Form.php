@@ -214,8 +214,9 @@ abstract class Public_Form {
 	 *
 	 * @param string $status `ok`, or an error status the widget has a message for.
 	 * @param array  $extra  More data for the script (e.g. the invalid fields).
+	 * @param array  $query  More query arguments for the page a plain post returns to (e.g. a tracking code).
 	 */
-	protected function respond( string $status, array $extra = array() ): void {
+	protected function respond( string $status, array $extra = array(), array $query = array() ): void {
 		if ( wp_doing_ajax() ) {
 			$data = array_merge( $extra, array( 'status' => $status ) );
 			if ( 'ok' === $status ) {
@@ -232,15 +233,64 @@ abstract class Public_Form {
 		$back = wp_get_referer();
 		// The form's id comes back too, so only that form shows the result when a page has several.
 		$back = add_query_arg(
-			array(
-				$arg       => $status,
-				'lzp_form' => $this->anchor,
+			array_merge(
+				array(
+					$arg       => $status,
+					'lzp_form' => $this->anchor,
+				),
+				array_map( 'rawurlencode', $query )
 			),
-			remove_query_arg( array( $arg, 'lzp_form' ), $back ? $back : home_url( '/' ) )
+			remove_query_arg( array_merge( array( $arg, 'lzp_form' ), array_keys( $query ) ), $back ? $back : home_url( '/' ) )
 		);
 
 		wp_safe_redirect( '' !== $this->anchor ? $back . '#' . $this->anchor : $back );
 		exit;
+	}
+
+	/**
+	 * Email recipients from a comma-separated setting, the site's admin email when none is valid.
+	 *
+	 * @param string $email_to Comma-separated addresses.
+	 * @return string[]
+	 */
+	protected static function recipients( string $email_to ): array {
+		$to = array_values( array_filter( array_map( 'trim', explode( ',', $email_to ) ), 'is_email' ) );
+
+		return $to ? $to : array( (string) get_option( 'admin_email' ) );
+	}
+
+	/**
+	 * Sends an email without ever failing the form: the post is already saved.
+	 *
+	 * wp_mail() only catches PHPMailer's own exceptions. On hosts that disable
+	 * PHP's mail(), PHPMailer throws an Error instead (a fatal error on PHP 8),
+	 * and the visitor would be told a request that is already saved was not sent.
+	 *
+	 * @param string[] $to      Recipients.
+	 * @param string   $subject Subject.
+	 * @param string   $body    Plain-text body.
+	 * @param string[] $headers Extra headers.
+	 */
+	protected static function send_mail( array $to, string $subject, string $body, array $headers = array() ): void {
+		try {
+			wp_mail( $to, $subject, $body, $headers );
+		} catch ( \Throwable $error ) {
+			// Core's failure hook, so mail log plugins record it like any other failed email.
+			do_action(
+				'wp_mail_failed', // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- WordPress core hook.
+				new \WP_Error(
+					'wp_mail_failed',
+					$error->getMessage(),
+					array(
+						'to'          => $to,
+						'subject'     => $subject,
+						'message'     => $body,
+						'headers'     => $headers,
+						'attachments' => array(),
+					)
+				)
+			);
+		}
 	}
 
 	/**

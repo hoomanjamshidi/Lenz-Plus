@@ -4,7 +4,7 @@ This file is the **resume point**. Every session starts here (see the `lenz-plus
 
 Status keys: `[ ]` to do · `[x]` done · `[~]` started (see Notes) · `[-]` dropped (say why)
 
-**Current phase:** done (1.2.0: contact pages, trust badges, post cards, article designs, brand logos, speed and SEO)
+**Current phase:** done (1.3.0: project bookings in steps)
 
 Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, browser check at 390 and 1440, translations, CLAUDE.md contracts, graphify update, commit `Phase N: …`).
 
@@ -144,9 +144,17 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - [x] Speed and SEO audit (Lighthouse on home, blog, article, contact): widget styles of route templates in the head (CLS 0.205 → 0.009), BreadcrumbList microdata, WooCommerce product structured data on course routes, eager first row on list pages, sized default logo, word-mark contrast, contact card titles not headings
 - [x] Verify: 1440 and 390 headless screenshots of the three contact pages, the four article pages, blog list and home; every new preset opens in the Elementor editor; map click; badge code filter; translations; 1.2.0
 
+## Phase 15 — Project bookings in steps (رزرو مرحله‌ای پروژه)
+- [x] `Form_Fields` (types incl. number and choice buttons, cleaning, validation, pairs), `Public_Form::send_mail()` / `recipients()` / plain query args; `Contact_Messages` and `Request_Form` moved onto them
+- [x] `Booking_Requests` (`lzp_booking`, statuses, tracking code, studio and customer emails, CSV, privacy tools) and `Booking_Inbox` on a shared `Inbox` base (`Contact_Inbox` refactored); bookings card in Page templates → Forms
+- [x] Widget `Booking_Form` (steps, split, focus, plain) + stepping, review, summary in forms.js + styles in forms.css
+- [x] Kind `booking` and presets `booking`, `booking-split`, `booking-focus`, `booking-simple` (+ thumbnails)
+- [x] Verify: headless walk through every stepped look at 1440 and 390 (validation, Enter, review, edit, send, code), plain post without JS, forged form / honeypot / invalid / rate limit over admin-ajax, admin list + status change + filter, request form regression, editor opens all four presets; translations; 1.3.0
+
 ---
 
 ## Notes
+- Phase 15: test pages `/lzp-booking/`, `/lzp-booking-split/`, `/lzp-booking-focus/`, `/lzp-booking-simple/` (scratch `book-install.php` re-installs the presets and refreshes the pages); a few test bookings BK-26xx are in the list.
 - Phase 14: Lighthouse (dev server: no gzip, no cache headers, so performance scores of 48–60 are mostly the server and the theme/Elementor/WooCommerce CSS) found nothing else of ours. Known and left: Elementor's image loading optimisation (4.3) prepends its own `loading="lazy"` to images that already have one (duplicate attribute, harmless: both say lazy); leaving `loading` to Elementor made it mark an off-screen portfolio photo `fetchpriority="high"`, so our explicit attributes stay. The bottom nav's inactive labels follow Lenz's `--primary-2` (3.4:1). Test data: 9 posts in 5 categories with photos (scratch `seed-posts.php`), pages `/lzp-contact/`, `/lzp-contact-split/`, `/lzp-contact-minimal/`, front page «خانه» from the home preset (`/lzp-home`), footer = «Footer with trust badges», `routes.post` = the cover article; WP-CLI writes of Elementor data with iframes need `--user=admin` (kses).
 - Phase 13: test data. The dev site had been rebuilt (no portfolio items): seeded 3 projects with generated photos and ffmpeg test videos (2441 photo, 2442 video: 2 videos + 3 photos, 2443 mixed: 6 photos + 2 videos), presets installed, routes `portfolio` = 2448, `projects.video` = 2449, `projects.mixed` = 2450.
 - Phase 6: `docs/reference/*.md` (Lenz integration map, Studiare architecture, design inventory) were never committed: `.gitignore`'s `reference/` also matched `docs/reference/`. Fixed to `/reference/`; the facts that matter live in CLAUDE.md. A fresh clone needs `reference/` re-extracted from `Theme.zip` and `Studiare-Extentions.zip` (lenz/, lenz-demo/, studiare-extensions/, studiare-CLAUDE.md).

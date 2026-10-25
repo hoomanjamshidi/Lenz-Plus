@@ -59,6 +59,7 @@ final class Module extends Base_Module {
 			'services'          => __( 'Services page', 'lenz-plus' ),
 			'courses'           => __( 'Courses page', 'lenz-plus' ),
 			'contact'           => __( 'Contact page', 'lenz-plus' ),
+			'booking'           => __( 'Booking page', 'lenz-plus' ),
 			'portfolio_archive' => __( 'Portfolio list', 'lenz-plus' ),
 			'portfolio'         => __( 'Project page', 'lenz-plus' ),
 			'blog'              => __( 'Post list', 'lenz-plus' ),
@@ -85,6 +86,7 @@ final class Module extends Base_Module {
 		( new Page_Routes( $this ) )->register();
 		( new Contact_Messages() )->register();
 		( new Newsletter() )->register();
+		( new Booking_Requests() )->register();
 		( new Course_Shop() )->register();
 		( new Course_Enroll_Band() )->register();
 
@@ -94,6 +96,7 @@ final class Module extends Base_Module {
 
 		if ( is_admin() ) {
 			( new Contact_Inbox() )->register();
+			( new Booking_Inbox() )->register();
 			( new Project_Meta_Box() )->register();
 			( new Course_Meta_Box() )->register();
 			add_action( 'admin_init', array( Library::class, 'maybe_upgrade' ) );
@@ -194,6 +197,7 @@ final class Module extends Base_Module {
 			'services' => __( 'Services pages', 'lenz-plus' ),
 			'courses'  => __( 'Courses pages', 'lenz-plus' ),
 			'contact'  => __( 'Contact pages', 'lenz-plus' ),
+			'booking'  => __( 'Booking pages', 'lenz-plus' ),
 		);
 
 		$kinds = array();

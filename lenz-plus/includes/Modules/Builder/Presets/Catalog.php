@@ -86,6 +86,30 @@ final class Catalog {
 				'description' => __( 'A centred title, phone, email and address in large type, a wide map and the form in the ink frame.', 'lenz-plus' ),
 				'build'       => array( Contact::class, 'minimal' ),
 			),
+			'booking'             => array(
+				'type'        => 'booking',
+				'label'       => __( 'Booking: steps', 'lenz-plus' ),
+				'description' => __( 'Text hero, the booking form in numbered steps on a card (project, details, contact, review), what happens next and questions.', 'lenz-plus' ),
+				'build'       => array( Booking::class, 'steps' ),
+			),
+			'booking-split'       => array(
+				'type'        => 'booking',
+				'label'       => __( 'Booking: ink panel', 'lenz-plus' ),
+				'description' => __( 'The booking form beside an ink panel listing the steps with a live summary of the answers, then questions.', 'lenz-plus' ),
+				'build'       => array( Booking::class, 'split' ),
+			),
+			'booking-focus'       => array(
+				'type'        => 'booking',
+				'label'       => __( 'Booking: one question at a time', 'lenz-plus' ),
+				'description' => __( 'One large step at a time under a progress line, on the soft band, with nothing else on the page.', 'lenz-plus' ),
+				'build'       => array( Booking::class, 'focus' ),
+			),
+			'booking-simple'      => array(
+				'type'        => 'booking',
+				'label'       => __( 'Booking: ordinary form', 'lenz-plus' ),
+				'description' => __( 'Text hero and every field on one page beside the phone and email cards.', 'lenz-plus' ),
+				'build'       => array( Booking::class, 'simple' ),
+			),
 			'portfolio-archive'   => array(
 				'type'        => 'portfolio_archive',
 				'label'       => __( 'Portfolio', 'lenz-plus' ),
