@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lenz Plus 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/lenz-plus\n"
-"POT-Creation-Date: 2026-10-24T21:16:35+00:00\n"
+"POT-Creation-Date: 2026-10-25T06:45:29+00:00\n"
 "PO-Revision-Date: 2026-10-05T16:14:43+00:00\n"
 "Last-Translator: Hooman Jamshidi\n"
 "Language-Team: Persian\n"
@@ -721,6 +721,7 @@ msgstr "سایه"
 #: includes/Modules/Builder/Elementor/Integration.php:184
 #: includes/Modules/Builder/Elementor/Widgets/Base.php:127
 #: includes/Modules/Builder/Elementor/Widgets/Request_Form.php:205
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:159
 msgid "None"
 msgstr "هیچ"
 
@@ -947,7 +948,7 @@ msgstr "نوع دکمه"
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:333
 #: includes/Modules/Builder/Elementor/Widgets/Request_Form.php:87
 #: includes/Modules/Builder/Elementor/Widgets/Stats.php:68
-#: includes/Modules/Builder/Elementor/Widgets/Stats.php:135
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:145
 #: includes/Modules/Support_Button/views/admin.php:162
 msgid "Label"
 msgstr "عنوان"
@@ -2103,7 +2104,7 @@ msgid "Grid with lines"
 msgstr "شبکه با خط‌های جداکننده"
 
 #: includes/Modules/Builder/Elementor/Widgets/Brand_Logos.php:119
-#: includes/Modules/Builder/Elementor/Widgets/Stats.php:120
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:130
 #: includes/Modules/Builder/Elementor/Widgets/Trust_Badges.php:189
 msgid "Tiles"
 msgstr "کاشی"
@@ -2346,7 +2347,7 @@ msgstr "تگ عنوان"
 #: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:159
 #: includes/Modules/Builder/Elementor/Widgets/Service_Cards.php:121
 #: includes/Modules/Builder/Elementor/Widgets/Social_Links.php:166
-#: includes/Modules/Builder/Elementor/Widgets/Stats.php:127
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:137
 msgid "Icon colour"
 msgstr "رنگ آیکون"
 
@@ -4212,7 +4213,7 @@ msgstr "اعداد"
 #: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:114
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:57
 #: includes/Modules/Builder/Elementor/Widgets/Stats.php:60
-#: includes/Modules/Builder/Elementor/Widgets/Stats.php:134
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:144
 msgid "Number"
 msgstr "عدد"
 
@@ -4772,6 +4773,22 @@ msgstr "کمترین عرض کاشی"
 #: includes/Modules/Builder/Elementor/Widgets/Stats.php:113
 msgid "Tiles share the row and wrap when they would get narrower than this."
 msgstr "کاشی‌ها ردیف را تقسیم می‌کنند و وقتی از این عرض باریک‌تر شوند به خط بعد می‌روند."
+
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:121
+msgid "On hover"
+msgstr "با نشانگر ماوس"
+
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:156
+msgid "Lift with a shadow"
+msgstr "بالا آمدن با سایه"
+
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:157
+msgid "Fill with the ink colour"
+msgstr "پر شدن با رنگ سرمه‌ای"
+
+#: includes/Modules/Builder/Elementor/Widgets/Stats.php:158
+msgid "Border and a growing line"
+msgstr "حاشیه و خط رو به رشد"
 
 #. translators: %s: widget name.
 #: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:31

@@ -302,14 +302,96 @@
 }
 
 .lzp-stats__item {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 8px;
+	overflow: hidden;
 	padding: 26px 20px;
+	border: 1px solid transparent;
 	border-radius: var(--lzp-radius-lg);
 	background: var(--lzp-chip);
 	text-align: center;
+	transition: transform 0.4s var(--lzp-ease), box-shadow 0.4s var(--lzp-ease), background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.lzp-stats .lzp-stats__icon,
+.lzp-stats .lzp-stats__value,
+.lzp-stats .lzp-stats__label {
+	transition: transform 0.4s var(--lzp-ease), color 0.3s ease;
+}
+
+/* Hover effects (Stats → On hover), only where a pointer can hover: a tap must not leave a tile stuck. */
+@media (hover: hover) {
+	/* Lift: the tile rises onto white with a soft shadow, the icon makes a small hop. */
+	.lzp-stats--hover-lift .lzp-stats__item:hover {
+		border-color: var(--lzp-card-line, var(--lzp-line));
+		background: var(--lzp-card, var(--lzp-bg));
+		box-shadow: 0 22px 40px -24px rgba(2, 45, 79, 0.45);
+		transform: translateY(-6px);
+	}
+
+	.lzp-stats--hover-lift .lzp-stats__item:hover .lzp-stats__icon {
+		animation: lzp-stats-hop 0.6s var(--lzp-ease);
+	}
+
+	.lzp-stats--hover-lift .lzp-stats__item:hover .lzp-stats__value {
+		color: var(--lzp-accent);
+	}
+
+	/* Fill: the tile turns ink and its texts white, the icon grows. */
+	.lzp-stats--hover-fill .lzp-stats__item:hover {
+		background: var(--lzp-ink);
+		transform: translateY(-3px);
+	}
+
+	.lzp-stats--hover-fill .lzp-stats__item:hover :is(.lzp-stats__icon, .lzp-stats__value) {
+		color: #ffffff;
+	}
+
+	.lzp-stats--hover-fill .lzp-stats__item:hover .lzp-stats__label {
+		color: var(--lzp-on-dark);
+	}
+
+	.lzp-stats--hover-fill .lzp-stats__item:hover .lzp-stats__icon {
+		transform: scale(1.18);
+	}
+
+	/* Outline: an ink border and a line growing along the bottom edge. */
+	.lzp-stats--hover-outline .lzp-stats__item::after {
+		content: "";
+		position: absolute;
+		inset-inline: 0;
+		bottom: 0;
+		height: 3px;
+		background: var(--lzp-accent);
+		transform: scaleX(0);
+		transition: transform 0.45s var(--lzp-ease);
+	}
+
+	.lzp-stats--hover-outline .lzp-stats__item:hover {
+		border-color: var(--lzp-heading, var(--lzp-ink));
+		background: var(--lzp-card, var(--lzp-bg));
+	}
+
+	.lzp-stats--hover-outline .lzp-stats__item:hover::after {
+		transform: scaleX(1);
+	}
+
+	.lzp-stats--hover-outline .lzp-stats__item:hover .lzp-stats__icon {
+		transform: translateY(-4px);
+	}
+}
+
+@keyframes lzp-stats-hop {
+	40% {
+		transform: translateY(-6px) rotate(-8deg);
+	}
+
+	70% {
+		transform: translateY(1px) rotate(4deg);
+	}
 }
 
 .lzp-stats .lzp-stats__icon {
@@ -2662,11 +2744,18 @@
 	.lzp-play,
 	.lzp-services .lzp-service,
 	.lzp-service .lzp-service__more,
-	.lzp-reach--tiles .lzp-reach__item {
+	.lzp-reach--tiles .lzp-reach__item,
+	.lzp-stats .lzp-stats__item,
+	.lzp-stats .lzp-stats__item::after,
+	.lzp-stats :is(.lzp-stats__icon, .lzp-stats__value, .lzp-stats__label) {
 		transition: none;
 	}
 
-	.lzp-reach--tiles .lzp-reach__item:hover {
+	/* Colours still change; nothing moves. */
+	.lzp-reach--tiles .lzp-reach__item:hover,
+	.lzp-stats .lzp-stats__item:hover,
+	.lzp-stats .lzp-stats__item:hover .lzp-stats__icon {
 		transform: none;
+		animation: none;
 	}
 }

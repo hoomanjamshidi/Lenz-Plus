@@ -3,7 +3,7 @@ Tags: lenz, photography, bottom navigation, elementor, rtl
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,6 +52,9 @@ It is built for Lenz and reads its colours, logo, menus and options. Without Len
 No. Updates refresh only the ready-made templates you have not edited, and pages created from a design never change by themselves.
 
 == Changelog ==
+
+= 1.2.1 =
+* Key numbers: tiles animate on mouse hover (lift with a shadow by default; fill with the ink colour, border with a growing line, or none under Key numbers → On hover). Nothing moves for visitors who ask for reduced motion, and touch screens are left alone.
 
 = 1.2.0 =
 * Contact pages in three styles (classic, ink panel, minimal) with the new Contact cards and Map widgets; the map loads only when the visitor asks for it.

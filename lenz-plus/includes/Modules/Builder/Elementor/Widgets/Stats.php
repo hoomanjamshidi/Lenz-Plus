@@ -115,6 +115,16 @@ final class Stats extends Section_Base {
 			)
 		);
 
+		$this->add_control(
+			'hover',
+			array(
+				'label'   => __( 'On hover', 'lenz-plus' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'lift',
+				'options' => self::hover_effects(),
+			)
+		);
+
 		$this->end_controls_section();
 
 		$this->start_style_section( 'section_style', __( 'Tiles', 'lenz-plus' ) );
@@ -136,6 +146,20 @@ final class Stats extends Section_Base {
 		$this->end_controls_section();
 	}
 
+	/**
+	 * Hover effects → label. Each is a `.lzp-stats--hover-<id>` section in sections.css.
+	 *
+	 * @return array<string, string>
+	 */
+	private static function hover_effects(): array {
+		return array(
+			'lift'    => __( 'Lift with a shadow', 'lenz-plus' ),
+			'fill'    => __( 'Fill with the ink colour', 'lenz-plus' ),
+			'outline' => __( 'Border and a growing line', 'lenz-plus' ),
+			'none'    => __( 'None', 'lenz-plus' ),
+		);
+	}
+
 	/** Prints the tiles. */
 	protected function render(): void {
 		$s = $this->get_settings_for_display();
@@ -143,7 +167,9 @@ final class Stats extends Section_Base {
 			return;
 		}
 
-		echo '<ul class="lzp-stats">';
+		$hover = isset( self::hover_effects()[ $s['hover'] ] ) ? (string) $s['hover'] : 'lift';
+
+		echo '<ul class="lzp-stats lzp-stats--hover-' . esc_attr( $hover ) . '">';
 		foreach ( $s['items'] as $item ) {
 			printf(
 				'<li class="lzp-stats__item">%1$s<span class="lzp-stats__value">%2$s</span><span class="lzp-stats__label">%3$s</span></li>',
