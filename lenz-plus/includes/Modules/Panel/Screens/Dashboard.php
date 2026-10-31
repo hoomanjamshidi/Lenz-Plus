@@ -103,13 +103,13 @@ final class Dashboard extends Screen {
 			$screen = $this->module->app()->screen( $id );
 			if ( $screen ) {
 				$args    = 'orders' === $id ? array( 'status' => 'processing' ) : ( 'bookings' === $id ? array( 'status' => 'new' ) : array() );
-				$tiles[] = array( $screen->url( $args ), $label, Ui::number( $screen->badge() ), $screen->icon() );
+				$tiles[] = array( $screen->url( $args ), $label, Ui::number( $screen->badge() ), $screen->icon(), $screen->link_attrs() );
 			}
 		}
 
 		$sales = $this->sales();
 		if ( null !== $sales ) {
-			$tiles[] = array( $this->module->app()->screen( 'orders' )->url( array( 'status' => 'completed' ) ), __( 'Sales, last 30 days', 'lenz-plus' ), $sales, 'chart' );
+			$tiles[] = array( $this->module->app()->screen( 'orders' )->url( array( 'status' => 'completed' ) ), __( 'Sales, last 30 days', 'lenz-plus' ), $sales, 'chart', '' );
 		}
 
 		if ( ! $tiles ) {
@@ -119,11 +119,12 @@ final class Dashboard extends Screen {
 		echo '<ul class="lzp-stats">';
 		foreach ( $tiles as $tile ) {
 			printf(
-				'<li><a class="lzp-stat" href="%1$s">%4$s<span class="lzp-stat__value">%3$s</span><span class="lzp-stat__label">%2$s</span></a></li>',
+				'<li><a class="lzp-stat" href="%1$s"%5$s>%4$s<span class="lzp-stat__value">%3$s</span><span class="lzp-stat__label">%2$s</span></a></li>',
 				esc_url( $tile[0] ),
 				esc_html( $tile[1] ),
 				esc_html( $tile[2] ),
-				Ui::icon( $tile[3] ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- bundled SVG.
+				Ui::icon( $tile[3] ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- bundled SVG.
+				$tile[4] // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- fixed attribute from Screen::link_attrs().
 			);
 		}
 		echo '</ul>';

@@ -110,10 +110,16 @@ final class Router {
 			return;
 		}
 
-		nocache_headers();
 		header( 'X-Robots-Tag: noindex, nofollow', true );
-		header( 'X-Frame-Options: SAMEORIGIN', true );
 
+		// The manifest is public and cacheable; the panel's pages are neither.
+		if ( Web_App::MANIFEST === $screen ) {
+			$this->app->web_app()->send_manifest();
+			exit;
+		}
+
+		nocache_headers();
+		header( 'X-Frame-Options: SAMEORIGIN', true );
 		$this->app->run( $screen );
 		exit;
 	}

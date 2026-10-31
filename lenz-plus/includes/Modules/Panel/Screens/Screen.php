@@ -78,6 +78,19 @@ abstract class Screen {
 		return 0;
 	}
 
+	/**
+	 * Whether links to the screen may be fetched ahead of a tap. Screens
+	 * whose page changes something when it is shown (marks items seen) say no.
+	 */
+	public function prefetch(): bool {
+		return true;
+	}
+
+	/** Extra attributes of links to the screen (keeps panel-nav.js from prefetching). */
+	public function link_attrs(): string {
+		return $this->prefetch() ? '' : ' data-lzp-noprefetch';
+	}
+
 	/** Title of the current page in the top bar (e.g. "Edit project"). */
 	public function page_title(): string {
 		return $this->title();

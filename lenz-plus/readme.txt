@@ -3,7 +3,7 @@ Tags: lenz, photography, bottom navigation, elementor, rtl
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.5.0
+Stable tag: 1.6.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,6 +41,7 @@ Extra features for the Lenz photography theme: a customizable mobile bottom navi
 * A simple management panel inside WordPress, built for phones: articles, projects with their gallery, courses, products, orders, bookings, requests, comments and media, in the site's brand colours and font.
 * Opened from WordPress itself: «Studio panel» is the first item of the wp-admin menu, with a button at the top of the dashboard and in the admin bar. Staff log in with their WordPress account; a «Studio manager» role manages content and the shop without the site's settings.
 * A simple text editor for phones (headings, bold, lists, quotes, links, photos), or WordPress's classic editor, a plain box or WordPress's own editor, chosen per content type. Texts built with Elementor keep opening in Elementor.
+* Moves between pages like an app (no reloads, smooth transitions) and can be added to the phone's home screen to open full screen.
 * Photos upload in the background with a preview and can be reordered; prices and seat counts accept Persian digits. Optionally, staff are kept out of wp-admin and land in the panel after logging in.
 
 == Installation ==
@@ -60,6 +61,9 @@ It is built for Lenz and reads its colours, logo, menus and options. Without Len
 No. Updates refresh only the ready-made templates you have not edited, and pages created from a design never change by themselves.
 
 == Changelog ==
+
+= 1.6.0 =
+* Studio panel feels like an app: pages change in place without reloading, with a short slide (forward and back) or fade between tabs, a thin progress bar only when the server is slow, pages fetched as soon as a finger touches a link, the back button returning to the same scroll position, and saving without a page reload. Add it to the phone's home screen to open it full screen with its own icon.
 
 = 1.5.0 =
 * Studio panel: a simple, phone-first management panel inside WordPress for the studio's staff. Articles, projects (gallery, project details, featured), courses (course details, price, seats), products (price, sale, stock, gallery), orders (status, notes, call or email the customer), project bookings (status), requests, comments (approve, reply) and media (upload, copy link, delete), with a home screen of what is waiting and the last 30 days' sales. It opens from the first item of the wp-admin menu, a dashboard button, the admin bar and WooCommerce's account menu; people log in with their WordPress account. New «Studio manager» role. The text editor of each content type can be the panel's simple editor, WordPress's classic editor, a plain box or WordPress's own editor.

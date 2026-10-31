@@ -4,6 +4,11 @@
  * gallery photos, the simple text editor, confirmations, a warning before
  * leaving unsaved changes and self-hiding messages.
  *
+ * Document-wide listeners are bound once; the parts of a page are set up by
+ * initPage(), which runs on load and again on `lzp:page`, the event
+ * panel-nav.js fires after it swaps in a page without reloading. Unsaved
+ * changes are flagged on <html data-lzp-dirty> so the navigation sees them.
+ *
  * Data from PHP: window.lzpPanel { ajaxUrl, uploadNonce, i18n }.
  */
 ( function () {
@@ -23,7 +28,7 @@
 		if ( window.history.replaceState && window.location.search.indexOf( 'lzp_msg=' ) !== -1 ) {
 			const url = new URL( window.location.href );
 			url.searchParams.delete( 'lzp_msg' );
-			window.history.replaceState( null, '', url.toString() );
+			window.history.replaceState( window.history.state, '', url.toString() );
 		}
 
 		if ( toast && toast.classList.contains( 'lzp-toast--ok' ) ) {
@@ -52,9 +57,19 @@
 	 * Forms: confirmations, busy buttons, unsaved changes
 	 * ------------------------------------------------------------------- */
 
-	let dirty = false;
+	function setDirty( value ) {
+		if ( value ) {
+			document.documentElement.dataset.lzpDirty = '1';
+		} else {
+			delete document.documentElement.dataset.lzpDirty;
+		}
+	}
 
-	function initForms() {
+	function isDirty() {
+		return document.documentElement.dataset.lzpDirty === '1';
+	}
+
+	function bindForms() {
 		document.addEventListener( 'click', ( event ) => {
 			const button = event.target.closest( '[data-lzp-confirm]' );
 			if ( button && ! window.confirm( button.dataset.lzpConfirm ) ) {
@@ -62,13 +77,19 @@
 			}
 		} );
 
-		document.querySelectorAll( 'form.lzp-edit' ).forEach( ( form ) => {
-			form.addEventListener( 'input', () => {
-				dirty = true;
+		[ 'input', 'change' ].forEach( ( type ) => {
+			document.addEventListener( type, ( event ) => {
+				if ( event.target.closest && event.target.closest( 'form.lzp-edit' ) ) {
+					setDirty( true );
+				}
 			} );
-			form.addEventListener( 'change', () => {
-				dirty = true;
-			} );
+		} );
+
+		document.addEventListener( 'change', ( event ) => {
+			const input = event.target.closest && event.target.closest( '[data-lzp-autosubmit]' );
+			if ( input && input.files.length ) {
+				input.form.requestSubmit ? input.form.requestSubmit() : input.form.submit();
+			}
 		} );
 
 		document.addEventListener( 'submit', ( event ) => {
@@ -81,7 +102,7 @@
 				return;
 			}
 
-			dirty = false;
+			setDirty( false );
 			const button = form.querySelector( '[data-lzp-saving]' );
 			if ( button ) {
 				button.classList.add( 'is-busy' );
@@ -91,20 +112,10 @@
 		} );
 
 		window.addEventListener( 'beforeunload', ( event ) => {
-			if ( dirty ) {
+			if ( isDirty() ) {
 				event.preventDefault();
 				event.returnValue = i18n.unsaved || '';
 			}
-		} );
-
-		document.querySelectorAll( '[data-lzp-autosubmit]' ).forEach( ( input ) => {
-			const form = input.form;
-			form.classList.add( 'is-auto' );
-			input.addEventListener( 'change', () => {
-				if ( input.files.length ) {
-					form.requestSubmit ? form.requestSubmit() : form.submit();
-				}
-			} );
 		} );
 	}
 
@@ -214,7 +225,7 @@
 			const box = event.target.closest( '.lzp-media__remove input' );
 			if ( box && box.checked ) {
 				box.closest( '.lzp-media__item' ).remove();
-				dirty = true;
+				setDirty( true );
 			}
 		} );
 
@@ -231,7 +242,7 @@
 				list.insertBefore( item.nextElementSibling, item );
 			}
 			move.focus();
-			dirty = true;
+			setDirty( true );
 		} );
 
 		if ( ! file ) {
@@ -253,7 +264,7 @@
 				item.classList.add( 'is-uploading' );
 				list.insertBefore( item, add );
 				pending( field.closest( 'form' ), 1 );
-				dirty = true;
+				setDirty( true );
 
 				upload( chosen, ( share ) => item.style.setProperty( '--lzp-progress', String( share ) ) )
 					.then( ( data ) => {
@@ -374,7 +385,7 @@
 			sync();
 			saveRange();
 			updateState();
-			dirty = true;
+			setDirty( true );
 		} );
 
 		if ( imageInput ) {
@@ -393,7 +404,7 @@
 						const image = '<img src="' + encodeURI( data.url ) + '" alt="" class="wp-image-' + Number( data.id ) + '">';
 						document.execCommand( 'insertHTML', false, image );
 						sync();
-						dirty = true;
+						setDirty( true );
 					} )
 					.catch( ( error ) => window.alert( error.message ) )
 					.finally( () => pending( form, -1 ) );
@@ -439,7 +450,8 @@
 			return;
 		}
 
-		document.querySelectorAll( '[data-lzp-copy]' ).forEach( ( button ) => {
+		document.querySelectorAll( '[data-lzp-copy]:not([data-lzp-ready])' ).forEach( ( button ) => {
+			button.dataset.lzpReady = '';
 			button.hidden = false;
 			button.addEventListener( 'click', () => {
 				navigator.clipboard.writeText( button.dataset.lzpCopy ).then( () => flash( i18n.copied ) );
@@ -447,9 +459,23 @@
 		} );
 	}
 
-	initToasts();
-	initForms();
-	document.querySelectorAll( '[data-lzp-media]' ).forEach( initMediaField );
-	document.querySelectorAll( '[data-lzp-editor]' ).forEach( initEditor );
-	initCopy();
+	/** Sets up the parts of the current page (each element once). */
+	function initPage() {
+		initToasts();
+		setDirty( false );
+
+		const fresh = ( selector ) => Array.from( document.querySelectorAll( selector + ':not([data-lzp-ready])' ) ).map( ( node ) => {
+			node.dataset.lzpReady = '';
+			return node;
+		} );
+
+		fresh( '[data-lzp-autosubmit]' ).forEach( ( input ) => input.form.classList.add( 'is-auto' ) );
+		fresh( '[data-lzp-media]' ).forEach( initMediaField );
+		fresh( '[data-lzp-editor]' ).forEach( initEditor );
+		initCopy();
+	}
+
+	bindForms();
+	initPage();
+	document.addEventListener( 'lzp:page', initPage );
 }() );

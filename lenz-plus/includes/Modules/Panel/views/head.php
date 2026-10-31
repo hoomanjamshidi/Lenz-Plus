@@ -24,6 +24,7 @@ defined( 'ABSPATH' ) || exit;
 	<title><?php echo esc_html( $doc_title . ' – ' . $app->title() ); ?></title>
 	<?php
 	wp_site_icon();
+	$app->web_app()->head_tags();
 	wp_print_styles();
 	wp_print_head_scripts();
 	?>

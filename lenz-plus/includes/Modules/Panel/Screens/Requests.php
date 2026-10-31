@@ -82,10 +82,17 @@ final class Requests extends Inbox_Screen {
 		);
 	}
 
+	/** Showing the list marks the requests seen, so it is never fetched ahead. */
+	public function prefetch(): bool {
+		return false;
+	}
+
 	/** Marks the list seen (the rows still show what was new). */
 	protected function render_list(): void {
 		$this->seen_before = (int) get_option( self::SEEN_OPTION, 0 );
-		update_option( self::SEEN_OPTION, time(), false );
+		if ( empty( $_SERVER['HTTP_X_LZP_PREFETCH'] ) ) {
+			update_option( self::SEEN_OPTION, time(), false );
+		}
 
 		parent::render_list();
 	}

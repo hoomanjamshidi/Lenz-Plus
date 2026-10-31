@@ -45,7 +45,7 @@ require __DIR__ . '/head.php';
 				<?php foreach ( $app->menu_screens() as $item ) : ?>
 					<?php $badge = $item->badge(); ?>
 					<li>
-						<a class="lzp-nav__link" href="<?php echo esc_url( $item->url() ); ?>"<?php echo $item->id() === $screen->id() ? ' aria-current="page"' : ''; ?>>
+						<a class="lzp-nav__link" href="<?php echo esc_url( $item->url() ); ?>"<?php echo $item->link_attrs(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- fixed attribute. ?><?php echo $item->id() === $screen->id() ? ' aria-current="page"' : ''; ?>>
 							<?php Ui::the_icon( $item->icon() ); ?>
 							<span><?php echo esc_html( $item->title() ); ?></span>
 							<?php if ( $badge ) : ?>
@@ -93,7 +93,7 @@ require __DIR__ . '/head.php';
 
 	<nav class="lzp-tabbar" aria-label="<?php esc_attr_e( 'Main sections', 'lenz-plus' ); ?>">
 		<?php foreach ( $app->tabs() as $tab_item ) : ?>
-			<a class="lzp-tabbar__item<?php echo 'create' === $tab_item->id() ? ' lzp-tabbar__item--add' : ''; ?>" href="<?php echo esc_url( $tab_item->url() ); ?>"<?php echo $tab_item->id() === $screen->id() ? ' aria-current="page"' : ''; ?>>
+			<a class="lzp-tabbar__item<?php echo 'create' === $tab_item->id() ? ' lzp-tabbar__item--add' : ''; ?>" href="<?php echo esc_url( $tab_item->url() ); ?>"<?php echo $tab_item->link_attrs(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- fixed attribute. ?><?php echo $tab_item->id() === $screen->id() ? ' aria-current="page"' : ''; ?>>
 				<span class="lzp-tabbar__icon"><?php Ui::the_icon( $tab_item->icon() ); ?></span>
 				<span class="lzp-tabbar__label"><?php echo esc_html( $tab_item->title() ); ?></span>
 			</a>

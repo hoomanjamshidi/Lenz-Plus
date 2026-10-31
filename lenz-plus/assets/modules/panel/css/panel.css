@@ -1879,3 +1879,216 @@ body.lzp-p {
 		scroll-behavior: auto !important;
 	}
 }
+
+/* ------------------------------------------------------------------
+ * App feel: page transitions, progress bar, touch feedback
+ *
+ * panel-nav.js swaps pages in place inside document.startViewTransition()
+ * and sets html[data-lzp-nav] to forward, back or fade; full page loads
+ * crossfade through the cross-document rule. The bars keep their own
+ * transition names, so only the page itself slides.
+ * ---------------------------------------------------------------- */
+
+@view-transition {
+	navigation: auto;
+}
+
+html {
+	--lzp-p-dir: 1;
+}
+
+html[dir="rtl"] {
+	--lzp-p-dir: -1;
+}
+
+.lzp-top {
+	view-transition-name: lzp-top;
+}
+
+.lzp-tabbar {
+	view-transition-name: lzp-tabbar;
+}
+
+.lzp-side {
+	view-transition-name: lzp-side;
+}
+
+.lzp-content {
+	view-transition-name: lzp-page;
+}
+
+::view-transition-group(*) {
+	animation-duration: 0.26s;
+	animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* The page's box jumps to its new height instead of stretching the snapshot. */
+::view-transition-group(lzp-page) {
+	animation-duration: 0s;
+}
+
+::view-transition-old(lzp-page),
+::view-transition-new(lzp-page) {
+	height: auto;
+	animation-duration: 0.26s;
+	animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+	animation-fill-mode: both;
+}
+
+html[data-lzp-nav="forward"]::view-transition-old(lzp-page) {
+	animation-name: lzp-p-out-start;
+}
+
+html[data-lzp-nav="forward"]::view-transition-new(lzp-page) {
+	animation-name: lzp-p-in-end;
+}
+
+html[data-lzp-nav="back"]::view-transition-old(lzp-page) {
+	animation-name: lzp-p-out-end;
+}
+
+html[data-lzp-nav="back"]::view-transition-new(lzp-page) {
+	animation-name: lzp-p-in-start;
+}
+
+html[data-lzp-nav="fade"]::view-transition-old(lzp-page) {
+	animation-name: lzp-p-fade-out;
+	animation-duration: 0.12s;
+}
+
+html[data-lzp-nav="fade"]::view-transition-new(lzp-page) {
+	animation-name: lzp-p-fade-in;
+}
+
+/* Start is the reading side (right in RTL): forward pages come in from the end. */
+@keyframes lzp-p-in-end {
+	from {
+		opacity: 0;
+		transform: translateX(calc(var(--lzp-p-dir) * 48px));
+	}
+}
+
+@keyframes lzp-p-out-start {
+	to {
+		opacity: 0;
+		transform: translateX(calc(var(--lzp-p-dir) * -32px));
+	}
+}
+
+@keyframes lzp-p-in-start {
+	from {
+		opacity: 0;
+		transform: translateX(calc(var(--lzp-p-dir) * -48px));
+	}
+}
+
+@keyframes lzp-p-out-end {
+	to {
+		opacity: 0;
+		transform: translateX(calc(var(--lzp-p-dir) * 32px));
+	}
+}
+
+@keyframes lzp-p-fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+}
+
+@keyframes lzp-p-fade-out {
+	to {
+		opacity: 0;
+	}
+}
+
+.lzp-progress {
+	position: fixed;
+	z-index: 60;
+	inset-inline: 0;
+	inset-block-start: 0;
+	height: 3px;
+	background: var(--lzp-p-accent);
+	opacity: 0;
+	transform: scaleX(0);
+	transform-origin: right;
+	pointer-events: none;
+}
+
+[dir="ltr"] .lzp-progress {
+	transform-origin: left;
+}
+
+.lzp-progress.is-on {
+	opacity: 1;
+	animation: lzp-p-progress 6s cubic-bezier(0.1, 0.7, 0.2, 1) forwards;
+}
+
+.lzp-progress.is-done {
+	opacity: 0;
+	transform: scaleX(1);
+	transition: transform 0.2s ease, opacity 0.3s ease 0.15s;
+}
+
+@keyframes lzp-p-progress {
+	from {
+		transform: scaleX(0.05);
+	}
+
+	to {
+		transform: scaleX(0.92);
+	}
+}
+
+/* Touch feedback, as in native apps. */
+.lzp-tabbar,
+.lzp-nav,
+.lzp-chips,
+.lzp-tiles,
+.lzp-quick {
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-touch-callout: none;
+}
+
+.lzp-p .lzp-row__link:active,
+.lzp-p .lzp-nav__link:active {
+	background: var(--lzp-p-chip);
+}
+
+.lzp-p .lzp-tile:active,
+.lzp-p .lzp-stat:active,
+.lzp-p .lzp-quick__item:active,
+.lzp-p .lzp-chip:active {
+	transform: scale(0.97);
+}
+
+.lzp-tile,
+.lzp-stat,
+.lzp-quick__item,
+.lzp-chip {
+	transition: transform 0.12s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.lzp-tabbar__item:active .lzp-tabbar__icon {
+	transform: scale(0.9);
+}
+
+.lzp-tabbar__icon {
+	transition: background-color 0.2s ease, transform 0.12s ease;
+}
+
+/* Standalone (added to the home screen): no rubber-band bounce behind the bars. */
+@media (display-mode: standalone) {
+	body.lzp-p {
+		overscroll-behavior-y: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	::view-transition-group(*),
+	::view-transition-old(*),
+	::view-transition-new(*) {
+		animation: none !important;
+	}
+}

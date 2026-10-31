@@ -4,7 +4,7 @@ This file is the **resume point**. Every session starts here (see the `lenz-plus
 
 Status keys: `[ ]` to do · `[x]` done · `[~]` started (see Notes) · `[-]` dropped (say why)
 
-**Current phase:** done (1.5.0: studio panel)
+**Current phase:** done (1.6.0: studio panel feels like an app)
 
 Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, browser check at 390 and 1440, translations, CLAUDE.md contracts, graphify update, commit `Phase N: …`).
 
@@ -163,6 +163,7 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - [x] `panel.css` (phone first, tab bar with articles, sidebar from 1024px, brand tokens), `panel.js` (background uploads, reordering, simple editor, confirmations, unsaved warning)
 - [x] `Project_Meta_Box::clean()` and `Channels::international()` shared with the panel; uninstall removes the role
 - [x] Verify (scratch site: WordPress 6.8.3 from GitHub + SQLite + Lenz, no WooCommerce/Elementor reachable): guest → WordPress login → panel; wp-admin menu item and dashboard box; new project with background uploads and saved gallery order; new article with the simple editor; classic editor setting; media, comments, account, menu at 390 and 1440; no console errors, nothing in debug.log; phpcs 0/0; translations complete; 1.5.0
+- [x] App feel (1.6.0): pages swap without reloads (`panel-nav.js`: links, search and saved forms), slide/fade view transitions, progress bar for slow answers, prefetch on touch/hover, back button with scroll restore, instant tab highlight, touch feedback; web app manifest + home-screen icons (opens full screen). Verified headless: tab, edit, save, back link, history back, search, new project with upload all without a reload; manifest served; no console errors
 - [ ] Runtime check of the WooCommerce screens (orders, products, courses) on the full dev site (`tools/dev-site.sh`): written against WooCommerce's CRUD API, not yet exercised
 
 ---

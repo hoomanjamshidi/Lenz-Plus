@@ -282,12 +282,15 @@ final class App {
 		wp_add_inline_style( self::HANDLE, $this->tokens_css() );
 
 		wp_enqueue_script( self::HANDLE, Asset::url( 'assets/modules/panel/js/panel.js' ), array(), LENZ_PLUS_VERSION, array( 'in_footer' => true ) );
+		// Navigation without reloads; its listeners must come after panel.js's (uploads may hold a form back).
+		wp_enqueue_script( self::HANDLE . '-nav', Asset::url( 'assets/modules/panel/js/panel-nav.js' ), array( self::HANDLE ), LENZ_PLUS_VERSION, array( 'in_footer' => true ) );
 		wp_localize_script(
 			self::HANDLE,
 			'lzpPanel',
 			array(
 				'ajaxUrl'     => admin_url( 'admin-ajax.php' ),
 				'uploadNonce' => wp_create_nonce( Uploads::AJAX_ACTION ),
+				'nav'         => array( 'base' => Router::url() ),
 				'i18n'        => array(
 					'uploading'   => __( 'Uploading…', 'lenz-plus' ),
 					'uploadError' => __( 'The file could not be uploaded. Use a photo or a video.', 'lenz-plus' ),
@@ -355,6 +358,11 @@ final class App {
 			'expired'     => array( __( 'The page was open too long. Please try again.', 'lenz-plus' ), 'warn' ),
 			'too_big'     => array( __( 'The files were too large for the server. Send fewer or smaller files at a time.', 'lenz-plus' ), 'bad' ),
 		);
+	}
+
+	/** The manifest and home-screen tags. */
+	public function web_app(): Web_App {
+		return new Web_App( $this );
 	}
 
 	/** Title of the panel (settings, else «Studio panel»). */

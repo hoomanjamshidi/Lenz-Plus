@@ -50,11 +50,12 @@ final class Menu extends Screen {
 		foreach ( $this->module->app()->menu_screens() as $screen ) {
 			$badge = $screen->badge();
 			printf(
-				'<li><a class="lzp-tile" href="%1$s">%2$s<span>%3$s</span>%4$s</a></li>',
+				'<li><a class="lzp-tile" href="%1$s"%5$s>%2$s<span>%3$s</span>%4$s</a></li>',
 				esc_url( $screen->url() ),
 				Ui::icon( $screen->icon() ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- bundled SVG.
 				esc_html( $screen->title() ),
-				$badge ? '<b class="lzp-badge">' . esc_html( Ui::number( $badge ) ) . '</b>' : '' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped here.
+				$badge ? '<b class="lzp-badge">' . esc_html( Ui::number( $badge ) ) . '</b>' : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped here.
+				$screen->link_attrs() // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- fixed attribute.
 			);
 		}
 		echo '</ul>';
