@@ -4,7 +4,7 @@ This file is the **resume point**. Every session starts here (see the `lenz-plus
 
 Status keys: `[ ]` to do · `[x]` done · `[~]` started (see Notes) · `[-]` dropped (say why)
 
-**Current phase:** done (1.3.0: project bookings in steps)
+**Current phase:** done (1.4.0: shop pages and checkout form)
 
 Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, browser check at 390 and 1440, translations, CLAUDE.md contracts, graphify update, commit `Phase N: …`).
 
@@ -151,9 +151,16 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - [x] Kind `booking` and presets `booking`, `booking-split`, `booking-focus`, `booking-simple` (+ thumbnails)
 - [x] Verify: headless walk through every stepped look at 1440 and 390 (validation, Enter, review, edit, send, code), plain post without JS, forged form / honeypot / invalid / rate limit over admin-ajax, admin list + status change + filter, request form regression, editor opens all four presets; translations; 1.3.0
 
+## Phase 16 — Shop pages and checkout form (سبد خرید، تسویه‌حساب، حساب کاربری)
+- [x] `Shop_Pages` (Builder, option `options.shop_pages`): Lenz's cart/checkout/order/my-account/login stylesheets swapped for shop.css (classic templates and cart/checkout blocks, mobile first), step bar, cart auto-update, coupon result under the field, notices, account menu view, success hero view (`checkout/order-received.php`) with course cards and download button
+- [x] Module `Checkout` (`lenz_plus_checkout`): billing field modes, short form for orders with nothing to ship, Latin digits (classic, account forms, Store API, typing), order-received texts per scenario; Persian WooCommerce and PWS compatible
+- [x] `Icon::html()` shared by widgets and shop views; courses need no shipping (`Course_Shop`)
+- [x] Verify: 390/360/1440 shots of classic and block cart/checkout, login, account, edit account, order received; checkout flows with bank transfer, cash on delivery, cheque, a redirect test bank (pay and cancel), download-only, course-only and mixed carts with PWS province/city; coupon wrong/valid; block price order after quantity change; translations; 1.4.0
+
 ---
 
 ## Notes
+- Phase 16: test data. Products 2408 and 2500 (physical), course 2744 (online, schedule and duration set), download 2753; coupon `lenz10`; zone Iran (flat rate 80,000, free); gateways bacs/cod/cheque + test-only `lzp_test_bank` (`.dev/wp/wp-content/mu-plugins/lzp-test-gateway.php`, never shipped); store country IR:THR; checkout page = classic `/checkout/` (2743), block copy `/checkout-block/` (8), classic cart copy `/lzp-cart-classic/`. Persian WooCommerce and PWS installed from wordpress.org zips in `.dev/downloads`; PWS's provinces were installed by hand (`PWS_Install::install_cities()`): its installer does not run under WP-CLI. Headless flow script: scratch `flow.mjs` (PWS cities load on `select2:select`, not `change`).
 - Phase 15: test pages `/lzp-booking/`, `/lzp-booking-split/`, `/lzp-booking-focus/`, `/lzp-booking-simple/` (scratch `book-install.php` re-installs the presets and refreshes the pages); a few test bookings BK-26xx are in the list.
 - Phase 14: Lighthouse (dev server: no gzip, no cache headers, so performance scores of 48–60 are mostly the server and the theme/Elementor/WooCommerce CSS) found nothing else of ours. Known and left: Elementor's image loading optimisation (4.3) prepends its own `loading="lazy"` to images that already have one (duplicate attribute, harmless: both say lazy); leaving `loading` to Elementor made it mark an off-screen portfolio photo `fetchpriority="high"`, so our explicit attributes stay. The bottom nav's inactive labels follow Lenz's `--primary-2` (3.4:1). Test data: 9 posts in 5 categories with photos (scratch `seed-posts.php`), pages `/lzp-contact/`, `/lzp-contact-split/`, `/lzp-contact-minimal/`, front page «خانه» from the home preset (`/lzp-home`), footer = «Footer with trust badges», `routes.post` = the cover article; WP-CLI writes of Elementor data with iframes need `--user=admin` (kses).
 - Phase 13: test data. The dev site had been rebuilt (no portfolio items): seeded 3 projects with generated photos and ffmpeg test videos (2441 photo, 2442 video: 2 videos + 3 photos, 2443 mixed: 6 photos + 2 videos), presets installed, routes `portfolio` = 2448, `projects.video` = 2449, `projects.mixed` = 2450.

@@ -22,6 +22,7 @@ use LenzPlus\Core\Icon_Library;
 use LenzPlus\Core\Persian;
 use LenzPlus\Modules\Builder\Assets;
 use LenzPlus\Modules\Builder\Context;
+use LenzPlus\Modules\Builder\Icon;
 use LenzPlus\Modules\Builder\Elementor\Integration;
 
 defined( 'ABSPATH' ) || exit;
@@ -101,20 +102,8 @@ abstract class Base extends Widget_Base {
 	 */
 	public static function icon( string $key, string $class_name = '' ): string {
 		$module = Integration::module();
-		$pack   = $module ? $module->settings()['options']['icon_pack'] : 'lucide';
 
-		// The RTL "forward" arrow is mirrored on LTR sites (builder.css).
-		if ( 'arrow-forward' === $key ) {
-			$class_name = trim( $class_name . ' lzp-ico--forward' );
-		}
-
-		$glyph = Icon_Library::LENZ === $pack && Icon_Library::is_available( $pack ) ? Icon_Library::lenz_class( $key ) : '';
-		if ( '' !== $glyph ) {
-			// Lenz styles glyphs through `[class^=lenz-icon-]`, so its class goes first.
-			return '<i class="' . esc_attr( trim( $glyph . ' lzp-ico lzp-ico--glyph ' . $class_name ) ) . '" aria-hidden="true"></i>';
-		}
-
-		return Icon_Library::svg( $pack, $key, false, trim( 'lzp-ico ' . $class_name ) );
+		return Icon::html( $module ? $module->settings()['options']['icon_pack'] : 'lucide', $key, $class_name );
 	}
 
 	/**

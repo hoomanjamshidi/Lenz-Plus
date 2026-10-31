@@ -2306,3 +2306,30 @@ fieldset.lzp-field > legend {
 		animation: none !important;
 	}
 }
+
+/* Status list (Checkout form → Digits & compatibility). */
+.lzp-checklist {
+	display: grid;
+	gap: 12px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.lzp-checklist li {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px 10px;
+	margin: 0;
+	padding: 12px 14px;
+	border: 1px solid var(--lzp-line);
+	border-radius: 12px;
+}
+
+.lzp-checklist li p {
+	flex-basis: 100%;
+	margin: 0;
+	color: var(--lzp-muted);
+	font-size: 12px;
+}

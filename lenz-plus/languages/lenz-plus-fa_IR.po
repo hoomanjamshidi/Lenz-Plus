@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lenz Plus 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/lenz-plus\n"
-"POT-Creation-Date: 2026-10-25T10:36:24+00:00\n"
+"POT-Creation-Date: 2026-10-31T14:29:15+00:00\n"
 "PO-Revision-Date: 2026-10-05T16:14:43+00:00\n"
 "Last-Translator: Hooman Jamshidi\n"
 "Language-Team: Persian\n"
@@ -78,7 +78,7 @@ msgstr "همه گزینه‌های این بخش به حالت پیش‌فرض �
 msgid "Yes, reset"
 msgstr "بله، بازنشانی کن"
 
-#: includes/Admin/Admin.php:230 includes/Modules/Builder/Module.php:281
+#: includes/Admin/Admin.php:230 includes/Modules/Builder/Module.php:282
 msgid "Cancel"
 msgstr "انصراف"
 
@@ -298,6 +298,7 @@ msgstr "یک پنل جستجو باز می‌کند."
 #: includes/Modules/Bottom_Nav/Item_Types.php:71
 #: includes/Modules/Bottom_Nav/Item_Types.php:73
 #: includes/Modules/Bottom_Nav/views/admin.php:686
+#: includes/Modules/Builder/Shop_Pages.php:173
 msgid "Cart"
 msgstr "سبد خرید"
 
@@ -427,7 +428,7 @@ msgstr "«%s» از نوار حذف می‌شود."
 
 #: includes/Modules/Bottom_Nav/Module.php:155
 #: includes/Modules/Bottom_Nav/views/admin.php:485
-#: includes/Modules/Builder/Module.php:253
+#: includes/Modules/Builder/Module.php:254
 msgid "Delete"
 msgstr "حذف"
 
@@ -499,8 +500,8 @@ msgid "Icons only; the active item expands into a pill with its label."
 msgstr "فقط آیکون؛ دکمه فعال همراه با عنوانش به شکل کپسول باز می‌شود."
 
 #: includes/Modules/Bottom_Nav/views/admin.php:37
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:297
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:383
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:286
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:372
 msgid "Background"
 msgstr "پس‌زمینه"
 
@@ -573,12 +574,15 @@ msgstr "رفتار"
 
 #: includes/Modules/Bottom_Nav/views/admin.php:85
 #: includes/Modules/Builder/views/admin.php:103
+#: includes/Modules/Checkout/views/admin.php:87
+#: includes/Modules/Checkout/views/admin.php:203
 #: includes/Modules/Support_Button/views/admin.php:80
 msgid "Active"
 msgstr "فعال"
 
 #: includes/Modules/Bottom_Nav/views/admin.php:86
 #: includes/Modules/Builder/views/admin.php:104
+#: includes/Modules/Checkout/views/admin.php:88
 #: includes/Modules/Support_Button/views/admin.php:81
 msgid "Inactive"
 msgstr "غیرفعال"
@@ -722,7 +726,7 @@ msgstr "سایه"
 #: includes/Modules/Bottom_Nav/views/admin.php:312
 #: includes/Modules/Bottom_Nav/views/admin.php:324
 #: includes/Modules/Builder/Elementor/Integration.php:185
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:127
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:116
 #: includes/Modules/Builder/Elementor/Widgets/Request_Form.php:125
 #: includes/Modules/Builder/Elementor/Widgets/Stats.php:159
 msgid "None"
@@ -909,7 +913,7 @@ msgid "Drag to reorder"
 msgstr "برای جابه‌جایی بکشید"
 
 #: includes/Modules/Bottom_Nav/views/admin.php:472
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:207
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:196
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:173
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:183
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:142
@@ -933,7 +937,7 @@ msgid "Show this button"
 msgstr "نمایش این دکمه"
 
 #: includes/Modules/Bottom_Nav/views/admin.php:484
-#: includes/Modules/Builder/Module.php:251
+#: includes/Modules/Builder/Module.php:252
 msgid "Duplicate"
 msgstr "تکثیر"
 
@@ -1168,10 +1172,10 @@ msgstr "انتخاب آیکون"
 
 #: includes/Modules/Bottom_Nav/views/admin.php:704
 #: includes/Modules/Bottom_Nav/views/sheet.php:24
-#: includes/Modules/Builder/Assets.php:166
-#: includes/Modules/Builder/Assets.php:203
+#: includes/Modules/Builder/Assets.php:170
+#: includes/Modules/Builder/Assets.php:218
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:399
-#: includes/Modules/Builder/Module.php:271
+#: includes/Modules/Builder/Module.php:272
 #: includes/Modules/Support_Button/Module.php:114
 #: includes/Modules/Support_Button/views/button.php:77
 msgid "Close"
@@ -1209,17 +1213,17 @@ msgstr "دنبال چه می‌گردید؟"
 msgid "Results appear as you type."
 msgstr "نتایج همزمان با تایپ نمایش داده می‌شوند."
 
-#: includes/Modules/Builder/Assets.php:143
+#: includes/Modules/Builder/Assets.php:147
 msgid "Link copied"
 msgstr "لینک کپی شد"
 
 #. translators: 1: current step, 2: number of steps.
-#: includes/Modules/Builder/Assets.php:188
+#: includes/Modules/Builder/Assets.php:203
 #, php-format
 msgid "Step %1$s of %2$s"
 msgstr "مرحله %1$s از %2$s"
 
-#: includes/Modules/Builder/Assets.php:189
+#: includes/Modules/Builder/Assets.php:204
 msgid "Edit"
 msgstr "ویرایش"
 
@@ -1869,7 +1873,7 @@ msgstr "رزرو پروژه"
 
 #: includes/Modules/Builder/Design_Pages.php:88
 #: includes/Modules/Builder/Module.php:60
-#: includes/Modules/Builder/Module.php:299
+#: includes/Modules/Builder/Module.php:300
 #: includes/Modules/Builder/Presets/Catalog.php:55
 msgid "Home page"
 msgstr "صفحه اصلی"
@@ -2073,7 +2077,7 @@ msgstr "بیوگرافی"
 msgid "Write a biographical info in the author's profile (Users → Profile) to show this box."
 msgstr "برای نمایش این کادر، در پروفایل نویسنده (کاربران ← نمایه) «اطلاعات زندگی‌نامه» را بنویسید."
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:199
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:188
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:165
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:173
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:134
@@ -2081,7 +2085,7 @@ msgstr "برای نمایش این کادر، در پروفایل نویسنده
 msgid "Alignment"
 msgstr "چینش"
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:203
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:192
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:169
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:179
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:138
@@ -2091,7 +2095,7 @@ msgstr "چینش"
 msgid "Start"
 msgstr "ابتدا"
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:211
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:200
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:177
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:146
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:99
@@ -2099,54 +2103,54 @@ msgstr "ابتدا"
 msgid "End"
 msgstr "انتها"
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:247
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:236
 #: includes/Modules/Builder/Elementor/Widgets/Reading_Progress.php:57
 #: includes/Modules/Builder/views/admin.php:322
 msgid "Colour"
 msgstr "رنگ"
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:257
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:246
 msgid "Hover colour"
 msgstr "رنگ هاور"
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:314
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:406
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:303
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:395
 msgid "Border radius"
 msgstr "گردی گوشه‌ها"
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:325
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:417
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:314
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:406
 msgid "Padding"
 msgstr "فاصله داخلی"
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:366
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:355
 msgid "Normal"
 msgstr "عادی"
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:366
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:355
 msgid "Hover"
 msgstr "هاور"
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:374
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:363
 msgid "Text colour"
 msgstr "رنگ متن"
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:392
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:381
 #: includes/Modules/Builder/Elementor/Widgets/Social_Links.php:175
 msgid "Border colour"
 msgstr "رنگ حاشیه"
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:427
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:416
 #: includes/Modules/Builder/Elementor/Widgets/Map_Embed.php:121
 #: includes/Modules/Builder/Elementor/Widgets/Post_Header.php:85
 msgid "Height"
 msgstr "ارتفاع"
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:459
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:448
 msgid "Columns"
 msgstr "ستون‌ها"
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:481
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:470
 msgid "Space between"
 msgstr "فاصله بین موارد"
 
@@ -2523,7 +2527,7 @@ msgstr "ارتفاع لوگو"
 #: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:61
 #: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:116
 #: includes/Modules/Builder/Elementor/Widgets/Trust_Badges.php:125
-#: includes/Modules/Builder/Module.php:273
+#: includes/Modules/Builder/Module.php:274
 #: includes/Modules/Builder/Project_Meta_Box.php:89
 msgid "Name"
 msgstr "نام"
@@ -2886,6 +2890,7 @@ msgstr "کارت‌های تماس"
 
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:74
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:114
+#: includes/Modules/Checkout/views/admin.php:42
 #: includes/Modules/Support_Button/views/admin.php:38
 msgid "Phone"
 msgstr "تلفن"
@@ -3393,6 +3398,7 @@ msgid "Choices (one per line)"
 msgstr "گزینه‌ها (هر کدام در یک خط)"
 
 #: includes/Modules/Builder/Elementor/Widgets/Form_Base.php:115
+#: includes/Modules/Checkout/views/admin.php:49
 msgid "Required"
 msgstr "الزامی"
 
@@ -3519,6 +3525,7 @@ msgstr "سرتیتر بخش"
 
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:100
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:212
+#: includes/Modules/Checkout/views/admin.php:64
 msgid "Heading"
 msgstr "عنوان"
 
@@ -5395,7 +5402,7 @@ msgid "Lenz+ dark surface"
 msgstr "Lenz+ سطح تیره"
 
 #: includes/Modules/Builder/Library_Ajax.php:62
-#: includes/Modules/Builder/Module.php:285
+#: includes/Modules/Builder/Module.php:286
 msgid "Elementor is required to edit templates."
 msgstr "برای ویرایش قالب‌ها به المنتور نیاز است."
 
@@ -5409,7 +5416,7 @@ msgid "Page not found."
 msgstr "برگه پیدا نشد."
 
 #: includes/Modules/Builder/Library_Ajax.php:86
-#: includes/Modules/Builder/Module.php:272
+#: includes/Modules/Builder/Module.php:273
 #: includes/Modules/Builder/views/admin.php:246
 msgid "New template"
 msgstr "قالب جدید"
@@ -5486,291 +5493,291 @@ msgstr "مقاله"
 msgid "Course page"
 msgstr "صفحه دوره"
 
-#: includes/Modules/Builder/Module.php:160
+#: includes/Modules/Builder/Module.php:161
 msgid "Lenz's portfolio list"
 msgstr "فهرست نمونه‌کارهای لنز"
 
-#: includes/Modules/Builder/Module.php:161
+#: includes/Modules/Builder/Module.php:162
 msgid "Lenz's project page"
 msgstr "صفحه پروژه لنز"
 
-#: includes/Modules/Builder/Module.php:162
+#: includes/Modules/Builder/Module.php:163
 msgid "Lenz's post list"
 msgstr "فهرست نوشته‌های لنز"
 
-#: includes/Modules/Builder/Module.php:163
+#: includes/Modules/Builder/Module.php:164
 msgid "Lenz's article page"
 msgstr "صفحه مقاله لنز"
 
-#: includes/Modules/Builder/Module.php:164
+#: includes/Modules/Builder/Module.php:165
 msgid "Lenz's product page"
 msgstr "صفحه محصول لنز"
 
-#: includes/Modules/Builder/Module.php:198
+#: includes/Modules/Builder/Module.php:199
 msgid "Home pages"
 msgstr "صفحه‌های اصلی"
 
-#: includes/Modules/Builder/Module.php:199
+#: includes/Modules/Builder/Module.php:200
 msgid "About pages"
 msgstr "صفحه‌های درباره"
 
-#: includes/Modules/Builder/Module.php:200
+#: includes/Modules/Builder/Module.php:201
 msgid "Services pages"
 msgstr "صفحه‌های خدمات"
 
-#: includes/Modules/Builder/Module.php:201
+#: includes/Modules/Builder/Module.php:202
 msgid "Courses pages"
 msgstr "صفحه‌های دوره‌ها"
 
-#: includes/Modules/Builder/Module.php:202
+#: includes/Modules/Builder/Module.php:203
 msgid "Contact pages"
 msgstr "صفحه‌های تماس"
 
-#: includes/Modules/Builder/Module.php:203
+#: includes/Modules/Builder/Module.php:204
 msgid "Booking pages"
 msgstr "صفحه‌های رزرو"
 
-#: includes/Modules/Builder/Module.php:237
+#: includes/Modules/Builder/Module.php:238
 msgid "Lenz's header"
 msgstr "هدر لنز"
 
-#: includes/Modules/Builder/Module.php:238
+#: includes/Modules/Builder/Module.php:239
 msgid "Lenz's footer"
 msgstr "فوتر لنز"
 
-#: includes/Modules/Builder/Module.php:239
+#: includes/Modules/Builder/Module.php:240
 msgid "Keep the theme's own design."
 msgstr "طراحی خود قالب حفظ شود."
 
-#: includes/Modules/Builder/Module.php:240
+#: includes/Modules/Builder/Module.php:241
 msgid "Nothing"
 msgstr "هیچ‌کدام"
 
-#: includes/Modules/Builder/Module.php:241
+#: includes/Modules/Builder/Module.php:242
 msgid "Hide it on this device."
 msgstr "در این دستگاه نمایش داده نشود."
 
-#: includes/Modules/Builder/Module.php:242
+#: includes/Modules/Builder/Module.php:243
 msgid "Same as desktop"
 msgstr "مثل دسکتاپ"
 
-#: includes/Modules/Builder/Module.php:243
+#: includes/Modules/Builder/Module.php:244
 msgid "Use the desktop choice on phones too."
 msgstr "همان انتخاب دسکتاپ در موبایل هم استفاده شود."
 
-#: includes/Modules/Builder/Module.php:244
+#: includes/Modules/Builder/Module.php:245
 msgid "In use"
 msgstr "در حال استفاده"
 
-#: includes/Modules/Builder/Module.php:245
 #: includes/Modules/Builder/Module.php:246
+#: includes/Modules/Builder/Module.php:247
 msgid "Preview"
 msgstr "پیش‌نمایش"
 
-#: includes/Modules/Builder/Module.php:247
+#: includes/Modules/Builder/Module.php:248
 msgid "Nothing to preview yet."
 msgstr "هنوز چیزی برای پیش‌نمایش نیست."
 
-#: includes/Modules/Builder/Module.php:248
+#: includes/Modules/Builder/Module.php:249
 msgid "Previews show a design right away — nothing changes for visitors until you save."
 msgstr "پیش‌نمایش طرح را فوراً نشان می‌دهد؛ تا وقتی ذخیره نکنید چیزی برای بازدیدکننده‌ها تغییر نمی‌کند."
 
-#: includes/Modules/Builder/Module.php:249
+#: includes/Modules/Builder/Module.php:250
 msgid "Custom template"
 msgstr "قالب سفارشی"
 
-#: includes/Modules/Builder/Module.php:250
+#: includes/Modules/Builder/Module.php:251
 msgid "Edit with Elementor"
 msgstr "ویرایش با المنتور"
 
-#: includes/Modules/Builder/Module.php:252
+#: includes/Modules/Builder/Module.php:253
 msgid "Restore original"
 msgstr "بازگردانی طرح اولیه"
 
-#: includes/Modules/Builder/Module.php:254
+#: includes/Modules/Builder/Module.php:255
 msgid "Rename"
 msgstr "تغییر نام"
 
-#: includes/Modules/Builder/Module.php:255
+#: includes/Modules/Builder/Module.php:256
 msgid "Delete this template?"
 msgstr "این قالب حذف شود؟"
 
 #. translators: %s: template name.
-#: includes/Modules/Builder/Module.php:257
+#: includes/Modules/Builder/Module.php:258
 #, php-format
 msgid "\"%s\" goes to the trash. Pages made from it keep their own copy."
 msgstr "«%s» به زباله‌دان می‌رود. صفحه‌هایی که از آن ساخته شده‌اند نسخه خودشان را نگه می‌دارند."
 
-#: includes/Modules/Builder/Module.php:258
+#: includes/Modules/Builder/Module.php:259
 msgid "Restore the original design?"
 msgstr "طرح اولیه بازگردانده شود؟"
 
-#: includes/Modules/Builder/Module.php:259
+#: includes/Modules/Builder/Module.php:260
 msgid "Your Elementor changes to this template will be replaced by the original design. Duplicate it first if you want to keep your version."
 msgstr "تغییراتی که در المنتور روی این قالب داده‌اید با طرح اولیه جایگزین می‌شود. اگر می‌خواهید نسخه خودتان بماند، ابتدا از آن کپی بگیرید."
 
-#: includes/Modules/Builder/Module.php:260
+#: includes/Modules/Builder/Module.php:261
 msgid "Restore"
 msgstr "بازگردانی"
 
-#: includes/Modules/Builder/Module.php:261
+#: includes/Modules/Builder/Module.php:262
 msgid "Template created."
 msgstr "قالب ساخته شد."
 
-#: includes/Modules/Builder/Module.php:262
+#: includes/Modules/Builder/Module.php:263
 msgid "Template duplicated."
 msgstr "از قالب کپی گرفته شد."
 
-#: includes/Modules/Builder/Module.php:263
+#: includes/Modules/Builder/Module.php:264
 msgid "Original design restored."
 msgstr "طرح اولیه بازگردانده شد."
 
-#: includes/Modules/Builder/Module.php:264
+#: includes/Modules/Builder/Module.php:265
 msgid "Template deleted."
 msgstr "قالب حذف شد."
 
-#: includes/Modules/Builder/Module.php:265
+#: includes/Modules/Builder/Module.php:266
 msgid "Ready-made designs installed."
 msgstr "طرح‌های آماده نصب شدند."
 
-#: includes/Modules/Builder/Module.php:266
+#: includes/Modules/Builder/Module.php:267
 msgid "Template renamed."
 msgstr "نام قالب تغییر کرد."
 
-#: includes/Modules/Builder/Module.php:267
+#: includes/Modules/Builder/Module.php:268
 #: includes/Modules/Builder/views/admin.php:191
 msgid "Desktop"
 msgstr "دسکتاپ"
 
-#: includes/Modules/Builder/Module.php:268
+#: includes/Modules/Builder/Module.php:269
 msgid "Tablet"
 msgstr "تبلت"
 
-#: includes/Modules/Builder/Module.php:269
+#: includes/Modules/Builder/Module.php:270
 msgid "Mobile"
 msgstr "موبایل"
 
-#: includes/Modules/Builder/Module.php:270
+#: includes/Modules/Builder/Module.php:271
 msgid "Open in new tab"
 msgstr "باز کردن در تب جدید"
 
-#: includes/Modules/Builder/Module.php:274
+#: includes/Modules/Builder/Module.php:275
 msgid "Kind"
 msgstr "نوع"
 
-#: includes/Modules/Builder/Module.php:275
+#: includes/Modules/Builder/Module.php:276
 msgid "Start from"
 msgstr "شروع از"
 
-#: includes/Modules/Builder/Module.php:276
+#: includes/Modules/Builder/Module.php:277
 msgid "Blank canvas"
 msgstr "صفحه خالی"
 
-#: includes/Modules/Builder/Module.php:277
+#: includes/Modules/Builder/Module.php:278
 msgid "Create & open Elementor"
 msgstr "ساختن و باز کردن المنتور"
 
-#: includes/Modules/Builder/Module.php:278
+#: includes/Modules/Builder/Module.php:279
 msgid "Create"
 msgstr "ساختن"
 
-#: includes/Modules/Builder/Module.php:279
+#: includes/Modules/Builder/Module.php:280
 msgid "New name"
 msgstr "نام جدید"
 
-#: includes/Modules/Builder/Module.php:280
+#: includes/Modules/Builder/Module.php:281
 msgid "Save"
 msgstr "ذخیره"
 
-#: includes/Modules/Builder/Module.php:282
+#: includes/Modules/Builder/Module.php:283
 msgid "Ready-made"
 msgstr "آماده"
 
-#: includes/Modules/Builder/Module.php:283
+#: includes/Modules/Builder/Module.php:284
 msgid "Edited"
 msgstr "ویرایش‌شده"
 
-#: includes/Modules/Builder/Module.php:284
+#: includes/Modules/Builder/Module.php:285
 msgid "No templates of this kind yet."
 msgstr "هنوز قالبی از این نوع ندارید."
 
-#: includes/Modules/Builder/Module.php:286
+#: includes/Modules/Builder/Module.php:287
 msgid "Brand colours added to Elementor's global colours."
 msgstr "رنگ‌های برند به رنگ‌های سراسری المنتور اضافه شد."
 
-#: includes/Modules/Builder/Module.php:287
+#: includes/Modules/Builder/Module.php:288
 msgid "Flexbox containers activated."
 msgstr "کانتینرهای فلکس‌باکس فعال شد."
 
-#: includes/Modules/Builder/Module.php:288
+#: includes/Modules/Builder/Module.php:289
 msgid "Create page"
 msgstr "ساخت برگه"
 
 #. translators: %s: design name.
-#: includes/Modules/Builder/Module.php:290
+#: includes/Modules/Builder/Module.php:291
 #, php-format
 msgid "New page from \"%s\""
 msgstr "برگه جدید از «%s»"
 
-#: includes/Modules/Builder/Module.php:291
+#: includes/Modules/Builder/Module.php:292
 msgid "Page name"
 msgstr "نام برگه"
 
-#: includes/Modules/Builder/Module.php:292
+#: includes/Modules/Builder/Module.php:293
 msgid "Publish now"
 msgstr "همین حالا منتشر شود"
 
-#: includes/Modules/Builder/Module.php:293
+#: includes/Modules/Builder/Module.php:294
 msgid "Off: the page is saved as a draft that only you can see."
 msgstr "خاموش: برگه به صورت پیش‌نویس ذخیره می‌شود و فقط شما آن را می‌بینید."
 
-#: includes/Modules/Builder/Module.php:294
+#: includes/Modules/Builder/Module.php:295
 msgid "Use it as the site's home page"
 msgstr "صفحه اصلی سایت شود"
 
-#: includes/Modules/Builder/Module.php:295
+#: includes/Modules/Builder/Module.php:296
 msgid "Visitors see it at the site address. The page is published."
 msgstr "بازدیدکنندگان آن را در نشانی اصلی سایت می‌بینند. برگه منتشر می‌شود."
 
-#: includes/Modules/Builder/Module.php:296
+#: includes/Modules/Builder/Module.php:297
 msgid "Page created."
 msgstr "برگه ساخته شد."
 
-#: includes/Modules/Builder/Module.php:297
+#: includes/Modules/Builder/Module.php:298
 msgid "No ready-made designs of this kind yet. Create a template of this kind in the Templates tab to make pages from it."
 msgstr "هنوز طراحی آماده‌ای از این نوع نیست. در زبانه «قالب‌ها» یک قالب از این نوع بسازید تا بتوانید از آن صفحه بسازید."
 
-#: includes/Modules/Builder/Module.php:298
+#: includes/Modules/Builder/Module.php:299
 msgid "No pages yet. Create one from a design above."
 msgstr "هنوز برگه‌ای ساخته نشده است. از یکی از طرح‌های بالا یک برگه بسازید."
 
-#: includes/Modules/Builder/Module.php:300
+#: includes/Modules/Builder/Module.php:301
 msgid "Draft"
 msgstr "پیش‌نویس"
 
-#: includes/Modules/Builder/Module.php:301
+#: includes/Modules/Builder/Module.php:302
 msgid "Published"
 msgstr "منتشرشده"
 
 #. translators: %s: design name.
-#: includes/Modules/Builder/Module.php:303
+#: includes/Modules/Builder/Module.php:304
 #, php-format
 msgid "From \"%s\""
 msgstr "از طرح «%s»"
 
-#: includes/Modules/Builder/Module.php:304
+#: includes/Modules/Builder/Module.php:305
 msgid "View"
 msgstr "مشاهده"
 
-#: includes/Modules/Builder/Module.php:305
+#: includes/Modules/Builder/Module.php:306
 msgid "Make it the home page"
 msgstr "صفحه اصلی سایت شود"
 
-#: includes/Modules/Builder/Module.php:306
+#: includes/Modules/Builder/Module.php:307
 msgid "This page is now the site's home page."
 msgstr "این برگه اکنون صفحه اصلی سایت است."
 
-#: includes/Modules/Builder/Module.php:307
+#: includes/Modules/Builder/Module.php:308
 msgid "Edit the design"
 msgstr "ویرایش طرح"
 
@@ -6049,6 +6056,59 @@ msgstr "در زمان کوتاهی درخواست‌های زیادی فرستا
 #: includes/Modules/Builder/Public_Form.php:180
 msgid "Your request could not be sent. Please try again."
 msgstr "درخواست شما فرستاده نشد. لطفاً دوباره امتحان کنید."
+
+#: includes/Modules/Builder/Shop_Pages.php:97
+msgid "If you have a coupon code, please apply it below."
+msgstr "اگر کد تخفیف دارید، آن را در کادر زیر وارد کنید."
+
+#: includes/Modules/Builder/Shop_Pages.php:177
+msgid "Details and payment"
+msgstr "اطلاعات و پرداخت"
+
+#: includes/Modules/Builder/Shop_Pages.php:181
+msgid "Order complete"
+msgstr "تکمیل سفارش"
+
+#: includes/Modules/Builder/Shop_Pages.php:223
+msgid "Your seat is booked. We will send the class details and how to join before it starts."
+msgstr "جای شما در دوره رزرو شد. جزئیات کلاس و نحوه شرکت در آن را پیش از شروع برایتان می‌فرستیم."
+
+#: includes/Modules/Builder/Shop_Pages.php:224
+msgid "Your files are ready. Download them below; the links are in your email too."
+msgstr "فایل‌های شما آماده است. از بخش زیر دانلود کنید؛ لینک‌ها در ایمیل شما هم هست."
+
+#: includes/Modules/Builder/Shop_Pages.php:225
+msgid "Your payment went through and we are preparing your order."
+msgstr "پرداخت شما با موفقیت انجام شد و سفارشتان در حال آماده‌سازی است."
+
+#: includes/Modules/Builder/Shop_Pages.php:226
+msgid "Your order is saved. It goes ahead as soon as your payment is confirmed; the payment details are below."
+msgstr "سفارش شما ثبت شد و پس از تأیید پرداخت، پردازش آن آغاز می‌شود؛ اطلاعات پرداخت در ادامه آمده است."
+
+#: includes/Modules/Builder/Shop_Pages.php:227
+msgid "Your order is saved, but its payment is not complete yet."
+msgstr "سفارش شما ثبت شد، اما پرداخت آن هنوز کامل نشده است."
+
+#. translators: {email} stays as is: it is replaced with the customer's email address.
+#: includes/Modules/Builder/Shop_Pages.php:229
+msgid "A copy of the order is on its way to {email}."
+msgstr "یک نسخه از سفارش به {email} ارسال شد."
+
+#: includes/Modules/Builder/Shop_Pages.php:248
+msgid "Continue shopping"
+msgstr "ادامه خرید"
+
+#: includes/Modules/Builder/Shop_Pages.php:253
+msgid "Back to the home page"
+msgstr "بازگشت به صفحه اصلی"
+
+#: includes/Modules/Builder/Shop_Pages.php:292
+msgid "Download the files"
+msgstr "دانلود فایل‌ها"
+
+#: includes/Modules/Builder/Shop_Pages.php:301
+msgid "View my order"
+msgstr "مشاهده سفارش من"
 
 #: includes/Modules/Builder/Template_Post_Type.php:41
 msgid "Lenz+ templates"
@@ -6369,6 +6429,7 @@ msgid "Lenz icons use the theme's own glyphs where it has them, like the designs
 msgstr "آیکن‌های لنز هرجا قالب آیکن داشته باشد از آیکن‌های خود قالب استفاده می‌کنند، مثل طراحی‌ها."
 
 #: includes/Modules/Builder/views/admin.php:333
+#: includes/Modules/Checkout/views/admin.php:180
 msgid "Persian digits"
 msgstr "اعداد فارسی"
 
@@ -6376,25 +6437,257 @@ msgstr "اعداد فارسی"
 msgid "Show prices, counts and years as ۱۲۳ with Persian separators on Persian sites."
 msgstr "قیمت‌ها، تعدادها و سال‌ها در سایت‌های فارسی با اعداد و جداکننده‌های فارسی (مثل ۱۲۳٬۴۵۶) نمایش داده شوند."
 
-#: includes/Modules/Builder/views/admin.php:343
+#: includes/Modules/Builder/views/admin.php:338
+msgid "Shop pages in the brand style"
+msgstr "صفحه‌های فروشگاه با ظاهر برند"
+
+#: includes/Modules/Builder/views/admin.php:339
+msgid "WooCommerce's cart, checkout and account pages use the designs' colours, fields and buttons, with checkout steps and a simple account menu. Needs the page templates switched on."
+msgstr "سبد خرید، پرداخت و حساب کاربری ووکامرس با رنگ‌ها، فیلدها و دکمه‌های طرح‌ها نمایش داده می‌شوند، همراه با مرحله‌های خرید و منوی ساده حساب کاربری. قالب‌های صفحه باید روشن باشند."
+
+#: includes/Modules/Builder/views/admin.php:348
 msgid "Brand colours"
 msgstr "رنگ‌های برند"
 
-#: includes/Modules/Builder/views/admin.php:344
+#: includes/Modules/Builder/views/admin.php:349
 msgid "Every design uses these colours; the defaults are the designs' own. Anything you set on a widget in Elementor overrides them."
 msgstr "همه طراحی‌ها از این رنگ‌ها استفاده می‌کنند و پیش‌فرض‌ها رنگ‌های خود طراحی‌اند. هر رنگی که روی ویجتی در المنتور تنظیم کنید بر این‌ها اولویت دارد."
 
-#: includes/Modules/Builder/views/admin.php:348
+#: includes/Modules/Builder/views/admin.php:353
 msgid "Add to Elementor global colours"
 msgstr "افزودن به رنگ‌های سراسری المنتور"
 
-#: includes/Modules/Builder/views/admin.php:354
+#: includes/Modules/Builder/views/admin.php:359
 msgid "Design default"
 msgstr "پیش‌فرض طراحی"
 
-#: includes/Modules/Builder/views/admin.php:358
+#: includes/Modules/Builder/views/admin.php:363
 msgid "Corner roundness (cards)"
 msgstr "گردی گوشه‌ها (کارت‌ها)"
+
+#: includes/Modules/Builder/views/shop/account-nav.php:22
+msgid "Account pages"
+msgstr "صفحه‌های حساب کاربری"
+
+#. translators: %s: order number.
+#: includes/Modules/Builder/views/shop/order-received.php:46
+#, php-format
+msgid "Order #%s"
+msgstr "سفارش #%s"
+
+#: includes/Modules/Builder/views/shop/steps.php:16
+msgid "Order steps"
+msgstr "مرحله‌های سفارش"
+
+#: includes/Modules/Builder/views/shop/steps.php:32
+msgid "(done)"
+msgstr "(انجام شد)"
+
+#: includes/Modules/Checkout/Module.php:33
+msgid "Checkout form"
+msgstr "فرم تسویه‌حساب"
+
+#: includes/Modules/Checkout/Module.php:38
+msgid "Choose which billing fields the checkout asks for, give download, virtual and course orders a short form and accept phone numbers and postcodes typed in Persian digits."
+msgstr "فیلدهای صورتحساب را انتخاب کنید، برای خرید دوره، فایل دانلودی و محصول مجازی فرم کوتاه بگذارید و شماره تلفن و کد پستی با اعداد فارسی را بپذیرید."
+
+#: includes/Modules/Checkout/views/admin.php:33
+msgid "First name"
+msgstr "نام"
+
+#: includes/Modules/Checkout/views/admin.php:34
+msgid "Last name"
+msgstr "نام خانوادگی"
+
+#: includes/Modules/Checkout/views/admin.php:35
+msgid "Company name"
+msgstr "نام شرکت"
+
+#: includes/Modules/Checkout/views/admin.php:36
+msgid "Country / Region"
+msgstr "کشور / منطقه"
+
+#: includes/Modules/Checkout/views/admin.php:37
+msgid "Province"
+msgstr "استان"
+
+#: includes/Modules/Checkout/views/admin.php:38
+msgid "City"
+msgstr "شهر"
+
+#: includes/Modules/Checkout/views/admin.php:39
+msgid "Street address"
+msgstr "آدرس خیابان"
+
+#: includes/Modules/Checkout/views/admin.php:40
+msgid "Apartment, suite, unit"
+msgstr "واحد، طبقه، پلاک"
+
+#: includes/Modules/Checkout/views/admin.php:41
+msgid "Postcode"
+msgstr "کد پستی"
+
+#: includes/Modules/Checkout/views/admin.php:43
+msgid "Email address"
+msgstr "آدرس ایمیل"
+
+#: includes/Modules/Checkout/views/admin.php:44
+msgid "Order notes"
+msgstr "توضیحات سفارش"
+
+#: includes/Modules/Checkout/views/admin.php:48
+msgid "Default (as WooCommerce sets it)"
+msgstr "پیش‌فرض (همان تنظیم ووکامرس)"
+
+#: includes/Modules/Checkout/views/admin.php:50
+msgid "Optional"
+msgstr "اختیاری"
+
+#: includes/Modules/Checkout/views/admin.php:51
+msgid "Hidden"
+msgstr "مخفی"
+
+#: includes/Modules/Checkout/views/admin.php:55
+#: includes/Modules/Checkout/views/admin.php:126
+msgid "Billing fields"
+msgstr "فیلدهای صورتحساب"
+
+#: includes/Modules/Checkout/views/admin.php:56
+msgid "Quick checkout"
+msgstr "خرید سریع"
+
+#: includes/Modules/Checkout/views/admin.php:57
+#: includes/Modules/Checkout/views/admin.php:157
+msgid "Order received page"
+msgstr "صفحه خرید موفق"
+
+#: includes/Modules/Checkout/views/admin.php:58
+msgid "Digits & compatibility"
+msgstr "اعداد و سازگاری"
+
+#: includes/Modules/Checkout/views/admin.php:64
+msgid "Empty: WooCommerce's «Thank you. Your order has been received.»"
+msgstr "اگر خالی باشد: متن ووکامرس «متشکریم، سفارش شما دریافت شد.»"
+
+#: includes/Modules/Checkout/views/admin.php:65
+msgid "Course paid"
+msgstr "دوره پرداخت شد"
+
+#: includes/Modules/Checkout/views/admin.php:65
+msgid "The order holds a course and its payment went through."
+msgstr "سفارش شامل دوره است و پرداخت آن انجام شده."
+
+#: includes/Modules/Checkout/views/admin.php:66
+msgid "Files ready"
+msgstr "فایل‌ها آماده دانلود"
+
+#: includes/Modules/Checkout/views/admin.php:66
+msgid "Paid order with downloadable files (the page also shows a \"Download the files\" button)."
+msgstr "سفارش پرداخت‌شده با فایل دانلودی (صفحه دکمه «دانلود فایل‌ها» را هم نشان می‌دهد)."
+
+#: includes/Modules/Checkout/views/admin.php:67
+msgid "Other paid orders"
+msgstr "سایر سفارش‌های پرداخت‌شده"
+
+#: includes/Modules/Checkout/views/admin.php:67
+msgid "Paid orders without courses or files, such as physical products."
+msgstr "سفارش‌های پرداخت‌شده بدون دوره یا فایل، مثل محصولات فیزیکی."
+
+#: includes/Modules/Checkout/views/admin.php:68
+msgid "Waiting for payment confirmation"
+msgstr "در انتظار تأیید پرداخت"
+
+#: includes/Modules/Checkout/views/admin.php:68
+msgid "Bank transfer, card to card or cheque: the order waits until you confirm the payment."
+msgstr "انتقال بانکی، کارت به کارت یا چک: سفارش تا تأیید پرداخت توسط شما منتظر می‌ماند."
+
+#: includes/Modules/Checkout/views/admin.php:69
+msgid "Not paid"
+msgstr "پرداخت نشده"
+
+#: includes/Modules/Checkout/views/admin.php:69
+msgid "The payment was not completed (for example the customer left the bank page)."
+msgstr "پرداخت کامل نشده است (مثلاً مشتری از صفحه بانک خارج شده)."
+
+#: includes/Modules/Checkout/views/admin.php:70
+msgid "Email line"
+msgstr "خط ایمیل"
+
+#: includes/Modules/Checkout/views/admin.php:70
+msgid "Added after the text above when the order has an email address. Write - to show no email line."
+msgstr "وقتی سفارش ایمیل دارد، بعد از متن بالا اضافه می‌شود. برای نمایش ندادن آن، علامت - بنویسید."
+
+#: includes/Modules/Checkout/views/admin.php:74
+msgid "Persian WooCommerce"
+msgstr "ووکامرس فارسی"
+
+#: includes/Modules/Checkout/views/admin.php:74
+msgid "Its Iranian provinces and its own phone and postcode fixes keep working."
+msgstr "استان‌های ایران و اصلاح شماره تلفن و کد پستی آن مثل قبل کار می‌کنند."
+
+#: includes/Modules/Checkout/views/admin.php:75
+msgid "Persian WooCommerce Shipping"
+msgstr "حمل و نقل حرفه‌ای ووکامرس"
+
+#: includes/Modules/Checkout/views/admin.php:75
+msgid "Its province, city and district lists stay as they are; the district field follows the city field's setting."
+msgstr "فهرست استان، شهر و محله آن دست نمی‌خورد؛ فیلد محله از تنظیم فیلد شهر پیروی می‌کند."
+
+#: includes/Modules/Checkout/views/admin.php:90
+msgid "Enable the checkout form rules"
+msgstr "فعال کردن تنظیمات فرم تسویه‌حساب"
+
+#: includes/Modules/Checkout/views/admin.php:99
+msgid "WooCommerce is not active. These settings apply once it is."
+msgstr "ووکامرس فعال نیست. این تنظیمات پس از فعال شدن آن اعمال می‌شوند."
+
+#: includes/Modules/Checkout/views/admin.php:105
+msgid "Your checkout page uses the Checkout block. The field settings and the short course form apply to the classic checkout form, which Lenz, Persian WooCommerce Shipping and most Iranian payment gateways also need. Open the page, select the Checkout block and choose \"Switch to classic checkout\" in its settings. Persian digits are converted on both."
+msgstr "برگه پرداخت شما از بلوک «پرداخت» استفاده می‌کند. تنظیم فیلدها و فرم کوتاه دوره روی فرم کلاسیک پرداخت اعمال می‌شوند؛ قالب لنز، حمل و نقل حرفه‌ای و بیشتر درگاه‌های ایرانی هم به فرم کلاسیک نیاز دارند. برگه را باز کنید، بلوک پرداخت را انتخاب کنید و در تنظیمات آن «تغییر به پرداخت کلاسیک» را بزنید. تبدیل اعداد فارسی روی هر دو کار می‌کند."
+
+#: includes/Modules/Checkout/views/admin.php:106
+msgid "Edit the checkout page"
+msgstr "ویرایش برگه پرداخت"
+
+#: includes/Modules/Checkout/views/admin.php:127
+msgid "What the checkout asks for on ordinary orders. \"Default\" leaves a field to WooCommerce and to plugins such as Persian WooCommerce Shipping; hidden fields are left out of the form. Keep the phone or the email: the order needs a way to reach the customer, and most Iranian gateways send the phone to the bank."
+msgstr "فیلدهایی که فرم پرداخت در سفارش‌های معمولی می‌پرسد. «پیش‌فرض» فیلد را به ووکامرس و افزونه‌هایی مثل حمل و نقل حرفه‌ای می‌سپارد؛ فیلدهای پنهان از فرم حذف می‌شوند. تلفن یا ایمیل را نگه دارید: سفارش باید راهی برای تماس با مشتری داشته باشد و بیشتر درگاه‌های ایرانی شماره تلفن را به بانک می‌فرستند."
+
+#: includes/Modules/Checkout/views/admin.php:140
+msgid "Quick checkout when nothing is shipped"
+msgstr "پرداخت سریع وقتی چیزی ارسال نمی‌شود"
+
+#: includes/Modules/Checkout/views/admin.php:141
+msgid "When everything in the cart is downloadable or virtual (files, services, courses), there is no parcel to send, so the checkout uses this shorter form and the customer pays in a few seconds. Carts with a physical product use the billing fields of the first tab."
+msgstr "وقتی همه اقلام سبد دانلودی یا مجازی است (فایل، خدمات، دوره)، چیزی برای ارسال نیست؛ پس فرم پرداخت کوتاه می‌شود و مشتری در چند ثانیه پرداخت می‌کند. سبدهایی که محصول فیزیکی دارند از فیلدهای صورتحساب زبانه اول استفاده می‌کنند."
+
+#: includes/Modules/Checkout/views/admin.php:144
+msgid "Short form for download and virtual orders"
+msgstr "فرم کوتاه برای سفارش دوره، دانلودی و مجازی"
+
+#: includes/Modules/Checkout/views/admin.php:158
+msgid "What the page says after an order, for each situation. Leave a field empty to keep the text shown in it. You can use {name} (first name), {order} (order number) and {email}. The page's design comes with the shop pages style of the page templates."
+msgstr "متنی که صفحه پس از ثبت سفارش در هر حالت نشان می‌دهد. اگر فیلدی را خالی بگذارید، همان متنی که داخلش نوشته شده نمایش داده می‌شود. می‌توانید از {name} (نام)، {order} (شماره سفارش) و {email} استفاده کنید. ظاهر این صفحه از گزینه «صفحه‌های فروشگاه با ظاهر برند» در قالب‌های صفحه می‌آید."
+
+#: includes/Modules/Checkout/views/admin.php:186
+msgid "Turn Persian digits into English digits"
+msgstr "تبدیل اعداد فارسی به انگلیسی"
+
+#: includes/Modules/Checkout/views/admin.php:187
+msgid "Phone numbers, postcodes and emails typed as ۰۹۱۲… are saved as 0912…, as WooCommerce's checks and the payment gateways expect. Works on the checkout (classic and block) and on the account's address and details forms."
+msgstr "شماره تلفن، کد پستی و ایمیلی که با اعداد فارسی (۰۹۱۲…) نوشته شود به شکل 0912… ذخیره می‌شود؛ همان چیزی که بررسی‌های ووکامرس و درگاه‌های پرداخت انتظار دارند. در فرم پرداخت (کلاسیک و بلوکی) و فرم‌های آدرس و جزئیات حساب کاربری کار می‌کند."
+
+#: includes/Modules/Checkout/views/admin.php:195
+msgid "Iranian plugins"
+msgstr "افزونه‌های ایرانی"
+
+#: includes/Modules/Checkout/views/admin.php:196
+msgid "The field rules run after these plugins and only hide fields or change whether they are required."
+msgstr "تنظیمات فیلدها بعد از این افزونه‌ها اجرا می‌شوند و فقط فیلدها را پنهان می‌کنند یا اجباری بودنشان را تغییر می‌دهند."
+
+#: includes/Modules/Checkout/views/admin.php:203
+msgid "Not installed"
+msgstr "نصب نشده"
 
 #: includes/Modules/Support_Button/Channels.php:45
 msgid "Username (with or without @), a t.me link, or a phone number with the country code."
@@ -6751,6 +7044,28 @@ msgstr "لینک‌ها در پیش‌نمایش باز نمی‌شوند. رن�
 #, php-format
 msgid "Lenz Plus requires PHP %s or newer."
 msgstr "لنز پلاس به PHP نسخهٔ %s یا جدیدتر نیاز دارد."
+
+#~ msgid "Download and virtual orders"
+#~ msgstr "سفارش دوره، دانلودی و مجازی"
+
+#, php-format
+#~ msgid "A copy of the order is on its way to %s."
+#~ msgstr "یک نسخه از سفارش به %s ارسال شد."
+
+#~ msgid "Choose which billing fields the checkout asks for, give course orders a short form and accept phone numbers and postcodes typed in Persian digits."
+#~ msgstr "فیلدهای صورتحساب را انتخاب کنید، برای خرید دوره فرم کوتاه بگذارید و شماره تلفن و کد پستی با اعداد فارسی را بپذیرید."
+
+#~ msgid "Course orders"
+#~ msgstr "خرید دوره"
+
+#~ msgid "Quick checkout for courses"
+#~ msgstr "پرداخت سریع دوره"
+
+#~ msgid "When the cart holds only courses (products marked as courses in their Course box), the checkout uses this shorter form so the student can pay in a few seconds. Carts with other products use the billing fields above."
+#~ msgstr "وقتی سبد خرید فقط دوره دارد (محصولاتی که در جعبه «دوره» علامت خورده‌اند)، فرم پرداخت کوتاه می‌شود تا دانشجو در چند ثانیه پرداخت کند. سبدهایی که محصول دیگری دارند از فیلدهای صورتحساب بالا استفاده می‌کنند."
+
+#~ msgid "Short form for course orders"
+#~ msgstr "فرم کوتاه برای خرید دوره"
 
 #~ msgid "The label is shown as the first, empty choice."
 #~ msgstr "برچسب به‌عنوان اولین گزینه خالی نمایش داده می‌شود."

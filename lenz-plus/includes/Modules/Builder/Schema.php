@@ -114,6 +114,8 @@ final class Schema {
 				'persian_digits' => true,
 				'photo_tone'     => self::PHOTO_TONES[0],
 				'guides'         => true,
+				// WooCommerce's cart, checkout and account pages in the brand style (Shop_Pages).
+				'shop_pages'     => true,
 			),
 			'brand'      => array_merge(
 				array_fill_keys( array_keys( self::BRAND_DEFAULTS ), '' ),
@@ -185,6 +187,7 @@ final class Schema {
 						'options' => self::PHOTO_TONES,
 					),
 					'guides'         => array( 'type' => 'bool' ),
+					'shop_pages'     => array( 'type' => 'bool' ),
 				),
 			),
 			'brand'      => array(

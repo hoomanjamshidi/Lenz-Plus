@@ -91,6 +91,7 @@ final class Module extends Base_Module {
 		( new Newsletter() )->register();
 		( new Booking_Requests() )->register();
 		( new Course_Shop() )->register();
+		( new Shop_Pages( $this ) )->register();
 		( new Course_Enroll_Band() )->register();
 
 		if ( did_action( 'elementor/loaded' ) ) {

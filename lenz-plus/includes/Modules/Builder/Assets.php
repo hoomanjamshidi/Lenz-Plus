@@ -48,6 +48,9 @@ final class Assets {
 	/** Script that loads a map only when the visitor asks for it (Map_Embed). */
 	public const MAP_HANDLE = 'lzp-map';
 
+	/** WooCommerce's cart, checkout and account pages (Shop_Pages): stylesheet, and the cart auto-update script. */
+	public const SHOP_HANDLE = 'lzp-shop';
+
 	/** Inline-only style: the brand tokens every Lenz+ stylesheet depends on. */
 	public const TOKENS_HANDLE = 'lzp-tokens';
 
@@ -94,6 +97,7 @@ final class Assets {
 		wp_register_style( self::BLOG_HANDLE, Asset::url( 'assets/modules/builder/css/blog.css' ), array( self::SECTIONS_HANDLE ), LENZ_PLUS_VERSION );
 		wp_register_style( self::COURSES_HANDLE, Asset::url( 'assets/modules/builder/css/courses.css' ), array( self::SECTIONS_HANDLE ), LENZ_PLUS_VERSION );
 		wp_register_style( self::FORMS_HANDLE, Asset::url( 'assets/modules/builder/css/forms.css' ), array( self::SECTIONS_HANDLE ), LENZ_PLUS_VERSION );
+		wp_register_style( self::SHOP_HANDLE, Asset::url( 'assets/modules/builder/css/shop.css' ), array( self::TOKENS_HANDLE ), LENZ_PLUS_VERSION );
 
 		Asset::register_shared();
 		wp_register_script(
@@ -164,6 +168,17 @@ final class Assets {
 			)
 		);
 		wp_add_inline_script( self::VIDEO_HANDLE, 'window.lzpVideo = ' . wp_json_encode( array( 'i18n' => array( 'close' => __( 'Close', 'lenz-plus' ) ) ) ) . ';', 'before' );
+
+		wp_register_script(
+			self::SHOP_HANDLE,
+			Asset::url( 'assets/modules/builder/js/shop.js' ),
+			array(),
+			LENZ_PLUS_VERSION,
+			array(
+				'in_footer' => true,
+				'strategy'  => 'defer',
+			)
+		);
 
 		wp_register_script(
 			self::FORMS_HANDLE,

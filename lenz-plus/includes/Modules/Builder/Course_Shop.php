@@ -14,7 +14,7 @@ namespace LenzPlus\Modules\Builder;
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Purchasable and sold-individually filters for courses.
+ * Purchasable, sold-individually and shipping filters for courses.
  */
 final class Course_Shop {
 
@@ -22,6 +22,18 @@ final class Course_Shop {
 	public function register(): void {
 		add_filter( 'woocommerce_is_purchasable', array( $this, 'purchasable' ), 10, 2 );
 		add_filter( 'woocommerce_is_sold_individually', array( $this, 'sold_individually' ), 10, 2 );
+		add_filter( 'woocommerce_product_needs_shipping', array( $this, 'needs_shipping' ), 10, 2 );
+	}
+
+	/**
+	 * A course is a seat, not a parcel: a course-only cart asks for no
+	 * shipping address or method, even when the product was not marked virtual.
+	 *
+	 * @param bool        $needs   WooCommerce's answer.
+	 * @param \WC_Product $product Product.
+	 */
+	public function needs_shipping( $needs, $product ): bool {
+		return (bool) $needs && ! ( $product instanceof \WC_Product && Course_Data::is_course( (int) $product->get_id() ) );
 	}
 
 	/**

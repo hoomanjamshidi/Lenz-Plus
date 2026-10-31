@@ -11,6 +11,7 @@ use LenzPlus\Admin\Admin;
 use LenzPlus\Core\Module;
 use LenzPlus\Modules\Bottom_Nav\Module as Bottom_Nav_Module;
 use LenzPlus\Modules\Builder\Module as Builder_Module;
+use LenzPlus\Modules\Checkout\Module as Checkout_Module;
 use LenzPlus\Modules\Support_Button\Module as Support_Button_Module;
 
 defined( 'ABSPATH' ) || exit;
@@ -75,7 +76,7 @@ final class Plugin {
 	 * @return array<int, class-string<Module>>
 	 */
 	private static function default_modules(): array {
-		return array( Bottom_Nav_Module::class, Support_Button_Module::class, Builder_Module::class );
+		return array( Bottom_Nav_Module::class, Support_Button_Module::class, Builder_Module::class, Checkout_Module::class );
 	}
 
 	/**

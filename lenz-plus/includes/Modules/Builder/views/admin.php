@@ -333,6 +333,11 @@ foreach ( Icon_Library::catalog()['packs'] as $pack_id => $pack ) {
 							__( 'Persian digits', 'lenz-plus' ),
 							array( 'help' => __( 'Show prices, counts and years as ۱۲۳ with Persian separators on Persian sites.', 'lenz-plus' ) )
 						);
+						Fields::toggle(
+							'options.shop_pages',
+							__( 'Shop pages in the brand style', 'lenz-plus' ),
+							array( 'help' => __( 'WooCommerce\'s cart, checkout and account pages use the designs\' colours, fields and buttons, with checkout steps and a simple account menu. Needs the page templates switched on.', 'lenz-plus' ) )
+						);
 						?>
 					</div>
 				</div>

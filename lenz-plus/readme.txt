@@ -3,7 +3,7 @@ Tags: lenz, photography, bottom navigation, elementor, rtl
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.3.1
+Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,6 +53,12 @@ It is built for Lenz and reads its colours, logo, menus and options. Without Len
 No. Updates refresh only the ready-made templates you have not edited, and pages created from a design never change by themselves.
 
 == Changelog ==
+
+= 1.4.0 =
+* Shop pages in the brand style: the cart, checkout, order received and account pages of WooCommerce (classic templates and the cart and checkout blocks) use the designs' colours, fields and buttons, built for phones first. A step bar leads from cart to payment to the finished order, the cart updates itself when a quantity changes, the coupon answers under its field, WooCommerce's messages get one clear look, and the account menu is a simple list (a scrolling row on phones). Prices read «۱۲۰٬۰۰۰ تومان» whatever the store's currency position.
+* Order received page: a success hero with what happens next for course, download, paid, waiting and unpaid orders, the courses just enrolled in, and a «Download the files» button for files.
+* New feature «Checkout form»: choose which billing fields the checkout asks for (required, optional or hidden), a short form for download, virtual and course orders, Persian digits turned into English ones in phones, postcodes and emails, and editable texts for the order received page. Works with Persian WooCommerce and Persian WooCommerce Shipping.
+* Courses never ask for a shipping address.
 
 = 1.3.1 =
 * Fix: after an update, admin pages opening at the same time could each install the ready-made designs, leaving two or three copies of every new design (and copies cut short that opened neither in the preview nor in Elementor). Designs are now installed by one request at a time, an existing copy is reused, and this update moves the extra copies to the trash: those nobody edited and no page or setting uses, and any without Elementor data. A design left without data is rebuilt.
