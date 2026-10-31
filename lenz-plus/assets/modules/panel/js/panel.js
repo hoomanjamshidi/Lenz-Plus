@@ -1,15 +1,17 @@
 /**
  * Lenz+ studio panel: progressive enhancements. Every form and link works
- * without this file; it adds background uploads with previews, reordering of
- * gallery photos, the simple text editor, confirmations, a warning before
- * leaving unsaved changes and self-hiding messages.
+ * without this file; it adds background uploads with previews, picking files
+ * from the media library, video links in galleries, reordering of gallery
+ * photos, the simple text editor, confirmations, a warning before leaving
+ * unsaved changes and self-hiding messages.
  *
  * Document-wide listeners are bound once; the parts of a page are set up by
  * initPage(), which runs on load and again on `lzp:page`, the event
  * panel-nav.js fires after it swaps in a page without reloading. Unsaved
  * changes are flagged on <html data-lzp-dirty> so the navigation sees them.
  *
- * Data from PHP: window.lzpPanel { ajaxUrl, uploadNonce, i18n }.
+ * Data from PHP: window.lzpPanel { ajaxUrl, uploadNonce, i18n }; link
+ * reading from window.lzpMediaLink (shared media-link.js).
  */
 ( function () {
 	'use strict';
@@ -208,11 +210,279 @@
 		item.prepend( preview );
 	}
 
+	/* ---------------------------------------------------------------------
+	 * Media library picker
+	 * ------------------------------------------------------------------- */
+
+	/** One page of the library (Uploads::ajax_library()). */
+	function fetchLibrary( type, search, page ) {
+		const body = new FormData();
+		body.append( 'action', 'lzp_panel_library' );
+		body.append( 'nonce', config.uploadNonce );
+		body.append( 'type', type );
+		body.append( 's', search );
+		body.append( 'page', String( page ) );
+
+		return fetch( config.ajaxUrl, { method: 'POST', body, credentials: 'same-origin' } )
+			.then( ( response ) => response.json() )
+			.then( ( json ) => {
+				if ( ! json || ! json.success ) {
+					throw new Error( ( json && json.data && json.data.message ) || i18n.libraryError );
+				}
+				return json.data;
+			} );
+	}
+
+	function element( tag, className, text ) {
+		const node = document.createElement( tag );
+		if ( className ) {
+			node.className = className;
+		}
+		if ( text ) {
+			node.textContent = text;
+		}
+		return node;
+	}
+
+	/**
+	 * Opens the library in a modal sheet; resolves with the chosen files
+	 * (attachment data, in the order they were tapped), or [] when closed.
+	 *
+	 * @param {boolean} multiple Whether several files can be chosen.
+	 * @param {boolean} videos   Whether videos are offered besides photos.
+	 */
+	function pickFromLibrary( multiple, videos ) {
+		return new Promise( ( resolve ) => {
+			const chosen = new Map();
+			let type = videos ? '' : 'image';
+			let search = '';
+			let page = 1;
+			let request = 0;
+			let timer = 0;
+
+			const dialog = element( 'dialog', 'lzp-picker' );
+			dialog.setAttribute( 'aria-label', i18n.library || '' );
+
+			const head = element( 'div', 'lzp-picker__head' );
+			const title = element( 'h2', 'lzp-picker__title', i18n.library );
+			const close = element( 'button', 'lzp-icon-btn lzp-picker__close' );
+			close.type = 'button';
+			close.setAttribute( 'aria-label', i18n.close || '' );
+			close.textContent = '×';
+			head.append( title, close );
+
+			const tools = element( 'div', 'lzp-picker__tools' );
+			const searchBox = element( 'input', 'lzp-input' );
+			searchBox.type = 'search';
+			searchBox.placeholder = i18n.librarySearch || '';
+			searchBox.setAttribute( 'aria-label', i18n.librarySearch || '' );
+			tools.append( searchBox );
+
+			const chips = element( 'div', 'lzp-chips lzp-picker__chips' );
+			if ( videos ) {
+				[ [ '', i18n.all ], [ 'image', i18n.photos ], [ 'video', i18n.videos ] ].forEach( ( [ value, label ] ) => {
+					const chip = element( 'button', 'lzp-chip', label );
+					chip.type = 'button';
+					chip.dataset.type = value;
+					if ( value === type ) {
+						chip.setAttribute( 'aria-current', 'true' );
+					}
+					chips.append( chip );
+				} );
+				tools.append( chips );
+			}
+
+			const grid = element( 'ul', 'lzp-picker__grid' );
+			const status = element( 'p', 'lzp-picker__status' );
+			status.setAttribute( 'aria-live', 'polite' );
+			const more = element( 'button', 'lzp-btn lzp-btn--ghost lzp-picker__more', i18n.loadMore );
+			more.type = 'button';
+			more.hidden = true;
+
+			const foot = element( 'div', 'lzp-picker__foot' );
+			const confirm = element( 'button', 'lzp-btn lzp-btn--primary lzp-btn--block' );
+			confirm.type = 'button';
+			confirm.disabled = true;
+			foot.append( confirm );
+
+			const body = element( 'div', 'lzp-picker__body' );
+			body.append( grid, status, more );
+			dialog.append( head, tools, body, foot );
+
+			function updateConfirm() {
+				confirm.disabled = chosen.size === 0;
+				confirm.textContent = chosen.size > 1 ? ( i18n.addCount || '%d' ).replace( '%d', String( chosen.size ) ) : i18n.add;
+			}
+
+			function tile( data ) {
+				const item = element( 'li' );
+				const button = element( 'button', 'lzp-picker__item' );
+				button.type = 'button';
+				button.setAttribute( 'aria-pressed', String( chosen.has( String( data.id ) ) ) );
+				if ( data.thumb ) {
+					const image = element( 'img' );
+					image.src = data.thumb;
+					image.alt = data.name || '';
+					image.loading = 'lazy';
+					button.append( image );
+				} else {
+					button.append( element( 'span', 'lzp-media__video', data.name ) );
+				}
+				button.addEventListener( 'click', () => {
+					const key = String( data.id );
+					if ( chosen.has( key ) ) {
+						chosen.delete( key );
+					} else {
+						if ( ! multiple ) {
+							chosen.clear();
+							grid.querySelectorAll( '[aria-pressed="true"]' ).forEach( ( other ) => other.setAttribute( 'aria-pressed', 'false' ) );
+						}
+						chosen.set( key, data );
+					}
+					button.setAttribute( 'aria-pressed', String( chosen.has( key ) ) );
+					updateConfirm();
+				} );
+				item.append( button );
+				return item;
+			}
+
+			function load( reset ) {
+				const current = ++request;
+				if ( reset ) {
+					page = 1;
+					grid.textContent = '';
+				}
+				status.textContent = i18n.loading || '';
+				more.hidden = true;
+
+				fetchLibrary( type, search, page )
+					.then( ( data ) => {
+						if ( current !== request ) {
+							return;
+						}
+						data.items.forEach( ( item ) => grid.append( tile( item ) ) );
+						status.textContent = grid.children.length ? '' : i18n.libraryEmpty;
+						more.hidden = ! data.more;
+					} )
+					.catch( ( error ) => {
+						if ( current === request ) {
+							status.textContent = error.message;
+						}
+					} );
+			}
+
+			chips.addEventListener( 'click', ( event ) => {
+				const chip = event.target.closest( '[data-type]' );
+				if ( ! chip ) {
+					return;
+				}
+				chips.querySelectorAll( '[aria-current]' ).forEach( ( other ) => other.removeAttribute( 'aria-current' ) );
+				chip.setAttribute( 'aria-current', 'true' );
+				type = chip.dataset.type;
+				load( true );
+			} );
+
+			searchBox.addEventListener( 'input', () => {
+				window.clearTimeout( timer );
+				timer = window.setTimeout( () => {
+					search = searchBox.value.trim();
+					load( true );
+				}, 300 );
+			} );
+
+			more.addEventListener( 'click', () => {
+				page++;
+				load( false );
+			} );
+
+			let result = [];
+			close.addEventListener( 'click', () => dialog.close() );
+			confirm.addEventListener( 'click', () => {
+				result = Array.from( chosen.values() );
+				dialog.close();
+			} );
+			dialog.addEventListener( 'click', ( event ) => {
+				if ( event.target === dialog ) {
+					dialog.close();
+				}
+			} );
+			dialog.addEventListener( 'close', () => {
+				dialog.remove();
+				resolve( result );
+			} );
+
+			updateConfirm();
+			document.body.append( dialog );
+			dialog.showModal();
+			load( true );
+		} );
+	}
+
+	/* ---------------------------------------------------------------------
+	 * Media fields
+	 * ------------------------------------------------------------------- */
+
+	/** Adds a ready item (library file or link) unless the field has it. */
+	function addReadyItem( field, data ) {
+		const list = field.querySelector( '.lzp-media__list' );
+		const key = String( data.id );
+		if ( Array.from( list.querySelectorAll( '.lzp-media__item' ) ).some( ( item ) => item.dataset.id === key ) ) {
+			return;
+		}
+		if ( ! field.hasAttribute( 'data-multiple' ) ) {
+			list.querySelectorAll( '.lzp-media__item' ).forEach( ( item ) => item.remove() );
+		}
+
+		const item = mediaItem( field );
+		setItemId( item, key );
+		setPreview( item, data );
+		list.insertBefore( item, field.querySelector( '.lzp-media__add' ) );
+		setDirty( true );
+	}
+
+	/** The video link typed into a gallery's link box, added to its list. */
+	function addLink( field, box ) {
+		const links = window.lzpMediaLink;
+		const url = links ? links.normalize( box.value ) : box.value.trim();
+		if ( ! links || ! links.isUrl( url ) ) {
+			window.alert( i18n.linkInvalid );
+			box.focus();
+			return;
+		}
+
+		const image = links.isImage( url );
+		addReadyItem( field, {
+			id: url,
+			type: image ? 'image' : 'video',
+			thumb: image ? url : '',
+			name: links.isAparat( url ) ? i18n.aparat : new URL( url ).hostname.replace( /^www\./, '' ),
+		} );
+		box.value = '';
+	}
+
 	function initMediaField( field ) {
 		const list = field.querySelector( '.lzp-media__list' );
 		const add = field.querySelector( '.lzp-media__add' );
 		const file = field.querySelector( '.lzp-media__file' );
 		const multiple = field.hasAttribute( 'data-multiple' );
+		const pick = field.querySelector( '[data-lzp-pick]' );
+		const linkButton = field.querySelector( '[data-lzp-add-link]' );
+
+		// The library and the link button need this script; without it the link box posts with the form.
+		if ( pick && typeof HTMLDialogElement === 'function' ) {
+			pick.hidden = false;
+			pick.addEventListener( 'click', () => {
+				pickFromLibrary( multiple, ( field.dataset.accept || '' ).indexOf( 'video' ) !== -1 ).then( ( files ) => {
+					files.forEach( ( data ) => addReadyItem( field, data ) );
+				} );
+			} );
+		}
+
+		if ( linkButton ) {
+			const box = field.querySelector( '.lzp-media__link textarea' );
+			linkButton.hidden = false;
+			linkButton.addEventListener( 'click', () => addLink( field, box ) );
+		}
 
 		if ( multiple ) {
 			field.querySelectorAll( '[data-lzp-move]' ).forEach( ( button ) => {

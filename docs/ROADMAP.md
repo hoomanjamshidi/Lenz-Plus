@@ -4,7 +4,7 @@ This file is the **resume point**. Every session starts here (see the `lenz-plus
 
 Status keys: `[ ]` to do · `[x]` done · `[~]` started (see Notes) · `[-]` dropped (say why)
 
-**Current phase:** done (1.6.0: studio panel feels like an app)
+**Current phase:** done (1.7.0: media library in the panel, external videos, photo preview, ready-made course)
 
 Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, browser check at 390 and 1440, translations, CLAUDE.md contracts, graphify update, commit `Phase N: …`).
 
@@ -166,6 +166,14 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - [x] App feel (1.6.0): pages swap without reloads (`panel-nav.js`: links, search and saved forms), slide/fade view transitions, progress bar for slow answers, prefetch on touch/hover, back button with scroll restore, instant tab highlight, touch feedback; web app manifest + home-screen icons (opens full screen). Verified headless: tab, edit, save, back link, history back, search, new project with upload all without a reload; manifest served; no console errors
 - [ ] Runtime check of the WooCommerce screens (orders, products, courses) on the full dev site (`tools/dev-site.sh`): written against WooCommerce's CRUD API, not yet exercised
 
+
+## 1.7.0 — Library, external videos, photo preview, ready-made course
+- [x] Panel media fields: «From the library» picker (`lzp_panel_library`), video links in the project gallery (Aparat link/iframe/script code, download-host files) saved as Lenz's `_external_links` with positions (`Portfolio_Data::save_gallery()`)
+- [x] `Media_Link` + shared `media-link.js`; Lenz's gallery box on the portfolio editor converts pasted embed codes and re-cleans links on save (`Gallery_Links`)
+- [x] `Project_Gallery`: Aparat iframe player, photo preview (`lightbox.js`, switch `lightbox`); hero play buttons accept Aparat links
+- [x] Ready-made course «از دیدن تا ثبت کردن» (`Sample_Courses`, Pages tab card, `create_course`, cover drawing)
+- [x] Verify (scratch site: WordPress 6.8.3 from GitHub + SQLite + Lenz, no WooCommerce/Elementor reachable): panel gallery pick/link/remove/save round trip at 390 (meta checked), Lenz box embed-code conversion, lightbox at 390/1440 in RTL on a static page with the widget's markup, phpcs 0/0, translations complete
+- [ ] On the full dev site: `Project_Gallery` in Elementor (Aparat iframe, lightbox on a project page), «Add as a new course» with WooCommerce (product, cover, course page with the Course design)
 ---
 
 ## Notes

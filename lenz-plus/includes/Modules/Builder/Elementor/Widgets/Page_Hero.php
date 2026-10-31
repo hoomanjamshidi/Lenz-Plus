@@ -286,7 +286,7 @@ final class Page_Hero extends Section_Base {
 				'default'     => '',
 				'label_block' => true,
 				'placeholder' => 'https://',
-				'description' => __( 'Adds a play button on the photo. An embed link (YouTube, Aparat…) or a video file; it plays over the page.', 'lenz-plus' ),
+				'description' => __( 'Adds a play button on the photo. An Aparat link or embed code, another site\'s embed link, or a video file (uploaded or on a download host); it plays over the page.', 'lenz-plus' ),
 				'condition'   => array( 'layout' => 'filmstrip' ),
 			)
 		);
@@ -435,15 +435,8 @@ final class Page_Hero extends Section_Base {
 			)
 		);
 
-		$video = $with_play ? trim( (string) $s['video'] ) : '';
-		if ( '' !== $video ) {
-			$html .= sprintf(
-				'<a class="lzp-play" href="%1$s" data-lzp-video="%1$s" data-title="%2$s" target="_blank" rel="noopener"><span class="screen-reader-text">%3$s</span>%4$s</a>',
-				esc_url( $video ),
-				esc_attr( (string) $s['title'] ),
-				esc_html__( 'Play the video', 'lenz-plus' ),
-				self::icon( 'play' )
-			);
+		if ( $with_play ) {
+			$html .= self::play_button_html( (string) $s['video'], (string) $s['title'], __( 'Play the video', 'lenz-plus' ) );
 		}
 
 		return '<div class="lzp-hero__media' . ( 'yes' === $s['notch'] ? ' lzp-notch lzp-notch--side' : '' ) . '">' . $html . '</div>';

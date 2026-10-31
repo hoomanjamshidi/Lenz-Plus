@@ -175,6 +175,35 @@ final class Portfolio_Data {
 	}
 
 	/**
+	 * Saves a gallery in Lenz's format: attachment IDs in `_gallery`, links
+	 * in `_external_links` with their 1-based position in the whole list,
+	 * so gallery() (and Lenz's own project page) read the same order back.
+	 *
+	 * @param int               $post_id Item ID.
+	 * @param array<int|string> $items   Attachment IDs and Media_Link URLs, in order.
+	 */
+	public static function save_gallery( int $post_id, array $items ): void {
+		$ids   = array();
+		$links = array();
+
+		foreach ( array_values( $items ) as $index => $item ) {
+			if ( is_int( $item ) ) {
+				$ids[] = $item;
+				continue;
+			}
+
+			$links[] = array(
+				'type'     => Media_Link::type_of( $item ),
+				'url'      => $item,
+				'position' => (string) ( $index + 1 ),
+			);
+		}
+
+		update_post_meta( $post_id, '_gallery', $ids );
+		update_post_meta( $post_id, '_external_links', $links );
+	}
+
+	/**
 	 * Gallery items of one type, in the gallery's order.
 	 *
 	 * @param int    $post_id Item ID.

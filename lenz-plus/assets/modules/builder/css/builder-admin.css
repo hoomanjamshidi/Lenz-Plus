@@ -466,6 +466,25 @@
 	cursor: zoom-in;
 }
 
+/* Ready-made course cards: the cover is a picture, not a preview button. */
+div.lzp-home-card__thumb {
+	cursor: default;
+}
+
+.lzp-home-card__thumb > img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.lzp-admin .lzp-home-card__body p.lzp-tpl-card__chips {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px;
+}
+
 .lzp-home-card__body {
 	display: flex;
 	flex: 1;

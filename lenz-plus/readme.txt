@@ -3,7 +3,7 @@ Tags: lenz, photography, bottom navigation, elementor, rtl
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.6.0
+Stable tag: 1.7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,12 @@ It is built for Lenz and reads its colours, logo, menus and options. Without Len
 No. Updates refresh only the ready-made templates you have not edited, and pages created from a design never change by themselves.
 
 == Changelog ==
+
+= 1.7.0 =
+* Studio panel: galleries, cover photos and product photos can take files already in the WordPress media library («From the library»: search, photos/videos filter, several at once).
+* Project videos off the main host: a project gallery takes Aparat videos (page link, iframe code or script code) and direct video links on a download host, in the panel and in Lenz's gallery box on the portfolio editor (an embed code pasted there becomes the video's link). Project pages play Aparat videos in Aparat's player and other links as video files; the home and course hero play buttons accept Aparat links too.
+* Project photos open in a full-screen preview: previous/next, swipe, arrow keys, counter and caption (switch «Open photos in a preview» on the Project photos widget).
+* Ready-made course «از دیدن تا ثبت کردن» (mobile photography workshop): Page templates → Pages → Ready-made courses adds it as a course product with every detail, the curriculum, questions, outcome and a cover drawing; course pages switch to the Course design when they still followed the theme.
 
 = 1.6.0 =
 * Studio panel feels like an app: pages change in place without reloading, with a short slide (forward and back) or fade between tabs, a thin progress bar only when the server is slow, pages fetched as soon as a finger touches a link, the back button returning to the same scroll position, and saving without a page reload. Add it to the phone's home screen to open it full screen with its own icon.

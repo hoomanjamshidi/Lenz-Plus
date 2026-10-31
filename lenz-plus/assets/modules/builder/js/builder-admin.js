@@ -2,8 +2,8 @@
  * Lenz Plus — page templates admin.
  *
  * Renders the header/footer pickers, the template library (with live
- * preview) and the pages tab (designs → new pages) on top of the shared admin
- * store (window.LZP from admin.js).
+ * preview) and the pages tab (designs → new pages, ready-made courses → new
+ * course products) on top of the shared admin store (window.LZP from admin.js).
  */
 ( function () {
 	'use strict';
@@ -19,6 +19,7 @@
 	const app = document.getElementById( 'lzp-admin' );
 	let templates = data.templates || [];
 	let pages = data.pages || [];
+	let courses = data.courses || [];
 
 	const ICONS = {
 		eye: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>',
@@ -559,6 +560,104 @@
 		} ).join( '' ) + '</ul>';
 	}
 
+	function renderSampleCourses() {
+		const host = app.querySelector( '[data-lzp-sample-courses]' );
+		if ( ! host ) {
+			return;
+		}
+
+		if ( ! data.woocommerce ) {
+			host.innerHTML = '<div class="lzp-empty"><p>' + escapeHtml( t.needsWoo ) + '</p></div>';
+			return;
+		}
+
+		host.innerHTML = courses.map( ( course ) => '<article class="lzp-home-card" data-course="' + escapeHtml( course.key ) + '">' +
+			'<div class="lzp-home-card__thumb"><img src="' + escapeHtml( course.cover ) + '" alt="" loading="lazy"></div>' +
+			'<div class="lzp-home-card__body">' +
+				'<h3>' + escapeHtml( course.label ) + '</h3>' +
+				'<p>' + escapeHtml( course.description ) + '</p>' +
+				( course.made.length ? '<p class="lzp-tpl-card__chips"><span>' + escapeHtml( t.madeCourses ) + '</span> ' + course.made.map( ( made ) =>
+					'<a class="lzp-chip" href="' + escapeHtml( made.editUrl ) + '" target="_blank" rel="noopener">' + escapeHtml( made.title ) + ' · ' + escapeHtml( made.status === 'publish' ? t.published : t.draft ) + '</a>'
+				).join( ' ' ) + '</p>' : '' ) +
+			'</div>' +
+			'<div class="lzp-home-card__actions">' +
+				'<button type="button" class="lzp-btn lzp-btn--primary lzp-btn--sm" data-course-create>' + ICONS.plus + '<span>' + escapeHtml( t.addCourse ) + '</span></button>' +
+			'</div>' +
+		'</article>' ).join( '' );
+	}
+
+	/** Puts the course design the server just chose into the settings form, keeping unsaved edits unsaved. */
+	function applyCourseRoute( value ) {
+		const dirty = store.isDirty();
+		const next = JSON.parse( JSON.stringify( store.get() ) );
+		next.routes = Object.assign( {}, next.routes, { course: value } );
+		store.replace( next, { clean: ! dirty } );
+	}
+
+	function addCourseDialog( course ) {
+		const dialog = document.createElement( 'dialog' );
+		dialog.className = 'lzp-dialog lzp-dialog--confirm lzp-new-dialog';
+		dialog.innerHTML =
+			'<form method="dialog">' +
+				'<div class="lzp-dialog__head"><h2>' + escapeHtml( t.addCourseTitle.replace( '%s', course.label ) ) + '</h2></div>' +
+				'<div class="lzp-dialog__body lzp-fields">' +
+					'<p class="lzp-field__help">' + escapeHtml( t.addCourseHelp ) + '</p>' +
+					switchRow( 'publish', t.publishNow, t.publishCourse, false ) +
+				'</div>' +
+				'<div class="lzp-dialog__actions">' +
+					'<button type="button" class="lzp-btn lzp-btn--ghost" value="cancel">' + escapeHtml( t.cancel ) + '</button>' +
+					'<button type="submit" class="lzp-btn lzp-btn--soft" value="create">' + escapeHtml( t.createOnly ) + '</button>' +
+					'<button type="submit" class="lzp-btn lzp-btn--primary" value="edit">' + escapeHtml( t.editCourse ) + '</button>' +
+				'</div>' +
+			'</form>';
+		app.appendChild( dialog );
+
+		const form = dialog.querySelector( 'form' );
+		const close = () => {
+			dialog.close();
+			dialog.remove();
+		};
+
+		dialog.querySelector( 'button[value="cancel"]' ).addEventListener( 'click', close );
+		dialog.addEventListener( 'cancel', ( event ) => {
+			event.preventDefault();
+			close();
+		} );
+
+		form.addEventListener( 'submit', async ( event ) => {
+			event.preventDefault();
+			const open = event.submitter && event.submitter.value === 'edit';
+			const buttons = form.querySelectorAll( 'button' );
+			buttons.forEach( ( button ) => {
+				button.disabled = true;
+			} );
+
+			try {
+				const result = await call( {
+					op: 'create_course',
+					key: course.key,
+					publish: form.elements.publish.checked ? '1' : '',
+				} );
+				close();
+				courses = result.courses || courses;
+				if ( result.routeSet ) {
+					applyCourseRoute( result.route );
+				}
+				applyResult( result, result.routeSet ? t.courseAdded + ' ' + t.courseRouteSet : t.courseAdded );
+				if ( open && result.editUrl ) {
+					window.open( result.editUrl, '_blank', 'noopener' );
+				}
+			} catch ( error ) {
+				toast( error.message, 'error' );
+				buttons.forEach( ( button ) => {
+					button.disabled = false;
+				} );
+			}
+		} );
+
+		dialog.showModal();
+	}
+
 	/** Switch row for the create-page dialog (same markup as Admin\Fields::toggle). */
 	function switchRow( name, label, help, checked ) {
 		return '<div class="lzp-field lzp-field--toggle"><label class="lzp-switch-row">' +
@@ -653,6 +752,16 @@
 			return;
 		}
 
+		const addCourse = event.target.closest( '[data-course-create]' );
+		if ( addCourse ) {
+			const key = addCourse.closest( '[data-course]' ).dataset.course;
+			const course = courses.find( ( item ) => item.key === key );
+			if ( course ) {
+				addCourseDialog( course );
+			}
+			return;
+		}
+
 		const front = event.target.closest( '[data-home-front]' );
 		if ( front ) {
 			front.disabled = true;
@@ -711,6 +820,7 @@
 		renderLibrary();
 		renderHomeDesigns();
 		renderHomePages();
+		renderSampleCourses();
 	}
 
 	// A reset or a reload of the settings redraws everything; a picked slot updates its picker and the badges.

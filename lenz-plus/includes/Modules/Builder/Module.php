@@ -102,6 +102,7 @@ final class Module extends Base_Module {
 			( new Contact_Inbox() )->register();
 			( new Booking_Inbox() )->register();
 			( new Project_Meta_Box() )->register();
+			( new Gallery_Links() )->register();
 			( new Course_Meta_Box() )->register();
 			add_action( 'admin_init', array( Library::class, 'maybe_upgrade' ) );
 			( new Library_Ajax( $this ) )->register();
@@ -170,6 +171,8 @@ final class Module extends Base_Module {
 			'pages'         => Design_Pages::all(),
 			'pageKinds'     => self::page_kinds(),
 			'presets'       => Library::catalog_for_js(),
+			'woocommerce'   => class_exists( 'WooCommerce' ),
+			'courses'       => Sample_Courses::for_admin(),
 			'i18n'          => $this->admin_strings(),
 		);
 	}
@@ -306,6 +309,16 @@ final class Module extends Base_Module {
 			'setFront'        => __( 'Make it the home page', 'lenz-plus' ),
 			'frontSet'        => __( 'This page is now the site\'s home page.', 'lenz-plus' ),
 			'editDesign'      => __( 'Edit the design', 'lenz-plus' ),
+			'addCourse'       => __( 'Add as a new course', 'lenz-plus' ),
+			/* translators: %s: ready-made course name. */
+			'addCourseTitle'  => __( 'Add "%s" to your courses', 'lenz-plus' ),
+			'addCourseHelp'   => __( 'A course product is made with every detail, the questions and the cover filled in. Set its price, date and seats in the product editor; the course page shows it with the Course design.', 'lenz-plus' ),
+			'publishCourse'   => __( 'Off: the course is saved as a draft, so you can set the price and date before visitors see it.', 'lenz-plus' ),
+			'courseAdded'     => __( 'Course added. Set its price and date in the product editor.', 'lenz-plus' ),
+			'courseRouteSet'  => __( 'Course pages now use the Course design (Site pages tab).', 'lenz-plus' ),
+			'editCourse'      => __( 'Edit the course', 'lenz-plus' ),
+			'madeCourses'     => __( 'Added:', 'lenz-plus' ),
+			'needsWoo'        => __( 'Courses are WooCommerce products. Install and activate WooCommerce to add them.', 'lenz-plus' ),
 		);
 	}
 }

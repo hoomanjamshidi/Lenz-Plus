@@ -281,7 +281,8 @@ final class App {
 		wp_enqueue_style( self::HANDLE, Asset::url( 'assets/modules/panel/css/panel.css' ), $deps, LENZ_PLUS_VERSION );
 		wp_add_inline_style( self::HANDLE, $this->tokens_css() );
 
-		wp_enqueue_script( self::HANDLE, Asset::url( 'assets/modules/panel/js/panel.js' ), array(), LENZ_PLUS_VERSION, array( 'in_footer' => true ) );
+		Asset::register_shared();
+		wp_enqueue_script( self::HANDLE, Asset::url( 'assets/modules/panel/js/panel.js' ), array( Asset::MEDIA_LINK ), LENZ_PLUS_VERSION, array( 'in_footer' => true ) );
 		// Navigation without reloads; its listeners must come after panel.js's (uploads may hold a form back).
 		wp_enqueue_script( self::HANDLE . '-nav', Asset::url( 'assets/modules/panel/js/panel-nav.js' ), array( self::HANDLE ), LENZ_PLUS_VERSION, array( 'in_footer' => true ) );
 		wp_localize_script(
@@ -292,11 +293,26 @@ final class App {
 				'uploadNonce' => wp_create_nonce( Uploads::AJAX_ACTION ),
 				'nav'         => array( 'base' => Router::url() ),
 				'i18n'        => array(
-					'uploading'   => __( 'Uploading…', 'lenz-plus' ),
-					'uploadError' => __( 'The file could not be uploaded. Use a photo or a video.', 'lenz-plus' ),
-					'linkPrompt'  => __( 'Link address (https://…)', 'lenz-plus' ),
-					'copied'      => __( 'Link copied.', 'lenz-plus' ),
-					'unsaved'     => __( 'You have unsaved changes. Leave anyway?', 'lenz-plus' ),
+					'uploading'     => __( 'Uploading…', 'lenz-plus' ),
+					'uploadError'   => __( 'The file could not be uploaded. Use a photo or a video.', 'lenz-plus' ),
+					'linkPrompt'    => __( 'Link address (https://…)', 'lenz-plus' ),
+					'copied'        => __( 'Link copied.', 'lenz-plus' ),
+					'unsaved'       => __( 'You have unsaved changes. Leave anyway?', 'lenz-plus' ),
+					'library'       => __( 'Media library', 'lenz-plus' ),
+					'librarySearch' => __( 'Search files', 'lenz-plus' ),
+					'libraryEmpty'  => __( 'No files found.', 'lenz-plus' ),
+					'libraryError'  => __( 'The media library could not be loaded.', 'lenz-plus' ),
+					'loading'       => __( 'Loading…', 'lenz-plus' ),
+					'loadMore'      => __( 'Show more', 'lenz-plus' ),
+					'all'           => __( 'All', 'lenz-plus' ),
+					'photos'        => __( 'Photos', 'lenz-plus' ),
+					'videos'        => __( 'Videos', 'lenz-plus' ),
+					'close'         => __( 'Close', 'lenz-plus' ),
+					'add'           => __( 'Add', 'lenz-plus' ),
+					/* translators: %d: number of chosen files. */
+					'addCount'      => __( 'Add %d files', 'lenz-plus' ),
+					'aparat'        => __( 'Aparat', 'lenz-plus' ),
+					'linkInvalid'   => __( 'Paste an Aparat link or embed code, or a link that starts with https://', 'lenz-plus' ),
 				),
 			)
 		);

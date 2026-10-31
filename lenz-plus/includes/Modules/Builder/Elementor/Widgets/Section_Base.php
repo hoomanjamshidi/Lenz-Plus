@@ -12,6 +12,7 @@ namespace LenzPlus\Modules\Builder\Elementor\Widgets;
 use Elementor\Controls_Manager;
 use LenzPlus\Modules\Builder\Assets;
 use LenzPlus\Modules\Builder\Elementor\Picture;
+use LenzPlus\Modules\Builder\Media_Link;
 use LenzPlus\Modules\Builder\Public_Form;
 
 defined( 'ABSPATH' ) || exit;
@@ -270,6 +271,34 @@ abstract class Section_Base extends Base {
 			esc_attr( $args['label'] ),
 			$chips,
 			$count
+		);
+	}
+
+	/**
+	 * Play button over a photo (video.js opens it in a dialog). The link
+	 * itself opens the video without JavaScript; the dialog gets the player:
+	 * Aparat's iframe for an Aparat link (page link or embed code), else the
+	 * link as given (a video file, or another site's embed link).
+	 *
+	 * @param string $video Video link or embed code.
+	 * @param string $title Video title.
+	 * @param string $label Button label for screen readers.
+	 */
+	protected static function play_button_html( string $video, string $title, string $label ): string {
+		$url = Media_Link::normalize( $video );
+		if ( '' === $url ) {
+			return '';
+		}
+
+		$player = Media_Link::embed_url( $url );
+
+		return sprintf(
+			'<a class="lzp-play" href="%1$s" data-lzp-video="%2$s" data-title="%3$s" target="_blank" rel="noopener"><span class="screen-reader-text">%4$s</span>%5$s</a>',
+			esc_url( $url ),
+			esc_url( '' !== $player ? $player : $url ),
+			esc_attr( $title ),
+			esc_html( $label ),
+			self::icon( 'play' )
 		);
 	}
 

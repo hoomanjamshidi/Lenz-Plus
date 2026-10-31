@@ -148,6 +148,14 @@ foreach ( Icon_Library::catalog()['packs'] as $pack_id => $pack ) {
 
 				<div class="lzp-card">
 					<header class="lzp-card__head">
+						<h2><?php esc_html_e( 'Ready-made courses', 'lenz-plus' ); ?></h2>
+						<p><?php esc_html_e( 'Complete courses with their texts, curriculum, questions and cover. Add one to your courses, then set its price, date and seats. Its landing page is the Course design, filled from the course.', 'lenz-plus' ); ?></p>
+					</header>
+					<div class="lzp-home-designs" data-lzp-sample-courses></div>
+				</div>
+
+				<div class="lzp-card">
+					<header class="lzp-card__head">
 						<h2><?php esc_html_e( 'Pages made from these designs', 'lenz-plus' ); ?></h2>
 						<p><?php esc_html_e( 'Editing a page never changes the design it came from, so you can make as many pages as you like.', 'lenz-plus' ); ?></p>
 					</header>

@@ -4,8 +4,10 @@
  * project details (type, summary, year, facts, steps, client's quote,
  * featured flag).
  *
- * The gallery is Lenz's own `_gallery` list of attachment IDs (photos and
- * videos); Lenz's external links (`_external_links`) are left untouched.
+ * The gallery is one ordered list of photos and videos: uploads and files
+ * from the media library (Lenz's `_gallery` IDs) mixed with links kept off
+ * the site's host (Aparat, download hosts: Lenz's `_external_links`, whose
+ * positions keep the order). Portfolio_Data::save_gallery() writes both.
  * Project details go through Project_Meta_Box::clean(), the same cleaning as
  * the box on WordPress's editor.
  *
@@ -84,7 +86,12 @@ final class Portfolio extends Content_Screen {
 	protected function render_fields( ?\WP_Post $post ): void {
 		$id      = $post ? (int) $post->ID : 0;
 		$details = Portfolio_Data::details( $id );
-		$gallery = $id ? array_map( 'intval', (array) get_post_meta( $id, '_gallery', true ) ) : array();
+		$gallery = array_map(
+			static function ( array $item ) {
+				return $item['id'] ? $item['id'] : $item['url'];
+			},
+			$id ? Portfolio_Data::gallery( $id ) : array()
+		);
 
 		$facts = array();
 		foreach ( $details['facts'] as $fact ) {
@@ -102,6 +109,7 @@ final class Portfolio extends Content_Screen {
 				$gallery,
 				array(
 					'multiple' => true,
+					'links'    => true,
 					'accept'   => 'image/*,video/*',
 					'help'     => __( 'Shown in this order on the project page. Use the arrows to move a photo.', 'lenz-plus' ),
 				)
@@ -144,7 +152,7 @@ final class Portfolio extends Content_Screen {
 	 * @param int $id Project ID.
 	 */
 	protected function save_fields( int $id ): void {
-		update_post_meta( $id, '_gallery', Uploads::posted_ids( 'gallery', $id ) );
+		Portfolio_Data::save_gallery( $id, Uploads::posted_items( 'gallery', $id ) );
 		update_post_meta( $id, Portfolio_Data::META, Project_Meta_Box::clean( self::posted_array( 'lzp_project' ) ) );
 
 		if ( '1' === self::posted( 'lzp_project_featured' ) ) {

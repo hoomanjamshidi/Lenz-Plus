@@ -1,8 +1,8 @@
 <?php
 /**
  * Admin AJAX for the template library (create, duplicate, restore, delete,
- * rename), pages made from page designs, and Elementor housekeeping (global
- * colours, containers).
+ * rename), pages made from page designs, ready-made courses, and Elementor
+ * housekeeping (global colours, containers).
  *
  * Uses the admin shell's nonce and capability, like Admin\Ajax_Controller.
  *
@@ -50,6 +50,7 @@ final class Library_Ajax {
 		$id    = isset( $_POST['id'] ) ? absint( $_POST['id'] ) : 0;
 		$type  = isset( $_POST['type'] ) ? sanitize_key( wp_unslash( $_POST['type'] ) ) : '';
 		$from  = isset( $_POST['from'] ) ? sanitize_key( wp_unslash( $_POST['from'] ) ) : '';
+		$key   = isset( $_POST['key'] ) ? sanitize_key( wp_unslash( $_POST['key'] ) ) : '';
 		$title = isset( $_POST['title'] ) ? sanitize_text_field( wp_unslash( $_POST['title'] ) ) : '';
 		$flags = array(
 			'publish' => ! empty( $_POST['publish'] ),
@@ -68,6 +69,12 @@ final class Library_Ajax {
 
 		if ( 'create_page' === $op && ( ! Design_Pages::is_design( $id ) || ! current_user_can( 'publish_pages' ) ) ) {
 			wp_send_json_error( array( 'message' => __( 'Template not found.', 'lenz-plus' ) ), 404 );
+		}
+
+		// WooCommerce's product capabilities, read from the post type (they are not core capabilities).
+		$products = get_post_type_object( 'product' );
+		if ( 'create_course' === $op && ( ! class_exists( 'WooCommerce' ) || ! $products || ! current_user_can( $products->cap->edit_posts ) ) ) {
+			wp_send_json_error( array( 'message' => __( 'WooCommerce is required for courses.', 'lenz-plus' ) ), 400 );
 		}
 
 		if ( 'set_front' === $op && ( 'page' !== get_post_type( $id ) || ! current_user_can( 'edit_post', $id ) ) ) {
@@ -134,6 +141,17 @@ final class Library_Ajax {
 				}
 				$result['pageId']  = $page_id;
 				$result['editUrl'] = Template_Post_Type::edit_url( $page_id );
+				break;
+
+			case 'create_course':
+				$course_id = Sample_Courses::create( $key, $flags['publish'] && current_user_can( $products->cap->publish_posts ) );
+				$this->fail_unless( $course_id );
+				$result['courseId'] = $course_id;
+				$result['editUrl']  = (string) get_edit_post_link( $course_id, 'raw' );
+				$result['viewUrl']  = (string) get_permalink( $course_id );
+				$result['routeSet'] = Sample_Courses::ensure_design( $this->module );
+				$result['route']    = $this->module->settings()['routes']['course'];
+				$result['courses']  = Sample_Courses::for_admin();
 				break;
 
 			case 'set_front':

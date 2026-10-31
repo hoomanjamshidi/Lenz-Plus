@@ -42,6 +42,9 @@ final class Assets {
 	/** Video dialog of the play buttons (home and course heroes). */
 	public const VIDEO_HANDLE = 'lzp-video';
 
+	/** Full-screen photo preview of the project photos (lightbox.js). */
+	public const LIGHTBOX_HANDLE = 'lzp-lightbox';
+
 	/** In-place category filter of the portfolio and post grids. */
 	public const FILTER_HANDLE = 'lzp-filter';
 
@@ -168,6 +171,32 @@ final class Assets {
 			)
 		);
 		wp_add_inline_script( self::VIDEO_HANDLE, 'window.lzpVideo = ' . wp_json_encode( array( 'i18n' => array( 'close' => __( 'Close', 'lenz-plus' ) ) ) ) . ';', 'before' );
+
+		wp_register_script(
+			self::LIGHTBOX_HANDLE,
+			Asset::url( 'assets/modules/builder/js/lightbox.js' ),
+			array(),
+			LENZ_PLUS_VERSION,
+			array(
+				'in_footer' => true,
+				'strategy'  => 'defer',
+			)
+		);
+		wp_add_inline_script(
+			self::LIGHTBOX_HANDLE,
+			'window.lzpLightbox = ' . wp_json_encode(
+				array(
+					'persian' => (bool) $this->module->settings()['options']['persian_digits'],
+					'i18n'    => array(
+						'close'    => __( 'Close', 'lenz-plus' ),
+						'previous' => __( 'Previous photo', 'lenz-plus' ),
+						'next'     => __( 'Next photo', 'lenz-plus' ),
+						'label'    => __( 'Photo preview', 'lenz-plus' ),
+					),
+				)
+			) . ';',
+			'before'
+		);
 
 		wp_register_script(
 			self::SHOP_HANDLE,

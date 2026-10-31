@@ -8055,3 +8055,147 @@ msgstr "منوی پنل"
 #: includes/Modules/Panel/views/shell.php:94
 msgid "Main sections"
 msgstr "بخش‌های اصلی"
+
+#: includes/Modules/Builder/Assets.php:192
+msgid "Previous photo"
+msgstr "عکس قبلی"
+
+#: includes/Modules/Builder/Assets.php:193
+msgid "Next photo"
+msgstr "عکس بعدی"
+
+#: includes/Modules/Builder/Assets.php:194
+msgid "Photo preview"
+msgstr "پیش‌نمایش عکس"
+
+#: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:289
+msgid "Adds a play button on the photo. An Aparat link or embed code, another site's embed link, or a video file (uploaded or on a download host); it plays over the page."
+msgstr "یک دکمه پخش روی عکس می‌گذارد. لینک یا کد جاسازی آپارات، لینک جاسازی سایت‌های دیگر، یا فایل ویدیو (آپلودشده یا روی هاست دانلود)؛ روی صفحه پخش می‌شود."
+
+#: includes/Modules/Builder/Elementor/Widgets/Project_Gallery.php:128
+msgid "Open photos in a preview"
+msgstr "باز شدن عکس‌ها در پیش‌نمایش"
+
+#: includes/Modules/Builder/Elementor/Widgets/Project_Gallery.php:132
+msgid "A tap shows the photo full screen; the arrows go through every photo of the project."
+msgstr "با یک لمس، عکس تمام‌صفحه نمایش داده می‌شود؛ با فلش‌ها می‌توان همه عکس‌های پروژه را دید."
+
+#: includes/Modules/Builder/Elementor/Widgets/Project_Gallery.php:225
+msgid "View the photo"
+msgstr "دیدن عکس"
+
+#: includes/Modules/Builder/Gallery_Links.php:54
+msgid "Lenz+ project pages play these videos: an Aparat link or its embed code (iframe), or a direct link to the video file on a download host (MP4). Big films can live there instead of filling the site's host."
+msgstr "صفحه‌های پروژه Lenz+ این ویدیوها را پخش می‌کنند: لینک آپارات یا کد جاسازی آن (آی‌فریم)، یا لینک مستقیم فایل ویدیو روی هاست دانلود (MP4). فیلم‌های حجیم می‌توانند آنجا بمانند و هاست اصلی سایت را پر نکنند."
+
+#: includes/Modules/Builder/Library_Ajax.php:77
+msgid "WooCommerce is required for courses."
+msgstr "برای دوره‌ها ووکامرس لازم است."
+
+#: includes/Modules/Builder/Media_Link.php:113 includes/Modules/Panel/App.php:314
+msgid "Aparat"
+msgstr "آپارات"
+
+#: includes/Modules/Builder/Module.php:312
+msgid "Add as a new course"
+msgstr "افزودن به‌عنوان دوره جدید"
+
+#. translators: %s: ready-made course name.
+#: includes/Modules/Builder/Module.php:314
+#, php-format
+msgid "Add \"%s\" to your courses"
+msgstr "افزودن «%s» به دوره‌ها"
+
+#: includes/Modules/Builder/Module.php:315
+msgid "A course product is made with every detail, the questions and the cover filled in. Set its price, date and seats in the product editor; the course page shows it with the Course design."
+msgstr "یک محصول دوره با همه جزئیات، سوالات و تصویر کاور ساخته می‌شود. قیمت، تاریخ و ظرفیت را در ویرایشگر محصول تعیین کنید؛ صفحه دوره با طرح «دوره» نمایش داده می‌شود."
+
+#: includes/Modules/Builder/Module.php:316
+msgid "Off: the course is saved as a draft, so you can set the price and date before visitors see it."
+msgstr "خاموش: دوره پیش‌نویس ذخیره می‌شود تا پیش از دیده شدن، قیمت و تاریخ را تعیین کنید."
+
+#: includes/Modules/Builder/Module.php:317
+msgid "Course added. Set its price and date in the product editor."
+msgstr "دوره اضافه شد. قیمت و تاریخ آن را در ویرایشگر محصول تعیین کنید."
+
+#: includes/Modules/Builder/Module.php:318
+msgid "Course pages now use the Course design (Site pages tab)."
+msgstr "صفحه‌های دوره اکنون از طرح «دوره» استفاده می‌کنند (زبانه صفحه‌های سایت)."
+
+#: includes/Modules/Builder/Module.php:319
+msgid "Edit the course"
+msgstr "ویرایش دوره"
+
+#: includes/Modules/Builder/Module.php:320
+msgid "Added:"
+msgstr "اضافه‌شده:"
+
+#: includes/Modules/Builder/Module.php:321
+msgid "Courses are WooCommerce products. Install and activate WooCommerce to add them."
+msgstr "دوره‌ها محصولات ووکامرس هستند. برای افزودنشان ووکامرس را نصب و فعال کنید."
+
+#: includes/Modules/Builder/Sample_Courses.php:42
+msgid "Mobile photography workshop"
+msgstr "ورکشاپ عکاسی با موبایل"
+
+#: includes/Modules/Builder/Sample_Courses.php:43
+msgid "A 3 to 4 hour hands-on workshop: seeing, light, composition and the phone camera, a city photo walk, choosing and editing, and a photo critique. Who it is for, what you learn, seven sessions, questions and the outcome are filled in."
+msgstr "یک ورکشاپ عملی ۳ تا ۴ ساعته: نگاه عکاسانه، نور، ترکیب‌بندی و دوربین موبایل، عکاسی شهری، انتخاب و ادیت و نقد عکس. مخاطبان، آموخته‌ها، هفت سرفصل، سوالات و خروجی دوره تکمیل شده است."
+
+#: includes/Modules/Builder/views/admin.php:151
+msgid "Ready-made courses"
+msgstr "دوره‌های آماده"
+
+#: includes/Modules/Builder/views/admin.php:152
+msgid "Complete courses with their texts, curriculum, questions and cover. Add one to your courses, then set its price, date and seats. Its landing page is the Course design, filled from the course."
+msgstr "دوره‌های کامل با متن، سرفصل‌ها، سوالات و کاور. یکی را به دوره‌هایتان اضافه کنید، سپس قیمت، تاریخ و ظرفیتش را تعیین کنید. صفحه فرود آن طرح «دوره» است که از اطلاعات دوره پر می‌شود."
+
+#: includes/Modules/Panel/App.php:302
+msgid "Search files"
+msgstr "جستجوی فایل‌ها"
+
+#: includes/Modules/Panel/App.php:303
+msgid "No files found."
+msgstr "فایلی پیدا نشد."
+
+#: includes/Modules/Panel/App.php:304
+msgid "The media library could not be loaded."
+msgstr "کتابخانه رسانه بارگذاری نشد."
+
+#: includes/Modules/Panel/App.php:305
+msgid "Loading…"
+msgstr "در حال بارگذاری…"
+
+#: includes/Modules/Panel/App.php:306
+msgid "Show more"
+msgstr "نمایش بیشتر"
+
+#. translators: %d: number of chosen files.
+#: includes/Modules/Panel/App.php:313
+#, php-format
+msgid "Add %d files"
+msgstr "افزودن %d فایل"
+
+#: includes/Modules/Panel/App.php:315
+msgid "Paste an Aparat link or embed code, or a link that starts with https://"
+msgstr "لینک یا کد جاسازی آپارات، یا لینکی که با https:// شروع می‌شود را وارد کنید"
+
+#: includes/Modules/Panel/Uploads.php:57
+msgid "You are not allowed to use the media library."
+msgstr "اجازه استفاده از کتابخانه رسانه را ندارید."
+
+#: includes/Modules/Panel/Uploads.php:295
+msgid "From the library"
+msgstr "از کتابخانه رسانه"
+
+#: includes/Modules/Panel/Uploads.php:300
+msgid "Add a video link"
+msgstr "افزودن لینک ویدیو"
+
+#: includes/Modules/Panel/Uploads.php:301
+msgid "Aparat link or embed code, or a direct link to the video file"
+msgstr "لینک یا کد جاسازی آپارات، یا لینک مستقیم فایل ویدیو"
+
+#: includes/Modules/Panel/Uploads.php:306
+msgid "Big films can stay on Aparat or on a download host, so they do not fill the site's host. Aparat videos play in Aparat's player; other links play as a video file (MP4)."
+msgstr "فیلم‌های حجیم می‌توانند در آپارات یا هاست دانلود بمانند تا هاست اصلی سایت پر نشود. ویدیوهای آپارات در پخش‌کننده آپارات و لینک‌های دیگر به‌صورت فایل ویدیو (MP4) پخش می‌شوند."

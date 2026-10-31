@@ -20,6 +20,9 @@ final class Asset {
 	/** Shared script that opens Lenz's mobile menu (`window.lzpLenzMenu`). */
 	public const LENZ_MENU = 'lzp-lenz-menu';
 
+	/** Shared reader of pasted video links (window.lzpMediaLink, mirrors Builder\Media_Link). */
+	public const MEDIA_LINK = 'lzp-media-link';
+
 	/**
 	 * Registers the scripts several modules depend on. Safe to call more than
 	 * once; each module calls it before enqueuing its own script.
@@ -39,6 +42,7 @@ final class Asset {
 				'strategy'  => 'defer',
 			)
 		);
+		wp_register_script( self::MEDIA_LINK, self::url( 'assets/modules/shared/js/media-link.js' ), array(), LENZ_PLUS_VERSION, true );
 	}
 
 	/**

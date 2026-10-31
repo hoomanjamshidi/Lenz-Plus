@@ -177,15 +177,7 @@ final class Course_Hero extends Course_Base {
 			)
 		);
 
-		if ( '' !== $video ) {
-			$html .= sprintf(
-				'<a class="lzp-play" href="%1$s" data-lzp-video="%1$s" data-title="%2$s" target="_blank" rel="noopener"><span class="screen-reader-text">%3$s</span>%4$s</a>',
-				esc_url( $video ),
-				esc_attr( $title ),
-				esc_html__( 'Play the intro video', 'lenz-plus' ),
-				self::icon( 'play' )
-			);
-		}
+		$html .= self::play_button_html( $video, $title, __( 'Play the intro video', 'lenz-plus' ) );
 
 		return '<div class="lzp-course-hero__media">' . $html . '</div>';
 	}

@@ -6,8 +6,11 @@
  * three of them: the cover, four 4:5 photos, then two 3:2 photos; "Skip"
  * and "How many" pick each slice, "Media" limits it to photos or videos
  * (the video and mixed project designs show them in separate sections).
- * Videos play in place; the project's first video (its film) gets the
- * cover as its poster, as on Lenz's own project page.
+ * Videos play in place: uploaded files and download-host links in
+ * `<video>` (the project's first one, its film, gets the cover as its
+ * poster, as on Lenz's own project page), Aparat links in Aparat's player
+ * (Media_Link). Photos open in a full-screen preview (lightbox.js); they are
+ * links to the full-size file, so without JavaScript the photo simply opens.
  *
  * An optional title is printed only with the items, and nothing at all is
  * printed when the slice is empty, so a project without videos shows no
@@ -19,7 +22,9 @@
 namespace LenzPlus\Modules\Builder\Elementor\Widgets;
 
 use Elementor\Controls_Manager;
+use LenzPlus\Modules\Builder\Assets;
 use LenzPlus\Modules\Builder\Elementor\Picture;
+use LenzPlus\Modules\Builder\Media_Link;
 use LenzPlus\Modules\Builder\Portfolio_Data;
 
 defined( 'ABSPATH' ) || exit;
@@ -43,6 +48,11 @@ final class Project_Gallery extends Portfolio_Base {
 	/** Elementor panel icon. */
 	public function get_icon(): string {
 		return 'eicon-gallery-grid';
+	}
+
+	/** The photo preview. */
+	public function get_script_depends(): array {
+		return array( Assets::LIGHTBOX_HANDLE );
 	}
 
 	/** Content and style controls. */
@@ -112,6 +122,17 @@ final class Project_Gallery extends Portfolio_Base {
 			)
 		);
 
+		$this->add_control(
+			'lightbox',
+			array(
+				'label'        => __( 'Open photos in a preview', 'lenz-plus' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'yes',
+				'return_value' => 'yes',
+				'description'  => __( 'A tap shows the photo full screen; the arrows go through every photo of the project.', 'lenz-plus' ),
+			)
+		);
+
 		$this->add_ratio_control( 'ratio', '4/5' );
 		$this->add_columns_control( '.lzp-pgal', array( 4, 2, 1 ) );
 		$this->end_controls_section();
@@ -134,6 +155,8 @@ final class Project_Gallery extends Portfolio_Base {
 		$videos = Portfolio_Data::media( $post_id, 'video' );
 		$film   = $videos ? $videos[0]['url'] : '';
 		$poster = $film ? (string) get_the_post_thumbnail_url( $post_id, 'large' ) : '';
+		// Every gallery widget of the project shares one set, so the preview goes through all its photos.
+		$group = 'yes' === $s['lightbox'] ? 'project-' . $post_id : '';
 
 		if ( ! $items ) {
 			if ( ! $this->in_editor() ) {
@@ -150,7 +173,8 @@ final class Project_Gallery extends Portfolio_Base {
 		// The cover is one wide frame whatever the column setting says (inline beats Elementor's per-widget rule).
 		echo '<ul class="lzp-pgal lzp-grid' . ( 'cover' === $s['source'] ? ' lzp-pgal--cover" style="--lzp-cols:1' : '' ) . '">';
 		foreach ( $items as $item ) {
-			echo '<li class="lzp-pgal__item">' . $this->item_html( $item, $ratio, get_the_title( $post_id ), null !== $item && $item['url'] === $film ? $poster : '' ) . '</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in item_html().
+			$html = $this->item_html( $item, $ratio, get_the_title( $post_id ), null !== $item && $item['url'] === $film ? $poster : '' );
+			echo '<li class="lzp-pgal__item">' . ( '' !== $group && null !== $item && 'image' === $item['type'] ? self::zoom_link( $item, $group, $html ) : $html ) . '</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in item_html() and zoom_link().
 		}
 		echo '</ul>';
 	}
@@ -181,6 +205,27 @@ final class Project_Gallery extends Portfolio_Base {
 	}
 
 	/**
+	 * A photo wrapped in a link to its full-size file, which lightbox.js
+	 * opens in the preview.
+	 *
+	 * @param array  $item  Gallery item.
+	 * @param string $group Preview set.
+	 * @param string $frame Frame markup.
+	 */
+	private static function zoom_link( array $item, string $group, string $frame ): string {
+		$full = $item['id'] ? (string) wp_get_attachment_image_url( $item['id'], 'full' ) : $item['url'];
+		if ( '' === $full ) {
+			return $frame;
+		}
+
+		$caption = $item['id'] ? (string) wp_get_attachment_caption( $item['id'] ) : '';
+
+		return '<a class="lzp-pgal__zoom" href="' . esc_url( $full ) . '" data-lzp-lightbox="' . esc_attr( $group ) . '"'
+			. ( '' !== $caption ? ' data-caption="' . esc_attr( $caption ) . '"' : '' )
+			. '><span class="screen-reader-text">' . esc_html__( 'View the photo', 'lenz-plus' ) . '</span>' . $frame . '</a>';
+	}
+
+	/**
 	 * One frame: an image, a video that plays in place, or an empty frame.
 	 *
 	 * @param array|null $item   Gallery item, null for an empty frame.
@@ -191,7 +236,13 @@ final class Project_Gallery extends Portfolio_Base {
 	private function item_html( ?array $item, string $ratio, string $alt, string $poster = '' ): string {
 		if ( null !== $item && 'video' === $item['type'] ) {
 			$style = in_array( $ratio, Picture::RATIOS, true ) ? ' style="--lzp-ratio:' . esc_attr( str_replace( '/', ' / ', $ratio ) ) . '"' : '';
-			$src   = $item['url'];
+			$embed = $item['id'] ? '' : Media_Link::embed_url( $item['url'] );
+			if ( '' !== $embed ) {
+				return '<div class="lzp-pic lzp-pgal__video lzp-pgal__embed"' . $style . '><iframe class="lzp-pic__img" src="' . esc_url( $embed ) . '" title="' . esc_attr( $alt ) . '"'
+					. ' loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>';
+			}
+
+			$src = $item['url'];
 			if ( '' === $poster && false === strpos( $src, '#' ) ) {
 				// iOS Safari paints no frame for preload="metadata" until a start time is given.
 				$src .= '#t=0.1';

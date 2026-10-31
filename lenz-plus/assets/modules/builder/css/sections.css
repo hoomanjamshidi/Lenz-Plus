@@ -2092,6 +2092,163 @@
 }
 
 /* ==========================================================================
+   Photo preview (lightbox.js)
+   ========================================================================== */
+
+/* The modal dialog does not stop the page behind it from scrolling. */
+html.lzp-lightbox-open {
+	overflow: hidden;
+}
+
+.lzp-lightbox {
+	width: 100vw;
+	max-width: none;
+	height: 100dvh;
+	max-height: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: #ffffff;
+	font-family: var(--lzp-font);
+}
+
+.lzp-lightbox::backdrop {
+	background: rgba(2, 20, 35, 0.92);
+}
+
+.lzp-lightbox .lzp-lightbox__stage {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 64px clamp(12px, 7vw, 88px);
+	touch-action: pan-y;
+}
+
+.lzp-lightbox .lzp-lightbox__img {
+	display: block;
+	max-width: 100%;
+	max-height: 100%;
+	min-height: 0;
+	object-fit: contain;
+	border-radius: var(--lzp-radius-sm, 6px);
+	opacity: 1;
+	transition: opacity var(--lzp-dur) ease;
+	user-select: none;
+	-webkit-user-drag: none;
+}
+
+.lzp-lightbox.is-loading .lzp-lightbox__img {
+	opacity: 0.35;
+}
+
+.lzp-lightbox .lzp-lightbox__caption {
+	max-width: 70ch;
+	margin: 0;
+	font-size: 14px;
+	line-height: 1.8;
+	text-align: center;
+	color: rgba(255, 255, 255, 0.85);
+}
+
+.lzp-lightbox .lzp-lightbox__btn {
+	position: absolute;
+	display: grid;
+	place-items: center;
+	width: 48px;
+	height: 48px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.14);
+	color: #ffffff;
+	font-size: 26px;
+	line-height: 1;
+	cursor: pointer;
+	transition: background-color var(--lzp-dur) ease;
+}
+
+.lzp-lightbox .lzp-lightbox__btn:hover {
+	background: rgba(255, 255, 255, 0.26);
+}
+
+.lzp-lightbox .lzp-lightbox__btn[hidden] {
+	display: none;
+}
+
+.lzp-lightbox .lzp-lightbox__close {
+	top: 12px;
+	inset-inline-end: 12px;
+}
+
+.lzp-lightbox .lzp-lightbox__prev,
+.lzp-lightbox .lzp-lightbox__next {
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.lzp-lightbox .lzp-lightbox__prev {
+	inset-inline-start: 12px;
+}
+
+.lzp-lightbox .lzp-lightbox__next {
+	inset-inline-end: 12px;
+}
+
+/*
+ * The chevron is drawn pointing right: "previous" points to the inline
+ * start, "next" to the end. LTR pages often have no dir attribute, so LTR
+ * is the default and RTL the exception.
+ */
+.lzp-lightbox .lzp-lightbox__prev svg,
+[dir="rtl"] .lzp-lightbox .lzp-lightbox__next svg {
+	transform: scaleX(-1);
+}
+
+[dir="rtl"] .lzp-lightbox .lzp-lightbox__prev svg {
+	transform: none;
+}
+
+.lzp-lightbox .lzp-lightbox__count {
+	position: absolute;
+	top: 22px;
+	inset-inline-start: 20px;
+	margin: 0;
+	font-size: 14px;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.85);
+}
+
+/* Phones: the arrows sit at the bottom, under the thumb. */
+@media (max-width: 767px) {
+	.lzp-lightbox .lzp-lightbox__stage {
+		padding: 64px 12px 84px;
+	}
+
+	.lzp-lightbox .lzp-lightbox__prev,
+	.lzp-lightbox .lzp-lightbox__next {
+		top: auto;
+		bottom: max(16px, env(safe-area-inset-bottom));
+		transform: none;
+	}
+
+	.lzp-lightbox .lzp-lightbox__prev {
+		inset-inline-start: calc(50% - 60px);
+	}
+
+	.lzp-lightbox .lzp-lightbox__next {
+		inset-inline-end: calc(50% - 60px);
+	}
+}
+
+/* ==========================================================================
    Service cards (home page)
    ========================================================================== */
 
@@ -2732,7 +2889,7 @@
    Accessibility
    ========================================================================== */
 
-:is(.lzp-filter-chip, .lzp-rows__item--link, .lzp-cards__link, .lzp-faq__q, .lzp-crumbs a, .lzp-related__card, .lzp-pager a, .lzp-prose a, .lzp-play, .lzp-video-dialog__close, .lzp-service__more, .lzp-logos__logo):focus-visible {
+:is(.lzp-filter-chip, .lzp-rows__item--link, .lzp-cards__link, .lzp-faq__q, .lzp-crumbs a, .lzp-related__card, .lzp-pager a, .lzp-prose a, .lzp-play, .lzp-video-dialog__close, .lzp-lightbox__btn, .lzp-service__more, .lzp-logos__logo):focus-visible {
 	outline: 3px solid color-mix(in srgb, var(--lzp-accent) 55%, transparent);
 	outline-offset: 3px;
 }
@@ -2742,6 +2899,8 @@
 	.lzp-faq .lzp-faq__sign,
 	.lzp-filter-bar .lzp-filter-chip,
 	.lzp-play,
+	.lzp-lightbox .lzp-lightbox__img,
+	.lzp-lightbox .lzp-lightbox__btn,
 	.lzp-services .lzp-service,
 	.lzp-service .lzp-service__more,
 	.lzp-reach--tiles .lzp-reach__item,

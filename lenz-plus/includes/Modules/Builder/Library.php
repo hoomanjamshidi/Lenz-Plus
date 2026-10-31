@@ -83,6 +83,22 @@ final class Library {
 	}
 
 	/**
+	 * The template installed from a preset, installing it when missing (0
+	 * without Elementor or for an unknown key).
+	 *
+	 * @param string $key Preset key.
+	 */
+	public static function preset_template( string $key ): int {
+		if ( ! self::elementor_active() ) {
+			return 0;
+		}
+
+		$post_id = self::preset_post( $key );
+
+		return $post_id ? $post_id : self::install( $key );
+	}
+
+	/**
 	 * After a plugin update: rewrites the ready-made templates nobody has
 	 * edited with their improved designs, installs designs added in this
 	 * version and moves extra copies of a design to the trash (see
