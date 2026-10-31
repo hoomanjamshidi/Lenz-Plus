@@ -4,7 +4,7 @@ This file is the **resume point**. Every session starts here (see the `lenz-plus
 
 Status keys: `[ ]` to do · `[x]` done · `[~]` started (see Notes) · `[-]` dropped (say why)
 
-**Current phase:** done (1.4.0: shop pages and checkout form)
+**Current phase:** done (1.5.0: studio panel)
 
 Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, browser check at 390 and 1440, translations, CLAUDE.md contracts, graphify update, commit `Phase N: …`).
 
@@ -157,9 +157,18 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - [x] `Icon::html()` shared by widgets and shop views; courses need no shipping (`Course_Shop`)
 - [x] Verify: 390/360/1440 shots of classic and block cart/checkout, login, account, edit account, order received; checkout flows with bank transfer, cash on delivery, cheque, a redirect test bank (pay and cancel), download-only, course-only and mixed carts with PWS province/city; coupon wrong/valid; block price order after quantity change; translations; 1.4.0
 
+## Phase 17 — Studio panel (پنل مدیریت اختصاصی)
+- [x] Module `Panel`: `Schema` (address, name, roles, sections, editor per content type, wp-admin and login options), `Access` («Studio manager» role, ways in from WordPress: first wp-admin menu item, dashboard box, admin bar, account menu; optional wp-admin redirect), `Router` (rewrite + plain permalinks), `App` (screens, nonce'd forms, WordPress login redirect, own document), `Ui`, `Uploads`, `Editor`
+- [x] Screens: home (waiting counts, sales, quick add, latest orders), articles, portfolio (gallery + project details), pages, courses, products, orders, bookings, requests, comments, media, account, add, more
+- [x] `panel.css` (phone first, tab bar with articles, sidebar from 1024px, brand tokens), `panel.js` (background uploads, reordering, simple editor, confirmations, unsaved warning)
+- [x] `Project_Meta_Box::clean()` and `Channels::international()` shared with the panel; uninstall removes the role
+- [x] Verify (scratch site: WordPress 6.8.3 from GitHub + SQLite + Lenz, no WooCommerce/Elementor reachable): guest → WordPress login → panel; wp-admin menu item and dashboard box; new project with background uploads and saved gallery order; new article with the simple editor; classic editor setting; media, comments, account, menu at 390 and 1440; no console errors, nothing in debug.log; phpcs 0/0; translations complete; 1.5.0
+- [ ] Runtime check of the WooCommerce screens (orders, products, courses) on the full dev site (`tools/dev-site.sh`): written against WooCommerce's CRUD API, not yet exercised
+
 ---
 
 ## Notes
+- Phase 17: wordpress.org was blocked in the cloud session, so the dev site could not be built; a scratch site was used (WordPress cloned from GitHub, `sqlite-database-integration` copied with `cp -rL`, Lenz from Theme.zip). Translations were merged with polib (gettext missing) and the `#:` lines re-wrapped to gettext's width. Test user «امیرمهدی اسدی» (`amir`, role Studio manager).
 - Phase 16: test data. Products 2408 and 2500 (physical), course 2744 (online, schedule and duration set), download 2753; coupon `lenz10`; zone Iran (flat rate 80,000, free); gateways bacs/cod/cheque + test-only `lzp_test_bank` (`.dev/wp/wp-content/mu-plugins/lzp-test-gateway.php`, never shipped); store country IR:THR; checkout page = classic `/checkout/` (2743), block copy `/checkout-block/` (8), classic cart copy `/lzp-cart-classic/`. Persian WooCommerce and PWS installed from wordpress.org zips in `.dev/downloads`; PWS's provinces were installed by hand (`PWS_Install::install_cities()`): its installer does not run under WP-CLI. Headless flow script: scratch `flow.mjs` (PWS cities load on `select2:select`, not `change`).
 - Phase 15: test pages `/lzp-booking/`, `/lzp-booking-split/`, `/lzp-booking-focus/`, `/lzp-booking-simple/` (scratch `book-install.php` re-installs the presets and refreshes the pages); a few test bookings BK-26xx are in the list.
 - Phase 14: Lighthouse (dev server: no gzip, no cache headers, so performance scores of 48–60 are mostly the server and the theme/Elementor/WooCommerce CSS) found nothing else of ours. Known and left: Elementor's image loading optimisation (4.3) prepends its own `loading="lazy"` to images that already have one (duplicate attribute, harmless: both say lazy); leaving `loading` to Elementor made it mark an off-screen portfolio photo `fetchpriority="high"`, so our explicit attributes stay. The bottom nav's inactive labels follow Lenz's `--primary-2` (3.4:1). Test data: 9 posts in 5 categories with photos (scratch `seed-posts.php`), pages `/lzp-contact/`, `/lzp-contact-split/`, `/lzp-contact-minimal/`, front page «خانه» from the home preset (`/lzp-home`), footer = «Footer with trust badges», `routes.post` = the cover article; WP-CLI writes of Elementor data with iframes need `--user=admin` (kses).

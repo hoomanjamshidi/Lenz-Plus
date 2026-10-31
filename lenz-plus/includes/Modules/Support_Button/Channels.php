@@ -247,7 +247,7 @@ final class Channels {
 	 *
 	 * @param string $value Phone number as typed.
 	 */
-	private static function international( string $value ): string {
+	public static function international( string $value ): string {
 		$digits = (string) preg_replace( '/\D/', '', $value );
 
 		if ( '+' !== $value[0] && 0 === strpos( $digits, '00' ) ) {

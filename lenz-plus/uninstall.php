@@ -1,7 +1,7 @@
 <?php
 /**
  * Removes everything the plugin created: one `lenz_plus_<module>` option per
- * module and the page templates. Pages made from the page designs are the
+ * module, the page templates and the studio panel's role. Pages made from the page designs are the
  * site's own content and stay.
  *
  * @package LenzPlus
@@ -33,6 +33,13 @@ function lenz_plus_uninstall_site(): void {
 	foreach ( array( '_lzp_design', '_lzp_project', '_lzp_featured', '_lzp_course', '_lzp_is_course' ) as $lenz_plus_meta_key ) {
 		delete_post_meta_by_key( $lenz_plus_meta_key );
 	}
+
+	// The studio panel's role: its users keep working as shop managers (or editors without WooCommerce).
+	$lenz_plus_fallback_role = get_role( 'shop_manager' ) ? 'shop_manager' : 'editor';
+	foreach ( get_users( array( 'role' => 'lzp_studio_manager' ) ) as $lenz_plus_user ) {
+		$lenz_plus_user->set_role( $lenz_plus_fallback_role );
+	}
+	remove_role( 'lzp_studio_manager' );
 
 	$wpdb->query( $wpdb->prepare( "DELETE FROM {$wpdb->options} WHERE option_name LIKE %s", $wpdb->esc_like( 'lenz_plus_' ) . '%' ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery -- one-off cleanup.
 	wp_cache_flush();

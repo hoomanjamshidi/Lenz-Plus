@@ -111,7 +111,24 @@ final class Project_Meta_Box {
 			return;
 		}
 
-		$raw = isset( $_POST['lzp_project'] ) && is_array( $_POST['lzp_project'] ) ? wp_unslash( $_POST['lzp_project'] ) : array(); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- each field is sanitized below.
+		$raw = isset( $_POST['lzp_project'] ) && is_array( $_POST['lzp_project'] ) ? wp_unslash( $_POST['lzp_project'] ) : array(); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- each field is sanitized in clean().
+
+		update_post_meta( $post_id, Portfolio_Data::META, self::clean( $raw ) );
+
+		if ( isset( $_POST['lzp_project_featured'] ) ) {
+			update_post_meta( $post_id, Portfolio_Data::META_FEATURED, '1' );
+		} else {
+			delete_post_meta( $post_id, Portfolio_Data::META_FEATURED );
+		}
+	}
+
+	/**
+	 * Sanitized project details from posted fields (this box and the studio
+	 * panel's project editor).
+	 *
+	 * @param array $raw Posted fields.
+	 */
+	public static function clean( array $raw ): array {
 		$get = static function ( string $key ) use ( $raw ): string {
 			return isset( $raw[ $key ] ) && is_string( $raw[ $key ] ) ? $raw[ $key ] : '';
 		};
@@ -123,26 +140,16 @@ final class Project_Meta_Box {
 			$facts[] = 2 === count( $parts ) ? $parts : array( '', $parts[0] );
 		}
 
-		update_post_meta(
-			$post_id,
-			Portfolio_Data::META,
-			array(
-				'kind'       => in_array( $get( 'kind' ), Portfolio_Data::KINDS, true ) ? $get( 'kind' ) : '',
-				'summary'    => trim( sanitize_textarea_field( $get( 'summary' ) ) ),
-				'year'       => trim( sanitize_text_field( $get( 'year' ) ) ),
-				'facts'      => $facts,
-				'done'       => self::lines( sanitize_textarea_field( $get( 'done' ) ) ),
-				'quote'      => trim( sanitize_textarea_field( $get( 'quote' ) ) ),
-				'quote_name' => trim( sanitize_text_field( $get( 'quote_name' ) ) ),
-				'quote_role' => trim( sanitize_text_field( $get( 'quote_role' ) ) ),
-			)
+		return array(
+			'kind'       => in_array( $get( 'kind' ), Portfolio_Data::KINDS, true ) ? $get( 'kind' ) : '',
+			'summary'    => trim( sanitize_textarea_field( $get( 'summary' ) ) ),
+			'year'       => trim( sanitize_text_field( $get( 'year' ) ) ),
+			'facts'      => $facts,
+			'done'       => self::lines( sanitize_textarea_field( $get( 'done' ) ) ),
+			'quote'      => trim( sanitize_textarea_field( $get( 'quote' ) ) ),
+			'quote_name' => trim( sanitize_text_field( $get( 'quote_name' ) ) ),
+			'quote_role' => trim( sanitize_text_field( $get( 'quote_role' ) ) ),
 		);
-
-		if ( isset( $_POST['lzp_project_featured'] ) ) {
-			update_post_meta( $post_id, Portfolio_Data::META_FEATURED, '1' );
-		} else {
-			delete_post_meta( $post_id, Portfolio_Data::META_FEATURED );
-		}
 	}
 
 	/**

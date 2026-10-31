@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-31T14:29:20+00:00\n"
+"POT-Creation-Date: 2026-10-31T15:05:20+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: lenz-plus\n"
@@ -35,6 +35,7 @@ msgstr ""
 #: includes/Admin/Admin.php:59
 #: includes/Modules/Builder/Elementor/Integration.php:136
 #: includes/Modules/Builder/Elementor/Integration.php:173
+#: includes/Modules/Panel/views/admin.php:139
 msgid "Lenz+"
 msgstr ""
 
@@ -56,6 +57,7 @@ msgid "Saving failed. Please try again."
 msgstr ""
 
 #: includes/Admin/Admin.php:224
+#: includes/Modules/Panel/Screens/Content_Screen.php:295
 msgid "Saving…"
 msgstr ""
 
@@ -86,6 +88,7 @@ msgid "Cancel"
 msgstr ""
 
 #: includes/Admin/Admin.php:231
+#: includes/Modules/Panel/App.php:295
 msgid "You have unsaved changes. Leave anyway?"
 msgstr ""
 
@@ -228,6 +231,7 @@ msgstr ""
 #: includes/Modules/Bottom_Nav/views/admin.php:682
 #: includes/Modules/Builder/Elementor/Widgets/Breadcrumb.php:64
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:62
+#: includes/Modules/Panel/Screens/Dashboard.php:38
 msgid "Home"
 msgstr ""
 
@@ -258,6 +262,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Site_Logo.php:189
 #: includes/Modules/Builder/Elementor/Widgets/Social_Links.php:140
 #: includes/Modules/Builder/Elementor/Widgets/Trust_Badges.php:116
+#: includes/Modules/Panel/Editor.php:149
 msgid "Link"
 msgstr ""
 
@@ -345,6 +350,7 @@ msgid "Shows an Elementor template or shortcode in a sheet."
 msgstr ""
 
 #: includes/Modules/Bottom_Nav/Item_Types.php:97
+#: includes/Modules/Panel/Screens/Menu.php:29
 msgid "More"
 msgstr ""
 
@@ -435,6 +441,8 @@ msgstr ""
 #: includes/Modules/Bottom_Nav/Module.php:155
 #: includes/Modules/Bottom_Nav/views/admin.php:485
 #: includes/Modules/Builder/Module.php:254
+#: includes/Modules/Panel/Screens/Inbox_Screen.php:213
+#: includes/Modules/Panel/Screens/Media.php:121
 msgid "Delete"
 msgstr ""
 
@@ -582,6 +590,7 @@ msgstr ""
 #: includes/Modules/Builder/views/admin.php:103
 #: includes/Modules/Checkout/views/admin.php:87
 #: includes/Modules/Checkout/views/admin.php:203
+#: includes/Modules/Panel/views/admin.php:73
 #: includes/Modules/Support_Button/views/admin.php:80
 msgid "Active"
 msgstr ""
@@ -589,6 +598,7 @@ msgstr ""
 #: includes/Modules/Bottom_Nav/views/admin.php:86
 #: includes/Modules/Builder/views/admin.php:104
 #: includes/Modules/Checkout/views/admin.php:88
+#: includes/Modules/Panel/views/admin.php:74
 #: includes/Modules/Support_Button/views/admin.php:81
 msgid "Inactive"
 msgstr ""
@@ -826,6 +836,7 @@ msgid "Semi-bold"
 msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:375
+#: includes/Modules/Panel/Editor.php:144
 msgid "Bold"
 msgstr ""
 
@@ -1169,6 +1180,8 @@ msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:685
 #: includes/Modules/Builder/Elementor/Widgets/Header_Action.php:275
+#: includes/Modules/Panel/Screens/Account.php:28
+#: includes/Modules/Panel/views/shell.php:79
 msgid "My account"
 msgstr ""
 
@@ -1238,15 +1251,19 @@ msgstr ""
 #: includes/Modules/Builder/Booking_Requests.php:72
 #: includes/Modules/Builder/Booking_Requests.php:73
 #: includes/Modules/Builder/Contact_Messages.php:395
+#: includes/Modules/Panel/Screens/Bookings.php:28
 msgid "Bookings"
 msgstr ""
 
 #: includes/Modules/Builder/Booking_Inbox.php:55
+#: includes/Modules/Panel/Screens/Orders.php:323
 msgid "Customer"
 msgstr ""
 
 #: includes/Modules/Builder/Booking_Inbox.php:57
 #: includes/Modules/Builder/Course_Meta_Box.php:73
+#: includes/Modules/Panel/Screens/Bookings.php:156
+#: includes/Modules/Panel/Screens/Courses.php:132
 msgid "Status"
 msgstr ""
 
@@ -1282,6 +1299,7 @@ msgstr ""
 
 #: includes/Modules/Builder/Booking_Requests.php:121
 #: includes/Modules/Builder/Inbox.php:103
+#: includes/Modules/Panel/Screens/Requests.php:101
 msgid "New"
 msgstr ""
 
@@ -1406,6 +1424,8 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Form_Base.php:73
 #: includes/Modules/Builder/Elementor/Widgets/Newsletter_Form.php:109
 #: includes/Modules/Builder/Newsletter.php:274
+#: includes/Modules/Panel/Screens/Account.php:58
+#: includes/Modules/Panel/Screens/Orders.php:330
 #: includes/Modules/Support_Button/Channels.php:78
 #: includes/Modules/Support_Button/views/admin.php:39
 msgid "Email"
@@ -1421,6 +1441,7 @@ msgstr ""
 
 #: includes/Modules/Builder/Booking_Requests.php:193
 #: includes/Modules/Builder/Elementor/Post_Parts.php:237
+#: includes/Modules/Panel/Screens/Inbox_Screen.php:180
 #: includes/Modules/Support_Button/Channels.php:48
 msgid "WhatsApp"
 msgstr ""
@@ -1487,6 +1508,7 @@ msgstr ""
 #: includes/Modules/Builder/Contact_Messages.php:71
 #: includes/Modules/Builder/Contact_Messages.php:395
 #: includes/Modules/Builder/views/admin.php:277
+#: includes/Modules/Panel/Screens/Requests.php:35
 msgid "Requests"
 msgstr ""
 
@@ -1526,6 +1548,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:82
 #: includes/Modules/Builder/Elementor/Widgets/Promo_Box.php:73
 #: includes/Modules/Builder/Presets/Catalog.php:172
+#: includes/Modules/Panel/Screens/Courses.php:35
 msgid "Courses"
 msgstr ""
 
@@ -1578,12 +1601,14 @@ msgstr ""
 #: includes/Modules/Builder/Course_Data.php:166
 #: includes/Modules/Builder/Course_Meta_Box.php:97
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:68
+#: includes/Modules/Panel/Screens/Courses.php:140
 msgid "Online"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Data.php:166
 #: includes/Modules/Builder/Course_Meta_Box.php:96
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:69
+#: includes/Modules/Panel/Screens/Courses.php:139
 msgid "In person"
 msgstr ""
 
@@ -1616,6 +1641,7 @@ msgstr ""
 #: includes/Modules/Builder/Course_Data.php:197
 #: includes/Modules/Builder/Course_Meta_Box.php:77
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:67
+#: includes/Modules/Panel/Screens/Courses.php:104
 msgid "Registration open"
 msgstr ""
 
@@ -1670,22 +1696,27 @@ msgid "Courses use the Lenz+ course page and appear in the course grids. Other p
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:78
+#: includes/Modules/Panel/Screens/Courses.php:105
 msgid "Coming soon (waitlist)"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:79
+#: includes/Modules/Panel/Screens/Courses.php:106
 msgid "Held (archive)"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:88
+#: includes/Modules/Panel/Screens/Courses.php:175
 msgid "Type badge"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:88
+#: includes/Modules/Panel/Screens/Courses.php:175
 msgid "e.g. Hands-on workshop"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:89
+#: includes/Modules/Panel/Screens/Courses.php:176
 msgid "Topic"
 msgstr ""
 
@@ -1696,20 +1727,24 @@ msgstr ""
 #: includes/Modules/Builder/Course_Meta_Box.php:90
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:110
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:75
+#: includes/Modules/Panel/Screens/Courses.php:177
 msgid "Level"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:90
+#: includes/Modules/Panel/Screens/Courses.php:177
 msgid "e.g. Beginner"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:93
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:119
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:139
+#: includes/Modules/Panel/Screens/Courses.php:137
 msgid "Format"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:99
+#: includes/Modules/Panel/Screens/Courses.php:144
 msgid "City or venue"
 msgstr ""
 
@@ -1717,23 +1752,28 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:109
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:138
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:74
+#: includes/Modules/Panel/Screens/Courses.php:146
 msgid "Duration"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:103
+#: includes/Modules/Panel/Screens/Courses.php:146
 msgid "e.g. 3 to 4 hours"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:104
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:120
+#: includes/Modules/Panel/Screens/Courses.php:145
 msgid "Date and time"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:104
+#: includes/Modules/Panel/Screens/Courses.php:145
 msgid "e.g. Friday 25 Mehr 1405 · 9 to 13"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:105
+#: includes/Modules/Panel/Screens/Courses.php:179
 msgid "Year (archive)"
 msgstr ""
 
@@ -1745,6 +1785,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:112
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:140
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:77
+#: includes/Modules/Panel/Screens/Courses.php:178
 msgid "Tools"
 msgstr ""
 
@@ -1755,11 +1796,13 @@ msgstr ""
 #. translators: %s: number of people.
 #: includes/Modules/Builder/Course_Meta_Box.php:109
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:143
+#: includes/Modules/Panel/Screens/Courses.php:147
 msgid "Capacity"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:112
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:124
+#: includes/Modules/Panel/Screens/Courses.php:150
 msgid "Seats left"
 msgstr ""
 
@@ -1768,14 +1811,17 @@ msgid "When the product manages stock (Inventory tab), its stock is the number o
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:117
+#: includes/Modules/Panel/Screens/Courses.php:162
 msgid "Registration"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:119
+#: includes/Modules/Panel/Screens/Courses.php:164
 msgid "Pay online (cart and checkout)"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:120
+#: includes/Modules/Panel/Screens/Courses.php:165
 msgid "Request form on the page (#enroll)"
 msgstr ""
 
@@ -1784,10 +1830,12 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:32
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:42
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:47
+#: includes/Modules/Panel/Screens/Courses.php:169
 msgid "Instructor"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:127
+#: includes/Modules/Panel/Screens/Courses.php:224
 msgid "— None —"
 msgstr ""
 
@@ -1796,31 +1844,39 @@ msgid "From Lenz's experts (Experts menu): name, position, photo and text."
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:136
+#: includes/Modules/Panel/Screens/Courses.php:182
 msgid "Intro video"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:137
+#: includes/Modules/Panel/Screens/Courses.php:198
 msgid "More specs"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:137
+#: includes/Modules/Panel/Screens/Courses.php:198
 msgid "One per line, as \"Label | value\" (e.g. Photo critique | In the last part)."
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:138
+#: includes/Modules/Panel/Screens/Courses.php:193
 msgid "What you will learn"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:138
 #: includes/Modules/Builder/Course_Meta_Box.php:139
+#: includes/Modules/Panel/Screens/Courses.php:193
+#: includes/Modules/Panel/Screens/Courses.php:194
 msgid "One per line."
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:139
+#: includes/Modules/Panel/Screens/Courses.php:194
 msgid "Who it is for"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:140
+#: includes/Modules/Panel/Screens/Courses.php:195
 msgid "Note under \"Who it is for\""
 msgstr ""
 
@@ -1828,15 +1884,18 @@ msgstr ""
 #: includes/Modules/Builder/Course_Meta_Box.php:141
 #: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:30
 #: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:40
+#: includes/Modules/Panel/Screens/Courses.php:196
 msgid "Curriculum"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:141
+#: includes/Modules/Panel/Screens/Courses.php:196
 msgid "One session per line, as \"Title | what it covers\"."
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:142
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:39
+#: includes/Modules/Panel/Screens/Courses.php:197
 msgid "Outcome"
 msgstr ""
 
@@ -1849,16 +1908,19 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Faq.php:54
 #: includes/Modules/Builder/Elementor/Widgets/Faq.php:86
 #: includes/Modules/Builder/Elementor/Widgets/Faq.php:147
+#: includes/Modules/Panel/Screens/Courses.php:199
 msgid "Questions"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:143
+#: includes/Modules/Panel/Screens/Courses.php:199
 msgid "One per line, as \"Question | answer\"."
 msgstr ""
 
 #: includes/Modules/Builder/Design_Pages.php:81
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:126
 #: includes/Modules/Builder/Presets/Catalog.php:61
+#: includes/Modules/Panel/Screens/Account.php:71
 msgid "About me"
 msgstr ""
 
@@ -1881,6 +1943,7 @@ msgstr ""
 #: includes/Modules/Builder/Module.php:60
 #: includes/Modules/Builder/Module.php:300
 #: includes/Modules/Builder/Presets/Catalog.php:55
+#: includes/Modules/Panel/Screens/Pages.php:74
 msgid "Home page"
 msgstr ""
 
@@ -2235,6 +2298,7 @@ msgid "Step 2: details"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Booking_Form.php:122
+#: includes/Modules/Panel/Screens/Portfolio.php:112
 msgid "Project details"
 msgstr ""
 
@@ -2295,6 +2359,7 @@ msgid "\"Back\" button"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Booking_Form.php:146
+#: includes/Modules/Panel/views/shell.php:70
 msgid "Back"
 msgstr ""
 
@@ -2401,6 +2466,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Timeline.php:113
 #: includes/Modules/Builder/Elementor/Widgets/Trust_Badges.php:64
 #: includes/Modules/Builder/Elementor/Widgets/Trust_Badges.php:188
+#: includes/Modules/Panel/Screens/Content_Screen.php:259
 #: includes/Modules/Support_Button/views/admin.php:275
 msgid "Title"
 msgstr ""
@@ -2411,6 +2477,7 @@ msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Booking_Form.php:233
 #: includes/Modules/Builder/Project_Meta_Box.php:56
+#: includes/Modules/Panel/Screens/Portfolio.php:113
 msgid "Project type"
 msgstr ""
 
@@ -2455,6 +2522,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Text.php:91
 #: includes/Modules/Builder/Elementor/Widgets/Timeline.php:68
 #: includes/Modules/Builder/Elementor/Widgets/Timeline.php:114
+#: includes/Modules/Panel/Screens/Content_Screen.php:58
 msgid "Text"
 msgstr ""
 
@@ -2499,6 +2567,7 @@ msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Brand_Box.php:67
 #: includes/Modules/Builder/Elementor/Widgets/Brand_Box.php:116
+#: includes/Modules/Panel/Screens/Products.php:82
 msgid "Description"
 msgstr ""
 
@@ -2535,6 +2604,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Trust_Badges.php:125
 #: includes/Modules/Builder/Module.php:274
 #: includes/Modules/Builder/Project_Meta_Box.php:89
+#: includes/Modules/Panel/Screens/Portfolio.php:122
 msgid "Name"
 msgstr ""
 
@@ -2782,6 +2852,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:107
 #: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:55
 #: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:60
+#: includes/Modules/Panel/Screens/Orders.php:295
 msgid "Items"
 msgstr ""
 
@@ -2924,6 +2995,8 @@ msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:124
 #: includes/Modules/Builder/Elementor/Widgets/Map_Embed.php:92
+#: includes/Modules/Panel/views/admin.php:31
+#: includes/Modules/Panel/views/admin.php:108
 msgid "Address"
 msgstr ""
 
@@ -3050,6 +3123,10 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:205
 #: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:118
 #: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:112
+#: includes/Modules/Panel/Screens/Bookings.php:72
+#: includes/Modules/Panel/Screens/Content_Screen.php:160
+#: includes/Modules/Panel/Screens/Media.php:78
+#: includes/Modules/Panel/Screens/Orders.php:161
 #: includes/Modules/Support_Button/views/admin.php:340
 msgid "All"
 msgstr ""
@@ -3215,6 +3292,8 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Photo_Frame.php:47
 #: includes/Modules/Builder/Elementor/Widgets/Photo_Grid.php:51
 #: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:77
+#: includes/Modules/Panel/Editor.php:165
+#: includes/Modules/Panel/Editor.php:166
 msgid "Photo"
 msgstr ""
 
@@ -3332,6 +3411,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:69
 #: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:64
 #: includes/Modules/Builder/Elementor/Widgets/Stats.php:89
+#: includes/Modules/Panel/views/admin.php:53
 msgid "Projects"
 msgstr ""
 
@@ -3351,6 +3431,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Featured_Projects.php:79
 #: includes/Modules/Builder/Elementor/Widgets/Project_Header.php:71
 #: includes/Modules/Builder/Project_Meta_Box.php:66
+#: includes/Modules/Panel/Screens/Portfolio.php:114
 msgid "Summary"
 msgstr ""
 
@@ -3532,6 +3613,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:100
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:212
 #: includes/Modules/Checkout/views/admin.php:64
+#: includes/Modules/Panel/Editor.php:141
 msgid "Heading"
 msgstr ""
 
@@ -4160,6 +4242,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:136
 #: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:101
 #: includes/Modules/Builder/views/admin.php:319
+#: includes/Modules/Panel/Screens/Media.php:79
 msgid "Photos"
 msgstr ""
 
@@ -4282,12 +4365,17 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:225
 #: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:287
 #: includes/Modules/Builder/views/admin.php:32
+#: includes/Modules/Panel/Screens/Pages.php:29
+#: includes/Modules/Panel/Ui.php:269
+#: includes/Modules/Panel/views/admin.php:40
+#: includes/Modules/Panel/views/admin.php:52
 msgid "Pages"
 msgstr ""
 
 #. translators: %s: widget name.
 #: includes/Modules/Builder/Elementor/Widgets/Post_Comments.php:29
 #: includes/Modules/Builder/Elementor/Widgets/Post_Comments.php:39
+#: includes/Modules/Panel/Screens/Comments.php:34
 msgid "Comments"
 msgstr ""
 
@@ -4484,6 +4572,7 @@ msgid "Share"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Post_Header.php:289
+#: includes/Modules/Panel/Screens/Media.php:118
 msgid "Copy link"
 msgstr ""
 
@@ -4699,10 +4788,12 @@ msgid "Gallery photos"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Project_Gallery.php:68
+#: includes/Modules/Panel/Screens/Media.php:29
 msgid "Media"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Project_Gallery.php:72
+#: includes/Modules/Panel/Screens/Portfolio.php:101
 msgid "Photos and videos"
 msgstr ""
 
@@ -4779,6 +4870,8 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Quote.php:46
 #: includes/Modules/Builder/Elementor/Widgets/Quote.php:51
 #: includes/Modules/Builder/Elementor/Widgets/Quote.php:95
+#: includes/Modules/Panel/Editor.php:148
+#: includes/Modules/Panel/Screens/Portfolio.php:120
 msgid "Quote"
 msgstr ""
 
@@ -4803,6 +4896,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Quote.php:86
 #: includes/Modules/Builder/Elementor/Widgets/Quote.php:99
 #: includes/Modules/Builder/Project_Meta_Box.php:90
+#: includes/Modules/Panel/Screens/Portfolio.php:123
 msgid "Role"
 msgstr ""
 
@@ -4984,6 +5078,8 @@ msgid "Chips"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:121
+#: includes/Modules/Panel/Screens/Products.php:37
+#: includes/Modules/Panel/views/admin.php:42
 msgid "Products"
 msgstr ""
 
@@ -5432,6 +5528,7 @@ msgid "Unknown action."
 msgstr ""
 
 #: includes/Modules/Builder/Library_Ajax.php:175
+#: includes/Modules/Panel/App.php:353
 msgid "That did not work. Please try again."
 msgstr ""
 
@@ -5577,6 +5674,7 @@ msgstr ""
 
 #: includes/Modules/Builder/Module.php:246
 #: includes/Modules/Builder/Module.php:247
+#: includes/Modules/Panel/Screens/Content_Screen.php:297
 msgid "Preview"
 msgstr ""
 
@@ -5593,6 +5691,7 @@ msgid "Custom template"
 msgstr ""
 
 #: includes/Modules/Builder/Module.php:251
+#: includes/Modules/Panel/Editor.php:97
 msgid "Edit with Elementor"
 msgstr ""
 
@@ -5692,6 +5791,9 @@ msgid "New name"
 msgstr ""
 
 #: includes/Modules/Builder/Module.php:281
+#: includes/Modules/Panel/Screens/Account.php:106
+#: includes/Modules/Panel/Screens/Account.php:117
+#: includes/Modules/Panel/Screens/Content_Screen.php:295
 msgid "Save"
 msgstr ""
 
@@ -5758,10 +5860,13 @@ msgid "No pages yet. Create one from a design above."
 msgstr ""
 
 #: includes/Modules/Builder/Module.php:301
+#: includes/Modules/Panel/Screens/Content_Screen.php:322
 msgid "Draft"
 msgstr ""
 
 #: includes/Modules/Builder/Module.php:302
+#: includes/Modules/Panel/Screens/Content_Screen.php:161
+#: includes/Modules/Panel/Screens/Content_Screen.php:321
 msgid "Published"
 msgstr ""
 
@@ -5772,6 +5877,7 @@ msgid "From \"%s\""
 msgstr ""
 
 #: includes/Modules/Builder/Module.php:305
+#: includes/Modules/Panel/Screens/Content_Screen.php:297
 msgid "View"
 msgstr ""
 
@@ -5902,6 +6008,7 @@ msgid "Text hero and every field on one page beside the phone and email cards."
 msgstr ""
 
 #: includes/Modules/Builder/Presets/Catalog.php:115
+#: includes/Modules/Panel/Screens/Portfolio.php:36
 msgid "Portfolio"
 msgstr ""
 
@@ -5910,7 +6017,7 @@ msgid "Title, category chips and a masonry of the projects with page numbers, th
 msgstr ""
 
 #: includes/Modules/Builder/Presets/Catalog.php:122
-#: includes/Modules/Builder/Project_Meta_Box.php:155
+#: includes/Modules/Builder/Project_Meta_Box.php:162
 msgid "Photo project"
 msgstr ""
 
@@ -5919,7 +6026,7 @@ msgid "Breadcrumb, title with facts, the cover, the project text beside a checkl
 msgstr ""
 
 #: includes/Modules/Builder/Presets/Catalog.php:129
-#: includes/Modules/Builder/Project_Meta_Box.php:156
+#: includes/Modules/Builder/Project_Meta_Box.php:163
 msgid "Video project"
 msgstr ""
 
@@ -5928,7 +6035,7 @@ msgid "Title with facts, the film in a wide player on the ink band, the project 
 msgstr ""
 
 #: includes/Modules/Builder/Presets/Catalog.php:136
-#: includes/Modules/Builder/Project_Meta_Box.php:157
+#: includes/Modules/Builder/Project_Meta_Box.php:164
 msgid "Photo and video project"
 msgstr ""
 
@@ -5973,6 +6080,7 @@ msgid "Title, course cards with status and format chips (open, coming soon with 
 msgstr ""
 
 #: includes/Modules/Builder/Presets/Catalog.php:178
+#: includes/Modules/Panel/Screens/Courses.php:131
 msgid "Course"
 msgstr ""
 
@@ -6004,6 +6112,7 @@ msgstr ""
 
 #. translators: %s: detected project type.
 #: includes/Modules/Builder/Project_Meta_Box.php:58
+#: includes/Modules/Panel/Screens/Portfolio.php:94
 msgid "From the gallery"
 msgstr ""
 
@@ -6016,6 +6125,7 @@ msgid "One or two sentences under the title. Empty: the excerpt."
 msgstr ""
 
 #: includes/Modules/Builder/Project_Meta_Box.php:71
+#: includes/Modules/Panel/Screens/Portfolio.php:115
 msgid "Year"
 msgstr ""
 
@@ -6024,6 +6134,7 @@ msgid "Empty: the year it was published."
 msgstr ""
 
 #: includes/Modules/Builder/Project_Meta_Box.php:76
+#: includes/Modules/Panel/Screens/Portfolio.php:116
 msgid "Facts"
 msgstr ""
 
@@ -6032,6 +6143,7 @@ msgid "One per line, as \"Label: value\" (e.g. Client: Nova). The first three al
 msgstr ""
 
 #: includes/Modules/Builder/Project_Meta_Box.php:81
+#: includes/Modules/Panel/Screens/Portfolio.php:117
 msgid "What was done"
 msgstr ""
 
@@ -6040,10 +6152,12 @@ msgid "One step per line, shown as a checklist."
 msgstr ""
 
 #: includes/Modules/Builder/Project_Meta_Box.php:86
+#: includes/Modules/Panel/Screens/Portfolio.php:119
 msgid "Client's quote"
 msgstr ""
 
 #: includes/Modules/Builder/Project_Meta_Box.php:94
+#: includes/Modules/Panel/Screens/Portfolio.php:165
 msgid "Featured"
 msgstr ""
 
@@ -6377,6 +6491,7 @@ msgid "Reinstall missing designs"
 msgstr ""
 
 #: includes/Modules/Builder/views/admin.php:258
+#: includes/Modules/Panel/views/admin.php:44
 msgid "Project bookings"
 msgstr ""
 
@@ -6477,6 +6592,7 @@ msgstr ""
 
 #. translators: %s: order number.
 #: includes/Modules/Builder/views/shop/order-received.php:46
+#: includes/Modules/Panel/Screens/Orders.php:103
 #, php-format
 msgid "Order #%s"
 msgstr ""
@@ -6498,10 +6614,12 @@ msgid "Choose which billing fields the checkout asks for, give download, virtual
 msgstr ""
 
 #: includes/Modules/Checkout/views/admin.php:33
+#: includes/Modules/Panel/Screens/Account.php:51
 msgid "First name"
 msgstr ""
 
 #: includes/Modules/Checkout/views/admin.php:34
+#: includes/Modules/Panel/Screens/Account.php:52
 msgid "Last name"
 msgstr ""
 
@@ -6693,6 +6811,905 @@ msgstr ""
 
 #: includes/Modules/Checkout/views/admin.php:203
 msgid "Not installed"
+msgstr ""
+
+#: includes/Modules/Panel/Access.php:89
+msgid "Studio manager"
+msgstr ""
+
+#: includes/Modules/Panel/Access.php:245
+msgid "Projects, articles, courses, orders and bookings in one simple panel that works well on phones."
+msgstr ""
+
+#: includes/Modules/Panel/Access.php:247
+msgid "Open the studio panel"
+msgstr ""
+
+#: includes/Modules/Panel/App.php:153
+msgid "Upload photos"
+msgstr ""
+
+#: includes/Modules/Panel/App.php:291
+#: includes/Modules/Panel/Screens/Media.php:71
+msgid "Uploading…"
+msgstr ""
+
+#: includes/Modules/Panel/App.php:292
+#: includes/Modules/Panel/Uploads.php:44
+msgid "The file could not be uploaded. Use a photo or a video."
+msgstr ""
+
+#: includes/Modules/Panel/App.php:293
+msgid "Link address (https://…)"
+msgstr ""
+
+#: includes/Modules/Panel/App.php:294
+msgid "Link copied."
+msgstr ""
+
+#: includes/Modules/Panel/App.php:340
+msgid "Saved."
+msgstr ""
+
+#: includes/Modules/Panel/App.php:341
+msgid "Created. You can keep editing it here."
+msgstr ""
+
+#: includes/Modules/Panel/App.php:342
+msgid "Moved to the trash."
+msgstr ""
+
+#: includes/Modules/Panel/App.php:343
+msgid "Deleted."
+msgstr ""
+
+#: includes/Modules/Panel/App.php:344
+msgid "Status changed."
+msgstr ""
+
+#: includes/Modules/Panel/App.php:345
+msgid "Note added."
+msgstr ""
+
+#: includes/Modules/Panel/App.php:346
+msgid "Reply posted."
+msgstr ""
+
+#: includes/Modules/Panel/App.php:347
+msgid "Uploaded."
+msgstr ""
+
+#: includes/Modules/Panel/App.php:348
+msgid "Write something first."
+msgstr ""
+
+#: includes/Modules/Panel/App.php:349
+msgid "That email address is not valid."
+msgstr ""
+
+#: includes/Modules/Panel/App.php:350
+msgid "Another account already uses that email address."
+msgstr ""
+
+#: includes/Modules/Panel/App.php:351
+msgid "The two passwords do not match."
+msgstr ""
+
+#: includes/Modules/Panel/App.php:352
+msgid "You are not allowed to do that."
+msgstr ""
+
+#: includes/Modules/Panel/App.php:354
+msgid "The page was open too long. Please try again."
+msgstr ""
+
+#: includes/Modules/Panel/App.php:355
+msgid "The files were too large for the server. Send fewer or smaller files at a time."
+msgstr ""
+
+#: includes/Modules/Panel/Editor.php:95
+msgid "This text is built with Elementor, so it is edited there. The other fields on this page are saved here as usual."
+msgstr ""
+
+#: includes/Modules/Panel/Editor.php:105
+msgid "The text is written in WordPress's editor. Save this page first; the button opens the editor in a new tab."
+msgstr ""
+
+#: includes/Modules/Panel/Editor.php:107
+msgid "Open WordPress's editor"
+msgstr ""
+
+#: includes/Modules/Panel/Editor.php:142
+msgid "Subheading"
+msgstr ""
+
+#: includes/Modules/Panel/Editor.php:143
+msgid "Paragraph"
+msgstr ""
+
+#: includes/Modules/Panel/Editor.php:145
+msgid "Italic"
+msgstr ""
+
+#: includes/Modules/Panel/Editor.php:146
+msgid "Bulleted list"
+msgstr ""
+
+#: includes/Modules/Panel/Editor.php:147
+msgid "Numbered list"
+msgstr ""
+
+#: includes/Modules/Panel/Editor.php:154
+msgid "Text formatting"
+msgstr ""
+
+#: includes/Modules/Panel/Editor.php:171
+msgid "Undo"
+msgstr ""
+
+#: includes/Modules/Panel/Module.php:39
+msgid "Studio panel"
+msgstr ""
+
+#: includes/Modules/Panel/Module.php:44
+msgid "A simple management panel for phones on your site's own address: projects, articles, courses, products, orders, bookings and requests in your brand's look, without wp-admin."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Account.php:48
+msgid "Profile"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Account.php:54
+msgid "Name shown on the site"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Account.php:75
+msgid "Shown in the author box of your articles."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Account.php:80
+msgid "Change password"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Account.php:84
+msgid "New password"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Account.php:96
+msgid "New password again"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Account.php:113
+msgid "Site"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Account.php:115
+msgid "Site name"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Account.php:116
+msgid "Tagline"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Account.php:123
+#: includes/Modules/Panel/Screens/Dashboard.php:68
+#: includes/Modules/Panel/Screens/Menu.php:63
+#: includes/Modules/Panel/views/shell.php:60
+msgid "View the site"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Account.php:125
+msgid "WordPress dashboard"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Account.php:127
+#: includes/Modules/Panel/Screens/Menu.php:64
+#: includes/Modules/Panel/views/shell.php:61
+msgid "Log out"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Bookings.php:48
+msgid "No bookings yet. Bookings sent through the Project booking form appear here."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Comments.php:66
+msgid "Waiting"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Comments.php:67
+msgid "Approved"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Comments.php:68
+#: includes/Modules/Panel/Screens/Comments.php:132
+msgid "Spam"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Comments.php:83
+msgid "No comments are waiting. All caught up!"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Comments.php:83
+msgid "No comments here."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Comments.php:127
+msgid "Approve"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Comments.php:129
+msgid "Hide"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Comments.php:134
+msgid "Trash"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Comments.php:134
+msgid "Move this comment to the trash?"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Comments.php:139
+#: includes/Modules/Panel/Screens/Inbox_Screen.php:173
+msgid "Reply"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Comments.php:143
+msgid "Your reply"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Comments.php:144
+msgid "Send reply"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Content_Screen.php:53
+msgid "Categories"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Content_Screen.php:127
+msgid "This item does not exist or you cannot edit it."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Content_Screen.php:155
+msgid "Search…"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Content_Screen.php:162
+msgid "Drafts"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Content_Screen.php:172
+#: includes/Modules/Panel/Screens/Orders.php:188
+msgid "Nothing matches this search."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Content_Screen.php:228
+msgid "(no title)"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Content_Screen.php:265
+msgid "Short summary"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Content_Screen.php:266
+msgid "Summary shown on cards and lists"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Content_Screen.php:276
+msgid "Cover photo"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Content_Screen.php:286
+msgid "New category (separate several with commas)"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Content_Screen.php:304
+msgid "Move to trash"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Content_Screen.php:304
+msgid "Move this item to the trash? You can restore it from WordPress's trash."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Content_Screen.php:321
+msgid "Send for review"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Content_Screen.php:326
+msgid "Visibility"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Content_Screen.php:326
+msgid "Drafts are saved but visitors do not see them."
+msgstr ""
+
+#. translators: %s: date.
+#: includes/Modules/Panel/Screens/Content_Screen.php:331
+#, php-format
+msgid "Last change: %s"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Courses.php:50
+msgid "New course"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Courses.php:55
+msgid "Edit course"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Courses.php:60
+msgid "No courses yet. Add one with the + button."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Courses.php:65
+msgid "About the course"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Courses.php:154
+msgid "When the stock is counted, the stock is the seats left."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Courses.php:172
+msgid "More course details"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Courses.php:213
+msgid "Count the seats as stock"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Courses.php:214
+msgid "Seats in stock"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Create.php:27
+msgid "Add"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Create.php:50
+msgid "There is nothing you can add."
+msgstr ""
+
+#. translators: %s: user's first name.
+#: includes/Modules/Panel/Screens/Dashboard.php:63
+#, php-format
+msgid "Hello %s"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Dashboard.php:66
+msgid "Here is what is happening on your site."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Dashboard.php:76
+msgid "Quick add"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Dashboard.php:95
+msgid "Orders to handle"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Dashboard.php:96
+msgid "New bookings"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Dashboard.php:97
+msgid "New requests"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Dashboard.php:98
+msgid "Comments waiting"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Dashboard.php:112
+msgid "Sales, last 30 days"
+msgstr ""
+
+#. translators: 1: order number, 2: customer name.
+#: includes/Modules/Panel/Screens/Dashboard.php:180
+#: includes/Modules/Panel/Screens/Orders.php:180
+#, php-format
+msgid "#%1$s · %2$s"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Dashboard.php:190
+msgid "Latest orders"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Dashboard.php:191
+msgid "All orders"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Inbox_Screen.php:75
+msgid "This item does not exist."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Inbox_Screen.php:164
+msgid "Sent from:"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Inbox_Screen.php:177
+msgid "Call"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Inbox_Screen.php:178
+msgid "Text message"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Inbox_Screen.php:213
+msgid "Delete this for good? It cannot be undone."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Media.php:67
+msgid "Upload photos or videos"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Media.php:68
+msgid "Choose one or several files from your phone or computer."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Media.php:71
+msgid "Upload"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Media.php:80
+msgid "Videos"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Media.php:86
+msgid "Nothing uploaded yet."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Media.php:117
+#: includes/Modules/Support_Button/views/admin.php:377
+msgid "Open"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Media.php:121
+msgid "Delete this file for good? Pages that show it will lose it."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Orders.php:37
+#: includes/Modules/Panel/views/admin.php:43
+msgid "Orders"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Orders.php:118
+msgid "This order does not exist."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Orders.php:156
+msgid "Order number, email or mobile"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Orders.php:188
+msgid "No orders yet."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Orders.php:313
+msgid "Customer's note"
+msgstr ""
+
+#. translators: %s: payment method.
+#: includes/Modules/Panel/Screens/Orders.php:340
+#, php-format
+msgid "Payment: %s"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Orders.php:349
+msgid "Order status"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Orders.php:349
+msgid "Completing an order sends WooCommerce's email to the customer."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Orders.php:350
+msgid "Change status"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Orders.php:367
+msgid "Notes"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Orders.php:370
+msgid "New note"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Orders.php:371
+msgid "Send it to the customer"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Orders.php:371
+msgid "The customer gets it by email; otherwise only staff see it."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Orders.php:372
+msgid "Add note"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Orders.php:379
+msgid "Sent to the customer"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Orders.php:408
+msgid "Changed in the studio panel."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Pages.php:49
+msgid "New page"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Pages.php:54
+msgid "Edit page"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Pages.php:59
+msgid "No pages yet."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Pages.php:70
+msgid "Elementor"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Portfolio.php:61
+msgid "New project"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Portfolio.php:66
+msgid "Edit project"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Portfolio.php:71
+msgid "No projects yet. Add your first one with the + button."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Portfolio.php:76
+msgid "About the project"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Portfolio.php:97
+#: includes/Modules/Panel/Screens/Products.php:182
+msgid "Gallery"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Portfolio.php:106
+msgid "Shown in this order on the project page. Use the arrows to move a photo."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Portfolio.php:113
+msgid "Each type can have its own page design."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Portfolio.php:116
+msgid "One per line, as \"Label: value\" (e.g. Client: Nova)."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Portfolio.php:117
+msgid "One step per line."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Portfolio.php:137
+msgid "Featured project"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Portfolio.php:137
+msgid "Shown in \"Featured projects\"."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Posts.php:26
+#: includes/Modules/Panel/views/admin.php:39
+#: includes/Modules/Panel/views/admin.php:51
+msgid "Articles"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Posts.php:51
+msgid "New article"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Posts.php:56
+msgid "Edit article"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Posts.php:61
+msgid "No articles yet. Write your first one with the + button."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Posts.php:72
+msgid "Tags"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Posts.php:72
+msgid "Separate them with commas."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Posts.php:73
+msgid "Allow comments"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Products.php:67
+msgid "New product"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Products.php:72
+msgid "Edit product"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Products.php:77
+msgid "No products yet."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Products.php:127
+msgid "Out of stock"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Products.php:157
+msgid "Price and stock"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Products.php:159
+msgid "This product has variations. Its prices and stock are set in WooCommerce's product editor."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Products.php:160
+msgid "Open WooCommerce's editor"
+msgstr ""
+
+#. translators: %s: currency symbol.
+#: includes/Modules/Panel/Screens/Products.php:165
+#, php-format
+msgid "Price (%s)"
+msgstr ""
+
+#. translators: %s: currency symbol.
+#: includes/Modules/Panel/Screens/Products.php:169
+#, php-format
+msgid "Sale price (%s)"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Products.php:173
+msgid "Empty: no discount."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Products.php:183
+msgid "More photos"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Products.php:194
+msgid "Count the stock"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Products.php:195
+msgid "In stock"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Products.php:196
+msgid "Nothing to ship"
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Products.php:196
+msgid "For services and files: the checkout asks for no address."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Products.php:229
+msgid "The product could not be loaded."
+msgstr ""
+
+#: includes/Modules/Panel/Screens/Requests.php:55
+msgid "No requests yet. Messages sent through the Request form appear here."
+msgstr ""
+
+#: includes/Modules/Panel/Ui.php:227
+msgid "Filter"
+msgstr ""
+
+#: includes/Modules/Panel/Ui.php:271
+msgid "Previous"
+msgstr ""
+
+#. translators: 1: current page, 2: number of pages.
+#: includes/Modules/Panel/Ui.php:276
+#, php-format
+msgid "Page %1$s of %2$s"
+msgstr ""
+
+#: includes/Modules/Panel/Ui.php:280
+msgid "Next"
+msgstr ""
+
+#: includes/Modules/Panel/Uploads.php:39
+msgid "You are not allowed to upload files."
+msgstr ""
+
+#: includes/Modules/Panel/Uploads.php:185
+msgid "Add photos"
+msgstr ""
+
+#: includes/Modules/Panel/Uploads.php:185
+msgid "Choose a photo"
+msgstr ""
+
+#: includes/Modules/Panel/Uploads.php:231
+msgid "Move earlier"
+msgstr ""
+
+#: includes/Modules/Panel/Uploads.php:234
+msgid "Remove"
+msgstr ""
+
+#: includes/Modules/Panel/Uploads.php:237
+msgid "Move later"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:32
+msgid "Who can use it"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:33
+msgid "Sections"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:34
+#: includes/Modules/Panel/views/admin.php:178
+msgid "Text editor"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:38
+msgid "Portfolio (Lenz's projects with their gallery and project details)"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:41
+msgid "Courses (WooCommerce products marked as courses)"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:45
+msgid "Requests (Request form)"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:46
+msgid "Comments and reviews"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:47
+msgid "Media (photos and videos)"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:54
+msgid "Products and courses"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:58
+msgid "Simple editor of the panel (recommended for phones)"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:59
+msgid "WordPress's classic editor, inside the panel"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:60
+msgid "Plain text box (HTML allowed)"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:61
+msgid "WordPress's own editor (opens wp-admin)"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:76
+msgid "Enable the studio panel"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:97
+msgid "The panel's address"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:98
+msgid "The panel opens from WordPress itself («Studio panel» at the top of the wp-admin menu). Staff can also keep this address on their phone's home screen; it asks them to log in with their WordPress account."
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:101
+msgid "Open the panel"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:112
+msgid "Latin letters, digits and dashes, e.g. panel or studio. The address above changes after saving."
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:115
+msgid "Panel name"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:118
+msgid "Items per list page"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:129
+msgid "Roles that open the panel"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:130
+msgid "Give your staff the «Studio manager» role (Users → edit the user → Role): it can manage content, products and orders but not the site's settings. Inside the panel each person still only sees what their role allows."
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:132
+msgid "Add a user"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:147
+msgid "The way in"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:148
+msgid "Panel users log in with their WordPress account as usual. The first item of the wp-admin menu and a box at the top of the dashboard open the panel."
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:152
+msgid "Keep staff out of wp-admin"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:152
+msgid "Panel users who cannot manage the site's settings are sent from wp-admin to the panel and do not see the admin bar. Administrators keep wp-admin."
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:153
+msgid "Open the panel after logging in"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:153
+msgid "For panel users who cannot manage the site's settings, on WordPress's and WooCommerce's login forms."
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:154
+msgid "Link in the account menu"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:154
+msgid "Adds the panel to WooCommerce's My account menu of panel users."
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:155
+msgid "Link in the admin bar"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:164
+msgid "Sections of the panel"
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:165
+msgid "Switch off what the studio does not use, so the panel stays short. Sections that need WooCommerce or the page templates show only while those are active."
+msgstr ""
+
+#: includes/Modules/Panel/views/admin.php:179
+msgid "Which editor writes the text of each content type in the panel. The simple editor has headings, bold, lists, quotes, links and photos and works well on phones. Texts built with Elementor always open in Elementor."
+msgstr ""
+
+#: includes/Modules/Panel/views/denied.php:17
+msgid "No access"
+msgstr ""
+
+#: includes/Modules/Panel/views/denied.php:25
+msgid "This account cannot open the panel"
+msgstr ""
+
+#: includes/Modules/Panel/views/denied.php:26
+msgid "Ask the site's administrator to give your account the «Studio manager» role, or log in with another account."
+msgstr ""
+
+#: includes/Modules/Panel/views/denied.php:28
+msgid "Log in with another account"
+msgstr ""
+
+#: includes/Modules/Panel/views/denied.php:29
+msgid "Back to the site"
+msgstr ""
+
+#: includes/Modules/Panel/views/shell.php:32
+msgid "Skip to content"
+msgstr ""
+
+#: includes/Modules/Panel/views/shell.php:43
+msgid "Panel menu"
+msgstr ""
+
+#: includes/Modules/Panel/views/shell.php:94
+msgid "Main sections"
 msgstr ""
 
 #: includes/Modules/Support_Button/Channels.php:45
@@ -7023,10 +8040,6 @@ msgstr ""
 
 #: includes/Modules/Support_Button/views/admin.php:376
 msgid "Preview state"
-msgstr ""
-
-#: includes/Modules/Support_Button/views/admin.php:377
-msgid "Open"
 msgstr ""
 
 #: includes/Modules/Support_Button/views/admin.php:378

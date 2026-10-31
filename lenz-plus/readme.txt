@@ -3,7 +3,7 @@ Tags: lenz, photography, bottom navigation, elementor, rtl
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.4.0
+Stable tag: 1.5.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,6 +36,13 @@ Extra features for the Lenz photography theme: a customizable mobile bottom navi
 * 63 Elementor widgets in a "Lenz+" category, built from the designs: page hero (with the film strip and showreel layout), service cards, key numbers, steps, cards, lists, timeline, framed band, quotes, testimonials, photo frames and rows, pricing plans, FAQ (with structured data), call to action, portfolio grid with category chips, featured projects, project header and gallery, post grid, featured post, article header, table of contents, reading progress, comments, popular posts, course grid, course hero, curriculum, buy box, request and sign-up forms, a project booking form in steps, contact cards, a map that loads on click, brand logos (grid, tiles or a scrolling strip), trust badges (eNamad, Samandehi, Zarinpal), author box, previous and next post, and the header and footer pieces.
 * Brand colours in one place, black-and-white or colour photos, and the designs' guide lines on or off.
 
+= Studio panel =
+
+* A simple management panel inside WordPress, built for phones: articles, projects with their gallery, courses, products, orders, bookings, requests, comments and media, in the site's brand colours and font.
+* Opened from WordPress itself: «Studio panel» is the first item of the wp-admin menu, with a button at the top of the dashboard and in the admin bar. Staff log in with their WordPress account; a «Studio manager» role manages content and the shop without the site's settings.
+* A simple text editor for phones (headings, bold, lists, quotes, links, photos), or WordPress's classic editor, a plain box or WordPress's own editor, chosen per content type. Texts built with Elementor keep opening in Elementor.
+* Photos upload in the background with a preview and can be reordered; prices and seat counts accept Persian digits. Optionally, staff are kept out of wp-admin and land in the panel after logging in.
+
 == Installation ==
 
 1. Upload the `lenz-plus` folder to `/wp-content/plugins/`, or upload the zip from Plugins → Add New → Upload Plugin.
@@ -53,6 +60,9 @@ It is built for Lenz and reads its colours, logo, menus and options. Without Len
 No. Updates refresh only the ready-made templates you have not edited, and pages created from a design never change by themselves.
 
 == Changelog ==
+
+= 1.5.0 =
+* Studio panel: a simple, phone-first management panel inside WordPress for the studio's staff. Articles, projects (gallery, project details, featured), courses (course details, price, seats), products (price, sale, stock, gallery), orders (status, notes, call or email the customer), project bookings (status), requests, comments (approve, reply) and media (upload, copy link, delete), with a home screen of what is waiting and the last 30 days' sales. It opens from the first item of the wp-admin menu, a dashboard button, the admin bar and WooCommerce's account menu; people log in with their WordPress account. New «Studio manager» role. The text editor of each content type can be the panel's simple editor, WordPress's classic editor, a plain box or WordPress's own editor.
 
 = 1.4.0 =
 * Shop pages in the brand style: the cart, checkout, order received and account pages of WooCommerce (classic templates and the cart and checkout blocks) use the designs' colours, fields and buttons, built for phones first. A step bar leads from cart to payment to the finished order, the cart updates itself when a quantity changes, the coupon answers under its field, WooCommerce's messages get one clear look, and the account menu is a simple list (a scrolling row on phones). Prices read «۱۲۰٬۰۰۰ تومان» whatever the store's currency position.
