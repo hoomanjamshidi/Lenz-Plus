@@ -243,9 +243,10 @@ final class Courses {
 					),
 				),
 				array(
+					// Bottom padding = the gap between sections, so the final card keeps the rhythm.
 					'pad'        => array( 0, 40, 56 ),
-					'pad_tablet' => array( 0, 24, 40 ),
-					'pad_mobile' => array( 0, 16, 28 ),
+					'pad_tablet' => array( 0, 24, 44 ),
+					'pad_mobile' => array( 0, 16, 34 ),
 				)
 			),
 			Blocks::band(
@@ -362,20 +363,29 @@ final class Courses {
 				'audience',
 				'مخاطبین دوره',
 				array(
-					El::w(
-						'lzp-checklist-grid',
+					// Own box so the two lists keep a clear gap (the note box ends the first).
+					El::box(
 						array(
-							'source' => 'audience',
-							'look'   => 'list',
-							'intro'  => 'این دوره مناسب شماست اگر:',
-						)
-					),
-					El::w(
-						'lzp-checklist-grid',
+							'gap'        => 32,
+							'gap_mobile' => 24,
+						),
 						array(
-							'source' => 'not_for',
-							'look'   => 'list',
-							'intro'  => 'این دوره مناسب شما نیست اگر:',
+							El::w(
+								'lzp-checklist-grid',
+								array(
+									'source' => 'audience',
+									'look'   => 'list',
+									'intro'  => 'این دوره مناسب شماست اگر:',
+								)
+							),
+							El::w(
+								'lzp-checklist-grid',
+								array(
+									'source' => 'not_for',
+									'look'   => 'list',
+									'intro'  => 'این دوره مناسب شما نیست اگر:',
+								)
+							),
 						)
 					),
 				)
