@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Lenz Plus 1.7.0\n"
+"Project-Id-Version: Lenz Plus 1.8.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/lenz-plus\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-02T07:21:09+00:00\n"
+"POT-Creation-Date: 2026-11-02T07:33:32+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: lenz-plus\n"
@@ -33,8 +33,8 @@ msgid "Hooman Jamshidi"
 msgstr ""
 
 #: includes/Admin/Admin.php:59
-#: includes/Modules/Builder/Elementor/Integration.php:136
-#: includes/Modules/Builder/Elementor/Integration.php:173
+#: includes/Modules/Builder/Elementor/Integration.php:138
+#: includes/Modules/Builder/Elementor/Integration.php:175
 #: includes/Modules/Panel/views/admin.php:139
 msgid "Lenz+"
 msgstr ""
@@ -329,6 +329,7 @@ msgstr ""
 #: includes/Modules/Bottom_Nav/Item_Types.php:87
 #: includes/Modules/Bottom_Nav/Item_Types.php:89
 #: includes/Modules/Bottom_Nav/views/admin.php:608
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:158
 #: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:114
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:73
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:78
@@ -741,7 +742,7 @@ msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:312
 #: includes/Modules/Bottom_Nav/views/admin.php:324
-#: includes/Modules/Builder/Elementor/Integration.php:185
+#: includes/Modules/Builder/Elementor/Integration.php:187
 #: includes/Modules/Builder/Elementor/Widgets/Base.php:117
 #: includes/Modules/Builder/Elementor/Widgets/Request_Form.php:125
 #: includes/Modules/Builder/Elementor/Widgets/Stats.php:159
@@ -966,6 +967,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Author_Box.php:49
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:63
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:44
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:48
 #: includes/Modules/Builder/Elementor/Widgets/Form_Base.php:95
 #: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:50
 #: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:102
@@ -984,6 +986,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Checklist.php:95
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:79
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:63
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:128
 #: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:62
 #: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:72
 #: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:87
@@ -1616,88 +1619,90 @@ msgstr ""
 msgid "Sent on"
 msgstr ""
 
-#: includes/Modules/Builder/Course_Data.php:166
+#: includes/Modules/Builder/Course_Data.php:168
 #: includes/Modules/Builder/Course_Meta_Box.php:97
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:68
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:189
 #: includes/Modules/Panel/Screens/Courses.php:140
 msgid "Online"
 msgstr ""
 
-#: includes/Modules/Builder/Course_Data.php:166
+#: includes/Modules/Builder/Course_Data.php:168
 #: includes/Modules/Builder/Course_Meta_Box.php:96
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:69
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:189
 #: includes/Modules/Panel/Screens/Courses.php:139
 msgid "In person"
 msgstr ""
 
 #. translators: 1: "In person", 2: city or venue.
-#: includes/Modules/Builder/Course_Data.php:169
+#: includes/Modules/Builder/Course_Data.php:171
 #, php-format
 msgid "%1$s, %2$s"
 msgstr ""
 
-#: includes/Modules/Builder/Course_Data.php:181
+#: includes/Modules/Builder/Course_Data.php:183
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:70
 msgid "Coming soon"
 msgstr ""
 
-#: includes/Modules/Builder/Course_Data.php:185
+#: includes/Modules/Builder/Course_Data.php:187
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:257
 msgid "Held"
 msgstr ""
 
-#: includes/Modules/Builder/Course_Data.php:190
+#: includes/Modules/Builder/Course_Data.php:192
 msgid "Full"
 msgstr ""
 
 #. translators: %s: number of seats left.
-#: includes/Modules/Builder/Course_Data.php:194
+#: includes/Modules/Builder/Course_Data.php:196
 #, php-format
 msgid "%s seats left"
 msgstr ""
 
-#: includes/Modules/Builder/Course_Data.php:197
+#: includes/Modules/Builder/Course_Data.php:199
 #: includes/Modules/Builder/Course_Meta_Box.php:77
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:67
 #: includes/Modules/Panel/Screens/Courses.php:104
 msgid "Registration open"
 msgstr ""
 
-#: includes/Modules/Builder/Course_Data.php:222
+#: includes/Modules/Builder/Course_Data.php:224
 msgid "Free"
 msgstr ""
 
-#: includes/Modules/Builder/Course_Data.php:234
+#: includes/Modules/Builder/Course_Data.php:236
 msgid "Current price:"
 msgstr ""
 
-#: includes/Modules/Builder/Course_Data.php:236
+#: includes/Modules/Builder/Course_Data.php:238
 msgid "Original price:"
 msgstr ""
 
 #. translators: %s: discount percent.
-#: includes/Modules/Builder/Course_Data.php:240
+#: includes/Modules/Builder/Course_Data.php:242
 #, php-format
 msgid "%s%% off"
 msgstr ""
 
-#: includes/Modules/Builder/Course_Data.php:277
+#: includes/Modules/Builder/Course_Data.php:279
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:260
 msgid "Let me know"
 msgstr ""
 
-#: includes/Modules/Builder/Course_Data.php:285
-#: includes/Modules/Builder/Course_Data.php:300
+#: includes/Modules/Builder/Course_Data.php:287
+#: includes/Modules/Builder/Course_Data.php:302
 msgid "Fully booked"
 msgstr ""
 
-#: includes/Modules/Builder/Course_Data.php:291
-#: includes/Modules/Builder/Course_Data.php:313
-#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:70
+#: includes/Modules/Builder/Course_Data.php:293
+#: includes/Modules/Builder/Course_Data.php:315
+#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:73
 msgid "Register"
 msgstr ""
 
-#: includes/Modules/Builder/Course_Data.php:306
+#: includes/Modules/Builder/Course_Data.php:308
 msgid "In your cart · Checkout"
 msgstr ""
 
@@ -1745,6 +1750,7 @@ msgstr ""
 #: includes/Modules/Builder/Course_Meta_Box.php:90
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:110
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:75
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:124
 #: includes/Modules/Panel/Screens/Courses.php:177
 msgid "Level"
 msgstr ""
@@ -1757,6 +1763,8 @@ msgstr ""
 #: includes/Modules/Builder/Course_Meta_Box.php:93
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:119
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:155
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:189
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:120
 #: includes/Modules/Panel/Screens/Courses.php:137
 msgid "Format"
 msgstr ""
@@ -1769,7 +1777,9 @@ msgstr ""
 #: includes/Modules/Builder/Course_Meta_Box.php:103
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:109
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:154
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:187
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:74
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:121
 #: includes/Modules/Panel/Screens/Courses.php:146
 msgid "Duration"
 msgstr ""
@@ -1781,6 +1791,7 @@ msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:104
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:120
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:123
 #: includes/Modules/Panel/Screens/Courses.php:145
 msgid "Date and time"
 msgstr ""
@@ -1803,6 +1814,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:112
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:156
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:77
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:125
 #: includes/Modules/Panel/Screens/Courses.php:178
 msgid "Tools"
 msgstr ""
@@ -1814,6 +1826,7 @@ msgstr ""
 #. translators: %s: number of people.
 #: includes/Modules/Builder/Course_Meta_Box.php:109
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:159
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:126
 #: includes/Modules/Panel/Screens/Courses.php:147
 msgid "Capacity"
 msgstr ""
@@ -1845,6 +1858,8 @@ msgstr ""
 
 #. translators: %s: widget name.
 #: includes/Modules/Builder/Course_Meta_Box.php:124
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:71
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:119
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:47
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:62
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:82
@@ -1877,18 +1892,21 @@ msgid "One per line, as \"Label | value\" (e.g. Photo critique | In the last par
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:138
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:69
 #: includes/Modules/Panel/Screens/Courses.php:193
 msgid "What you will learn"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:138
 #: includes/Modules/Builder/Course_Meta_Box.php:139
+#: includes/Modules/Builder/Course_Meta_Box.php:141
 #: includes/Modules/Panel/Screens/Courses.php:193
 #: includes/Modules/Panel/Screens/Courses.php:194
 msgid "One per line."
 msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:139
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:73
 #: includes/Modules/Panel/Screens/Courses.php:194
 msgid "Who it is for"
 msgstr ""
@@ -1898,30 +1916,37 @@ msgstr ""
 msgid "Note under \"Who it is for\""
 msgstr ""
 
-#. translators: %s: widget name.
 #: includes/Modules/Builder/Course_Meta_Box.php:141
+msgid "Who it is not for"
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Course_Meta_Box.php:142
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:70
 #: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:32
 #: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:42
 #: includes/Modules/Panel/Screens/Courses.php:196
 msgid "Curriculum"
 msgstr ""
 
-#: includes/Modules/Builder/Course_Meta_Box.php:141
+#: includes/Modules/Builder/Course_Meta_Box.php:142
 #: includes/Modules/Panel/Screens/Courses.php:196
 msgid "One session per line, as \"Title | what it covers\"."
 msgstr ""
 
-#: includes/Modules/Builder/Course_Meta_Box.php:142
+#: includes/Modules/Builder/Course_Meta_Box.php:143
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:72
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:39
 #: includes/Modules/Panel/Screens/Courses.php:197
 msgid "Outcome"
 msgstr ""
 
-#: includes/Modules/Builder/Course_Meta_Box.php:142
+#: includes/Modules/Builder/Course_Meta_Box.php:143
 msgid "What participants can do at the end."
 msgstr ""
 
-#: includes/Modules/Builder/Course_Meta_Box.php:143
+#: includes/Modules/Builder/Course_Meta_Box.php:144
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:74
 #: includes/Modules/Builder/Elementor/Widgets/Faq.php:49
 #: includes/Modules/Builder/Elementor/Widgets/Faq.php:54
 #: includes/Modules/Builder/Elementor/Widgets/Faq.php:86
@@ -1930,7 +1955,7 @@ msgstr ""
 msgid "Questions"
 msgstr ""
 
-#: includes/Modules/Builder/Course_Meta_Box.php:143
+#: includes/Modules/Builder/Course_Meta_Box.php:144
 #: includes/Modules/Panel/Screens/Courses.php:199
 msgid "One per line, as \"Question | answer\"."
 msgstr ""
@@ -1965,69 +1990,69 @@ msgstr ""
 msgid "Home page"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:181
+#: includes/Modules/Builder/Elementor/Integration.php:183
 msgid "Brand surface"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:186
+#: includes/Modules/Builder/Elementor/Integration.php:188
 msgid "White"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:187
+#: includes/Modules/Builder/Elementor/Integration.php:189
 msgid "Card (with border)"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:188
+#: includes/Modules/Builder/Elementor/Integration.php:190
 msgid "Card (dashed border)"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:189
+#: includes/Modules/Builder/Elementor/Integration.php:191
 msgid "Soft band"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:190
+#: includes/Modules/Builder/Elementor/Integration.php:192
 msgid "Tile"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:191
+#: includes/Modules/Builder/Elementor/Integration.php:193
 msgid "Ink band (dark)"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:192
+#: includes/Modules/Builder/Elementor/Integration.php:194
 msgid "Dark card"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:193
+#: includes/Modules/Builder/Elementor/Integration.php:195
 msgid "Header bar (translucent)"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:196
+#: includes/Modules/Builder/Elementor/Integration.php:198
 msgid "Uses the brand colours from Lenz+ → Page templates. Dark surfaces switch the text inside to light colours. A background set in the Style tab still wins."
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:203
+#: includes/Modules/Builder/Elementor/Integration.php:205
 msgid "Sticky while scrolling"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:207
+#: includes/Modules/Builder/Elementor/Integration.php:209
 #: includes/Modules/Builder/views/admin.php:41
 #: includes/Modules/Support_Button/Module.php:111
 msgid "Off"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:208
+#: includes/Modules/Builder/Elementor/Integration.php:210
 msgid "Desktop only"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:209
+#: includes/Modules/Builder/Elementor/Integration.php:211
 msgid "All devices"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:213
+#: includes/Modules/Builder/Elementor/Integration.php:215
 msgid "Keeps a column (e.g. the buy box) in view inside its parent. The parent must be taller than this container."
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Integration.php:220
+#: includes/Modules/Builder/Elementor/Integration.php:222
 msgid "Distance from top"
 msgstr ""
 
@@ -2070,14 +2095,16 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:30
 #: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:32
 #: includes/Modules/Builder/Elementor/Widgets/Checklist.php:31
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:33
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:34
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:36
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:40
 #: includes/Modules/Builder/Elementor/Widgets/Copyright.php:33
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:35
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:42
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:35
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:37
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:29
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:33
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:30
 #: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:32
 #: includes/Modules/Builder/Elementor/Widgets/Faq.php:34
@@ -2090,7 +2117,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:47
 #: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:36
 #: includes/Modules/Builder/Elementor/Widgets/Map_Embed.php:38
-#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:31
+#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:33
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:39
 #: includes/Modules/Builder/Elementor/Widgets/Newsletter_Form.php:37
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:42
@@ -2250,6 +2277,7 @@ msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Booking_Form.php:73
 #: includes/Modules/Builder/Elementor/Widgets/Brand_Logos.php:114
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:90
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:135
 #: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:139
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:67
@@ -2417,6 +2445,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:151
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:92
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:52
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:105
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:106
 #: includes/Modules/Builder/Elementor/Widgets/Featured_Post.php:84
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:196
@@ -2450,6 +2479,8 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:94
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:176
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:106
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:100
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:107
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:50
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:108
 #: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:110
@@ -2510,11 +2541,12 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:172
 #: includes/Modules/Builder/Elementor/Widgets/Checklist.php:70
 #: includes/Modules/Builder/Elementor/Widgets/Checklist.php:105
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:63
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:108
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:65
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:137
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:88
 #: includes/Modules/Builder/Elementor/Widgets/Copyright.php:53
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:107
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:111
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:54
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:60
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:109
@@ -2720,6 +2752,8 @@ msgid "Home label"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Breadcrumb.php:71
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:136
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:170
 #: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:88
 #: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:144
 #: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:150
@@ -2847,6 +2881,7 @@ msgid "Selected work"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:142
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:57
 #: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:97
 msgid "Title tag"
 msgstr ""
@@ -2870,10 +2905,10 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Checklist.php:56
 #: includes/Modules/Builder/Elementor/Widgets/Checklist.php:80
 #: includes/Modules/Builder/Elementor/Widgets/Checklist.php:104
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:43
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:48
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:73
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:107
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:44
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:49
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:75
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:136
 #: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:55
 #: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:60
 #: includes/Modules/Panel/Screens/Orders.php:295
@@ -2881,7 +2916,7 @@ msgid "Items"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Checklist.php:60
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:54
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:56
 #: includes/Modules/Builder/Elementor/Widgets/Faq.php:58
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:87
 #: includes/Modules/Builder/Elementor/Widgets/Quote.php:55
@@ -2903,42 +2938,72 @@ msgid "Nothing to list: fill in \"What was done\" in the project's details."
 msgstr ""
 
 #. translators: %s: widget name.
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:33
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:34
 msgid "Checklist grid"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:52
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:53
 msgid "The course's \"What you will learn\""
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:53
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:54
 msgid "The course's \"Who it is for\""
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:65
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:77
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:78
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:55
+msgid "The course's \"Who it is not for\""
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:67
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:79
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:80
 msgid "Something you will learn"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:88
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:94
+msgid "Dashed boxes in columns"
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:95
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:33
+msgid "Simple list"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:103
+msgid "Mark"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:107
+msgid "Automatic (a cross for \"Who it is not for\")"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:108
+msgid "Tick"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:109
+msgid "Cross"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:117
 msgid "Line above"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:97
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:126
 msgid "Note below"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:101
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:130
 msgid "With \"Who it is for\", empty shows the course's own note."
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:122
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:151
 #: includes/Modules/Builder/Elementor/Widgets/Course_Base.php:78
 msgid "Shows the course being viewed. Mark a WooCommerce product as a course (Course details box) to see it here."
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:134
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:163
 msgid "Nothing to list yet: fill in the lists in the course's details."
 msgstr ""
 
@@ -3074,6 +3139,7 @@ msgid "Buy box"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:50
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:85
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:107
 #: includes/Modules/Builder/Elementor/Widgets/Newsletter_Form.php:59
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:72
@@ -3095,8 +3161,9 @@ msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:72
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:116
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:94
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:193
-#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:68
+#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:71
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:191
 #: includes/Modules/Builder/Elementor/Widgets/Newsletter_Form.php:148
 #: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:98
@@ -3111,6 +3178,7 @@ msgid "Register for the course"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:75
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:97
 msgid "Used while registration is open; the other states have their own text."
 msgstr ""
 
@@ -3123,6 +3191,7 @@ msgid "Empty: the number from Lenz's mobile menu support box. Clear both to hide
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:95
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:108
 #: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:72
 #: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:148
 msgid "Price"
@@ -3143,6 +3212,7 @@ msgstr ""
 #. translators: %s: number of people.
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:129
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:159
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:149
 #, php-format
 msgid "%s people"
 msgstr ""
@@ -3303,6 +3373,59 @@ msgid "Play the intro video"
 msgstr ""
 
 #. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:37
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:80
+msgid "Course menu"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:68
+#: includes/Modules/Panel/Screens/Courses.php:65
+msgid "About the course"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:89
+msgid "Side card (put it in a sticky column)"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:90
+msgid "Bar that sticks under the header"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:119
+msgid "Section ID"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:122
+msgid "The CSS ID of the section (Advanced tab), without #."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:141
+msgid "Links whose section is missing on the page are left out."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:148
+msgid "Course facts at the bottom"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:163
+msgid "Current item colour"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:188
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:122
+#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:108
+msgid "Sessions"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:224
+msgid "Add links to the sections of the page (their CSS IDs)."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:238
+msgid "Course sections"
+msgstr ""
+
+#. translators: %s: widget name.
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:29
 msgid "Course outcome"
 msgstr ""
@@ -3313,6 +3436,42 @@ msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:68
 msgid "Nothing to show yet: fill in the outcome in the course's details."
+msgstr ""
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:33
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:43
+msgid "Course summary"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:65
+msgid "H1 at the top of the page; H2 for the card repeated further down."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:72
+#: includes/Modules/Builder/Project_Meta_Box.php:76
+#: includes/Modules/Panel/Screens/Portfolio.php:124
+msgid "Facts"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:84
+msgid "Cover"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:96
+msgid "Join this course"
+msgstr ""
+
+#. translators: %s: number of sessions.
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:146
+#, php-format
+msgid "%s sessions"
+msgstr ""
+
+#. translators: %s: fact label («مدرس»).
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:175
+#, php-format
+msgid "%s:"
 msgstr ""
 
 #. translators: %s: widget name.
@@ -3381,10 +3540,6 @@ msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:101
 msgid "Optional. The first row is the first session's icon, and so on; sessions without a row use the icon above."
-msgstr ""
-
-#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:108
-msgid "Sessions"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:115
@@ -3986,27 +4141,28 @@ msgid "Paste the map's embed code, or at least an address."
 msgstr ""
 
 #. translators: %s: widget name.
-#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:31
-msgid "Mobile buy bar"
-msgstr ""
-
-#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:41
+#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:33
+#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:43
 msgid "Buy bar"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:47
-msgid "Fixed to the bottom of the screen on phones (and tablets if chosen), once the buy box scrolls away. In the editor it is shown in place."
+#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:49
+msgid "Fixed to the bottom of the screen while the buy box and the registration form are out of view. In the editor it is shown in place."
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:55
+#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:57
 msgid "Show on"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:59
+#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:61
+msgid "All screens"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:62
 msgid "Phones"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:60
+#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:63
 msgid "Phones and tablets"
 msgstr ""
 
@@ -5273,11 +5429,6 @@ msgstr ""
 msgid "A large outlined word above the section, as on the dark band of the mockups."
 msgstr ""
 
-#. translators: %s: widget name.
-#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:33
-msgid "Simple list"
-msgstr ""
-
 #: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:48
 #: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:109
 #: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:129
@@ -6295,6 +6446,14 @@ msgstr ""
 msgid "The same course page with the buy box beside the content, following the visitor while scrolling."
 msgstr ""
 
+#: includes/Modules/Builder/Presets/Catalog.php:190
+msgid "Course with a side menu"
+msgstr ""
+
+#: includes/Modules/Builder/Presets/Catalog.php:191
+msgid "A summary card (cover, facts, price), the sections beside a menu that follows the visitor and marks the section on screen (a menu bar on tablets and phones), the summary card again at the end, and the buy bar on every screen."
+msgstr ""
+
 #: includes/Modules/Builder/Project_Meta_Box.php:33
 msgid "Project details (Lenz+)"
 msgstr ""
@@ -6330,11 +6489,6 @@ msgstr ""
 
 #: includes/Modules/Builder/Project_Meta_Box.php:73
 msgid "Empty: the year it was published."
-msgstr ""
-
-#: includes/Modules/Builder/Project_Meta_Box.php:76
-#: includes/Modules/Panel/Screens/Portfolio.php:124
-msgid "Facts"
 msgstr ""
 
 #: includes/Modules/Builder/Project_Meta_Box.php:78
@@ -7391,10 +7545,6 @@ msgstr ""
 
 #: includes/Modules/Panel/Screens/Courses.php:60
 msgid "No courses yet. Add one with the + button."
-msgstr ""
-
-#: includes/Modules/Panel/Screens/Courses.php:65
-msgid "About the course"
 msgstr ""
 
 #: includes/Modules/Panel/Screens/Courses.php:154

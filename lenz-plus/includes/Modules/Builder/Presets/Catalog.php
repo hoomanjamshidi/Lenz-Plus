@@ -185,6 +185,12 @@ final class Catalog {
 				'description' => __( 'The same course page with the buy box beside the content, following the visitor while scrolling.', 'lenz-plus' ),
 				'build'       => array( Courses::class, 'single_sidebar' ),
 			),
+			'course-nav'          => array(
+				'type'        => 'course',
+				'label'       => __( 'Course with a side menu', 'lenz-plus' ),
+				'description' => __( 'A summary card (cover, facts, price), the sections beside a menu that follows the visitor and marks the section on screen (a menu bar on tablets and phones), the summary card again at the end, and the buy bar on every screen.', 'lenz-plus' ),
+				'build'       => array( Courses::class, 'single_nav' ),
+			),
 		);
 	}
 

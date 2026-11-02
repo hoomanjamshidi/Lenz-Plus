@@ -2,7 +2,8 @@
 /**
  * Courses: WooCommerce products flagged by the plugin's «Course details
  * (Lenz+)» box. Reads what the course widgets show (status, format,
- * schedule, capacity, the learning lists, curriculum, FAQ, instructor) and
+ * schedule, capacity, the learning lists (learn, who it is and is not for),
+ * curriculum, FAQ, instructor) and
  * decides what the buy buttons do.
  *
  * Statuses: `open` (registration open), `soon` (coming soon: a waitlist
@@ -81,6 +82,7 @@ final class Course_Data {
 			'learn'         => array(),
 			'audience'      => array(),
 			'audience_note' => '',
+			'not_for'       => array(),
 			// [title, description] of each session.
 			'curriculum'    => array(),
 			'outcome'       => '',

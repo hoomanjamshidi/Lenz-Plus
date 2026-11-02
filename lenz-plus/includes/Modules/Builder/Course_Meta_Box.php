@@ -138,6 +138,7 @@ final class Course_Meta_Box {
 			$this->area_row( 'learn', __( 'What you will learn', 'lenz-plus' ), implode( "\n", $d['learn'] ), __( 'One per line.', 'lenz-plus' ) );
 			$this->area_row( 'audience', __( 'Who it is for', 'lenz-plus' ), implode( "\n", $d['audience'] ), __( 'One per line.', 'lenz-plus' ) );
 			$this->text_row( 'audience_note', __( 'Note under "Who it is for"', 'lenz-plus' ), $d['audience_note'], '' );
+			$this->area_row( 'not_for', __( 'Who it is not for', 'lenz-plus' ), implode( "\n", $d['not_for'] ), __( 'One per line.', 'lenz-plus' ) );
 			$this->area_row( 'curriculum', __( 'Curriculum', 'lenz-plus' ), $pairs( $d['curriculum'] ), __( 'One session per line, as "Title | what it covers".', 'lenz-plus' ) );
 			$this->area_row( 'outcome', __( 'Outcome', 'lenz-plus' ), $d['outcome'], __( 'What participants can do at the end.', 'lenz-plus' ) );
 			$this->area_row( 'faq', __( 'Questions', 'lenz-plus' ), $pairs( $d['faq'] ), __( 'One per line, as "Question | answer".', 'lenz-plus' ) );
@@ -260,6 +261,7 @@ final class Course_Meta_Box {
 			'learn'         => $lines( 'learn' ),
 			'audience'      => $lines( 'audience' ),
 			'audience_note' => $text( 'audience_note' ),
+			'not_for'       => $lines( 'not_for' ),
 			'curriculum'    => $pairs( 'curriculum' ),
 			'outcome'       => trim( sanitize_textarea_field( $get( 'outcome' ) ) ),
 			'faq'           => $pairs( 'faq' ),

@@ -8,7 +8,9 @@
  * (#waitlist). The course page is a route template for WooCommerce products
  * marked as courses: everything comes from the course's details box. It
  * comes as the mockups' single column with the buy box after the content,
- * and as a variant with the buy box sticky beside the content.
+ * as a variant with the buy box sticky beside the content, and as a page
+ * with a summary card on top, a sticky side menu of the sections (a menu
+ * bar on tablets and phones) and the summary card again at the end.
  *
  * @package LenzPlus
  */
@@ -185,7 +187,220 @@ final class Courses {
 		);
 	}
 
-	/** The phone buy bar (courses.js moves it to the bottom of the screen). */
+	/** The course page with a summary card and a sticky side menu of its sections. */
+	public static function single_nav(): array {
+		return array(
+			Blocks::band(
+				array(
+					El::w( 'lzp-breadcrumb', array( 'home_label' => 'خانه' ) ),
+					El::w( 'lzp-course-summary', array( 'button_text' => 'شرکت در این دوره' ) ),
+				),
+				array(
+					'pad'        => array( 24, 40, 44 ),
+					'pad_tablet' => array( 20, 24, 36 ),
+					'pad_mobile' => array( 14, 16, 26 ),
+					'gap'        => 18,
+				)
+			),
+			Blocks::band(
+				array(
+					El::box(
+						array(
+							'dir'        => 'row',
+							'dir_tablet' => 'column',
+							'align'      => 'flex-start',
+							'gap'        => 40,
+							'gap_tablet' => 0,
+						),
+						array(
+							El::box(
+								array(
+									'width'        => 74,
+									'width_tablet' => 100,
+									'width_mobile' => 100,
+									'fill'         => true,
+									'gap'          => 56,
+									'gap_tablet'   => 44,
+									'gap_mobile'   => 34,
+								),
+								array_merge(
+									array( El::w( 'lzp-course-nav', array_merge( array( 'layout' => 'bar' ), self::nav_items() ), array( 'hide' => array( 'desktop' ) ) ) ),
+									self::nav_sections()
+								)
+							),
+							El::box(
+								array(
+									'width'         => 26,
+									'fill'          => true,
+									'sticky'        => 'desktop',
+									'sticky_offset' => 24,
+									'tag'           => 'aside',
+									'hide'          => array( 'tablet', 'mobile' ),
+								),
+								array( El::w( 'lzp-course-nav', self::nav_items() ) )
+							),
+						)
+					),
+				),
+				array(
+					'pad'        => array( 0, 40, 56 ),
+					'pad_tablet' => array( 0, 24, 40 ),
+					'pad_mobile' => array( 0, 16, 28 ),
+				)
+			),
+			Blocks::band(
+				array(
+					El::w(
+						'lzp-course-summary',
+						array(
+							'label'       => 'ثبت‌نام در دوره',
+							'title_tag'   => 'h2',
+							'button_text' => 'شرکت در این دوره',
+						)
+					),
+				),
+				array(
+					'pad'        => array( 0, 40, 56 ),
+					'pad_tablet' => array( 0, 24, 40 ),
+					'pad_mobile' => array( 0, 16, 28 ),
+					'set'        => array( '_element_id' => 'buy' ),
+				)
+			),
+			self::enroll(),
+			self::buy_bar(),
+		);
+	}
+
+	/**
+	 * Links of the course menu (side card and bar), in the sections' order.
+	 *
+	 * @return array{items: array}
+	 */
+	private static function nav_items(): array {
+		$row = static function ( string $label, string $target, string $icon ): array {
+			return array(
+				'label'  => $label,
+				'target' => $target,
+				'icon'   => array(
+					'value'   => $icon,
+					'library' => 'fa-solid',
+				),
+			);
+		};
+
+		return array(
+			'items' => Blocks::rows(
+				array(
+					$row( 'درباره دوره', 'about', 'fas fa-info-circle' ),
+					$row( 'چه چیزهایی یاد می‌گیری', 'learn', 'fas fa-lightbulb' ),
+					$row( 'سرفصل‌های دوره', 'curriculum', 'fas fa-list-ul' ),
+					$row( 'مدرس دوره', 'instructor', 'fas fa-chalkboard-teacher' ),
+					$row( 'خروجی دوره', 'outcome', 'fas fa-trophy' ),
+					$row( 'مخاطبین دوره', 'audience', 'fas fa-users' ),
+					$row( 'سوالات متداول', 'faq', 'fas fa-question-circle' ),
+				)
+			),
+		);
+	}
+
+	/**
+	 * The sections the course menu links to, each a box with its HTML id;
+	 * `lzp-course-part` hides a box left with only its heading (a course
+	 * without an instructor, say), and the menu drops its link.
+	 *
+	 * @return array<int, array>
+	 */
+	private static function nav_sections(): array {
+		$section = static function ( string $id, string $title, array $widgets ): array {
+			return El::box(
+				array(
+					'set' => array(
+						'_element_id' => $id,
+						'css_classes' => 'lzp-course-part',
+					),
+				),
+				array_merge( array( Blocks::heading( $title ) ), $widgets )
+			);
+		};
+
+		return array(
+			$section( 'about', 'درباره دوره', array( El::w( 'lzp-post-content' ) ) ),
+			$section( 'learn', 'در این دوره چه چیزهایی یاد می‌گیری؟', array( El::w( 'lzp-checklist-grid', array( 'source' => 'learn' ) ) ) ),
+			$section(
+				'curriculum',
+				'سرفصل‌های دوره',
+				array(
+					El::w(
+						'lzp-curriculum',
+						array(
+							'open_first' => 'yes',
+							'marker'     => 'icon',
+							'icon'       => array(
+								'value'   => 'fas fa-play-circle',
+								'library' => 'fa-solid',
+							),
+						)
+					),
+				)
+			),
+			$section(
+				'instructor',
+				'مدرس دوره',
+				array(
+					El::w(
+						'lzp-instructor-box',
+						array(
+							'look'         => 'split',
+							'label'        => '',
+							'primary_text' => '',
+						)
+					),
+				)
+			),
+			$section( 'outcome', 'خروجی دوره', array( El::w( 'lzp-course-outcome', array( 'label' => '' ) ) ) ),
+			$section(
+				'audience',
+				'مخاطبین دوره',
+				array(
+					El::w(
+						'lzp-checklist-grid',
+						array(
+							'source' => 'audience',
+							'look'   => 'list',
+							'intro'  => 'این دوره مناسب شماست اگر:',
+						)
+					),
+					El::w(
+						'lzp-checklist-grid',
+						array(
+							'source' => 'not_for',
+							'look'   => 'list',
+							'intro'  => 'این دوره مناسب شما نیست اگر:',
+						)
+					),
+				)
+			),
+			$section(
+				'faq',
+				'سوالات متداول',
+				array(
+					El::w(
+						'lzp-faq',
+						array(
+							'source'    => 'course',
+							'max_width' => array(
+								'unit'  => '%',
+								'size'  => 100,
+								'sizes' => array(),
+							),
+						)
+					),
+				)
+			),
+		);
+	}
+
+	/** The buy bar (courses.js moves it to the bottom of the screen). */
 	private static function buy_bar(): array {
 		return El::box(
 			array(

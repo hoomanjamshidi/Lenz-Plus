@@ -113,7 +113,11 @@ body.lzp-bn-on.lzp-bn-is-hidden .lzp-sb {
 	--lzp-sb-lift: var(--lzp-sb-safe);
 }
 
-/* The Lenz+ "Mobile buy bar" widget (course pages). */
+/* The Lenz+ "Buy bar" widget (course pages). */
+body:has(.lzp-buybar--all.is-visible) .lzp-sb {
+	--lzp-sb-bar: 80px;
+}
+
 @media (max-width: 767px) {
 	body:has(.lzp-buybar--mobile.is-visible) .lzp-sb {
 		--lzp-sb-bar: 80px;

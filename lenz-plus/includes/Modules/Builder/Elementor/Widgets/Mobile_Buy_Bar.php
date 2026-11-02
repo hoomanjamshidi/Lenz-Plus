@@ -1,9 +1,11 @@
 <?php
 /**
- * Fixed buy bar for phones on a course page: the price and the main button
- * (same action as the buy box), shown once the buy box scrolls out of view
- * (courses.js). It sits above the Lenz+ bottom navigation, and the support
- * button lifts over it (support-button.css watches `.lzp-buybar--mobile.is-visible`).
+ * Fixed buy bar at the bottom of a course page: the price and the main button
+ * (same action as the buy box), plus the course title on wide screens. It
+ * shows while neither the buy box nor the enroll form is on screen
+ * (courses.js), on every screen or only on phones (and tablets). It sits
+ * above the Lenz+ bottom navigation, and the support button lifts over it
+ * (support-button.css watches `.lzp-buybar--<devices>.is-visible`).
  *
  * @package LenzPlus
  */
@@ -16,7 +18,7 @@ use LenzPlus\Modules\Builder\Course_Data;
 defined( 'ABSPATH' ) || exit;
 
 /**
- * The «Mobile buy bar (Lenz+)» widget.
+ * The «Buy bar (Lenz+)» widget (id kept from when it was phones only).
  */
 final class Mobile_Buy_Bar extends Course_Base {
 
@@ -28,7 +30,7 @@ final class Mobile_Buy_Bar extends Course_Base {
 	/** Name in the Elementor panel. */
 	public function get_title(): string {
 		/* translators: %s: widget name. */
-		return sprintf( __( '%s (Lenz+)', 'lenz-plus' ), __( 'Mobile buy bar', 'lenz-plus' ) );
+		return sprintf( __( '%s (Lenz+)', 'lenz-plus' ), __( 'Buy bar', 'lenz-plus' ) );
 	}
 
 	/** Elementor panel icon. */
@@ -44,7 +46,7 @@ final class Mobile_Buy_Bar extends Course_Base {
 			'info',
 			array(
 				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => esc_html__( 'Fixed to the bottom of the screen on phones (and tablets if chosen), once the buy box scrolls away. In the editor it is shown in place.', 'lenz-plus' ),
+				'raw'             => esc_html__( 'Fixed to the bottom of the screen while the buy box and the registration form are out of view. In the editor it is shown in place.', 'lenz-plus' ),
 				'content_classes' => 'elementor-descriptor',
 			)
 		);
@@ -54,8 +56,9 @@ final class Mobile_Buy_Bar extends Course_Base {
 			array(
 				'label'   => __( 'Show on', 'lenz-plus' ),
 				'type'    => Controls_Manager::SELECT,
-				'default' => 'mobile',
+				'default' => 'all',
 				'options' => array(
+					'all'    => __( 'All screens', 'lenz-plus' ),
 					'mobile' => __( 'Phones', 'lenz-plus' ),
 					'tablet' => __( 'Phones and tablets', 'lenz-plus' ),
 				),
@@ -88,11 +91,12 @@ final class Mobile_Buy_Bar extends Course_Base {
 		}
 
 		printf(
-			'<div class="lzp-buybar lzp-buybar--%1$s%2$s" data-lzp-buybar><span class="lzp-buybar__price">%3$s</span>%4$s</div>',
-			esc_attr( 'tablet' === $s['devices'] ? 'tablet' : 'mobile' ),
+			'<div class="lzp-buybar lzp-buybar--%1$s%2$s" data-lzp-buybar><div class="lzp-buybar__inner"><span class="lzp-buybar__title">%5$s</span><span class="lzp-buybar__price">%3$s</span>%4$s</div></div>',
+			esc_attr( in_array( $s['devices'], array( 'mobile', 'tablet' ), true ) ? $s['devices'] : 'all' ),
 			$this->in_editor() ? ' is-editor' : '',
 			Course_Data::price_html( $id ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- WooCommerce's price markup.
-			Course_Data::button_html( $action, 'lzp-btn lzp-btn--primary lzp-buybar__btn', (string) $s['button_text'] ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in button_html().
+			Course_Data::button_html( $action, 'lzp-btn lzp-btn--primary lzp-buybar__btn', (string) $s['button_text'] ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in button_html().
+			esc_html( get_the_title( $id ) )
 		);
 	}
 }

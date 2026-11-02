@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lenz Plus 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/lenz-plus\n"
-"POT-Creation-Date: 2026-11-02T07:21:00+00:00\n"
+"POT-Creation-Date: 2026-11-02T07:33:22+00:00\n"
 "PO-Revision-Date: 2026-10-05T16:14:43+00:00\n"
 "Last-Translator: Hooman Jamshidi\n"
 "Language-Team: Persian\n"
@@ -33,8 +33,8 @@ msgid "Hooman Jamshidi"
 msgstr "هومن جمشیدی"
 
 #: includes/Admin/Admin.php:59
-#: includes/Modules/Builder/Elementor/Integration.php:136
-#: includes/Modules/Builder/Elementor/Integration.php:173
+#: includes/Modules/Builder/Elementor/Integration.php:138
+#: includes/Modules/Builder/Elementor/Integration.php:175
 #: includes/Modules/Panel/views/admin.php:139
 msgid "Lenz+"
 msgstr "لنز+"
@@ -322,6 +322,7 @@ msgstr "پیشخوان کاربر، یا ورود برای مهمان‌ها."
 #: includes/Modules/Bottom_Nav/Item_Types.php:87
 #: includes/Modules/Bottom_Nav/Item_Types.php:89
 #: includes/Modules/Bottom_Nav/views/admin.php:608
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:158
 #: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:114
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:73
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:78
@@ -734,7 +735,7 @@ msgstr "سایه"
 
 #: includes/Modules/Bottom_Nav/views/admin.php:312
 #: includes/Modules/Bottom_Nav/views/admin.php:324
-#: includes/Modules/Builder/Elementor/Integration.php:185
+#: includes/Modules/Builder/Elementor/Integration.php:187
 #: includes/Modules/Builder/Elementor/Widgets/Base.php:117
 #: includes/Modules/Builder/Elementor/Widgets/Request_Form.php:125
 #: includes/Modules/Builder/Elementor/Widgets/Stats.php:159
@@ -959,6 +960,7 @@ msgstr "نوع دکمه"
 #: includes/Modules/Builder/Elementor/Widgets/Author_Box.php:49
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:63
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:44
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:48
 #: includes/Modules/Builder/Elementor/Widgets/Form_Base.php:95
 #: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:50
 #: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:102
@@ -977,6 +979,7 @@ msgstr "عنوان"
 #: includes/Modules/Builder/Elementor/Widgets/Checklist.php:95
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:79
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:63
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:128
 #: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:62
 #: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:72
 #: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:87
@@ -1608,88 +1611,90 @@ msgstr "پاسخ‌ها"
 msgid "Sent on"
 msgstr "تاریخ ارسال"
 
-#: includes/Modules/Builder/Course_Data.php:166
+#: includes/Modules/Builder/Course_Data.php:168
 #: includes/Modules/Builder/Course_Meta_Box.php:97
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:68
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:189
 #: includes/Modules/Panel/Screens/Courses.php:140
 msgid "Online"
 msgstr "آنلاین"
 
-#: includes/Modules/Builder/Course_Data.php:166
+#: includes/Modules/Builder/Course_Data.php:168
 #: includes/Modules/Builder/Course_Meta_Box.php:96
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:69
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:189
 #: includes/Modules/Panel/Screens/Courses.php:139
 msgid "In person"
 msgstr "حضوری"
 
 #. translators: 1: "In person", 2: city or venue.
-#: includes/Modules/Builder/Course_Data.php:169
+#: includes/Modules/Builder/Course_Data.php:171
 #, php-format
 msgid "%1$s, %2$s"
 msgstr "%1$s، %2$s"
 
-#: includes/Modules/Builder/Course_Data.php:181
+#: includes/Modules/Builder/Course_Data.php:183
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:70
 msgid "Coming soon"
 msgstr "به‌زودی"
 
-#: includes/Modules/Builder/Course_Data.php:185
+#: includes/Modules/Builder/Course_Data.php:187
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:257
 msgid "Held"
 msgstr "برگزار شد"
 
-#: includes/Modules/Builder/Course_Data.php:190
+#: includes/Modules/Builder/Course_Data.php:192
 msgid "Full"
 msgstr "ظرفیت تکمیل"
 
 #. translators: %s: number of seats left.
-#: includes/Modules/Builder/Course_Data.php:194
+#: includes/Modules/Builder/Course_Data.php:196
 #, php-format
 msgid "%s seats left"
 msgstr "%s ظرفیت باقی‌مانده"
 
-#: includes/Modules/Builder/Course_Data.php:197
+#: includes/Modules/Builder/Course_Data.php:199
 #: includes/Modules/Builder/Course_Meta_Box.php:77
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:67
 #: includes/Modules/Panel/Screens/Courses.php:104
 msgid "Registration open"
 msgstr "در حال ثبت‌نام"
 
-#: includes/Modules/Builder/Course_Data.php:222
+#: includes/Modules/Builder/Course_Data.php:224
 msgid "Free"
 msgstr "رایگان"
 
-#: includes/Modules/Builder/Course_Data.php:234
+#: includes/Modules/Builder/Course_Data.php:236
 msgid "Current price:"
 msgstr "قیمت فعلی:"
 
-#: includes/Modules/Builder/Course_Data.php:236
+#: includes/Modules/Builder/Course_Data.php:238
 msgid "Original price:"
 msgstr "قیمت اصلی:"
 
 #. translators: %s: discount percent.
-#: includes/Modules/Builder/Course_Data.php:240
+#: includes/Modules/Builder/Course_Data.php:242
 #, php-format
 msgid "%s%% off"
 msgstr "%s٪ تخفیف"
 
-#: includes/Modules/Builder/Course_Data.php:277
+#: includes/Modules/Builder/Course_Data.php:279
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:260
 msgid "Let me know"
 msgstr "خبرم کن"
 
-#: includes/Modules/Builder/Course_Data.php:285
-#: includes/Modules/Builder/Course_Data.php:300
+#: includes/Modules/Builder/Course_Data.php:287
+#: includes/Modules/Builder/Course_Data.php:302
 msgid "Fully booked"
 msgstr "ظرفیت تکمیل شد"
 
-#: includes/Modules/Builder/Course_Data.php:291
-#: includes/Modules/Builder/Course_Data.php:313
-#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:70
+#: includes/Modules/Builder/Course_Data.php:293
+#: includes/Modules/Builder/Course_Data.php:315
+#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:73
 msgid "Register"
 msgstr "ثبت‌نام"
 
-#: includes/Modules/Builder/Course_Data.php:306
+#: includes/Modules/Builder/Course_Data.php:308
 msgid "In your cart · Checkout"
 msgstr "در سبد است · تکمیل خرید"
 
@@ -1737,6 +1742,7 @@ msgstr "مثلاً عکاسی با موبایل"
 #: includes/Modules/Builder/Course_Meta_Box.php:90
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:110
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:75
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:124
 #: includes/Modules/Panel/Screens/Courses.php:177
 msgid "Level"
 msgstr "سطح"
@@ -1749,6 +1755,8 @@ msgstr "مثلاً مقدماتی"
 #: includes/Modules/Builder/Course_Meta_Box.php:93
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:119
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:155
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:189
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:120
 #: includes/Modules/Panel/Screens/Courses.php:137
 msgid "Format"
 msgstr "شکل برگزاری"
@@ -1761,7 +1769,9 @@ msgstr "شهر یا محل برگزاری"
 #: includes/Modules/Builder/Course_Meta_Box.php:103
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:109
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:154
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:187
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:74
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:121
 #: includes/Modules/Panel/Screens/Courses.php:146
 msgid "Duration"
 msgstr "مدت زمان"
@@ -1773,6 +1783,7 @@ msgstr "مثلاً ۳ تا ۴ ساعت"
 
 #: includes/Modules/Builder/Course_Meta_Box.php:104
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:120
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:123
 #: includes/Modules/Panel/Screens/Courses.php:145
 msgid "Date and time"
 msgstr "تاریخ و ساعت"
@@ -1795,6 +1806,7 @@ msgstr "روی دوره‌های برگزارشده نمایش داده می‌�
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:112
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:156
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:77
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:125
 #: includes/Modules/Panel/Screens/Courses.php:178
 msgid "Tools"
 msgstr "ابزار"
@@ -1806,6 +1818,7 @@ msgstr "مثلاً موبایل"
 #. translators: %s: number of people.
 #: includes/Modules/Builder/Course_Meta_Box.php:109
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:159
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:126
 #: includes/Modules/Panel/Screens/Courses.php:147
 msgid "Capacity"
 msgstr "ظرفیت"
@@ -1837,6 +1850,8 @@ msgstr "فرم درخواست در همان صفحه (‎#enroll‎)"
 
 #. translators: %s: widget name.
 #: includes/Modules/Builder/Course_Meta_Box.php:124
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:71
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:119
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:47
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:62
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:82
@@ -1869,18 +1884,21 @@ msgid "One per line, as \"Label | value\" (e.g. Photo critique | In the last par
 msgstr "هر کدام در یک خط به شکل «عنوان | مقدار» (مثلاً نقد عکس | در بخش پایانی)."
 
 #: includes/Modules/Builder/Course_Meta_Box.php:138
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:69
 #: includes/Modules/Panel/Screens/Courses.php:193
 msgid "What you will learn"
 msgstr "در این دوره یاد می‌گیرید"
 
 #: includes/Modules/Builder/Course_Meta_Box.php:138
 #: includes/Modules/Builder/Course_Meta_Box.php:139
+#: includes/Modules/Builder/Course_Meta_Box.php:141
 #: includes/Modules/Panel/Screens/Courses.php:193
 #: includes/Modules/Panel/Screens/Courses.php:194
 msgid "One per line."
 msgstr "هر کدام در یک خط."
 
 #: includes/Modules/Builder/Course_Meta_Box.php:139
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:73
 #: includes/Modules/Panel/Screens/Courses.php:194
 msgid "Who it is for"
 msgstr "برای چه کسانی است"
@@ -1890,30 +1908,37 @@ msgstr "برای چه کسانی است"
 msgid "Note under \"Who it is for\""
 msgstr "توضیح زیر «برای چه کسانی است»"
 
-#. translators: %s: widget name.
 #: includes/Modules/Builder/Course_Meta_Box.php:141
+msgid "Who it is not for"
+msgstr "این دوره برای چه کسانی نیست"
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Course_Meta_Box.php:142
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:70
 #: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:32
 #: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:42
 #: includes/Modules/Panel/Screens/Courses.php:196
 msgid "Curriculum"
 msgstr "سرفصل‌ها"
 
-#: includes/Modules/Builder/Course_Meta_Box.php:141
+#: includes/Modules/Builder/Course_Meta_Box.php:142
 #: includes/Modules/Panel/Screens/Courses.php:196
 msgid "One session per line, as \"Title | what it covers\"."
 msgstr "هر جلسه در یک خط به شکل «عنوان | چه چیزی را پوشش می‌دهد»."
 
-#: includes/Modules/Builder/Course_Meta_Box.php:142
+#: includes/Modules/Builder/Course_Meta_Box.php:143
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:72
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:39
 #: includes/Modules/Panel/Screens/Courses.php:197
 msgid "Outcome"
 msgstr "خروجی"
 
-#: includes/Modules/Builder/Course_Meta_Box.php:142
+#: includes/Modules/Builder/Course_Meta_Box.php:143
 msgid "What participants can do at the end."
 msgstr "شرکت‌کننده‌ها در پایان چه کاری می‌توانند انجام دهند."
 
-#: includes/Modules/Builder/Course_Meta_Box.php:143
+#: includes/Modules/Builder/Course_Meta_Box.php:144
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:74
 #: includes/Modules/Builder/Elementor/Widgets/Faq.php:49
 #: includes/Modules/Builder/Elementor/Widgets/Faq.php:54
 #: includes/Modules/Builder/Elementor/Widgets/Faq.php:86
@@ -1922,7 +1947,7 @@ msgstr "شرکت‌کننده‌ها در پایان چه کاری می‌توا
 msgid "Questions"
 msgstr "پرسش‌ها"
 
-#: includes/Modules/Builder/Course_Meta_Box.php:143
+#: includes/Modules/Builder/Course_Meta_Box.php:144
 #: includes/Modules/Panel/Screens/Courses.php:199
 msgid "One per line, as \"Question | answer\"."
 msgstr "هر کدام در یک خط به شکل «پرسش | پاسخ»."
@@ -1957,69 +1982,69 @@ msgstr "رزرو پروژه"
 msgid "Home page"
 msgstr "صفحه اصلی"
 
-#: includes/Modules/Builder/Elementor/Integration.php:181
+#: includes/Modules/Builder/Elementor/Integration.php:183
 msgid "Brand surface"
 msgstr "زمینه برند"
 
-#: includes/Modules/Builder/Elementor/Integration.php:186
+#: includes/Modules/Builder/Elementor/Integration.php:188
 msgid "White"
 msgstr "سفید"
 
-#: includes/Modules/Builder/Elementor/Integration.php:187
+#: includes/Modules/Builder/Elementor/Integration.php:189
 msgid "Card (with border)"
 msgstr "کارت (با حاشیه)"
 
-#: includes/Modules/Builder/Elementor/Integration.php:188
+#: includes/Modules/Builder/Elementor/Integration.php:190
 msgid "Card (dashed border)"
 msgstr "کارت (حاشیه خط‌چین)"
 
-#: includes/Modules/Builder/Elementor/Integration.php:189
+#: includes/Modules/Builder/Elementor/Integration.php:191
 msgid "Soft band"
 msgstr "نوار روشن"
 
-#: includes/Modules/Builder/Elementor/Integration.php:190
+#: includes/Modules/Builder/Elementor/Integration.php:192
 msgid "Tile"
 msgstr "کاشی"
 
-#: includes/Modules/Builder/Elementor/Integration.php:191
+#: includes/Modules/Builder/Elementor/Integration.php:193
 msgid "Ink band (dark)"
 msgstr "نوار جوهری (تیره)"
 
-#: includes/Modules/Builder/Elementor/Integration.php:192
+#: includes/Modules/Builder/Elementor/Integration.php:194
 msgid "Dark card"
 msgstr "کارت تیره"
 
-#: includes/Modules/Builder/Elementor/Integration.php:193
+#: includes/Modules/Builder/Elementor/Integration.php:195
 msgid "Header bar (translucent)"
 msgstr "نوار هدر (نیمه‌شفاف)"
 
-#: includes/Modules/Builder/Elementor/Integration.php:196
+#: includes/Modules/Builder/Elementor/Integration.php:198
 msgid "Uses the brand colours from Lenz+ → Page templates. Dark surfaces switch the text inside to light colours. A background set in the Style tab still wins."
 msgstr "از رنگ‌های برند در Lenz+ ← قالب‌های صفحه استفاده می‌کند. روی سطح‌های تیره، متن‌های داخل روشن می‌شوند. پس‌زمینه‌ای که در زبانه «استایل» تنظیم شود اولویت دارد."
 
-#: includes/Modules/Builder/Elementor/Integration.php:203
+#: includes/Modules/Builder/Elementor/Integration.php:205
 msgid "Sticky while scrolling"
 msgstr "چسبان هنگام اسکرول"
 
-#: includes/Modules/Builder/Elementor/Integration.php:207
+#: includes/Modules/Builder/Elementor/Integration.php:209
 #: includes/Modules/Builder/views/admin.php:41
 #: includes/Modules/Support_Button/Module.php:111
 msgid "Off"
 msgstr "خاموش"
 
-#: includes/Modules/Builder/Elementor/Integration.php:208
+#: includes/Modules/Builder/Elementor/Integration.php:210
 msgid "Desktop only"
 msgstr "فقط دسکتاپ"
 
-#: includes/Modules/Builder/Elementor/Integration.php:209
+#: includes/Modules/Builder/Elementor/Integration.php:211
 msgid "All devices"
 msgstr "همه دستگاه‌ها"
 
-#: includes/Modules/Builder/Elementor/Integration.php:213
+#: includes/Modules/Builder/Elementor/Integration.php:215
 msgid "Keeps a column (e.g. the buy box) in view inside its parent. The parent must be taller than this container."
 msgstr "یک ستون (مثلاً باکس خرید) را هنگام اسکرول داخل والدش ثابت نگه می‌دارد. ارتفاع والد باید از این کانتینر بیشتر باشد."
 
-#: includes/Modules/Builder/Elementor/Integration.php:220
+#: includes/Modules/Builder/Elementor/Integration.php:222
 msgid "Distance from top"
 msgstr "فاصله از بالا"
 
@@ -2062,14 +2087,16 @@ msgstr "نتایج جستجو"
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:30
 #: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:32
 #: includes/Modules/Builder/Elementor/Widgets/Checklist.php:31
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:33
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:34
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:36
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:40
 #: includes/Modules/Builder/Elementor/Widgets/Copyright.php:33
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:35
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:42
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:35
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:37
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:29
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:33
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:30
 #: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:32
 #: includes/Modules/Builder/Elementor/Widgets/Faq.php:34
@@ -2082,7 +2109,7 @@ msgstr "نتایج جستجو"
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:47
 #: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:36
 #: includes/Modules/Builder/Elementor/Widgets/Map_Embed.php:38
-#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:31
+#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:33
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:39
 #: includes/Modules/Builder/Elementor/Widgets/Newsletter_Form.php:37
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:42
@@ -2242,6 +2269,7 @@ msgstr "یک نوشته وبلاگ منتشر کنید تا اطلاعات وا�
 
 #: includes/Modules/Builder/Elementor/Widgets/Booking_Form.php:73
 #: includes/Modules/Builder/Elementor/Widgets/Brand_Logos.php:114
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:90
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:135
 #: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:139
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:67
@@ -2409,6 +2437,7 @@ msgstr "اگر ایمیل وارد کند: کد پیگیری و خلاصه رز�
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:151
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:92
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:52
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:105
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:106
 #: includes/Modules/Builder/Elementor/Widgets/Featured_Post.php:84
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:196
@@ -2442,6 +2471,8 @@ msgstr "عنوان مرحله‌ها"
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:94
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:176
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:106
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:100
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:107
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:50
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:108
 #: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:110
@@ -2502,11 +2533,12 @@ msgstr "نوع پروژه"
 #: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:172
 #: includes/Modules/Builder/Elementor/Widgets/Checklist.php:70
 #: includes/Modules/Builder/Elementor/Widgets/Checklist.php:105
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:63
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:108
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:65
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:137
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:88
 #: includes/Modules/Builder/Elementor/Widgets/Copyright.php:53
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:107
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:111
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:54
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:60
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:109
@@ -2712,6 +2744,8 @@ msgid "Home label"
 msgstr "عنوان خانه"
 
 #: includes/Modules/Builder/Elementor/Widgets/Breadcrumb.php:71
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:136
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:170
 #: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:88
 #: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:144
 #: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:150
@@ -2839,6 +2873,7 @@ msgid "Selected work"
 msgstr "اثر برگزیده"
 
 #: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:142
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:57
 #: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:97
 msgid "Title tag"
 msgstr "تگ عنوان"
@@ -2862,10 +2897,10 @@ msgstr "چک‌لیست"
 #: includes/Modules/Builder/Elementor/Widgets/Checklist.php:56
 #: includes/Modules/Builder/Elementor/Widgets/Checklist.php:80
 #: includes/Modules/Builder/Elementor/Widgets/Checklist.php:104
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:43
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:48
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:73
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:107
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:44
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:49
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:75
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:136
 #: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:55
 #: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:60
 #: includes/Modules/Panel/Screens/Orders.php:295
@@ -2873,7 +2908,7 @@ msgid "Items"
 msgstr "موارد"
 
 #: includes/Modules/Builder/Elementor/Widgets/Checklist.php:60
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:54
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:56
 #: includes/Modules/Builder/Elementor/Widgets/Faq.php:58
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:87
 #: includes/Modules/Builder/Elementor/Widgets/Quote.php:55
@@ -2895,42 +2930,72 @@ msgid "Nothing to list: fill in \"What was done\" in the project's details."
 msgstr "چیزی برای نمایش نیست: «آنچه انجام شد» را در جزئیات پروژه پر کنید."
 
 #. translators: %s: widget name.
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:33
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:34
 msgid "Checklist grid"
 msgstr "شبکه چک‌لیست"
 
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:52
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:53
 msgid "The course's \"What you will learn\""
 msgstr "«آنچه یاد می‌گیری» دوره"
 
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:53
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:54
 msgid "The course's \"Who it is for\""
 msgstr "«برای چه کسانی است» دوره"
 
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:65
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:77
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:78
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:55
+msgid "The course's \"Who it is not for\""
+msgstr "«برای چه کسانی نیست» دوره"
+
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:67
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:79
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:80
 msgid "Something you will learn"
 msgstr "چیزی که یاد می‌گیری"
 
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:88
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:94
+msgid "Dashed boxes in columns"
+msgstr "کادرهای خط‌چین در چند ستون"
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:95
+#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:33
+msgid "Simple list"
+msgstr "فهرست ساده"
+
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:103
+msgid "Mark"
+msgstr "نشانه"
+
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:107
+msgid "Automatic (a cross for \"Who it is not for\")"
+msgstr "خودکار (ضربدر برای «برای چه کسانی نیست»)"
+
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:108
+msgid "Tick"
+msgstr "تیک"
+
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:109
+msgid "Cross"
+msgstr "ضربدر"
+
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:117
 msgid "Line above"
 msgstr "خط بالا"
 
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:97
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:126
 msgid "Note below"
 msgstr "توضیح پایین"
 
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:101
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:130
 msgid "With \"Who it is for\", empty shows the course's own note."
 msgstr "با «برای چه کسانی است»، اگر خالی بماند توضیح خود دوره نمایش داده می‌شود."
 
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:122
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:151
 #: includes/Modules/Builder/Elementor/Widgets/Course_Base.php:78
 msgid "Shows the course being viewed. Mark a WooCommerce product as a course (Course details box) to see it here."
 msgstr "دوره‌ای را که نمایش داده می‌شود نشان می‌دهد. برای دیدنش در اینجا یک محصول ووکامرس را دوره کنید (کادر جزئیات دوره)."
 
-#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:134
+#: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:163
 msgid "Nothing to list yet: fill in the lists in the course's details."
 msgstr "هنوز چیزی برای نمایش نیست: فهرست‌ها را در جزئیات دوره پر کنید."
 
@@ -3066,6 +3131,7 @@ msgid "Buy box"
 msgstr "کادر خرید"
 
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:50
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:85
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:107
 #: includes/Modules/Builder/Elementor/Widgets/Newsletter_Form.php:59
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:72
@@ -3087,8 +3153,9 @@ msgstr "مشخصات دوره"
 
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:72
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:116
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:94
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:193
-#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:68
+#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:71
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:191
 #: includes/Modules/Builder/Elementor/Widgets/Newsletter_Form.php:148
 #: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:98
@@ -3103,6 +3170,7 @@ msgid "Register for the course"
 msgstr "ثبت‌نام در دوره"
 
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:75
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:97
 msgid "Used while registration is open; the other states have their own text."
 msgstr "تا وقتی ثبت‌نام باز است استفاده می‌شود؛ حالت‌های دیگر متن خودشان را دارند."
 
@@ -3115,6 +3183,7 @@ msgid "Empty: the number from Lenz's mobile menu support box. Clear both to hide
 msgstr "خالی: شماره کادر پشتیبانی منوی موبایل لنز. برای پنهان کردن این خط هر دو را خالی کنید."
 
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:95
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:108
 #: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:72
 #: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:148
 msgid "Price"
@@ -3135,6 +3204,7 @@ msgstr "%1$s از %2$s نفر"
 #. translators: %s: number of people.
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:129
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:159
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:149
 #, php-format
 msgid "%s people"
 msgstr "%s نفر"
@@ -3295,6 +3365,59 @@ msgid "Play the intro video"
 msgstr "پخش ویدیوی معرفی"
 
 #. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:37
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:80
+msgid "Course menu"
+msgstr "منوی دوره"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:68
+#: includes/Modules/Panel/Screens/Courses.php:65
+msgid "About the course"
+msgstr "درباره دوره"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:89
+msgid "Side card (put it in a sticky column)"
+msgstr "کارت کناری (داخل ستون چسبان بگذار)"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:90
+msgid "Bar that sticks under the header"
+msgstr "نوار چسبان زیر هدر"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:119
+msgid "Section ID"
+msgstr "شناسه بخش"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:122
+msgid "The CSS ID of the section (Advanced tab), without #."
+msgstr "شناسه CSS بخش (تب پیشرفته)، بدون #."
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:141
+msgid "Links whose section is missing on the page are left out."
+msgstr "لینک‌هایی که بخششان در صفحه نیست نمایش داده نمی‌شوند."
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:148
+msgid "Course facts at the bottom"
+msgstr "مشخصات دوره در پایین"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:163
+msgid "Current item colour"
+msgstr "رنگ مورد فعال"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:188
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:122
+#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:108
+msgid "Sessions"
+msgstr "تعداد جلسات"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:224
+msgid "Add links to the sections of the page (their CSS IDs)."
+msgstr "به بخش‌های صفحه لینک اضافه کن (با شناسه CSS آن‌ها)."
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:238
+msgid "Course sections"
+msgstr "بخش‌های دوره"
+
+#. translators: %s: widget name.
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:29
 msgid "Course outcome"
 msgstr "خروجی دوره"
@@ -3306,6 +3429,42 @@ msgstr "آنچه به دست می‌آوری"
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:68
 msgid "Nothing to show yet: fill in the outcome in the course's details."
 msgstr "هنوز چیزی برای نمایش نیست: خروجی را در جزئیات دوره پر کنید."
+
+#. translators: %s: widget name.
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:33
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:43
+msgid "Course summary"
+msgstr "خلاصه دوره"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:65
+msgid "H1 at the top of the page; H2 for the card repeated further down."
+msgstr "H1 برای بالای صفحه؛ H2 برای کارتی که پایین‌تر تکرار می‌شود."
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:72
+#: includes/Modules/Builder/Project_Meta_Box.php:76
+#: includes/Modules/Panel/Screens/Portfolio.php:124
+msgid "Facts"
+msgstr "مشخصات"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:84
+msgid "Cover"
+msgstr "کاور"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:96
+msgid "Join this course"
+msgstr "شرکت در این دوره"
+
+#. translators: %s: number of sessions.
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:146
+#, php-format
+msgid "%s sessions"
+msgstr "%s جلسه"
+
+#. translators: %s: fact label («مدرس»).
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:175
+#, php-format
+msgid "%s:"
+msgstr "%s:"
 
 #. translators: %s: widget name.
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:30
@@ -3373,10 +3532,6 @@ msgstr "آیکن جداگانه برای هر جلسه"
 #: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:101
 msgid "Optional. The first row is the first session's icon, and so on; sessions without a row use the icon above."
 msgstr "اختیاری. ردیف اول آیکن جلسه اول است و به همین ترتیب؛ جلسه‌هایی که ردیف ندارند آیکن بالا را می‌گیرند."
-
-#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:108
-msgid "Sessions"
-msgstr "تعداد جلسات"
 
 #: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:115
 msgid "Marker colour"
@@ -3977,27 +4132,28 @@ msgid "Paste the map's embed code, or at least an address."
 msgstr "کد نقشه یا دست‌کم یک آدرس وارد کنید."
 
 #. translators: %s: widget name.
-#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:31
-msgid "Mobile buy bar"
-msgstr "نوار خرید موبایل"
-
-#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:41
+#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:33
+#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:43
 msgid "Buy bar"
 msgstr "نوار خرید"
 
-#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:47
-msgid "Fixed to the bottom of the screen on phones (and tablets if chosen), once the buy box scrolls away. In the editor it is shown in place."
-msgstr "وقتی کادر خرید از دید خارج شود، در پایین صفحه موبایل (و در صورت انتخاب تبلت) ثابت می‌ماند. در ویرایشگر سر جای خودش نمایش داده می‌شود."
+#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:49
+msgid "Fixed to the bottom of the screen while the buy box and the registration form are out of view. In the editor it is shown in place."
+msgstr "تا وقتی جعبه خرید و فرم ثبت‌نام در صفحه دیده نمی‌شوند، پایین صفحه ثابت می‌ماند. در ویرایشگر سر جای خودش نمایش داده می‌شود."
 
-#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:55
+#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:57
 msgid "Show on"
 msgstr "نمایش در"
 
-#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:59
+#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:61
+msgid "All screens"
+msgstr "همه صفحه‌نمایش‌ها"
+
+#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:62
 msgid "Phones"
 msgstr "موبایل"
 
-#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:60
+#: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:63
 msgid "Phones and tablets"
 msgstr "موبایل و تبلت"
 
@@ -5266,11 +5422,6 @@ msgstr "دو عکس با نسبت ۳:۴ و عکس‌های عمودی با نس�
 msgid "A large outlined word above the section, as on the dark band of the mockups."
 msgstr "یک کلمه بزرگ توخالی بالای بخش، مثل نوار تیره طرح‌ها."
 
-#. translators: %s: widget name.
-#: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:33
-msgid "Simple list"
-msgstr "فهرست ساده"
-
 #: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:48
 #: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:109
 #: includes/Modules/Builder/Elementor/Widgets/Simple_List.php:129
@@ -6287,6 +6438,14 @@ msgstr "دوره با کادر خرید چسبان"
 msgid "The same course page with the buy box beside the content, following the visitor while scrolling."
 msgstr "همان صفحه دوره با کادر خرید کنار محتوا که هنگام اسکرول همراه بازدیدکننده می‌ماند."
 
+#: includes/Modules/Builder/Presets/Catalog.php:190
+msgid "Course with a side menu"
+msgstr "دوره با منوی کناری"
+
+#: includes/Modules/Builder/Presets/Catalog.php:191
+msgid "A summary card (cover, facts, price), the sections beside a menu that follows the visitor and marks the section on screen (a menu bar on tablets and phones), the summary card again at the end, and the buy bar on every screen."
+msgstr "کارت خلاصه (کاور، مشخصات، قیمت)، بخش‌های دوره کنار منویی که همراه کاربر می‌آید و بخش در حال مطالعه را نشان می‌دهد (در تبلت و گوشی به‌صورت نوار)، تکرار کارت خلاصه در انتها و نوار ثبت‌نام در همه صفحه‌نمایش‌ها."
+
 #: includes/Modules/Builder/Project_Meta_Box.php:33
 msgid "Project details (Lenz+)"
 msgstr "جزئیات پروژه (لنز+)"
@@ -6323,11 +6482,6 @@ msgstr "سال"
 #: includes/Modules/Builder/Project_Meta_Box.php:73
 msgid "Empty: the year it was published."
 msgstr "خالی: سال انتشار."
-
-#: includes/Modules/Builder/Project_Meta_Box.php:76
-#: includes/Modules/Panel/Screens/Portfolio.php:124
-msgid "Facts"
-msgstr "مشخصات"
 
 #: includes/Modules/Builder/Project_Meta_Box.php:78
 msgid "One per line, as \"Label: value\" (e.g. Client: Nova). The first three also appear on featured project cards."
@@ -7384,10 +7538,6 @@ msgstr "ویرایش دوره"
 msgid "No courses yet. Add one with the + button."
 msgstr "هنوز دوره‌ای نیست. با دکمه + یکی اضافه کنید."
 
-#: includes/Modules/Panel/Screens/Courses.php:65
-msgid "About the course"
-msgstr "درباره دوره"
-
 #: includes/Modules/Panel/Screens/Courses.php:154
 msgid "When the stock is counted, the stock is the seats left."
 msgstr "اگر موجودی شمارش شود، موجودی همان ظرفیت باقی‌مانده است."
@@ -8314,6 +8464,12 @@ msgstr "لینک‌ها در پیش‌نمایش باز نمی‌شوند. رن�
 #, php-format
 msgid "Lenz Plus requires PHP %s or newer."
 msgstr "لنز پلاس به PHP نسخهٔ %s یا جدیدتر نیاز دارد."
+
+#~ msgid "Mobile buy bar"
+#~ msgstr "نوار خرید موبایل"
+
+#~ msgid "Fixed to the bottom of the screen on phones (and tablets if chosen), once the buy box scrolls away. In the editor it is shown in place."
+#~ msgstr "وقتی کادر خرید از دید خارج شود، در پایین صفحه موبایل (و در صورت انتخاب تبلت) ثابت می‌ماند. در ویرایشگر سر جای خودش نمایش داده می‌شود."
 
 #~ msgid "Choose the course's instructor in its Course details box (from Lenz's experts), or type one here."
 #~ msgstr "مدرس دوره را در کادر جزئیات دوره (از متخصصین لنز) انتخاب کنید یا همین‌جا بنویسید."

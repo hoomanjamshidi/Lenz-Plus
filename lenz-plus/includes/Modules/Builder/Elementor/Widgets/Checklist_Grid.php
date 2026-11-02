@@ -1,9 +1,10 @@
 <?php
 /**
  * «در این ورکشاپ چه چیزهایی یاد می‌گیری؟»: ticked items in dashed boxes, as
- * many 240px columns as fit, with an optional intro line («برای کسانی که:»)
- * and a note box under them. Items come from the course (what you learn,
- * who it is for) or are typed in the widget.
+ * many 240px columns as fit (or a plain list), with an optional intro line
+ * («برای کسانی که:») and a note box under them. Items come from the course
+ * (what you learn, who it is and is not for) or are typed in the widget; the
+ * mark is a tick, or a cross for «who it is not for».
  *
  * @package LenzPlus
  */
@@ -51,6 +52,7 @@ final class Checklist_Grid extends Course_Base {
 				'options' => array(
 					'learn'    => __( 'The course\'s "What you will learn"', 'lenz-plus' ),
 					'audience' => __( 'The course\'s "Who it is for"', 'lenz-plus' ),
+					'not_for'  => __( 'The course\'s "Who it is not for"', 'lenz-plus' ),
 					'custom'   => __( 'Typed here', 'lenz-plus' ),
 				),
 			)
@@ -79,6 +81,33 @@ final class Checklist_Grid extends Course_Base {
 				),
 				'title_field' => '{{ text }}',
 				'condition'   => array( 'source' => 'custom' ),
+			)
+		);
+
+		$this->add_control(
+			'look',
+			array(
+				'label'   => __( 'Look', 'lenz-plus' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'boxes',
+				'options' => array(
+					'boxes' => __( 'Dashed boxes in columns', 'lenz-plus' ),
+					'list'  => __( 'Simple list', 'lenz-plus' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'mark',
+			array(
+				'label'   => __( 'Mark', 'lenz-plus' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'auto',
+				'options' => array(
+					'auto'  => __( 'Automatic (a cross for "Who it is not for")', 'lenz-plus' ),
+					'check' => __( 'Tick', 'lenz-plus' ),
+					'cross' => __( 'Cross', 'lenz-plus' ),
+				),
 			)
 		);
 
@@ -123,7 +152,7 @@ final class Checklist_Grid extends Course_Base {
 				return;
 			}
 			$d     = Course_Data::details( $id );
-			$lines = 'audience' === $s['source'] ? $d['audience'] : $d['learn'];
+			$lines = isset( $d[ $s['source'] ] ) && is_array( $d[ $s['source'] ] ) ? $d[ $s['source'] ] : $d['learn'];
 			if ( 'audience' === $s['source'] && '' === $note ) {
 				$note = $d['audience_note'];
 			}
@@ -135,16 +164,21 @@ final class Checklist_Grid extends Course_Base {
 			return;
 		}
 
+		$cross = 'cross' === $s['mark'] || ( 'auto' === $s['mark'] && 'not_for' === $s['source'] );
+		$list  = 'list' === $s['look'];
+		$icon  = $list ? ( $cross ? 'x' : 'check' ) : ( $cross ? 'close' : 'check-square' );
+
 		$items = '';
 		foreach ( $lines as $line ) {
-			$items .= '<li class="lzp-tick">' . self::icon( 'check-square', 'lzp-tick__icon' ) . '<span class="lzp-tick__text">' . esc_html( $line ) . '</span></li>';
+			$items .= '<li class="lzp-tick">' . self::icon( $icon, 'lzp-tick__icon' ) . '<span class="lzp-tick__text">' . esc_html( $line ) . '</span></li>';
 		}
 
 		printf(
-			'<div class="lzp-ticks">%1$s<ul class="lzp-ticks__list">%2$s</ul>%3$s</div>',
+			'<div class="lzp-ticks%4$s">%1$s<ul class="lzp-ticks__list">%2$s</ul>%3$s</div>',
 			'' !== (string) $s['intro'] ? '<p class="lzp-ticks__intro">' . esc_html( $s['intro'] ) . '</p>' : '',
 			$items, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above.
-			'' !== $note ? '<p class="lzp-ticks__note">' . self::icon( 'mobile', 'lzp-ticks__note-icon' ) . '<span>' . esc_html( $note ) . '</span></p>' : '' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped here.
+			'' !== $note ? '<p class="lzp-ticks__note">' . self::icon( 'mobile', 'lzp-ticks__note-icon' ) . '<span>' . esc_html( $note ) . '</span></p>' : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped here.
+			( $list ? ' lzp-ticks--list' : '' ) . ( $cross ? ' lzp-ticks--cross' : '' )
 		);
 	}
 }

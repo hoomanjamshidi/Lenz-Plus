@@ -3,7 +3,7 @@ Tags: lenz, photography, bottom navigation, elementor, rtl
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.7.1
+Stable tag: 1.8.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,12 @@ It is built for Lenz and reads its colours, logo, menus and options. Without Len
 No. Updates refresh only the ready-made templates you have not edited, and pages created from a design never change by themselves.
 
 == Changelog ==
+
+= 1.8.0 =
+* New course page design «Course with a side menu»: a summary card on top (cover, title, ticked facts, price and button), the sections beside a menu that stays in view and marks the section being read (a sticky chip bar under the header on tablets and phones), the summary card again at the end (#buy). Sections left empty for a course (no instructor, say) hide themselves, and so do their menu links.
+* New widgets: «Course summary» and «Course menu» (links with icons from Elementor's library or uploaded SVGs, smooth scrolling below the sticky header, course facts under the side card).
+* The buy bar now shows on every screen by default, with the course title beside the price on wide screens («Show on» keeps the phones-only options).
+* Course details: a «Who it is not for» list; the checklist widget shows it (red crosses) and has a simple list look with round ticks.
 
 = 1.7.1 =
 * Course photos (hero, course cards, instructor) show in colour even when the site shows photos in black and white; each widget has a «Photo tone» choice.

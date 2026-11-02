@@ -93,6 +93,8 @@ final class Integration {
 		'Instructor_Box',
 		'Course_Buy_Box',
 		'Mobile_Buy_Bar',
+		'Course_Summary',
+		'Course_Nav',
 		// Forms.
 		'Request_Form',
 		'Booking_Form',

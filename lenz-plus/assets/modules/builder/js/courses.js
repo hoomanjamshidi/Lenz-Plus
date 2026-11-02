@@ -5,7 +5,8 @@
  * job); this script moves it to the bottom of the screen and shows it while
  * neither the buy box's button nor the enroll form is on screen, so it is
  * there from the top of the page and steps aside where you can act anyway.
- * The intro video dialog lives in video.js.
+ * The course menu marks the section on screen and scrolls to a section
+ * below the sticky header. The intro video dialog lives in video.js.
  */
 ( function () {
 	'use strict';
@@ -19,7 +20,8 @@
 	function initBuyBar( bar ) {
 		// Out of any transformed or sticky ancestor, so `position: fixed` is the viewport.
 		doc.body.appendChild( bar );
-		doc.body.classList.add( 'lzp-buybar-on', bar.classList.contains( 'lzp-buybar--tablet' ) ? 'lzp-buybar-on--tablet' : 'lzp-buybar-on--mobile' );
+		const devices = [ 'all', 'tablet', 'mobile' ].find( ( d ) => bar.classList.contains( 'lzp-buybar--' + d ) ) || 'mobile';
+		doc.body.classList.add( 'lzp-buybar-on', 'lzp-buybar-on--' + devices );
 
 		const targets = Array.from( doc.querySelectorAll( '[data-lzp-buy], #enroll' ) ).filter( ( el ) => el.offsetParent !== null );
 		if ( ! targets.length || ! window.IntersectionObserver ) {
@@ -41,7 +43,102 @@
 		targets.forEach( ( el ) => observer.observe( el ) );
 	}
 
+	/* ---------------------------------------------------------------------
+	 * Course menu: current section, scrolling below the sticky header
+	 * ------------------------------------------------------------------- */
+
+	const reduceMotion = window.matchMedia( '(prefers-reduced-motion: reduce)' );
+
+	// Height covered at the top: admin bar, sticky header and a sticky menu bar.
+	function topCover() {
+		const styles = getComputedStyle( doc.documentElement );
+		let cover = ( parseFloat( styles.getPropertyValue( '--lzp-header-offset' ) ) || 0 ) + ( parseFloat( styles.getPropertyValue( '--lzp-admin-bar' ) ) || 0 );
+		doc.querySelectorAll( '.lzp-cnav--bar' ).forEach( ( bar ) => {
+			cover += bar.offsetParent !== null ? bar.offsetHeight : 0;
+		} );
+
+		return cover;
+	}
+
+	function initCourseNav( nav ) {
+		const links = Array.from( nav.querySelectorAll( '.lzp-cnav__link' ) ).filter( ( link ) => {
+			// Missing, or hidden because it is empty (courses.css).
+			const target = doc.getElementById( decodeURIComponent( link.hash.slice( 1 ) ) );
+			const shown = !! target && target.getClientRects().length > 0;
+			if ( ! shown ) {
+				link.parentElement.hidden = true;
+			}
+			return shown;
+		} );
+		if ( ! links.length ) {
+			return;
+		}
+
+		const targets = new Map( links.map( ( link ) => [ doc.getElementById( decodeURIComponent( link.hash.slice( 1 ) ) ), link ] ) );
+		const list = nav.querySelector( '.lzp-cnav__list' );
+
+		function setCurrent( link ) {
+			links.forEach( ( item ) => {
+				item.classList.toggle( 'is-current', item === link );
+				if ( item === link ) {
+					item.setAttribute( 'aria-current', 'true' );
+				} else {
+					item.removeAttribute( 'aria-current' );
+				}
+			} );
+			// Keep the current chip in view without scrolling the page.
+			if ( link && nav.classList.contains( 'lzp-cnav--bar' ) && list ) {
+				const start = link.offsetLeft - ( list.clientWidth - link.offsetWidth ) / 2;
+				list.scrollTo( { left: start, behavior: reduceMotion.matches ? 'auto' : 'smooth' } );
+			}
+		}
+
+		// The current section is the last one whose top has passed a line a
+		// third of the way down the screen (the first one above them all).
+		function update() {
+			const line = topCover() + window.innerHeight * 0.3;
+			let current = links[ 0 ];
+			targets.forEach( ( link, target ) => {
+				if ( target.getBoundingClientRect().top <= line ) {
+					current = link;
+				}
+			} );
+			setCurrent( current );
+		}
+
+		let ticking = false;
+		window.addEventListener( 'scroll', () => {
+			if ( ! ticking ) {
+				ticking = true;
+				window.requestAnimationFrame( () => {
+					ticking = false;
+					update();
+				} );
+			}
+		}, { passive: true } );
+		window.addEventListener( 'resize', update );
+		update();
+
+		nav.addEventListener( 'click', ( event ) => {
+			const link = event.target.closest( '.lzp-cnav__link' );
+			const target = link && doc.getElementById( decodeURIComponent( link.hash.slice( 1 ) ) );
+			if ( ! target ) {
+				return;
+			}
+			event.preventDefault();
+			const top = target.getBoundingClientRect().top + window.scrollY - topCover() - 16;
+			window.scrollTo( { top, behavior: reduceMotion.matches ? 'auto' : 'smooth' } );
+			history.replaceState( history.state, '', link.hash );
+			setCurrent( link );
+		} );
+	}
+
 	function init() {
+		doc.querySelectorAll( '[data-lzp-course-nav]:not([data-lzp-ready])' ).forEach( ( nav ) => {
+			nav.setAttribute( 'data-lzp-ready', '' );
+			initCourseNav( nav );
+		} );
+
 		const bar = doc.querySelector( '[data-lzp-buybar]:not(.is-editor)' );
 		if ( bar && ! bar.hasAttribute( 'data-lzp-ready' ) ) {
 			bar.setAttribute( 'data-lzp-ready', '' );

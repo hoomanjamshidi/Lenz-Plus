@@ -451,6 +451,50 @@
 	font-size: 20px;
 }
 
+/* Simple list: rows with a small round tick (green) or cross (red). */
+.lzp-ticks--list {
+	--lzp-mark: #2f8a5b;
+}
+
+.lzp-ticks--cross {
+	--lzp-mark: #c24d4d;
+}
+
+.lzp-ticks--list .lzp-ticks__list {
+	grid-template-columns: 1fr;
+	gap: 10px;
+}
+
+.lzp-ticks--list .lzp-tick {
+	gap: 10px;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+}
+
+.lzp-ticks--list .lzp-tick:hover {
+	border: 0;
+}
+
+.lzp-ticks--list .lzp-tick__icon {
+	display: grid;
+	flex: none;
+	place-items: center;
+	box-sizing: border-box;
+	width: 22px;
+	height: 22px;
+	margin-top: 0.4em;
+	padding: 5px;
+	border-radius: 50%;
+	background: color-mix(in srgb, var(--lzp-mark) 14%, transparent);
+	color: var(--lzp-mark);
+	font-size: 12px;
+}
+
+.lzp-ticks--cross:not(.lzp-ticks--list) .lzp-tick__icon {
+	color: var(--lzp-mark);
+}
+
 /* ==========================================================================
    Curriculum (built on the FAQ rows)
    ========================================================================== */
@@ -973,7 +1017,387 @@
 }
 
 /* ==========================================================================
-   Phone buy bar (moved to <body> and revealed by courses.js)
+   Course summary card (cover · title and facts · price and button)
+   ========================================================================== */
+
+.lzp-csum {
+	display: grid;
+	grid-template-columns: minmax(220px, 320px) minmax(0, 1fr) minmax(220px, auto);
+	align-items: stretch;
+	overflow: hidden;
+	border: 1px solid var(--lzp-card-line, var(--lzp-line));
+	border-radius: var(--lzp-radius-lg);
+	background: var(--lzp-card, #fff);
+	box-shadow: 0 24px 60px -40px rgba(2, 45, 79, 0.4);
+	font-family: var(--lzp-font);
+}
+
+.lzp-csum--no-cover {
+	grid-template-columns: minmax(0, 1fr) minmax(220px, auto);
+}
+
+.lzp-csum__cover {
+	min-width: 0;
+}
+
+.lzp-csum__cover .lzp-pic {
+	height: 100%;
+	border-radius: 0;
+}
+
+.lzp-csum__info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 12px;
+	min-width: 0;
+	padding: clamp(20px, 3vw, 32px);
+}
+
+.lzp-csum .lzp-csum__label {
+	color: var(--lzp-muted);
+	font-size: 12px;
+	line-height: 1.6;
+	letter-spacing: 0.14em;
+}
+
+.lzp-csum .lzp-csum__title {
+	margin: 0;
+	color: var(--lzp-heading, var(--lzp-ink));
+	font-size: clamp(19px, 2vw, 24px);
+	font-weight: 900;
+	line-height: 1.6;
+	text-wrap: pretty;
+}
+
+.lzp-csum .lzp-csum__facts {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.lzp-csum .lzp-csum__fact {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	color: var(--lzp-sub);
+	font-size: 14px;
+	line-height: 1.9;
+}
+
+.lzp-csum .lzp-csum__tick {
+	box-sizing: border-box;
+	flex: none;
+	width: 20px;
+	height: 20px;
+	padding: 4px;
+	border-radius: 50%;
+	background: color-mix(in srgb, #2f8a5b 14%, transparent);
+	color: #2f8a5b;
+	font-size: 11px;
+}
+
+.lzp-csum .lzp-csum__key {
+	color: var(--lzp-muted);
+	line-height: inherit;
+}
+
+.lzp-csum .lzp-csum__value {
+	color: var(--lzp-heading, var(--lzp-ink));
+	font-weight: 700;
+	line-height: inherit;
+}
+
+.lzp-csum__buy {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: center;
+	gap: 14px;
+	padding: clamp(20px, 3vw, 32px);
+	border-inline-start: 1px dashed var(--lzp-dashed);
+}
+
+.lzp-csum .lzp-csum__badge {
+	align-self: flex-start;
+	padding: 3px 12px;
+	border-radius: 999px;
+	background: var(--lzp-panel, var(--lzp-chip));
+	color: var(--lzp-sub);
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 1.8;
+}
+
+.lzp-csum .lzp-csum__price {
+	color: var(--lzp-heading, var(--lzp-ink));
+	font-size: clamp(22px, 2.4vw, 30px);
+	font-weight: 900;
+	line-height: 1.4;
+	white-space: nowrap;
+}
+
+.lzp-csum .lzp-csum__btn {
+	width: 100%;
+}
+
+/* Tablets: price and button in a row under cover and text. */
+@media (max-width: 1024px) {
+	.lzp-csum,
+	.lzp-csum--no-cover {
+		grid-template-columns: minmax(180px, 260px) minmax(0, 1fr);
+	}
+
+	.lzp-csum--no-cover .lzp-csum__info,
+	.lzp-csum__buy {
+		grid-column: 1 / -1;
+	}
+
+	.lzp-csum__buy {
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: center;
+		border-top: 1px dashed var(--lzp-dashed);
+		border-inline-start: 0;
+	}
+
+	.lzp-csum .lzp-csum__price {
+		flex: 1;
+	}
+
+	.lzp-csum .lzp-csum__btn,
+	.lzp-csum .lzp-course-buy {
+		width: auto;
+		flex: none;
+	}
+}
+
+@media (max-width: 767px) {
+	.lzp-csum,
+	.lzp-csum--no-cover {
+		grid-template-columns: 1fr;
+	}
+
+	.lzp-csum__cover .lzp-pic {
+		height: auto;
+	}
+
+	.lzp-csum .lzp-csum__btn,
+	.lzp-csum .lzp-course-buy {
+		width: 100%;
+	}
+}
+
+/* ==========================================================================
+   Course menu (side card or sticky bar)
+   ========================================================================== */
+
+/* A course section whose content widgets printed nothing (Elementor drops
+   empty widgets) keeps only its heading: hide it (courses.js then drops
+   its menu link). */
+.e-con.lzp-course-part:not(:has(.elementor-widget:not(.elementor-widget-lzp-heading))) {
+	display: none;
+}
+
+.lzp-cnav {
+	--lzp-cnav-accent-c: var(--lzp-cnav-accent, var(--lzp-accent));
+	font-family: var(--lzp-font);
+}
+
+.lzp-cnav__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.lzp-cnav .lzp-cnav__link {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	min-height: 44px;
+	color: var(--lzp-sub);
+	font-size: 14px;
+	line-height: 1.6;
+	text-decoration: none;
+	transition: color var(--lzp-dur) ease, background-color var(--lzp-dur) ease;
+}
+
+.lzp-cnav .lzp-cnav__link:hover,
+.lzp-cnav .lzp-cnav__link.is-current {
+	color: var(--lzp-heading, var(--lzp-ink));
+}
+
+.lzp-cnav .lzp-cnav__link:focus-visible {
+	outline: 3px solid color-mix(in srgb, var(--lzp-accent) 55%, transparent);
+	outline-offset: 2px;
+}
+
+.lzp-cnav .lzp-cnav__icon {
+	display: grid;
+	flex: none;
+	place-items: center;
+	width: 22px;
+	color: var(--lzp-muted);
+	font-size: 17px;
+	transition: color var(--lzp-dur) ease;
+}
+
+.lzp-cnav .lzp-cnav__icon svg {
+	width: 18px;
+	height: 18px;
+	fill: currentColor;
+}
+
+.lzp-cnav .is-current .lzp-cnav__icon {
+	color: var(--lzp-cnav-accent-c);
+}
+
+.lzp-cnav .lzp-cnav__text {
+	line-height: inherit;
+}
+
+/* Side card: the current item has a bar on the card's outer edge. */
+.lzp-cnav--side {
+	padding: 12px 0;
+	border: 1px solid var(--lzp-card-line, var(--lzp-line));
+	border-radius: var(--lzp-radius-lg);
+	background: var(--lzp-card, #fff);
+	box-shadow: 0 20px 50px -38px rgba(2, 45, 79, 0.4);
+}
+
+.lzp-cnav .lzp-cnav__title {
+	margin: 4px 22px 8px;
+	color: var(--lzp-muted);
+	font-size: 12px;
+	line-height: 1.6;
+	letter-spacing: 0.14em;
+}
+
+.lzp-cnav--side .lzp-cnav__link {
+	position: relative;
+	padding: 6px 22px;
+}
+
+.lzp-cnav--side .lzp-cnav__link::after {
+	position: absolute;
+	inset-block: 8px;
+	inset-inline-start: 0;
+	width: 4px;
+	border-radius: 4px 0 0 4px;
+	background: var(--lzp-cnav-accent-c);
+	content: "";
+	opacity: 0;
+	transform: scaleY(0.4);
+	transition: opacity var(--lzp-dur) ease, transform var(--lzp-dur) ease;
+}
+
+[dir="ltr"] .lzp-cnav--side .lzp-cnav__link::after {
+	border-radius: 0 4px 4px 0;
+}
+
+.lzp-cnav--side .lzp-cnav__link.is-current {
+	background: var(--lzp-panel, var(--lzp-soft));
+	font-weight: 700;
+}
+
+.lzp-cnav--side .lzp-cnav__link.is-current::after {
+	opacity: 1;
+	transform: none;
+}
+
+.lzp-cnav .lzp-cnav__facts {
+	display: flex;
+	justify-content: space-around;
+	gap: 8px;
+	margin: 12px 16px 4px;
+	padding: 14px 0 4px;
+	border-top: 1px dashed var(--lzp-dashed);
+	list-style: none;
+}
+
+.lzp-cnav__facts li {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.lzp-cnav .lzp-cnav__fact-value {
+	color: var(--lzp-heading, var(--lzp-ink));
+	font-size: 15px;
+	font-weight: 900;
+	line-height: 1.6;
+}
+
+.lzp-cnav .lzp-cnav__fact-label {
+	color: var(--lzp-muted);
+	font-size: 12px;
+	line-height: 1.6;
+}
+
+/* Bar: sticks under the header inside its column; chips scroll sideways. */
+.elementor-widget.lzp-cnav-bar {
+	position: sticky;
+	z-index: 20;
+	top: calc(var(--lzp-admin-bar) + var(--lzp-header-offset, 0px));
+}
+
+.lzp-cnav--bar {
+	margin-inline: calc(var(--lzp-gutter, 16px) * -1);
+	padding: 10px var(--lzp-gutter, 16px);
+	border-bottom: 1px solid var(--lzp-line);
+	background: color-mix(in srgb, var(--lzp-bg) 92%, transparent);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+}
+
+.lzp-cnav--bar .lzp-cnav__list {
+	display: flex;
+	gap: 8px;
+	overflow-x: auto;
+	scrollbar-width: none;
+	overscroll-behavior-x: contain;
+}
+
+.lzp-cnav--bar .lzp-cnav__list::-webkit-scrollbar {
+	display: none;
+}
+
+.lzp-cnav--bar .lzp-cnav__link {
+	gap: 8px;
+	padding: 0 14px;
+	border: 1px solid var(--lzp-line);
+	border-radius: 999px;
+	background: var(--lzp-card, #fff);
+	font-size: 13px;
+	white-space: nowrap;
+}
+
+.lzp-cnav--bar .lzp-cnav__icon {
+	width: 18px;
+	font-size: 14px;
+}
+
+.lzp-cnav--bar .lzp-cnav__icon svg {
+	width: 15px;
+	height: 15px;
+}
+
+.lzp-cnav--bar .lzp-cnav__link.is-current {
+	border-color: var(--lzp-cnav-accent-c);
+	background: var(--lzp-cnav-accent-c);
+	color: #fff;
+}
+
+.lzp-cnav--bar .is-current .lzp-cnav__icon {
+	color: inherit;
+}
+
+/* ==========================================================================
+   Buy bar (moved to <body> and revealed by courses.js)
    ========================================================================== */
 
 .lzp-buybar {
@@ -982,8 +1406,6 @@
 	inset-inline: 0;
 	bottom: 0;
 	display: none;
-	align-items: center;
-	gap: 14px;
 	padding: 14px 16px calc(14px + env(safe-area-inset-bottom, 0px));
 	border: 1px solid var(--lzp-line);
 	border-bottom: 0;
@@ -995,6 +1417,15 @@
 	transition: transform 0.35s var(--lzp-ease), bottom 0.3s ease;
 }
 
+.lzp-buybar__inner {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	width: 100%;
+	max-width: var(--lzp-container);
+	margin-inline: auto;
+}
+
 .lzp-buybar.is-visible,
 .lzp-buybar.is-editor {
 	transform: none;
@@ -1003,7 +1434,7 @@
 /* In the editor it shows in place, so it can be styled. */
 .lzp-buybar.is-editor {
 	position: relative;
-	display: flex;
+	display: block;
 }
 
 /* Above the Lenz+ bottom navigation; back down when the bar hides itself. */
@@ -1015,9 +1446,17 @@ body.lzp-bn-on.lzp-bn-is-hidden .lzp-buybar {
 	bottom: 0;
 }
 
+.lzp-buybar--all {
+	display: block;
+}
+
+body.lzp-buybar-on--all {
+	padding-bottom: 84px;
+}
+
 @media (max-width: 767px) {
 	.lzp-buybar--mobile {
-		display: flex;
+		display: block;
 	}
 
 	body.lzp-buybar-on--mobile {
@@ -1027,12 +1466,25 @@ body.lzp-bn-on.lzp-bn-is-hidden .lzp-buybar {
 
 @media (max-width: 1024px) {
 	.lzp-buybar--tablet {
-		display: flex;
+		display: block;
 	}
 
 	body.lzp-buybar-on--tablet {
 		padding-bottom: 78px;
 	}
+}
+
+/* The title only fits beside the price on wide screens. */
+.lzp-buybar .lzp-buybar__title {
+	display: none;
+	min-width: 0;
+	overflow: hidden;
+	color: var(--lzp-ink);
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 1.6;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .lzp-buybar .lzp-buybar__price {
@@ -1044,7 +1496,7 @@ body.lzp-bn-on.lzp-bn-is-hidden .lzp-buybar {
 }
 
 .lzp-buybar .lzp-course-buy,
-.lzp-buybar > .lzp-buybar__btn {
+.lzp-buybar .lzp-buybar__inner > .lzp-buybar__btn {
 	flex: 1;
 }
 
@@ -1053,6 +1505,29 @@ body.lzp-bn-on.lzp-bn-is-hidden .lzp-buybar {
 	min-height: 52px;
 	border-radius: var(--lzp-radius-md);
 	font-size: 15px;
+}
+
+@media (min-width: 768px) {
+	.lzp-buybar {
+		padding-inline: var(--lzp-gutter, 24px);
+		border-radius: 0;
+	}
+
+	.lzp-buybar .lzp-buybar__title {
+		display: block;
+		flex: 1;
+	}
+
+	.lzp-buybar .lzp-course-buy,
+	.lzp-buybar .lzp-buybar__inner > .lzp-buybar__btn {
+		flex: none;
+	}
+
+	.lzp-buybar .lzp-buybar__btn {
+		width: auto;
+		min-width: 200px;
+		padding-inline: 28px;
+	}
 }
 
 /* ==========================================================================
@@ -1065,6 +1540,8 @@ body.lzp-bn-on.lzp-bn-is-hidden .lzp-buybar {
 }
 
 @media (prefers-reduced-motion: reduce) {
+	.lzp-cnav .lzp-cnav__link,
+	.lzp-cnav--side .lzp-cnav__link::after,
 	.lzp-buybar,
 	.lzp-ticks .lzp-tick {
 		transition: none;
