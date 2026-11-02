@@ -363,10 +363,10 @@ final class Course_Data {
 
 	/**
 	 * Instructor of a course: Lenz's `expert` post (name, position, bio,
-	 * photo), or null when none is chosen.
+	 * photo, career lines), or null when none is chosen.
 	 *
 	 * @param int $product_id Product ID.
-	 * @return array{name:string, role:string, bio:string, photo:int}|null
+	 * @return array{name:string, role:string, bio:string, photo:int, careers:string[]}|null
 	 */
 	public static function instructor( int $product_id ): ?array {
 		$expert = get_post( (int) self::details( $product_id )['expert'] );
@@ -374,13 +374,15 @@ final class Course_Data {
 			return null;
 		}
 
-		$bio = '' !== $expert->post_excerpt ? $expert->post_excerpt : wp_trim_words( wp_strip_all_tags( $expert->post_content ), 40 );
+		$bio     = '' !== $expert->post_excerpt ? $expert->post_excerpt : wp_trim_words( wp_strip_all_tags( $expert->post_content ), 40 );
+		$careers = get_post_meta( $expert->ID, '_careers', true );
 
 		return array(
-			'name'  => get_the_title( $expert ),
-			'role'  => (string) get_post_meta( $expert->ID, '_position', true ),
-			'bio'   => $bio,
-			'photo' => (int) get_post_thumbnail_id( $expert ),
+			'name'    => get_the_title( $expert ),
+			'role'    => (string) get_post_meta( $expert->ID, '_position', true ),
+			'bio'     => $bio,
+			'photo'   => (int) get_post_thumbnail_id( $expert ),
+			'careers' => is_array( $careers ) ? array_values( array_filter( array_map( 'strval', array_filter( $careers, 'is_scalar' ) ), 'strlen' ) ) : array(),
 		);
 	}
 }

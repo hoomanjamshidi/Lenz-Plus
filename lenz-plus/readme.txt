@@ -3,7 +3,7 @@ Tags: lenz, photography, bottom navigation, elementor, rtl
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.7.0
+Stable tag: 1.7.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,13 @@ It is built for Lenz and reads its colours, logo, menus and options. Without Len
 No. Updates refresh only the ready-made templates you have not edited, and pages created from a design never change by themselves.
 
 == Changelog ==
+
+= 1.7.1 =
+* Course photos (hero, course cards, instructor) show in colour even when the site shows photos in black and white; each widget has a «Photo tone» choice.
+* Course hero: the chips above the title are spaced out, and on phones the hero is centred with the facts as even tiles (switch «On phones» back to start-aligned if you prefer). A course without a cover keeps its 16:10 frame.
+* Instructor widget: four looks (ink card, profile card with number tiles and an achievement list, a large cut-out photo on a coloured shape, a compact row), typed name/position/text/photo/achievements that fill whatever the Lenz expert leaves empty (so it also shows on courses without an expert), heading and accent colour.
+* Curriculum: before each session title the session number, an icon from Elementor's library or an uploaded SVG (one for all, or one per session), or nothing.
+* Phone buy bar: shown at the bottom of the screen from the top of the course page and hidden only while the buy box button or the enroll form is on screen; rounded sheet look. The form button opens the enroll form, the cart button goes to checkout as before.
 
 = 1.7.0 =
 * Studio panel: galleries, cover photos and product photos can take files already in the WordPress media library («From the library»: search, photos/videos filter, several at once).

@@ -1,9 +1,11 @@
 /**
  * Lenz Plus — course widgets.
  *
- * The phone buy bar is hidden without JavaScript (the buy box above does the
- * same job); this script moves it to the bottom of the screen and shows it
- * once the buy box scrolls away. The intro video dialog lives in video.js.
+ * The phone buy bar is hidden without JavaScript (the buy box does the same
+ * job); this script moves it to the bottom of the screen and shows it while
+ * neither the buy box's button nor the enroll form is on screen, so it is
+ * there from the top of the page and steps aside where you can act anyway.
+ * The intro video dialog lives in video.js.
  */
 ( function () {
 	'use strict';
@@ -11,7 +13,7 @@
 	const doc = document;
 
 	/* ---------------------------------------------------------------------
-	 * Phone buy bar: shown once the buy box scrolls away
+	 * Phone buy bar: shown while the buy box and enroll form are off screen
 	 * ------------------------------------------------------------------- */
 
 	function initBuyBar( bar ) {
@@ -19,19 +21,24 @@
 		doc.body.appendChild( bar );
 		doc.body.classList.add( 'lzp-buybar-on', bar.classList.contains( 'lzp-buybar--tablet' ) ? 'lzp-buybar-on--tablet' : 'lzp-buybar-on--mobile' );
 
-		const target = Array.from( doc.querySelectorAll( '[data-lzp-buy]' ) ).find( ( el ) => el.offsetParent !== null );
-		if ( ! target || ! window.IntersectionObserver ) {
-			const onScroll = () => bar.classList.toggle( 'is-visible', window.scrollY > 320 );
-			window.addEventListener( 'scroll', onScroll, { passive: true } );
-			onScroll();
+		const targets = Array.from( doc.querySelectorAll( '[data-lzp-buy], #enroll' ) ).filter( ( el ) => el.offsetParent !== null );
+		if ( ! targets.length || ! window.IntersectionObserver ) {
+			bar.classList.add( 'is-visible' );
 			return;
 		}
 
-		new IntersectionObserver( ( entries ) => {
+		const onScreen = new Set();
+		const observer = new IntersectionObserver( ( entries ) => {
 			entries.forEach( ( entry ) => {
-				bar.classList.toggle( 'is-visible', ! entry.isIntersecting && entry.boundingClientRect.top < 0 );
+				if ( entry.isIntersecting ) {
+					onScreen.add( entry.target );
+				} else {
+					onScreen.delete( entry.target );
+				}
 			} );
-		} ).observe( target );
+			bar.classList.toggle( 'is-visible', onScreen.size === 0 );
+		} );
+		targets.forEach( ( el ) => observer.observe( el ) );
 	}
 
 	function init() {

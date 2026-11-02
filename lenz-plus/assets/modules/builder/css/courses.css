@@ -257,6 +257,11 @@
 	line-height: 1.45;
 }
 
+.lzp-course-hero .lzp-pmeta {
+	gap: 10px 12px;
+	margin-bottom: 4px;
+}
+
 .lzp-course-hero .lzp-pmeta .lzp-chip {
 	padding: 6px 12px;
 }
@@ -316,6 +321,59 @@
 .lzp-course-hero__media {
 	position: relative;
 	min-width: 0;
+}
+
+/* Phones, centred (the default): every row centred, the facts as equal tiles
+   in two columns (a lone last tile spans both) so their edges line up. */
+@media (max-width: 767px) {
+	.lzp-chero-m-center .lzp-course-hero {
+		--lzp-hero-align: center;
+	}
+
+	.lzp-chero-m-center .lzp-course-hero__crumbs .lzp-crumbs ol,
+	.lzp-chero-m-center .lzp-course-hero .lzp-pmeta {
+		justify-content: center;
+	}
+
+	.lzp-chero-m-center .lzp-course-hero .lzp-ifacts {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		align-self: stretch;
+		gap: 10px;
+	}
+
+	.lzp-chero-m-center .lzp-ifacts__item {
+		flex-direction: column;
+		gap: 6px;
+		padding: 12px 8px;
+		border: 1px dashed var(--lzp-dashed);
+		border-radius: var(--lzp-radius-md);
+		text-align: center;
+	}
+
+	.lzp-chero-m-center .lzp-ifacts__item:last-child:nth-child(odd) {
+		grid-column: 1 / -1;
+	}
+
+	.lzp-chero-m-center .lzp-ifacts .lzp-ifacts__icon {
+		width: 38px;
+		height: 38px;
+		border: 0;
+		background: var(--lzp-panel, var(--lzp-soft));
+	}
+
+	.lzp-chero-m-center .lzp-ifacts__text {
+		align-items: center;
+	}
+}
+
+/* Photo tone of a course widget: colour or black and white whatever the
+   site-wide setting is (`lzp-tone-site` keeps the setting). */
+.lzp-tone-color {
+	--lzp-photo-filter: none;
+}
+
+.lzp-tone-grayscale {
+	--lzp-photo-filter: grayscale(1);
 }
 
 /* ==========================================================================
@@ -415,6 +473,17 @@
 	line-height: 1;
 }
 
+/* Icons: Elementor's font icons and uploaded SVGs, one size. */
+.lzp-curriculum .lzp-curriculum__num--icon {
+	font-size: 16px;
+}
+
+.lzp-curriculum .lzp-curriculum__num--icon svg {
+	width: 18px;
+	height: 18px;
+	fill: currentColor;
+}
+
 /* ==========================================================================
    Outcome and instructor
    ========================================================================== */
@@ -484,27 +553,18 @@
 	line-height: 1.6;
 }
 
+/* Instructor: shared parts, then one block per look (dark, profile, split, minimal). */
 .lzp-instructor {
+	--lzp-ins-accent-c: var(--lzp-ins-accent, var(--lzp-accent));
 	display: grid;
-	grid-template-columns: 150px 1fr;
-	gap: 24px;
+	gap: clamp(20px, 3vw, 40px);
 	align-items: center;
-	padding: clamp(22px, 3vw, 34px);
-	border-radius: var(--lzp-radius);
-	background: var(--lzp-ink);
 	font-family: var(--lzp-font);
 }
 
-@media (max-width: 767px) {
-	.lzp-instructor {
-		grid-template-columns: 1fr;
-	}
-}
-
-.lzp-instructor .lzp-instructor__photo {
-	width: 100%;
-	max-width: 150px;
-	border-radius: var(--lzp-radius-lg);
+.lzp-instructor__media {
+	position: relative;
+	min-width: 0;
 }
 
 .lzp-instructor__body {
@@ -512,21 +572,273 @@
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 12px;
+	min-width: 0;
+}
+
+.lzp-instructor .lzp-instructor__title {
+	margin: 0;
+	color: var(--lzp-heading, var(--lzp-ins-accent-c));
+	font-size: clamp(22px, 2.8vw, 34px);
+	font-weight: 900;
+	line-height: 1.5;
+	text-wrap: pretty;
+}
+
+.lzp-instructor__id {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
 }
 
 .lzp-instructor .lzp-instructor__name {
 	margin: 0;
-	color: var(--lzp-heading);
+	color: var(--lzp-heading, var(--lzp-ink));
 	font-size: 20px;
 	font-weight: 900;
 	line-height: 1.6;
 }
 
+.lzp-instructor .lzp-instructor__role {
+	margin: 0;
+	color: var(--lzp-muted);
+	font-size: 13px;
+	line-height: 1.8;
+}
+
 .lzp-instructor .lzp-instructor__bio {
 	margin: 0;
 	color: var(--lzp-text);
-	font-size: 13px;
+	font-size: 14px;
 	line-height: 2.1;
+	text-wrap: pretty;
+}
+
+.lzp-instructor .lzp-instructor__stats {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(120px, 100%), 1fr));
+	gap: 12px;
+	align-self: stretch;
+	margin: 6px 0;
+	padding: 0;
+	list-style: none;
+}
+
+.lzp-instructor .lzp-instructor__stat {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+	padding: 16px 10px;
+	border: 1px solid var(--lzp-card-line, var(--lzp-line));
+	border-radius: var(--lzp-radius-md);
+	background: var(--lzp-panel, var(--lzp-soft));
+	text-align: center;
+}
+
+.lzp-instructor .lzp-instructor__stat-value {
+	color: var(--lzp-heading, var(--lzp-ink));
+	font-size: clamp(20px, 2.2vw, 26px);
+	font-weight: 900;
+	line-height: 1.4;
+}
+
+.lzp-instructor .lzp-instructor__stat-text {
+	color: var(--lzp-text);
+	font-size: 13px;
+	line-height: 1.9;
+}
+
+.lzp-instructor .lzp-instructor__points {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.lzp-instructor .lzp-instructor__points li {
+	position: relative;
+	padding-inline-start: 24px;
+	color: var(--lzp-sub);
+	font-size: 14px;
+	line-height: 2;
+}
+
+.lzp-instructor .lzp-instructor__points li::before {
+	position: absolute;
+	inset-inline-start: 2px;
+	top: calc(1em - 5px);
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: var(--lzp-muted);
+	box-shadow: 0 0 0 3px var(--lzp-panel, var(--lzp-chip));
+	content: "";
+}
+
+.lzp-instructor .lzp-btn-row {
+	margin-top: 4px;
+}
+
+/* Ink card (the mockups). */
+.lzp-instructor--dark {
+	grid-template-columns: 150px 1fr;
+	gap: 24px;
+	padding: clamp(22px, 3vw, 34px);
+	border-radius: var(--lzp-radius);
+	background: var(--lzp-ink);
+}
+
+.lzp-instructor--dark .lzp-instructor__photo {
+	width: 100%;
+	max-width: 150px;
+	border-radius: var(--lzp-radius-lg);
+}
+
+.lzp-instructor--dark .lzp-instructor__bio {
+	font-size: 13px;
+}
+
+/* Profile card: photo card with the name, beside heading, tiles and list. */
+.lzp-instructor--profile {
+	grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
+	align-items: start;
+	padding: clamp(18px, 3vw, 40px);
+	border-radius: var(--lzp-radius-lg);
+	background: var(--lzp-card, #fff);
+	box-shadow: 0 24px 60px -36px rgba(2, 45, 79, 0.35);
+}
+
+.lzp-instructor--profile .lzp-instructor__media {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	padding: 12px 12px 18px;
+	border: 1px solid var(--lzp-card-line, var(--lzp-line));
+	border-radius: var(--lzp-radius-lg);
+	background: var(--lzp-panel, var(--lzp-soft));
+	text-align: center;
+}
+
+.lzp-instructor--profile .lzp-instructor__photo {
+	border-radius: var(--lzp-radius);
+}
+
+.lzp-instructor--profile .lzp-instructor__media .lzp-instructor__name {
+	color: var(--lzp-ins-accent-c);
+}
+
+/* Large photo standing on a coloured shape, its feet on the card's edge. */
+.lzp-instructor--split {
+	grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+	align-items: end;
+	padding: clamp(24px, 4vw, 56px) clamp(20px, 4vw, 56px) 0;
+	overflow: hidden;
+	border-radius: var(--lzp-radius-lg);
+	background: var(--lzp-card, #fff);
+	box-shadow: 0 24px 60px -36px rgba(2, 45, 79, 0.35);
+}
+
+.lzp-instructor--split .lzp-instructor__body {
+	align-self: center;
+	padding-bottom: clamp(24px, 4vw, 56px);
+}
+
+.lzp-instructor--split .lzp-instructor__label {
+	padding-inline-start: 12px;
+	border-inline-start: 4px solid var(--lzp-ins-accent-c);
+	color: var(--lzp-heading, var(--lzp-ink));
+	font-size: 15px;
+	font-weight: 700;
+	letter-spacing: 0;
+}
+
+.lzp-instructor--split .lzp-instructor__name {
+	font-size: clamp(22px, 2.6vw, 30px);
+}
+
+.lzp-instructor--split .lzp-instructor__shape {
+	position: absolute;
+	inset-inline: 4%;
+	bottom: 0;
+	height: 74%;
+	border-radius: 58% 42% 0 0 / 64% 56% 0 0;
+	background: var(--lzp-ins-accent-c);
+}
+
+.lzp-instructor--split .lzp-instructor__photo {
+	position: relative;
+	z-index: 1;
+	border-radius: var(--lzp-radius-lg) var(--lzp-radius-lg) 0 0;
+	background: none;
+}
+
+/* Compact row (sidebars, narrow columns). */
+.lzp-instructor--minimal {
+	grid-template-columns: 96px minmax(0, 1fr);
+	align-items: start;
+	gap: 18px;
+	padding: 20px;
+	border: 1px solid var(--lzp-card-line, var(--lzp-line));
+	border-radius: var(--lzp-radius);
+}
+
+.lzp-instructor--minimal .lzp-instructor__photo {
+	border-radius: 50%;
+}
+
+.lzp-instructor--minimal .lzp-instructor__name {
+	font-size: 17px;
+}
+
+.lzp-instructor--minimal .lzp-instructor__bio,
+.lzp-instructor--minimal .lzp-instructor__points li {
+	font-size: 13px;
+}
+
+@media (max-width: 1024px) {
+	.lzp-instructor--profile {
+		grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
+	}
+}
+
+@media (max-width: 767px) {
+	.lzp-instructor--dark,
+	.lzp-instructor--profile,
+	.lzp-instructor--split {
+		grid-template-columns: 1fr;
+	}
+
+	.lzp-instructor--profile .lzp-instructor__media {
+		width: 100%;
+		max-width: 320px;
+		margin-inline: auto;
+	}
+
+	/* The photo goes under the text, still standing on the card's edge. */
+	.lzp-instructor--split .lzp-instructor__media {
+		order: 2;
+		width: min(100%, 340px);
+		margin-inline: auto;
+	}
+
+	.lzp-instructor--split .lzp-instructor__body {
+		padding-bottom: 0;
+	}
+
+	.lzp-instructor--minimal {
+		grid-template-columns: 72px minmax(0, 1fr);
+	}
+
+	.lzp-instructor .lzp-instructor__stats {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.lzp-instructor .lzp-instructor__stat:last-child:nth-child(odd) {
+		grid-column: 1 / -1;
+	}
 }
 
 /* ==========================================================================
@@ -672,10 +984,12 @@
 	display: none;
 	align-items: center;
 	gap: 14px;
-	padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
-	border-top: 1px solid var(--lzp-line);
+	padding: 14px 16px calc(14px + env(safe-area-inset-bottom, 0px));
+	border: 1px solid var(--lzp-line);
+	border-bottom: 0;
+	border-radius: 20px 20px 0 0;
 	background: var(--lzp-bg);
-	box-shadow: 0 -12px 30px -20px rgba(2, 45, 79, 0.5);
+	box-shadow: 0 -16px 40px -22px rgba(2, 45, 79, 0.45);
 	font-family: var(--lzp-font);
 	transform: translateY(110%);
 	transition: transform 0.35s var(--lzp-ease), bottom 0.3s ease;
@@ -736,7 +1050,9 @@ body.lzp-bn-on.lzp-bn-is-hidden .lzp-buybar {
 
 .lzp-buybar .lzp-buybar__btn {
 	width: 100%;
-	min-height: 48px;
+	min-height: 52px;
+	border-radius: var(--lzp-radius-md);
+	font-size: 15px;
 }
 
 /* ==========================================================================

@@ -10,6 +10,7 @@
 
 namespace LenzPlus\Modules\Builder\Elementor\Widgets;
 
+use Elementor\Controls_Manager;
 use LenzPlus\Modules\Builder\Assets;
 use LenzPlus\Modules\Builder\Context;
 use LenzPlus\Modules\Builder\Course_Data;
@@ -39,6 +40,29 @@ abstract class Course_Base extends Section_Base {
 	/** Panel search terms shared by the course widgets. */
 	public function get_keywords(): array {
 		return array_merge( parent::get_keywords(), array( 'course', 'workshop', 'دوره', 'ورکشاپ', 'کارگاه' ) );
+	}
+
+	/**
+	 * Photo tone of the widget's images. Course covers are usually product
+	 * photos, so they default to colour even when the site shows its
+	 * photos in black and white (Builder → options); the class goes on the
+	 * widget wrapper and re-sets `--lzp-photo-filter` (courses.css).
+	 */
+	protected function add_photo_tone_control(): void {
+		$this->add_control(
+			'photo_tone',
+			array(
+				'label'        => __( 'Photo tone', 'lenz-plus' ),
+				'type'         => Controls_Manager::SELECT,
+				'default'      => 'color',
+				'options'      => array(
+					'color'     => __( 'Colour', 'lenz-plus' ),
+					'grayscale' => __( 'Black and white', 'lenz-plus' ),
+					'site'      => __( 'Site setting', 'lenz-plus' ),
+				),
+				'prefix_class' => 'lzp-tone-',
+			)
+		);
 	}
 
 	/**

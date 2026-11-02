@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Lenz Plus 1.6.0\n"
+"Project-Id-Version: Lenz Plus 1.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/lenz-plus\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-31T16:14:50+00:00\n"
+"POT-Creation-Date: 2026-11-02T07:21:09+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: lenz-plus\n"
@@ -514,8 +514,8 @@ msgid "Icons only; the active item expands into a pill with its label."
 msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:37
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:286
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:372
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:306
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:392
 msgid "Background"
 msgstr ""
 
@@ -742,7 +742,7 @@ msgstr ""
 #: includes/Modules/Bottom_Nav/views/admin.php:312
 #: includes/Modules/Bottom_Nav/views/admin.php:324
 #: includes/Modules/Builder/Elementor/Integration.php:185
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:116
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:117
 #: includes/Modules/Builder/Elementor/Widgets/Request_Form.php:125
 #: includes/Modules/Builder/Elementor/Widgets/Stats.php:159
 msgid "None"
@@ -930,7 +930,7 @@ msgid "Drag to reorder"
 msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:472
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:196
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:216
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:173
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:183
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:142
@@ -969,7 +969,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Form_Base.php:95
 #: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:50
 #: includes/Modules/Builder/Elementor/Widgets/Framed_Band.php:102
-#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:60
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:96
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:333
 #: includes/Modules/Builder/Elementor/Widgets/Stats.php:68
 #: includes/Modules/Builder/Elementor/Widgets/Stats.php:145
@@ -984,6 +984,9 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Checklist.php:95
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:79
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:63
+#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:62
+#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:72
+#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:87
 #: includes/Modules/Builder/Elementor/Widgets/Header_Action.php:90
 #: includes/Modules/Builder/Elementor/Widgets/Header_Action.php:116
 #: includes/Modules/Builder/Elementor/Widgets/Header_Action.php:180
@@ -1639,7 +1642,7 @@ msgid "Coming soon"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Data.php:185
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:256
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:257
 msgid "Held"
 msgstr ""
 
@@ -1679,7 +1682,7 @@ msgid "%s%% off"
 msgstr ""
 
 #: includes/Modules/Builder/Course_Data.php:277
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:259
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:260
 msgid "Let me know"
 msgstr ""
 
@@ -1753,7 +1756,7 @@ msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:93
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:119
-#: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:139
+#: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:155
 #: includes/Modules/Panel/Screens/Courses.php:137
 msgid "Format"
 msgstr ""
@@ -1765,7 +1768,7 @@ msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:103
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:109
-#: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:138
+#: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:154
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:74
 #: includes/Modules/Panel/Screens/Courses.php:146
 msgid "Duration"
@@ -1798,7 +1801,7 @@ msgstr ""
 
 #: includes/Modules/Builder/Course_Meta_Box.php:106
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:112
-#: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:140
+#: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:156
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:77
 #: includes/Modules/Panel/Screens/Courses.php:178
 msgid "Tools"
@@ -1810,7 +1813,7 @@ msgstr ""
 
 #. translators: %s: number of people.
 #: includes/Modules/Builder/Course_Meta_Box.php:109
-#: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:143
+#: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:159
 #: includes/Modules/Panel/Screens/Courses.php:147
 msgid "Capacity"
 msgstr ""
@@ -1842,9 +1845,9 @@ msgstr ""
 
 #. translators: %s: widget name.
 #: includes/Modules/Builder/Course_Meta_Box.php:124
-#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:32
-#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:42
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:47
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:62
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:82
 #: includes/Modules/Panel/Screens/Courses.php:169
 msgid "Instructor"
 msgstr ""
@@ -1897,8 +1900,8 @@ msgstr ""
 
 #. translators: %s: widget name.
 #: includes/Modules/Builder/Course_Meta_Box.php:141
-#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:30
-#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:40
+#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:32
+#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:42
 #: includes/Modules/Panel/Screens/Courses.php:196
 msgid "Curriculum"
 msgstr ""
@@ -2076,7 +2079,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:35
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:29
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:30
-#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:30
+#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:32
 #: includes/Modules/Builder/Elementor/Widgets/Faq.php:34
 #: includes/Modules/Builder/Elementor/Widgets/Featured_Post.php:32
 #: includes/Modules/Builder/Elementor/Widgets/Featured_Projects.php:32
@@ -2084,7 +2087,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Header_Action.php:38
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:33
 #: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:37
-#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:32
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:47
 #: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:36
 #: includes/Modules/Builder/Elementor/Widgets/Map_Embed.php:38
 #: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:31
@@ -2161,7 +2164,7 @@ msgstr ""
 msgid "Write a biographical info in the author's profile (Users → Profile) to show this box."
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:188
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:208
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:165
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:173
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:134
@@ -2169,7 +2172,7 @@ msgstr ""
 msgid "Alignment"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:192
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:212
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:169
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:179
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:138
@@ -2179,7 +2182,7 @@ msgstr ""
 msgid "Start"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:200
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:220
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:177
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:146
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:99
@@ -2187,54 +2190,55 @@ msgstr ""
 msgid "End"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:236
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:256
+#: includes/Modules/Builder/Elementor/Widgets/Course_Base.php:59
 #: includes/Modules/Builder/Elementor/Widgets/Reading_Progress.php:57
 #: includes/Modules/Builder/views/admin.php:330
 msgid "Colour"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:246
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:266
 msgid "Hover colour"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:303
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:395
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:323
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:415
 msgid "Border radius"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:314
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:406
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:334
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:426
 msgid "Padding"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:355
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:375
 msgid "Normal"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:355
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:375
 msgid "Hover"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:363
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:383
 msgid "Text colour"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:381
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:401
 #: includes/Modules/Builder/Elementor/Widgets/Social_Links.php:175
 msgid "Border colour"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:416
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:436
 #: includes/Modules/Builder/Elementor/Widgets/Map_Embed.php:121
 #: includes/Modules/Builder/Elementor/Widgets/Post_Header.php:85
 msgid "Height"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:448
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:468
 msgid "Columns"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Base.php:470
+#: includes/Modules/Builder/Elementor/Widgets/Base.php:490
 msgid "Space between"
 msgstr ""
 
@@ -2248,6 +2252,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Brand_Logos.php:114
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:135
 #: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:139
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:67
 #: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:171
 #: includes/Modules/Builder/Elementor/Widgets/Post_Toc.php:57
 #: includes/Modules/Builder/Elementor/Widgets/Promo_Box.php:49
@@ -2414,6 +2419,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:52
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:106
 #: includes/Modules/Builder/Elementor/Widgets/Featured_Post.php:84
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:196
 #: includes/Modules/Builder/Elementor/Widgets/Popular_Posts.php:63
 #: includes/Modules/Builder/Elementor/Widgets/Post_Search.php:61
 #: includes/Modules/Builder/Elementor/Widgets/Promo_Box.php:96
@@ -2442,11 +2448,11 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:72
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:152
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:94
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:175
-#: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:90
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:176
+#: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:106
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:50
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:108
-#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:56
+#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:110
 #: includes/Modules/Builder/Elementor/Widgets/Featured_Post.php:86
 #: includes/Modules/Builder/Elementor/Widgets/Featured_Projects.php:78
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:105
@@ -2508,12 +2514,14 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:108
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:88
 #: includes/Modules/Builder/Elementor/Widgets/Copyright.php:53
-#: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:91
+#: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:107
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:54
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:60
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:109
 #: includes/Modules/Builder/Elementor/Widgets/Header_Action.php:67
-#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:79
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:135
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:167
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:211
 #: includes/Modules/Builder/Elementor/Widgets/Newsletter_Form.php:83
 #: includes/Modules/Builder/Elementor/Widgets/Newsletter_Form.php:160
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:168
@@ -2606,7 +2614,8 @@ msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Brand_Box.php:115
 #: includes/Modules/Builder/Elementor/Widgets/Form_Base.php:71
-#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:69
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:116
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:210
 #: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:55
 #: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:147
 #: includes/Modules/Builder/Elementor/Widgets/Quote.php:76
@@ -2787,7 +2796,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:156
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:108
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:139
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:173
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:174
 #: includes/Modules/Builder/Elementor/Widgets/Featured_Projects.php:76
 #: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:182
 #: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:196
@@ -2874,7 +2883,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Checklist.php:60
 #: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:54
 #: includes/Modules/Builder/Elementor/Widgets/Faq.php:58
-#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:52
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:87
 #: includes/Modules/Builder/Elementor/Widgets/Quote.php:55
 msgid "Typed here"
 msgstr ""
@@ -2925,7 +2934,7 @@ msgid "With \"Who it is for\", empty shows the course's own note."
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:122
-#: includes/Modules/Builder/Elementor/Widgets/Course_Base.php:54
+#: includes/Modules/Builder/Elementor/Widgets/Course_Base.php:78
 msgid "Shows the course being viewed. Mark a WooCommerce product as a course (Course details box) to see it here."
 msgstr ""
 
@@ -3042,6 +3051,19 @@ msgstr ""
 msgid "Dashed line above"
 msgstr ""
 
+#: includes/Modules/Builder/Elementor/Widgets/Course_Base.php:55
+msgid "Photo tone"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Base.php:60
+#: includes/Modules/Builder/views/admin.php:329
+msgid "Black and white"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Base.php:61
+msgid "Site setting"
+msgstr ""
+
 #. translators: %s: widget name.
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:35
 msgid "Course buy box"
@@ -3120,7 +3142,7 @@ msgstr ""
 
 #. translators: %s: number of people.
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:129
-#: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:143
+#: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:159
 #, php-format
 msgid "%s people"
 msgstr ""
@@ -3135,7 +3157,7 @@ msgid "Course grid"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:86
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:205
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:206
 #: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:118
 #: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:112
 #: includes/Modules/Panel/App.php:307
@@ -3204,27 +3226,27 @@ msgstr ""
 msgid "Usually the sign-up band further down the page."
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:185
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:186
 msgid "No courses yet. Mark WooCommerce products as courses (Course details box on the product editor)."
 msgstr ""
 
 #. translators: %s: number of courses.
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:210
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:211
 #, php-format
 msgid "%s course"
 msgstr ""
 
 #. translators: %s: number of courses.
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:212
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:213
 #, php-format
 msgid "%s courses"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:213
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:214
 msgid "Course filters"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:327
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:328
 #: includes/Modules/Builder/Elementor/Widgets/Newsletter_Form.php:110
 msgid "Email or mobile number"
 msgstr ""
@@ -3248,7 +3270,19 @@ msgstr ""
 msgid "Guide lines"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:89
+#: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:90
+msgid "On phones"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:94
+msgid "Centred"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:95
+msgid "Aligned to the start"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:105
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:45
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:67
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:332
@@ -3259,12 +3293,12 @@ msgstr ""
 msgid "Texts"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:141
+#: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:157
 #: includes/Modules/Builder/Elementor/Widgets/Timeline.php:112
 msgid "Date"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:180
+#: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:196
 msgid "Play the intro video"
 msgstr ""
 
@@ -3301,7 +3335,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:79
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:84
 #: includes/Modules/Builder/Elementor/Widgets/CTA_Band.php:91
-#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:87
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:142
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:265
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:268
 #: includes/Modules/Builder/Elementor/Widgets/Photo_Frame.php:46
@@ -3320,15 +3354,48 @@ msgstr ""
 msgid "Placeholder text"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:45
+#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:47
 msgid "First session open"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:54
+#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:57
+msgid "Before each title"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:61
+msgid "Session number"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:63
+#: includes/Modules/Builder/Module.php:244
+msgid "Nothing"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:78
+msgid "From Elementor's icon library, or upload your own SVG."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:95
+msgid "Icon per session"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:101
+msgid "Optional. The first row is the first session's icon, and so on; sessions without a row use the icon above."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:108
 msgid "Sessions"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:70
+#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:115
+msgid "Marker colour"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:125
+msgid "Marker background"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:169
 msgid "Nothing to list yet: fill in the curriculum in the course's details."
 msgstr ""
 
@@ -3469,6 +3536,7 @@ msgid "Short text"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Form_Base.php:75
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:159
 #: includes/Modules/Builder/Elementor/Widgets/Process_Steps.php:114
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:57
 #: includes/Modules/Builder/Elementor/Widgets/Stats.php:60
@@ -3628,6 +3696,8 @@ msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:100
 #: includes/Modules/Builder/Elementor/Widgets/Heading.php:212
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:105
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:209
 #: includes/Modules/Checkout/views/admin.php:64
 #: includes/Modules/Panel/Editor.php:141
 msgid "Heading"
@@ -3726,23 +3796,76 @@ msgstr ""
 msgid "Icons in dashed boxes"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:51
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:71
+msgid "Ink card"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:72
+msgid "Profile card with numbers"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:73
+msgid "Large photo on a shape"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:74
+msgid "Compact row"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:86
 msgid "The course's instructor (Lenz expert)"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:62
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:89
+msgid "With the course's instructor, the texts below fill in whatever the expert leaves empty."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:98
 msgid "Your instructor"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:91
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:109
+msgid "Who is the instructor?"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:126
+#: includes/Modules/Support_Button/views/admin.php:302
+msgid "Position"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:142
+msgid "For the large photo look, a cut-out photo (transparent PNG or WebP) sits best on the shape."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:147
+msgid "Achievements"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:151
+msgid "One per line. Empty: the career lines of the Lenz expert."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:176
+msgid "Number tiles"
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:187
 msgid "Read more about me"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:113
-msgid "Choose the course's instructor in its Course details box (from Lenz's experts), or type one here."
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:201
+msgid "Accent colour"
 msgstr ""
 
-#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:131
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:203
+msgid "Heading, name and the shape behind the large photo."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:260
+msgid "Choose the course's instructor in its Course details box (from Lenz's experts), or type a name here."
+msgstr ""
+
+#: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:274
 msgid "Instructor photo"
 msgstr ""
 
@@ -5694,10 +5817,6 @@ msgstr ""
 msgid "Keep the theme's own design."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:244
-msgid "Nothing"
-msgstr ""
-
 #: includes/Modules/Builder/Module.php:245
 msgid "Hide it on this device."
 msgstr ""
@@ -6623,10 +6742,6 @@ msgstr ""
 
 #: includes/Modules/Builder/views/admin.php:321
 msgid "Applied to every design at once, like the options of the original mockups."
-msgstr ""
-
-#: includes/Modules/Builder/views/admin.php:329
-msgid "Black and white"
 msgstr ""
 
 #: includes/Modules/Builder/views/admin.php:335
@@ -8120,10 +8235,6 @@ msgstr ""
 
 #: includes/Modules/Support_Button/views/admin.php:292
 msgid "Button icon and text"
-msgstr ""
-
-#: includes/Modules/Support_Button/views/admin.php:302
-msgid "Position"
 msgstr ""
 
 #: includes/Modules/Support_Button/views/admin.php:303

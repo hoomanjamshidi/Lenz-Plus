@@ -168,6 +168,7 @@ final class Course_Grid extends Course_Base {
 		);
 
 		$this->add_columns_control( '.lzp-courses', array( 3, 2, 1 ) );
+		$this->add_photo_tone_control();
 		$this->end_controls_section();
 
 		$this->start_style_section( 'section_style', __( 'Cards', 'lenz-plus' ) );

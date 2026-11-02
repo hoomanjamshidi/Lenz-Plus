@@ -84,6 +84,22 @@ final class Course_Hero extends Course_Base {
 			)
 		);
 
+		$this->add_control(
+			'mobile_align',
+			array(
+				'label'        => __( 'On phones', 'lenz-plus' ),
+				'type'         => Controls_Manager::SELECT,
+				'default'      => 'center',
+				'options'      => array(
+					'center' => __( 'Centred', 'lenz-plus' ),
+					'start'  => __( 'Aligned to the start', 'lenz-plus' ),
+				),
+				'prefix_class' => 'lzp-chero-m-',
+			)
+		);
+
+		$this->add_photo_tone_control();
+
 		$this->end_controls_section();
 
 		$this->start_style_section( 'section_style', __( 'Texts', 'lenz-plus' ) );

@@ -29,7 +29,7 @@ defined( 'ABSPATH' ) || exit;
 final class Picture {
 
 	/** Ratios offered by the widgets' "Shape" controls (the mockups' frames). */
-	public const RATIOS = array( '1/1', '4/5', '3/4', '2/3', '9/16', '4/3', '3/2', '16/9', '21/9' );
+	public const RATIOS = array( '1/1', '4/5', '3/4', '2/3', '9/16', '4/3', '3/2', '16/10', '16/9', '21/9' );
 
 	/**
 	 * Ratio → label, for SELECT controls.

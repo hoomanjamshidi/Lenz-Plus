@@ -225,13 +225,6 @@
    Item meta (category chips and year)
    ========================================================================== */
 
-.lzp-pmeta {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: 10px;
-}
-
 .lzp-hero--project .lzp-pmeta .lzp-chip {
 	padding: 6px 12px;
 }

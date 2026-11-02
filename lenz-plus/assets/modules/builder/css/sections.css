@@ -219,6 +219,15 @@
 	max-width: 56ch;
 }
 
+/* Item meta chips above a title (projects, courses); here because course
+   pages do not load portfolio.css. */
+.lzp-pmeta {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px;
+}
+
 .lzp-hero__chips {
 	display: flex;
 	flex-wrap: wrap;

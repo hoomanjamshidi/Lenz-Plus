@@ -16,6 +16,7 @@ use Elementor\Controls_Manager;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
+use Elementor\Icons_Manager;
 use Elementor\Plugin;
 use Elementor\Widget_Base;
 use LenzPlus\Core\Icon_Library;
@@ -156,6 +157,25 @@ abstract class Base extends Widget_Base {
 		$module = Integration::module();
 
 		return $module ? (bool) $module->settings()['options']['persian_digits'] : true;
+	}
+
+	/**
+	 * Markup of an Elementor ICONS control value: a font icon from Elementor's
+	 * library or an SVG uploaded through Elementor (sanitised by Elementor on
+	 * upload). Empty when nothing is chosen.
+	 *
+	 * @param mixed $icon Control value (`value`, `library`).
+	 */
+	protected static function elementor_icon_html( $icon ): string {
+		if ( ! is_array( $icon ) || empty( $icon['value'] ) ) {
+			return '';
+		}
+
+		// render_icon() echoes; try_get_icon_html() only exists since Elementor 3.24.
+		ob_start();
+		Icons_Manager::render_icon( $icon, array( 'aria-hidden' => 'true' ) );
+
+		return (string) ob_get_clean();
 	}
 
 	/** `right`/`left` icon for start/end CHOOSE options (RTL aware). */
