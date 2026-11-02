@@ -10,6 +10,7 @@
 namespace LenzPlus\Modules\Panel\Screens;
 
 use LenzPlus\Modules\Panel\Router;
+use LenzPlus\Modules\Panel\Shop\Money;
 use LenzPlus\Modules\Panel\Ui;
 
 defined( 'ABSPATH' ) || exit;
@@ -150,7 +151,7 @@ final class Dashboard extends Screen {
 			$total += (float) $order->get_total() - (float) $order->get_total_refunded();
 		}
 
-		return html_entity_decode( wp_strip_all_tags( wc_price( $total ) ), ENT_QUOTES, 'UTF-8' );
+		return Money::text( $total );
 	}
 
 	/**
@@ -182,7 +183,7 @@ final class Dashboard extends Screen {
 				'meta'  => $created ? Ui::date( $created->getTimestamp(), true ) : '',
 				'icon'  => 'receipt',
 				'pill'  => Ui::pill( $order->get_status(), $labels[ 'wc-' . $order->get_status() ] ?? $order->get_status() ),
-				'aside' => html_entity_decode( wp_strip_all_tags( wc_price( (float) $order->get_total(), array( 'currency' => $order->get_currency() ) ) ), ENT_QUOTES, 'UTF-8' ),
+				'aside' => Money::text( (float) $order->get_total(), $order->get_currency() ),
 			);
 		}
 		?>

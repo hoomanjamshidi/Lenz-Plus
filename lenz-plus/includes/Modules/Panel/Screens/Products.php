@@ -17,6 +17,7 @@ namespace LenzPlus\Modules\Panel\Screens;
 use LenzPlus\Core\Persian;
 use LenzPlus\Modules\Builder\Course_Data;
 use LenzPlus\Modules\Panel\Editor;
+use LenzPlus\Modules\Panel\Shop\Money;
 use LenzPlus\Modules\Panel\Ui;
 use LenzPlus\Modules\Panel\Uploads;
 
@@ -140,7 +141,7 @@ class Products extends Content_Screen {
 			return '';
 		}
 
-		return html_entity_decode( wp_strip_all_tags( wc_price( (float) $price ) ), ENT_QUOTES, 'UTF-8' );
+		return Money::text( (float) $price );
 	}
 
 	/**

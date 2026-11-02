@@ -10,6 +10,12 @@
  * The waitlist form posts to the sign-up list (Newsletter) with the course
  * title as its topic; the list name comes from this widget's settings.
  *
+ * The «poster» look is the home page's: a title row with «most popular /
+ * newest» tabs and an «all courses» button, tall cover cards with the
+ * title, number of sessions and students, then the price and a small green
+ * pill. The tabs are links (`?lzp_course_sort=new`) that courses.js turns
+ * into in-place sorting.
+ *
  * @package LenzPlus
  */
 
@@ -20,6 +26,7 @@ use LenzPlus\Modules\Builder\Assets;
 use LenzPlus\Modules\Builder\Course_Data;
 use LenzPlus\Modules\Builder\Elementor\Picture;
 use LenzPlus\Modules\Builder\Newsletter;
+use LenzPlus\Modules\Builder\Presets\Blocks;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -30,6 +37,17 @@ final class Course_Grid extends Course_Base {
 
 	/** Query argument of the server-side filter. */
 	private const FILTER_ARG = 'lzp_course';
+
+	/** Icon of the poster look's green pill, by what it shows. */
+	private const PILL_ICONS = array(
+		'duration' => 'clock',
+		'format'   => 'map-pin',
+		'badge'    => 'users',
+		'custom'   => 'support',
+	);
+
+	/** Query argument of the poster look's sort tabs. */
+	private const SORT_ARG = 'lzp_course_sort';
 
 	/** Elementor widget id (Newsletter reads its waitlist settings). */
 	public function get_name(): string {
@@ -49,7 +67,7 @@ final class Course_Grid extends Course_Base {
 
 	/** Filter, waitlist and video scripts. */
 	public function get_script_depends(): array {
-		return array( Assets::FILTER_HANDLE, Assets::FORMS_HANDLE );
+		return array( Assets::FILTER_HANDLE, Assets::FORMS_HANDLE, Assets::COURSES_HANDLE );
 	}
 
 	/** Course and form stylesheets. */
@@ -75,6 +93,19 @@ final class Course_Grid extends Course_Base {
 	/** Content and style controls. */
 	protected function register_controls(): void {
 		$this->start_content_section( 'section_content', __( 'Courses', 'lenz-plus' ) );
+
+		$this->add_control(
+			'look',
+			array(
+				'label'   => __( 'Look', 'lenz-plus' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'cards',
+				'options' => array(
+					'cards'  => __( 'Cards (courses page)', 'lenz-plus' ),
+					'poster' => __( 'Posters with tabs (home page)', 'lenz-plus' ),
+				),
+			)
+		);
 
 		$this->add_control(
 			'show',
@@ -107,8 +138,11 @@ final class Course_Grid extends Course_Base {
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
 				'return_value' => 'yes',
+				'condition'    => array( 'look' => 'cards' ),
 			)
 		);
+
+		$this->add_poster_controls();
 
 		$this->add_control(
 			'button_text',
@@ -177,6 +211,141 @@ final class Course_Grid extends Course_Base {
 		$this->end_controls_section();
 	}
 
+	/** Controls of the poster look (title row, tabs, card parts). */
+	private function add_poster_controls(): void {
+		$poster = array( 'look' => 'poster' );
+
+		$this->add_control(
+			'poster_heading',
+			array(
+				'label'     => __( 'Posters', 'lenz-plus' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => $poster,
+			)
+		);
+
+		$this->add_control(
+			'title',
+			array(
+				'label'       => __( 'Title', 'lenz-plus' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => __( 'Courses', 'lenz-plus' ),
+				'label_block' => true,
+				'condition'   => $poster,
+			)
+		);
+
+		$this->add_control(
+			'title_muted',
+			array(
+				'label'       => __( 'Words in the muted colour after the title', 'lenz-plus' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => '',
+				'label_block' => true,
+				'condition'   => $poster,
+			)
+		);
+
+		$this->add_control(
+			'sort_tabs',
+			array(
+				'label'        => __( '«Most popular / Newest» tabs', 'lenz-plus' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'yes',
+				'return_value' => 'yes',
+				'condition'    => $poster,
+			)
+		);
+
+		$this->add_control(
+			'all_text',
+			array(
+				'label'       => __( '«All courses» button', 'lenz-plus' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => __( 'All courses', 'lenz-plus' ),
+				'description' => __( 'Empty: no button.', 'lenz-plus' ),
+				'condition'   => $poster,
+			)
+		);
+
+		$this->add_control(
+			'all_link',
+			array(
+				'label'       => __( 'Button link', 'lenz-plus' ),
+				'type'        => Controls_Manager::URL,
+				'default'     => array( 'url' => '' ),
+				'description' => __( 'Empty: the page made from the courses design, else the shop.', 'lenz-plus' ),
+				'condition'   => $poster,
+			)
+		);
+
+		$this->add_control(
+			'poster_ratio',
+			array(
+				'label'     => __( 'Cover shape', 'lenz-plus' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => '4/5',
+				'options'   => Picture::ratio_options(),
+				'condition' => $poster,
+			)
+		);
+
+		$this->add_control(
+			'show_sessions',
+			array(
+				'label'        => __( 'Number of sessions', 'lenz-plus' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'yes',
+				'return_value' => 'yes',
+				'condition'    => $poster,
+			)
+		);
+
+		$this->add_control(
+			'show_students',
+			array(
+				'label'        => __( 'Number of students', 'lenz-plus' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'yes',
+				'return_value' => 'yes',
+				'description'  => __( 'Sales counted by WooCommerce.', 'lenz-plus' ),
+				'condition'    => $poster,
+			)
+		);
+
+		$this->add_control(
+			'pill',
+			array(
+				'label'     => __( 'Green pill', 'lenz-plus' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'duration',
+				'options'   => array(
+					'duration' => __( 'Duration of the course', 'lenz-plus' ),
+					'format'   => __( 'Online or in person', 'lenz-plus' ),
+					'badge'    => __( 'Seats or registration status', 'lenz-plus' ),
+					'custom'   => __( 'Same text on every card', 'lenz-plus' ),
+					'none'     => __( 'None', 'lenz-plus' ),
+				),
+				'condition' => $poster,
+			)
+		);
+
+		$this->add_control(
+			'pill_text',
+			array(
+				'label'       => __( 'Pill text', 'lenz-plus' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => '',
+				'placeholder' => __( '3 months of support', 'lenz-plus' ),
+				'condition'   => array(
+					'look' => 'poster',
+					'pill' => 'custom',
+				),
+			)
+		);
+	}
+
 	/** Prints the chips and the cards. */
 	protected function render(): void {
 		$s   = $this->get_settings_for_display();
@@ -184,6 +353,11 @@ final class Course_Grid extends Course_Base {
 
 		if ( ! $ids ) {
 			$this->editor_hint( __( 'No courses yet. Mark WooCommerce products as courses (Course details box on the product editor).', 'lenz-plus' ) );
+			return;
+		}
+
+		if ( 'poster' === ( $s['look'] ?? 'cards' ) ) {
+			$this->render_posters( $ids, $s );
 			return;
 		}
 
@@ -338,5 +512,182 @@ final class Course_Grid extends Course_Base {
 			'' !== $summary ? '<p class="lzp-course-card__text">' . esc_html( $summary ) . '</p>' : '',
 			$form
 		);
+	}
+
+	/**
+	 * The poster look: title row with tabs and the button, then the cards.
+	 *
+	 * @param int[] $ids Course IDs, newest first.
+	 * @param array $s   Settings.
+	 */
+	private function render_posters( array $ids, array $s ): void {
+		$sales = array();
+		foreach ( $ids as $id ) {
+			$product      = wc_get_product( $id );
+			$sales[ $id ] = $product ? (int) $product->get_total_sales() : 0;
+		}
+
+		$tabs  = 'yes' === ( $s['sort_tabs'] ?? '' );
+		$sort  = $tabs && isset( $_GET[ self::SORT_ARG ] ) && 'new' === sanitize_key( wp_unslash( $_GET[ self::SORT_ARG ] ) ) ? 'new' : ( $tabs ? 'popular' : 'new' ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- a read-only sort.
+		$order = $ids;
+		if ( 'popular' === $sort ) {
+			// Stable: equal sales keep the newest first.
+			usort(
+				$order,
+				static function ( int $a, int $b ) use ( $sales, $ids ): int {
+					return array( $sales[ $b ], array_search( $a, $ids, true ) ) <=> array( $sales[ $a ], array_search( $b, $ids, true ) );
+				}
+			);
+		}
+
+		echo '<div class="lzp-course-list lzp-course-list--poster" data-lzp-course-sort>';
+		$end = ( $tabs ? $this->sort_tabs_html( $sort ) : '' ) . $this->all_button_html( $s );
+		if ( '' !== trim( (string) $s['title'] ) || '' !== $end ) {
+			$heading = Heading::markup(
+				array(
+					'title' => (string) $s['title'],
+					'muted' => (string) ( $s['title_muted'] ?? '' ),
+				),
+				'' !== $end ? '<div class="lzp-cposter-head__end">' . $end . '</div>' : ''
+			);
+			echo $heading; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in markup(), the tabs and the button.
+		}
+
+		echo '<ul class="lzp-courses lzp-grid">';
+		foreach ( $order as $id ) {
+			printf(
+				'<li class="lzp-course-card lzp-course-card--poster" data-sales="%1$d" data-new="%2$d">%3$s</li>',
+				(int) $sales[ $id ],
+				(int) array_search( $id, $ids, true ),
+				$this->poster_card( $id, $sales[ $id ], $s ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped while building.
+			);
+		}
+		echo '</ul></div>';
+	}
+
+	/**
+	 * The «most popular / newest» tabs: links that sort on the server,
+	 * sorted in place by courses.js.
+	 *
+	 * @param string $current `popular` or `new`.
+	 */
+	private function sort_tabs_html( string $current ): string {
+		$base = remove_query_arg( self::SORT_ARG );
+		$tabs = array(
+			'popular' => array( __( 'Most popular courses', 'lenz-plus' ), $base ),
+			'new'     => array( __( 'Newest courses', 'lenz-plus' ), add_query_arg( self::SORT_ARG, 'new', $base ) ),
+		);
+
+		$html = '<nav class="lzp-cposter-tabs" aria-label="' . esc_attr__( 'Sort courses', 'lenz-plus' ) . '">';
+		foreach ( $tabs as $key => $tab ) {
+			$html .= sprintf(
+				'<a class="lzp-cposter-tabs__tab" href="%1$s" data-lzp-sort="%2$s"%3$s>%4$s</a>',
+				esc_url( $tab[1] ),
+				esc_attr( $key ),
+				$key === $current ? ' aria-current="true"' : '',
+				esc_html( $tab[0] )
+			);
+		}
+
+		return $html . '</nav>';
+	}
+
+	/**
+	 * The «all courses» button ('' without text).
+	 *
+	 * @param array $s Settings.
+	 */
+	private function all_button_html( array $s ): string {
+		$text = trim( (string) ( $s['all_text'] ?? '' ) );
+		if ( '' === $text ) {
+			return '';
+		}
+
+		$link = (array) ( $s['all_link'] ?? array() );
+		if ( empty( $link['url'] ) ) {
+			$page = Blocks::design_page_url( 'courses' );
+			$link = array( 'url' => '' !== $page ? $page : Blocks::courses_url() );
+		}
+
+		return Button::markup(
+			array(
+				'text'    => $text,
+				'variant' => 'primary',
+				'size'    => 'sm',
+				'attrs'   => $this->link_attrs( 'all', $link ),
+			)
+		);
+	}
+
+	/**
+	 * One poster card.
+	 *
+	 * @param int   $id    Course ID.
+	 * @param int   $sales Number of sales (students).
+	 * @param array $s     Settings.
+	 */
+	private function poster_card( int $id, int $sales, array $s ): string {
+		$details = Course_Data::details( $id );
+		$url     = (string) get_permalink( $id );
+		$facts   = array();
+
+		if ( 'yes' === ( $s['show_sessions'] ?? '' ) && $details['curriculum'] ) {
+			/* translators: %s: number of sessions. */
+			$facts[] = array( 'video', sprintf( __( '%s sessions', 'lenz-plus' ), self::num( count( $details['curriculum'] ) ) ) );
+		}
+		if ( 'yes' === ( $s['show_students'] ?? '' ) && $sales > 0 ) {
+			/* translators: %s: number of students. */
+			$facts[] = array( 'users', sprintf( __( '%s students', 'lenz-plus' ), self::num( $sales ) ) );
+		}
+
+		$facts_html = '';
+		foreach ( $facts as $fact ) {
+			$facts_html .= '<li>' . self::icon( $fact[0] ) . '<span>' . esc_html( $fact[1] ) . '</span></li>';
+		}
+
+		$price = 'open' === $details['status']
+			? '<span class="lzp-cposter__price">' . Course_Data::price_html( $id ) . '</span>'
+			: '<span class="lzp-cposter__state">' . esc_html( self::digits( Course_Data::badge( $id ) ) ) . '</span>';
+		$pill  = self::poster_pill( $id, $details, $s );
+
+		return sprintf(
+			'<article class="lzp-course-card__box lzp-cposter"><div class="lzp-cposter__media">%1$s</div><div class="lzp-cposter__body"><h3 class="lzp-course-card__title"><a href="%2$s">%3$s</a></h3>%4$s<div class="lzp-cposter__foot">%5$s%6$s</div></div></article>',
+			Picture::frame(
+				array( 'id' => (int) get_post_thumbnail_id( $id ) ),
+				array(
+					'ratio' => in_array( $s['poster_ratio'] ?? '', Picture::RATIOS, true ) ? $s['poster_ratio'] : '4/5',
+					'alt'   => '',
+					'class' => 'lzp-photo',
+					'sizes' => '(max-width: 767px) 100vw, 25vw',
+				)
+			),
+			esc_url( $url ),
+			esc_html( get_the_title( $id ) ),
+			'' !== $facts_html ? '<ul class="lzp-cposter__facts">' . $facts_html . '</ul>' : '',
+			$price,
+			'' !== $pill ? '<span class="lzp-cposter__pill">' . self::icon( self::PILL_ICONS[ $s['pill'] ] ?? 'support' ) . '<span>' . esc_html( self::digits( $pill ) ) . '</span></span>' : ''
+		);
+	}
+
+	/**
+	 * Text of a poster's green pill ('' for none).
+	 *
+	 * @param int   $id      Course ID.
+	 * @param array $details Course details.
+	 * @param array $s       Settings.
+	 */
+	private static function poster_pill( int $id, array $details, array $s ): string {
+		switch ( $s['pill'] ?? 'duration' ) {
+			case 'duration':
+				return (string) $details['duration'];
+			case 'format':
+				return Course_Data::format_label( $details );
+			case 'badge':
+				return 'open' === $details['status'] ? Course_Data::badge( $id ) : '';
+			case 'custom':
+				return trim( (string) ( $s['pill_text'] ?? '' ) );
+			default:
+				return '';
+		}
 	}
 }

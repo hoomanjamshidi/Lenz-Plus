@@ -319,6 +319,11 @@
 	line-height: 1.5;
 }
 
+.lzp-heading .lzp-heading__muted {
+	color: var(--lzp-muted);
+	font-weight: 700;
+}
+
 /* The end-of-row slot (a button, filter chips…) sits at the far side. */
 .lzp-heading__row > :not(.lzp-heading__title) {
 	margin-inline-start: auto;

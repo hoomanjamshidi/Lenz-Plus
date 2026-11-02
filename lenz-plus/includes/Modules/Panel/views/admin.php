@@ -39,12 +39,19 @@ $section_labels = array(
 	'posts'     => __( 'Articles', 'lenz-plus' ),
 	'pages'     => __( 'Pages', 'lenz-plus' ),
 	'courses'   => __( 'Courses (WooCommerce products marked as courses)', 'lenz-plus' ),
+	'students'  => __( 'Course students (who bought each course, and the waiting list)', 'lenz-plus' ),
 	'products'  => __( 'Products', 'lenz-plus' ),
 	'orders'    => __( 'Orders', 'lenz-plus' ),
+	'reports'   => __( 'Sales reports', 'lenz-plus' ),
+	'customers' => __( 'Customers (accounts and guest buyers, with notes)', 'lenz-plus' ),
+	'coupons'   => __( 'Discount codes', 'lenz-plus' ),
+	'wallet'    => __( 'Wallet (needs the TeraWallet plugin)', 'lenz-plus' ),
 	'bookings'  => __( 'Project bookings', 'lenz-plus' ),
 	'requests'  => __( 'Requests (Request form)', 'lenz-plus' ),
 	'comments'  => __( 'Comments and reviews', 'lenz-plus' ),
 	'media'     => __( 'Media (photos and videos)', 'lenz-plus' ),
+	'activity'  => __( 'Activity log (who changed what; off = nothing is recorded)', 'lenz-plus' ),
+	'search'    => __( 'Search everything (orders, customers, content)', 'lenz-plus' ),
 );
 
 $editor_labels = array(
@@ -168,6 +175,24 @@ $editors = array(
 						<?php foreach ( Schema::SECTIONS as $section ) : ?>
 							<?php Fields::toggle( 'sections.' . $section, $section_labels[ $section ] ); ?>
 						<?php endforeach; ?>
+					</div>
+				</div>
+				<div class="lzp-card">
+					<header class="lzp-card__head">
+						<h2><?php esc_html_e( 'Activity and notifications', 'lenz-plus' ); ?></h2>
+					</header>
+					<div class="lzp-fields lzp-fields--2">
+						<?php
+						Fields::text(
+							'activity_days',
+							__( 'Keep the activity log for (days)', 'lenz-plus' ),
+							array(
+								'type'    => 'number',
+								'show_if' => 'sections.activity',
+							)
+						);
+						Fields::toggle( 'notify', __( 'Notifications on staff phones', 'lenz-plus' ), array( 'help' => __( 'Each person can switch on alerts for new orders, bookings and requests on their own phone (My account in the panel). The panel checks once a minute while it is open.', 'lenz-plus' ) ) );
+						?>
 					</div>
 				</div>
 			</section>

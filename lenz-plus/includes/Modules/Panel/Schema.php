@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
 final class Schema {
 
 	/** Sections of the panel that can be switched off, in menu order. */
-	public const SECTIONS = array( 'posts', 'portfolio', 'pages', 'courses', 'products', 'orders', 'bookings', 'requests', 'comments', 'media' );
+	public const SECTIONS = array( 'posts', 'portfolio', 'pages', 'courses', 'students', 'products', 'orders', 'reports', 'customers', 'coupons', 'wallet', 'bookings', 'requests', 'comments', 'media', 'activity', 'search' );
 
 	/** Content types whose text editor can be chosen. */
 	public const EDITOR_TYPES = array( 'post', 'page', 'portfolio', 'product' );
@@ -51,6 +51,8 @@ final class Schema {
 			'account_link'   => true,
 			'admin_bar_link' => true,
 			'per_page'       => 20,
+			'activity_days'  => 90,
+			'notify'         => true,
 		);
 	}
 
@@ -91,6 +93,12 @@ final class Schema {
 				'min'  => 5,
 				'max'  => 60,
 			),
+			'activity_days'  => array(
+				'type' => 'int',
+				'min'  => 7,
+				'max'  => 365,
+			),
+			'notify'         => array( 'type' => 'bool' ),
 		);
 	}
 

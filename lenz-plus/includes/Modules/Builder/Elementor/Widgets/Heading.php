@@ -53,6 +53,7 @@ final class Heading extends Base {
 	 *
 	 * @param array  $args {
 	 *     @type string $title    Title text.
+	 *     @type string $muted    Optional words after the title in the muted colour («دوره‌های **همیار آکادمی**»).
 	 *     @type string $tag      h1–h4 or p.
 	 *     @type string $index    Optional number before the title («۰۱»).
 	 *     @type bool   $bar      Show the accent bar.
@@ -66,6 +67,7 @@ final class Heading extends Base {
 		$args = array_merge(
 			array(
 				'title'    => '',
+				'muted'    => '',
 				'tag'      => 'h2',
 				'index'    => '',
 				'bar'      => true,
@@ -79,7 +81,12 @@ final class Heading extends Base {
 		$tag   = in_array( $args['tag'], array( 'h1', 'h2', 'h3', 'h4', 'p' ), true ) ? $args['tag'] : 'h2';
 		$title = ( $args['bar'] ? '<span class="lzp-heading__bar" aria-hidden="true"></span>' : '' )
 			. ( '' !== $args['index'] ? '<span class="lzp-heading__index">' . esc_html( self::digits( $args['index'] ) ) . '</span>' : '' )
-			. sprintf( '<%1$s class="lzp-heading__text">%2$s</%1$s>', $tag, esc_html( $args['title'] ) );
+			. sprintf(
+				'<%1$s class="lzp-heading__text">%2$s%3$s</%1$s>',
+				$tag,
+				esc_html( $args['title'] ),
+				'' !== $args['muted'] ? ' <span class="lzp-heading__muted">' . esc_html( $args['muted'] ) . '</span>' : ''
+			);
 
 		$html  = '<div class="lzp-heading lzp-heading--' . esc_attr( 'center' === $args['align'] ? 'center' : 'start' ) . '">';
 		$html .= '<div class="lzp-heading__row"><div class="lzp-heading__title">' . $title . '</div>' . $end_html . '</div>';

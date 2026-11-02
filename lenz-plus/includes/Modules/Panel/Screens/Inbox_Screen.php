@@ -15,7 +15,6 @@
 namespace LenzPlus\Modules\Panel\Screens;
 
 use LenzPlus\Core\Persian;
-use LenzPlus\Modules\Support_Button\Channels;
 use LenzPlus\Modules\Panel\Ui;
 
 defined( 'ABSPATH' ) || exit;
@@ -172,19 +171,7 @@ abstract class Inbox_Screen extends Screen {
 				<?php if ( '' !== $phone || '' !== $email ) : ?>
 					<section class="lzp-card">
 						<h2 class="lzp-card__title"><?php esc_html_e( 'Reply', 'lenz-plus' ); ?></h2>
-						<div class="lzp-actions lzp-actions--stack">
-							<?php if ( '' !== $phone ) : ?>
-								<?php $tel = (string) preg_replace( '/[^\d+]/', '', $phone ); ?>
-								<a class="lzp-btn lzp-btn--primary" href="<?php echo esc_url( 'tel:' . $tel ); ?>"><?php Ui::the_icon( 'phone' ); ?><span><?php esc_html_e( 'Call', 'lenz-plus' ); ?></span></a>
-								<a class="lzp-btn lzp-btn--ghost" href="<?php echo esc_url( 'sms:' . $tel ); ?>"><?php Ui::the_icon( 'chat' ); ?><span><?php esc_html_e( 'Text message', 'lenz-plus' ); ?></span></a>
-								<?php if ( strlen( $tel ) >= 8 ) : ?>
-									<a class="lzp-btn lzp-btn--ghost" href="<?php echo esc_url( 'https://wa.me/' . Channels::international( $tel ) ); ?>" target="_blank" rel="noopener"><?php Ui::the_icon( 'whatsapp' ); ?><span><?php esc_html_e( 'WhatsApp', 'lenz-plus' ); ?></span></a>
-								<?php endif; ?>
-							<?php endif; ?>
-							<?php if ( '' !== $email ) : ?>
-								<a class="lzp-btn lzp-btn--ghost" href="<?php echo esc_url( 'mailto:' . $email ); ?>"><?php Ui::the_icon( 'mail' ); ?><span dir="ltr"><?php echo esc_html( $email ); ?></span></a>
-							<?php endif; ?>
-						</div>
+						<?php Ui::contact_buttons( $phone, $email ); ?>
 					</section>
 				<?php endif; ?>
 				<?php $this->render_item_actions( $post ); ?>

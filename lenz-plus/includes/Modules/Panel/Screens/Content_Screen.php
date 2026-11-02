@@ -15,6 +15,7 @@
 namespace LenzPlus\Modules\Panel\Screens;
 
 use LenzPlus\Modules\Panel\Editor;
+use LenzPlus\Modules\Panel\Integrations\Seo;
 use LenzPlus\Modules\Panel\Ui;
 use LenzPlus\Modules\Panel\Uploads;
 
@@ -196,6 +197,23 @@ abstract class Content_Screen extends Screen {
 	}
 
 	/**
+	 * Rows of the first posts matching a search (the panel's Search screen).
+	 *
+	 * @param string $search Search term.
+	 * @param int    $limit  Most rows.
+	 * @return array[]
+	 */
+	public function search( string $search, int $limit ): array {
+		$args = array(
+			'posts_per_page' => $limit,
+			'paged'          => 1,
+			'no_found_rows'  => true,
+		) + $this->list_query_args( '', $search );
+
+		return array_map( array( $this, 'row' ), ( new \WP_Query( $args ) )->posts );
+	}
+
+	/**
 	 * One list row.
 	 *
 	 * @param \WP_Post $post Post.
@@ -270,6 +288,7 @@ abstract class Content_Screen extends Screen {
 					<?php endif; ?>
 				</section>
 				<?php $this->render_fields( $post ); ?>
+				<?php Seo::render_card( $post ); ?>
 			</div>
 			<aside class="lzp-edit__side">
 				<?php $this->render_publish_card( $post ); ?>
@@ -391,6 +410,7 @@ abstract class Content_Screen extends Screen {
 
 		$this->save_media_and_terms( $id );
 		$this->save_fields( $id );
+		Seo::save( (int) $id, self::posted_array( Seo::FIELD ) );
 
 		return $this->done( $post ? 'saved' : 'created', array( 'edit' => $id ) );
 	}

@@ -112,9 +112,14 @@ final class Router {
 
 		header( 'X-Robots-Tag: noindex, nofollow', true );
 
-		// The manifest is public and cacheable; the panel's pages are neither.
+		// The manifest and the service worker are public static files; the panel's pages are neither cacheable nor public.
 		if ( Web_App::MANIFEST === $screen ) {
 			$this->app->web_app()->send_manifest();
+			exit;
+		}
+
+		if ( Notifier::WORKER === $screen ) {
+			Notifier::send_worker();
 			exit;
 		}
 

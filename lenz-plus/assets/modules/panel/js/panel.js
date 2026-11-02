@@ -10,8 +10,13 @@
  * panel-nav.js fires after it swaps in a page without reloading. Unsaved
  * changes are flagged on <html data-lzp-dirty> so the navigation sees them.
  *
- * Data from PHP: window.lzpPanel { ajaxUrl, uploadNonce, i18n }; link
- * reading from window.lzpMediaLink (shared media-link.js).
+ * It also checks for new orders, bookings and requests once a minute on
+ * devices whose owner switched notifications on (My account), shows them
+ * through the panel's service worker and puts the waiting count on the
+ * home-screen icon.
+ *
+ * Data from PHP: window.lzpPanel { ajaxUrl, uploadNonce, notify, i18n };
+ * link reading from window.lzpMediaLink (shared media-link.js).
  */
 ( function () {
 	'use strict';
@@ -729,6 +734,148 @@
 		} );
 	}
 
+	/* ---------------------------------------------------------------------
+	 * Notifications
+	 * ------------------------------------------------------------------- */
+
+	const NOTIFY_KEY = 'lzpPanelNotify';
+	const notify = config.notify || null;
+	let pulseTimer = 0;
+	let pulseAfter = 0;
+
+	function storage( key, value ) {
+		try {
+			if ( undefined === value ) {
+				return window.localStorage.getItem( key );
+			}
+			if ( null === value ) {
+				window.localStorage.removeItem( key );
+			} else {
+				window.localStorage.setItem( key, value );
+			}
+		} catch ( error ) {
+			// Private windows may refuse storage: notifications just stay off.
+		}
+
+		return null;
+	}
+
+	function notifyOn() {
+		return !! notify && 'Notification' in window && 'granted' === Notification.permission && '1' === storage( NOTIFY_KEY );
+	}
+
+	function worker() {
+		if ( ! notify || ! notify.worker || ! ( 'serviceWorker' in navigator ) ) {
+			return Promise.resolve( null );
+		}
+
+		return navigator.serviceWorker.register( notify.worker, { scope: notify.scope } ).then( () => navigator.serviceWorker.ready ).catch( () => null );
+	}
+
+	function show( item ) {
+		const options = { body: item.body, tag: item.tag, icon: notify.icon, data: { url: item.url } };
+
+		return worker().then( ( registration ) => {
+			if ( registration ) {
+				return registration.showNotification( item.title, options );
+			}
+
+			const shown = new Notification( item.title, options );
+			shown.onclick = () => {
+				window.focus();
+				window.location.href = item.url;
+			};
+
+			return null;
+		} );
+	}
+
+	function setBadge( count ) {
+		if ( ! ( 'setAppBadge' in navigator ) ) {
+			return;
+		}
+
+		( count > 0 ? navigator.setAppBadge( count ) : navigator.clearAppBadge() ).catch( () => {} );
+	}
+
+	/** Asks the site what is new, then schedules the next check while the page is visible. */
+	function pulse() {
+		window.clearTimeout( pulseTimer );
+		if ( ! notifyOn() || document.hidden ) {
+			return;
+		}
+
+		const body = new FormData();
+		body.append( 'action', notify.action );
+		body.append( 'nonce', notify.nonce );
+		body.append( 'after', String( pulseAfter ) );
+
+		window.fetch( config.ajaxUrl, { method: 'POST', body, credentials: 'same-origin' } )
+			.then( ( response ) => response.json() )
+			.then( ( result ) => {
+				if ( ! result || ! result.success ) {
+					return;
+				}
+
+				pulseAfter = result.data.now;
+				setBadge( result.data.badge );
+				result.data.items.forEach( show );
+			} )
+			.catch( () => {} )
+			.then( () => {
+				pulseTimer = window.setTimeout( pulse, ( notify.every || 60 ) * 1000 );
+			} );
+	}
+
+	function startPulse() {
+		if ( ! notify ) {
+			return;
+		}
+
+		document.addEventListener( 'visibilitychange', () => {
+			if ( ! document.hidden ) {
+				pulse();
+			}
+		} );
+		pulse();
+	}
+
+	function initNotifySwitch() {
+		const toggle = document.querySelector( '[data-lzp-notify]:not([data-lzp-ready])' );
+		if ( ! toggle ) {
+			return;
+		}
+
+		toggle.dataset.lzpReady = '';
+		const box = toggle.closest( '[data-lzp-notify-box]' );
+		if ( ! notify || ! ( 'Notification' in window ) ) {
+			return;
+		}
+
+		box.hidden = false;
+		toggle.checked = notifyOn();
+		toggle.addEventListener( 'change', () => {
+			if ( ! toggle.checked ) {
+				storage( NOTIFY_KEY, null );
+				setBadge( 0 );
+				return;
+			}
+
+			Notification.requestPermission().then( ( permission ) => {
+				if ( 'granted' !== permission ) {
+					toggle.checked = false;
+					flash( i18n.notifyBlocked );
+					return;
+				}
+
+				storage( NOTIFY_KEY, '1' );
+				worker();
+				flash( i18n.notifyOn );
+				pulse();
+			} );
+		} );
+	}
+
 	/** Sets up the parts of the current page (each element once). */
 	function initPage() {
 		initToasts();
@@ -743,9 +890,41 @@
 		fresh( '[data-lzp-media]' ).forEach( initMediaField );
 		fresh( '[data-lzp-editor]' ).forEach( initEditor );
 		initCopy();
+		initNotifySwitch();
+		initSeo();
+	}
+
+	/* ---------------------------------------------------------------------
+	 * SEO card: live search-result preview
+	 * ------------------------------------------------------------------- */
+
+	function initSeo() {
+		document.querySelectorAll( '[data-lzp-seo]:not([data-lzp-ready])' ).forEach( ( card ) => {
+			card.dataset.lzpReady = '';
+			const pairs = [
+				[ card.querySelector( '[name="seo[title]"]' ), card.querySelector( '[data-lzp-serp-title]' ) ],
+				[ card.querySelector( '[name="seo[desc]"]' ), card.querySelector( '[data-lzp-serp-desc]' ) ],
+			];
+			const title = document.querySelector( 'input[name="title"]' );
+
+			const update = () => pairs.forEach( ( [ field, preview ] ) => {
+				if ( ! field || ! preview ) {
+					return;
+				}
+
+				const fallback = preview === pairs[ 0 ][ 1 ] && title ? title.value : preview.dataset.fallback;
+				preview.textContent = field.value.trim() || fallback;
+			} );
+
+			pairs.forEach( ( [ field ] ) => field && field.addEventListener( 'input', update ) );
+			if ( title ) {
+				title.addEventListener( 'input', update );
+			}
+		} );
 	}
 
 	bindForms();
 	initPage();
+	startPulse();
 	document.addEventListener( 'lzp:page', initPage );
 }() );

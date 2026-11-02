@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lenz Plus 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/lenz-plus\n"
-"POT-Creation-Date: 2026-11-02T07:33:22+00:00\n"
+"POT-Creation-Date: 2026-11-02T08:06:06+00:00\n"
 "PO-Revision-Date: 2026-10-05T16:14:43+00:00\n"
 "Last-Translator: Hooman Jamshidi\n"
 "Language-Team: Persian\n"
@@ -35,7 +35,7 @@ msgstr "هومن جمشیدی"
 #: includes/Admin/Admin.php:59
 #: includes/Modules/Builder/Elementor/Integration.php:138
 #: includes/Modules/Builder/Elementor/Integration.php:175
-#: includes/Modules/Panel/views/admin.php:139
+#: includes/Modules/Panel/views/admin.php:146
 msgid "Lenz+"
 msgstr "لنز+"
 
@@ -56,7 +56,8 @@ msgid "Saving failed. Please try again."
 msgstr "ذخیره انجام نشد. دوباره تلاش کنید."
 
 #: includes/Admin/Admin.php:224
-#: includes/Modules/Panel/Screens/Content_Screen.php:297
+#: includes/Modules/Panel/Screens/Content_Screen.php:316
+#: includes/Modules/Panel/Screens/Coupons.php:381
 msgid "Saving…"
 msgstr "در حال ذخیره…"
 
@@ -84,7 +85,7 @@ msgstr "بله، بازنشانی کن"
 msgid "Cancel"
 msgstr "انصراف"
 
-#: includes/Admin/Admin.php:231 includes/Modules/Panel/App.php:300
+#: includes/Admin/Admin.php:231 includes/Modules/Panel/App.php:317
 msgid "You have unsaved changes. Leave anyway?"
 msgstr "تغییرات ذخیره‌نشده دارید. با این حال خارج می‌شوید؟"
 
@@ -224,7 +225,7 @@ msgstr "ورود"
 #: includes/Modules/Bottom_Nav/views/admin.php:682
 #: includes/Modules/Builder/Elementor/Widgets/Breadcrumb.php:64
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:62
-#: includes/Modules/Panel/Screens/Dashboard.php:38
+#: includes/Modules/Panel/Screens/Dashboard.php:39
 msgid "Home"
 msgstr "خانه"
 
@@ -261,7 +262,7 @@ msgstr "لینک"
 
 #: includes/Modules/Bottom_Nav/Item_Types.php:46
 #: includes/Modules/Builder/Elementor/Post_Parts.php:298
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:71
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:89
 msgid "Archive"
 msgstr "بایگانی"
 
@@ -292,6 +293,7 @@ msgstr "رزرو وقت"
 #: includes/Modules/Bottom_Nav/Item_Types.php:65
 #: includes/Modules/Bottom_Nav/views/sheet-search.php:39
 #: includes/Modules/Builder/Elementor/Widgets/Post_Search.php:80
+#: includes/Modules/Panel/Screens/Search.php:39
 msgid "Search"
 msgstr "جستجو"
 
@@ -303,6 +305,7 @@ msgstr "یک پنل جستجو باز می‌کند."
 #: includes/Modules/Bottom_Nav/Item_Types.php:73
 #: includes/Modules/Bottom_Nav/views/admin.php:686
 #: includes/Modules/Builder/Shop_Pages.php:173
+#: includes/Modules/Panel/Screens/Wallet.php:270
 msgid "Cart"
 msgstr "سبد خرید"
 
@@ -369,6 +372,7 @@ msgid "Advanced: clicks any element on the page by CSS selector."
 msgstr "پیشرفته: با سلکتور CSS روی هر المانی در صفحه کلیک می‌کند."
 
 #: includes/Modules/Bottom_Nav/Item_Types.php:113
+#: includes/Modules/Panel/Screens/Activity.php:146
 msgid "Action"
 msgstr "عملیات"
 
@@ -435,7 +439,8 @@ msgstr "«%s» از نوار حذف می‌شود."
 #: includes/Modules/Bottom_Nav/Module.php:155
 #: includes/Modules/Bottom_Nav/views/admin.php:485
 #: includes/Modules/Builder/Module.php:257
-#: includes/Modules/Panel/Screens/Inbox_Screen.php:214
+#: includes/Modules/Panel/Screens/Customers.php:502
+#: includes/Modules/Panel/Screens/Inbox_Screen.php:201
 #: includes/Modules/Panel/Screens/Media.php:121
 msgid "Delete"
 msgstr "حذف"
@@ -584,7 +589,9 @@ msgstr "رفتار"
 #: includes/Modules/Builder/views/admin.php:103
 #: includes/Modules/Checkout/views/admin.php:87
 #: includes/Modules/Checkout/views/admin.php:203
-#: includes/Modules/Panel/views/admin.php:73
+#: includes/Modules/Panel/Screens/Coupons.php:121
+#: includes/Modules/Panel/Screens/Coupons.php:237
+#: includes/Modules/Panel/views/admin.php:80
 #: includes/Modules/Support_Button/views/admin.php:80
 msgid "Active"
 msgstr "فعال"
@@ -592,7 +599,7 @@ msgstr "فعال"
 #: includes/Modules/Bottom_Nav/views/admin.php:86
 #: includes/Modules/Builder/views/admin.php:104
 #: includes/Modules/Checkout/views/admin.php:88
-#: includes/Modules/Panel/views/admin.php:74
+#: includes/Modules/Panel/views/admin.php:81
 #: includes/Modules/Support_Button/views/admin.php:81
 msgid "Inactive"
 msgstr "غیرفعال"
@@ -737,6 +744,7 @@ msgstr "سایه"
 #: includes/Modules/Bottom_Nav/views/admin.php:324
 #: includes/Modules/Builder/Elementor/Integration.php:187
 #: includes/Modules/Builder/Elementor/Widgets/Base.php:117
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:328
 #: includes/Modules/Builder/Elementor/Widgets/Request_Form.php:125
 #: includes/Modules/Builder/Elementor/Widgets/Stats.php:159
 msgid "None"
@@ -911,6 +919,7 @@ msgid "Member"
 msgstr "عضو"
 
 #: includes/Modules/Bottom_Nav/views/admin.php:436
+#: includes/Modules/Panel/Shop/Report.php:493
 msgid "Guest"
 msgstr "مهمان"
 
@@ -926,7 +935,7 @@ msgstr "برای جابه‌جایی بکشید"
 #: includes/Modules/Bottom_Nav/views/admin.php:472
 #: includes/Modules/Builder/Elementor/Widgets/Base.php:216
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:173
-#: includes/Modules/Builder/Elementor/Widgets/Heading.php:183
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:190
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:142
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:95
 msgid "Center"
@@ -1015,7 +1024,7 @@ msgid "Any Font Awesome 6 Free class (far, fas or fab) loaded by Lenz."
 msgstr "هر کلاس Font Awesome 6 رایگان (far، fas یا fab) که لنز بارگذاری می‌کند."
 
 #: includes/Modules/Bottom_Nav/views/admin.php:530
-#: includes/Modules/Panel/App.php:301
+#: includes/Modules/Panel/App.php:318
 msgid "Media library"
 msgstr "کتابخانه رسانه"
 
@@ -1155,6 +1164,7 @@ msgid "Show to"
 msgstr "نمایش برای"
 
 #: includes/Modules/Bottom_Nav/views/admin.php:655
+#: includes/Modules/Panel/Screens/Activity.php:165
 msgid "Everyone"
 msgstr "همه"
 
@@ -1180,7 +1190,7 @@ msgstr "فروشگاه / دوره‌ها"
 
 #: includes/Modules/Bottom_Nav/views/admin.php:685
 #: includes/Modules/Builder/Elementor/Widgets/Header_Action.php:275
-#: includes/Modules/Panel/Screens/Account.php:28
+#: includes/Modules/Panel/Screens/Account.php:31
 #: includes/Modules/Panel/views/shell.php:79
 msgid "My account"
 msgstr "حساب کاربری من"
@@ -1195,7 +1205,7 @@ msgstr "انتخاب آیکون"
 #: includes/Modules/Builder/Assets.php:191
 #: includes/Modules/Builder/Assets.php:247
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:399
-#: includes/Modules/Builder/Module.php:275 includes/Modules/Panel/App.php:310
+#: includes/Modules/Builder/Module.php:275 includes/Modules/Panel/App.php:327
 #: includes/Modules/Support_Button/Module.php:114
 #: includes/Modules/Support_Button/views/button.php:77
 msgid "Close"
@@ -1264,12 +1274,13 @@ msgstr "ویرایش"
 #: includes/Modules/Builder/Booking_Requests.php:72
 #: includes/Modules/Builder/Booking_Requests.php:73
 #: includes/Modules/Builder/Contact_Messages.php:395
+#: includes/Modules/Panel/Screens/Activity.php:71
 #: includes/Modules/Panel/Screens/Bookings.php:28
 msgid "Bookings"
 msgstr "رزروها"
 
 #: includes/Modules/Builder/Booking_Inbox.php:55
-#: includes/Modules/Panel/Screens/Orders.php:323
+#: includes/Modules/Panel/Screens/Orders.php:311
 msgid "Customer"
 msgstr "مشتری"
 
@@ -1277,6 +1288,7 @@ msgstr "مشتری"
 #: includes/Modules/Builder/Course_Meta_Box.php:73
 #: includes/Modules/Panel/Screens/Bookings.php:156
 #: includes/Modules/Panel/Screens/Courses.php:132
+#: includes/Modules/Panel/Screens/Students.php:198
 msgid "Status"
 msgstr "وضعیت"
 
@@ -1437,8 +1449,10 @@ msgstr "شماره موبایل"
 #: includes/Modules/Builder/Elementor/Widgets/Form_Base.php:73
 #: includes/Modules/Builder/Elementor/Widgets/Newsletter_Form.php:109
 #: includes/Modules/Builder/Newsletter.php:274
-#: includes/Modules/Panel/Screens/Account.php:58
-#: includes/Modules/Panel/Screens/Orders.php:330
+#: includes/Modules/Panel/Screens/Account.php:61
+#: includes/Modules/Panel/Screens/Customers.php:128
+#: includes/Modules/Panel/Screens/Orders.php:318
+#: includes/Modules/Panel/Screens/Students.php:198
 #: includes/Modules/Support_Button/Channels.php:78
 #: includes/Modules/Support_Button/views/admin.php:39
 msgid "Email"
@@ -1454,7 +1468,7 @@ msgstr "تماس تلفنی"
 
 #: includes/Modules/Builder/Booking_Requests.php:193
 #: includes/Modules/Builder/Elementor/Post_Parts.php:237
-#: includes/Modules/Panel/Screens/Inbox_Screen.php:181
+#: includes/Modules/Panel/Ui.php:306
 #: includes/Modules/Support_Button/Channels.php:48
 msgid "WhatsApp"
 msgstr "واتس‌اپ"
@@ -1526,6 +1540,7 @@ msgid "Requests"
 msgstr "درخواست‌ها"
 
 #: includes/Modules/Builder/Contact_Inbox.php:43
+#: includes/Modules/Panel/Screens/Reports.php:192
 msgid "From"
 msgstr "فرستنده"
 
@@ -1557,8 +1572,9 @@ msgstr "عکاسی حرفه‌ای"
 
 #: includes/Modules/Builder/Contact_Messages.php:147
 #: includes/Modules/Builder/Design_Pages.php:83
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:77
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:82
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:95
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:113
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:233
 #: includes/Modules/Builder/Elementor/Widgets/Promo_Box.php:73
 #: includes/Modules/Builder/Presets/Catalog.php:172
 #: includes/Modules/Panel/Screens/Courses.php:35
@@ -1613,7 +1629,7 @@ msgstr "تاریخ ارسال"
 
 #: includes/Modules/Builder/Course_Data.php:168
 #: includes/Modules/Builder/Course_Meta_Box.php:97
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:68
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:86
 #: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:189
 #: includes/Modules/Panel/Screens/Courses.php:140
 msgid "Online"
@@ -1621,7 +1637,7 @@ msgstr "آنلاین"
 
 #: includes/Modules/Builder/Course_Data.php:168
 #: includes/Modules/Builder/Course_Meta_Box.php:96
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:69
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:87
 #: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:189
 #: includes/Modules/Panel/Screens/Courses.php:139
 msgid "In person"
@@ -1634,12 +1650,12 @@ msgid "%1$s, %2$s"
 msgstr "%1$s، %2$s"
 
 #: includes/Modules/Builder/Course_Data.php:183
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:70
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:88
 msgid "Coming soon"
 msgstr "به‌زودی"
 
 #: includes/Modules/Builder/Course_Data.php:187
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:257
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:431
 msgid "Held"
 msgstr "برگزار شد"
 
@@ -1648,14 +1664,16 @@ msgid "Full"
 msgstr "ظرفیت تکمیل"
 
 #. translators: %s: number of seats left.
+#. translators: %s: seats left.
 #: includes/Modules/Builder/Course_Data.php:196
+#: includes/Modules/Panel/Screens/Students.php:227
 #, php-format
 msgid "%s seats left"
 msgstr "%s ظرفیت باقی‌مانده"
 
 #: includes/Modules/Builder/Course_Data.php:199
 #: includes/Modules/Builder/Course_Meta_Box.php:77
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:67
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:85
 #: includes/Modules/Panel/Screens/Courses.php:104
 msgid "Registration open"
 msgstr "در حال ثبت‌نام"
@@ -1679,7 +1697,7 @@ msgid "%s%% off"
 msgstr "%s٪ تخفیف"
 
 #: includes/Modules/Builder/Course_Data.php:279
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:260
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:434
 msgid "Let me know"
 msgstr "خبرم کن"
 
@@ -1826,6 +1844,7 @@ msgstr "ظرفیت"
 #: includes/Modules/Builder/Course_Meta_Box.php:112
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:124
 #: includes/Modules/Panel/Screens/Courses.php:150
+#: includes/Modules/Panel/Screens/Students.php:267
 msgid "Seats left"
 msgstr "ظرفیت باقی‌مانده"
 
@@ -1955,7 +1974,7 @@ msgstr "هر کدام در یک خط به شکل «پرسش | پاسخ»."
 #: includes/Modules/Builder/Design_Pages.php:81
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:126
 #: includes/Modules/Builder/Presets/Catalog.php:61
-#: includes/Modules/Panel/Screens/Account.php:71
+#: includes/Modules/Panel/Screens/Account.php:74
 msgid "About me"
 msgstr "درباره من"
 
@@ -2028,6 +2047,8 @@ msgstr "چسبان هنگام اسکرول"
 
 #: includes/Modules/Builder/Elementor/Integration.php:209
 #: includes/Modules/Builder/views/admin.php:41
+#: includes/Modules/Panel/Screens/Coupons.php:123
+#: includes/Modules/Panel/Screens/Coupons.php:240
 #: includes/Modules/Support_Button/Module.php:111
 msgid "Off"
 msgstr "خاموش"
@@ -2092,7 +2113,7 @@ msgstr "نتایج جستجو"
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:40
 #: includes/Modules/Builder/Elementor/Widgets/Copyright.php:33
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:35
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:42
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:60
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:35
 #: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:37
 #: includes/Modules/Builder/Elementor/Widgets/Course_Outcome.php:29
@@ -2185,7 +2206,7 @@ msgstr "برای نمایش این کادر، در پروفایل نویسنده
 
 #: includes/Modules/Builder/Elementor/Widgets/Base.php:208
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:165
-#: includes/Modules/Builder/Elementor/Widgets/Heading.php:173
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:180
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:134
 #: includes/Modules/Builder/Elementor/Widgets/Post_Header.php:69
 msgid "Alignment"
@@ -2193,7 +2214,7 @@ msgstr "چینش"
 
 #: includes/Modules/Builder/Elementor/Widgets/Base.php:212
 #: includes/Modules/Builder/Elementor/Widgets/Button.php:169
-#: includes/Modules/Builder/Elementor/Widgets/Heading.php:179
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:186
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:138
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:91
 #: includes/Modules/Builder/Elementor/Widgets/Post_Header.php:73
@@ -2271,6 +2292,7 @@ msgstr "یک نوشته وبلاگ منتشر کنید تا اطلاعات وا�
 #: includes/Modules/Builder/Elementor/Widgets/Brand_Logos.php:114
 #: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:90
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:135
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:100
 #: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:139
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:67
 #: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:171
@@ -2469,7 +2491,8 @@ msgstr "عنوان مرحله‌ها"
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:72
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:152
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:94
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:176
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:210
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:231
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:106
 #: includes/Modules/Builder/Elementor/Widgets/Course_Nav.php:100
 #: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:107
@@ -2478,8 +2501,8 @@ msgstr "عنوان مرحله‌ها"
 #: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:110
 #: includes/Modules/Builder/Elementor/Widgets/Featured_Post.php:86
 #: includes/Modules/Builder/Elementor/Widgets/Featured_Projects.php:78
-#: includes/Modules/Builder/Elementor/Widgets/Heading.php:105
-#: includes/Modules/Builder/Elementor/Widgets/Heading.php:213
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:112
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:220
 #: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:67
 #: includes/Modules/Builder/Elementor/Widgets/Icon_Features.php:166
 #: includes/Modules/Builder/Elementor/Widgets/Link_Column.php:93
@@ -2510,7 +2533,7 @@ msgstr "عنوان مرحله‌ها"
 #: includes/Modules/Builder/Elementor/Widgets/Timeline.php:113
 #: includes/Modules/Builder/Elementor/Widgets/Trust_Badges.php:64
 #: includes/Modules/Builder/Elementor/Widgets/Trust_Badges.php:188
-#: includes/Modules/Panel/Screens/Content_Screen.php:261
+#: includes/Modules/Panel/Screens/Content_Screen.php:279
 #: includes/Modules/Support_Button/views/admin.php:275
 msgid "Title"
 msgstr "عنوان"
@@ -2569,7 +2592,7 @@ msgstr "نوع پروژه"
 #: includes/Modules/Builder/Elementor/Widgets/Text.php:91
 #: includes/Modules/Builder/Elementor/Widgets/Timeline.php:68
 #: includes/Modules/Builder/Elementor/Widgets/Timeline.php:114
-#: includes/Modules/Panel/Screens/Content_Screen.php:58
+#: includes/Modules/Panel/Screens/Content_Screen.php:59
 msgid "Text"
 msgstr "متن"
 
@@ -2614,7 +2637,7 @@ msgstr "توضیح و لینک‌ها"
 
 #: includes/Modules/Builder/Elementor/Widgets/Brand_Box.php:67
 #: includes/Modules/Builder/Elementor/Widgets/Brand_Box.php:116
-#: includes/Modules/Panel/Screens/Products.php:82
+#: includes/Modules/Panel/Screens/Products.php:83
 msgid "Description"
 msgstr "توضیحات"
 
@@ -2652,7 +2675,10 @@ msgstr "ارتفاع لوگو"
 #: includes/Modules/Builder/Elementor/Widgets/Trust_Badges.php:125
 #: includes/Modules/Builder/Module.php:277
 #: includes/Modules/Builder/Project_Meta_Box.php:89
+#: includes/Modules/Panel/Screens/Customers.php:128
+#: includes/Modules/Panel/Screens/Customers.php:223
 #: includes/Modules/Panel/Screens/Portfolio.php:130
+#: includes/Modules/Panel/Screens/Students.php:198
 msgid "Name"
 msgstr "نام"
 
@@ -2822,7 +2848,7 @@ msgstr "تمام‌عرض"
 #: includes/Modules/Builder/Elementor/Widgets/Card_Grid.php:156
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:108
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:139
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:174
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:208
 #: includes/Modules/Builder/Elementor/Widgets/Featured_Projects.php:76
 #: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:182
 #: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:196
@@ -2903,7 +2929,7 @@ msgstr "چک‌لیست"
 #: includes/Modules/Builder/Elementor/Widgets/Checklist_Grid.php:136
 #: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:55
 #: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:60
-#: includes/Modules/Panel/Screens/Orders.php:295
+#: includes/Modules/Panel/Screens/Orders.php:283
 msgid "Items"
 msgstr "موارد"
 
@@ -3007,6 +3033,7 @@ msgstr "باکس تماس"
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:51
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:58
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Box.php:117
+#: includes/Modules/Panel/Screens/Customers.php:380
 msgid "Contact"
 msgstr "تماس"
 
@@ -3049,6 +3076,8 @@ msgstr "کارت‌های تماس"
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:74
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:114
 #: includes/Modules/Checkout/views/admin.php:42
+#: includes/Modules/Panel/Screens/Customers.php:128
+#: includes/Modules/Panel/Screens/Students.php:198
 #: includes/Modules/Support_Button/views/admin.php:38
 msgid "Phone"
 msgstr "تلفن"
@@ -3077,7 +3106,7 @@ msgstr "یادداشت"
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:124
 #: includes/Modules/Builder/Elementor/Widgets/Map_Embed.php:92
 #: includes/Modules/Panel/views/admin.php:31
-#: includes/Modules/Panel/views/admin.php:108
+#: includes/Modules/Panel/views/admin.php:115
 msgid "Address"
 msgstr "نشانی"
 
@@ -3152,9 +3181,9 @@ msgid "Course details"
 msgstr "مشخصات دوره"
 
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:72
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:116
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:150
 #: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:94
-#: includes/Modules/Builder/Elementor/Widgets/Heading.php:193
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:200
 #: includes/Modules/Builder/Elementor/Widgets/Mobile_Buy_Bar.php:71
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:191
 #: includes/Modules/Builder/Elementor/Widgets/Newsletter_Form.php:148
@@ -3214,104 +3243,217 @@ msgid "Questions? Call before you register:"
 msgstr "سؤالی داری؟ قبل از ثبت‌نام زنگ بزن:"
 
 #. translators: %s: widget name.
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:42
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:60
 msgid "Course grid"
 msgstr "شبکه دوره‌ها"
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:86
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:206
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:104
+msgid "Cards (courses page)"
+msgstr "کارت (صفحه دوره‌ها)"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:105
+msgid "Posters with tabs (home page)"
+msgstr "پوستری با زبانه (صفحه اصلی)"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:117
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:380
 #: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:118
 #: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:112
-#: includes/Modules/Panel/App.php:307
+#: includes/Modules/Panel/App.php:324
 #: includes/Modules/Panel/Screens/Bookings.php:72
-#: includes/Modules/Panel/Screens/Content_Screen.php:162
+#: includes/Modules/Panel/Screens/Content_Screen.php:163
+#: includes/Modules/Panel/Screens/Coupons.php:120
 #: includes/Modules/Panel/Screens/Media.php:78
-#: includes/Modules/Panel/Screens/Orders.php:161
+#: includes/Modules/Panel/Screens/Orders.php:167
 #: includes/Modules/Support_Button/views/admin.php:340
 msgid "All"
 msgstr "همه"
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:87
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:118
 msgid "Registration open only"
 msgstr "فقط دوره‌های در حال ثبت‌نام"
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:95
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:126
 msgid "Number of courses"
 msgstr "تعداد دوره‌ها"
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:106
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:137
 msgid "Filter chips"
 msgstr "برچسب‌های فیلتر"
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:118
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:152
 msgid "Details and registration"
 msgstr "جزئیات و ثبت‌نام"
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:126
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:160
 msgid "Coming soon courses"
 msgstr "دوره‌های به‌زودی"
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:135
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:169
 msgid "Waitlist"
 msgstr "لیست انتظار"
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:137
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:171
 #: includes/Modules/Builder/Newsletter.php:201
 msgid "Course waitlist"
 msgstr "لیست انتظار دوره‌ها"
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:138
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:172
 msgid "Sign-ups from the coming-soon cards join this list, with the course as their topic."
 msgstr "عضویت‌های کارت‌های «به‌زودی» با نام دوره به‌عنوان موضوع به این لیست اضافه می‌شوند."
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:145
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:179
 msgid "Waitlist button"
 msgstr "دکمه لیست انتظار"
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:147
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:181
 msgid "Add me to the waitlist"
 msgstr "به لیست انتظار اضافه کن"
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:154
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:188
 msgid "Message after joining"
 msgstr "پیام پس از عضویت"
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:156
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:190
 msgid "Done. I will let you know as soon as registration opens."
 msgstr "ثبت شد؛ به‌محض باز شدن ثبت‌نام خبرت می‌کنم."
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:163
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:197
 msgid "\"Let me know\" link of held courses"
 msgstr "لینک «خبرم کن» دوره‌های برگزارشده"
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:166
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:200
 msgid "Usually the sign-up band further down the page."
 msgstr "معمولاً نوار عضویت پایین‌تر در همین صفحه."
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:186
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:221
+msgid "Posters"
+msgstr "پوستری"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:242
+msgid "Words in the muted colour after the title"
+msgstr "کلمه‌های کم‌رنگ بعد از عنوان"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:253
+msgid "«Most popular / Newest» tabs"
+msgstr "زبانه‌های «محبوب‌ترین / جدیدترین»"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:264
+msgid "«All courses» button"
+msgstr "دکمه «همه دوره‌ها»"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:266
+msgid "All courses"
+msgstr "همه دوره‌ها"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:267
+msgid "Empty: no button."
+msgstr "خالی: بدون دکمه."
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:275
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:210
+#: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:245
+#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:106
+msgid "Button link"
+msgstr "لینک دکمه"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:278
+msgid "Empty: the page made from the courses design, else the shop."
+msgstr "خالی: صفحه‌ای که از طرح دوره‌ها ساخته شده، وگرنه فروشگاه."
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:286
+msgid "Cover shape"
+msgstr "شکل کاور"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:297
+msgid "Number of sessions"
+msgstr "تعداد جلسه‌ها"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:308
+msgid "Number of students"
+msgstr "تعداد دانشجوها"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:312
+msgid "Sales counted by WooCommerce."
+msgstr "تعداد فروشی که ووکامرس شمرده."
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:320
+msgid "Green pill"
+msgstr "برچسب سبز"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:324
+msgid "Duration of the course"
+msgstr "مدت دوره"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:325
+msgid "Online or in person"
+msgstr "آنلاین یا حضوری"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:326
+msgid "Seats or registration status"
+msgstr "ظرفیت یا وضعیت ثبت‌نام"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:327
+msgid "Same text on every card"
+msgstr "متن یکسان روی همه کارت‌ها"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:337
+msgid "Pill text"
+msgstr "متن برچسب"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:340
+msgid "3 months of support"
+msgstr "۳ ماه پشتیبانی"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:355
 msgid "No courses yet. Mark WooCommerce products as courses (Course details box on the product editor)."
 msgstr "هنوز دوره‌ای نیست. محصولات ووکامرس را دوره کنید (کادر جزئیات دوره در ویرایشگر محصول)."
 
 #. translators: %s: number of courses.
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:211
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:385
 #, php-format
 msgid "%s course"
 msgstr "%s دوره"
 
 #. translators: %s: number of courses.
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:213
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:387
 #, php-format
 msgid "%s courses"
 msgstr "%s دوره"
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:214
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:388
 msgid "Course filters"
 msgstr "فیلتر دوره‌ها"
 
-#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:328
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:502
 #: includes/Modules/Builder/Elementor/Widgets/Newsletter_Form.php:110
 msgid "Email or mobile number"
 msgstr "ایمیل یا شماره موبایل"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:577
+msgid "Most popular courses"
+msgstr "محبوب‌ترین دوره‌ها"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:578
+msgid "Newest courses"
+msgstr "جدیدترین دوره‌ها"
+
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:581
+msgid "Sort courses"
+msgstr "مرتب‌سازی دوره‌ها"
+
+#. translators: %s: number of sessions.
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:636
+#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:146
+#, php-format
+msgid "%s sessions"
+msgstr "%s جلسه"
+
+#. translators: %s: number of students.
+#: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:640
+#, php-format
+msgid "%s students"
+msgstr "%s دانشجو"
 
 #. translators: %s: widget name.
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:35
@@ -3357,6 +3499,8 @@ msgstr "متن‌ها"
 
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:157
 #: includes/Modules/Builder/Elementor/Widgets/Timeline.php:112
+#: includes/Modules/Panel/Screens/Activity.php:146
+#: includes/Modules/Panel/Screens/Students.php:198
 msgid "Date"
 msgstr "تاریخ"
 
@@ -3453,12 +3597,6 @@ msgstr "کاور"
 #: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:96
 msgid "Join this course"
 msgstr "شرکت در این دوره"
-
-#. translators: %s: number of sessions.
-#: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:146
-#, php-format
-msgid "%s sessions"
-msgstr "%s جلسه"
 
 #. translators: %s: fact label («مدرس»).
 #: includes/Modules/Builder/Elementor/Widgets/Course_Summary.php:175
@@ -3640,7 +3778,8 @@ msgstr "پروژه‌های شاخص"
 #: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:69
 #: includes/Modules/Builder/Elementor/Widgets/Related_Items.php:64
 #: includes/Modules/Builder/Elementor/Widgets/Stats.php:89
-#: includes/Modules/Panel/views/admin.php:53
+#: includes/Modules/Panel/Screens/Activity.php:66
+#: includes/Modules/Panel/views/admin.php:60
 msgid "Projects"
 msgstr "پروژه"
 
@@ -3840,8 +3979,8 @@ msgstr "چیزی برای نمایش نیست: برای دکمه یا دکمه �
 msgid "Section heading"
 msgstr "سرتیتر بخش"
 
-#: includes/Modules/Builder/Elementor/Widgets/Heading.php:100
-#: includes/Modules/Builder/Elementor/Widgets/Heading.php:212
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:107
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:219
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:105
 #: includes/Modules/Builder/Elementor/Widgets/Instructor_Box.php:209
 #: includes/Modules/Checkout/views/admin.php:64
@@ -3849,47 +3988,41 @@ msgstr "سرتیتر بخش"
 msgid "Heading"
 msgstr "عنوان"
 
-#: includes/Modules/Builder/Elementor/Widgets/Heading.php:107
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:114
 #: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:58
 msgid "Section title"
 msgstr "عنوان بخش"
 
-#: includes/Modules/Builder/Elementor/Widgets/Heading.php:116
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:123
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:155
 msgid "HTML tag"
 msgstr "تگ HTML"
 
-#: includes/Modules/Builder/Elementor/Widgets/Heading.php:132
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:139
 msgid "Number before the title"
 msgstr "شماره پیش از عنوان"
 
-#: includes/Modules/Builder/Elementor/Widgets/Heading.php:142
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:149
 msgid "Accent bar"
 msgstr "نوار تأکید"
 
-#: includes/Modules/Builder/Elementor/Widgets/Heading.php:152
-#: includes/Modules/Builder/Elementor/Widgets/Heading.php:214
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:159
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:221
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:76
 msgid "Latin subtitle"
 msgstr "زیرعنوان لاتین"
 
-#: includes/Modules/Builder/Elementor/Widgets/Heading.php:163
-#: includes/Modules/Builder/Elementor/Widgets/Heading.php:215
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:170
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:222
 #: includes/Modules/Support_Button/views/admin.php:276
 msgid "Subtitle"
 msgstr "زیرعنوان"
 
-#: includes/Modules/Builder/Elementor/Widgets/Heading.php:203
-#: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:245
-#: includes/Modules/Builder/Elementor/Widgets/Pricing_Plans.php:106
-msgid "Button link"
-msgstr "لینک دکمه"
-
-#: includes/Modules/Builder/Elementor/Widgets/Heading.php:220
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:227
 msgid "Accent bar colour"
 msgstr "رنگ نوار تأکید"
 
-#: includes/Modules/Builder/Elementor/Widgets/Heading.php:230
+#: includes/Modules/Builder/Elementor/Widgets/Heading.php:237
 msgid "Space below"
 msgstr "فاصله پایین"
 
@@ -4528,7 +4661,7 @@ msgstr "ردیف عکس"
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:136
 #: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:101
 #: includes/Modules/Builder/views/admin.php:327
-#: includes/Modules/Panel/App.php:308
+#: includes/Modules/Panel/App.php:325
 #: includes/Modules/Panel/Screens/Media.php:79
 msgid "Photos"
 msgstr "عکس‌ها"
@@ -4582,6 +4715,7 @@ msgstr "مربوط به صفحه‌ای که نمایش داده می‌شود"
 
 #: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:74
 #: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:68
+#: includes/Modules/Panel/Screens/Customers.php:220
 msgid "Newest"
 msgstr "جدیدترین‌ها"
 
@@ -4652,15 +4786,17 @@ msgstr "صفحه بعد"
 #: includes/Modules/Builder/Elementor/Widgets/Portfolio_Grid.php:225
 #: includes/Modules/Builder/Elementor/Widgets/Post_Grid.php:287
 #: includes/Modules/Builder/views/admin.php:32
+#: includes/Modules/Panel/Screens/Activity.php:67
 #: includes/Modules/Panel/Screens/Pages.php:29
-#: includes/Modules/Panel/Ui.php:269 includes/Modules/Panel/views/admin.php:40
-#: includes/Modules/Panel/views/admin.php:52
+#: includes/Modules/Panel/Ui.php:274 includes/Modules/Panel/views/admin.php:40
+#: includes/Modules/Panel/views/admin.php:59
 msgid "Pages"
 msgstr "صفحه‌ها"
 
 #. translators: %s: widget name.
 #: includes/Modules/Builder/Elementor/Widgets/Post_Comments.php:29
 #: includes/Modules/Builder/Elementor/Widgets/Post_Comments.php:39
+#: includes/Modules/Panel/Screens/Activity.php:72
 #: includes/Modules/Panel/Screens/Comments.php:34
 msgid "Comments"
 msgstr "دیدگاه‌ها"
@@ -5065,6 +5201,7 @@ msgid "Project photos"
 msgstr "عکس‌های پروژه"
 
 #: includes/Modules/Builder/Elementor/Widgets/Project_Gallery.php:65
+#: includes/Modules/Panel/Screens/Reports.php:195
 msgid "Show"
 msgstr "نمایش"
 
@@ -5379,8 +5516,10 @@ msgid "Chips"
 msgstr "برچسب‌ها"
 
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:121
-#: includes/Modules/Panel/Screens/Products.php:37
-#: includes/Modules/Panel/views/admin.php:42
+#: includes/Modules/Panel/Screens/Activity.php:64
+#: includes/Modules/Panel/Screens/Coupons.php:362
+#: includes/Modules/Panel/Screens/Products.php:38
+#: includes/Modules/Panel/views/admin.php:43
 msgid "Products"
 msgstr "محصولات"
 
@@ -5652,6 +5791,7 @@ msgid "What happened then."
 msgstr "آن زمان چه اتفاقی افتاد."
 
 #: includes/Modules/Builder/Elementor/Widgets/Timeline.php:84
+#: includes/Modules/Panel/Screens/Reports.php:79
 msgid "Today"
 msgstr "امروز"
 
@@ -5680,6 +5820,7 @@ msgid "The id=… value in the code you received."
 msgstr "مقدار id=… در کدی که دریافت کرده‌اید."
 
 #: includes/Modules/Builder/Elementor/Widgets/Trust_Badges.php:93
+#: includes/Modules/Panel/Screens/Coupons.php:300
 msgid "Code"
 msgstr "کد"
 
@@ -5832,12 +5973,12 @@ msgid "Unknown action."
 msgstr "عملیات ناشناخته."
 
 #: includes/Modules/Builder/Library_Ajax.php:193
-#: includes/Modules/Panel/App.php:373
+#: includes/Modules/Panel/App.php:400
 msgid "That did not work. Please try again."
 msgstr "انجام نشد؛ لطفاً دوباره تلاش کنید."
 
 #: includes/Modules/Builder/Media_Link.php:113
-#: includes/Modules/Panel/App.php:314
+#: includes/Modules/Panel/App.php:331
 msgid "Aparat"
 msgstr "آپارات"
 
@@ -5979,7 +6120,7 @@ msgstr "در حال استفاده"
 
 #: includes/Modules/Builder/Module.php:249
 #: includes/Modules/Builder/Module.php:250
-#: includes/Modules/Panel/Screens/Content_Screen.php:299
+#: includes/Modules/Panel/Screens/Content_Screen.php:318
 msgid "Preview"
 msgstr "پیش‌نمایش"
 
@@ -6071,6 +6212,7 @@ msgid "Open in new tab"
 msgstr "باز کردن در تب جدید"
 
 #: includes/Modules/Builder/Module.php:278
+#: includes/Modules/Panel/Screens/Activity.php:146
 msgid "Kind"
 msgstr "نوع"
 
@@ -6095,9 +6237,12 @@ msgid "New name"
 msgstr "نام جدید"
 
 #: includes/Modules/Builder/Module.php:284
-#: includes/Modules/Panel/Screens/Account.php:106
-#: includes/Modules/Panel/Screens/Account.php:117
-#: includes/Modules/Panel/Screens/Content_Screen.php:297
+#: includes/Modules/Panel/Screens/Account.php:109
+#: includes/Modules/Panel/Screens/Account.php:147
+#: includes/Modules/Panel/Screens/Content_Screen.php:316
+#: includes/Modules/Panel/Screens/Coupons.php:381
+#: includes/Modules/Panel/Screens/Wallet.php:224
+#: includes/Modules/Panel/Screens/Wallet.php:292
 msgid "Save"
 msgstr "ذخیره"
 
@@ -6164,13 +6309,13 @@ msgid "No pages yet. Create one from a design above."
 msgstr "هنوز برگه‌ای ساخته نشده است. از یکی از طرح‌های بالا یک برگه بسازید."
 
 #: includes/Modules/Builder/Module.php:304
-#: includes/Modules/Panel/Screens/Content_Screen.php:324
+#: includes/Modules/Panel/Screens/Content_Screen.php:343
 msgid "Draft"
 msgstr "پیش‌نویس"
 
 #: includes/Modules/Builder/Module.php:305
-#: includes/Modules/Panel/Screens/Content_Screen.php:163
-#: includes/Modules/Panel/Screens/Content_Screen.php:323
+#: includes/Modules/Panel/Screens/Content_Screen.php:164
+#: includes/Modules/Panel/Screens/Content_Screen.php:342
 msgid "Published"
 msgstr "منتشرشده"
 
@@ -6181,7 +6326,7 @@ msgid "From \"%s\""
 msgstr "از طرح «%s»"
 
 #: includes/Modules/Builder/Module.php:308
-#: includes/Modules/Panel/Screens/Content_Screen.php:299
+#: includes/Modules/Panel/Screens/Content_Screen.php:318
 msgid "View"
 msgstr "مشاهده"
 
@@ -6852,7 +6997,7 @@ msgid "Reinstall missing designs"
 msgstr "نصب دوباره طرح‌های حذف‌شده"
 
 #: includes/Modules/Builder/views/admin.php:266
-#: includes/Modules/Panel/views/admin.php:44
+#: includes/Modules/Panel/views/admin.php:49
 msgid "Project bookings"
 msgstr "رزرو پروژه‌ها"
 
@@ -6949,7 +7094,8 @@ msgstr "صفحه‌های حساب کاربری"
 
 #. translators: %s: order number.
 #: includes/Modules/Builder/views/shop/order-received.php:46
-#: includes/Modules/Panel/Screens/Orders.php:103
+#: includes/Modules/Panel/Screens/Customers.php:414
+#: includes/Modules/Panel/Screens/Orders.php:108
 #, php-format
 msgid "Order #%s"
 msgstr "سفارش #%s"
@@ -6971,12 +7117,12 @@ msgid "Choose which billing fields the checkout asks for, give download, virtual
 msgstr "فیلدهای صورتحساب را انتخاب کنید، برای خرید دوره، فایل دانلودی و محصول مجازی فرم کوتاه بگذارید و شماره تلفن و کد پستی با اعداد فارسی را بپذیرید."
 
 #: includes/Modules/Checkout/views/admin.php:33
-#: includes/Modules/Panel/Screens/Account.php:51
+#: includes/Modules/Panel/Screens/Account.php:54
 msgid "First name"
 msgstr "نام"
 
 #: includes/Modules/Checkout/views/admin.php:34
-#: includes/Modules/Panel/Screens/Account.php:52
+#: includes/Modules/Panel/Screens/Account.php:55
 msgid "Last name"
 msgstr "نام خانوادگی"
 
@@ -6993,6 +7139,7 @@ msgid "Province"
 msgstr "استان"
 
 #: includes/Modules/Checkout/views/admin.php:38
+#: includes/Modules/Panel/Screens/Customers.php:128
 msgid "City"
 msgstr "شهر"
 
@@ -7182,125 +7329,165 @@ msgstr "نمونه‌کارها، مقاله‌ها، دوره‌ها، سفار
 msgid "Open the studio panel"
 msgstr "ورود به پنل استودیو"
 
-#: includes/Modules/Panel/App.php:154
+#: includes/Modules/Panel/App.php:163
 msgid "Upload photos"
 msgstr "آپلود عکس"
 
-#: includes/Modules/Panel/App.php:296
+#: includes/Modules/Panel/App.php:313
 #: includes/Modules/Panel/Screens/Media.php:71
 msgid "Uploading…"
 msgstr "در حال آپلود…"
 
-#: includes/Modules/Panel/App.php:297 includes/Modules/Panel/Uploads.php:101
+#: includes/Modules/Panel/App.php:314 includes/Modules/Panel/Uploads.php:101
 msgid "The file could not be uploaded. Use a photo or a video."
 msgstr "فایل آپلود نشد. یک عکس یا ویدیو انتخاب کنید."
 
-#: includes/Modules/Panel/App.php:298
+#: includes/Modules/Panel/App.php:315
 msgid "Link address (https://…)"
 msgstr "نشانی لینک (https://…)"
 
-#: includes/Modules/Panel/App.php:299
+#: includes/Modules/Panel/App.php:316
 msgid "Link copied."
 msgstr "لینک کپی شد."
 
-#: includes/Modules/Panel/App.php:302
+#: includes/Modules/Panel/App.php:319
 msgid "Search files"
 msgstr "جستجوی فایل‌ها"
 
-#: includes/Modules/Panel/App.php:303
+#: includes/Modules/Panel/App.php:320
 msgid "No files found."
 msgstr "فایلی پیدا نشد."
 
-#: includes/Modules/Panel/App.php:304
+#: includes/Modules/Panel/App.php:321
 msgid "The media library could not be loaded."
 msgstr "کتابخانه رسانه بارگذاری نشد."
 
-#: includes/Modules/Panel/App.php:305
+#: includes/Modules/Panel/App.php:322
 msgid "Loading…"
 msgstr "در حال بارگذاری…"
 
-#: includes/Modules/Panel/App.php:306
+#: includes/Modules/Panel/App.php:323
 msgid "Show more"
 msgstr "نمایش بیشتر"
 
-#: includes/Modules/Panel/App.php:309
+#: includes/Modules/Panel/App.php:326
 #: includes/Modules/Panel/Screens/Media.php:80
 msgid "Videos"
 msgstr "ویدیوها"
 
-#: includes/Modules/Panel/App.php:311
+#: includes/Modules/Panel/App.php:328
 #: includes/Modules/Panel/Screens/Create.php:27
 #: includes/Modules/Panel/Uploads.php:304
 msgid "Add"
 msgstr "افزودن"
 
 #. translators: %d: number of chosen files.
-#: includes/Modules/Panel/App.php:313
+#: includes/Modules/Panel/App.php:330
 #, php-format
 msgid "Add %d files"
 msgstr "افزودن %d فایل"
 
-#: includes/Modules/Panel/App.php:315
+#: includes/Modules/Panel/App.php:332
+msgid "Notifications are on for this device."
+msgstr "اعلان‌ها برای این دستگاه روشن شد."
+
+#: includes/Modules/Panel/App.php:333
+msgid "The browser blocked notifications. Allow them in the site settings of your browser."
+msgstr "مرورگر اعلان‌ها را مسدود کرده است. از تنظیمات سایت در مرورگرتان اجازه بدهید."
+
+#: includes/Modules/Panel/App.php:334
 msgid "Paste an Aparat link or embed code, or a link that starts with https://"
 msgstr "لینک یا کد جاسازی آپارات، یا لینکی که با https:// شروع می‌شود را وارد کنید"
 
-#: includes/Modules/Panel/App.php:360
+#: includes/Modules/Panel/App.php:379
 msgid "Saved."
 msgstr "ذخیره شد."
 
-#: includes/Modules/Panel/App.php:361
+#: includes/Modules/Panel/App.php:380
 msgid "Created. You can keep editing it here."
 msgstr "ساخته شد. می‌توانید همین‌جا ویرایشش را ادامه دهید."
 
-#: includes/Modules/Panel/App.php:362
+#: includes/Modules/Panel/App.php:381
 msgid "Moved to the trash."
 msgstr "به زباله‌دان رفت."
 
-#: includes/Modules/Panel/App.php:363
+#: includes/Modules/Panel/App.php:382
 msgid "Deleted."
 msgstr "حذف شد."
 
-#: includes/Modules/Panel/App.php:364
+#: includes/Modules/Panel/App.php:383
 msgid "Status changed."
 msgstr "وضعیت تغییر کرد."
 
-#: includes/Modules/Panel/App.php:365
+#: includes/Modules/Panel/App.php:384
 msgid "Note added."
 msgstr "یادداشت اضافه شد."
 
-#: includes/Modules/Panel/App.php:366
+#: includes/Modules/Panel/App.php:385
 msgid "Reply posted."
 msgstr "پاسخ ثبت شد."
 
-#: includes/Modules/Panel/App.php:367
+#: includes/Modules/Panel/App.php:386
 msgid "Uploaded."
 msgstr "آپلود شد."
 
-#: includes/Modules/Panel/App.php:368
+#: includes/Modules/Panel/App.php:387
+msgid "Sent."
+msgstr "ارسال شد."
+
+#: includes/Modules/Panel/App.php:388
+msgid "The refund is recorded on the order."
+msgstr "بازپرداخت روی سفارش ثبت شد."
+
+#: includes/Modules/Panel/App.php:389
+msgid "The site's cache is cleared."
+msgstr "کش سایت پاک شد."
+
+#: includes/Modules/Panel/App.php:390
+msgid "That amount is not possible here."
+msgstr "این مبلغ اینجا ممکن نیست."
+
+#: includes/Modules/Panel/App.php:391
+msgid "Type a discount code."
+msgstr "کد تخفیف را بنویسید."
+
+#: includes/Modules/Panel/App.php:392
+msgid "Another discount code already uses this code."
+msgstr "کد تخفیف دیگری همین کد را دارد."
+
+#: includes/Modules/Panel/App.php:393
+msgid "A percentage discount cannot be more than 100."
+msgstr "تخفیف درصدی نمی‌تواند بیشتر از ۱۰۰ باشد."
+
+#: includes/Modules/Panel/App.php:394
+msgid "The wallet refused this (locked wallet or not enough balance)."
+msgstr "کیف پول این کار را نپذیرفت (کیف پول قفل است یا موجودی کافی نیست)."
+
+#: includes/Modules/Panel/App.php:395
 msgid "Write something first."
 msgstr "اول چیزی بنویسید."
 
-#: includes/Modules/Panel/App.php:369
+#: includes/Modules/Panel/App.php:396
 msgid "That email address is not valid."
 msgstr "این نشانی ایمیل درست نیست."
 
-#: includes/Modules/Panel/App.php:370
+#: includes/Modules/Panel/App.php:397
 msgid "Another account already uses that email address."
 msgstr "این ایمیل برای حساب دیگری ثبت شده است."
 
-#: includes/Modules/Panel/App.php:371
+#: includes/Modules/Panel/App.php:398
 msgid "The two passwords do not match."
 msgstr "دو رمز عبور یکسان نیستند."
 
-#: includes/Modules/Panel/App.php:372
+#: includes/Modules/Panel/App.php:399
 msgid "You are not allowed to do that."
 msgstr "اجازه این کار را ندارید."
 
-#: includes/Modules/Panel/App.php:374
+#: includes/Modules/Panel/App.php:401
 msgid "The page was open too long. Please try again."
 msgstr "صفحه مدت زیادی باز مانده بود. لطفاً دوباره امتحان کنید."
 
-#: includes/Modules/Panel/App.php:375
+#: includes/Modules/Panel/App.php:402
 msgid "The files were too large for the server. Send fewer or smaller files at a time."
 msgstr "حجم فایل‌ها برای سرور زیاد بود. هر بار فایل‌های کمتر یا کوچک‌تری بفرستید."
 
@@ -7344,66 +7531,319 @@ msgstr "قالب‌بندی متن"
 msgid "Undo"
 msgstr "واگرد"
 
-#: includes/Modules/Panel/Module.php:39
+#. translators: %s: Rank Math or Yoast SEO.
+#: includes/Modules/Panel/Integrations/Seo.php:126
+#, php-format
+msgid "SEO (%s)"
+msgstr "سئو (%s)"
+
+#. translators: %s: SEO score out of 100.
+#: includes/Modules/Panel/Integrations/Seo.php:133
+#, php-format
+msgid "Score %s"
+msgstr "امتیاز %s"
+
+#: includes/Modules/Panel/Integrations/Seo.php:141
+msgid "The search engine picks a part of the text."
+msgstr "موتور جستجو بخشی از متن را خودش انتخاب می‌کند."
+
+#: includes/Modules/Panel/Integrations/Seo.php:147
+msgid "Focus keyword"
+msgstr "کلمه کلیدی اصلی"
+
+#: includes/Modules/Panel/Integrations/Seo.php:149
+msgid "The word people search for. Separate several with commas; the first one is the main keyword."
+msgstr "کلمه‌ای که مردم جستجو می‌کنند. چند کلمه را با ویرگول جدا کنید؛ اولی کلمه کلیدی اصلی است."
+
+#: includes/Modules/Panel/Integrations/Seo.php:149
+msgid "The word people search for."
+msgstr "کلمه‌ای که مردم جستجو می‌کنند."
+
+#: includes/Modules/Panel/Integrations/Seo.php:153
+msgid "SEO title"
+msgstr "عنوان سئو"
+
+#: includes/Modules/Panel/Integrations/Seo.php:162
+msgid "Meta description"
+msgstr "توضیحات متا"
+
+#: includes/Modules/Panel/Integrations/Seo.php:171
+msgid "Advanced"
+msgstr "پیشرفته"
+
+#: includes/Modules/Panel/Integrations/Seo.php:175
+msgid "Canonical address"
+msgstr "نشانی کنونیکال"
+
+#: includes/Modules/Panel/Integrations/Seo.php:180
+msgid "Only when the same content lives at another address. Empty: this page's own address."
+msgstr "فقط وقتی همین محتوا در نشانی دیگری هم هست. خالی: نشانی خود همین صفحه."
+
+#: includes/Modules/Panel/Integrations/Seo.php:185
+msgid "Hide from search engines"
+msgstr "پنهان از موتورهای جستجو"
+
+#: includes/Modules/Panel/Integrations/Seo.php:185
+msgid "Search engines are asked not to list this page (noindex)."
+msgstr "از موتورهای جستجو خواسته می‌شود این صفحه را فهرست نکنند (noindex)."
+
+#. translators: %s: number of characters.
+#: includes/Modules/Panel/Integrations/Seo.php:198
+#, php-format
+msgid "Search engines show about %s characters."
+msgstr "موتورهای جستجو حدود %s نویسه را نشان می‌دهند."
+
+#. translators: %s: postcode.
+#: includes/Modules/Panel/Integrations/Shipping.php:86
+#, php-format
+msgid "Postcode: %s"
+msgstr "کد پستی: %s"
+
+#. translators: %s: parcel tracking code.
+#: includes/Modules/Panel/Integrations/Shipping.php:128
+#, php-format
+msgid "Your parcel is on its way. Tracking code: %s"
+msgstr "مرسوله شما در راه است. کد رهگیری: %s"
+
+#: includes/Modules/Panel/Module.php:43
 msgid "Studio panel"
 msgstr "پنل استودیو"
 
-#: includes/Modules/Panel/Module.php:44
+#: includes/Modules/Panel/Module.php:48
 msgid "A simple management panel for phones on your site's own address: projects, articles, courses, products, orders, bookings and requests in your brand's look, without wp-admin."
 msgstr "یک پنل مدیریت ساده و مناسب گوشی داخل خود وردپرس: نمونه‌کارها، مقاله‌ها، دوره‌ها، محصولات، سفارش‌ها، رزروها و درخواست‌ها با ظاهر برند شما، بدون پیچیدگی پیشخوان."
 
-#: includes/Modules/Panel/Screens/Account.php:48
+#. translators: %s: order number.
+#: includes/Modules/Panel/Notifier.php:139
+#, php-format
+msgid "New order #%s"
+msgstr "سفارش تازه #%s"
+
+#: includes/Modules/Panel/Notifier.php:156
+msgid "New booking"
+msgstr "رزرو تازه"
+
+#: includes/Modules/Panel/Notifier.php:157
+msgid "New request"
+msgstr "درخواست تازه"
+
+#: includes/Modules/Panel/Screens/Account.php:51
 msgid "Profile"
 msgstr "مشخصات"
 
-#: includes/Modules/Panel/Screens/Account.php:54
+#: includes/Modules/Panel/Screens/Account.php:57
 msgid "Name shown on the site"
 msgstr "نام نمایشی در سایت"
 
-#: includes/Modules/Panel/Screens/Account.php:75
+#: includes/Modules/Panel/Screens/Account.php:78
 msgid "Shown in the author box of your articles."
 msgstr "در کادر نویسنده مقاله‌هایتان نمایش داده می‌شود."
 
-#: includes/Modules/Panel/Screens/Account.php:80
+#: includes/Modules/Panel/Screens/Account.php:83
 msgid "Change password"
 msgstr "تغییر رمز عبور"
 
-#: includes/Modules/Panel/Screens/Account.php:84
+#: includes/Modules/Panel/Screens/Account.php:87
 msgid "New password"
 msgstr "رمز عبور تازه"
 
-#: includes/Modules/Panel/Screens/Account.php:96
+#: includes/Modules/Panel/Screens/Account.php:99
 msgid "New password again"
 msgstr "تکرار رمز عبور تازه"
 
-#: includes/Modules/Panel/Screens/Account.php:113
+#: includes/Modules/Panel/Screens/Account.php:119
+msgid "Notifications on this device"
+msgstr "اعلان روی این دستگاه"
+
+#: includes/Modules/Panel/Screens/Account.php:122
+msgid "New orders, bookings and requests, while the panel is open or installed on the home screen."
+msgstr "سفارش‌ها، رزروها و درخواست‌های تازه، وقتی پنل باز است یا روی صفحه اصلی گوشی نصب شده."
+
+#: includes/Modules/Panel/Screens/Account.php:131
+#: includes/Modules/Panel/Screens/Account.php:177
+msgid "Site cache"
+msgstr "کش سایت"
+
+#. translators: %s: cache plugin names.
+#: includes/Modules/Panel/Screens/Account.php:135
+#, php-format
+msgid "Clears the saved pages of %s, so visitors see your latest changes."
+msgstr "صفحه‌های ذخیره‌شده‌ی %s را پاک می‌کند تا بازدیدکننده‌ها آخرین تغییرات را ببینند."
+
+#: includes/Modules/Panel/Screens/Account.php:138
+msgid "Clear the cache"
+msgstr "پاک کردن کش"
+
+#: includes/Modules/Panel/Screens/Account.php:143
 msgid "Site"
 msgstr "سایت"
 
-#: includes/Modules/Panel/Screens/Account.php:115
+#: includes/Modules/Panel/Screens/Account.php:145
 msgid "Site name"
 msgstr "نام سایت"
 
-#: includes/Modules/Panel/Screens/Account.php:116
+#: includes/Modules/Panel/Screens/Account.php:146
 msgid "Tagline"
 msgstr "معرفی کوتاه"
 
-#: includes/Modules/Panel/Screens/Account.php:123
-#: includes/Modules/Panel/Screens/Dashboard.php:68
+#: includes/Modules/Panel/Screens/Account.php:153
+#: includes/Modules/Panel/Screens/Dashboard.php:69
 #: includes/Modules/Panel/Screens/Menu.php:64
 #: includes/Modules/Panel/views/shell.php:60
 msgid "View the site"
 msgstr "مشاهده سایت"
 
-#: includes/Modules/Panel/Screens/Account.php:125
+#: includes/Modules/Panel/Screens/Account.php:155
 msgid "WordPress dashboard"
 msgstr "پیشخوان وردپرس"
 
-#: includes/Modules/Panel/Screens/Account.php:127
+#: includes/Modules/Panel/Screens/Account.php:157
 #: includes/Modules/Panel/Screens/Menu.php:65
 #: includes/Modules/Panel/views/shell.php:61
 msgid "Log out"
 msgstr "خروج"
+
+#: includes/Modules/Panel/Screens/Activity.php:38
+msgid "Activity"
+msgstr "گزارش فعالیت"
+
+#: includes/Modules/Panel/Screens/Activity.php:63
+#: includes/Modules/Panel/Screens/Customers.php:128
+#: includes/Modules/Panel/Screens/Customers.php:366
+#: includes/Modules/Panel/Screens/Orders.php:42
+#: includes/Modules/Panel/Screens/Reports.php:217
+#: includes/Modules/Panel/views/admin.php:44
+msgid "Orders"
+msgstr "سفارش‌ها"
+
+#: includes/Modules/Panel/Screens/Activity.php:65
+#: includes/Modules/Panel/Screens/Posts.php:26
+#: includes/Modules/Panel/views/admin.php:39
+#: includes/Modules/Panel/views/admin.php:58
+msgid "Articles"
+msgstr "مقاله‌ها"
+
+#: includes/Modules/Panel/Screens/Activity.php:68
+#: includes/Modules/Panel/Screens/Coupons.php:34
+#: includes/Modules/Panel/views/admin.php:47
+msgid "Discount codes"
+msgstr "کدهای تخفیف"
+
+#: includes/Modules/Panel/Screens/Activity.php:69
+#: includes/Modules/Panel/Screens/Customers.php:43
+#: includes/Modules/Panel/Screens/Customers.php:149
+#: includes/Modules/Panel/Screens/Reports.php:220
+msgid "Customers"
+msgstr "مشتری‌ها"
+
+#: includes/Modules/Panel/Screens/Activity.php:70
+#: includes/Modules/Panel/Screens/Wallet.php:36
+#: includes/Modules/Panel/Screens/Wallet.php:116
+msgid "Wallet"
+msgstr "کیف پول"
+
+#: includes/Modules/Panel/Screens/Activity.php:83
+msgid "changed the status of"
+msgstr "وضعیت را تغییر داد:"
+
+#: includes/Modules/Panel/Screens/Activity.php:84
+msgid "created"
+msgstr "ساخت:"
+
+#: includes/Modules/Panel/Screens/Activity.php:85
+msgid "edited"
+msgstr "ویرایش کرد:"
+
+#: includes/Modules/Panel/Screens/Activity.php:86
+msgid "moved to the trash"
+msgstr "به زباله‌دان برد:"
+
+#: includes/Modules/Panel/Screens/Activity.php:87
+msgid "restored"
+msgstr "بازگرداند:"
+
+#: includes/Modules/Panel/Screens/Activity.php:88
+msgid "refunded"
+msgstr "بازپرداخت کرد:"
+
+#: includes/Modules/Panel/Screens/Activity.php:89
+msgid "added a note to"
+msgstr "یادداشت گذاشت برای"
+
+#: includes/Modules/Panel/Screens/Activity.php:90
+msgid "set the tracking code of"
+msgstr "کد رهگیری ثبت کرد برای"
+
+#: includes/Modules/Panel/Screens/Activity.php:91
+msgid "sent the invoice of"
+msgstr "فاکتور فرستاد برای"
+
+#: includes/Modules/Panel/Screens/Activity.php:92
+msgid "credited the wallet of"
+msgstr "کیف پول را شارژ کرد:"
+
+#: includes/Modules/Panel/Screens/Activity.php:93
+msgid "debited the wallet of"
+msgstr "از کیف پول برداشت کرد:"
+
+#: includes/Modules/Panel/Screens/Activity.php:94
+msgid "changed"
+msgstr "تغییر داد:"
+
+#: includes/Modules/Panel/Screens/Activity.php:95
+msgid "downloaded"
+msgstr "دریافت کرد:"
+
+#: includes/Modules/Panel/Screens/Activity.php:96
+msgid "cleared"
+msgstr "پاک کرد:"
+
+#: includes/Modules/Panel/Screens/Activity.php:107
+msgid "in the panel"
+msgstr "در پنل"
+
+#: includes/Modules/Panel/Screens/Activity.php:108
+msgid "in wp-admin"
+msgstr "در پیشخوان وردپرس"
+
+#: includes/Modules/Panel/Screens/Activity.php:109
+msgid "on the site"
+msgstr "در سایت"
+
+#: includes/Modules/Panel/Screens/Activity.php:146
+msgid "Person"
+msgstr "شخص"
+
+#: includes/Modules/Panel/Screens/Activity.php:146
+msgid "Where"
+msgstr "کجا"
+
+#: includes/Modules/Panel/Screens/Activity.php:146
+msgid "Item"
+msgstr "مورد"
+
+#: includes/Modules/Panel/Screens/Activity.php:146
+msgid "Changes"
+msgstr "تغییرات"
+
+#: includes/Modules/Panel/Screens/Activity.php:161
+msgid "Everything"
+msgstr "همه چیز"
+
+#: includes/Modules/Panel/Screens/Activity.php:178
+msgid "Nothing recorded yet. Changes made from now on show up here."
+msgstr "هنوز چیزی ثبت نشده. تغییرات از این به بعد اینجا نمایش داده می‌شوند."
+
+#: includes/Modules/Panel/Screens/Activity.php:182
+#: includes/Modules/Panel/Screens/Customers.php:233
+msgid "Download as CSV (Excel)"
+msgstr "دریافت فایل CSV (اکسل)"
+
+#. translators: 1: person, 2: what they did («edited»), 3: the item.
+#: includes/Modules/Panel/Screens/Activity.php:204
+#, php-format
+msgid "%1$s %2$s %3$s"
+msgstr "%1$s %2$s %3$s"
 
 #: includes/Modules/Panel/Screens/Bookings.php:48
 msgid "No bookings yet. Bookings sent through the Project booking form appear here."
@@ -7447,7 +7887,7 @@ msgid "Move this comment to the trash?"
 msgstr "این دیدگاه به زباله‌دان برود؟"
 
 #: includes/Modules/Panel/Screens/Comments.php:139
-#: includes/Modules/Panel/Screens/Inbox_Screen.php:174
+#: includes/Modules/Panel/Screens/Inbox_Screen.php:173
 msgid "Reply"
 msgstr "پاسخ"
 
@@ -7459,72 +7899,216 @@ msgstr "پاسخ شما"
 msgid "Send reply"
 msgstr "ارسال پاسخ"
 
-#: includes/Modules/Panel/Screens/Content_Screen.php:53
+#: includes/Modules/Panel/Screens/Content_Screen.php:54
+#: includes/Modules/Panel/Screens/Reports.php:164
 msgid "Categories"
 msgstr "دسته‌ها"
 
-#: includes/Modules/Panel/Screens/Content_Screen.php:129
+#: includes/Modules/Panel/Screens/Content_Screen.php:130
+#: includes/Modules/Panel/Screens/Coupons.php:101
 msgid "This item does not exist or you cannot edit it."
 msgstr "این مورد وجود ندارد یا اجازه ویرایشش را ندارید."
 
-#: includes/Modules/Panel/Screens/Content_Screen.php:157
+#: includes/Modules/Panel/Screens/Content_Screen.php:158
 msgid "Search…"
 msgstr "جستجو…"
 
-#: includes/Modules/Panel/Screens/Content_Screen.php:164
+#: includes/Modules/Panel/Screens/Content_Screen.php:165
 msgid "Drafts"
 msgstr "پیش‌نویس‌ها"
 
-#: includes/Modules/Panel/Screens/Content_Screen.php:174
-#: includes/Modules/Panel/Screens/Orders.php:188
+#: includes/Modules/Panel/Screens/Content_Screen.php:175
+#: includes/Modules/Panel/Screens/Coupons.php:143
+#: includes/Modules/Panel/Screens/Customers.php:230
+#: includes/Modules/Panel/Screens/Orders.php:194
+#: includes/Modules/Panel/Screens/Search.php:74
+#: includes/Modules/Panel/Screens/Wallet.php:149
 msgid "Nothing matches this search."
 msgstr "چیزی با این جستجو پیدا نشد."
 
-#: includes/Modules/Panel/Screens/Content_Screen.php:230
+#: includes/Modules/Panel/Screens/Content_Screen.php:248
 msgid "(no title)"
 msgstr "(بدون عنوان)"
 
-#: includes/Modules/Panel/Screens/Content_Screen.php:267
+#: includes/Modules/Panel/Screens/Content_Screen.php:285
 msgid "Short summary"
 msgstr "خلاصه کوتاه"
 
-#: includes/Modules/Panel/Screens/Content_Screen.php:268
+#: includes/Modules/Panel/Screens/Content_Screen.php:286
 msgid "Summary shown on cards and lists"
 msgstr "خلاصه‌ای که روی کارت‌ها و فهرست‌ها نمایش داده می‌شود"
 
-#: includes/Modules/Panel/Screens/Content_Screen.php:278
+#: includes/Modules/Panel/Screens/Content_Screen.php:297
 msgid "Cover photo"
 msgstr "عکس شاخص"
 
-#: includes/Modules/Panel/Screens/Content_Screen.php:288
+#: includes/Modules/Panel/Screens/Content_Screen.php:307
 msgid "New category (separate several with commas)"
 msgstr "دسته تازه (چند مورد را با ویرگول جدا کنید)"
 
-#: includes/Modules/Panel/Screens/Content_Screen.php:306
+#: includes/Modules/Panel/Screens/Content_Screen.php:325
+#: includes/Modules/Panel/Screens/Coupons.php:387
 msgid "Move to trash"
 msgstr "انتقال به زباله‌دان"
 
-#: includes/Modules/Panel/Screens/Content_Screen.php:306
+#: includes/Modules/Panel/Screens/Content_Screen.php:325
+#: includes/Modules/Panel/Screens/Coupons.php:387
 msgid "Move this item to the trash? You can restore it from WordPress's trash."
 msgstr "این مورد به زباله‌دان برود؟ از زباله‌دان وردپرس می‌شود برش گرداند."
 
-#: includes/Modules/Panel/Screens/Content_Screen.php:323
+#: includes/Modules/Panel/Screens/Content_Screen.php:342
 msgid "Send for review"
 msgstr "ارسال برای بررسی"
 
-#: includes/Modules/Panel/Screens/Content_Screen.php:328
+#: includes/Modules/Panel/Screens/Content_Screen.php:347
 msgid "Visibility"
 msgstr "نمایش"
 
-#: includes/Modules/Panel/Screens/Content_Screen.php:328
+#: includes/Modules/Panel/Screens/Content_Screen.php:347
 msgid "Drafts are saved but visitors do not see them."
 msgstr "پیش‌نویس ذخیره می‌شود اما بازدیدکننده‌ها آن را نمی‌بینند."
 
 #. translators: %s: date.
-#: includes/Modules/Panel/Screens/Content_Screen.php:333
+#: includes/Modules/Panel/Screens/Content_Screen.php:352
 #, php-format
 msgid "Last change: %s"
 msgstr "آخرین تغییر: %s"
+
+#: includes/Modules/Panel/Screens/Coupons.php:75
+msgid "Edit discount code"
+msgstr "ویرایش کد تخفیف"
+
+#: includes/Modules/Panel/Screens/Coupons.php:75
+#: includes/Modules/Panel/Screens/Coupons.php:90
+msgid "New discount code"
+msgstr "کد تخفیف تازه"
+
+#: includes/Modules/Panel/Screens/Coupons.php:115
+msgid "Search codes…"
+msgstr "جستجوی کدها…"
+
+#: includes/Modules/Panel/Screens/Coupons.php:122
+#: includes/Modules/Panel/Screens/Coupons.php:238
+msgid "Expired"
+msgstr "منقضی‌شده"
+
+#: includes/Modules/Panel/Screens/Coupons.php:143
+msgid "No discount codes yet."
+msgstr "هنوز کد تخفیفی ساخته نشده."
+
+#: includes/Modules/Panel/Screens/Coupons.php:239
+msgid "Used up"
+msgstr "تمام‌شده"
+
+#. translators: 1: times used, 2: usage limit.
+#: includes/Modules/Panel/Screens/Coupons.php:264
+#, php-format
+msgid "Used %1$s of %2$s"
+msgstr "%1$s از %2$s بار استفاده شده"
+
+#. translators: %s: times used.
+#: includes/Modules/Panel/Screens/Coupons.php:266
+#, php-format
+msgid "Used %s times"
+msgstr "%s بار استفاده شده"
+
+#. translators: %s: expiry date.
+#: includes/Modules/Panel/Screens/Coupons.php:271
+#, php-format
+msgid "until %s"
+msgstr "تا %s"
+
+#: includes/Modules/Panel/Screens/Coupons.php:305
+msgid "What customers type at checkout, e.g. NOROOZ20."
+msgstr "چیزی که مشتری هنگام پرداخت وارد می‌کند، مثلاً NOROOZ20."
+
+#: includes/Modules/Panel/Screens/Coupons.php:311
+msgid "Discount type"
+msgstr "نوع تخفیف"
+
+#: includes/Modules/Panel/Screens/Coupons.php:314
+#: includes/Modules/Panel/Screens/Orders.php:443
+#: includes/Modules/Panel/Screens/Wallet.php:215
+msgid "Amount"
+msgstr "مبلغ"
+
+#. translators: %s: currency symbol.
+#: includes/Modules/Panel/Screens/Coupons.php:319
+#, php-format
+msgid "A percentage, or an amount in %s."
+msgstr "درصد، یا مبلغ به %s."
+
+#: includes/Modules/Panel/Screens/Coupons.php:324
+msgid "Note for the staff"
+msgstr "یادداشت برای همکاران"
+
+#: includes/Modules/Panel/Screens/Coupons.php:328
+msgid "Limits"
+msgstr "محدودیت‌ها"
+
+#: includes/Modules/Panel/Screens/Coupons.php:333
+msgid "Last day"
+msgstr "آخرین روز"
+
+#: includes/Modules/Panel/Screens/Coupons.php:337
+msgid "Empty: never expires."
+msgstr "خالی: هیچ‌وقت منقضی نمی‌شود."
+
+#: includes/Modules/Panel/Screens/Coupons.php:340
+msgid "Uses in total"
+msgstr "تعداد کل استفاده"
+
+#: includes/Modules/Panel/Screens/Coupons.php:340
+msgid "Empty: no limit."
+msgstr "خالی: بدون محدودیت."
+
+#: includes/Modules/Panel/Screens/Coupons.php:341
+msgid "Uses per customer"
+msgstr "تعداد استفاده برای هر مشتری"
+
+#. translators: %s: currency symbol.
+#: includes/Modules/Panel/Screens/Coupons.php:343
+#, php-format
+msgid "Smallest cart (%s)"
+msgstr "کمترین مبلغ سبد (%s)"
+
+#. translators: %s: currency symbol.
+#: includes/Modules/Panel/Screens/Coupons.php:345
+#, php-format
+msgid "Largest cart (%s)"
+msgstr "بیشترین مبلغ سبد (%s)"
+
+#: includes/Modules/Panel/Screens/Coupons.php:351
+msgid "Only for these emails"
+msgstr "فقط برای این ایمیل‌ها"
+
+#: includes/Modules/Panel/Screens/Coupons.php:355
+msgid "Separate several with commas. Empty: everyone."
+msgstr "چند مورد را با ویرگول جدا کنید. خالی: همه."
+
+#: includes/Modules/Panel/Screens/Coupons.php:364
+msgid "Only these categories (none chosen: every product)"
+msgstr "فقط این دسته‌ها (هیچ‌کدام: همه محصولات)"
+
+#: includes/Modules/Panel/Screens/Coupons.php:365
+msgid "Not on products already on sale"
+msgstr "روی محصولات حراج‌شده اعمال نشود"
+
+#: includes/Modules/Panel/Screens/Coupons.php:366
+msgid "Cannot be combined with other codes"
+msgstr "با کدهای دیگر ترکیب نشود"
+
+#: includes/Modules/Panel/Screens/Coupons.php:367
+msgid "Free shipping"
+msgstr "ارسال رایگان"
+
+#: includes/Modules/Panel/Screens/Coupons.php:367
+msgid "Needs a free shipping method that accepts discount codes."
+msgstr "یک روش ارسال رایگان می‌خواهد که کد تخفیف را بپذیرد."
+
+#: includes/Modules/Panel/Screens/Coupons.php:373
+msgid "Code is active"
+msgstr "کد فعال است"
 
 #: includes/Modules/Panel/Screens/Courses.php:50
 msgid "New course"
@@ -7558,72 +8142,146 @@ msgstr "ظرفیت موجود"
 msgid "There is nothing you can add."
 msgstr "چیزی برای افزودن ندارید."
 
+#: includes/Modules/Panel/Screens/Customers.php:128
+#: includes/Modules/Panel/Screens/Customers.php:367
+msgid "Total spent"
+msgstr "مجموع خرید"
+
+#: includes/Modules/Panel/Screens/Customers.php:128
+msgid "Last order"
+msgstr "آخرین سفارش"
+
+#: includes/Modules/Panel/Screens/Customers.php:149
+#: includes/Modules/Panel/Screens/Customers.php:212
+msgid "Guest buyers"
+msgstr "خریداران مهمان"
+
+#: includes/Modules/Panel/Screens/Customers.php:164
+#: includes/Modules/Panel/Screens/Inbox_Screen.php:75
+#: includes/Modules/Panel/Screens/Students.php:214
+#: includes/Modules/Panel/Screens/Wallet.php:100
+msgid "This item does not exist."
+msgstr "این مورد وجود ندارد."
+
+#: includes/Modules/Panel/Screens/Customers.php:206
+msgid "Name, email or mobile"
+msgstr "نام، ایمیل یا موبایل"
+
+#: includes/Modules/Panel/Screens/Customers.php:211
+msgid "With an account"
+msgstr "دارای حساب کاربری"
+
+#: includes/Modules/Panel/Screens/Customers.php:221
+msgid "Spent most"
+msgstr "بیشترین خرید"
+
+#: includes/Modules/Panel/Screens/Customers.php:222
+msgid "Most orders"
+msgstr "بیشترین سفارش"
+
+#: includes/Modules/Panel/Screens/Customers.php:230
+msgid "No customers yet."
+msgstr "هنوز مشتری‌ای نیست."
+
+#. translators: %s: number of orders.
+#: includes/Modules/Panel/Screens/Customers.php:332
+#, php-format
+msgid "%s order"
+msgid_plural "%s orders"
+msgstr[0] "%s سفارش"
+
+#: includes/Modules/Panel/Screens/Customers.php:368
+#: includes/Modules/Panel/Screens/Reports.php:218
+msgid "Average order"
+msgstr "میانگین سفارش"
+
+#: includes/Modules/Panel/Screens/Customers.php:386
+msgid "Edit in WordPress"
+msgstr "ویرایش در وردپرس"
+
+#: includes/Modules/Panel/Screens/Customers.php:423
+#: includes/Modules/Panel/Screens/Dashboard.php:192
+msgid "Latest orders"
+msgstr "آخرین سفارش‌ها"
+
+#: includes/Modules/Panel/Screens/Customers.php:424
+#: includes/Modules/Panel/Screens/Orders.php:194
+msgid "No orders yet."
+msgstr "هنوز سفارشی نیامده."
+
+#: includes/Modules/Panel/Screens/Customers.php:466
+msgid "What they bought"
+msgstr "خریدهایش"
+
+#: includes/Modules/Panel/Screens/Customers.php:487
+msgid "Notes for the staff"
+msgstr "یادداشت‌های همکاران"
+
+#: includes/Modules/Panel/Screens/Customers.php:492
+#: includes/Modules/Panel/Screens/Orders.php:474
+msgid "New note"
+msgstr "یادداشت تازه"
+
+#: includes/Modules/Panel/Screens/Customers.php:493
+#: includes/Modules/Panel/Screens/Orders.php:476
+msgid "Add note"
+msgstr "افزودن یادداشت"
+
+#: includes/Modules/Panel/Screens/Customers.php:502
+msgid "Delete this note?"
+msgstr "این یادداشت حذف شود؟"
+
 #. translators: %s: user's first name.
-#: includes/Modules/Panel/Screens/Dashboard.php:63
+#: includes/Modules/Panel/Screens/Dashboard.php:64
 #, php-format
 msgid "Hello %s"
 msgstr "سلام %s"
 
-#: includes/Modules/Panel/Screens/Dashboard.php:66
+#: includes/Modules/Panel/Screens/Dashboard.php:67
 msgid "Here is what is happening on your site."
 msgstr "این‌ها تازه‌های سایت شماست."
 
-#: includes/Modules/Panel/Screens/Dashboard.php:76
+#: includes/Modules/Panel/Screens/Dashboard.php:77
 msgid "Quick add"
 msgstr "افزودن سریع"
 
-#: includes/Modules/Panel/Screens/Dashboard.php:95
+#: includes/Modules/Panel/Screens/Dashboard.php:96
 msgid "Orders to handle"
 msgstr "سفارش‌های در انتظار"
 
-#: includes/Modules/Panel/Screens/Dashboard.php:96
+#: includes/Modules/Panel/Screens/Dashboard.php:97
 msgid "New bookings"
 msgstr "رزروهای تازه"
 
-#: includes/Modules/Panel/Screens/Dashboard.php:97
+#: includes/Modules/Panel/Screens/Dashboard.php:98
 msgid "New requests"
 msgstr "درخواست‌های تازه"
 
-#: includes/Modules/Panel/Screens/Dashboard.php:98
+#: includes/Modules/Panel/Screens/Dashboard.php:99
 msgid "Comments waiting"
 msgstr "دیدگاه‌های در انتظار"
 
-#: includes/Modules/Panel/Screens/Dashboard.php:112
+#: includes/Modules/Panel/Screens/Dashboard.php:113
 msgid "Sales, last 30 days"
 msgstr "فروش ۳۰ روز اخیر"
 
 #. translators: 1: order number, 2: customer name.
-#: includes/Modules/Panel/Screens/Dashboard.php:181
-#: includes/Modules/Panel/Screens/Orders.php:180
+#: includes/Modules/Panel/Screens/Dashboard.php:182
+#: includes/Modules/Panel/Screens/Orders.php:186
+#: includes/Modules/Panel/Screens/Search.php:130
 #, php-format
 msgid "#%1$s · %2$s"
 msgstr "#%1$s · %2$s"
 
-#: includes/Modules/Panel/Screens/Dashboard.php:191
-msgid "Latest orders"
-msgstr "آخرین سفارش‌ها"
-
-#: includes/Modules/Panel/Screens/Dashboard.php:192
+#: includes/Modules/Panel/Screens/Dashboard.php:193
 msgid "All orders"
 msgstr "همه سفارش‌ها"
 
-#: includes/Modules/Panel/Screens/Inbox_Screen.php:76
-msgid "This item does not exist."
-msgstr "این مورد وجود ندارد."
-
-#: includes/Modules/Panel/Screens/Inbox_Screen.php:165
+#: includes/Modules/Panel/Screens/Inbox_Screen.php:164
 msgid "Sent from:"
 msgstr "ارسال‌شده از:"
 
-#: includes/Modules/Panel/Screens/Inbox_Screen.php:178
-msgid "Call"
-msgstr "تماس"
-
-#: includes/Modules/Panel/Screens/Inbox_Screen.php:179
-msgid "Text message"
-msgstr "پیامک"
-
-#: includes/Modules/Panel/Screens/Inbox_Screen.php:214
+#: includes/Modules/Panel/Screens/Inbox_Screen.php:201
 msgid "Delete this for good? It cannot be undone."
 msgstr "برای همیشه حذف شود؟ این کار برگشت‌پذیر نیست."
 
@@ -7652,72 +8310,123 @@ msgstr "باز"
 msgid "Delete this file for good? Pages that show it will lose it."
 msgstr "این فایل برای همیشه حذف شود؟ صفحه‌هایی که آن را نشان می‌دهند دیگر نمایشش نمی‌دهند."
 
-#: includes/Modules/Panel/Screens/Orders.php:37
-#: includes/Modules/Panel/views/admin.php:43
-msgid "Orders"
-msgstr "سفارش‌ها"
-
-#: includes/Modules/Panel/Screens/Orders.php:118
+#: includes/Modules/Panel/Screens/Orders.php:123
 msgid "This order does not exist."
 msgstr "این سفارش وجود ندارد."
 
-#: includes/Modules/Panel/Screens/Orders.php:156
-msgid "Order number, email or mobile"
-msgstr "شماره سفارش، ایمیل یا موبایل"
+#: includes/Modules/Panel/Screens/Orders.php:162
+msgid "Order number, name, email or mobile"
+msgstr "شماره سفارش، نام، ایمیل یا موبایل"
 
-#: includes/Modules/Panel/Screens/Orders.php:188
-msgid "No orders yet."
-msgstr "هنوز سفارشی نیامده."
-
-#: includes/Modules/Panel/Screens/Orders.php:313
+#: includes/Modules/Panel/Screens/Orders.php:301
 msgid "Customer's note"
 msgstr "یادداشت مشتری"
 
 #. translators: %s: payment method.
-#: includes/Modules/Panel/Screens/Orders.php:340
+#: includes/Modules/Panel/Screens/Orders.php:329
 #, php-format
 msgid "Payment: %s"
 msgstr "پرداخت: %s"
 
-#: includes/Modules/Panel/Screens/Orders.php:349
+#: includes/Modules/Panel/Screens/Orders.php:338
 msgid "Order status"
 msgstr "وضعیت سفارش"
 
-#: includes/Modules/Panel/Screens/Orders.php:349
+#: includes/Modules/Panel/Screens/Orders.php:338
 msgid "Completing an order sends WooCommerce's email to the customer."
 msgstr "با تکمیل سفارش، ایمیل ووکامرس برای مشتری فرستاده می‌شود."
 
-#: includes/Modules/Panel/Screens/Orders.php:350
+#: includes/Modules/Panel/Screens/Orders.php:339
 msgid "Change status"
 msgstr "تغییر وضعیت"
 
-#: includes/Modules/Panel/Screens/Orders.php:367
-msgid "Notes"
-msgstr "یادداشت‌ها"
+#: includes/Modules/Panel/Screens/Orders.php:348
+msgid "Invoice"
+msgstr "فاکتور"
 
-#: includes/Modules/Panel/Screens/Orders.php:370
-msgid "New note"
-msgstr "یادداشت تازه"
+#: includes/Modules/Panel/Screens/Orders.php:349
+msgid "Emails the order's details (and the payment link while it is unpaid) to the customer."
+msgstr "جزئیات سفارش (و تا پرداخت نشده، لینک پرداخت) را برای مشتری ایمیل می‌کند."
+
+#: includes/Modules/Panel/Screens/Orders.php:350
+msgid "Send to the customer"
+msgstr "ارسال برای مشتری"
 
 #: includes/Modules/Panel/Screens/Orders.php:371
+#: includes/Modules/Panel/Screens/Wallet.php:228
+msgid "Customer's orders and notes"
+msgstr "سفارش‌ها و یادداشت‌های مشتری"
+
+#: includes/Modules/Panel/Screens/Orders.php:393
+msgid "Parcel tracking code"
+msgstr "کد رهگیری مرسوله"
+
+#: includes/Modules/Panel/Screens/Orders.php:397
+msgid "Saved by the shipping plugin when the parcel was registered."
+msgstr "افزونه حمل‌ونقل هنگام ثبت مرسوله ذخیره‌اش کرده است."
+
+#: includes/Modules/Panel/Screens/Orders.php:400
+#: includes/Modules/Panel/Screens/Orders.php:475
 msgid "Send it to the customer"
 msgstr "برای مشتری هم فرستاده شود"
 
-#: includes/Modules/Panel/Screens/Orders.php:371
+#: includes/Modules/Panel/Screens/Orders.php:400
+msgid "The customer gets an email with the code."
+msgstr "مشتری ایمیلی با این کد دریافت می‌کند."
+
+#: includes/Modules/Panel/Screens/Orders.php:402
+msgid "Save the code"
+msgstr "ذخیره کد"
+
+#: includes/Modules/Panel/Screens/Orders.php:425
+msgid "Refund"
+msgstr "بازپرداخت"
+
+#. translators: %s: amount still refundable.
+#: includes/Modules/Panel/Screens/Orders.php:448
+#, php-format
+msgid "Up to %s. Pay the money back yourself (e.g. by bank transfer); this records it on the order."
+msgstr "تا سقف %s. پول را خودتان برگردانید (مثلاً کارت‌به‌کارت)؛ اینجا فقط روی سفارش ثبت می‌شود."
+
+#: includes/Modules/Panel/Screens/Orders.php:452
+msgid "Reason"
+msgstr "دلیل"
+
+#: includes/Modules/Panel/Screens/Orders.php:453
+msgid "Put the items back in stock"
+msgstr "اقلام به موجودی برگردند"
+
+#: includes/Modules/Panel/Screens/Orders.php:453
+msgid "Only when the whole remaining amount is refunded."
+msgstr "فقط وقتی کل مبلغ باقی‌مانده بازپرداخت شود."
+
+#: includes/Modules/Panel/Screens/Orders.php:455
+msgid "Record this refund on the order?"
+msgstr "این بازپرداخت روی سفارش ثبت شود؟"
+
+#: includes/Modules/Panel/Screens/Orders.php:455
+msgid "Record the refund"
+msgstr "ثبت بازپرداخت"
+
+#: includes/Modules/Panel/Screens/Orders.php:471
+msgid "Notes"
+msgstr "یادداشت‌ها"
+
+#: includes/Modules/Panel/Screens/Orders.php:475
 msgid "The customer gets it by email; otherwise only staff see it."
 msgstr "مشتری آن را با ایمیل دریافت می‌کند؛ در غیر این صورت فقط کارکنان می‌بینند."
 
-#: includes/Modules/Panel/Screens/Orders.php:372
-msgid "Add note"
-msgstr "افزودن یادداشت"
-
-#: includes/Modules/Panel/Screens/Orders.php:379
+#: includes/Modules/Panel/Screens/Orders.php:483
 msgid "Sent to the customer"
 msgstr "برای مشتری فرستاده شد"
 
-#: includes/Modules/Panel/Screens/Orders.php:408
+#: includes/Modules/Panel/Screens/Orders.php:512
 msgid "Changed in the studio panel."
 msgstr "در پنل استودیو تغییر کرد."
+
+#: includes/Modules/Panel/Screens/Orders.php:536
+msgid "Order details sent to the customer from the studio panel."
+msgstr "جزئیات سفارش از پنل استودیو برای مشتری فرستاده شد."
 
 #: includes/Modules/Panel/Screens/Pages.php:49
 msgid "New page"
@@ -7752,7 +8461,7 @@ msgid "About the project"
 msgstr "درباره پروژه"
 
 #: includes/Modules/Panel/Screens/Portfolio.php:104
-#: includes/Modules/Panel/Screens/Products.php:182
+#: includes/Modules/Panel/Screens/Products.php:183
 msgid "Gallery"
 msgstr "گالری"
 
@@ -7780,12 +8489,6 @@ msgstr "نمونه‌کار ویژه"
 msgid "Shown in \"Featured projects\"."
 msgstr "در «پروژه‌های ویژه» نمایش داده می‌شود."
 
-#: includes/Modules/Panel/Screens/Posts.php:26
-#: includes/Modules/Panel/views/admin.php:39
-#: includes/Modules/Panel/views/admin.php:51
-msgid "Articles"
-msgstr "مقاله‌ها"
-
 #: includes/Modules/Panel/Screens/Posts.php:51
 msgid "New article"
 msgstr "مقاله تازه"
@@ -7810,95 +8513,470 @@ msgstr "با ویرگول از هم جدا کنید."
 msgid "Allow comments"
 msgstr "اجازه دیدگاه"
 
-#: includes/Modules/Panel/Screens/Products.php:67
+#: includes/Modules/Panel/Screens/Products.php:68
 msgid "New product"
 msgstr "محصول تازه"
 
-#: includes/Modules/Panel/Screens/Products.php:72
+#: includes/Modules/Panel/Screens/Products.php:73
 msgid "Edit product"
 msgstr "ویرایش محصول"
 
-#: includes/Modules/Panel/Screens/Products.php:77
+#: includes/Modules/Panel/Screens/Products.php:78
 msgid "No products yet."
 msgstr "هنوز محصولی نیست."
 
-#: includes/Modules/Panel/Screens/Products.php:127
+#: includes/Modules/Panel/Screens/Products.php:128
+#: includes/Modules/Panel/Screens/Reports.php:387
 msgid "Out of stock"
 msgstr "ناموجود"
 
-#: includes/Modules/Panel/Screens/Products.php:157
+#: includes/Modules/Panel/Screens/Products.php:158
 msgid "Price and stock"
 msgstr "قیمت و موجودی"
 
-#: includes/Modules/Panel/Screens/Products.php:159
+#: includes/Modules/Panel/Screens/Products.php:160
 msgid "This product has variations. Its prices and stock are set in WooCommerce's product editor."
 msgstr "این محصول متغیر است. قیمت و موجودی آن در ویرایشگر محصول ووکامرس تنظیم می‌شود."
 
-#: includes/Modules/Panel/Screens/Products.php:160
+#: includes/Modules/Panel/Screens/Products.php:161
 msgid "Open WooCommerce's editor"
 msgstr "باز کردن ویرایشگر ووکامرس"
 
 #. translators: %s: currency symbol.
-#: includes/Modules/Panel/Screens/Products.php:165
+#: includes/Modules/Panel/Screens/Products.php:166
 #, php-format
 msgid "Price (%s)"
 msgstr "قیمت (%s)"
 
 #. translators: %s: currency symbol.
-#: includes/Modules/Panel/Screens/Products.php:169
+#: includes/Modules/Panel/Screens/Products.php:170
 #, php-format
 msgid "Sale price (%s)"
 msgstr "قیمت با تخفیف (%s)"
 
-#: includes/Modules/Panel/Screens/Products.php:173
+#: includes/Modules/Panel/Screens/Products.php:174
 msgid "Empty: no discount."
 msgstr "خالی: بدون تخفیف."
 
-#: includes/Modules/Panel/Screens/Products.php:183
+#: includes/Modules/Panel/Screens/Products.php:184
 msgid "More photos"
 msgstr "عکس‌های بیشتر"
 
-#: includes/Modules/Panel/Screens/Products.php:194
+#: includes/Modules/Panel/Screens/Products.php:195
 msgid "Count the stock"
 msgstr "شمارش موجودی"
 
-#: includes/Modules/Panel/Screens/Products.php:195
+#: includes/Modules/Panel/Screens/Products.php:196
 msgid "In stock"
 msgstr "موجودی"
 
-#: includes/Modules/Panel/Screens/Products.php:196
+#: includes/Modules/Panel/Screens/Products.php:197
 msgid "Nothing to ship"
 msgstr "بدون ارسال"
 
-#: includes/Modules/Panel/Screens/Products.php:196
+#: includes/Modules/Panel/Screens/Products.php:197
 msgid "For services and files: the checkout asks for no address."
 msgstr "برای خدمات و فایل‌ها: در تسویه‌حساب نشانی پرسیده نمی‌شود."
 
-#: includes/Modules/Panel/Screens/Products.php:229
+#: includes/Modules/Panel/Screens/Products.php:230
 msgid "The product could not be loaded."
 msgstr "محصول بارگذاری نشد."
+
+#: includes/Modules/Panel/Screens/Reports.php:49
+#: includes/Modules/Panel/views/admin.php:45
+msgid "Sales reports"
+msgstr "گزارش فروش"
+
+#: includes/Modules/Panel/Screens/Reports.php:80
+msgid "7 days"
+msgstr "۷ روز"
+
+#: includes/Modules/Panel/Screens/Reports.php:81
+msgid "30 days"
+msgstr "۳۰ روز"
+
+#: includes/Modules/Panel/Screens/Reports.php:82
+msgid "This month"
+msgstr "این ماه"
+
+#: includes/Modules/Panel/Screens/Reports.php:83
+msgid "90 days"
+msgstr "۹۰ روز"
+
+#: includes/Modules/Panel/Screens/Reports.php:84
+msgid "This year"
+msgstr "امسال"
+
+#: includes/Modules/Panel/Screens/Reports.php:156
+msgid "This range has too many orders: the figures cover the first 20,000."
+msgstr "این بازه سفارش‌های زیادی دارد: اعداد فقط ۲۰٬۰۰۰ سفارش اول را شامل می‌شوند."
+
+#: includes/Modules/Panel/Screens/Reports.php:163
+msgid "Best-selling products"
+msgstr "پرفروش‌ترین محصولات"
+
+#: includes/Modules/Panel/Screens/Reports.php:165
+msgid "Top customers"
+msgstr "مشتریان برتر"
+
+#: includes/Modules/Panel/Screens/Reports.php:166
+msgid "Discount codes used"
+msgstr "کدهای تخفیف استفاده‌شده"
+
+#: includes/Modules/Panel/Screens/Reports.php:167
+msgid "Payment methods"
+msgstr "روش‌های پرداخت"
+
+#: includes/Modules/Panel/Screens/Reports.php:168
+msgid "Where orders come from"
+msgstr "سفارش‌ها از کجا می‌آیند"
+
+#: includes/Modules/Panel/Screens/Reports.php:186
+msgid "Choose dates"
+msgstr "انتخاب تاریخ"
+
+#: includes/Modules/Panel/Screens/Reports.php:193
+msgid "To"
+msgstr "تا"
+
+#. translators: 1: first day, 2: last day.
+#: includes/Modules/Panel/Screens/Reports.php:201
+#, php-format
+msgid "%1$s to %2$s, compared with the period before."
+msgstr "از %1$s تا %2$s، در مقایسه با دوره‌ی قبل."
+
+#: includes/Modules/Panel/Screens/Reports.php:215
+msgid "Sales"
+msgstr "فروش"
+
+#: includes/Modules/Panel/Screens/Reports.php:216
+msgid "Net sales"
+msgstr "فروش خالص"
+
+#: includes/Modules/Panel/Screens/Reports.php:219
+msgid "Items sold"
+msgstr "اقلام فروخته‌شده"
+
+#: includes/Modules/Panel/Screens/Reports.php:221
+msgid "Discounts"
+msgstr "تخفیف‌ها"
+
+#: includes/Modules/Panel/Screens/Reports.php:222
+msgid "Refunds"
+msgstr "بازپرداخت‌ها"
+
+#. translators: 1: new customers, 2: returning customers.
+#: includes/Modules/Panel/Screens/Reports.php:237
+msgid "New / returning customers"
+msgstr "مشتری تازه / بازگشتی"
+
+#. translators: 1: new customers, 2: returning customers.
+#: includes/Modules/Panel/Screens/Reports.php:237
+#, php-format
+msgid "%1$s / %2$s"
+msgstr "%1$s / %2$s"
+
+#: includes/Modules/Panel/Screens/Reports.php:255
+msgid "Sales per day"
+msgstr "فروش روزانه"
+
+#: includes/Modules/Panel/Screens/Reports.php:256
+msgid "Sales per week"
+msgstr "فروش هفتگی"
+
+#: includes/Modules/Panel/Screens/Reports.php:257
+msgid "Sales per month"
+msgstr "فروش ماهانه"
+
+#: includes/Modules/Panel/Screens/Reports.php:264
+#: includes/Modules/Panel/Screens/Reports.php:332
+#: includes/Modules/Panel/Screens/Students.php:299
+msgid "CSV"
+msgstr "CSV"
+
+#: includes/Modules/Panel/Screens/Reports.php:267
+msgid "No sales in this range."
+msgstr "در این بازه فروشی نبوده."
+
+#: includes/Modules/Panel/Screens/Reports.php:364
+msgid "Orders per weekday"
+msgstr "سفارش‌ها بر اساس روز هفته"
+
+#: includes/Modules/Panel/Screens/Reports.php:387
+msgid "Low stock"
+msgstr "موجودی کم"
+
+#. translators: 1: out of stock count, 2: low stock count.
+#: includes/Modules/Panel/Screens/Reports.php:396
+#, php-format
+msgid "Stock: %1$s out, %2$s low"
+msgstr "موجودی: %1$s ناموجود، %2$s رو به اتمام"
 
 #: includes/Modules/Panel/Screens/Requests.php:55
 msgid "No requests yet. Messages sent through the Request form appear here."
 msgstr "هنوز درخواستی نیامده. پیام‌هایی که از فرم درخواست ارسال شوند اینجا دیده می‌شوند."
 
-#: includes/Modules/Panel/Ui.php:227
+#: includes/Modules/Panel/Screens/Search.php:60
+msgid "Order number, name, phone, title…"
+msgstr "شماره سفارش، نام، تلفن، عنوان…"
+
+#: includes/Modules/Panel/Screens/Search.php:63
+msgid "Type at least two letters."
+msgstr "دست‌کم دو حرف بنویسید."
+
+#: includes/Modules/Panel/Screens/Search.php:93
+msgid "See all"
+msgstr "مشاهده همه"
+
+#: includes/Modules/Panel/Screens/Students.php:48
+msgid "Course students"
+msgstr "شاگردان دوره‌ها"
+
+#: includes/Modules/Panel/Screens/Students.php:198
+msgid "Order"
+msgstr "ترتیب"
+
+#. translators: %s: number of students.
+#: includes/Modules/Panel/Screens/Students.php:237
+#, php-format
+msgid "%s student"
+msgid_plural "%s students"
+msgstr[0] "%s دانشجو"
+
+#: includes/Modules/Panel/Screens/Students.php:241
+msgid "No published courses yet."
+msgstr "هنوز دوره‌ی منتشرشده‌ای نیست."
+
+#: includes/Modules/Panel/Screens/Students.php:263
+#: includes/Modules/Panel/Screens/Students.php:297
+msgid "Students"
+msgstr "دانشجوها"
+
+#: includes/Modules/Panel/Screens/Students.php:264
+msgid "Income"
+msgstr "درآمد"
+
+#: includes/Modules/Panel/Screens/Students.php:270
+#: includes/Modules/Panel/Screens/Students.php:309
+msgid "Waiting list"
+msgstr "لیست انتظار"
+
+#. translators: %s: order number.
+#: includes/Modules/Panel/Screens/Students.php:288
+#, php-format
+msgid "#%s"
+msgstr "#%s"
+
+#: includes/Modules/Panel/Screens/Students.php:302
+msgid "Nobody has bought this course yet."
+msgstr "هنوز کسی این دوره را نخریده."
+
+#: includes/Modules/Panel/Screens/Students.php:304
+msgid "Email every student"
+msgstr "ایمیل به همه شاگردان"
+
+#: includes/Modules/Panel/Screens/Students.php:310
+msgid "People who asked to hear when registration opens."
+msgstr "کسانی که خواسته‌اند با شروع ثبت‌نام خبردار شوند."
+
+#: includes/Modules/Panel/Screens/Wallet.php:70
+#: includes/Modules/Panel/Screens/Wallet.php:85
+#: includes/Modules/Panel/Screens/Wallet.php:312
+msgid "Wallet settings"
+msgstr "تنظیمات کیف پول"
+
+#: includes/Modules/Panel/Screens/Wallet.php:118
+#: includes/Modules/Panel/Screens/Wallet.php:200
+msgid "Credit or debit"
+msgstr "شارژ یا برداشت"
+
+#: includes/Modules/Panel/Screens/Wallet.php:128
+msgid "Held in wallets"
+msgstr "موجودی کیف‌پول‌ها"
+
+#: includes/Modules/Panel/Screens/Wallet.php:129
+msgid "People with a wallet"
+msgstr "دارندگان کیف پول"
+
+#: includes/Modules/Panel/Screens/Wallet.php:130
+msgid "Credited this month"
+msgstr "شارژ این ماه"
+
+#: includes/Modules/Panel/Screens/Wallet.php:131
+msgid "Spent this month"
+msgstr "خرج این ماه"
+
+#: includes/Modules/Panel/Screens/Wallet.php:138
+msgid "Name or email"
+msgstr "نام یا ایمیل"
+
+#: includes/Modules/Panel/Screens/Wallet.php:149
+msgid "Nobody has a wallet yet."
+msgstr "هنوز کسی کیف پول ندارد."
+
+#: includes/Modules/Panel/Screens/Wallet.php:153
+msgid "Latest transactions"
+msgstr "آخرین تراکنش‌ها"
+
+#: includes/Modules/Panel/Screens/Wallet.php:172
+#: includes/Modules/Panel/Screens/Wallet.php:175
+msgid "Credit"
+msgstr "شارژ"
+
+#: includes/Modules/Panel/Screens/Wallet.php:172
+#: includes/Modules/Panel/Screens/Wallet.php:175
+msgid "Debit"
+msgstr "برداشت"
+
+#: includes/Modules/Panel/Screens/Wallet.php:179
+msgid "No transactions yet."
+msgstr "هنوز تراکنشی نیست."
+
+#: includes/Modules/Panel/Screens/Wallet.php:192
+msgid "Balance"
+msgstr "موجودی"
+
+#: includes/Modules/Panel/Screens/Wallet.php:194
+msgid "Transactions"
+msgstr "تراکنش‌ها"
+
+#: includes/Modules/Panel/Screens/Wallet.php:206
+msgid "What to do"
+msgstr "چه کاری؟"
+
+#: includes/Modules/Panel/Screens/Wallet.php:208
+msgid "Add money"
+msgstr "افزودن پول"
+
+#: includes/Modules/Panel/Screens/Wallet.php:209
+msgid "Take money"
+msgstr "برداشتن پول"
+
+#: includes/Modules/Panel/Screens/Wallet.php:222
+msgid "Note the customer sees"
+msgstr "توضیحی که مشتری می‌بیند"
+
+#: includes/Modules/Panel/Screens/Wallet.php:224
+msgid "Change this wallet's balance?"
+msgstr "موجودی این کیف پول تغییر کند؟"
+
+#: includes/Modules/Panel/Screens/Wallet.php:245
+msgid "Top-up and payment"
+msgstr "شارژ و پرداخت"
+
+#: includes/Modules/Panel/Screens/Wallet.php:246
+msgid "Customers can top up their wallet"
+msgstr "مشتری‌ها بتوانند کیف پول را شارژ کنند"
+
+#: includes/Modules/Panel/Screens/Wallet.php:248
+msgid "Smallest top-up"
+msgstr "کمترین شارژ"
+
+#: includes/Modules/Panel/Screens/Wallet.php:249
+msgid "Largest top-up"
+msgstr "بیشترین شارژ"
+
+#: includes/Modules/Panel/Screens/Wallet.php:251
+msgid "Pay part of an order from the wallet"
+msgstr "پرداخت بخشی از سفارش از کیف پول"
+
+#: includes/Modules/Panel/Screens/Wallet.php:254
+msgid "Transfers"
+msgstr "انتقال"
+
+#: includes/Modules/Panel/Screens/Wallet.php:255
+msgid "Customers can send money to each other"
+msgstr "مشتری‌ها بتوانند به هم پول بفرستند"
+
+#: includes/Modules/Panel/Screens/Wallet.php:257
+msgid "Smallest transfer"
+msgstr "کمترین انتقال"
+
+#: includes/Modules/Panel/Screens/Wallet.php:258
+msgid "Largest transfer"
+msgstr "بیشترین انتقال"
+
+#: includes/Modules/Panel/Screens/Wallet.php:262
+msgid "Cashback"
+msgstr "بازگشت وجه"
+
+#: includes/Modules/Panel/Screens/Wallet.php:263
+msgid "Give cashback on orders"
+msgstr "بازگشت وجه روی سفارش‌ها"
+
+#: includes/Modules/Panel/Screens/Wallet.php:268
+msgid "Cashback is set per"
+msgstr "بازگشت وجه بر اساس"
+
+#: includes/Modules/Panel/Screens/Wallet.php:271
+msgid "Product"
+msgstr "محصول"
+
+#: includes/Modules/Panel/Screens/Wallet.php:272
+msgid "Product category"
+msgstr "دسته محصول"
+
+#: includes/Modules/Panel/Screens/Wallet.php:278
+msgid "Cashback type"
+msgstr "نوع بازگشت وجه"
+
+#: includes/Modules/Panel/Screens/Wallet.php:280
+msgid "Percentage"
+msgstr "درصدی"
+
+#: includes/Modules/Panel/Screens/Wallet.php:281
+msgid "Fixed amount"
+msgstr "مبلغ ثابت"
+
+#: includes/Modules/Panel/Screens/Wallet.php:285
+msgid "Cashback amount"
+msgstr "مقدار بازگشت وجه"
+
+#: includes/Modules/Panel/Screens/Wallet.php:286
+msgid "Smallest cart for cashback"
+msgstr "کمترین سبد برای بازگشت وجه"
+
+#: includes/Modules/Panel/Screens/Wallet.php:287
+msgid "Most cashback per order"
+msgstr "بیشترین بازگشت وجه هر سفارش"
+
+#: includes/Modules/Panel/Shop/Report.php:383
+msgid "No payment"
+msgstr "بدون پرداخت"
+
+#: includes/Modules/Panel/Shop/Report.php:391
+msgid "No shipping"
+msgstr "بدون ارسال"
+
+#: includes/Modules/Panel/Shop/Report.php:511
+msgid "Unknown"
+msgstr "نامشخص"
+
+#: includes/Modules/Panel/Ui.php:232
 msgid "Filter"
 msgstr "فیلتر"
 
-#: includes/Modules/Panel/Ui.php:271
+#: includes/Modules/Panel/Ui.php:276
 msgid "Previous"
 msgstr "قبلی"
 
 #. translators: 1: current page, 2: number of pages.
-#: includes/Modules/Panel/Ui.php:276
+#: includes/Modules/Panel/Ui.php:281
 #, php-format
 msgid "Page %1$s of %2$s"
 msgstr "صفحه %1$s از %2$s"
 
-#: includes/Modules/Panel/Ui.php:280
+#: includes/Modules/Panel/Ui.php:285
 msgid "Next"
 msgstr "بعدی"
+
+#: includes/Modules/Panel/Ui.php:303
+msgid "Call"
+msgstr "تماس"
+
+#: includes/Modules/Panel/Ui.php:304
+msgid "Text message"
+msgstr "پیامک"
 
 #: includes/Modules/Panel/Uploads.php:57
 msgid "You are not allowed to use the media library."
@@ -7953,7 +9031,7 @@ msgid "Sections"
 msgstr "بخش‌ها"
 
 #: includes/Modules/Panel/views/admin.php:34
-#: includes/Modules/Panel/views/admin.php:178
+#: includes/Modules/Panel/views/admin.php:203
 msgid "Text editor"
 msgstr "ویرایشگر متن"
 
@@ -7965,123 +9043,159 @@ msgstr "نمونه‌کارها (پروژه‌های لنز با گالری و �
 msgid "Courses (WooCommerce products marked as courses)"
 msgstr "دوره‌ها (محصولات ووکامرس که دوره علامت خورده‌اند)"
 
-#: includes/Modules/Panel/views/admin.php:45
+#: includes/Modules/Panel/views/admin.php:42
+msgid "Course students (who bought each course, and the waiting list)"
+msgstr "شاگردان دوره‌ها (خریداران هر دوره و لیست انتظار)"
+
+#: includes/Modules/Panel/views/admin.php:46
+msgid "Customers (accounts and guest buyers, with notes)"
+msgstr "مشتری‌ها (دارای حساب و خریداران مهمان، با یادداشت)"
+
+#: includes/Modules/Panel/views/admin.php:48
+msgid "Wallet (needs the TeraWallet plugin)"
+msgstr "کیف پول (نیاز به افزونه TeraWallet)"
+
+#: includes/Modules/Panel/views/admin.php:50
 msgid "Requests (Request form)"
 msgstr "درخواست‌ها (فرم درخواست)"
 
-#: includes/Modules/Panel/views/admin.php:46
+#: includes/Modules/Panel/views/admin.php:51
 msgid "Comments and reviews"
 msgstr "دیدگاه‌ها و نقدها"
 
-#: includes/Modules/Panel/views/admin.php:47
+#: includes/Modules/Panel/views/admin.php:52
 msgid "Media (photos and videos)"
 msgstr "رسانه (عکس و ویدیو)"
 
+#: includes/Modules/Panel/views/admin.php:53
+msgid "Activity log (who changed what; off = nothing is recorded)"
+msgstr "گزارش فعالیت (چه کسی چه چیزی را تغییر داد؛ خاموش = چیزی ثبت نمی‌شود)"
+
 #: includes/Modules/Panel/views/admin.php:54
+msgid "Search everything (orders, customers, content)"
+msgstr "جستجوی همه‌جا (سفارش‌ها، مشتری‌ها، محتوا)"
+
+#: includes/Modules/Panel/views/admin.php:61
 msgid "Products and courses"
 msgstr "محصولات و دوره‌ها"
 
-#: includes/Modules/Panel/views/admin.php:58
+#: includes/Modules/Panel/views/admin.php:65
 msgid "Simple editor of the panel (recommended for phones)"
 msgstr "ویرایشگر ساده پنل (پیشنهادی برای گوشی)"
 
-#: includes/Modules/Panel/views/admin.php:59
+#: includes/Modules/Panel/views/admin.php:66
 msgid "WordPress's classic editor, inside the panel"
 msgstr "ویرایشگر کلاسیک وردپرس، داخل پنل"
 
-#: includes/Modules/Panel/views/admin.php:60
+#: includes/Modules/Panel/views/admin.php:67
 msgid "Plain text box (HTML allowed)"
 msgstr "کادر متن ساده (HTML مجاز)"
 
-#: includes/Modules/Panel/views/admin.php:61
+#: includes/Modules/Panel/views/admin.php:68
 msgid "WordPress's own editor (opens wp-admin)"
 msgstr "ویرایشگر خود وردپرس (در پیشخوان باز می‌شود)"
 
-#: includes/Modules/Panel/views/admin.php:76
+#: includes/Modules/Panel/views/admin.php:83
 msgid "Enable the studio panel"
 msgstr "فعال‌سازی پنل استودیو"
 
-#: includes/Modules/Panel/views/admin.php:97
+#: includes/Modules/Panel/views/admin.php:104
 msgid "The panel's address"
 msgstr "نشانی پنل"
 
-#: includes/Modules/Panel/views/admin.php:98
+#: includes/Modules/Panel/views/admin.php:105
 msgid "The panel opens from WordPress itself («Studio panel» at the top of the wp-admin menu). Staff can also keep this address on their phone's home screen; it asks them to log in with their WordPress account."
 msgstr "پنل از داخل خود وردپرس باز می‌شود («پنل استودیو» بالای منوی پیشخوان). همکاران می‌توانند این نشانی را روی صفحه اصلی گوشی هم داشته باشند؛ برای ورود، حساب کاربری وردپرس را می‌پرسد."
 
-#: includes/Modules/Panel/views/admin.php:101
+#: includes/Modules/Panel/views/admin.php:108
 msgid "Open the panel"
 msgstr "باز کردن پنل"
 
-#: includes/Modules/Panel/views/admin.php:112
+#: includes/Modules/Panel/views/admin.php:119
 msgid "Latin letters, digits and dashes, e.g. panel or studio. The address above changes after saving."
 msgstr "حروف لاتین، عدد و خط تیره، مثل panel یا studio. نشانی بالا پس از ذخیره عوض می‌شود."
 
-#: includes/Modules/Panel/views/admin.php:115
+#: includes/Modules/Panel/views/admin.php:122
 msgid "Panel name"
 msgstr "نام پنل"
 
-#: includes/Modules/Panel/views/admin.php:118
+#: includes/Modules/Panel/views/admin.php:125
 msgid "Items per list page"
 msgstr "تعداد مورد در هر صفحه فهرست"
 
-#: includes/Modules/Panel/views/admin.php:129
+#: includes/Modules/Panel/views/admin.php:136
 msgid "Roles that open the panel"
 msgstr "نقش‌هایی که به پنل دسترسی دارند"
 
-#: includes/Modules/Panel/views/admin.php:130
+#: includes/Modules/Panel/views/admin.php:137
 msgid "Give your staff the «Studio manager» role (Users → edit the user → Role): it can manage content, products and orders but not the site's settings. Inside the panel each person still only sees what their role allows."
 msgstr "به همکارانتان نقش «مدیر استودیو» بدهید (کاربران ← ویرایش کاربر ← نقش): محتوا، محصولات و سفارش‌ها را مدیریت می‌کند اما به تنظیمات سایت دسترسی ندارد. داخل پنل هم هر کس فقط چیزی را می‌بیند که نقشش اجازه می‌دهد."
 
-#: includes/Modules/Panel/views/admin.php:132
+#: includes/Modules/Panel/views/admin.php:139
 msgid "Add a user"
 msgstr "افزودن کاربر"
 
-#: includes/Modules/Panel/views/admin.php:147
+#: includes/Modules/Panel/views/admin.php:154
 msgid "The way in"
 msgstr "راه ورود"
 
-#: includes/Modules/Panel/views/admin.php:148
+#: includes/Modules/Panel/views/admin.php:155
 msgid "Panel users log in with their WordPress account as usual. The first item of the wp-admin menu and a box at the top of the dashboard open the panel."
 msgstr "کاربران پنل مثل همیشه با حساب وردپرس وارد می‌شوند. اولین گزینه منوی پیشخوان و کادری بالای پیشخوان، پنل را باز می‌کند."
 
-#: includes/Modules/Panel/views/admin.php:152
+#: includes/Modules/Panel/views/admin.php:159
 msgid "Keep staff out of wp-admin"
 msgstr "همکاران به جای پیشخوان به پنل بروند"
 
-#: includes/Modules/Panel/views/admin.php:152
+#: includes/Modules/Panel/views/admin.php:159
 msgid "Panel users who cannot manage the site's settings are sent from wp-admin to the panel and do not see the admin bar. Administrators keep wp-admin."
 msgstr "کاربران پنل که به تنظیمات سایت دسترسی ندارند از پیشخوان به پنل فرستاده می‌شوند و نوار مدیریت را نمی‌بینند. مدیران کل سایت پیشخوان را دارند."
 
-#: includes/Modules/Panel/views/admin.php:153
+#: includes/Modules/Panel/views/admin.php:160
 msgid "Open the panel after logging in"
 msgstr "باز شدن پنل بعد از ورود"
 
-#: includes/Modules/Panel/views/admin.php:153
+#: includes/Modules/Panel/views/admin.php:160
 msgid "For panel users who cannot manage the site's settings, on WordPress's and WooCommerce's login forms."
 msgstr "برای کاربران پنل که به تنظیمات سایت دسترسی ندارند، در فرم ورود وردپرس و ووکامرس."
 
-#: includes/Modules/Panel/views/admin.php:154
+#: includes/Modules/Panel/views/admin.php:161
 msgid "Link in the account menu"
 msgstr "لینک در منوی حساب کاربری"
 
-#: includes/Modules/Panel/views/admin.php:154
+#: includes/Modules/Panel/views/admin.php:161
 msgid "Adds the panel to WooCommerce's My account menu of panel users."
 msgstr "پنل را به منوی «حساب کاربری من» ووکامرس برای کاربران پنل اضافه می‌کند."
 
-#: includes/Modules/Panel/views/admin.php:155
+#: includes/Modules/Panel/views/admin.php:162
 msgid "Link in the admin bar"
 msgstr "لینک در نوار مدیریت"
 
-#: includes/Modules/Panel/views/admin.php:164
+#: includes/Modules/Panel/views/admin.php:171
 msgid "Sections of the panel"
 msgstr "بخش‌های پنل"
 
-#: includes/Modules/Panel/views/admin.php:165
+#: includes/Modules/Panel/views/admin.php:172
 msgid "Switch off what the studio does not use, so the panel stays short. Sections that need WooCommerce or the page templates show only while those are active."
 msgstr "چیزهایی را که استودیو استفاده نمی‌کند خاموش کنید تا پنل خلوت بماند. بخش‌هایی که به ووکامرس یا قالب‌های صفحه نیاز دارند فقط وقتی آن‌ها فعال باشند نمایش داده می‌شوند."
 
-#: includes/Modules/Panel/views/admin.php:179
+#: includes/Modules/Panel/views/admin.php:182
+msgid "Activity and notifications"
+msgstr "فعالیت و اعلان‌ها"
+
+#: includes/Modules/Panel/views/admin.php:188
+msgid "Keep the activity log for (days)"
+msgstr "نگهداری گزارش فعالیت (روز)"
+
+#: includes/Modules/Panel/views/admin.php:194
+msgid "Notifications on staff phones"
+msgstr "اعلان روی گوشی همکاران"
+
+#: includes/Modules/Panel/views/admin.php:194
+msgid "Each person can switch on alerts for new orders, bookings and requests on their own phone (My account in the panel). The panel checks once a minute while it is open."
+msgstr "هر نفر می‌تواند اعلان سفارش، رزرو و درخواست تازه را روی گوشی خودش روشن کند (حساب من در پنل). پنل تا وقتی باز است دقیقه‌ای یک‌بار بررسی می‌کند."
+
+#: includes/Modules/Panel/views/admin.php:204
 msgid "Which editor writes the text of each content type in the panel. The simple editor has headings, bold, lists, quotes, links and photos and works well on phones. Texts built with Elementor always open in Elementor."
 msgstr "متن هر نوع محتوا در پنل با کدام ویرایشگر نوشته شود. ویرایشگر ساده تیتر، پررنگ، فهرست، نقل‌قول، لینک و عکس دارد و روی گوشی راحت است. متن‌هایی که با المنتور ساخته شده‌اند همیشه در المنتور باز می‌شوند."
 
@@ -8464,6 +9578,9 @@ msgstr "لینک‌ها در پیش‌نمایش باز نمی‌شوند. رن�
 #, php-format
 msgid "Lenz Plus requires PHP %s or newer."
 msgstr "لنز پلاس به PHP نسخهٔ %s یا جدیدتر نیاز دارد."
+
+#~ msgid "Order number, email or mobile"
+#~ msgstr "شماره سفارش، ایمیل یا موبایل"
 
 #~ msgid "Mobile buy bar"
 #~ msgstr "نوار خرید موبایل"

@@ -1,13 +1,16 @@
 <?php
 /**
- * Account screen: the user's name, email and password, and, for those who
- * manage the site, its name and tagline. Logging out is here too.
+ * Account screen: the user's name, email and password, notifications on
+ * this device, and, for those who manage the site, its name and tagline and
+ * a button that clears the page cache. Logging out is here too.
  *
  * @package LenzPlus
  */
 
 namespace LenzPlus\Modules\Panel\Screens;
 
+use LenzPlus\Modules\Panel\Activity\Log;
+use LenzPlus\Modules\Panel\Integrations\Cache;
 use LenzPlus\Modules\Panel\Router;
 use LenzPlus\Modules\Panel\Ui;
 
@@ -108,6 +111,33 @@ final class Account extends Screen {
 				</section>
 			</div>
 			<aside class="lzp-edit__side">
+				<?php if ( $this->module->settings()['notify'] ) : ?>
+					<section class="lzp-card" data-lzp-notify-box hidden>
+						<?php
+						Ui::toggle(
+							'lzp_notify',
+							__( 'Notifications on this device', 'lenz-plus' ),
+							false,
+							array(
+								'help'   => __( 'New orders, bookings and requests, while the panel is open or installed on the home screen.', 'lenz-plus' ),
+								'notify' => true,
+							)
+						);
+						?>
+					</section>
+				<?php endif; ?>
+				<?php if ( current_user_can( 'manage_options' ) && Cache::purgeable() ) : ?>
+					<section class="lzp-card">
+						<h2 class="lzp-card__title"><?php esc_html_e( 'Site cache', 'lenz-plus' ); ?></h2>
+						<p class="lzp-card__note">
+							<?php
+							/* translators: %s: cache plugin names. */
+							echo esc_html( sprintf( __( 'Clears the saved pages of %s, so visitors see your latest changes.', 'lenz-plus' ), implode( '، ', Cache::purgeable() ) ) );
+							?>
+						</p>
+						<?php $this->button_form( 'purge', array(), __( 'Clear the cache', 'lenz-plus' ) ); ?>
+					</section>
+				<?php endif; ?>
 				<?php if ( current_user_can( 'manage_options' ) ) : ?>
 					<section class="lzp-card">
 						<h2 class="lzp-card__title"><?php esc_html_e( 'Site', 'lenz-plus' ); ?></h2>
@@ -138,6 +168,17 @@ final class Account extends Screen {
 	 * @param string $action `profile` or `site`.
 	 */
 	public function handle( string $action ): string {
+		if ( 'purge' === $action ) {
+			if ( ! current_user_can( 'manage_options' ) ) {
+				return $this->done( 'denied' );
+			}
+
+			Cache::purge();
+			Log::add( 'purge', 'site', 0, __( 'Site cache', 'lenz-plus' ) );
+
+			return $this->done( 'purged' );
+		}
+
 		if ( 'site' === $action ) {
 			if ( ! current_user_can( 'manage_options' ) ) {
 				return $this->done( 'denied' );

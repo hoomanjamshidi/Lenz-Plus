@@ -14,6 +14,7 @@ namespace LenzPlus\Modules\Panel;
 
 use LenzPlus\Core\Icon_Library;
 use LenzPlus\Core\Persian;
+use LenzPlus\Modules\Support_Button\Channels;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -134,7 +135,7 @@ final class Ui {
 	 * One tappable row of a list.
 	 *
 	 * @param array $row {
-	 *     @type string $url    Where the row leads.
+	 *     @type string $url    Where the row leads ('' = not a link).
 	 *     @type string $title  Main line.
 	 *     @type string $meta   Second line (plain text).
 	 *     @type string $thumb  Image URL, or '' for the icon.
@@ -155,7 +156,11 @@ final class Ui {
 		);
 		?>
 		<li class="lzp-row">
+			<?php if ( '' !== $row['url'] ) : ?>
 			<a class="lzp-row__link" href="<?php echo esc_url( $row['url'] ); ?>">
+			<?php else : ?>
+			<div class="lzp-row__link">
+			<?php endif; ?>
 				<span class="lzp-row__thumb<?php echo '' === $row['thumb'] ? ' is-icon' : ''; ?>" aria-hidden="true">
 					<?php if ( '' !== $row['thumb'] ) : ?>
 						<img src="<?php echo esc_url( $row['thumb'] ); ?>" alt="" loading="lazy" decoding="async">
@@ -175,7 +180,7 @@ final class Ui {
 						<span class="lzp-row__aside"><?php echo esc_html( $row['aside'] ); ?></span>
 					<?php endif; ?>
 				</span>
-			</a>
+			<?php echo '' !== $row['url'] ? '</a>' : '</div>'; ?>
 		</li>
 		<?php
 	}
@@ -284,6 +289,64 @@ final class Ui {
 	}
 
 	/**
+	 * Buttons to call, text, WhatsApp or email someone (the stacked actions of
+	 * a reply card).
+	 *
+	 * @param string $phone Phone number ('' = none).
+	 * @param string $email Email ('' = none).
+	 */
+	public static function contact_buttons( string $phone, string $email ): void {
+		$tel = (string) preg_replace( '/[^\d+]/', '', Persian::latin_digits( $phone ) );
+		?>
+		<div class="lzp-actions lzp-actions--stack">
+			<?php if ( '' !== $tel ) : ?>
+				<a class="lzp-btn lzp-btn--primary" href="<?php echo esc_url( 'tel:' . $tel ); ?>"><?php self::the_icon( 'phone' ); ?><span><?php esc_html_e( 'Call', 'lenz-plus' ); ?></span></a>
+				<a class="lzp-btn lzp-btn--ghost" href="<?php echo esc_url( 'sms:' . $tel ); ?>"><?php self::the_icon( 'chat' ); ?><span><?php esc_html_e( 'Text message', 'lenz-plus' ); ?></span></a>
+				<?php if ( strlen( $tel ) >= 8 ) : ?>
+					<a class="lzp-btn lzp-btn--ghost" href="<?php echo esc_url( 'https://wa.me/' . Channels::international( $tel ) ); ?>" target="_blank" rel="noopener"><?php self::the_icon( 'whatsapp' ); ?><span><?php esc_html_e( 'WhatsApp', 'lenz-plus' ); ?></span></a>
+				<?php endif; ?>
+			<?php endif; ?>
+			<?php if ( '' !== $email ) : ?>
+				<a class="lzp-btn lzp-btn--ghost" href="<?php echo esc_url( 'mailto:' . $email ); ?>"><?php self::the_icon( 'mail' ); ?><span dir="ltr"><?php echo esc_html( $email ); ?></span></a>
+			<?php endif; ?>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Label → value lines (totals, details).
+	 *
+	 * @param array<int, string[]> $lines [ label, value ] pairs; empty values are skipped.
+	 */
+	public static function lines( array $lines ): void {
+		echo '<ul class="lzp-lines">';
+		foreach ( $lines as $line ) {
+			if ( '' !== (string) $line[1] ) {
+				printf( '<li><span>%1$s</span><span>%2$s</span></li>', esc_html( $line[0] ), esc_html( $line[1] ) );
+			}
+		}
+		echo '</ul>';
+	}
+
+	/**
+	 * Small statistic tiles (as on the home screen, without links).
+	 *
+	 * @param array<int, string[]> $tiles [ label, value, icon ] each.
+	 */
+	public static function stats( array $tiles ): void {
+		echo '<ul class="lzp-stats">';
+		foreach ( $tiles as $tile ) {
+			printf(
+				'<li><div class="lzp-stat">%3$s<span class="lzp-stat__value">%2$s</span><span class="lzp-stat__label">%1$s</span></div></li>',
+				esc_html( $tile[0] ),
+				esc_html( $tile[1] ),
+				self::icon( $tile[2] ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- bundled SVG.
+			);
+		}
+		echo '</ul>';
+	}
+
+	/**
 	 * A labelled text input.
 	 *
 	 * @param string $name  Field name.
@@ -380,7 +443,7 @@ final class Ui {
 	 * @param string $name    Field name (posts "1" when on).
 	 * @param string $label   Label.
 	 * @param bool   $checked Whether it is on.
-	 * @param array  $args    `help`.
+	 * @param array  $args    `help`; `notify`: the device notifications switch (panel.js, never posted).
 	 */
 	public static function toggle( string $name, string $label, bool $checked, array $args = array() ): void {
 		?>
@@ -389,7 +452,7 @@ final class Ui {
 				<span class="lzp-field__label"><?php echo esc_html( $label ); ?></span>
 				<?php self::help( $args ); ?>
 			</span>
-			<input type="checkbox" name="<?php echo esc_attr( $name ); ?>" value="1"<?php checked( $checked ); ?>>
+			<input type="checkbox" name="<?php echo esc_attr( $name ); ?>" value="1"<?php checked( $checked ); ?><?php echo empty( $args['notify'] ) ? '' : ' data-lzp-notify'; ?>>
 			<span class="lzp-toggle__track" aria-hidden="true"></span>
 		</label>
 		<?php

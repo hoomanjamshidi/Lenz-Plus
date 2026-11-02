@@ -2,8 +2,9 @@
 /**
  * Studio panel module: a simple, phone-first management panel on the site's
  * own address (site.com/panel/) for the studio's staff — projects, articles,
- * courses, products, orders, bookings, requests, comments and media — in the
- * site's brand colours, so they never need wp-admin.
+ * courses and their students, products, orders, sales reports, customers,
+ * discount codes, wallets, bookings, requests, comments, media and the
+ * activity log — in the site's brand colours, so they never need wp-admin.
  *
  * @package LenzPlus
  */
@@ -12,6 +13,9 @@ namespace LenzPlus\Modules\Panel;
 
 use LenzPlus\Core\Module as Base_Module;
 use LenzPlus\Core\Sanitizer;
+use LenzPlus\Modules\Panel\Activity\Log;
+use LenzPlus\Modules\Panel\Integrations\Cache;
+use LenzPlus\Modules\Panel\Shop\Report;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -73,13 +77,26 @@ final class Module extends Base_Module {
 		return $clean;
 	}
 
-	/** Role, access rules, address and uploads. */
+	/**
+	 * Role, access rules, address, uploads, the activity log, the report
+	 * cache's invalidation, cache plugin exclusions and notifications.
+	 */
 	protected function boot(): void {
+		$settings = $this->settings();
 		Access::install_role();
 
 		$this->access()->register();
-		( new Router( $this->settings()['slug'], $this->app() ) )->register();
+		( new Router( $settings['slug'], $this->app() ) )->register();
 		( new Uploads() )->register();
+
+		Cache::register( $settings['slug'] );
+		Log::register( ! empty( $settings['sections']['activity'] ), (int) $settings['activity_days'] );
+		if ( class_exists( 'WooCommerce' ) ) {
+			Report::register();
+		}
+		if ( $settings['notify'] ) {
+			( new Notifier( $this ) )->register();
+		}
 	}
 
 	/** Who may use the panel. */

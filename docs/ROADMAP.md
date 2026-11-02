@@ -4,7 +4,7 @@ This file is the **resume point**. Every session starts here (see the `lenz-plus
 
 Status keys: `[ ]` to do · `[x]` done · `[~]` started (see Notes) · `[-]` dropped (say why)
 
-**Current phase:** done (1.7.0: media library in the panel, external videos, photo preview, ready-made course)
+**Current phase:** done (1.9.0: panel features from Daftar, SEO, course students, course grid posters)
 
 Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, browser check at 390 and 1440, translations, CLAUDE.md contracts, graphify update, commit `Phase N: …`).
 
@@ -174,6 +174,18 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - [x] Ready-made course «از دیدن تا ثبت کردن» (`Sample_Courses`, Pages tab card, `create_course`, cover drawing)
 - [x] Verify (scratch site: WordPress 6.8.3 from GitHub + SQLite + Lenz, no WooCommerce/Elementor reachable): panel gallery pick/link/remove/save round trip at 390 (meta checked), Lenz box embed-code conversion, lightbox at 390/1440 in RTL on a static page with the widget's markup, phpcs 0/0, translations complete
 - [ ] On the full dev site: `Project_Gallery` in Elementor (Aparat iframe, lightbox on a project page), «Add as a new course» with WooCommerce (product, cover, course page with the Course design)
+
+## 1.9.0 — Panel features from Daftar, SEO, students, course posters
+- [x] SEO card (Rank Math / Yoast) on every content edit page (`Integrations\Seo`), live search-result preview
+- [x] Integrations: page caches (`Integrations\Cache`), PWS places and tracking codes (`Integrations\Shipping`), TeraWallet (`Integrations\Wallet`)
+- [x] Screens: Reports (`Shop\Report`), Customers (`Shop\Guests`, notes, CSV), Coupons, Students, Wallet, Activity (`Activity\Log` + `Watcher`), Search; Orders: refund, tracking, invoice, wider search
+- [x] Notifications: `Notifier` (pulse once a minute, only on devices switched on), service worker at `<slug>/sw/`, app badge
+- [x] Course grid «poster» look (sort tabs, all-courses button, sessions/students, green pill)
+- [x] Verify on the dev site: every new screen 200 with no PHP notices, reports/SEO/poster at 390 and 1440 (SEO saved to Rank Math meta with a stand-in constant), sort tabs in place, no horizontal scroll, phpcs 0/0, translations complete
+- [ ] Not exercised with the real plugins: TeraWallet, PWS, Yoast, WP Rocket/LiteSpeed (code follows Daftar, which was tested with them); notifications on a real phone
+- [ ] Not ported from Daftar (bigger UI, later): manual order creation/editing, bulk order status and bulk product price changes, variable products and variations in the panel, WooCommerce Analytics as the report source, in-panel settings screen
+- [ ] CPU/load audit of the whole plugin (asked for; postponed by the owner). First measurement on the dev site: front page ~130–160 queries from Lenz+ (~40 ms); the first wp-admin load after an update re-ran `Library::maybe_upgrade()`/`remove_duplicates()` (~1,800 queries, 0.6 s, once)
+
 ---
 
 ## Notes

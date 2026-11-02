@@ -1,8 +1,8 @@
 <?php
 /**
  * Orders screen: WooCommerce orders with status chips and search, and an
- * order page with items, totals, the customer's contact links, status change
- * and notes.
+ * order page with items, totals, the customer's contact links, status change,
+ * notes, refunds, the parcel tracking code and the invoice email.
  *
  * Orders are read and written through WooCommerce's order objects
  * (wc_get_orders(), update_status(), add_order_note()), so it works with both
@@ -15,6 +15,11 @@
 namespace LenzPlus\Modules\Panel\Screens;
 
 use LenzPlus\Core\Persian;
+use LenzPlus\Modules\Panel\Activity\Log;
+use LenzPlus\Modules\Panel\Activity\Watcher;
+use LenzPlus\Modules\Panel\Integrations\Shipping;
+use LenzPlus\Modules\Panel\Shop\Money;
+use LenzPlus\Modules\Panel\Shop\Order_Text;
 use LenzPlus\Modules\Panel\Ui;
 
 defined( 'ABSPATH' ) || exit;
@@ -141,19 +146,20 @@ final class Orders extends Screen {
 		if ( '' !== $status ) {
 			$args['status'] = array( $status );
 		}
-		$number = self::order_number( $search );
-		if ( $number ) {
-			// An order number opens that order alone.
-			$found  = wc_get_order( $number );
-			$orders = $found instanceof \WC_Order ? array( $found ) : array();
-			$pages  = 1;
+		$ids = '' !== $search ? self::search_ids( $search ) : array();
+		if ( '' !== $search && ! $ids ) {
+			$orders = array();
+			$pages  = 0;
 		} else {
-			$result = wc_get_orders( $args + self::search_args( $search ) );
+			if ( $ids ) {
+				$args['post__in'] = $ids;
+			}
+			$result = wc_get_orders( $args );
 			$orders = is_object( $result ) ? $result->orders : array();
 			$pages  = is_object( $result ) ? (int) $result->max_num_pages : 0;
 		}
 
-		Ui::search( $this->url(), $search, __( 'Order number, email or mobile', 'lenz-plus' ), ( '' !== $status ? array( 'status' => $status ) : array() ) + $this->plain_args() );
+		Ui::search( $this->url(), $search, __( 'Order number, name, email or mobile', 'lenz-plus' ), ( '' !== $status ? array( 'status' => $status ) : array() ) + $this->plain_args() );
 		Ui::chips(
 			$this->url( array_filter( array( 's' => $search ) ) ),
 			'status',
@@ -201,35 +207,25 @@ final class Orders extends Screen {
 	}
 
 	/**
-	 * The order number a search asks for (a short number, «#12» or «۱۲»), else 0.
+	 * IDs of the orders a search finds: the order with that number («#12» or
+	 * «۱۲»), plus WooCommerce's own order search (names, emails, phones,
+	 * addresses, items; works with both order storages).
 	 *
 	 * @param string $search Search term.
+	 * @return int[]
 	 */
-	private static function order_number( string $search ): int {
-		$search = ltrim( Persian::latin_digits( $search ), '#' );
-
-		return preg_match( '/^\d{1,6}$/', $search ) ? (int) $search : 0;
-	}
-
-	/**
-	 * wc_get_orders() arguments for an email or phone number search (Persian
-	 * digits accepted). Other text matches the billing email exactly, so a
-	 * search that is neither finds nothing rather than everything.
-	 *
-	 * @param string $search Search term.
-	 */
-	private static function search_args( string $search ): array {
+	private static function search_ids( string $search ): array {
 		$search = Persian::latin_digits( $search );
-		if ( '' === $search ) {
-			return array();
+		$ids    = array();
+
+		$number = ltrim( $search, '#' );
+		if ( preg_match( '/^\d{1,9}$/', $number ) && wc_get_order( (int) $number ) ) {
+			$ids[] = (int) $number;
 		}
 
-		$digits = (string) preg_replace( '/\D+/', '', $search );
-		if ( ! is_email( $search ) && strlen( $digits ) >= 7 ) {
-			return array( 'billing_phone' => $digits );
-		}
+		$found = \WC_Data_Store::load( 'order' )->search_orders( wc_clean( $search ) );
 
-		return array( 'billing_email' => $search );
+		return array_values( array_unique( array_map( 'intval', array_merge( $ids, (array) $found ) ) ) );
 	}
 
 	/**
@@ -238,13 +234,7 @@ final class Orders extends Screen {
 	 * @return array<string, string>
 	 */
 	private static function statuses(): array {
-		$statuses = array();
-		foreach ( wc_get_order_statuses() as $key => $label ) {
-			$plain              = (string) preg_replace( '/^wc-/', '', $key );
-			$statuses[ $plain ] = $label;
-		}
-
-		return $statuses;
+		return Order_Text::statuses();
 	}
 
 	/**
@@ -253,9 +243,7 @@ final class Orders extends Screen {
 	 * @param \WC_Order $order Order.
 	 */
 	private static function customer_name( \WC_Order $order ): string {
-		$name = trim( $order->get_formatted_billing_full_name() );
-
-		return '' !== $name ? $name : (string) $order->get_billing_email();
+		return Order_Text::customer_name( $order );
 	}
 
 	/**
@@ -265,7 +253,7 @@ final class Orders extends Screen {
 	 * @param string $currency Currency code.
 	 */
 	private static function money( float $amount, string $currency ): string {
-		return html_entity_decode( wp_strip_all_tags( wc_price( $amount, array( 'currency' => $currency ) ) ), ENT_QUOTES, 'UTF-8' );
+		return Money::text( $amount, $currency );
 	}
 
 	/**
@@ -279,7 +267,7 @@ final class Orders extends Screen {
 		$currency = $order->get_currency();
 		$phone    = (string) $order->get_billing_phone();
 		$email    = (string) $order->get_billing_email();
-		$address  = $order->get_formatted_shipping_address() ? $order->get_formatted_shipping_address() : $order->get_formatted_billing_address();
+		$address  = Shipping::address_lines( $order );
 		?>
 		<div class="lzp-edit__grid">
 			<div class="lzp-edit__main">
@@ -331,8 +319,9 @@ final class Orders extends Screen {
 						<?php endif; ?>
 					</div>
 					<?php if ( $address ) : ?>
-						<address class="lzp-address"><?php echo wp_kses( $address, array( 'br' => array() ) ); ?></address>
+						<address class="lzp-address"><?php echo implode( '<br>', array_map( 'esc_html', $address ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- each line escaped. ?></address>
 					<?php endif; ?>
+					<?php $this->render_customer_link( $order ); ?>
 					<?php if ( $order->get_payment_method_title() ) : ?>
 						<p class="lzp-card__note">
 							<?php
@@ -350,8 +339,123 @@ final class Orders extends Screen {
 						<button type="submit" class="lzp-btn lzp-btn--primary"><?php esc_html_e( 'Change status', 'lenz-plus' ); ?></button>
 					</form>
 				</section>
+
+				<?php $this->render_tracking( $order ); ?>
+				<?php $this->render_refund( $order ); ?>
+
+				<?php if ( '' !== $email ) : ?>
+					<section class="lzp-card">
+						<h2 class="lzp-card__title"><?php esc_html_e( 'Invoice', 'lenz-plus' ); ?></h2>
+						<p class="lzp-card__note"><?php esc_html_e( 'Emails the order\'s details (and the payment link while it is unpaid) to the customer.', 'lenz-plus' ); ?></p>
+						<?php $this->button_form( 'invoice', array( 'order_id' => $order->get_id() ), __( 'Send to the customer', 'lenz-plus' ) ); ?>
+					</section>
+				<?php endif; ?>
 			</aside>
 		</div>
+		<?php
+	}
+
+	/**
+	 * A link to the customer's page in the panel (when Customers is open).
+	 *
+	 * @param \WC_Order $order Order.
+	 */
+	private function render_customer_link( \WC_Order $order ): void {
+		$customers = $this->module->app()->screen( 'customers' );
+		if ( ! $customers instanceof Customers ) {
+			return;
+		}
+
+		$url = $customers->customer_url( $order );
+		if ( '' !== $url ) {
+			printf( '<p><a class="lzp-btn lzp-btn--ghost" href="%1$s">%2$s<span>%3$s</span></a></p>', esc_url( $url ), Ui::icon( 'user-circle' ), esc_html__( 'Customer\'s orders and notes', 'lenz-plus' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- bundled SVG.
+		}
+	}
+
+	/**
+	 * The parcel tracking code card (orders that ship something).
+	 *
+	 * @param \WC_Order $order Order.
+	 */
+	private function render_tracking( \WC_Order $order ): void {
+		if ( ! $order->needs_shipping_address() && ! $order->get_meta( Shipping::TRACKING_META ) ) {
+			return;
+		}
+
+		list( $code, $source ) = Shipping::tracking( $order );
+		?>
+		<section class="lzp-card">
+			<?php $this->form_open( 'tracking' ); ?>
+				<input type="hidden" name="order_id" value="<?php echo esc_attr( (string) $order->get_id() ); ?>">
+				<?php
+				Ui::input(
+					'tracking',
+					__( 'Parcel tracking code', 'lenz-plus' ),
+					$code,
+					array(
+						'dir'  => 'ltr',
+						'help' => 'pws' === $source ? __( 'Saved by the shipping plugin when the parcel was registered.', 'lenz-plus' ) : '',
+					)
+				);
+				Ui::toggle( 'notify', __( 'Send it to the customer', 'lenz-plus' ), '' === $code, array( 'help' => __( 'The customer gets an email with the code.', 'lenz-plus' ) ) );
+				?>
+				<button type="submit" class="lzp-btn lzp-btn--ghost"><?php esc_html_e( 'Save the code', 'lenz-plus' ); ?></button>
+			</form>
+		</section>
+		<?php
+	}
+
+	/**
+	 * The refund card: what was refunded, and a form for a new refund. The
+	 * money itself goes back by hand (bank transfer): the panel records the
+	 * refund in WooCommerce without asking the payment gateway.
+	 *
+	 * @param \WC_Order $order Order.
+	 */
+	private function render_refund( \WC_Order $order ): void {
+		$refunded = (float) $order->get_total_refunded();
+		$left     = (float) $order->get_total() - $refunded;
+		if ( ! $order->is_paid() && $refunded <= 0 ) {
+			return;
+		}
+
+		$currency = $order->get_currency();
+		?>
+		<section class="lzp-card">
+			<h2 class="lzp-card__title"><?php esc_html_e( 'Refund', 'lenz-plus' ); ?></h2>
+			<?php if ( $order->get_refunds() ) : ?>
+				<ul class="lzp-lines">
+					<?php foreach ( $order->get_refunds() as $refund ) : ?>
+						<?php $date = $refund->get_date_created(); ?>
+						<li>
+							<span><?php echo esc_html( '' !== $refund->get_reason() ? $refund->get_reason() : ( $date ? Ui::date( $date->getTimestamp() ) : '' ) ); ?></span>
+							<span><?php echo esc_html( self::money( (float) $refund->get_amount(), $currency ) ); ?></span>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			<?php endif; ?>
+			<?php if ( $left > 0 ) : ?>
+				<?php $this->form_open( 'refund' ); ?>
+					<input type="hidden" name="order_id" value="<?php echo esc_attr( (string) $order->get_id() ); ?>">
+					<?php
+					Ui::input(
+						'amount',
+						__( 'Amount', 'lenz-plus' ),
+						'',
+						array(
+							'inputmode' => 'decimal',
+							/* translators: %s: amount still refundable. */
+							'help'      => sprintf( __( 'Up to %s. Pay the money back yourself (e.g. by bank transfer); this records it on the order.', 'lenz-plus' ), self::money( $left, $currency ) ),
+							'required'  => true,
+						)
+					);
+					Ui::input( 'reason', __( 'Reason', 'lenz-plus' ), '' );
+					Ui::toggle( 'restock', __( 'Put the items back in stock', 'lenz-plus' ), false, array( 'help' => __( 'Only when the whole remaining amount is refunded.', 'lenz-plus' ) ) );
+					?>
+					<button type="submit" class="lzp-btn lzp-btn--ghost" data-lzp-confirm="<?php esc_attr_e( 'Record this refund on the order?', 'lenz-plus' ); ?>"><?php esc_html_e( 'Record the refund', 'lenz-plus' ); ?></button>
+				</form>
+			<?php endif; ?>
+		</section>
 		<?php
 	}
 
@@ -410,6 +514,31 @@ final class Orders extends Screen {
 			return $this->done( 'status', $back );
 		}
 
+		if ( 'tracking' === $action ) {
+			$code   = sanitize_text_field( Persian::latin_digits( self::posted( 'tracking' ) ) );
+			$notify = '1' === self::posted( 'notify' );
+			Shipping::save_tracking( $order, $code, $notify );
+			Log::add( 'tracking', 'order', $order->get_id(), '#' . $order->get_order_number(), array( Watcher::change( 'tracking', '', $code ) ) );
+
+			return $this->done( 'saved', $back );
+		}
+
+		if ( 'refund' === $action ) {
+			return $this->done( self::refund( $order ), $back );
+		}
+
+		if ( 'invoice' === $action ) {
+			if ( '' === (string) $order->get_billing_email() ) {
+				return $this->done( 'email', $back );
+			}
+
+			WC()->mailer()->customer_invoice( $order );
+			$order->add_order_note( __( 'Order details sent to the customer from the studio panel.', 'lenz-plus' ), 0, true );
+			Log::add( 'invoice', 'order', $order->get_id(), '#' . $order->get_order_number() );
+
+			return $this->done( 'sent', $back );
+		}
+
 		if ( 'note' === $action ) {
 			$note = trim( sanitize_textarea_field( self::posted( 'note' ) ) );
 			if ( '' === $note ) {
@@ -418,10 +547,50 @@ final class Orders extends Screen {
 
 			$to_customer = '1' === self::posted( 'to_customer' );
 			$order->add_order_note( $note, (int) $to_customer, true );
+			Log::add( 'note', 'order', $order->get_id(), '#' . $order->get_order_number() );
 
 			return $this->done( 'note', $back );
 		}
 
 		return $this->url( $back );
+	}
+
+	/**
+	 * Records a refund (no payment gateway call); returns the message key.
+	 *
+	 * @param \WC_Order $order Order.
+	 */
+	private static function refund( \WC_Order $order ): string {
+		$amount = (float) Money::parse( self::posted( 'amount' ) );
+		$left   = (float) $order->get_total() - (float) $order->get_total_refunded();
+		if ( $amount <= 0 || $amount > $left + 0.0001 ) {
+			return 'amount';
+		}
+
+		$restock = '1' === self::posted( 'restock' );
+		$args    = array(
+			'amount'         => $amount,
+			'reason'         => sanitize_text_field( self::posted( 'reason' ) ),
+			'order_id'       => $order->get_id(),
+			'refund_payment' => false,
+			'restock_items'  => $restock,
+		);
+
+		// A full refund with restock returns every remaining line item to stock.
+		if ( $restock && abs( $amount - $left ) < 0.0001 ) {
+			$lines = array();
+			foreach ( $order->get_items() as $item_id => $item ) {
+				$qty = (int) $item->get_quantity() - absint( $order->get_qty_refunded_for_item( $item_id ) );
+				if ( $qty > 0 ) {
+					$lines[ $item_id ] = array(
+						'qty'          => $qty,
+						'refund_total' => (float) $item->get_total() - (float) $order->get_total_refunded_for_item( $item_id ),
+					);
+				}
+			}
+			$args['line_items'] = $lines;
+		}
+
+		return is_wp_error( wc_create_refund( $args ) ) ? 'error' : 'refunded';
 	}
 }

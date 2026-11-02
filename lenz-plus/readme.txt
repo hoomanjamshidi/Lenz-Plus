@@ -3,7 +3,7 @@ Tags: lenz, photography, bottom navigation, elementor, rtl
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.8.0
+Stable tag: 1.9.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,13 @@ It is built for Lenz and reads its colours, logo, menus and options. Without Len
 No. Updates refresh only the ready-made templates you have not edited, and pages created from a design never change by themselves.
 
 == Changelog ==
+
+= 1.9.0 =
+* Studio panel: SEO card for Rank Math and Yoast SEO on articles, pages, projects, products and courses (focus keyword, SEO title, meta description, canonical address, noindex, score and a search result preview), written to the plugins' own fields.
+* Studio panel: new sections: sales reports (ranges, comparison with the period before, sales bars, best products, categories, customers, discount codes, payment methods, regions, weekdays, stock alerts, CSV), customers (accounts and guest buyers, orders, what they bought, staff notes, CSV), discount codes, course students (buyers of each course, income, seats left, waiting list, CSV, email everyone), wallet (TeraWallet: balances, credit/debit, transactions, settings), activity log (who changed what, from the panel or wp-admin) and search across orders, customers and content.
+* Studio panel: orders get refunds, a parcel tracking code (PWS's code is shown too), the invoice email, province and city names from PWS and a wider search (names, phones, addresses, items).
+* Studio panel: notifications of new orders, bookings and requests on staff phones and the waiting count on the home-screen icon (switched on per device in My account); the panel is kept out of WP Rocket, LiteSpeed and other page caches, and administrators can clear the site's cache from it.
+* Course grid: new «Posters with tabs» look for the home page (most popular / newest tabs, an «all courses» button, tall covers, sessions, students, price and a green pill).
 
 = 1.8.0 =
 * New course page design «Course with a side menu»: a summary card on top (cover, title, ticked facts, price and button), the sections beside a menu that stays in view and marks the section being read (a sticky chip bar under the header on tablets and phones), the summary card again at the end (#buy). Sections left empty for a course (no instructor, say) hide themselves, and so do their menu links.

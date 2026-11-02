@@ -6,7 +6,9 @@
  * neither the buy box's button nor the enroll form is on screen, so it is
  * there from the top of the page and steps aside where you can act anyway.
  * The course menu marks the section on screen and scrolls to a section
- * below the sticky header. The intro video dialog lives in video.js.
+ * below the sticky header. The course grid's poster look sorts its cards
+ * in place from the «most popular / newest» tabs. The intro video dialog
+ * lives in video.js.
  */
 ( function () {
 	'use strict';
@@ -133,7 +135,34 @@
 		} );
 	}
 
+	/**
+	 * Poster look: the «most popular / newest» tabs sort the cards in place
+	 * (the links sort on the server without JS).
+	 */
+	function initCourseSort( list ) {
+		const grid = list.querySelector( '.lzp-courses' );
+		const tabs = list.querySelectorAll( '[data-lzp-sort]' );
+		if ( ! grid || ! tabs.length ) {
+			return;
+		}
+
+		tabs.forEach( ( tab ) => tab.addEventListener( 'click', ( event ) => {
+			event.preventDefault();
+			const popular = 'popular' === tab.dataset.lzpSort;
+			const cards = Array.from( grid.children );
+			cards.sort( ( a, b ) => ( popular ? ( b.dataset.sales - a.dataset.sales ) || ( a.dataset.new - b.dataset.new ) : a.dataset.new - b.dataset.new ) );
+			cards.forEach( ( card ) => grid.appendChild( card ) );
+			tabs.forEach( ( other ) => other.toggleAttribute( 'aria-current', other === tab ) );
+			history.replaceState( history.state, '', tab.href );
+		} ) );
+	}
+
 	function init() {
+		doc.querySelectorAll( '[data-lzp-course-sort]:not([data-lzp-ready])' ).forEach( ( list ) => {
+			list.setAttribute( 'data-lzp-ready', '' );
+			initCourseSort( list );
+		} );
+
 		doc.querySelectorAll( '[data-lzp-course-nav]:not([data-lzp-ready])' ).forEach( ( nav ) => {
 			nav.setAttribute( 'data-lzp-ready', '' );
 			initCourseNav( nav );

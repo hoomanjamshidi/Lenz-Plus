@@ -2308,3 +2308,123 @@ html[data-lzp-nav="fade"]::view-transition-new(lzp-page) {
 		animation: none !important;
 	}
 }
+
+/* ---------------------------------------------------------------------
+ * Reports, SEO preview and the other sections ported from Daftar. They
+ * reuse the cards, lines, tiles and pills above; only what those lack is
+ * here.
+ * ------------------------------------------------------------------- */
+
+/* A row that is not a link (an item with no page in the panel). */
+.lzp-p div.lzp-row__link:hover {
+	background: transparent;
+}
+
+/* Notes with a delete button under the date. */
+.lzp-notes .lzp-inline-form {
+	margin-block-start: 4px;
+}
+
+.lzp-notes .lzp-inline-form .lzp-btn {
+	min-height: 36px;
+	padding-inline: 10px;
+	font-size: 12.5px;
+}
+
+/* Search result preview of the SEO card. */
+.lzp-serp {
+	display: grid;
+	gap: 2px;
+	margin: 0 0 14px;
+	padding: 12px 14px;
+	border: 1px solid var(--lzp-p-line);
+	border-radius: 12px;
+	background: var(--lzp-p-soft);
+	overflow-wrap: anywhere;
+}
+
+.lzp-serp__url {
+	color: var(--lzp-p-muted);
+	font-size: 12.5px;
+}
+
+.lzp-serp__title {
+	display: -webkit-box;
+	overflow: hidden;
+	color: #1a0dab;
+	font-size: 17px;
+	line-height: 1.5;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
+
+.lzp-serp__desc {
+	display: -webkit-box;
+	overflow: hidden;
+	color: var(--lzp-p-sub);
+	font-size: 13.5px;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+}
+
+/* Report cards: one column on phones, two from 768px. */
+.lzp-report-grid {
+	display: grid;
+	gap: 0 16px;
+	align-items: start;
+}
+
+@media (min-width: 768px) {
+	.lzp-report-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+/* Sales bars: one bar per day/week/month, height = share of the best one. */
+.lzp-bars {
+	display: grid;
+	grid-template-columns: repeat(var(--lzp-bars, 30), minmax(0, 1fr));
+	align-items: end;
+	gap: 3px;
+	height: 180px;
+	margin: 8px 0 0;
+	padding: 0 0 22px;
+	list-style: none;
+}
+
+.lzp-bars li {
+	position: relative;
+	display: flex;
+	align-items: flex-end;
+	height: 100%;
+}
+
+.lzp-bars__bar {
+	width: 100%;
+	height: max(2px, calc(var(--v, 0) * 100%));
+	border-radius: 4px 4px 2px 2px;
+	background: var(--lzp-p-accent);
+	opacity: 0.85;
+}
+
+.lzp-bars li:hover .lzp-bars__bar {
+	opacity: 1;
+}
+
+.lzp-bars__label {
+	position: absolute;
+	inset-block-start: calc(100% + 4px);
+	inset-inline-start: 0;
+	color: var(--lzp-p-muted);
+	font-size: 11px;
+	line-height: 1.4;
+	white-space: nowrap;
+}
+
+/* Figures in report tiles wrap instead of being cut: people need the whole amount. */
+.lzp-p div.lzp-stat .lzp-stat__value {
+	overflow: visible;
+	font-size: 18px;
+	white-space: normal;
+	overflow-wrap: anywhere;
+}

@@ -19,6 +19,8 @@ use LenzPlus\Core\Asset;
 use LenzPlus\Core\Site;
 use LenzPlus\Core\Theme_Bridge;
 use LenzPlus\Modules\Builder\Schema as Builder_Schema;
+use LenzPlus\Modules\Panel\Activity\Log;
+use LenzPlus\Modules\Panel\Integrations\Cache;
 use LenzPlus\Modules\Panel\Screens\Content_Screen;
 use LenzPlus\Modules\Panel\Screens\Screen;
 use LenzPlus\Plugin;
@@ -68,13 +70,20 @@ final class App {
 			Screens\Posts::class,
 			Screens\Portfolio::class,
 			Screens\Courses::class,
+			Screens\Students::class,
 			Screens\Products::class,
 			Screens\Orders::class,
+			Screens\Reports::class,
+			Screens\Customers::class,
+			Screens\Coupons::class,
+			Screens\Wallet::class,
 			Screens\Bookings::class,
 			Screens\Requests::class,
 			Screens\Comments::class,
 			Screens\Pages::class,
 			Screens\Media::class,
+			Screens\Activity::class,
+			Screens\Search::class,
 			Screens\Account::class,
 			Screens\Create::class,
 			Screens\Menu::class,
@@ -200,8 +209,14 @@ final class App {
 			return;
 		}
 
+		Cache::bypass();
+
 		if ( $this->is_post() ) {
 			wp_safe_redirect( $this->handle_post( $screen ) );
+			return;
+		}
+
+		if ( $screen->download() ) {
 			return;
 		}
 
@@ -232,6 +247,7 @@ final class App {
 		}
 
 		$action = isset( $_POST[ Screen::ACTION_FIELD ] ) ? sanitize_key( wp_unslash( $_POST[ Screen::ACTION_FIELD ] ) ) : '';
+		Log::from_panel();
 
 		return $screen->handle( $action );
 	}
@@ -292,6 +308,7 @@ final class App {
 				'ajaxUrl'     => admin_url( 'admin-ajax.php' ),
 				'uploadNonce' => wp_create_nonce( Uploads::AJAX_ACTION ),
 				'nav'         => array( 'base' => Router::url() ),
+				'notify'      => Notifier::script_data( $this->module ),
 				'i18n'        => array(
 					'uploading'     => __( 'Uploading…', 'lenz-plus' ),
 					'uploadError'   => __( 'The file could not be uploaded. Use a photo or a video.', 'lenz-plus' ),
@@ -312,6 +329,8 @@ final class App {
 					/* translators: %d: number of chosen files. */
 					'addCount'      => __( 'Add %d files', 'lenz-plus' ),
 					'aparat'        => __( 'Aparat', 'lenz-plus' ),
+					'notifyOn'      => __( 'Notifications are on for this device.', 'lenz-plus' ),
+					'notifyBlocked' => __( 'The browser blocked notifications. Allow them in the site settings of your browser.', 'lenz-plus' ),
 					'linkInvalid'   => __( 'Paste an Aparat link or embed code, or a link that starts with https://', 'lenz-plus' ),
 				),
 			)
@@ -365,6 +384,14 @@ final class App {
 			'note'        => array( __( 'Note added.', 'lenz-plus' ), 'ok' ),
 			'reply'       => array( __( 'Reply posted.', 'lenz-plus' ), 'ok' ),
 			'uploaded'    => array( __( 'Uploaded.', 'lenz-plus' ), 'ok' ),
+			'sent'        => array( __( 'Sent.', 'lenz-plus' ), 'ok' ),
+			'refunded'    => array( __( 'The refund is recorded on the order.', 'lenz-plus' ), 'ok' ),
+			'purged'      => array( __( 'The site\'s cache is cleared.', 'lenz-plus' ), 'ok' ),
+			'amount'      => array( __( 'That amount is not possible here.', 'lenz-plus' ), 'bad' ),
+			'no_code'     => array( __( 'Type a discount code.', 'lenz-plus' ), 'bad' ),
+			'code_taken'  => array( __( 'Another discount code already uses this code.', 'lenz-plus' ), 'bad' ),
+			'percent'     => array( __( 'A percentage discount cannot be more than 100.', 'lenz-plus' ), 'bad' ),
+			'wallet'      => array( __( 'The wallet refused this (locked wallet or not enough balance).', 'lenz-plus' ), 'bad' ),
 			'empty'       => array( __( 'Write something first.', 'lenz-plus' ), 'warn' ),
 			'email'       => array( __( 'That email address is not valid.', 'lenz-plus' ), 'bad' ),
 			'email_taken' => array( __( 'Another account already uses that email address.', 'lenz-plus' ), 'bad' ),

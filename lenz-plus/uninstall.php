@@ -1,7 +1,8 @@
 <?php
 /**
  * Removes everything the plugin created: one `lenz_plus_<module>` option per
- * module, the page templates and the studio panel's role. Pages made from the page designs are the
+ * module, the page templates, the studio panel's role, activity log table,
+ * customer notes and cached reports. Pages made from the page designs are the
  * site's own content and stay.
  *
  * @package LenzPlus
@@ -41,7 +42,14 @@ function lenz_plus_uninstall_site(): void {
 	}
 	remove_role( 'lzp_studio_manager' );
 
+	// The studio panel's activity log, its pruning job and the staff notes about customers.
+	$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}lzp_panel_log" ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.DirectDatabaseQuery.SchemaChange -- the plugin's own table.
+	wp_clear_scheduled_hook( 'lenz_plus_panel_prune_log' );
+	delete_metadata( 'user', 0, '_lzp_customer_notes', '', true );
+
 	$wpdb->query( $wpdb->prepare( "DELETE FROM {$wpdb->options} WHERE option_name LIKE %s", $wpdb->esc_like( 'lenz_plus_' ) . '%' ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery -- one-off cleanup.
+	// Cached reports, guest lists and student counts of the panel.
+	$wpdb->query( $wpdb->prepare( "DELETE FROM {$wpdb->options} WHERE option_name LIKE %s OR option_name LIKE %s", $wpdb->esc_like( '_transient_lenz_plus_' ) . '%', $wpdb->esc_like( '_transient_timeout_lenz_plus_' ) . '%' ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery -- one-off cleanup.
 	wp_cache_flush();
 }
 

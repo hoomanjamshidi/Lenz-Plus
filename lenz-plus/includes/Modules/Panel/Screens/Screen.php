@@ -110,6 +110,36 @@ abstract class Screen {
 		return array();
 	}
 
+	/**
+	 * Sends a file instead of the page (CSV exports) and returns true, or
+	 * returns false to print the page. Screens call is_download() first.
+	 */
+	public function download(): bool {
+		return false;
+	}
+
+	/**
+	 * Address of one of the screen's downloads (signed for this screen).
+	 *
+	 * @param array<string, mixed> $args Query arguments.
+	 */
+	protected function download_url( array $args = array() ): string {
+		return $this->url(
+			$args + array(
+				'download'        => 1,
+				self::NONCE_FIELD => wp_create_nonce( $this->nonce_action() ),
+			)
+		);
+	}
+
+	/** Whether the request asks for a signed download of this screen. */
+	protected function is_download(): bool {
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- the nonce is verified right here.
+		$nonce = isset( $_GET[ self::NONCE_FIELD ] ) && is_scalar( $_GET[ self::NONCE_FIELD ] ) ? sanitize_text_field( wp_unslash( $_GET[ self::NONCE_FIELD ] ) ) : '';
+
+		return '1' === self::arg( 'download' ) && (bool) wp_verify_nonce( $nonce, $this->nonce_action() );
+	}
+
 	/** Enqueues what the page needs before the document head is printed. */
 	public function enqueue(): void {}
 
