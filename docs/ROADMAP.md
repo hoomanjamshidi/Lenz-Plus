@@ -4,7 +4,7 @@ This file is the **resume point**. Every session starts here (see the `lenz-plus
 
 Status keys: `[ ]` to do · `[x]` done · `[~]` started (see Notes) · `[-]` dropped (say why)
 
-**Current phase:** done (1.9.0: panel features from Daftar, SEO, course students, course grid posters)
+**Current phase:** done (1.10.0: single service pages)
 
 Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, browser check at 390 and 1440, translations, CLAUDE.md contracts, graphify update, commit `Phase N: …`).
 
@@ -186,7 +186,20 @@ Every phase ends with the **Definition of done** in `CLAUDE.md` (lint, minify, b
 - [ ] Not ported from Daftar (bigger UI, later): manual order creation/editing, bulk order status and bulk product price changes, variable products and variations in the panel, WooCommerce Analytics as the report source, in-panel settings screen
 - [ ] CPU/load audit of the whole plugin (asked for; postponed by the owner). First measurement on the dev site: front page ~130–160 queries from Lenz+ (~40 ms); the first wp-admin load after an update re-ran `Library::maybe_upgrade()`/`remove_duplicates()` (~1,800 queries, 0.6 s, once)
 
+## 1.10.0 — Single service pages (تک صفحه خدمات)
+- [x] Kind `service` (page design, group «صفحه‌های تک خدمت») with presets `service` (photo hero), `service-ink` (ink band + booking form without the project step), `service-minimal` (narrow, price list, order form in the ink frame); thumbnails
+- [x] Verify on the dev site: the three pages at 390 and 1440 (no horizontal scroll, booking form in three steps), Pages tab lists them, phpcs 0/0, translations complete
+- [x] A page per service with its own content (`Service_Content`, `Service_Pages`, card «صفحه‌های خدمات»): four pages at 390/1440, services page tiles relinked, no duplicates on a second run, the dialog's create-all path
+
 ---
+
+## 1.10.0 — Speed module (بهینه‌سازی سرعت)
+- [x] Module `performance`: Schema, admin page (Lenz theme / WordPress / WooCommerce / WP Rocket and cache tabs)
+- [x] `Asset_Trimmer` + `Asset_Groups`: Lenz libraries and widget scripts only on pages whose markup needs them, stand-ins for the jQuery plugins Lenz calls unchecked, Font Awesome on demand, WooCommerce block styles on demand
+- [x] `Fonts` (inline font CSS with `font-display: swap`, preload of the regular body font), `Site_Tweaks` (emojis, head links, block styles, dashicons, embeds, jQuery Migrate, Heartbeat, revisions, single Bootstrap grid, cart fragments only with a cart)
+- [x] `Rocket` (RUCSS safelist, LazyLoad exclusion of LCP photos, status card), `Cache_Purge` (after Lenz+ settings and templates, manual button); purge helpers moved to `Core\Page_Cache`
+- [x] Verify on the dev site: home keeps every library (sliders initialised), about/blog/portfolio/booking drop 20+ files with no console errors and script.js running to the end, font-display swap + preload, cart fragments only with a real cart, purge on save and manual purge with a WP Rocket stand-in, admin page, phpcs 0/0, translations complete
+- [ ] With the real WP Rocket: RUCSS + Delay JS on a Lenz demo page at 390/1440 (stand-in only tested the filters)
 
 ## Notes
 - Phase 17: wordpress.org was blocked in the cloud session, so the dev site could not be built; a scratch site was used (WordPress cloned from GitHub, `sqlite-database-integration` copied with `cp -rL`, Lenz from Theme.zip). Translations were merged with polib (gettext missing) and the `#:` lines re-wrapped to gettext's width. Test user «امیرمهدی اسدی» (`amir`, role Studio manager).

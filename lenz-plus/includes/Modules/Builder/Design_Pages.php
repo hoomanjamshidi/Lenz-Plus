@@ -44,9 +44,10 @@ final class Design_Pages {
 	 * @param int    $design_id Page design (template) ID.
 	 * @param string $title     Page title.
 	 * @param string $status    `publish` or `draft`.
+	 * @param array  $elements  Elementor data to use instead of the design's own (a design filled with other content).
 	 * @return int Page ID, 0 on failure.
 	 */
-	public static function create( int $design_id, string $title, string $status ): int {
+	public static function create( int $design_id, string $title, string $status, array $elements = array() ): int {
 		if ( ! self::is_design( $design_id ) ) {
 			return 0;
 		}
@@ -66,7 +67,11 @@ final class Design_Pages {
 			return 0;
 		}
 
-		Library::copy_content( $design_id, (int) $page_id );
+		if ( $elements ) {
+			Library::set_content( (int) $page_id, $elements );
+		} else {
+			Library::copy_content( $design_id, (int) $page_id );
+		}
 
 		return (int) $page_id;
 	}
@@ -80,6 +85,7 @@ final class Design_Pages {
 		$titles = array(
 			'about'    => __( 'About me', 'lenz-plus' ),
 			'services' => __( 'Services', 'lenz-plus' ),
+			'service'  => __( 'Professional photography', 'lenz-plus' ),
 			'courses'  => __( 'Courses', 'lenz-plus' ),
 			'contact'  => __( 'Contact us', 'lenz-plus' ),
 			'booking'  => __( 'Book a project', 'lenz-plus' ),

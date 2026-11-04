@@ -68,6 +68,24 @@ final class Catalog {
 				'description' => __( 'Hero, jump tiles, four services with photos (one on the ink band), price cards with add-ons, project steps, FAQ and a call to action.', 'lenz-plus' ),
 				'build'       => array( Services::class, 'page' ),
 			),
+			'service'             => array(
+				'type'        => 'service',
+				'label'       => __( 'Service: photo hero', 'lenz-plus' ),
+				'description' => __( 'One service in detail: a hero with a photo, key numbers, what is included on cards, sample photos, three price cards with add-ons, the steps, reviews, questions and a call to action.', 'lenz-plus' ),
+				'build'       => array( Service::class, 'classic' ),
+			),
+			'service-ink'         => array(
+				'type'        => 'service',
+				'label'       => __( 'Service: ink band', 'lenz-plus' ),
+				'description' => __( 'A text hero, the service with two photos on the ink band, what is included beside a client\'s quote, sample photos, price cards, the booking form beside its steps, and questions.', 'lenz-plus' ),
+				'build'       => array( Service::class, 'ink' ),
+			),
+			'service-minimal'     => array(
+				'type'        => 'service',
+				'label'       => __( 'Service: minimal', 'lenz-plus' ),
+				'description' => __( 'A narrow centred page: the title over one wide photo, the text beside what is included, a price list, a framed line, questions and the order form in the ink frame.', 'lenz-plus' ),
+				'build'       => array( Service::class, 'minimal' ),
+			),
 			'contact'             => array(
 				'type'        => 'contact',
 				'label'       => __( 'Contact: classic', 'lenz-plus' ),
@@ -225,11 +243,12 @@ final class Catalog {
 	/**
 	 * Elementor data for a preset.
 	 *
-	 * @param string $key Preset key.
+	 * @param string $key  Preset key.
+	 * @param array  $args Arguments for the builder (the service of a single service page).
 	 */
-	public static function build( string $key ): array {
+	public static function build( string $key, array $args = array() ): array {
 		$preset = self::get( $key );
 
-		return $preset ? El::finalize( call_user_func( $preset['build'] ) ) : array();
+		return $preset ? El::finalize( call_user_func_array( $preset['build'], $args ) ) : array();
 	}
 }

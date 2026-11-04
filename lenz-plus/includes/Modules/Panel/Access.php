@@ -87,7 +87,8 @@ final class Access {
 
 		remove_role( self::ROLE );
 		add_role( self::ROLE, __( 'Studio manager', 'lenz-plus' ), $caps );
-		update_option( self::ROLE_VERSION_OPTION, LENZ_PLUS_VERSION, false );
+		// Autoloaded: it is checked on every request.
+		update_option( self::ROLE_VERSION_OPTION, LENZ_PLUS_VERSION, true );
 	}
 
 	/**

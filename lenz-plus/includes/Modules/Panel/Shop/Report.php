@@ -49,10 +49,19 @@ final class Report {
 	}
 
 	/**
-	 * Marks every cached report stale.
+	 * Marks every cached report stale. One checkout fires several of the
+	 * hooks above, so the option is written once per request; it is only read
+	 * by panel screens, so it is not autoloaded (an autoloaded write rewrites
+	 * the whole cached options list).
 	 */
 	public static function bump(): void {
-		update_option( self::VERSION_OPTION, (int) get_option( self::VERSION_OPTION, 0 ) + 1, true );
+		static $bumped = false;
+		if ( $bumped ) {
+			return;
+		}
+
+		$bumped = true;
+		update_option( self::VERSION_OPTION, (int) get_option( self::VERSION_OPTION, 0 ) + 1, false );
 	}
 
 	/**
@@ -144,16 +153,15 @@ final class Report {
 	 */
 	public static function build( \DateTimeImmutable $start, \DateTimeImmutable $end, string $interval = 'day', bool $details = true ): array {
 		$statuses = array_values( array_filter( array_map( 'sanitize_key', (array) apply_filters( 'lenz_plus_panel_report_statuses', self::STATUSES ) ) ) );
-		$key      = 'lenz_plus_rep_' . md5( (string) wp_json_encode( array( $start->format( 'Y-m-d' ), $end->format( 'Y-m-d' ), $interval, $details, $statuses, get_option( self::VERSION_OPTION, 0 ), LENZ_PLUS_VERSION ) ) );
-		$cached   = get_transient( $key );
-		if ( is_array( $cached ) ) {
-			return $cached;
-		}
+		$key      = 'lenz_plus_rep_' . md5( (string) wp_json_encode( array( $start->format( 'Y-m-d' ), $end->format( 'Y-m-d' ), $interval, $details, $statuses, LENZ_PLUS_VERSION ) ) );
 
-		$report = ( new self( $start, $end, $interval, $statuses ) )->run( $details );
-		set_transient( $key, $report, self::CACHE_TTL );
-
-		return $report;
+		return Order_Cache::remember(
+			$key,
+			self::CACHE_TTL,
+			static function () use ( $start, $end, $interval, $statuses, $details ) {
+				return ( new self( $start, $end, $interval, $statuses ) )->run( $details );
+			}
+		);
 	}
 
 	/**

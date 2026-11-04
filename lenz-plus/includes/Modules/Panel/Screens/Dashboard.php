@@ -11,6 +11,7 @@ namespace LenzPlus\Modules\Panel\Screens;
 
 use LenzPlus\Modules\Panel\Router;
 use LenzPlus\Modules\Panel\Shop\Money;
+use LenzPlus\Modules\Panel\Shop\Order_Cache;
 use LenzPlus\Modules\Panel\Ui;
 
 defined( 'ABSPATH' ) || exit;
@@ -28,6 +29,9 @@ final class Dashboard extends Screen {
 
 	/** Most orders summed for the sales figure (keeps the page fast on big stores). */
 	private const SALES_LIMIT = 500;
+
+	/** Seconds the sales figure is reused (orders changing clear it sooner). */
+	private const SALES_CACHE = 600;
 
 	/** Screen id. */
 	public function id(): string {
@@ -137,6 +141,12 @@ final class Dashboard extends Screen {
 			return null;
 		}
 
+		// Home is the most opened (and prefetched) page: the sum is reused until an order changes.
+		return Money::text( (float) Order_Cache::remember( 'lenz_plus_home_sales', self::SALES_CACHE, array( self::class, 'sales_total' ) ) );
+	}
+
+	/** Paid order totals of the last 30 days, refunds taken off. */
+	public static function sales_total(): float {
 		$orders = wc_get_orders(
 			array(
 				'status'       => self::PAID,
@@ -151,7 +161,7 @@ final class Dashboard extends Screen {
 			$total += (float) $order->get_total() - (float) $order->get_total_refunded();
 		}
 
-		return Money::text( $total );
+		return $total;
 	}
 
 	/**

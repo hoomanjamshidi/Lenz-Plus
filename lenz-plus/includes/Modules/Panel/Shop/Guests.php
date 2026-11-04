@@ -4,7 +4,7 @@
  * (or phone when an order has no email), plus private notes about any customer.
  *
  * Guests are collected from orders through WooCommerce's CRUD API in batches and
- * cached until the order data changes (the report version is part of the key).
+ * cached until the order data changes (Order_Cache).
  * Ported from Daftar's Shop\Guests.
  *
  * @package LenzPlus
@@ -50,12 +50,13 @@ final class Guests {
 	 * Every guest, newest order first.
 	 */
 	public static function all(): array {
-		$cache = 'lenz_plus_guests_' . (int) get_option( Report::VERSION_OPTION, 0 );
-		$found = get_transient( $cache );
-		if ( is_array( $found ) ) {
-			return $found;
-		}
+		return (array) Order_Cache::remember( 'lenz_plus_guests', HOUR_IN_SECONDS, array( self::class, 'collect' ) );
+	}
 
+	/**
+	 * Reads the guest orders into one row per guest.
+	 */
+	public static function collect(): array {
 		$paid   = wc_get_is_paid_statuses();
 		$guests = array();
 		for ( $page = 1; $page <= self::MAX_ORDERS / self::BATCH; $page++ ) {
@@ -102,10 +103,7 @@ final class Guests {
 			}
 		}
 
-		$guests = array_values( $guests );
-		set_transient( $cache, $guests, HOUR_IN_SECONDS );
-
-		return $guests;
+		return array_values( $guests );
 	}
 
 	/**

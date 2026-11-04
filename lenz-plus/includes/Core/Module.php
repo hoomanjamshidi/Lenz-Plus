@@ -70,7 +70,12 @@ abstract class Module {
 	/** Saved settings merged with the defaults (memoized per request). */
 	public function settings(): array {
 		if ( null === $this->settings ) {
-			$stored         = get_option( $this->option_name(), array() );
+			$stored = get_option( $this->option_name(), false );
+			if ( false === $stored ) {
+				// A missing option is looked up in the database on every request; an empty autoloaded row is not.
+				add_option( $this->option_name(), array() );
+			}
+
 			$merged         = Arr::merge_defaults( $this->defaults(), is_array( $stored ) ? $stored : array() );
 			$this->settings = $this->normalize( $merged );
 		}

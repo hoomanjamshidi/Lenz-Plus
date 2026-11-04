@@ -66,13 +66,16 @@ final class Router {
 	}
 
 	/**
-	 * Flushes the rewrite rules once after the slug changes (or the first
-	 * time), so the new address works without visiting Settings → Permalinks.
+	 * Flushes the rewrite rules once after the slug changes, the plugin is
+	 * updated (or the first time), so the new address works without visiting
+	 * Settings → Permalinks.
 	 */
 	public function maybe_flush(): void {
-		if ( get_option( self::RULES_OPTION ) !== self::$slug ) {
+		$state = self::$slug . '@' . LENZ_PLUS_VERSION;
+		if ( get_option( self::RULES_OPTION ) !== $state ) {
 			flush_rewrite_rules( false );
-			update_option( self::RULES_OPTION, self::$slug, false );
+			// Autoloaded: it is checked on every request.
+			update_option( self::RULES_OPTION, $state, true );
 		}
 	}
 

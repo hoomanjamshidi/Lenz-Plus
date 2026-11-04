@@ -147,6 +147,17 @@ foreach ( Icon_Library::catalog()['packs'] as $pack_id => $pack ) {
 				</div>
 
 				<div class="lzp-card">
+					<header class="lzp-card__head lzp-card__head--split">
+						<div>
+							<h2><?php esc_html_e( 'Service pages', 'lenz-plus' ); ?></h2>
+							<p><?php esc_html_e( 'A page of its own for each service on the services page, filled with that service\'s texts, prices and questions, in one of the single service designs.', 'lenz-plus' ); ?></p>
+						</div>
+						<div class="lzp-inline-actions" data-lzp-service-all></div>
+					</header>
+					<div class="lzp-home-designs" data-lzp-service-pages></div>
+				</div>
+
+				<div class="lzp-card">
 					<header class="lzp-card__head">
 						<h2><?php esc_html_e( 'Ready-made courses', 'lenz-plus' ); ?></h2>
 						<p><?php esc_html_e( 'Complete courses with their texts, curriculum, questions and cover. Add one to your courses, then set its price, date and seats. Its landing page is the Course design, filled from the course.', 'lenz-plus' ); ?></p>

@@ -220,19 +220,21 @@ final class Booking_Requests extends Public_Form {
 			return isset( $counts->private ) ? (int) $counts->private : 0;
 		}
 
-		return count(
-			get_posts(
-				array(
-					'post_type'      => self::POST_TYPE,
-					'post_status'    => 'private',
-					'posts_per_page' => -1,
-					'fields'         => 'ids',
-					'no_found_rows'  => true,
-					'meta_key'       => self::META_STATUS, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- admin counts only.
-					'meta_value'     => $status, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
-				)
+		// One row and the total, instead of every booking's ID.
+		$query = new \WP_Query(
+			array(
+				'post_type'              => self::POST_TYPE,
+				'post_status'            => 'private',
+				'posts_per_page'         => 1,
+				'fields'                 => 'ids',
+				'update_post_meta_cache' => false,
+				'update_post_term_cache' => false,
+				'meta_key'               => self::META_STATUS, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- admin counts only.
+				'meta_value'             => $status, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
 			)
 		);
+
+		return (int) $query->found_posts;
 	}
 
 	/** Admin list of the bookings. */

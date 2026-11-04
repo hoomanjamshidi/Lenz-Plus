@@ -742,6 +742,10 @@
 	const notify = config.notify || null;
 	let pulseTimer = 0;
 	let pulseAfter = 0;
+	let pulseBadge = -1;
+	let pulseDelay = 0;
+	// A quiet panel is asked less and less often (up to this many seconds), so an open tab costs the server little.
+	const PULSE_MAX = 600;
 
 	function storage( key, value ) {
 		try {
@@ -817,13 +821,18 @@
 					return;
 				}
 
+				const quiet = ! result.data.items.length && result.data.badge === pulseBadge;
+				pulseDelay = quiet ? Math.min( pulseDelay * 2, PULSE_MAX ) : ( notify.every || 60 );
 				pulseAfter = result.data.now;
+				pulseBadge = result.data.badge;
 				setBadge( result.data.badge );
 				result.data.items.forEach( show );
 			} )
-			.catch( () => {} )
+			.catch( () => {
+				pulseDelay = Math.min( pulseDelay * 2, PULSE_MAX );
+			} )
 			.then( () => {
-				pulseTimer = window.setTimeout( pulse, ( notify.every || 60 ) * 1000 );
+				pulseTimer = window.setTimeout( pulse, Math.max( pulseDelay, notify.every || 60 ) * 1000 );
 			} );
 	}
 
@@ -834,6 +843,7 @@
 
 		document.addEventListener( 'visibilitychange', () => {
 			if ( ! document.hidden ) {
+				pulseDelay = 0; // Back on the page: check now and at the normal pace again.
 				pulse();
 			}
 		} );

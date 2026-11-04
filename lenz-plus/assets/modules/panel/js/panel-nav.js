@@ -331,21 +331,29 @@
 		show( load( url, false ), 'back', false, event.state.scroll ).catch( () => window.location.reload() );
 	} );
 
-	// Fetch a page as soon as it is likely to be opened.
+	// Fetch a page as soon as it is likely to be opened: one at a time (each
+	// one is a full page render on the server), and never on Save-Data.
 	let hoverTimer = 0;
+	let prefetching = false;
+	const saveData = !! ( navigator.connection && navigator.connection.saveData );
 	const prefetch = ( event ) => {
 		const link = event.target.closest && event.target.closest( 'a' );
 		const url = linkUrl( link, null );
-		if ( url && ! link.hasAttribute( 'data-lzp-noprefetch' ) ) {
-			load( url, true ).catch( () => {} );
+		if ( ! url || saveData || prefetching || link.hasAttribute( 'data-lzp-noprefetch' ) ) {
+			return;
 		}
+
+		prefetching = true;
+		load( url, true ).catch( () => {} ).then( () => {
+			prefetching = false;
+		} );
 	};
 
 	document.addEventListener( 'touchstart', prefetch, { passive: true } );
 	document.addEventListener( 'focusin', prefetch );
 	document.addEventListener( 'mouseover', ( event ) => {
 		window.clearTimeout( hoverTimer );
-		hoverTimer = window.setTimeout( () => prefetch( event ), 80 );
+		hoverTimer = window.setTimeout( () => prefetch( event ), 150 );
 	} );
 
 	window.history.replaceState( { lzp: 1, scroll: window.scrollY }, '', window.location.href );

@@ -20,6 +20,7 @@
 	let templates = data.templates || [];
 	let pages = data.pages || [];
 	let courses = data.courses || [];
+	let services = data.services || [];
 
 	const ICONS = {
 		eye: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>',
@@ -586,6 +587,113 @@
 		'</article>' ).join( '' );
 	}
 
+	function renderServicePages() {
+		const host = app.querySelector( '[data-lzp-service-pages]' );
+		const allHost = app.querySelector( '[data-lzp-service-all]' );
+		if ( ! host ) {
+			return;
+		}
+
+		if ( ! ( data.elementor || {} ).active ) {
+			host.innerHTML = '<div class="lzp-empty"><p>' + escapeHtml( t.needsElementor ) + '</p></div>';
+			if ( allHost ) {
+				allHost.innerHTML = '';
+			}
+			return;
+		}
+
+		const missing = services.filter( ( service ) => ! service.made.length ).length;
+		if ( allHost ) {
+			allHost.innerHTML = missing ?
+				'<button type="button" class="lzp-btn lzp-btn--primary" data-service-create="">' + ICONS.plus + '<span>' + escapeHtml( t.serviceAll ) + '</span></button>' :
+				'<p class="lzp-field__help">' + escapeHtml( t.serviceAllDone ) + '</p>';
+		}
+
+		host.innerHTML = services.map( ( service ) => '<article class="lzp-home-card" data-service="' + escapeHtml( service.key ) + '">' +
+			'<div class="lzp-home-card__body">' +
+				'<h3>' + escapeHtml( service.name ) + '</h3>' +
+				'<p>' + escapeHtml( service.lead ) + '</p>' +
+				( service.made.length ? '<p class="lzp-tpl-card__chips"><span>' + escapeHtml( t.madePages ) + '</span> ' + service.made.map( ( made ) =>
+					'<a class="lzp-chip" href="' + escapeHtml( made.editUrl ) + '" target="_blank" rel="noopener">' + escapeHtml( made.title ) + ' · ' + escapeHtml( made.status === 'publish' ? t.published : t.draft ) + '</a>'
+				).join( ' ' ) + '</p>' : '' ) +
+			'</div>' +
+			'<div class="lzp-home-card__actions">' +
+				'<button type="button" class="lzp-btn lzp-btn--' + ( service.made.length ? 'soft' : 'primary' ) + ' lzp-btn--sm" data-service-create="' + escapeHtml( service.key ) + '">' + ICONS.plus + '<span>' + escapeHtml( t.servicePage ) + '</span></button>' +
+			'</div>' +
+		'</article>' ).join( '' );
+	}
+
+	/** Dialog for one service's page, or (empty key) a page for every service without one. */
+	function servicePagesDialog( key ) {
+		const service = services.find( ( item ) => item.key === key );
+		const presets = ( data.presets || [] ).filter( ( preset ) => ( data.serviceDesigns || [] ).includes( preset.key ) );
+		if ( ! presets.length ) {
+			return;
+		}
+
+		const dialog = document.createElement( 'dialog' );
+		dialog.className = 'lzp-dialog lzp-dialog--confirm lzp-new-dialog';
+		dialog.innerHTML =
+			'<form method="dialog">' +
+				'<div class="lzp-dialog__head"><h2>' + escapeHtml( service ? t.serviceTitle.replace( '%s', service.name ) : t.serviceAllTitle ) + '</h2></div>' +
+				'<div class="lzp-dialog__body lzp-fields">' +
+					'<p class="lzp-field__help">' + escapeHtml( service ? t.serviceHelp : t.serviceAllHelp ) + '</p>' +
+					'<label class="lzp-field"><span class="lzp-field__label">' + escapeHtml( t.serviceDesign ) + '</span><select class="lzp-input" name="design">' +
+						presets.map( ( preset ) => '<option value="' + escapeHtml( preset.key ) + '">' + escapeHtml( preset.label ) + '</option>' ).join( '' ) +
+					'</select></label>' +
+					switchRow( 'publish', t.publishNow, t.publishPages, true ) +
+				'</div>' +
+				'<div class="lzp-dialog__actions">' +
+					'<button type="button" class="lzp-btn lzp-btn--ghost" value="cancel">' + escapeHtml( t.cancel ) + '</button>' +
+					'<button type="submit" class="lzp-btn lzp-btn--primary" value="create">' + escapeHtml( service ? t.create : t.createPages ) + '</button>' +
+				'</div>' +
+			'</form>';
+		app.appendChild( dialog );
+
+		const form = dialog.querySelector( 'form' );
+		const close = () => {
+			dialog.close();
+			dialog.remove();
+		};
+
+		dialog.querySelector( 'button[value="cancel"]' ).addEventListener( 'click', close );
+		dialog.addEventListener( 'cancel', ( event ) => {
+			event.preventDefault();
+			close();
+		} );
+
+		form.addEventListener( 'submit', async ( event ) => {
+			event.preventDefault();
+			const buttons = form.querySelectorAll( 'button' );
+			buttons.forEach( ( button ) => {
+				button.disabled = true;
+			} );
+
+			try {
+				const result = await call( {
+					op: 'create_services',
+					from: form.elements.design.value,
+					key,
+					publish: form.elements.publish.checked ? '1' : '',
+				} );
+				close();
+				services = result.services || services;
+				applyResult( result, result.created === 1 ? t.pageCreated : t.servicesMade.replace( '%d', result.created ) );
+				// Only a page asked for on its own is opened; a batch stays in the list.
+				if ( key && result.editUrl ) {
+					window.open( result.editUrl, '_blank', 'noopener' );
+				}
+			} catch ( error ) {
+				toast( error.message, 'error' );
+				buttons.forEach( ( button ) => {
+					button.disabled = false;
+				} );
+			}
+		} );
+
+		dialog.showModal();
+	}
+
 	/** Puts the course design the server just chose into the settings form, keeping unsaved edits unsaved. */
 	function applyCourseRoute( value ) {
 		const dirty = store.isDirty();
@@ -762,6 +870,12 @@
 			return;
 		}
 
+		const servicePage = event.target.closest( '[data-service-create]' );
+		if ( servicePage ) {
+			servicePagesDialog( servicePage.dataset.serviceCreate );
+			return;
+		}
+
 		const front = event.target.closest( '[data-home-front]' );
 		if ( front ) {
 			front.disabled = true;
@@ -821,6 +935,7 @@
 		renderHomeDesigns();
 		renderHomePages();
 		renderSampleCourses();
+		renderServicePages();
 	}
 
 	// A reset or a reload of the settings redraws everything; a picked slot updates its picker and the badges.

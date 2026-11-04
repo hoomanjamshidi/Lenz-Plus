@@ -60,6 +60,7 @@ final class Module extends Base_Module {
 			'home'              => __( 'Home page', 'lenz-plus' ),
 			'about'             => __( 'About page', 'lenz-plus' ),
 			'services'          => __( 'Services page', 'lenz-plus' ),
+			'service'           => __( 'Single service page', 'lenz-plus' ),
 			'courses'           => __( 'Courses page', 'lenz-plus' ),
 			'contact'           => __( 'Contact page', 'lenz-plus' ),
 			'booking'           => __( 'Booking page', 'lenz-plus' ),
@@ -148,32 +149,34 @@ final class Module extends Base_Module {
 		}
 
 		return array(
-			'elementor'     => Library::elementor_status(),
-			'typeLabels'    => self::type_labels(),
-			'keywordThumbs' => array(
+			'elementor'      => Library::elementor_status(),
+			'typeLabels'     => self::type_labels(),
+			'keywordThumbs'  => array(
 				'theme'       => Thumbs::svg( 'theme' ),
 				'none'        => Thumbs::svg( 'none' ),
 				'same'        => Thumbs::svg( 'same' ),
 				// "Same as the project page" of the project type pickers.
 				'sameProject' => Thumbs::svg( 'portfolio' ),
 			),
-			'themePreview'  => $this->theme_previews(),
-			'themeTitles'   => array(
+			'themePreview'   => $this->theme_previews(),
+			'themeTitles'    => array(
 				'portfolio_archive' => __( 'Lenz\'s portfolio list', 'lenz-plus' ),
 				'portfolio'         => __( 'Lenz\'s project page', 'lenz-plus' ),
 				'blog'              => __( 'Lenz\'s post list', 'lenz-plus' ),
 				'post'              => __( 'Lenz\'s article page', 'lenz-plus' ),
 				'course'            => __( 'Lenz\'s product page', 'lenz-plus' ),
 			),
-			'routes'        => Schema::ROUTE_TYPES,
-			'projectKinds'  => Schema::PROJECT_KINDS,
-			'templates'     => Library::all( $this ),
-			'pages'         => Design_Pages::all(),
-			'pageKinds'     => self::page_kinds(),
-			'presets'       => Library::catalog_for_js(),
-			'woocommerce'   => class_exists( 'WooCommerce' ),
-			'courses'       => Sample_Courses::for_admin(),
-			'i18n'          => $this->admin_strings(),
+			'routes'         => Schema::ROUTE_TYPES,
+			'projectKinds'   => Schema::PROJECT_KINDS,
+			'templates'      => Library::all( $this ),
+			'pages'          => Design_Pages::all(),
+			'pageKinds'      => self::page_kinds(),
+			'presets'        => Library::catalog_for_js(),
+			'woocommerce'    => class_exists( 'WooCommerce' ),
+			'courses'        => Sample_Courses::for_admin(),
+			'services'       => Service_Pages::for_admin(),
+			'serviceDesigns' => Service_Pages::designs(),
+			'i18n'           => $this->admin_strings(),
 		);
 	}
 
@@ -202,6 +205,7 @@ final class Module extends Base_Module {
 			'home'     => __( 'Home pages', 'lenz-plus' ),
 			'about'    => __( 'About pages', 'lenz-plus' ),
 			'services' => __( 'Services pages', 'lenz-plus' ),
+			'service'  => __( 'Single service pages', 'lenz-plus' ),
 			'courses'  => __( 'Courses pages', 'lenz-plus' ),
 			'contact'  => __( 'Contact pages', 'lenz-plus' ),
 			'booking'  => __( 'Booking pages', 'lenz-plus' ),
@@ -319,6 +323,20 @@ final class Module extends Base_Module {
 			'editCourse'      => __( 'Edit the course', 'lenz-plus' ),
 			'madeCourses'     => __( 'Added:', 'lenz-plus' ),
 			'needsWoo'        => __( 'Courses are WooCommerce products. Install and activate WooCommerce to add them.', 'lenz-plus' ),
+			'servicePage'     => __( 'Create its page', 'lenz-plus' ),
+			'serviceAll'      => __( 'Create pages for every service', 'lenz-plus' ),
+			'serviceAllDone'  => __( 'Every service has a page. Create another one from a service card.', 'lenz-plus' ),
+			/* translators: %s: service name. */
+			'serviceTitle'    => __( 'A page for "%s"', 'lenz-plus' ),
+			'serviceAllTitle' => __( 'A page for every service', 'lenz-plus' ),
+			'serviceHelp'     => __( 'The page is filled with this service\'s texts, prices and questions. Pick a design; photos are left for you to choose in Elementor.', 'lenz-plus' ),
+			'serviceAllHelp'  => __( 'One page per service that has none yet, each with its own texts, prices and questions. Once published, the services page\'s tiles lead to them.', 'lenz-plus' ),
+			'createPages'     => __( 'Create the pages', 'lenz-plus' ),
+			'serviceDesign'   => __( 'Design', 'lenz-plus' ),
+			/* translators: %d: number of pages. */
+			'servicesMade'    => __( '%d service pages created.', 'lenz-plus' ),
+			'madePages'       => __( 'Pages:', 'lenz-plus' ),
+			'publishPages'    => __( 'Off: the pages are saved as drafts, so you can add photos before visitors see them.', 'lenz-plus' ),
 		);
 	}
 }

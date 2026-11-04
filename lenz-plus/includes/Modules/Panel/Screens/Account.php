@@ -9,8 +9,8 @@
 
 namespace LenzPlus\Modules\Panel\Screens;
 
+use LenzPlus\Core\Page_Cache;
 use LenzPlus\Modules\Panel\Activity\Log;
-use LenzPlus\Modules\Panel\Integrations\Cache;
 use LenzPlus\Modules\Panel\Router;
 use LenzPlus\Modules\Panel\Ui;
 
@@ -126,13 +126,13 @@ final class Account extends Screen {
 						?>
 					</section>
 				<?php endif; ?>
-				<?php if ( current_user_can( 'manage_options' ) && Cache::purgeable() ) : ?>
+				<?php if ( current_user_can( 'manage_options' ) && Page_Cache::purgeable() ) : ?>
 					<section class="lzp-card">
 						<h2 class="lzp-card__title"><?php esc_html_e( 'Site cache', 'lenz-plus' ); ?></h2>
 						<p class="lzp-card__note">
 							<?php
 							/* translators: %s: cache plugin names. */
-							echo esc_html( sprintf( __( 'Clears the saved pages of %s, so visitors see your latest changes.', 'lenz-plus' ), implode( '، ', Cache::purgeable() ) ) );
+							echo esc_html( sprintf( __( 'Clears the saved pages of %s, so visitors see your latest changes.', 'lenz-plus' ), implode( '، ', Page_Cache::purgeable() ) ) );
 							?>
 						</p>
 						<?php $this->button_form( 'purge', array(), __( 'Clear the cache', 'lenz-plus' ) ); ?>
@@ -173,7 +173,7 @@ final class Account extends Screen {
 				return $this->done( 'denied' );
 			}
 
-			Cache::purge();
+			Page_Cache::purge();
 			Log::add( 'purge', 'site', 0, __( 'Site cache', 'lenz-plus' ) );
 
 			return $this->done( 'purged' );

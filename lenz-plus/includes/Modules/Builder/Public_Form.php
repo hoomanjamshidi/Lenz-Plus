@@ -32,6 +32,9 @@ abstract class Public_Form {
 	/** @var string Form ID to scroll back to after a plain (no-JS) submit. */
 	private $anchor = '';
 
+	/** @var int Page the form was sent from (the way back when the browser sends no referrer). */
+	private $source = 0;
+
 	/** Query argument that carries the result back to the page without JavaScript. */
 	abstract protected function result_arg(): string;
 
@@ -55,6 +58,7 @@ abstract class Public_Form {
 	protected function start(): void {
 		// phpcs:disable WordPress.Security.NonceVerification.Missing -- public form on cached pages; see the class docblock.
 		$this->anchor = isset( $_POST['anchor'] ) ? sanitize_html_class( wp_unslash( $_POST['anchor'] ) ) : '';
+		$this->source = isset( $_POST['source'] ) ? absint( $_POST['source'] ) : 0;
 		$honeypot     = isset( $_POST[ self::HONEYPOT ] ) ? sanitize_text_field( wp_unslash( $_POST[ self::HONEYPOT ] ) ) : '';
 		// phpcs:enable
 
@@ -138,7 +142,7 @@ abstract class Public_Form {
 			'action'   => $action,
 			'document' => (string) self::current_document_id(),
 			'form'     => $widget_id,
-			'source'   => (string) get_queried_object_id(),
+			'source'   => (string) self::source_page_id(),
 			'anchor'   => $anchor,
 		);
 
@@ -149,6 +153,16 @@ abstract class Public_Form {
 
 		// Bots fill every field; people never see this one.
 		return $html . '<span class="lzp-form__trap" aria-hidden="true"><input type="text" name="' . esc_attr( self::HONEYPOT ) . '" tabindex="-1" autocomplete="off"></span>';
+	}
+
+	/**
+	 * The post or page the form is shown on, 0 on archives: their queried
+	 * object is a term or a post type, whose ID is no post's.
+	 */
+	private static function source_page_id(): int {
+		$queried = get_queried_object();
+
+		return $queried instanceof \WP_Post ? (int) $queried->ID : 0;
 	}
 
 	/**
@@ -230,7 +244,7 @@ abstract class Public_Form {
 		}
 
 		$arg  = $this->result_arg();
-		$back = wp_get_referer();
+		$back = $this->back_url();
 		// The form's id comes back too, so only that form shows the result when a page has several.
 		$back = add_query_arg(
 			array_merge(
@@ -240,11 +254,27 @@ abstract class Public_Form {
 				),
 				array_map( 'rawurlencode', $query )
 			),
-			remove_query_arg( array_merge( array( $arg, 'lzp_form' ), array_keys( $query ) ), $back ? $back : home_url( '/' ) )
+			remove_query_arg( array_merge( array( $arg, 'lzp_form' ), array_keys( $query ) ), $back )
 		);
 
 		wp_safe_redirect( '' !== $this->anchor ? $back . '#' . $this->anchor : $back );
 		exit;
+	}
+
+	/**
+	 * Where a plain post goes back to: the sending page. Browsers and privacy
+	 * tools that send no referrer would otherwise land on the home page
+	 * without the form's answer.
+	 */
+	private function back_url(): string {
+		$back = wp_get_referer();
+		if ( $back ) {
+			return $back;
+		}
+
+		$source = $this->source ? get_post( $this->source ) : null;
+
+		return $source && is_post_publicly_viewable( $source ) ? (string) get_permalink( $source ) : home_url( '/' );
 	}
 
 	/**

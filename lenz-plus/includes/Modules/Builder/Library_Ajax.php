@@ -58,13 +58,17 @@ final class Library_Ajax {
 		);
 		// phpcs:enable
 
-		$needs_elementor = array( 'install', 'create', 'duplicate', 'restore', 'create_page', 'sync_colors', 'activate_container' );
+		$needs_elementor = array( 'install', 'create', 'duplicate', 'restore', 'create_page', 'create_services', 'sync_colors', 'activate_container' );
 		if ( in_array( $op, $needs_elementor, true ) && ! Library::elementor_active() ) {
 			wp_send_json_error( array( 'message' => __( 'Elementor is required to edit templates.', 'lenz-plus' ) ), 400 );
 		}
 
 		if ( in_array( $op, array( 'duplicate', 'restore', 'delete', 'rename' ), true ) && ( ! Template_Post_Type::type_of( $id ) || ! current_user_can( 'edit_post', $id ) ) ) {
 			wp_send_json_error( array( 'message' => __( 'Template not found.', 'lenz-plus' ) ), 404 );
+		}
+
+		if ( 'create_services' === $op && ! current_user_can( 'publish_pages' ) ) {
+			wp_send_json_error( array( 'message' => __( 'You are not allowed to change these settings.', 'lenz-plus' ) ), 403 );
 		}
 
 		if ( 'create_page' === $op && ( ! Design_Pages::is_design( $id ) || ! current_user_can( 'publish_pages' ) ) ) {
@@ -152,6 +156,15 @@ final class Library_Ajax {
 				$result['routeSet'] = Sample_Courses::ensure_design( $this->module );
 				$result['route']    = $this->module->settings()['routes']['course'];
 				$result['courses']  = Sample_Courses::for_admin();
+				break;
+
+			case 'create_services':
+				// `from` = single service design, `key` = one service ('' = every service without a page).
+				$created = Service_Pages::create( $from, $key, $flags['publish'] );
+				$this->fail_unless( $created );
+				$result['created']  = count( $created );
+				$result['editUrl']  = 1 === count( $created ) ? Template_Post_Type::edit_url( $created[0] ) : '';
+				$result['services'] = Service_Pages::for_admin();
 				break;
 
 			case 'set_front':

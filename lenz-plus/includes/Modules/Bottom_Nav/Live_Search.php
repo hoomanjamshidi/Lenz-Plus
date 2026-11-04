@@ -23,6 +23,9 @@ final class Live_Search {
 
 	private const RESULTS = 8;
 
+	/** How long a browser or CDN may reuse an answer. */
+	private const CACHE_SECONDS = 300;
+
 	/** Placeholder icon per post type for results without a featured image. */
 	private const TYPE_ICONS = array(
 		'product' => 'graduation',
@@ -70,6 +73,8 @@ final class Live_Search {
 			wp_send_json_error( null, 404 );
 		}
 
+		self::allow_caching();
+
 		$term = Search_Query::clean_term( $term );
 		if ( ! Search_Query::is_searchable( $term ) ) {
 			wp_send_json_success(
@@ -103,6 +108,29 @@ final class Live_Search {
 				'message' => Search_Query::summary( count( $results ), $term ),
 			)
 		);
+	}
+
+	/**
+	 * Lets the browser (and, for visitors, a CDN or page cache) reuse an
+	 * answer for a few minutes: admin-ajax.php sends no-cache headers, so
+	 * every repeated term would boot WordPress again.
+	 */
+	private static function allow_caching(): void {
+		$headers = array( 'Cache-Control' => ( is_user_logged_in() ? 'private' : 'public' ) . ', max-age=' . self::CACHE_SECONDS );
+
+		// wp_send_json() ends in wp_die(), which sends the no-cache headers again: replace them there too.
+		add_filter(
+			'nocache_headers',
+			static function () use ( $headers ) {
+				return $headers;
+			}
+		);
+
+		if ( ! headers_sent() ) {
+			header_remove( 'Expires' );
+			header_remove( 'Pragma' );
+			header( 'Cache-Control: ' . $headers['Cache-Control'] );
+		}
 	}
 
 	/**

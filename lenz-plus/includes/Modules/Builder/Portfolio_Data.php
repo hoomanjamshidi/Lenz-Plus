@@ -132,10 +132,13 @@ final class Portfolio_Data {
 	 */
 	public static function gallery( int $post_id ): array {
 		$items = array();
+		$ids   = array_filter( array_map( 'intval', (array) get_post_meta( $post_id, '_gallery', true ) ) );
 
-		foreach ( (array) get_post_meta( $post_id, '_gallery', true ) as $attachment_id ) {
-			$attachment_id = (int) $attachment_id;
-			$url           = $attachment_id ? (string) wp_get_attachment_url( $attachment_id ) : '';
+		// Two queries for the whole gallery instead of two per attachment.
+		_prime_post_caches( $ids, false, true );
+
+		foreach ( $ids as $attachment_id ) {
+			$url = (string) wp_get_attachment_url( $attachment_id );
 			if ( '' === $url ) {
 				continue;
 			}

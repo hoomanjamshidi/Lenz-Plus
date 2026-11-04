@@ -242,6 +242,50 @@ final class Thumbs {
 		return $svg;
 	}
 
+	/** The single service page with a photo hero (and any service template): hero, numbers, cards, photos and price cards. */
+	private static function draw_service(): string {
+		$svg = self::page_frame()
+			. self::r( 196, 20, 30, 4, self::MUTED, 1 ) . self::r( 132, 28, 94, 8, self::INK, 2 ) . self::r( 146, 40, 80, 4, self::STRONG, 1 )
+			. self::r( 190, 50, 36, 9, self::INK, 3 ) . self::r( 150, 50, 36, 9, self::WHITE, 3, self::STRONG )
+			. self::r( 18, 18, 100, 50, self::STRONG, 6 );
+		foreach ( array( 172, 118, 64, 10 ) as $x ) {
+			$svg .= self::r( $x + 4, 76, 50, 14, self::SOFT, 4, self::LINE ) . self::r( $x + 36, 80, 6, 6, self::INK, 2 ) . self::r( $x + 4, 96, 50, 22, self::STRONG, 4 );
+		}
+		foreach ( array( 158, 86, 14 ) as $i => $x ) {
+			$svg .= self::r( $x, 124, 68, 22, 0 === $i ? self::INK : self::WHITE, 4, 0 === $i ? '' : self::LINE );
+		}
+
+		return $svg;
+	}
+
+	/** The service on the ink band: text hero, the ink band with two photos, then the booking form beside its steps. */
+	private static function draw_service_ink(): string {
+		$svg = self::page_frame()
+			. self::r( 196, 20, 30, 4, self::MUTED, 1 ) . self::r( 132, 28, 94, 8, self::INK, 2 ) . self::r( 150, 40, 76, 4, self::STRONG, 1 )
+			. self::r( 0, 54, 240, 52, self::INK, 0 ) . self::r( 150, 64, 76, 6, self::WHITE, 2 ) . self::r( 160, 74, 66, 3, self::ON_INK, 1 ) . self::r( 170, 80, 56, 3, self::ON_INK, 1 )
+			. self::r( 190, 88, 36, 8, self::WHITE, 3 ) . self::r( 60, 60, 40, 40, self::PANEL, 4 ) . self::r( 18, 66, 36, 34, self::RULE, 4 )
+			. self::r( 14, 112, 212, 34, self::WHITE, 5, self::LINE ) . self::r( 160, 112, 66, 34, self::INK, 5 );
+		foreach ( array( 120, 130, 140 ) as $y ) {
+			$svg .= self::r( 172, $y - 2, 42, 3, self::ON_INK, 1 );
+		}
+
+		return $svg . self::r( 24, 120, 128, 8, self::SOFT, 2, self::LINE ) . self::r( 24, 132, 60, 8, self::SOFT, 2, self::LINE ) . self::r( 120, 132, 32, 8, self::INK, 3 );
+	}
+
+	/** The minimal service page: centred title, one wide photo, text beside ticks, a price list and the ink form. */
+	private static function draw_service_minimal(): string {
+		$svg = self::page_frame() . self::r( 80, 20, 80, 7, self::INK, 2 ) . self::r( 70, 31, 100, 3, self::STRONG, 1 )
+			. self::r( 40, 40, 160, 40, self::STRONG, 5 );
+		foreach ( array( 88, 96, 104 ) as $y ) {
+			$svg .= self::r( 126, $y, 74, 3, self::MUTED, 1 ) . self::r( 40, $y, 6, 4, self::INK, 1 ) . self::r( 50, $y, 60, 3, self::MUTED, 1 );
+		}
+		foreach ( array( 114, 122 ) as $y ) {
+			$svg .= self::r( 40, $y, 160, 1, self::LINE, 0 ) . self::r( 40, $y + 3, 30, 3, self::INK, 1 ) . self::r( 150, $y + 3, 50, 3, self::MUTED, 1 );
+		}
+
+		return $svg . self::r( 40, 132, 160, 16, self::INK, 4 ) . self::r( 50, 137, 60, 6, self::PANEL, 2 ) . self::r( 160, 137, 30, 6, self::WHITE, 2 );
+	}
+
 	/** The portfolio list: title, chips and a masonry of photos with vertical titles. */
 	private static function draw_portfolio_archive(): string {
 		$svg     = self::page_frame()

@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Lenz Plus 1.9.0\n"
+"Project-Id-Version: Lenz Plus 1.10.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/lenz-plus\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-02T08:06:06+00:00\n"
+"POT-Creation-Date: 2026-11-04T09:01:38+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: lenz-plus\n"
@@ -84,7 +84,7 @@ msgid "Yes, reset"
 msgstr ""
 
 #: includes/Admin/Admin.php:230
-#: includes/Modules/Builder/Module.php:285
+#: includes/Modules/Builder/Module.php:289
 msgid "Cancel"
 msgstr ""
 
@@ -119,9 +119,10 @@ msgid "Your session expired. Reload the page and try again."
 msgstr ""
 
 #: includes/Admin/Ajax_Controller.php:92
-#: includes/Modules/Builder/Booking_Requests.php:483
+#: includes/Modules/Builder/Booking_Requests.php:485
 #: includes/Modules/Builder/Library_Ajax.php:45
-#: includes/Modules/Builder/Public_Form.php:306
+#: includes/Modules/Builder/Library_Ajax.php:71
+#: includes/Modules/Builder/Public_Form.php:336
 msgid "You are not allowed to change these settings."
 msgstr ""
 
@@ -212,11 +213,11 @@ msgstr[1] ""
 msgid "Nothing found for “%s”."
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Frontend.php:217
+#: includes/Modules/Bottom_Nav/Frontend.php:225
 msgid "Toggle submenu"
 msgstr ""
 
-#: includes/Modules/Bottom_Nav/Frontend.php:218
+#: includes/Modules/Bottom_Nav/Frontend.php:226
 msgid "Live results are unavailable right now. Press Search to see all results."
 msgstr ""
 
@@ -232,7 +233,7 @@ msgstr ""
 #: includes/Modules/Bottom_Nav/views/admin.php:682
 #: includes/Modules/Builder/Elementor/Widgets/Breadcrumb.php:64
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:62
-#: includes/Modules/Panel/Screens/Dashboard.php:39
+#: includes/Modules/Panel/Screens/Dashboard.php:43
 msgid "Home"
 msgstr ""
 
@@ -445,7 +446,7 @@ msgstr ""
 
 #: includes/Modules/Bottom_Nav/Module.php:155
 #: includes/Modules/Bottom_Nav/views/admin.php:485
-#: includes/Modules/Builder/Module.php:257
+#: includes/Modules/Builder/Module.php:261
 #: includes/Modules/Panel/Screens/Customers.php:502
 #: includes/Modules/Panel/Screens/Inbox_Screen.php:201
 #: includes/Modules/Panel/Screens/Media.php:121
@@ -599,6 +600,7 @@ msgstr ""
 #: includes/Modules/Panel/Screens/Coupons.php:121
 #: includes/Modules/Panel/Screens/Coupons.php:237
 #: includes/Modules/Panel/views/admin.php:80
+#: includes/Modules/Performance/views/admin.php:51
 #: includes/Modules/Support_Button/views/admin.php:80
 msgid "Active"
 msgstr ""
@@ -607,6 +609,7 @@ msgstr ""
 #: includes/Modules/Builder/views/admin.php:104
 #: includes/Modules/Checkout/views/admin.php:88
 #: includes/Modules/Panel/views/admin.php:81
+#: includes/Modules/Performance/views/admin.php:52
 #: includes/Modules/Support_Button/views/admin.php:81
 msgid "Inactive"
 msgstr ""
@@ -926,7 +929,7 @@ msgid "Member"
 msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:436
-#: includes/Modules/Panel/Shop/Report.php:493
+#: includes/Modules/Panel/Shop/Report.php:501
 msgid "Guest"
 msgstr ""
 
@@ -964,7 +967,7 @@ msgid "Show this button"
 msgstr ""
 
 #: includes/Modules/Bottom_Nav/views/admin.php:484
-#: includes/Modules/Builder/Module.php:255
+#: includes/Modules/Builder/Module.php:259
 msgid "Duplicate"
 msgstr ""
 
@@ -1212,7 +1215,7 @@ msgstr ""
 #: includes/Modules/Builder/Assets.php:191
 #: includes/Modules/Builder/Assets.php:247
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:399
-#: includes/Modules/Builder/Module.php:275
+#: includes/Modules/Builder/Module.php:279
 #: includes/Modules/Panel/App.php:327
 #: includes/Modules/Support_Button/Module.php:114
 #: includes/Modules/Support_Button/views/button.php:77
@@ -1296,12 +1299,12 @@ msgstr ""
 #: includes/Modules/Builder/Course_Meta_Box.php:73
 #: includes/Modules/Panel/Screens/Bookings.php:156
 #: includes/Modules/Panel/Screens/Courses.php:132
-#: includes/Modules/Panel/Screens/Students.php:198
+#: includes/Modules/Panel/Screens/Students.php:199
 msgid "Status"
 msgstr ""
 
 #: includes/Modules/Builder/Booking_Inbox.php:58
-#: includes/Modules/Builder/Booking_Requests.php:435
+#: includes/Modules/Builder/Booking_Requests.php:437
 #: includes/Modules/Builder/Contact_Inbox.php:45
 #: includes/Modules/Builder/Contact_Messages.php:302
 msgid "Page"
@@ -1460,7 +1463,7 @@ msgstr ""
 #: includes/Modules/Panel/Screens/Account.php:61
 #: includes/Modules/Panel/Screens/Customers.php:128
 #: includes/Modules/Panel/Screens/Orders.php:318
-#: includes/Modules/Panel/Screens/Students.php:198
+#: includes/Modules/Panel/Screens/Students.php:199
 #: includes/Modules/Support_Button/Channels.php:78
 #: includes/Modules/Support_Button/views/admin.php:39
 msgid "Email"
@@ -1487,52 +1490,52 @@ msgstr ""
 msgid "Telegram"
 msgstr ""
 
-#: includes/Modules/Builder/Booking_Requests.php:412
+#: includes/Modules/Builder/Booking_Requests.php:414
 #: includes/Modules/Builder/Elementor/Widgets/Booking_Form.php:509
 msgid "Tracking code"
 msgstr ""
 
-#: includes/Modules/Builder/Booking_Requests.php:414
+#: includes/Modules/Builder/Booking_Requests.php:416
 #: includes/Modules/Builder/Elementor/Widgets/Booking_Form.php:363
 #: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:69
 msgid "Project"
 msgstr ""
 
 #. translators: 1: form name, 2: site name.
-#: includes/Modules/Builder/Booking_Requests.php:430
+#: includes/Modules/Builder/Booking_Requests.php:432
 #, php-format
 msgid "New booking from the \"%1$s\" form on %2$s."
 msgstr ""
 
 #. translators: %s: link to the bookings in the admin.
-#: includes/Modules/Builder/Booking_Requests.php:438
+#: includes/Modules/Builder/Booking_Requests.php:440
 #, php-format
 msgid "All bookings: %s"
 msgstr ""
 
 #. translators: 1: site name, 2: tracking code, 3: visitor's name.
-#: includes/Modules/Builder/Booking_Requests.php:443
+#: includes/Modules/Builder/Booking_Requests.php:445
 #, php-format
 msgid "[%1$s] New booking %2$s: %3$s"
 msgstr ""
 
 #. translators: %s: visitor's name.
-#: includes/Modules/Builder/Booking_Requests.php:459
+#: includes/Modules/Builder/Booking_Requests.php:461
 #, php-format
 msgid "Hello %s,"
 msgstr ""
 
 #. translators: %s: visitor's name.
-#: includes/Modules/Builder/Booking_Requests.php:459
+#: includes/Modules/Builder/Booking_Requests.php:461
 msgid "Hello,"
 msgstr ""
 
-#: includes/Modules/Builder/Booking_Requests.php:461
+#: includes/Modules/Builder/Booking_Requests.php:463
 msgid "Your booking request has arrived. I will review the details and contact you soon to confirm the date and the price."
 msgstr ""
 
 #. translators: 1: site name, 2: tracking code.
-#: includes/Modules/Builder/Booking_Requests.php:471
+#: includes/Modules/Builder/Booking_Requests.php:473
 #, php-format
 msgid "[%1$s] Your booking request %2$s"
 msgstr ""
@@ -1542,7 +1545,7 @@ msgstr ""
 #: includes/Modules/Builder/Contact_Messages.php:70
 #: includes/Modules/Builder/Contact_Messages.php:71
 #: includes/Modules/Builder/Contact_Messages.php:395
-#: includes/Modules/Builder/views/admin.php:285
+#: includes/Modules/Builder/views/admin.php:296
 #: includes/Modules/Panel/Screens/Requests.php:35
 msgid "Requests"
 msgstr ""
@@ -1574,17 +1577,18 @@ msgid "Choose a subject"
 msgstr ""
 
 #: includes/Modules/Builder/Contact_Messages.php:147
+#: includes/Modules/Builder/Design_Pages.php:88
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:68
 msgid "Professional photography"
 msgstr ""
 
 #: includes/Modules/Builder/Contact_Messages.php:147
-#: includes/Modules/Builder/Design_Pages.php:83
+#: includes/Modules/Builder/Design_Pages.php:89
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:95
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:113
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:233
 #: includes/Modules/Builder/Elementor/Widgets/Promo_Box.php:73
-#: includes/Modules/Builder/Presets/Catalog.php:172
+#: includes/Modules/Builder/Presets/Catalog.php:190
 #: includes/Modules/Panel/Screens/Courses.php:35
 msgid "Courses"
 msgstr ""
@@ -1674,7 +1678,7 @@ msgstr ""
 #. translators: %s: number of seats left.
 #. translators: %s: seats left.
 #: includes/Modules/Builder/Course_Data.php:196
-#: includes/Modules/Panel/Screens/Students.php:227
+#: includes/Modules/Panel/Screens/Students.php:228
 #, php-format
 msgid "%s seats left"
 msgstr ""
@@ -1852,7 +1856,7 @@ msgstr ""
 #: includes/Modules/Builder/Course_Meta_Box.php:112
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:124
 #: includes/Modules/Panel/Screens/Courses.php:150
-#: includes/Modules/Panel/Screens/Students.php:267
+#: includes/Modules/Panel/Screens/Students.php:268
 msgid "Seats left"
 msgstr ""
 
@@ -1979,31 +1983,31 @@ msgstr ""
 msgid "One per line, as \"Question | answer\"."
 msgstr ""
 
-#: includes/Modules/Builder/Design_Pages.php:81
+#: includes/Modules/Builder/Design_Pages.php:86
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:126
 #: includes/Modules/Builder/Presets/Catalog.php:61
 #: includes/Modules/Panel/Screens/Account.php:74
 msgid "About me"
 msgstr ""
 
-#: includes/Modules/Builder/Design_Pages.php:82
+#: includes/Modules/Builder/Design_Pages.php:87
 #: includes/Modules/Builder/Elementor/Widgets/Service_Cards.php:48
 #: includes/Modules/Builder/Elementor/Widgets/Service_Cards.php:99
 #: includes/Modules/Builder/Presets/Catalog.php:67
 msgid "Services"
 msgstr ""
 
-#: includes/Modules/Builder/Design_Pages.php:84
+#: includes/Modules/Builder/Design_Pages.php:90
 msgid "Contact us"
 msgstr ""
 
-#: includes/Modules/Builder/Design_Pages.php:85
+#: includes/Modules/Builder/Design_Pages.php:91
 msgid "Book a project"
 msgstr ""
 
-#: includes/Modules/Builder/Design_Pages.php:88
+#: includes/Modules/Builder/Design_Pages.php:94
 #: includes/Modules/Builder/Module.php:60
-#: includes/Modules/Builder/Module.php:303
+#: includes/Modules/Builder/Module.php:307
 #: includes/Modules/Builder/Presets/Catalog.php:55
 #: includes/Modules/Panel/Screens/Pages.php:74
 msgid "Home page"
@@ -2057,6 +2061,7 @@ msgstr ""
 #: includes/Modules/Builder/views/admin.php:41
 #: includes/Modules/Panel/Screens/Coupons.php:123
 #: includes/Modules/Panel/Screens/Coupons.php:240
+#: includes/Modules/Performance/views/admin.php:278
 #: includes/Modules/Support_Button/Module.php:111
 msgid "Off"
 msgstr ""
@@ -2241,7 +2246,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Base.php:256
 #: includes/Modules/Builder/Elementor/Widgets/Course_Base.php:59
 #: includes/Modules/Builder/Elementor/Widgets/Reading_Progress.php:57
-#: includes/Modules/Builder/views/admin.php:330
+#: includes/Modules/Builder/views/admin.php:341
 msgid "Colour"
 msgstr ""
 
@@ -2681,12 +2686,12 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:61
 #: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:116
 #: includes/Modules/Builder/Elementor/Widgets/Trust_Badges.php:125
-#: includes/Modules/Builder/Module.php:277
+#: includes/Modules/Builder/Module.php:281
 #: includes/Modules/Builder/Project_Meta_Box.php:89
 #: includes/Modules/Panel/Screens/Customers.php:128
 #: includes/Modules/Panel/Screens/Customers.php:223
 #: includes/Modules/Panel/Screens/Portfolio.php:130
-#: includes/Modules/Panel/Screens/Students.php:198
+#: includes/Modules/Panel/Screens/Students.php:199
 msgid "Name"
 msgstr ""
 
@@ -2794,7 +2799,7 @@ msgid "Current page"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Breadcrumb.php:120
-#: includes/Modules/Builder/Presets/Catalog.php:142
+#: includes/Modules/Builder/Presets/Catalog.php:160
 msgid "Blog"
 msgstr ""
 
@@ -3085,7 +3090,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:114
 #: includes/Modules/Checkout/views/admin.php:42
 #: includes/Modules/Panel/Screens/Customers.php:128
-#: includes/Modules/Panel/Screens/Students.php:198
+#: includes/Modules/Panel/Screens/Students.php:199
 #: includes/Modules/Support_Button/views/admin.php:38
 msgid "Phone"
 msgstr ""
@@ -3150,7 +3155,7 @@ msgid "Photo tone"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Course_Base.php:60
-#: includes/Modules/Builder/views/admin.php:329
+#: includes/Modules/Builder/views/admin.php:340
 msgid "Black and white"
 msgstr ""
 
@@ -3508,7 +3513,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:157
 #: includes/Modules/Builder/Elementor/Widgets/Timeline.php:112
 #: includes/Modules/Panel/Screens/Activity.php:146
-#: includes/Modules/Panel/Screens/Students.php:198
+#: includes/Modules/Panel/Screens/Students.php:199
 msgid "Date"
 msgstr ""
 
@@ -3664,7 +3669,7 @@ msgid "Session number"
 msgstr ""
 
 #: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:63
-#: includes/Modules/Builder/Module.php:244
+#: includes/Modules/Builder/Module.php:248
 msgid "Nothing"
 msgstr ""
 
@@ -4669,7 +4674,7 @@ msgstr ""
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:131
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:136
 #: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:101
-#: includes/Modules/Builder/views/admin.php:327
+#: includes/Modules/Builder/views/admin.php:338
 #: includes/Modules/Panel/App.php:325
 #: includes/Modules/Panel/Screens/Media.php:79
 msgid "Photos"
@@ -5914,72 +5919,72 @@ msgid "Reply by email"
 msgstr ""
 
 #. translators: %s: original template name.
-#: includes/Modules/Builder/Library.php:363
+#: includes/Modules/Builder/Library.php:364
 #, php-format
 msgid "%s (copy)"
 msgstr ""
 
-#: includes/Modules/Builder/Library.php:485
+#: includes/Modules/Builder/Library.php:497
 msgid "Lenz+ ink"
 msgstr ""
 
-#: includes/Modules/Builder/Library.php:486
+#: includes/Modules/Builder/Library.php:498
 msgid "Lenz+ accent"
 msgstr ""
 
-#: includes/Modules/Builder/Library.php:487
+#: includes/Modules/Builder/Library.php:499
 msgid "Lenz+ text"
 msgstr ""
 
-#: includes/Modules/Builder/Library.php:488
+#: includes/Modules/Builder/Library.php:500
 msgid "Lenz+ secondary text"
 msgstr ""
 
-#: includes/Modules/Builder/Library.php:489
+#: includes/Modules/Builder/Library.php:501
 msgid "Lenz+ muted"
 msgstr ""
 
-#: includes/Modules/Builder/Library.php:490
+#: includes/Modules/Builder/Library.php:502
 msgid "Lenz+ soft background"
 msgstr ""
 
-#: includes/Modules/Builder/Library.php:491
+#: includes/Modules/Builder/Library.php:503
 msgid "Lenz+ border"
 msgstr ""
 
-#: includes/Modules/Builder/Library.php:492
+#: includes/Modules/Builder/Library.php:504
 msgid "Lenz+ dark surface"
 msgstr ""
 
 #: includes/Modules/Builder/Library_Ajax.php:63
-#: includes/Modules/Builder/Module.php:289
+#: includes/Modules/Builder/Module.php:293
 msgid "Elementor is required to edit templates."
 msgstr ""
 
 #: includes/Modules/Builder/Library_Ajax.php:67
-#: includes/Modules/Builder/Library_Ajax.php:71
+#: includes/Modules/Builder/Library_Ajax.php:75
 msgid "Template not found."
 msgstr ""
 
-#: includes/Modules/Builder/Library_Ajax.php:77
+#: includes/Modules/Builder/Library_Ajax.php:81
 msgid "WooCommerce is required for courses."
 msgstr ""
 
-#: includes/Modules/Builder/Library_Ajax.php:81
+#: includes/Modules/Builder/Library_Ajax.php:85
 msgid "Page not found."
 msgstr ""
 
-#: includes/Modules/Builder/Library_Ajax.php:93
-#: includes/Modules/Builder/Module.php:276
-#: includes/Modules/Builder/views/admin.php:254
+#: includes/Modules/Builder/Library_Ajax.php:97
+#: includes/Modules/Builder/Module.php:280
+#: includes/Modules/Builder/views/admin.php:265
 msgid "New template"
 msgstr ""
 
-#: includes/Modules/Builder/Library_Ajax.php:178
+#: includes/Modules/Builder/Library_Ajax.php:191
 msgid "Unknown action."
 msgstr ""
 
-#: includes/Modules/Builder/Library_Ajax.php:193
+#: includes/Modules/Builder/Library_Ajax.php:206
 #: includes/Modules/Panel/App.php:400
 msgid "That did not work. Please try again."
 msgstr ""
@@ -6016,235 +6021,243 @@ msgid "Services page"
 msgstr ""
 
 #: includes/Modules/Builder/Module.php:63
-msgid "Courses page"
+msgid "Single service page"
 msgstr ""
 
 #: includes/Modules/Builder/Module.php:64
-msgid "Contact page"
+msgid "Courses page"
 msgstr ""
 
 #: includes/Modules/Builder/Module.php:65
-msgid "Booking page"
+msgid "Contact page"
 msgstr ""
 
 #: includes/Modules/Builder/Module.php:66
+msgid "Booking page"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:67
 #: includes/Modules/Builder/views/admin.php:52
 msgid "Portfolio list"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:67
+#: includes/Modules/Builder/Module.php:68
 #: includes/Modules/Builder/views/admin.php:53
 msgid "Project page"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:68
+#: includes/Modules/Builder/Module.php:69
 #: includes/Modules/Builder/views/admin.php:54
 msgid "Post list"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:69
-#: includes/Modules/Builder/Presets/Catalog.php:148
+#: includes/Modules/Builder/Module.php:70
+#: includes/Modules/Builder/Presets/Catalog.php:166
 #: includes/Modules/Builder/views/admin.php:55
 msgid "Article"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:70
+#: includes/Modules/Builder/Module.php:71
 #: includes/Modules/Builder/views/admin.php:56
 msgid "Course page"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:162
+#: includes/Modules/Builder/Module.php:163
 msgid "Lenz's portfolio list"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:163
+#: includes/Modules/Builder/Module.php:164
 msgid "Lenz's project page"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:164
+#: includes/Modules/Builder/Module.php:165
 msgid "Lenz's post list"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:165
+#: includes/Modules/Builder/Module.php:166
 msgid "Lenz's article page"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:166
+#: includes/Modules/Builder/Module.php:167
 msgid "Lenz's product page"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:202
+#: includes/Modules/Builder/Module.php:205
 msgid "Home pages"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:203
+#: includes/Modules/Builder/Module.php:206
 msgid "About pages"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:204
+#: includes/Modules/Builder/Module.php:207
 msgid "Services pages"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:205
+#: includes/Modules/Builder/Module.php:208
+msgid "Single service pages"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:209
 msgid "Courses pages"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:206
+#: includes/Modules/Builder/Module.php:210
 msgid "Contact pages"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:207
+#: includes/Modules/Builder/Module.php:211
 msgid "Booking pages"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:241
+#: includes/Modules/Builder/Module.php:245
 msgid "Lenz's header"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:242
+#: includes/Modules/Builder/Module.php:246
 msgid "Lenz's footer"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:243
+#: includes/Modules/Builder/Module.php:247
 msgid "Keep the theme's own design."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:245
+#: includes/Modules/Builder/Module.php:249
 msgid "Hide it on this device."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:246
+#: includes/Modules/Builder/Module.php:250
 msgid "Same as desktop"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:247
+#: includes/Modules/Builder/Module.php:251
 msgid "Use the desktop choice on phones too."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:248
+#: includes/Modules/Builder/Module.php:252
 msgid "In use"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:249
-#: includes/Modules/Builder/Module.php:250
+#: includes/Modules/Builder/Module.php:253
+#: includes/Modules/Builder/Module.php:254
 #: includes/Modules/Panel/Screens/Content_Screen.php:318
 msgid "Preview"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:251
+#: includes/Modules/Builder/Module.php:255
 msgid "Nothing to preview yet."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:252
+#: includes/Modules/Builder/Module.php:256
 msgid "Previews show a design right away — nothing changes for visitors until you save."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:253
+#: includes/Modules/Builder/Module.php:257
 msgid "Custom template"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:254
+#: includes/Modules/Builder/Module.php:258
 #: includes/Modules/Panel/Editor.php:97
 msgid "Edit with Elementor"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:256
+#: includes/Modules/Builder/Module.php:260
 msgid "Restore original"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:258
+#: includes/Modules/Builder/Module.php:262
 msgid "Rename"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:259
+#: includes/Modules/Builder/Module.php:263
 msgid "Delete this template?"
 msgstr ""
 
 #. translators: %s: template name.
-#: includes/Modules/Builder/Module.php:261
+#: includes/Modules/Builder/Module.php:265
 #, php-format
 msgid "\"%s\" goes to the trash. Pages made from it keep their own copy."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:262
+#: includes/Modules/Builder/Module.php:266
 msgid "Restore the original design?"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:263
+#: includes/Modules/Builder/Module.php:267
 msgid "Your Elementor changes to this template will be replaced by the original design. Duplicate it first if you want to keep your version."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:264
+#: includes/Modules/Builder/Module.php:268
 msgid "Restore"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:265
+#: includes/Modules/Builder/Module.php:269
 msgid "Template created."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:266
+#: includes/Modules/Builder/Module.php:270
 msgid "Template duplicated."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:267
+#: includes/Modules/Builder/Module.php:271
 msgid "Original design restored."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:268
+#: includes/Modules/Builder/Module.php:272
 msgid "Template deleted."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:269
+#: includes/Modules/Builder/Module.php:273
 msgid "Ready-made designs installed."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:270
+#: includes/Modules/Builder/Module.php:274
 msgid "Template renamed."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:271
-#: includes/Modules/Builder/views/admin.php:199
+#: includes/Modules/Builder/Module.php:275
+#: includes/Modules/Builder/views/admin.php:210
 msgid "Desktop"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:272
+#: includes/Modules/Builder/Module.php:276
 msgid "Tablet"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:273
+#: includes/Modules/Builder/Module.php:277
 msgid "Mobile"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:274
+#: includes/Modules/Builder/Module.php:278
 msgid "Open in new tab"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:278
+#: includes/Modules/Builder/Module.php:282
 #: includes/Modules/Panel/Screens/Activity.php:146
 msgid "Kind"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:279
+#: includes/Modules/Builder/Module.php:283
 msgid "Start from"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:280
+#: includes/Modules/Builder/Module.php:284
 msgid "Blank canvas"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:281
+#: includes/Modules/Builder/Module.php:285
 msgid "Create & open Elementor"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:282
+#: includes/Modules/Builder/Module.php:286
 msgid "Create"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:283
+#: includes/Modules/Builder/Module.php:287
 msgid "New name"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:284
+#: includes/Modules/Builder/Module.php:288
 #: includes/Modules/Panel/Screens/Account.php:109
 #: includes/Modules/Panel/Screens/Account.php:147
 #: includes/Modules/Panel/Screens/Content_Screen.php:316
@@ -6254,138 +6267,192 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:286
+#: includes/Modules/Builder/Module.php:290
 msgid "Ready-made"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:287
+#: includes/Modules/Builder/Module.php:291
 msgid "Edited"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:288
+#: includes/Modules/Builder/Module.php:292
 msgid "No templates of this kind yet."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:290
+#: includes/Modules/Builder/Module.php:294
 msgid "Brand colours added to Elementor's global colours."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:291
+#: includes/Modules/Builder/Module.php:295
 msgid "Flexbox containers activated."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:292
+#: includes/Modules/Builder/Module.php:296
 msgid "Create page"
 msgstr ""
 
 #. translators: %s: design name.
-#: includes/Modules/Builder/Module.php:294
+#: includes/Modules/Builder/Module.php:298
 #, php-format
 msgid "New page from \"%s\""
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:295
+#: includes/Modules/Builder/Module.php:299
 msgid "Page name"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:296
+#: includes/Modules/Builder/Module.php:300
 msgid "Publish now"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:297
+#: includes/Modules/Builder/Module.php:301
 msgid "Off: the page is saved as a draft that only you can see."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:298
+#: includes/Modules/Builder/Module.php:302
 msgid "Use it as the site's home page"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:299
+#: includes/Modules/Builder/Module.php:303
 msgid "Visitors see it at the site address. The page is published."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:300
+#: includes/Modules/Builder/Module.php:304
 msgid "Page created."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:301
+#: includes/Modules/Builder/Module.php:305
 msgid "No ready-made designs of this kind yet. Create a template of this kind in the Templates tab to make pages from it."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:302
+#: includes/Modules/Builder/Module.php:306
 msgid "No pages yet. Create one from a design above."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:304
+#: includes/Modules/Builder/Module.php:308
 #: includes/Modules/Panel/Screens/Content_Screen.php:343
 msgid "Draft"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:305
+#: includes/Modules/Builder/Module.php:309
 #: includes/Modules/Panel/Screens/Content_Screen.php:164
 #: includes/Modules/Panel/Screens/Content_Screen.php:342
 msgid "Published"
 msgstr ""
 
 #. translators: %s: design name.
-#: includes/Modules/Builder/Module.php:307
+#: includes/Modules/Builder/Module.php:311
 #, php-format
 msgid "From \"%s\""
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:308
+#: includes/Modules/Builder/Module.php:312
 #: includes/Modules/Panel/Screens/Content_Screen.php:318
 msgid "View"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:309
+#: includes/Modules/Builder/Module.php:313
 msgid "Make it the home page"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:310
+#: includes/Modules/Builder/Module.php:314
 msgid "This page is now the site's home page."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:311
+#: includes/Modules/Builder/Module.php:315
 msgid "Edit the design"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:312
+#: includes/Modules/Builder/Module.php:316
 msgid "Add as a new course"
 msgstr ""
 
 #. translators: %s: ready-made course name.
-#: includes/Modules/Builder/Module.php:314
+#: includes/Modules/Builder/Module.php:318
 #, php-format
 msgid "Add \"%s\" to your courses"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:315
+#: includes/Modules/Builder/Module.php:319
 msgid "A course product is made with every detail, the questions and the cover filled in. Set its price, date and seats in the product editor; the course page shows it with the Course design."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:316
+#: includes/Modules/Builder/Module.php:320
 msgid "Off: the course is saved as a draft, so you can set the price and date before visitors see it."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:317
+#: includes/Modules/Builder/Module.php:321
 msgid "Course added. Set its price and date in the product editor."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:318
+#: includes/Modules/Builder/Module.php:322
 msgid "Course pages now use the Course design (Site pages tab)."
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:319
+#: includes/Modules/Builder/Module.php:323
 msgid "Edit the course"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:320
+#: includes/Modules/Builder/Module.php:324
 msgid "Added:"
 msgstr ""
 
-#: includes/Modules/Builder/Module.php:321
+#: includes/Modules/Builder/Module.php:325
 msgid "Courses are WooCommerce products. Install and activate WooCommerce to add them."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:326
+msgid "Create its page"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:327
+msgid "Create pages for every service"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:328
+msgid "Every service has a page. Create another one from a service card."
+msgstr ""
+
+#. translators: %s: service name.
+#: includes/Modules/Builder/Module.php:330
+#, php-format
+msgid "A page for \"%s\""
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:331
+msgid "A page for every service"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:332
+msgid "The page is filled with this service's texts, prices and questions. Pick a design; photos are left for you to choose in Elementor."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:333
+msgid "One page per service that has none yet, each with its own texts, prices and questions. Once published, the services page's tiles lead to them."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:334
+msgid "Create the pages"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:335
+#: includes/Modules/Support_Button/views/admin.php:203
+#: includes/Modules/Support_Button/views/admin.php:206
+msgid "Design"
+msgstr ""
+
+#. translators: %d: number of pages.
+#: includes/Modules/Builder/Module.php:337
+#, php-format
+msgid "%d service pages created."
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:338
+msgid "Pages:"
+msgstr ""
+
+#: includes/Modules/Builder/Module.php:339
+msgid "Off: the pages are saved as drafts, so you can add photos before visitors see them."
 msgstr ""
 
 #: includes/Modules/Builder/Newsletter.php:58
@@ -6402,7 +6469,7 @@ msgid "Newsletter and waitlists (Lenz+)"
 msgstr ""
 
 #: includes/Modules/Builder/Newsletter.php:270
-#: includes/Modules/Builder/views/admin.php:304
+#: includes/Modules/Builder/views/admin.php:315
 msgid "Newsletter and waitlists"
 msgstr ""
 
@@ -6447,155 +6514,179 @@ msgid "Hero, jump tiles, four services with photos (one on the ink band), price 
 msgstr ""
 
 #: includes/Modules/Builder/Presets/Catalog.php:73
-msgid "Contact: classic"
+msgid "Service: photo hero"
 msgstr ""
 
 #: includes/Modules/Builder/Presets/Catalog.php:74
-msgid "Text hero, four contact cards, the contact form beside the map, working hours and social links, then a few questions."
+msgid "One service in detail: a hero with a photo, key numbers, what is included on cards, sample photos, three price cards with add-ons, the steps, reviews, questions and a call to action."
 msgstr ""
 
 #: includes/Modules/Builder/Presets/Catalog.php:79
-msgid "Contact: ink panel"
+msgid "Service: ink band"
 msgstr ""
 
 #: includes/Modules/Builder/Presets/Catalog.php:80
-msgid "Contact rows and social links on the ink panel beside the form, a wide map and a call to action."
+msgid "A text hero, the service with two photos on the ink band, what is included beside a client's quote, sample photos, price cards, the booking form beside its steps, and questions."
 msgstr ""
 
 #: includes/Modules/Builder/Presets/Catalog.php:85
-msgid "Contact: minimal"
+msgid "Service: minimal"
 msgstr ""
 
 #: includes/Modules/Builder/Presets/Catalog.php:86
-msgid "A centred title, phone, email and address in large type, a wide map and the form in the ink frame."
+msgid "A narrow centred page: the title over one wide photo, the text beside what is included, a price list, a framed line, questions and the order form in the ink frame."
 msgstr ""
 
 #: includes/Modules/Builder/Presets/Catalog.php:91
-msgid "Booking: steps"
+msgid "Contact: classic"
 msgstr ""
 
 #: includes/Modules/Builder/Presets/Catalog.php:92
-msgid "Text hero, the booking form in numbered steps on a card (project, details, contact, review), what happens next and questions."
+msgid "Text hero, four contact cards, the contact form beside the map, working hours and social links, then a few questions."
 msgstr ""
 
 #: includes/Modules/Builder/Presets/Catalog.php:97
-msgid "Booking: ink panel"
+msgid "Contact: ink panel"
 msgstr ""
 
 #: includes/Modules/Builder/Presets/Catalog.php:98
-msgid "The booking form beside an ink panel listing the steps with a live summary of the answers, then questions."
+msgid "Contact rows and social links on the ink panel beside the form, a wide map and a call to action."
 msgstr ""
 
 #: includes/Modules/Builder/Presets/Catalog.php:103
-msgid "Booking: one question at a time"
+msgid "Contact: minimal"
 msgstr ""
 
 #: includes/Modules/Builder/Presets/Catalog.php:104
-msgid "One large step at a time under a progress line, on the soft band, with nothing else on the page."
+msgid "A centred title, phone, email and address in large type, a wide map and the form in the ink frame."
 msgstr ""
 
 #: includes/Modules/Builder/Presets/Catalog.php:109
-msgid "Booking: ordinary form"
+msgid "Booking: steps"
 msgstr ""
 
 #: includes/Modules/Builder/Presets/Catalog.php:110
-msgid "Text hero and every field on one page beside the phone and email cards."
+msgid "Text hero, the booking form in numbered steps on a card (project, details, contact, review), what happens next and questions."
 msgstr ""
 
 #: includes/Modules/Builder/Presets/Catalog.php:115
+msgid "Booking: ink panel"
+msgstr ""
+
+#: includes/Modules/Builder/Presets/Catalog.php:116
+msgid "The booking form beside an ink panel listing the steps with a live summary of the answers, then questions."
+msgstr ""
+
+#: includes/Modules/Builder/Presets/Catalog.php:121
+msgid "Booking: one question at a time"
+msgstr ""
+
+#: includes/Modules/Builder/Presets/Catalog.php:122
+msgid "One large step at a time under a progress line, on the soft band, with nothing else on the page."
+msgstr ""
+
+#: includes/Modules/Builder/Presets/Catalog.php:127
+msgid "Booking: ordinary form"
+msgstr ""
+
+#: includes/Modules/Builder/Presets/Catalog.php:128
+msgid "Text hero and every field on one page beside the phone and email cards."
+msgstr ""
+
+#: includes/Modules/Builder/Presets/Catalog.php:133
 #: includes/Modules/Panel/Screens/Portfolio.php:38
 msgid "Portfolio"
 msgstr ""
 
-#: includes/Modules/Builder/Presets/Catalog.php:116
+#: includes/Modules/Builder/Presets/Catalog.php:134
 msgid "Title, category chips and a masonry of the projects with page numbers, the featured projects and a call to action."
 msgstr ""
 
-#: includes/Modules/Builder/Presets/Catalog.php:122
+#: includes/Modules/Builder/Presets/Catalog.php:140
 #: includes/Modules/Builder/Project_Meta_Box.php:162
 msgid "Photo project"
 msgstr ""
 
-#: includes/Modules/Builder/Presets/Catalog.php:123
+#: includes/Modules/Builder/Presets/Catalog.php:141
 msgid "Breadcrumb, title with facts, the cover, the project text beside a checklist, the gallery photos, the client's quote, related projects and a call to action."
 msgstr ""
 
-#: includes/Modules/Builder/Presets/Catalog.php:129
+#: includes/Modules/Builder/Presets/Catalog.php:147
 #: includes/Modules/Builder/Project_Meta_Box.php:163
 msgid "Video project"
 msgstr ""
 
-#: includes/Modules/Builder/Presets/Catalog.php:130
+#: includes/Modules/Builder/Presets/Catalog.php:148
 msgid "Title with facts, the film in a wide player on the ink band, the project text beside a checklist, the other videos, stills, the client's quote, related projects and a call to action."
 msgstr ""
 
-#: includes/Modules/Builder/Presets/Catalog.php:136
+#: includes/Modules/Builder/Presets/Catalog.php:154
 #: includes/Modules/Builder/Project_Meta_Box.php:164
 msgid "Photo and video project"
 msgstr ""
 
-#: includes/Modules/Builder/Presets/Catalog.php:137
+#: includes/Modules/Builder/Presets/Catalog.php:155
 msgid "Title with facts, the cover, the project text beside a checklist, the photos, the videos on the ink band, the client's quote, related projects and a call to action."
 msgstr ""
 
-#: includes/Modules/Builder/Presets/Catalog.php:143
+#: includes/Modules/Builder/Presets/Catalog.php:161
 msgid "A title that follows the page, the featured article, posts with category chips beside a sidebar (search, most read, courses) and the newsletter band."
 msgstr ""
 
-#: includes/Modules/Builder/Presets/Catalog.php:149
+#: includes/Modules/Builder/Presets/Catalog.php:167
 msgid "Reading progress, breadcrumb, header with author and share buttons, the featured image, the text beside a table of contents, comments, related articles and the newsletter band."
 msgstr ""
 
-#: includes/Modules/Builder/Presets/Catalog.php:154
+#: includes/Modules/Builder/Presets/Catalog.php:172
 msgid "Article with a cover"
 msgstr ""
 
-#: includes/Modules/Builder/Presets/Catalog.php:155
+#: includes/Modules/Builder/Presets/Catalog.php:173
 msgid "The title on the full-width featured image, a centred reading column with a folding table of contents, the author box, previous and next articles, comments and related articles."
 msgstr ""
 
-#: includes/Modules/Builder/Presets/Catalog.php:160
+#: includes/Modules/Builder/Presets/Catalog.php:178
 msgid "Article with the image beside the title"
 msgstr ""
 
-#: includes/Modules/Builder/Presets/Catalog.php:161
+#: includes/Modules/Builder/Presets/Catalog.php:179
 msgid "The title beside the featured image, the text beside a sticky sidebar (contents, most read, booking), the author box, previous and next articles, comments and related articles."
 msgstr ""
 
-#: includes/Modules/Builder/Presets/Catalog.php:166
+#: includes/Modules/Builder/Presets/Catalog.php:184
 msgid "Minimal article"
 msgstr ""
 
-#: includes/Modules/Builder/Presets/Catalog.php:167
+#: includes/Modules/Builder/Presets/Catalog.php:185
 msgid "A narrow reading column without a sidebar: centred header, the featured image, the text, the author box, previous and next articles, comments and the newsletter band."
 msgstr ""
 
-#: includes/Modules/Builder/Presets/Catalog.php:173
+#: includes/Modules/Builder/Presets/Catalog.php:191
 msgid "Title, course cards with status and format chips (open, coming soon with a waitlist, held), how classes are held and the waitlist band."
 msgstr ""
 
-#: includes/Modules/Builder/Presets/Catalog.php:178
+#: includes/Modules/Builder/Presets/Catalog.php:196
 #: includes/Modules/Panel/Screens/Courses.php:131
 msgid "Course"
 msgstr ""
 
-#: includes/Modules/Builder/Presets/Catalog.php:179
+#: includes/Modules/Builder/Presets/Catalog.php:197
 msgid "Hero with facts and the intro video, what you learn, curriculum, who it is for, outcome, instructor, questions, the buy box, the registration form and the phone buy bar."
 msgstr ""
 
-#: includes/Modules/Builder/Presets/Catalog.php:184
+#: includes/Modules/Builder/Presets/Catalog.php:202
 msgid "Course with a sticky buy box"
 msgstr ""
 
-#: includes/Modules/Builder/Presets/Catalog.php:185
+#: includes/Modules/Builder/Presets/Catalog.php:203
 msgid "The same course page with the buy box beside the content, following the visitor while scrolling."
 msgstr ""
 
-#: includes/Modules/Builder/Presets/Catalog.php:190
+#: includes/Modules/Builder/Presets/Catalog.php:208
 msgid "Course with a side menu"
 msgstr ""
 
-#: includes/Modules/Builder/Presets/Catalog.php:191
+#: includes/Modules/Builder/Presets/Catalog.php:209
 msgid "A summary card (cover, facts, price), the sections beside a menu that follows the visitor and marks the section on screen (a menu bar on tablets and phones), the summary card again at the end, and the buy bar on every screen."
 msgstr ""
 
@@ -6663,15 +6754,15 @@ msgstr ""
 msgid "Show it in \"Featured projects\""
 msgstr ""
 
-#: includes/Modules/Builder/Public_Form.php:178
+#: includes/Modules/Builder/Public_Form.php:192
 msgid "Please check the highlighted fields and try again."
 msgstr ""
 
-#: includes/Modules/Builder/Public_Form.php:179
+#: includes/Modules/Builder/Public_Form.php:193
 msgid "Too many requests in a short time. Please try again in a few minutes."
 msgstr ""
 
-#: includes/Modules/Builder/Public_Form.php:180
+#: includes/Modules/Builder/Public_Form.php:194
 msgid "Your request could not be sent. Please try again."
 msgstr ""
 
@@ -6924,175 +7015,183 @@ msgstr ""
 msgid "Home, about, services and courses pages. Pick a design and create a new page from it. The page is a normal Elementor page: change the texts and pictures, move or remove sections, add your own. Portfolio items, posts and courses come from your site automatically."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:151
+#: includes/Modules/Builder/views/admin.php:152
+msgid "Service pages"
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:153
+msgid "A page of its own for each service on the services page, filled with that service's texts, prices and questions, in one of the single service designs."
+msgstr ""
+
+#: includes/Modules/Builder/views/admin.php:162
 msgid "Ready-made courses"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:152
+#: includes/Modules/Builder/views/admin.php:163
 msgid "Complete courses with their texts, curriculum, questions and cover. Add one to your courses, then set its price, date and seats. Its landing page is the Course design, filled from the course."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:159
+#: includes/Modules/Builder/views/admin.php:170
 msgid "Pages made from these designs"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:160
+#: includes/Modules/Builder/views/admin.php:171
 msgid "Editing a page never changes the design it came from, so you can make as many pages as you like."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:169
+#: includes/Modules/Builder/views/admin.php:180
 msgid "Replace Lenz's header and footer"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:170
+#: includes/Modules/Builder/views/admin.php:181
 msgid "Pick a design for each device. Nothing changes for visitors until the module is switched on (top of this page) and the settings are saved; the eye button previews any choice right away. Lenz's mobile menu, its scripts and the rest of the page stay as they are."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:178
+#: includes/Modules/Builder/views/admin.php:189
 msgid "Shown on screens wider than the breakpoint below."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:186
+#: includes/Modules/Builder/views/admin.php:197
 msgid "Each device gets only its own version: the same design, a different one, Lenz's, or nothing."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:194
+#: includes/Modules/Builder/views/admin.php:205
 msgid "Sticky header"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:195
+#: includes/Modules/Builder/views/admin.php:206
 msgid "Keeps the Lenz+ header at the top of the screen, as in the designs. Smart hides it while visitors scroll down and brings it back as soon as they scroll up. Lenz's own header follows the theme's setting."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:200
+#: includes/Modules/Builder/views/admin.php:211
 msgid "Phones & tablets"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:204
+#: includes/Modules/Builder/views/admin.php:215
 msgid "Phone & tablet breakpoint"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:204
+#: includes/Modules/Builder/views/admin.php:215
 msgid "At this width and below, the phone header and footer are shown. 1024 matches Elementor's tablet breakpoint."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:212
+#: includes/Modules/Builder/views/admin.php:223
 msgid "Replace Lenz's page layouts"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:213
+#: includes/Modules/Builder/views/admin.php:224
 msgid "Pick a design for each group of pages. The design fills itself from each page's own content. Nothing changes for visitors until the module is switched on and the settings are saved; the eye button previews any choice on a real page."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:233
+#: includes/Modules/Builder/views/admin.php:244
 msgid "Same as the project page"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:233
+#: includes/Modules/Builder/views/admin.php:244
 msgid "Use the design chosen for every project above."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:244
+#: includes/Modules/Builder/views/admin.php:255
 msgid "Template library"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:245
+#: includes/Modules/Builder/views/admin.php:256
 msgid "Every design is a normal Elementor template: edit it, duplicate it to try variations, or restore a ready-made design to its original state."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:250
+#: includes/Modules/Builder/views/admin.php:261
 msgid "Reinstall missing designs"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:266
+#: includes/Modules/Builder/views/admin.php:277
 #: includes/Modules/Panel/views/admin.php:49
 msgid "Project bookings"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:267
+#: includes/Modules/Builder/views/admin.php:278
 msgid "Projects booked through the Project booking widget, each with a tracking code and a status (new, confirmed, done, cancelled) you change in the list."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:272
+#: includes/Modules/Builder/views/admin.php:283
 msgid "Open the bookings"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:276
-#: includes/Modules/Builder/views/admin.php:295
-#: includes/Modules/Builder/views/admin.php:310
+#: includes/Modules/Builder/views/admin.php:287
+#: includes/Modules/Builder/views/admin.php:306
+#: includes/Modules/Builder/views/admin.php:321
 msgid "Download CSV"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:286
+#: includes/Modules/Builder/views/admin.php:297
 msgid "Bookings, registrations and messages sent through the Request form widget. They are kept here even when email does not work on your host, and each one can also be emailed to you (set the address on the widget)."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:291
+#: includes/Modules/Builder/views/admin.php:302
 msgid "Read the requests"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:305
+#: includes/Modules/Builder/views/admin.php:316
 msgid "Emails and mobile numbers left in the Sign-up widget, with the list each one joined. Download them to import into your email or SMS service."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:320
+#: includes/Modules/Builder/views/admin.php:331
 msgid "Look of the designs"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:321
+#: includes/Modules/Builder/views/admin.php:332
 msgid "Applied to every design at once, like the options of the original mockups."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:335
+#: includes/Modules/Builder/views/admin.php:346
 msgid "Guide lines behind the heroes"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:336
+#: includes/Modules/Builder/views/admin.php:347
 msgid "The thin dashed lines and rule-of-thirds grids of the designs."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:338
+#: includes/Modules/Builder/views/admin.php:349
 msgid "Icon style in the designs"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:338
+#: includes/Modules/Builder/views/admin.php:349
 msgid "Lenz icons use the theme's own glyphs where it has them, like the designs."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:341
+#: includes/Modules/Builder/views/admin.php:352
 #: includes/Modules/Checkout/views/admin.php:180
 msgid "Persian digits"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:342
+#: includes/Modules/Builder/views/admin.php:353
 msgid "Show prices, counts and years as ۱۲۳ with Persian separators on Persian sites."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:346
+#: includes/Modules/Builder/views/admin.php:357
 msgid "Shop pages in the brand style"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:347
+#: includes/Modules/Builder/views/admin.php:358
 msgid "WooCommerce's cart, checkout and account pages use the designs' colours, fields and buttons, with checkout steps and a simple account menu. Needs the page templates switched on."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:356
+#: includes/Modules/Builder/views/admin.php:367
 msgid "Brand colours"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:357
+#: includes/Modules/Builder/views/admin.php:368
 msgid "Every design uses these colours; the defaults are the designs' own. Anything you set on a widget in Elementor overrides them."
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:361
+#: includes/Modules/Builder/views/admin.php:372
 msgid "Add to Elementor global colours"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:367
+#: includes/Modules/Builder/views/admin.php:378
 msgid "Design default"
 msgstr ""
 
-#: includes/Modules/Builder/views/admin.php:371
+#: includes/Modules/Builder/views/admin.php:382
 msgid "Corner roundness (cards)"
 msgstr ""
 
@@ -7274,6 +7373,7 @@ msgid "Enable the checkout form rules"
 msgstr ""
 
 #: includes/Modules/Checkout/views/admin.php:99
+#: includes/Modules/Performance/views/admin.php:218
 msgid "WooCommerce is not active. These settings apply once it is."
 msgstr ""
 
@@ -7329,11 +7429,11 @@ msgstr ""
 msgid "Studio manager"
 msgstr ""
 
-#: includes/Modules/Panel/Access.php:245
+#: includes/Modules/Panel/Access.php:246
 msgid "Projects, articles, courses, orders and bookings in one simple panel that works well on phones."
 msgstr ""
 
-#: includes/Modules/Panel/Access.php:247
+#: includes/Modules/Panel/Access.php:248
 msgid "Open the studio panel"
 msgstr ""
 
@@ -7680,6 +7780,7 @@ msgid "Clears the saved pages of %s, so visitors see your latest changes."
 msgstr ""
 
 #: includes/Modules/Panel/Screens/Account.php:138
+#: includes/Modules/Performance/views/admin.php:290
 msgid "Clear the cache"
 msgstr ""
 
@@ -7696,7 +7797,7 @@ msgid "Tagline"
 msgstr ""
 
 #: includes/Modules/Panel/Screens/Account.php:153
-#: includes/Modules/Panel/Screens/Dashboard.php:69
+#: includes/Modules/Panel/Screens/Dashboard.php:73
 #: includes/Modules/Panel/Screens/Menu.php:64
 #: includes/Modules/Panel/views/shell.php:60
 msgid "View the site"
@@ -8167,7 +8268,7 @@ msgstr ""
 
 #: includes/Modules/Panel/Screens/Customers.php:164
 #: includes/Modules/Panel/Screens/Inbox_Screen.php:75
-#: includes/Modules/Panel/Screens/Students.php:214
+#: includes/Modules/Panel/Screens/Students.php:215
 #: includes/Modules/Panel/Screens/Wallet.php:100
 msgid "This item does not exist."
 msgstr ""
@@ -8210,7 +8311,7 @@ msgid "Edit in WordPress"
 msgstr ""
 
 #: includes/Modules/Panel/Screens/Customers.php:423
-#: includes/Modules/Panel/Screens/Dashboard.php:192
+#: includes/Modules/Panel/Screens/Dashboard.php:202
 msgid "Latest orders"
 msgstr ""
 
@@ -8242,48 +8343,48 @@ msgid "Delete this note?"
 msgstr ""
 
 #. translators: %s: user's first name.
-#: includes/Modules/Panel/Screens/Dashboard.php:64
+#: includes/Modules/Panel/Screens/Dashboard.php:68
 #, php-format
 msgid "Hello %s"
 msgstr ""
 
-#: includes/Modules/Panel/Screens/Dashboard.php:67
+#: includes/Modules/Panel/Screens/Dashboard.php:71
 msgid "Here is what is happening on your site."
 msgstr ""
 
-#: includes/Modules/Panel/Screens/Dashboard.php:77
+#: includes/Modules/Panel/Screens/Dashboard.php:81
 msgid "Quick add"
 msgstr ""
 
-#: includes/Modules/Panel/Screens/Dashboard.php:96
+#: includes/Modules/Panel/Screens/Dashboard.php:100
 msgid "Orders to handle"
 msgstr ""
 
-#: includes/Modules/Panel/Screens/Dashboard.php:97
+#: includes/Modules/Panel/Screens/Dashboard.php:101
 msgid "New bookings"
 msgstr ""
 
-#: includes/Modules/Panel/Screens/Dashboard.php:98
+#: includes/Modules/Panel/Screens/Dashboard.php:102
 msgid "New requests"
 msgstr ""
 
-#: includes/Modules/Panel/Screens/Dashboard.php:99
+#: includes/Modules/Panel/Screens/Dashboard.php:103
 msgid "Comments waiting"
 msgstr ""
 
-#: includes/Modules/Panel/Screens/Dashboard.php:113
+#: includes/Modules/Panel/Screens/Dashboard.php:117
 msgid "Sales, last 30 days"
 msgstr ""
 
 #. translators: 1: order number, 2: customer name.
-#: includes/Modules/Panel/Screens/Dashboard.php:182
+#: includes/Modules/Panel/Screens/Dashboard.php:192
 #: includes/Modules/Panel/Screens/Orders.php:186
 #: includes/Modules/Panel/Screens/Search.php:130
 #, php-format
 msgid "#%1$s · %2$s"
 msgstr ""
 
-#: includes/Modules/Panel/Screens/Dashboard.php:193
+#: includes/Modules/Panel/Screens/Dashboard.php:203
 msgid "All orders"
 msgstr ""
 
@@ -8700,7 +8801,7 @@ msgstr ""
 
 #: includes/Modules/Panel/Screens/Reports.php:264
 #: includes/Modules/Panel/Screens/Reports.php:332
-#: includes/Modules/Panel/Screens/Students.php:299
+#: includes/Modules/Panel/Screens/Students.php:300
 msgid "CSV"
 msgstr ""
 
@@ -8742,51 +8843,51 @@ msgstr ""
 msgid "Course students"
 msgstr ""
 
-#: includes/Modules/Panel/Screens/Students.php:198
+#: includes/Modules/Panel/Screens/Students.php:199
 msgid "Order"
 msgstr ""
 
 #. translators: %s: number of students.
-#: includes/Modules/Panel/Screens/Students.php:237
+#: includes/Modules/Panel/Screens/Students.php:238
 #, php-format
 msgid "%s student"
 msgid_plural "%s students"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/Modules/Panel/Screens/Students.php:241
+#: includes/Modules/Panel/Screens/Students.php:242
 msgid "No published courses yet."
 msgstr ""
 
-#: includes/Modules/Panel/Screens/Students.php:263
-#: includes/Modules/Panel/Screens/Students.php:297
+#: includes/Modules/Panel/Screens/Students.php:264
+#: includes/Modules/Panel/Screens/Students.php:298
 msgid "Students"
 msgstr ""
 
-#: includes/Modules/Panel/Screens/Students.php:264
+#: includes/Modules/Panel/Screens/Students.php:265
 msgid "Income"
 msgstr ""
 
-#: includes/Modules/Panel/Screens/Students.php:270
-#: includes/Modules/Panel/Screens/Students.php:309
+#: includes/Modules/Panel/Screens/Students.php:271
+#: includes/Modules/Panel/Screens/Students.php:310
 msgid "Waiting list"
 msgstr ""
 
 #. translators: %s: order number.
-#: includes/Modules/Panel/Screens/Students.php:288
+#: includes/Modules/Panel/Screens/Students.php:289
 #, php-format
 msgid "#%s"
 msgstr ""
 
-#: includes/Modules/Panel/Screens/Students.php:302
+#: includes/Modules/Panel/Screens/Students.php:303
 msgid "Nobody has bought this course yet."
 msgstr ""
 
-#: includes/Modules/Panel/Screens/Students.php:304
+#: includes/Modules/Panel/Screens/Students.php:305
 msgid "Email every student"
 msgstr ""
 
-#: includes/Modules/Panel/Screens/Students.php:310
+#: includes/Modules/Panel/Screens/Students.php:311
 msgid "People who asked to hear when registration opens."
 msgstr ""
 
@@ -8951,15 +9052,15 @@ msgstr ""
 msgid "Most cashback per order"
 msgstr ""
 
-#: includes/Modules/Panel/Shop/Report.php:383
+#: includes/Modules/Panel/Shop/Report.php:391
 msgid "No payment"
 msgstr ""
 
-#: includes/Modules/Panel/Shop/Report.php:391
+#: includes/Modules/Panel/Shop/Report.php:399
 msgid "No shipping"
 msgstr ""
 
-#: includes/Modules/Panel/Shop/Report.php:511
+#: includes/Modules/Panel/Shop/Report.php:519
 msgid "Unknown"
 msgstr ""
 
@@ -9242,6 +9343,329 @@ msgstr ""
 msgid "Main sections"
 msgstr ""
 
+#: includes/Modules/Performance/Cache_Purge.php:104
+msgid "Sorry, you are not allowed to do that."
+msgstr ""
+
+#: includes/Modules/Performance/Module.php:37
+msgid "Speed"
+msgstr ""
+
+#: includes/Modules/Performance/Module.php:42
+msgid "Load the theme's sliders, galleries and icon fonts only on pages that use them, show text while fonts load and trim WordPress extras. Works next to WP Rocket's settings."
+msgstr ""
+
+#: includes/Modules/Performance/Rocket.php:95
+msgid "Cache for mobile devices"
+msgstr ""
+
+#: includes/Modules/Performance/Rocket.php:95
+msgid "Keep it on: the bottom bar and the phone header are in the same page and switch with CSS."
+msgstr ""
+
+#: includes/Modules/Performance/Rocket.php:96
+msgid "Minify CSS files"
+msgstr ""
+
+#: includes/Modules/Performance/Rocket.php:97
+msgid "Remove unused CSS"
+msgstr ""
+
+#: includes/Modules/Performance/Rocket.php:97
+msgid "Safe with Lenz: the classes Lenz and Lenz+ add from JavaScript are kept."
+msgstr ""
+
+#: includes/Modules/Performance/Rocket.php:98
+msgid "Minify JavaScript files"
+msgstr ""
+
+#: includes/Modules/Performance/Rocket.php:99
+msgid "Load JavaScript deferred"
+msgstr ""
+
+#: includes/Modules/Performance/Rocket.php:100
+msgid "Delay JavaScript execution"
+msgstr ""
+
+#: includes/Modules/Performance/Rocket.php:100
+msgid "Safe with Lenz: menus, sliders and the bottom bar start on the first touch or scroll, and links work before that."
+msgstr ""
+
+#: includes/Modules/Performance/Rocket.php:101
+msgid "LazyLoad for images"
+msgstr ""
+
+#: includes/Modules/Performance/Rocket.php:101
+msgid "The first large photo of each page is excluded, so it is not delayed."
+msgstr ""
+
+#: includes/Modules/Performance/Rocket.php:102
+msgid "LazyLoad for iframes and videos"
+msgstr ""
+
+#: includes/Modules/Performance/Rocket.php:103
+msgid "Disable emoji"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:36
+msgid "Lenz theme"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:37
+msgid "WordPress"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:38
+#: includes/Modules/Performance/views/admin.php:223
+msgid "WooCommerce"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:39
+msgid "WP Rocket and cache"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:54
+msgid "Enable the speed optimisations"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:63
+msgid "The page cache was cleared. Visitors get fresh pages from now on."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:83
+msgid "The Lenz theme is not active, so these settings do nothing for now."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:89
+msgid "Theme files"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:90
+msgid "Lenz loads all of its libraries on every page: the slider, the masonry grid, the photo gallery, select boxes, the date picker and the scripts of its widgets, about 700 KB. These settings keep them only on pages that show something that needs them, before WP Rocket minifies and caches the page."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:96
+msgid "Load sliders, galleries and widget scripts only where they are used"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:97
+msgid "Each page is checked for Lenz's sliders, portfolio grids, galleries, sort box, booking form and filters; files nothing on the page uses are left out."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:101
+msgid "Font Awesome icons (96 KB of CSS and its font)"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:103
+msgid "Only on pages with an fa icon"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:104
+msgid "On every page"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:106
+msgid "Lenz's own icons use its lenz-icon font. Font Awesome is only needed where a menu, widget or text uses an fa-… icon."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:110
+msgid "Load the Bootstrap grid once"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:111
+msgid "On Persian sites Lenz loads the grid twice (left-to-right, then the complete right-to-left copy). The right-to-left copy alone is enough."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:119
+msgid "Fonts"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:120
+msgid "Lenz's font files tell the browser to hide text until the font arrives, which can leave a page blank for up to three seconds on a slow mobile connection."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:126
+msgid "Show text while the font loads"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:127
+msgid "Text appears at once in a system font and switches to the site font when it has loaded. The small font stylesheet is also placed inside the page, saving one request."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:131
+msgid "Download the site font first"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:132
+msgid "The regular weight of the font chosen in Lenz's typography settings starts downloading together with the page."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:142
+msgid "Extras WordPress loads"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:143
+msgid "WP Rocket has switches for some of these too; having both on is fine."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:149
+msgid "Remove the emoji script"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:150
+msgid "Browsers show emojis themselves; WordPress's script only replaces them with images."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:154
+msgid "Block editor styles only for the blocks a page uses"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:155
+msgid "Pages built with Elementor skip WordPress's block stylesheet entirely; articles get only the styles of their own blocks."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:159
+msgid "No admin icon font for visitors"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:160
+msgid "Dashicons stay for logged-in users who see the admin bar."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:164
+msgid "Remove unneeded links from the page head"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:165
+msgid "The WordPress version, the short link and the links for old blog editors."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:169
+msgid "Turn off WordPress embeds of this site"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:170
+msgid "Other WordPress sites can no longer show your posts as cards. Aparat and YouTube videos in your own pages keep working."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:174
+msgid "Remove jQuery Migrate"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:176
+msgid "Lenz works without it, but some old plugins still need it. Check the site after switching it on."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:177
+msgid "Check after enabling"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:186
+msgid "Server load"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:192
+msgid "Heartbeat (background requests of the admin)"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:194
+msgid "As WordPress runs it"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:195
+msgid "Once a minute"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:196
+msgid "Once a minute, and off on the site"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:198
+msgid "Every open editor tab asks the server for news every 15 seconds. Once a minute is enough for autosave and edit locks."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:202
+msgid "Revisions kept per post"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:207
+msgid "0 keeps them all, as WordPress does. Fewer revisions keep the database small."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:229
+msgid "Refresh the cart only for visitors who have something in it"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:230
+msgid "WooCommerce asks the server for the cart on every page view, a request no cache can save. With an empty cart it is skipped; adding a product still updates the cart badge at once."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:234
+msgid "WooCommerce block styles only where its blocks are used"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:235
+msgid "Lenz's shop uses the classic pages, so most pages have no WooCommerce block."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:245
+msgid "Working with WP Rocket"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:246
+msgid "WP Rocket caches, minifies and delays files; this module decides which theme files a page needs at all. Keep both on."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:252
+msgid "Make WP Rocket's optimisations safe for Lenz"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:254
+msgid "«Remove unused CSS» keeps the styles of menus, sliders, galleries and the bottom bar that Lenz and Lenz+ switch on with JavaScript, and «LazyLoad» does not hold back the first large photo of a page."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:255
+msgid "WP Rocket active"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:255
+msgid "WP Rocket not installed"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:260
+msgid "Clear the page cache after Lenz+ changes"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:261
+msgid "Saving the bottom bar, the support button, page template settings or a header or footer template clears the cache, so visitors do not keep seeing the old version."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:270
+msgid "WP Rocket's settings"
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:271
+msgid "Set these in Settings → WP Rocket. All of them can be on with Lenz."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:278
+msgid "On"
+msgstr ""
+
+#. translators: %s: cache plugin names.
+#: includes/Modules/Performance/views/admin.php:296
+#, php-format
+msgid "Clears the saved pages and files of %s."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:297
+msgid "No page cache plugin was found. WP Rocket, LiteSpeed Cache, W3 Total Cache and WP Super Cache are supported."
+msgstr ""
+
+#: includes/Modules/Performance/views/admin.php:303
+msgid "Clear the cache now"
+msgstr ""
+
 #: includes/Modules/Support_Button/Channels.php:45
 msgid "Username (with or without @), a t.me link, or a phone number with the country code."
 msgstr ""
@@ -9428,11 +9852,6 @@ msgstr ""
 
 #: includes/Modules/Support_Button/views/admin.php:175
 msgid "Optional. WhatsApp opens with this text typed in; the visitor can edit it before sending."
-msgstr ""
-
-#: includes/Modules/Support_Button/views/admin.php:203
-#: includes/Modules/Support_Button/views/admin.php:206
-msgid "Design"
 msgstr ""
 
 #: includes/Modules/Support_Button/views/admin.php:204

@@ -1671,6 +1671,13 @@ body.lzp-p {
 	list-style: none;
 }
 
+/* An odd tile out (often the sales amount) gets the whole row on phones instead of half of it. */
+@media (max-width: 767px) {
+	.lzp-stats > li:last-child:nth-child(odd) {
+		grid-column: 1 / -1;
+	}
+}
+
 @media (min-width: 768px) {
 	.lzp-stats {
 		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -1711,14 +1718,13 @@ body.lzp-p {
 	color: var(--lzp-p-accent);
 }
 
+/* Amounts wrap rather than end in «…»: a cut figure (or currency) is no figure at all. */
 .lzp-stat__value {
-	overflow: hidden;
 	color: var(--lzp-p-ink);
 	font-size: 22px;
 	font-weight: 800;
 	line-height: 1.4;
-	white-space: nowrap;
-	text-overflow: ellipsis;
+	overflow-wrap: anywhere;
 }
 
 .lzp-stat__label {
@@ -2421,10 +2427,7 @@ html[data-lzp-nav="fade"]::view-transition-new(lzp-page) {
 	white-space: nowrap;
 }
 
-/* Figures in report tiles wrap instead of being cut: people need the whole amount. */
+/* Report tiles hold the longest figures (amounts with a comparison). */
 .lzp-p div.lzp-stat .lzp-stat__value {
-	overflow: visible;
 	font-size: 18px;
-	white-space: normal;
-	overflow-wrap: anywhere;
 }

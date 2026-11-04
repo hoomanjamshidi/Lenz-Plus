@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lenz Plus 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/lenz-plus\n"
-"POT-Creation-Date: 2026-11-02T08:06:06+00:00\n"
+"POT-Creation-Date: 2026-11-04T09:01:29+00:00\n"
 "PO-Revision-Date: 2026-10-05T16:14:43+00:00\n"
 "Last-Translator: Hooman Jamshidi\n"
 "Language-Team: Persian\n"
@@ -81,7 +81,7 @@ msgstr "همه گزینه‌های این بخش به حالت پیش‌فرض �
 msgid "Yes, reset"
 msgstr "بله، بازنشانی کن"
 
-#: includes/Admin/Admin.php:230 includes/Modules/Builder/Module.php:285
+#: includes/Admin/Admin.php:230 includes/Modules/Builder/Module.php:289
 msgid "Cancel"
 msgstr "انصراف"
 
@@ -115,9 +115,10 @@ msgid "Your session expired. Reload the page and try again."
 msgstr "نشست شما منقضی شده است. صفحه را دوباره بارگذاری کنید."
 
 #: includes/Admin/Ajax_Controller.php:92
-#: includes/Modules/Builder/Booking_Requests.php:483
+#: includes/Modules/Builder/Booking_Requests.php:485
 #: includes/Modules/Builder/Library_Ajax.php:45
-#: includes/Modules/Builder/Public_Form.php:306
+#: includes/Modules/Builder/Library_Ajax.php:71
+#: includes/Modules/Builder/Public_Form.php:336
 msgid "You are not allowed to change these settings."
 msgstr "شما اجازه تغییر این تنظیمات را ندارید."
 
@@ -205,11 +206,11 @@ msgstr[0] "%d نتیجه"
 msgid "Nothing found for “%s”."
 msgstr "نتیجه‌ای برای «%s» پیدا نشد."
 
-#: includes/Modules/Bottom_Nav/Frontend.php:217
+#: includes/Modules/Bottom_Nav/Frontend.php:225
 msgid "Toggle submenu"
 msgstr "باز و بسته کردن زیرمنو"
 
-#: includes/Modules/Bottom_Nav/Frontend.php:218
+#: includes/Modules/Bottom_Nav/Frontend.php:226
 msgid "Live results are unavailable right now. Press Search to see all results."
 msgstr "نتایج زنده الان در دسترس نیست. برای دیدن همه نتایج، دکمه «جستجو» را بزنید."
 
@@ -225,7 +226,7 @@ msgstr "ورود"
 #: includes/Modules/Bottom_Nav/views/admin.php:682
 #: includes/Modules/Builder/Elementor/Widgets/Breadcrumb.php:64
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:62
-#: includes/Modules/Panel/Screens/Dashboard.php:39
+#: includes/Modules/Panel/Screens/Dashboard.php:43
 msgid "Home"
 msgstr "خانه"
 
@@ -438,7 +439,7 @@ msgstr "«%s» از نوار حذف می‌شود."
 
 #: includes/Modules/Bottom_Nav/Module.php:155
 #: includes/Modules/Bottom_Nav/views/admin.php:485
-#: includes/Modules/Builder/Module.php:257
+#: includes/Modules/Builder/Module.php:261
 #: includes/Modules/Panel/Screens/Customers.php:502
 #: includes/Modules/Panel/Screens/Inbox_Screen.php:201
 #: includes/Modules/Panel/Screens/Media.php:121
@@ -592,6 +593,7 @@ msgstr "رفتار"
 #: includes/Modules/Panel/Screens/Coupons.php:121
 #: includes/Modules/Panel/Screens/Coupons.php:237
 #: includes/Modules/Panel/views/admin.php:80
+#: includes/Modules/Performance/views/admin.php:51
 #: includes/Modules/Support_Button/views/admin.php:80
 msgid "Active"
 msgstr "فعال"
@@ -600,6 +602,7 @@ msgstr "فعال"
 #: includes/Modules/Builder/views/admin.php:104
 #: includes/Modules/Checkout/views/admin.php:88
 #: includes/Modules/Panel/views/admin.php:81
+#: includes/Modules/Performance/views/admin.php:52
 #: includes/Modules/Support_Button/views/admin.php:81
 msgid "Inactive"
 msgstr "غیرفعال"
@@ -919,7 +922,7 @@ msgid "Member"
 msgstr "عضو"
 
 #: includes/Modules/Bottom_Nav/views/admin.php:436
-#: includes/Modules/Panel/Shop/Report.php:493
+#: includes/Modules/Panel/Shop/Report.php:501
 msgid "Guest"
 msgstr "مهمان"
 
@@ -957,7 +960,7 @@ msgid "Show this button"
 msgstr "نمایش این دکمه"
 
 #: includes/Modules/Bottom_Nav/views/admin.php:484
-#: includes/Modules/Builder/Module.php:255
+#: includes/Modules/Builder/Module.php:259
 msgid "Duplicate"
 msgstr "تکثیر"
 
@@ -1205,7 +1208,7 @@ msgstr "انتخاب آیکون"
 #: includes/Modules/Builder/Assets.php:191
 #: includes/Modules/Builder/Assets.php:247
 #: includes/Modules/Builder/Elementor/Widgets/Nav_Menu.php:399
-#: includes/Modules/Builder/Module.php:275 includes/Modules/Panel/App.php:327
+#: includes/Modules/Builder/Module.php:279 includes/Modules/Panel/App.php:327
 #: includes/Modules/Support_Button/Module.php:114
 #: includes/Modules/Support_Button/views/button.php:77
 msgid "Close"
@@ -1288,12 +1291,12 @@ msgstr "مشتری"
 #: includes/Modules/Builder/Course_Meta_Box.php:73
 #: includes/Modules/Panel/Screens/Bookings.php:156
 #: includes/Modules/Panel/Screens/Courses.php:132
-#: includes/Modules/Panel/Screens/Students.php:198
+#: includes/Modules/Panel/Screens/Students.php:199
 msgid "Status"
 msgstr "وضعیت"
 
 #: includes/Modules/Builder/Booking_Inbox.php:58
-#: includes/Modules/Builder/Booking_Requests.php:435
+#: includes/Modules/Builder/Booking_Requests.php:437
 #: includes/Modules/Builder/Contact_Inbox.php:45
 #: includes/Modules/Builder/Contact_Messages.php:302
 msgid "Page"
@@ -1452,7 +1455,7 @@ msgstr "شماره موبایل"
 #: includes/Modules/Panel/Screens/Account.php:61
 #: includes/Modules/Panel/Screens/Customers.php:128
 #: includes/Modules/Panel/Screens/Orders.php:318
-#: includes/Modules/Panel/Screens/Students.php:198
+#: includes/Modules/Panel/Screens/Students.php:199
 #: includes/Modules/Support_Button/Channels.php:78
 #: includes/Modules/Support_Button/views/admin.php:39
 msgid "Email"
@@ -1479,52 +1482,52 @@ msgstr "واتس‌اپ"
 msgid "Telegram"
 msgstr "تلگرام"
 
-#: includes/Modules/Builder/Booking_Requests.php:412
+#: includes/Modules/Builder/Booking_Requests.php:414
 #: includes/Modules/Builder/Elementor/Widgets/Booking_Form.php:509
 msgid "Tracking code"
 msgstr "کد پیگیری"
 
-#: includes/Modules/Builder/Booking_Requests.php:414
+#: includes/Modules/Builder/Booking_Requests.php:416
 #: includes/Modules/Builder/Elementor/Widgets/Booking_Form.php:363
 #: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:69
 msgid "Project"
 msgstr "پروژه"
 
 #. translators: 1: form name, 2: site name.
-#: includes/Modules/Builder/Booking_Requests.php:430
+#: includes/Modules/Builder/Booking_Requests.php:432
 #, php-format
 msgid "New booking from the \"%1$s\" form on %2$s."
 msgstr "رزرو تازه از فرم «%1$s» در %2$s."
 
 #. translators: %s: link to the bookings in the admin.
-#: includes/Modules/Builder/Booking_Requests.php:438
+#: includes/Modules/Builder/Booking_Requests.php:440
 #, php-format
 msgid "All bookings: %s"
 msgstr "همه رزروها: %s"
 
 #. translators: 1: site name, 2: tracking code, 3: visitor's name.
-#: includes/Modules/Builder/Booking_Requests.php:443
+#: includes/Modules/Builder/Booking_Requests.php:445
 #, php-format
 msgid "[%1$s] New booking %2$s: %3$s"
 msgstr "[%1$s] رزرو تازه %2$s: %3$s"
 
 #. translators: %s: visitor's name.
-#: includes/Modules/Builder/Booking_Requests.php:459
+#: includes/Modules/Builder/Booking_Requests.php:461
 #, php-format
 msgid "Hello %s,"
 msgstr "سلام %s،"
 
 #. translators: %s: visitor's name.
-#: includes/Modules/Builder/Booking_Requests.php:459
+#: includes/Modules/Builder/Booking_Requests.php:461
 msgid "Hello,"
 msgstr "سلام،"
 
-#: includes/Modules/Builder/Booking_Requests.php:461
+#: includes/Modules/Builder/Booking_Requests.php:463
 msgid "Your booking request has arrived. I will review the details and contact you soon to confirm the date and the price."
 msgstr "درخواست رزروت رسید. جزئیات را بررسی می‌کنم و به‌زودی برای قطعی کردن تاریخ و هزینه تماس می‌گیرم."
 
 #. translators: 1: site name, 2: tracking code.
-#: includes/Modules/Builder/Booking_Requests.php:471
+#: includes/Modules/Builder/Booking_Requests.php:473
 #, php-format
 msgid "[%1$s] Your booking request %2$s"
 msgstr "[%1$s] درخواست رزرو شما %2$s"
@@ -1534,7 +1537,7 @@ msgstr "[%1$s] درخواست رزرو شما %2$s"
 #: includes/Modules/Builder/Contact_Messages.php:70
 #: includes/Modules/Builder/Contact_Messages.php:71
 #: includes/Modules/Builder/Contact_Messages.php:395
-#: includes/Modules/Builder/views/admin.php:285
+#: includes/Modules/Builder/views/admin.php:296
 #: includes/Modules/Panel/Screens/Requests.php:35
 msgid "Requests"
 msgstr "درخواست‌ها"
@@ -1566,17 +1569,18 @@ msgid "Choose a subject"
 msgstr "موضوع موردنظرت را انتخاب کن"
 
 #: includes/Modules/Builder/Contact_Messages.php:147
+#: includes/Modules/Builder/Design_Pages.php:88
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:68
 msgid "Professional photography"
 msgstr "عکاسی حرفه‌ای"
 
 #: includes/Modules/Builder/Contact_Messages.php:147
-#: includes/Modules/Builder/Design_Pages.php:83
+#: includes/Modules/Builder/Design_Pages.php:89
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:95
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:113
 #: includes/Modules/Builder/Elementor/Widgets/Course_Grid.php:233
 #: includes/Modules/Builder/Elementor/Widgets/Promo_Box.php:73
-#: includes/Modules/Builder/Presets/Catalog.php:172
+#: includes/Modules/Builder/Presets/Catalog.php:190
 #: includes/Modules/Panel/Screens/Courses.php:35
 msgid "Courses"
 msgstr "دوره‌ها"
@@ -1666,7 +1670,7 @@ msgstr "ظرفیت تکمیل"
 #. translators: %s: number of seats left.
 #. translators: %s: seats left.
 #: includes/Modules/Builder/Course_Data.php:196
-#: includes/Modules/Panel/Screens/Students.php:227
+#: includes/Modules/Panel/Screens/Students.php:228
 #, php-format
 msgid "%s seats left"
 msgstr "%s ظرفیت باقی‌مانده"
@@ -1844,7 +1848,7 @@ msgstr "ظرفیت"
 #: includes/Modules/Builder/Course_Meta_Box.php:112
 #: includes/Modules/Builder/Elementor/Widgets/Course_Buy_Box.php:124
 #: includes/Modules/Panel/Screens/Courses.php:150
-#: includes/Modules/Panel/Screens/Students.php:267
+#: includes/Modules/Panel/Screens/Students.php:268
 msgid "Seats left"
 msgstr "ظرفیت باقی‌مانده"
 
@@ -1971,31 +1975,31 @@ msgstr "پرسش‌ها"
 msgid "One per line, as \"Question | answer\"."
 msgstr "هر کدام در یک خط به شکل «پرسش | پاسخ»."
 
-#: includes/Modules/Builder/Design_Pages.php:81
+#: includes/Modules/Builder/Design_Pages.php:86
 #: includes/Modules/Builder/Elementor/Widgets/Page_Hero.php:126
 #: includes/Modules/Builder/Presets/Catalog.php:61
 #: includes/Modules/Panel/Screens/Account.php:74
 msgid "About me"
 msgstr "درباره من"
 
-#: includes/Modules/Builder/Design_Pages.php:82
+#: includes/Modules/Builder/Design_Pages.php:87
 #: includes/Modules/Builder/Elementor/Widgets/Service_Cards.php:48
 #: includes/Modules/Builder/Elementor/Widgets/Service_Cards.php:99
 #: includes/Modules/Builder/Presets/Catalog.php:67
 msgid "Services"
 msgstr "خدمات"
 
-#: includes/Modules/Builder/Design_Pages.php:84
+#: includes/Modules/Builder/Design_Pages.php:90
 msgid "Contact us"
 msgstr "تماس با ما"
 
-#: includes/Modules/Builder/Design_Pages.php:85
+#: includes/Modules/Builder/Design_Pages.php:91
 msgid "Book a project"
 msgstr "رزرو پروژه"
 
-#: includes/Modules/Builder/Design_Pages.php:88
+#: includes/Modules/Builder/Design_Pages.php:94
 #: includes/Modules/Builder/Module.php:60
-#: includes/Modules/Builder/Module.php:303
+#: includes/Modules/Builder/Module.php:307
 #: includes/Modules/Builder/Presets/Catalog.php:55
 #: includes/Modules/Panel/Screens/Pages.php:74
 msgid "Home page"
@@ -2049,6 +2053,7 @@ msgstr "چسبان هنگام اسکرول"
 #: includes/Modules/Builder/views/admin.php:41
 #: includes/Modules/Panel/Screens/Coupons.php:123
 #: includes/Modules/Panel/Screens/Coupons.php:240
+#: includes/Modules/Performance/views/admin.php:278
 #: includes/Modules/Support_Button/Module.php:111
 msgid "Off"
 msgstr "خاموش"
@@ -2233,7 +2238,7 @@ msgstr "انتها"
 #: includes/Modules/Builder/Elementor/Widgets/Base.php:256
 #: includes/Modules/Builder/Elementor/Widgets/Course_Base.php:59
 #: includes/Modules/Builder/Elementor/Widgets/Reading_Progress.php:57
-#: includes/Modules/Builder/views/admin.php:330
+#: includes/Modules/Builder/views/admin.php:341
 msgid "Colour"
 msgstr "رنگ"
 
@@ -2673,12 +2678,12 @@ msgstr "ارتفاع لوگو"
 #: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:61
 #: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:116
 #: includes/Modules/Builder/Elementor/Widgets/Trust_Badges.php:125
-#: includes/Modules/Builder/Module.php:277
+#: includes/Modules/Builder/Module.php:281
 #: includes/Modules/Builder/Project_Meta_Box.php:89
 #: includes/Modules/Panel/Screens/Customers.php:128
 #: includes/Modules/Panel/Screens/Customers.php:223
 #: includes/Modules/Panel/Screens/Portfolio.php:130
-#: includes/Modules/Panel/Screens/Students.php:198
+#: includes/Modules/Panel/Screens/Students.php:199
 msgid "Name"
 msgstr "نام"
 
@@ -2786,7 +2791,7 @@ msgid "Current page"
 msgstr "صفحه فعلی"
 
 #: includes/Modules/Builder/Elementor/Widgets/Breadcrumb.php:120
-#: includes/Modules/Builder/Presets/Catalog.php:142
+#: includes/Modules/Builder/Presets/Catalog.php:160
 msgid "Blog"
 msgstr "وبلاگ"
 
@@ -3077,7 +3082,7 @@ msgstr "کارت‌های تماس"
 #: includes/Modules/Builder/Elementor/Widgets/Contact_Cards.php:114
 #: includes/Modules/Checkout/views/admin.php:42
 #: includes/Modules/Panel/Screens/Customers.php:128
-#: includes/Modules/Panel/Screens/Students.php:198
+#: includes/Modules/Panel/Screens/Students.php:199
 #: includes/Modules/Support_Button/views/admin.php:38
 msgid "Phone"
 msgstr "تلفن"
@@ -3142,7 +3147,7 @@ msgid "Photo tone"
 msgstr "رنگ عکس‌ها"
 
 #: includes/Modules/Builder/Elementor/Widgets/Course_Base.php:60
-#: includes/Modules/Builder/views/admin.php:329
+#: includes/Modules/Builder/views/admin.php:340
 msgid "Black and white"
 msgstr "سیاه‌وسفید"
 
@@ -3500,7 +3505,7 @@ msgstr "متن‌ها"
 #: includes/Modules/Builder/Elementor/Widgets/Course_Hero.php:157
 #: includes/Modules/Builder/Elementor/Widgets/Timeline.php:112
 #: includes/Modules/Panel/Screens/Activity.php:146
-#: includes/Modules/Panel/Screens/Students.php:198
+#: includes/Modules/Panel/Screens/Students.php:199
 msgid "Date"
 msgstr "تاریخ"
 
@@ -3655,7 +3660,7 @@ msgid "Session number"
 msgstr "شماره جلسه"
 
 #: includes/Modules/Builder/Elementor/Widgets/Curriculum.php:63
-#: includes/Modules/Builder/Module.php:244
+#: includes/Modules/Builder/Module.php:248
 msgid "Nothing"
 msgstr "هیچ‌کدام"
 
@@ -4660,7 +4665,7 @@ msgstr "ردیف عکس"
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:131
 #: includes/Modules/Builder/Elementor/Widgets/Service_Detail.php:136
 #: includes/Modules/Builder/Elementor/Widgets/Testimonials.php:101
-#: includes/Modules/Builder/views/admin.php:327
+#: includes/Modules/Builder/views/admin.php:338
 #: includes/Modules/Panel/App.php:325
 #: includes/Modules/Panel/Screens/Media.php:79
 msgid "Photos"
@@ -5907,72 +5912,72 @@ msgid "Reply by email"
 msgstr "پاسخ با ایمیل"
 
 #. translators: %s: original template name.
-#: includes/Modules/Builder/Library.php:363
+#: includes/Modules/Builder/Library.php:364
 #, php-format
 msgid "%s (copy)"
 msgstr "%s (کپی)"
 
-#: includes/Modules/Builder/Library.php:485
+#: includes/Modules/Builder/Library.php:497
 msgid "Lenz+ ink"
 msgstr "Lenz+ جوهری"
 
-#: includes/Modules/Builder/Library.php:486
+#: includes/Modules/Builder/Library.php:498
 msgid "Lenz+ accent"
 msgstr "Lenz+ تأکید"
 
-#: includes/Modules/Builder/Library.php:487
+#: includes/Modules/Builder/Library.php:499
 msgid "Lenz+ text"
 msgstr "Lenz+ متن"
 
-#: includes/Modules/Builder/Library.php:488
+#: includes/Modules/Builder/Library.php:500
 msgid "Lenz+ secondary text"
 msgstr "Lenz+ متن ثانویه"
 
-#: includes/Modules/Builder/Library.php:489
+#: includes/Modules/Builder/Library.php:501
 msgid "Lenz+ muted"
 msgstr "Lenz+ کم‌رنگ"
 
-#: includes/Modules/Builder/Library.php:490
+#: includes/Modules/Builder/Library.php:502
 msgid "Lenz+ soft background"
 msgstr "Lenz+ پس‌زمینه روشن"
 
-#: includes/Modules/Builder/Library.php:491
+#: includes/Modules/Builder/Library.php:503
 msgid "Lenz+ border"
 msgstr "Lenz+ حاشیه"
 
-#: includes/Modules/Builder/Library.php:492
+#: includes/Modules/Builder/Library.php:504
 msgid "Lenz+ dark surface"
 msgstr "Lenz+ سطح تیره"
 
 #: includes/Modules/Builder/Library_Ajax.php:63
-#: includes/Modules/Builder/Module.php:289
+#: includes/Modules/Builder/Module.php:293
 msgid "Elementor is required to edit templates."
 msgstr "برای ویرایش قالب‌ها به المنتور نیاز است."
 
 #: includes/Modules/Builder/Library_Ajax.php:67
-#: includes/Modules/Builder/Library_Ajax.php:71
+#: includes/Modules/Builder/Library_Ajax.php:75
 msgid "Template not found."
 msgstr "قالب پیدا نشد."
 
-#: includes/Modules/Builder/Library_Ajax.php:77
+#: includes/Modules/Builder/Library_Ajax.php:81
 msgid "WooCommerce is required for courses."
 msgstr "برای دوره‌ها ووکامرس لازم است."
 
-#: includes/Modules/Builder/Library_Ajax.php:81
+#: includes/Modules/Builder/Library_Ajax.php:85
 msgid "Page not found."
 msgstr "برگه پیدا نشد."
 
-#: includes/Modules/Builder/Library_Ajax.php:93
-#: includes/Modules/Builder/Module.php:276
-#: includes/Modules/Builder/views/admin.php:254
+#: includes/Modules/Builder/Library_Ajax.php:97
+#: includes/Modules/Builder/Module.php:280
+#: includes/Modules/Builder/views/admin.php:265
 msgid "New template"
 msgstr "قالب جدید"
 
-#: includes/Modules/Builder/Library_Ajax.php:178
+#: includes/Modules/Builder/Library_Ajax.php:191
 msgid "Unknown action."
 msgstr "عملیات ناشناخته."
 
-#: includes/Modules/Builder/Library_Ajax.php:193
+#: includes/Modules/Builder/Library_Ajax.php:206
 #: includes/Modules/Panel/App.php:400
 msgid "That did not work. Please try again."
 msgstr "انجام نشد؛ لطفاً دوباره تلاش کنید."
@@ -6009,234 +6014,242 @@ msgid "Services page"
 msgstr "صفحه خدمات"
 
 #: includes/Modules/Builder/Module.php:63
+msgid "Single service page"
+msgstr "صفحه تک خدمت"
+
+#: includes/Modules/Builder/Module.php:64
 msgid "Courses page"
 msgstr "صفحه دوره‌ها"
 
-#: includes/Modules/Builder/Module.php:64
+#: includes/Modules/Builder/Module.php:65
 msgid "Contact page"
 msgstr "صفحه تماس"
 
-#: includes/Modules/Builder/Module.php:65
+#: includes/Modules/Builder/Module.php:66
 msgid "Booking page"
 msgstr "صفحه رزرو"
 
-#: includes/Modules/Builder/Module.php:66
+#: includes/Modules/Builder/Module.php:67
 #: includes/Modules/Builder/views/admin.php:52
 msgid "Portfolio list"
 msgstr "فهرست نمونه‌کارها"
 
-#: includes/Modules/Builder/Module.php:67
+#: includes/Modules/Builder/Module.php:68
 #: includes/Modules/Builder/views/admin.php:53
 msgid "Project page"
 msgstr "صفحه پروژه"
 
-#: includes/Modules/Builder/Module.php:68
+#: includes/Modules/Builder/Module.php:69
 #: includes/Modules/Builder/views/admin.php:54
 msgid "Post list"
 msgstr "فهرست نوشته‌ها"
 
-#: includes/Modules/Builder/Module.php:69
-#: includes/Modules/Builder/Presets/Catalog.php:148
+#: includes/Modules/Builder/Module.php:70
+#: includes/Modules/Builder/Presets/Catalog.php:166
 #: includes/Modules/Builder/views/admin.php:55
 msgid "Article"
 msgstr "مقاله"
 
-#: includes/Modules/Builder/Module.php:70
+#: includes/Modules/Builder/Module.php:71
 #: includes/Modules/Builder/views/admin.php:56
 msgid "Course page"
 msgstr "صفحه دوره"
 
-#: includes/Modules/Builder/Module.php:162
+#: includes/Modules/Builder/Module.php:163
 msgid "Lenz's portfolio list"
 msgstr "فهرست نمونه‌کارهای لنز"
 
-#: includes/Modules/Builder/Module.php:163
+#: includes/Modules/Builder/Module.php:164
 msgid "Lenz's project page"
 msgstr "صفحه پروژه لنز"
 
-#: includes/Modules/Builder/Module.php:164
+#: includes/Modules/Builder/Module.php:165
 msgid "Lenz's post list"
 msgstr "فهرست نوشته‌های لنز"
 
-#: includes/Modules/Builder/Module.php:165
+#: includes/Modules/Builder/Module.php:166
 msgid "Lenz's article page"
 msgstr "صفحه مقاله لنز"
 
-#: includes/Modules/Builder/Module.php:166
+#: includes/Modules/Builder/Module.php:167
 msgid "Lenz's product page"
 msgstr "صفحه محصول لنز"
 
-#: includes/Modules/Builder/Module.php:202
+#: includes/Modules/Builder/Module.php:205
 msgid "Home pages"
 msgstr "صفحه‌های اصلی"
 
-#: includes/Modules/Builder/Module.php:203
+#: includes/Modules/Builder/Module.php:206
 msgid "About pages"
 msgstr "صفحه‌های درباره"
 
-#: includes/Modules/Builder/Module.php:204
+#: includes/Modules/Builder/Module.php:207
 msgid "Services pages"
 msgstr "صفحه‌های خدمات"
 
-#: includes/Modules/Builder/Module.php:205
+#: includes/Modules/Builder/Module.php:208
+msgid "Single service pages"
+msgstr "صفحه‌های تک خدمت"
+
+#: includes/Modules/Builder/Module.php:209
 msgid "Courses pages"
 msgstr "صفحه‌های دوره‌ها"
 
-#: includes/Modules/Builder/Module.php:206
+#: includes/Modules/Builder/Module.php:210
 msgid "Contact pages"
 msgstr "صفحه‌های تماس"
 
-#: includes/Modules/Builder/Module.php:207
+#: includes/Modules/Builder/Module.php:211
 msgid "Booking pages"
 msgstr "صفحه‌های رزرو"
 
-#: includes/Modules/Builder/Module.php:241
+#: includes/Modules/Builder/Module.php:245
 msgid "Lenz's header"
 msgstr "هدر لنز"
 
-#: includes/Modules/Builder/Module.php:242
+#: includes/Modules/Builder/Module.php:246
 msgid "Lenz's footer"
 msgstr "فوتر لنز"
 
-#: includes/Modules/Builder/Module.php:243
+#: includes/Modules/Builder/Module.php:247
 msgid "Keep the theme's own design."
 msgstr "طراحی خود قالب حفظ شود."
 
-#: includes/Modules/Builder/Module.php:245
+#: includes/Modules/Builder/Module.php:249
 msgid "Hide it on this device."
 msgstr "در این دستگاه نمایش داده نشود."
 
-#: includes/Modules/Builder/Module.php:246
+#: includes/Modules/Builder/Module.php:250
 msgid "Same as desktop"
 msgstr "مثل دسکتاپ"
 
-#: includes/Modules/Builder/Module.php:247
+#: includes/Modules/Builder/Module.php:251
 msgid "Use the desktop choice on phones too."
 msgstr "همان انتخاب دسکتاپ در موبایل هم استفاده شود."
 
-#: includes/Modules/Builder/Module.php:248
+#: includes/Modules/Builder/Module.php:252
 msgid "In use"
 msgstr "در حال استفاده"
 
-#: includes/Modules/Builder/Module.php:249
-#: includes/Modules/Builder/Module.php:250
+#: includes/Modules/Builder/Module.php:253
+#: includes/Modules/Builder/Module.php:254
 #: includes/Modules/Panel/Screens/Content_Screen.php:318
 msgid "Preview"
 msgstr "پیش‌نمایش"
 
-#: includes/Modules/Builder/Module.php:251
+#: includes/Modules/Builder/Module.php:255
 msgid "Nothing to preview yet."
 msgstr "هنوز چیزی برای پیش‌نمایش نیست."
 
-#: includes/Modules/Builder/Module.php:252
+#: includes/Modules/Builder/Module.php:256
 msgid "Previews show a design right away — nothing changes for visitors until you save."
 msgstr "پیش‌نمایش طرح را فوراً نشان می‌دهد؛ تا وقتی ذخیره نکنید چیزی برای بازدیدکننده‌ها تغییر نمی‌کند."
 
-#: includes/Modules/Builder/Module.php:253
+#: includes/Modules/Builder/Module.php:257
 msgid "Custom template"
 msgstr "قالب سفارشی"
 
-#: includes/Modules/Builder/Module.php:254 includes/Modules/Panel/Editor.php:97
+#: includes/Modules/Builder/Module.php:258 includes/Modules/Panel/Editor.php:97
 msgid "Edit with Elementor"
 msgstr "ویرایش با المنتور"
 
-#: includes/Modules/Builder/Module.php:256
+#: includes/Modules/Builder/Module.php:260
 msgid "Restore original"
 msgstr "بازگردانی طرح اولیه"
 
-#: includes/Modules/Builder/Module.php:258
+#: includes/Modules/Builder/Module.php:262
 msgid "Rename"
 msgstr "تغییر نام"
 
-#: includes/Modules/Builder/Module.php:259
+#: includes/Modules/Builder/Module.php:263
 msgid "Delete this template?"
 msgstr "این قالب حذف شود؟"
 
 #. translators: %s: template name.
-#: includes/Modules/Builder/Module.php:261
+#: includes/Modules/Builder/Module.php:265
 #, php-format
 msgid "\"%s\" goes to the trash. Pages made from it keep their own copy."
 msgstr "«%s» به زباله‌دان می‌رود. صفحه‌هایی که از آن ساخته شده‌اند نسخه خودشان را نگه می‌دارند."
 
-#: includes/Modules/Builder/Module.php:262
+#: includes/Modules/Builder/Module.php:266
 msgid "Restore the original design?"
 msgstr "طرح اولیه بازگردانده شود؟"
 
-#: includes/Modules/Builder/Module.php:263
+#: includes/Modules/Builder/Module.php:267
 msgid "Your Elementor changes to this template will be replaced by the original design. Duplicate it first if you want to keep your version."
 msgstr "تغییراتی که در المنتور روی این قالب داده‌اید با طرح اولیه جایگزین می‌شود. اگر می‌خواهید نسخه خودتان بماند، ابتدا از آن کپی بگیرید."
 
-#: includes/Modules/Builder/Module.php:264
+#: includes/Modules/Builder/Module.php:268
 msgid "Restore"
 msgstr "بازگردانی"
 
-#: includes/Modules/Builder/Module.php:265
+#: includes/Modules/Builder/Module.php:269
 msgid "Template created."
 msgstr "قالب ساخته شد."
 
-#: includes/Modules/Builder/Module.php:266
+#: includes/Modules/Builder/Module.php:270
 msgid "Template duplicated."
 msgstr "از قالب کپی گرفته شد."
 
-#: includes/Modules/Builder/Module.php:267
+#: includes/Modules/Builder/Module.php:271
 msgid "Original design restored."
 msgstr "طرح اولیه بازگردانده شد."
 
-#: includes/Modules/Builder/Module.php:268
+#: includes/Modules/Builder/Module.php:272
 msgid "Template deleted."
 msgstr "قالب حذف شد."
 
-#: includes/Modules/Builder/Module.php:269
+#: includes/Modules/Builder/Module.php:273
 msgid "Ready-made designs installed."
 msgstr "طرح‌های آماده نصب شدند."
 
-#: includes/Modules/Builder/Module.php:270
+#: includes/Modules/Builder/Module.php:274
 msgid "Template renamed."
 msgstr "نام قالب تغییر کرد."
 
-#: includes/Modules/Builder/Module.php:271
-#: includes/Modules/Builder/views/admin.php:199
+#: includes/Modules/Builder/Module.php:275
+#: includes/Modules/Builder/views/admin.php:210
 msgid "Desktop"
 msgstr "دسکتاپ"
 
-#: includes/Modules/Builder/Module.php:272
+#: includes/Modules/Builder/Module.php:276
 msgid "Tablet"
 msgstr "تبلت"
 
-#: includes/Modules/Builder/Module.php:273
+#: includes/Modules/Builder/Module.php:277
 msgid "Mobile"
 msgstr "موبایل"
 
-#: includes/Modules/Builder/Module.php:274
+#: includes/Modules/Builder/Module.php:278
 msgid "Open in new tab"
 msgstr "باز کردن در تب جدید"
 
-#: includes/Modules/Builder/Module.php:278
+#: includes/Modules/Builder/Module.php:282
 #: includes/Modules/Panel/Screens/Activity.php:146
 msgid "Kind"
 msgstr "نوع"
 
-#: includes/Modules/Builder/Module.php:279
+#: includes/Modules/Builder/Module.php:283
 msgid "Start from"
 msgstr "شروع از"
 
-#: includes/Modules/Builder/Module.php:280
+#: includes/Modules/Builder/Module.php:284
 msgid "Blank canvas"
 msgstr "صفحه خالی"
 
-#: includes/Modules/Builder/Module.php:281
+#: includes/Modules/Builder/Module.php:285
 msgid "Create & open Elementor"
 msgstr "ساختن و باز کردن المنتور"
 
-#: includes/Modules/Builder/Module.php:282
+#: includes/Modules/Builder/Module.php:286
 msgid "Create"
 msgstr "ساختن"
 
-#: includes/Modules/Builder/Module.php:283
+#: includes/Modules/Builder/Module.php:287
 msgid "New name"
 msgstr "نام جدید"
 
-#: includes/Modules/Builder/Module.php:284
+#: includes/Modules/Builder/Module.php:288
 #: includes/Modules/Panel/Screens/Account.php:109
 #: includes/Modules/Panel/Screens/Account.php:147
 #: includes/Modules/Panel/Screens/Content_Screen.php:316
@@ -6246,139 +6259,193 @@ msgstr "نام جدید"
 msgid "Save"
 msgstr "ذخیره"
 
-#: includes/Modules/Builder/Module.php:286
+#: includes/Modules/Builder/Module.php:290
 msgid "Ready-made"
 msgstr "آماده"
 
-#: includes/Modules/Builder/Module.php:287
+#: includes/Modules/Builder/Module.php:291
 msgid "Edited"
 msgstr "ویرایش‌شده"
 
-#: includes/Modules/Builder/Module.php:288
+#: includes/Modules/Builder/Module.php:292
 msgid "No templates of this kind yet."
 msgstr "هنوز قالبی از این نوع ندارید."
 
-#: includes/Modules/Builder/Module.php:290
+#: includes/Modules/Builder/Module.php:294
 msgid "Brand colours added to Elementor's global colours."
 msgstr "رنگ‌های برند به رنگ‌های سراسری المنتور اضافه شد."
 
-#: includes/Modules/Builder/Module.php:291
+#: includes/Modules/Builder/Module.php:295
 msgid "Flexbox containers activated."
 msgstr "کانتینرهای فلکس‌باکس فعال شد."
 
-#: includes/Modules/Builder/Module.php:292
+#: includes/Modules/Builder/Module.php:296
 msgid "Create page"
 msgstr "ساخت برگه"
 
 #. translators: %s: design name.
-#: includes/Modules/Builder/Module.php:294
+#: includes/Modules/Builder/Module.php:298
 #, php-format
 msgid "New page from \"%s\""
 msgstr "برگه جدید از «%s»"
 
-#: includes/Modules/Builder/Module.php:295
+#: includes/Modules/Builder/Module.php:299
 msgid "Page name"
 msgstr "نام برگه"
 
-#: includes/Modules/Builder/Module.php:296
+#: includes/Modules/Builder/Module.php:300
 msgid "Publish now"
 msgstr "همین حالا منتشر شود"
 
-#: includes/Modules/Builder/Module.php:297
+#: includes/Modules/Builder/Module.php:301
 msgid "Off: the page is saved as a draft that only you can see."
 msgstr "خاموش: برگه به صورت پیش‌نویس ذخیره می‌شود و فقط شما آن را می‌بینید."
 
-#: includes/Modules/Builder/Module.php:298
+#: includes/Modules/Builder/Module.php:302
 msgid "Use it as the site's home page"
 msgstr "صفحه اصلی سایت شود"
 
-#: includes/Modules/Builder/Module.php:299
+#: includes/Modules/Builder/Module.php:303
 msgid "Visitors see it at the site address. The page is published."
 msgstr "بازدیدکنندگان آن را در نشانی اصلی سایت می‌بینند. برگه منتشر می‌شود."
 
-#: includes/Modules/Builder/Module.php:300
+#: includes/Modules/Builder/Module.php:304
 msgid "Page created."
 msgstr "برگه ساخته شد."
 
-#: includes/Modules/Builder/Module.php:301
+#: includes/Modules/Builder/Module.php:305
 msgid "No ready-made designs of this kind yet. Create a template of this kind in the Templates tab to make pages from it."
 msgstr "هنوز طراحی آماده‌ای از این نوع نیست. در زبانه «قالب‌ها» یک قالب از این نوع بسازید تا بتوانید از آن صفحه بسازید."
 
-#: includes/Modules/Builder/Module.php:302
+#: includes/Modules/Builder/Module.php:306
 msgid "No pages yet. Create one from a design above."
 msgstr "هنوز برگه‌ای ساخته نشده است. از یکی از طرح‌های بالا یک برگه بسازید."
 
-#: includes/Modules/Builder/Module.php:304
+#: includes/Modules/Builder/Module.php:308
 #: includes/Modules/Panel/Screens/Content_Screen.php:343
 msgid "Draft"
 msgstr "پیش‌نویس"
 
-#: includes/Modules/Builder/Module.php:305
+#: includes/Modules/Builder/Module.php:309
 #: includes/Modules/Panel/Screens/Content_Screen.php:164
 #: includes/Modules/Panel/Screens/Content_Screen.php:342
 msgid "Published"
 msgstr "منتشرشده"
 
 #. translators: %s: design name.
-#: includes/Modules/Builder/Module.php:307
+#: includes/Modules/Builder/Module.php:311
 #, php-format
 msgid "From \"%s\""
 msgstr "از طرح «%s»"
 
-#: includes/Modules/Builder/Module.php:308
+#: includes/Modules/Builder/Module.php:312
 #: includes/Modules/Panel/Screens/Content_Screen.php:318
 msgid "View"
 msgstr "مشاهده"
 
-#: includes/Modules/Builder/Module.php:309
+#: includes/Modules/Builder/Module.php:313
 msgid "Make it the home page"
 msgstr "صفحه اصلی سایت شود"
 
-#: includes/Modules/Builder/Module.php:310
+#: includes/Modules/Builder/Module.php:314
 msgid "This page is now the site's home page."
 msgstr "این برگه اکنون صفحه اصلی سایت است."
 
-#: includes/Modules/Builder/Module.php:311
+#: includes/Modules/Builder/Module.php:315
 msgid "Edit the design"
 msgstr "ویرایش طرح"
 
-#: includes/Modules/Builder/Module.php:312
+#: includes/Modules/Builder/Module.php:316
 msgid "Add as a new course"
 msgstr "افزودن به‌عنوان دوره جدید"
 
 #. translators: %s: ready-made course name.
-#: includes/Modules/Builder/Module.php:314
+#: includes/Modules/Builder/Module.php:318
 #, php-format
 msgid "Add \"%s\" to your courses"
 msgstr "افزودن «%s» به دوره‌ها"
 
-#: includes/Modules/Builder/Module.php:315
+#: includes/Modules/Builder/Module.php:319
 msgid "A course product is made with every detail, the questions and the cover filled in. Set its price, date and seats in the product editor; the course page shows it with the Course design."
 msgstr "یک محصول دوره با همه جزئیات، سوالات و تصویر کاور ساخته می‌شود. قیمت، تاریخ و ظرفیت را در ویرایشگر محصول تعیین کنید؛ صفحه دوره با طرح «دوره» نمایش داده می‌شود."
 
-#: includes/Modules/Builder/Module.php:316
+#: includes/Modules/Builder/Module.php:320
 msgid "Off: the course is saved as a draft, so you can set the price and date before visitors see it."
 msgstr "خاموش: دوره پیش‌نویس ذخیره می‌شود تا پیش از دیده شدن، قیمت و تاریخ را تعیین کنید."
 
-#: includes/Modules/Builder/Module.php:317
+#: includes/Modules/Builder/Module.php:321
 msgid "Course added. Set its price and date in the product editor."
 msgstr "دوره اضافه شد. قیمت و تاریخ آن را در ویرایشگر محصول تعیین کنید."
 
-#: includes/Modules/Builder/Module.php:318
+#: includes/Modules/Builder/Module.php:322
 msgid "Course pages now use the Course design (Site pages tab)."
 msgstr "صفحه‌های دوره اکنون از طرح «دوره» استفاده می‌کنند (زبانه صفحه‌های سایت)."
 
-#: includes/Modules/Builder/Module.php:319
+#: includes/Modules/Builder/Module.php:323
 msgid "Edit the course"
 msgstr "ویرایش دوره"
 
-#: includes/Modules/Builder/Module.php:320
+#: includes/Modules/Builder/Module.php:324
 msgid "Added:"
 msgstr "اضافه‌شده:"
 
-#: includes/Modules/Builder/Module.php:321
+#: includes/Modules/Builder/Module.php:325
 msgid "Courses are WooCommerce products. Install and activate WooCommerce to add them."
 msgstr "دوره‌ها محصولات ووکامرس هستند. برای افزودنشان ووکامرس را نصب و فعال کنید."
+
+#: includes/Modules/Builder/Module.php:326
+msgid "Create its page"
+msgstr "ساخت صفحه‌اش"
+
+#: includes/Modules/Builder/Module.php:327
+msgid "Create pages for every service"
+msgstr "ساخت صفحه برای همه خدمات"
+
+#: includes/Modules/Builder/Module.php:328
+msgid "Every service has a page. Create another one from a service card."
+msgstr "همه خدمات صفحه دارند. برای ساخت صفحه دیگر، از کارت همان خدمت استفاده کن."
+
+#. translators: %s: service name.
+#: includes/Modules/Builder/Module.php:330
+#, php-format
+msgid "A page for \"%s\""
+msgstr "صفحه‌ای برای «%s»"
+
+#: includes/Modules/Builder/Module.php:331
+msgid "A page for every service"
+msgstr "صفحه‌ای برای هر خدمت"
+
+#: includes/Modules/Builder/Module.php:332
+msgid "The page is filled with this service's texts, prices and questions. Pick a design; photos are left for you to choose in Elementor."
+msgstr "صفحه با متن‌ها، تعرفه‌ها و سؤال‌های همین خدمت پر می‌شود. یک طرح انتخاب کن؛ عکس‌ها را خودت در المنتور می‌گذاری."
+
+#: includes/Modules/Builder/Module.php:333
+msgid "One page per service that has none yet, each with its own texts, prices and questions. Once published, the services page's tiles lead to them."
+msgstr "برای هر خدمتی که هنوز صفحه ندارد یک صفحه، هر کدام با متن‌ها، تعرفه‌ها و سؤال‌های خودش. بعد از انتشار، کاشی‌های صفحه خدمات به این صفحه‌ها لینک می‌شوند."
+
+#: includes/Modules/Builder/Module.php:334
+msgid "Create the pages"
+msgstr "ساخت صفحه‌ها"
+
+#: includes/Modules/Builder/Module.php:335
+#: includes/Modules/Support_Button/views/admin.php:203
+#: includes/Modules/Support_Button/views/admin.php:206
+msgid "Design"
+msgstr "مدل"
+
+#. translators: %d: number of pages.
+#: includes/Modules/Builder/Module.php:337
+#, php-format
+msgid "%d service pages created."
+msgstr "%d صفحه خدمت ساخته شد."
+
+#: includes/Modules/Builder/Module.php:338
+msgid "Pages:"
+msgstr "صفحه‌ها:"
+
+#: includes/Modules/Builder/Module.php:339
+msgid "Off: the pages are saved as drafts, so you can add photos before visitors see them."
+msgstr "خاموش: صفحه‌ها پیش‌نویس ذخیره می‌شوند تا پیش از دیدن بازدیدکننده‌ها عکس‌ها را بگذاری."
 
 #: includes/Modules/Builder/Newsletter.php:58
 msgid "Sign-ups"
@@ -6394,7 +6461,7 @@ msgid "Newsletter and waitlists (Lenz+)"
 msgstr "خبرنامه و لیست‌های انتظار (لنز+)"
 
 #: includes/Modules/Builder/Newsletter.php:270
-#: includes/Modules/Builder/views/admin.php:304
+#: includes/Modules/Builder/views/admin.php:315
 msgid "Newsletter and waitlists"
 msgstr "خبرنامه و لیست‌های انتظار"
 
@@ -6439,155 +6506,179 @@ msgid "Hero, jump tiles, four services with photos (one on the ink band), price 
 msgstr "هیرو، کاشی‌های پرش، چهار خدمت با عکس (یکی روی نوار تیره)، کارت‌های تعرفه با خدمات افزودنی، مسیر پروژه، سؤالات متداول و دعوت به اقدام."
 
 #: includes/Modules/Builder/Presets/Catalog.php:73
+msgid "Service: photo hero"
+msgstr "تک خدمت: هیرو با عکس"
+
+#: includes/Modules/Builder/Presets/Catalog.php:74
+msgid "One service in detail: a hero with a photo, key numbers, what is included on cards, sample photos, three price cards with add-ons, the steps, reviews, questions and a call to action."
+msgstr "معرفی کامل یک خدمت: هیرو با عکس، چند عدد کلیدی، آنچه شامل می‌شود روی کارت‌ها، نمونه عکس‌ها، سه کارت تعرفه با خدمات قابل افزودن، مراحل کار، نظر مشتری‌ها، سؤال‌های رایج و دعوت به اقدام."
+
+#: includes/Modules/Builder/Presets/Catalog.php:79
+msgid "Service: ink band"
+msgstr "تک خدمت: نوار تیره"
+
+#: includes/Modules/Builder/Presets/Catalog.php:80
+msgid "A text hero, the service with two photos on the ink band, what is included beside a client's quote, sample photos, price cards, the booking form beside its steps, and questions."
+msgstr "هیرو متنی، معرفی خدمت با دو عکس روی نوار تیره، آنچه شامل می‌شود کنار نظر یک مشتری، نمونه عکس‌ها، کارت‌های تعرفه، فرم رزرو کنار مراحلش و سؤال‌های رایج."
+
+#: includes/Modules/Builder/Presets/Catalog.php:85
+msgid "Service: minimal"
+msgstr "تک خدمت: مینیمال"
+
+#: includes/Modules/Builder/Presets/Catalog.php:86
+msgid "A narrow centred page: the title over one wide photo, the text beside what is included, a price list, a framed line, questions and the order form in the ink frame."
+msgstr "صفحه‌ای باریک و وسط‌چین: عنوان روی یک عکس عریض، متن کنار آنچه شامل می‌شود، فهرست قیمت، یک جمله در قاب، سؤال‌های رایج و فرم سفارش در قاب تیره."
+
+#: includes/Modules/Builder/Presets/Catalog.php:91
 msgid "Contact: classic"
 msgstr "تماس: کلاسیک"
 
-#: includes/Modules/Builder/Presets/Catalog.php:74
+#: includes/Modules/Builder/Presets/Catalog.php:92
 msgid "Text hero, four contact cards, the contact form beside the map, working hours and social links, then a few questions."
 msgstr "سربرگ متنی، چهار کارت تماس، فرم تماس کنار نقشه، ساعت کاری و شبکه‌های اجتماعی و چند پرسش متداول."
 
-#: includes/Modules/Builder/Presets/Catalog.php:79
+#: includes/Modules/Builder/Presets/Catalog.php:97
 msgid "Contact: ink panel"
 msgstr "تماس: کادر سرمه‌ای"
 
-#: includes/Modules/Builder/Presets/Catalog.php:80
+#: includes/Modules/Builder/Presets/Catalog.php:98
 msgid "Contact rows and social links on the ink panel beside the form, a wide map and a call to action."
 msgstr "راه‌های ارتباطی و شبکه‌های اجتماعی در کادر سرمه‌ای کنار فرم، نقشه پهن و دعوت به اقدام."
 
-#: includes/Modules/Builder/Presets/Catalog.php:85
+#: includes/Modules/Builder/Presets/Catalog.php:103
 msgid "Contact: minimal"
 msgstr "تماس: مینیمال"
 
-#: includes/Modules/Builder/Presets/Catalog.php:86
+#: includes/Modules/Builder/Presets/Catalog.php:104
 msgid "A centred title, phone, email and address in large type, a wide map and the form in the ink frame."
 msgstr "عنوان وسط‌چین، تلفن و ایمیل و آدرس با قلم درشت، نقشه پهن و فرم در قاب سرمه‌ای."
 
-#: includes/Modules/Builder/Presets/Catalog.php:91
+#: includes/Modules/Builder/Presets/Catalog.php:109
 msgid "Booking: steps"
 msgstr "رزرو: مرحله‌ای"
 
-#: includes/Modules/Builder/Presets/Catalog.php:92
+#: includes/Modules/Builder/Presets/Catalog.php:110
 msgid "Text hero, the booking form in numbered steps on a card (project, details, contact, review), what happens next and questions."
 msgstr "سربرگ متنی، فرم رزرو در مرحله‌های شماره‌دار روی کارت (پروژه، جزئیات، تماس، مرور)، مراحل بعد از ثبت و سؤالات متداول."
 
-#: includes/Modules/Builder/Presets/Catalog.php:97
+#: includes/Modules/Builder/Presets/Catalog.php:115
 msgid "Booking: ink panel"
 msgstr "رزرو: کادر سرمه‌ای"
 
-#: includes/Modules/Builder/Presets/Catalog.php:98
+#: includes/Modules/Builder/Presets/Catalog.php:116
 msgid "The booking form beside an ink panel listing the steps with a live summary of the answers, then questions."
 msgstr "فرم رزرو کنار کادر سرمه‌ای با فهرست مرحله‌ها و خلاصه زنده پاسخ‌ها، و سؤالات متداول."
 
-#: includes/Modules/Builder/Presets/Catalog.php:103
+#: includes/Modules/Builder/Presets/Catalog.php:121
 msgid "Booking: one question at a time"
 msgstr "رزرو: هر بار یک سؤال"
 
-#: includes/Modules/Builder/Presets/Catalog.php:104
+#: includes/Modules/Builder/Presets/Catalog.php:122
 msgid "One large step at a time under a progress line, on the soft band, with nothing else on the page."
 msgstr "هر بار یک مرحله با قلم درشت زیر نوار پیشرفت، روی زمینه روشن و بدون حواس‌پرتی."
 
-#: includes/Modules/Builder/Presets/Catalog.php:109
+#: includes/Modules/Builder/Presets/Catalog.php:127
 msgid "Booking: ordinary form"
 msgstr "رزرو: فرم معمولی"
 
-#: includes/Modules/Builder/Presets/Catalog.php:110
+#: includes/Modules/Builder/Presets/Catalog.php:128
 msgid "Text hero and every field on one page beside the phone and email cards."
 msgstr "سربرگ متنی و همه فیلدها در یک صفحه، کنار کارت‌های تلفن و ایمیل."
 
-#: includes/Modules/Builder/Presets/Catalog.php:115
+#: includes/Modules/Builder/Presets/Catalog.php:133
 #: includes/Modules/Panel/Screens/Portfolio.php:38
 msgid "Portfolio"
 msgstr "نمونه‌کارها"
 
-#: includes/Modules/Builder/Presets/Catalog.php:116
+#: includes/Modules/Builder/Presets/Catalog.php:134
 msgid "Title, category chips and a masonry of the projects with page numbers, the featured projects and a call to action."
 msgstr "عنوان، برچسب‌های دسته‌بندی و چیدمان آجری پروژه‌ها با شماره صفحه، پروژه‌های شاخص و دعوت به اقدام."
 
-#: includes/Modules/Builder/Presets/Catalog.php:122
+#: includes/Modules/Builder/Presets/Catalog.php:140
 #: includes/Modules/Builder/Project_Meta_Box.php:162
 msgid "Photo project"
 msgstr "پروژه عکاسی"
 
-#: includes/Modules/Builder/Presets/Catalog.php:123
+#: includes/Modules/Builder/Presets/Catalog.php:141
 msgid "Breadcrumb, title with facts, the cover, the project text beside a checklist, the gallery photos, the client's quote, related projects and a call to action."
 msgstr "مسیر صفحه، عنوان با مشخصات پروژه، کاور، متن پروژه کنار چک‌لیست، عکس‌های گالری، نقل‌قول کارفرما، پروژه‌های مرتبط و دعوت به اقدام."
 
-#: includes/Modules/Builder/Presets/Catalog.php:129
+#: includes/Modules/Builder/Presets/Catalog.php:147
 #: includes/Modules/Builder/Project_Meta_Box.php:163
 msgid "Video project"
 msgstr "پروژه ویدیویی"
 
-#: includes/Modules/Builder/Presets/Catalog.php:130
+#: includes/Modules/Builder/Presets/Catalog.php:148
 msgid "Title with facts, the film in a wide player on the ink band, the project text beside a checklist, the other videos, stills, the client's quote, related projects and a call to action."
 msgstr "عنوان با مشخصات پروژه، فیلم در پخش‌کننده عریض روی نوار تیره، متن پروژه کنار چک‌لیست، ویدیوهای دیگر، فریم‌ها، نقل‌قول کارفرما، پروژه‌های مرتبط و دعوت به اقدام."
 
-#: includes/Modules/Builder/Presets/Catalog.php:136
+#: includes/Modules/Builder/Presets/Catalog.php:154
 #: includes/Modules/Builder/Project_Meta_Box.php:164
 msgid "Photo and video project"
 msgstr "پروژه عکس و ویدیو"
 
-#: includes/Modules/Builder/Presets/Catalog.php:137
+#: includes/Modules/Builder/Presets/Catalog.php:155
 msgid "Title with facts, the cover, the project text beside a checklist, the photos, the videos on the ink band, the client's quote, related projects and a call to action."
 msgstr "عنوان با مشخصات پروژه، کاور، متن پروژه کنار چک‌لیست، عکس‌ها، ویدیوها روی نوار تیره، نقل‌قول کارفرما، پروژه‌های مرتبط و دعوت به اقدام."
 
-#: includes/Modules/Builder/Presets/Catalog.php:143
+#: includes/Modules/Builder/Presets/Catalog.php:161
 msgid "A title that follows the page, the featured article, posts with category chips beside a sidebar (search, most read, courses) and the newsletter band."
 msgstr "عنوانی که با صفحه عوض می‌شود، مقاله شاخص، نوشته‌ها با برچسب‌های دسته کنار ستون کناری (جست‌وجو، پرخواننده‌ترین‌ها، دوره‌ها) و نوار خبرنامه."
 
-#: includes/Modules/Builder/Presets/Catalog.php:149
+#: includes/Modules/Builder/Presets/Catalog.php:167
 msgid "Reading progress, breadcrumb, header with author and share buttons, the featured image, the text beside a table of contents, comments, related articles and the newsletter band."
 msgstr "نوار پیشرفت مطالعه، مسیر صفحه، سربرگ با نویسنده و دکمه‌های اشتراک، تصویر شاخص، متن کنار فهرست مطالب، دیدگاه‌ها، مقالات مرتبط و نوار خبرنامه."
 
-#: includes/Modules/Builder/Presets/Catalog.php:154
+#: includes/Modules/Builder/Presets/Catalog.php:172
 msgid "Article with a cover"
 msgstr "مقاله با کاور تمام‌عرض"
 
-#: includes/Modules/Builder/Presets/Catalog.php:155
+#: includes/Modules/Builder/Presets/Catalog.php:173
 msgid "The title on the full-width featured image, a centred reading column with a folding table of contents, the author box, previous and next articles, comments and related articles."
 msgstr "عنوان روی تصویر شاخص تمام‌عرض، ستون خواندن وسط‌چین با فهرست مطالب بازشونده، کادر نویسنده، مقاله قبلی و بعدی، دیدگاه‌ها و مقالات مرتبط."
 
-#: includes/Modules/Builder/Presets/Catalog.php:160
+#: includes/Modules/Builder/Presets/Catalog.php:178
 msgid "Article with the image beside the title"
 msgstr "مقاله با تصویر کنار عنوان"
 
-#: includes/Modules/Builder/Presets/Catalog.php:161
+#: includes/Modules/Builder/Presets/Catalog.php:179
 msgid "The title beside the featured image, the text beside a sticky sidebar (contents, most read, booking), the author box, previous and next articles, comments and related articles."
 msgstr "عنوان کنار تصویر شاخص، متن کنار ستون کناری چسبان (فهرست مطالب، پرخواننده‌ها، رزرو)، کادر نویسنده، مقاله قبلی و بعدی، دیدگاه‌ها و مقالات مرتبط."
 
-#: includes/Modules/Builder/Presets/Catalog.php:166
+#: includes/Modules/Builder/Presets/Catalog.php:184
 msgid "Minimal article"
 msgstr "مقاله مینیمال"
 
-#: includes/Modules/Builder/Presets/Catalog.php:167
+#: includes/Modules/Builder/Presets/Catalog.php:185
 msgid "A narrow reading column without a sidebar: centred header, the featured image, the text, the author box, previous and next articles, comments and the newsletter band."
 msgstr "ستون خواندن باریک بدون ستون کناری: سربرگ وسط‌چین، تصویر شاخص، متن، کادر نویسنده، مقاله قبلی و بعدی، دیدگاه‌ها و نوار خبرنامه."
 
-#: includes/Modules/Builder/Presets/Catalog.php:173
+#: includes/Modules/Builder/Presets/Catalog.php:191
 msgid "Title, course cards with status and format chips (open, coming soon with a waitlist, held), how classes are held and the waitlist band."
 msgstr "عنوان، کارت‌های دوره با برچسب وضعیت و شکل برگزاری (در حال ثبت‌نام، به‌زودی با لیست انتظار، برگزارشده)، نحوه برگزاری کلاس‌ها و نوار لیست انتظار."
 
-#: includes/Modules/Builder/Presets/Catalog.php:178
+#: includes/Modules/Builder/Presets/Catalog.php:196
 #: includes/Modules/Panel/Screens/Courses.php:131
 msgid "Course"
 msgstr "دوره آموزشی"
 
-#: includes/Modules/Builder/Presets/Catalog.php:179
+#: includes/Modules/Builder/Presets/Catalog.php:197
 msgid "Hero with facts and the intro video, what you learn, curriculum, who it is for, outcome, instructor, questions, the buy box, the registration form and the phone buy bar."
 msgstr "هیرو با مشخصات و ویدیوی معرفی، آنچه یاد می‌گیری، سرفصل‌ها، مخاطبان، خروجی، مدرس، پرسش‌ها، کادر خرید، فرم ثبت‌نام و نوار خرید موبایل."
 
-#: includes/Modules/Builder/Presets/Catalog.php:184
+#: includes/Modules/Builder/Presets/Catalog.php:202
 msgid "Course with a sticky buy box"
 msgstr "دوره با کادر خرید چسبان"
 
-#: includes/Modules/Builder/Presets/Catalog.php:185
+#: includes/Modules/Builder/Presets/Catalog.php:203
 msgid "The same course page with the buy box beside the content, following the visitor while scrolling."
 msgstr "همان صفحه دوره با کادر خرید کنار محتوا که هنگام اسکرول همراه بازدیدکننده می‌ماند."
 
-#: includes/Modules/Builder/Presets/Catalog.php:190
+#: includes/Modules/Builder/Presets/Catalog.php:208
 msgid "Course with a side menu"
 msgstr "دوره با منوی کناری"
 
-#: includes/Modules/Builder/Presets/Catalog.php:191
+#: includes/Modules/Builder/Presets/Catalog.php:209
 msgid "A summary card (cover, facts, price), the sections beside a menu that follows the visitor and marks the section on screen (a menu bar on tablets and phones), the summary card again at the end, and the buy bar on every screen."
 msgstr "کارت خلاصه (کاور، مشخصات، قیمت)، بخش‌های دوره کنار منویی که همراه کاربر می‌آید و بخش در حال مطالعه را نشان می‌دهد (در تبلت و گوشی به‌صورت نوار)، تکرار کارت خلاصه در انتها و نوار ثبت‌نام در همه صفحه‌نمایش‌ها."
 
@@ -6655,15 +6746,15 @@ msgstr "ویژه"
 msgid "Show it in \"Featured projects\""
 msgstr "نمایش در «پروژه‌های شاخص»"
 
-#: includes/Modules/Builder/Public_Form.php:178
+#: includes/Modules/Builder/Public_Form.php:192
 msgid "Please check the highlighted fields and try again."
 msgstr "لطفاً فیلدهای مشخص‌شده را بررسی کنید و دوباره بفرستید."
 
-#: includes/Modules/Builder/Public_Form.php:179
+#: includes/Modules/Builder/Public_Form.php:193
 msgid "Too many requests in a short time. Please try again in a few minutes."
 msgstr "در زمان کوتاهی درخواست‌های زیادی فرستاده شد. لطفاً چند دقیقه دیگر دوباره امتحان کنید."
 
-#: includes/Modules/Builder/Public_Form.php:180
+#: includes/Modules/Builder/Public_Form.php:194
 msgid "Your request could not be sent. Please try again."
 msgstr "درخواست شما فرستاده نشد. لطفاً دوباره امتحان کنید."
 
@@ -6916,175 +7007,183 @@ msgstr "برگه‌های آماده"
 msgid "Home, about, services and courses pages. Pick a design and create a new page from it. The page is a normal Elementor page: change the texts and pictures, move or remove sections, add your own. Portfolio items, posts and courses come from your site automatically."
 msgstr "صفحه‌های اصلی، درباره، خدمات و دوره‌ها. یک طراحی انتخاب کنید و از آن صفحه تازه بسازید. صفحه یک برگه معمولی المنتور است: متن‌ها و تصویرها را عوض کنید، بخش‌ها را جابه‌جا یا حذف کنید و بخش‌های خودتان را اضافه کنید. نمونه‌کارها، نوشته‌ها و دوره‌ها خودکار از سایت شما می‌آیند."
 
-#: includes/Modules/Builder/views/admin.php:151
+#: includes/Modules/Builder/views/admin.php:152
+msgid "Service pages"
+msgstr "صفحه‌های خدمات"
+
+#: includes/Modules/Builder/views/admin.php:153
+msgid "A page of its own for each service on the services page, filled with that service's texts, prices and questions, in one of the single service designs."
+msgstr "برای هر خدمت صفحه خدمات یک صفحه جدا، با متن‌ها، تعرفه‌ها و سؤال‌های همان خدمت، در یکی از طرح‌های تک خدمت."
+
+#: includes/Modules/Builder/views/admin.php:162
 msgid "Ready-made courses"
 msgstr "دوره‌های آماده"
 
-#: includes/Modules/Builder/views/admin.php:152
+#: includes/Modules/Builder/views/admin.php:163
 msgid "Complete courses with their texts, curriculum, questions and cover. Add one to your courses, then set its price, date and seats. Its landing page is the Course design, filled from the course."
 msgstr "دوره‌های کامل با متن، سرفصل‌ها، سوالات و کاور. یکی را به دوره‌هایتان اضافه کنید، سپس قیمت، تاریخ و ظرفیتش را تعیین کنید. صفحه فرود آن طرح «دوره» است که از اطلاعات دوره پر می‌شود."
 
-#: includes/Modules/Builder/views/admin.php:159
+#: includes/Modules/Builder/views/admin.php:170
 msgid "Pages made from these designs"
 msgstr "برگه‌های ساخته‌شده از این طرح‌ها"
 
-#: includes/Modules/Builder/views/admin.php:160
+#: includes/Modules/Builder/views/admin.php:171
 msgid "Editing a page never changes the design it came from, so you can make as many pages as you like."
 msgstr "ویرایش یک برگه هیچ‌وقت طرح اصلی را تغییر نمی‌دهد؛ پس هر تعداد برگه که بخواهید می‌توانید بسازید."
 
-#: includes/Modules/Builder/views/admin.php:169
+#: includes/Modules/Builder/views/admin.php:180
 msgid "Replace Lenz's header and footer"
 msgstr "جایگزینی هدر و فوتر لنز"
 
-#: includes/Modules/Builder/views/admin.php:170
+#: includes/Modules/Builder/views/admin.php:181
 msgid "Pick a design for each device. Nothing changes for visitors until the module is switched on (top of this page) and the settings are saved; the eye button previews any choice right away. Lenz's mobile menu, its scripts and the rest of the page stay as they are."
 msgstr "برای هر دستگاه یک طراحی انتخاب کنید. تا وقتی ماژول (بالای همین صفحه) روشن نشود و تنظیمات ذخیره نشود، برای بازدیدکننده‌ها چیزی تغییر نمی‌کند؛ دکمه چشم هر انتخاب را همان لحظه پیش‌نمایش می‌دهد. منوی موبایل لنز، اسکریپت‌هایش و بقیه صفحه دست‌نخورده می‌مانند."
 
-#: includes/Modules/Builder/views/admin.php:178
+#: includes/Modules/Builder/views/admin.php:189
 msgid "Shown on screens wider than the breakpoint below."
 msgstr "روی صفحه‌های عریض‌تر از نقطه شکست پایین نمایش داده می‌شود."
 
-#: includes/Modules/Builder/views/admin.php:186
+#: includes/Modules/Builder/views/admin.php:197
 msgid "Each device gets only its own version: the same design, a different one, Lenz's, or nothing."
 msgstr "هر دستگاه فقط نسخه خودش را می‌گیرد: همان طراحی، طراحی دیگر، طراحی لنز یا هیچ."
 
-#: includes/Modules/Builder/views/admin.php:194
+#: includes/Modules/Builder/views/admin.php:205
 msgid "Sticky header"
 msgstr "هدر چسبان"
 
-#: includes/Modules/Builder/views/admin.php:195
+#: includes/Modules/Builder/views/admin.php:206
 msgid "Keeps the Lenz+ header at the top of the screen, as in the designs. Smart hides it while visitors scroll down and brings it back as soon as they scroll up. Lenz's own header follows the theme's setting."
 msgstr "هدر Lenz+ را مثل طراحی‌ها بالای صفحه نگه می‌دارد. حالت هوشمند هنگام اسکرول به پایین آن را پنهان می‌کند و با اسکرول به بالا برمی‌گرداند. هدر خود لنز از تنظیم قالب پیروی می‌کند."
 
-#: includes/Modules/Builder/views/admin.php:200
+#: includes/Modules/Builder/views/admin.php:211
 msgid "Phones & tablets"
 msgstr "موبایل و تبلت"
 
-#: includes/Modules/Builder/views/admin.php:204
+#: includes/Modules/Builder/views/admin.php:215
 msgid "Phone & tablet breakpoint"
 msgstr "نقطه شکست موبایل و تبلت"
 
-#: includes/Modules/Builder/views/admin.php:204
+#: includes/Modules/Builder/views/admin.php:215
 msgid "At this width and below, the phone header and footer are shown. 1024 matches Elementor's tablet breakpoint."
 msgstr "در این عرض و کمتر از آن، هدر و فوتر موبایل نمایش داده می‌شود. مقدار ۱۰۲۴ با نقطه شکست تبلت المنتور یکی است."
 
-#: includes/Modules/Builder/views/admin.php:212
+#: includes/Modules/Builder/views/admin.php:223
 msgid "Replace Lenz's page layouts"
 msgstr "جایگزینی چیدمان صفحه‌های لنز"
 
-#: includes/Modules/Builder/views/admin.php:213
+#: includes/Modules/Builder/views/admin.php:224
 msgid "Pick a design for each group of pages. The design fills itself from each page's own content. Nothing changes for visitors until the module is switched on and the settings are saved; the eye button previews any choice on a real page."
 msgstr "برای هر گروه از صفحه‌ها یک طرح انتخاب کنید. طرح با محتوای خود هر صفحه پر می‌شود. تا وقتی ماژول روشن و تنظیمات ذخیره نشود چیزی برای بازدیدکننده‌ها تغییر نمی‌کند؛ دکمه چشم هر انتخاب را روی یک صفحه واقعی پیش‌نمایش می‌دهد."
 
-#: includes/Modules/Builder/views/admin.php:233
+#: includes/Modules/Builder/views/admin.php:244
 msgid "Same as the project page"
 msgstr "مثل صفحه پروژه"
 
-#: includes/Modules/Builder/views/admin.php:233
+#: includes/Modules/Builder/views/admin.php:244
 msgid "Use the design chosen for every project above."
 msgstr "همان طرحی که بالاتر برای همه پروژه‌ها انتخاب شده است."
 
-#: includes/Modules/Builder/views/admin.php:244
+#: includes/Modules/Builder/views/admin.php:255
 msgid "Template library"
 msgstr "کتابخانه قالب‌ها"
 
-#: includes/Modules/Builder/views/admin.php:245
+#: includes/Modules/Builder/views/admin.php:256
 msgid "Every design is a normal Elementor template: edit it, duplicate it to try variations, or restore a ready-made design to its original state."
 msgstr "هر طرح یک قالب معمولی المنتور است: ویرایشش کنید، برای امتحان حالت‌های مختلف از آن کپی بگیرید یا طرح آماده را به حالت اولیه برگردانید."
 
-#: includes/Modules/Builder/views/admin.php:250
+#: includes/Modules/Builder/views/admin.php:261
 msgid "Reinstall missing designs"
 msgstr "نصب دوباره طرح‌های حذف‌شده"
 
-#: includes/Modules/Builder/views/admin.php:266
+#: includes/Modules/Builder/views/admin.php:277
 #: includes/Modules/Panel/views/admin.php:49
 msgid "Project bookings"
 msgstr "رزرو پروژه‌ها"
 
-#: includes/Modules/Builder/views/admin.php:267
+#: includes/Modules/Builder/views/admin.php:278
 msgid "Projects booked through the Project booking widget, each with a tracking code and a status (new, confirmed, done, cancelled) you change in the list."
 msgstr "پروژه‌هایی که با ابزارک «رزرو پروژه» ثبت شده‌اند؛ هر کدام با کد پیگیری و وضعیتی (جدید، تأییدشده، انجام‌شده، لغوشده) که در فهرست تغییرش می‌دهید."
 
-#: includes/Modules/Builder/views/admin.php:272
+#: includes/Modules/Builder/views/admin.php:283
 msgid "Open the bookings"
 msgstr "مشاهده رزروها"
 
-#: includes/Modules/Builder/views/admin.php:276
-#: includes/Modules/Builder/views/admin.php:295
-#: includes/Modules/Builder/views/admin.php:310
+#: includes/Modules/Builder/views/admin.php:287
+#: includes/Modules/Builder/views/admin.php:306
+#: includes/Modules/Builder/views/admin.php:321
 msgid "Download CSV"
 msgstr "دریافت فایل CSV"
 
-#: includes/Modules/Builder/views/admin.php:286
+#: includes/Modules/Builder/views/admin.php:297
 msgid "Bookings, registrations and messages sent through the Request form widget. They are kept here even when email does not work on your host, and each one can also be emailed to you (set the address on the widget)."
 msgstr "رزروها، ثبت‌نام‌ها و پیام‌هایی که با ابزارک «فرم درخواست» فرستاده می‌شوند. حتی اگر ایمیل روی هاست شما کار نکند اینجا نگه داشته می‌شوند و هر کدام می‌تواند برای شما ایمیل هم بشود (آدرس را در خود ابزارک تنظیم کنید)."
 
-#: includes/Modules/Builder/views/admin.php:291
+#: includes/Modules/Builder/views/admin.php:302
 msgid "Read the requests"
 msgstr "خواندن درخواست‌ها"
 
-#: includes/Modules/Builder/views/admin.php:305
+#: includes/Modules/Builder/views/admin.php:316
 msgid "Emails and mobile numbers left in the Sign-up widget, with the list each one joined. Download them to import into your email or SMS service."
 msgstr "ایمیل‌ها و شماره موبایل‌هایی که در ابزارک «عضویت» ثبت شده‌اند، همراه با فهرستی که هر کدام عضو شده. برای وارد کردن در سرویس ایمیل یا پیامک دانلودشان کنید."
 
-#: includes/Modules/Builder/views/admin.php:320
+#: includes/Modules/Builder/views/admin.php:331
 msgid "Look of the designs"
 msgstr "ظاهر طراحی‌ها"
 
-#: includes/Modules/Builder/views/admin.php:321
+#: includes/Modules/Builder/views/admin.php:332
 msgid "Applied to every design at once, like the options of the original mockups."
 msgstr "یک‌جا روی همه طراحی‌ها اعمال می‌شود، مثل گزینه‌های طرح‌های اصلی."
 
-#: includes/Modules/Builder/views/admin.php:335
+#: includes/Modules/Builder/views/admin.php:346
 msgid "Guide lines behind the heroes"
 msgstr "خطوط راهنما پشت بخش‌های آغازین"
 
-#: includes/Modules/Builder/views/admin.php:336
+#: includes/Modules/Builder/views/admin.php:347
 msgid "The thin dashed lines and rule-of-thirds grids of the designs."
 msgstr "خط‌چین‌های نازک و شبکه قانون یک‌سوم طراحی‌ها."
 
-#: includes/Modules/Builder/views/admin.php:338
+#: includes/Modules/Builder/views/admin.php:349
 msgid "Icon style in the designs"
 msgstr "استایل آیکون‌ها در طرح‌ها"
 
-#: includes/Modules/Builder/views/admin.php:338
+#: includes/Modules/Builder/views/admin.php:349
 msgid "Lenz icons use the theme's own glyphs where it has them, like the designs."
 msgstr "آیکن‌های لنز هرجا قالب آیکن داشته باشد از آیکن‌های خود قالب استفاده می‌کنند، مثل طراحی‌ها."
 
-#: includes/Modules/Builder/views/admin.php:341
+#: includes/Modules/Builder/views/admin.php:352
 #: includes/Modules/Checkout/views/admin.php:180
 msgid "Persian digits"
 msgstr "اعداد فارسی"
 
-#: includes/Modules/Builder/views/admin.php:342
+#: includes/Modules/Builder/views/admin.php:353
 msgid "Show prices, counts and years as ۱۲۳ with Persian separators on Persian sites."
 msgstr "قیمت‌ها، تعدادها و سال‌ها در سایت‌های فارسی با اعداد و جداکننده‌های فارسی (مثل ۱۲۳٬۴۵۶) نمایش داده شوند."
 
-#: includes/Modules/Builder/views/admin.php:346
+#: includes/Modules/Builder/views/admin.php:357
 msgid "Shop pages in the brand style"
 msgstr "صفحه‌های فروشگاه با ظاهر برند"
 
-#: includes/Modules/Builder/views/admin.php:347
+#: includes/Modules/Builder/views/admin.php:358
 msgid "WooCommerce's cart, checkout and account pages use the designs' colours, fields and buttons, with checkout steps and a simple account menu. Needs the page templates switched on."
 msgstr "سبد خرید، پرداخت و حساب کاربری ووکامرس با رنگ‌ها، فیلدها و دکمه‌های طرح‌ها نمایش داده می‌شوند، همراه با مرحله‌های خرید و منوی ساده حساب کاربری. قالب‌های صفحه باید روشن باشند."
 
-#: includes/Modules/Builder/views/admin.php:356
+#: includes/Modules/Builder/views/admin.php:367
 msgid "Brand colours"
 msgstr "رنگ‌های برند"
 
-#: includes/Modules/Builder/views/admin.php:357
+#: includes/Modules/Builder/views/admin.php:368
 msgid "Every design uses these colours; the defaults are the designs' own. Anything you set on a widget in Elementor overrides them."
 msgstr "همه طراحی‌ها از این رنگ‌ها استفاده می‌کنند و پیش‌فرض‌ها رنگ‌های خود طراحی‌اند. هر رنگی که روی ویجتی در المنتور تنظیم کنید بر این‌ها اولویت دارد."
 
-#: includes/Modules/Builder/views/admin.php:361
+#: includes/Modules/Builder/views/admin.php:372
 msgid "Add to Elementor global colours"
 msgstr "افزودن به رنگ‌های سراسری المنتور"
 
-#: includes/Modules/Builder/views/admin.php:367
+#: includes/Modules/Builder/views/admin.php:378
 msgid "Design default"
 msgstr "پیش‌فرض طراحی"
 
-#: includes/Modules/Builder/views/admin.php:371
+#: includes/Modules/Builder/views/admin.php:382
 msgid "Corner roundness (cards)"
 msgstr "گردی گوشه‌ها (کارت‌ها)"
 
@@ -7266,6 +7365,7 @@ msgid "Enable the checkout form rules"
 msgstr "فعال کردن تنظیمات فرم تسویه‌حساب"
 
 #: includes/Modules/Checkout/views/admin.php:99
+#: includes/Modules/Performance/views/admin.php:218
 msgid "WooCommerce is not active. These settings apply once it is."
 msgstr "ووکامرس فعال نیست. این تنظیمات پس از فعال شدن آن اعمال می‌شوند."
 
@@ -7321,11 +7421,11 @@ msgstr "نصب نشده"
 msgid "Studio manager"
 msgstr "مدیر استودیو"
 
-#: includes/Modules/Panel/Access.php:245
+#: includes/Modules/Panel/Access.php:246
 msgid "Projects, articles, courses, orders and bookings in one simple panel that works well on phones."
 msgstr "نمونه‌کارها، مقاله‌ها، دوره‌ها، سفارش‌ها و رزروها در یک پنل ساده که روی گوشی هم راحت کار می‌کند."
 
-#: includes/Modules/Panel/Access.php:247
+#: includes/Modules/Panel/Access.php:248
 msgid "Open the studio panel"
 msgstr "ورود به پنل استودیو"
 
@@ -7671,6 +7771,7 @@ msgid "Clears the saved pages of %s, so visitors see your latest changes."
 msgstr "صفحه‌های ذخیره‌شده‌ی %s را پاک می‌کند تا بازدیدکننده‌ها آخرین تغییرات را ببینند."
 
 #: includes/Modules/Panel/Screens/Account.php:138
+#: includes/Modules/Performance/views/admin.php:290
 msgid "Clear the cache"
 msgstr "پاک کردن کش"
 
@@ -7687,7 +7788,7 @@ msgid "Tagline"
 msgstr "معرفی کوتاه"
 
 #: includes/Modules/Panel/Screens/Account.php:153
-#: includes/Modules/Panel/Screens/Dashboard.php:69
+#: includes/Modules/Panel/Screens/Dashboard.php:73
 #: includes/Modules/Panel/Screens/Menu.php:64
 #: includes/Modules/Panel/views/shell.php:60
 msgid "View the site"
@@ -8158,7 +8259,7 @@ msgstr "خریداران مهمان"
 
 #: includes/Modules/Panel/Screens/Customers.php:164
 #: includes/Modules/Panel/Screens/Inbox_Screen.php:75
-#: includes/Modules/Panel/Screens/Students.php:214
+#: includes/Modules/Panel/Screens/Students.php:215
 #: includes/Modules/Panel/Screens/Wallet.php:100
 msgid "This item does not exist."
 msgstr "این مورد وجود ندارد."
@@ -8200,7 +8301,7 @@ msgid "Edit in WordPress"
 msgstr "ویرایش در وردپرس"
 
 #: includes/Modules/Panel/Screens/Customers.php:423
-#: includes/Modules/Panel/Screens/Dashboard.php:192
+#: includes/Modules/Panel/Screens/Dashboard.php:202
 msgid "Latest orders"
 msgstr "آخرین سفارش‌ها"
 
@@ -8232,48 +8333,48 @@ msgid "Delete this note?"
 msgstr "این یادداشت حذف شود؟"
 
 #. translators: %s: user's first name.
-#: includes/Modules/Panel/Screens/Dashboard.php:64
+#: includes/Modules/Panel/Screens/Dashboard.php:68
 #, php-format
 msgid "Hello %s"
 msgstr "سلام %s"
 
-#: includes/Modules/Panel/Screens/Dashboard.php:67
+#: includes/Modules/Panel/Screens/Dashboard.php:71
 msgid "Here is what is happening on your site."
 msgstr "این‌ها تازه‌های سایت شماست."
 
-#: includes/Modules/Panel/Screens/Dashboard.php:77
+#: includes/Modules/Panel/Screens/Dashboard.php:81
 msgid "Quick add"
 msgstr "افزودن سریع"
 
-#: includes/Modules/Panel/Screens/Dashboard.php:96
+#: includes/Modules/Panel/Screens/Dashboard.php:100
 msgid "Orders to handle"
 msgstr "سفارش‌های در انتظار"
 
-#: includes/Modules/Panel/Screens/Dashboard.php:97
+#: includes/Modules/Panel/Screens/Dashboard.php:101
 msgid "New bookings"
 msgstr "رزروهای تازه"
 
-#: includes/Modules/Panel/Screens/Dashboard.php:98
+#: includes/Modules/Panel/Screens/Dashboard.php:102
 msgid "New requests"
 msgstr "درخواست‌های تازه"
 
-#: includes/Modules/Panel/Screens/Dashboard.php:99
+#: includes/Modules/Panel/Screens/Dashboard.php:103
 msgid "Comments waiting"
 msgstr "دیدگاه‌های در انتظار"
 
-#: includes/Modules/Panel/Screens/Dashboard.php:113
+#: includes/Modules/Panel/Screens/Dashboard.php:117
 msgid "Sales, last 30 days"
 msgstr "فروش ۳۰ روز اخیر"
 
 #. translators: 1: order number, 2: customer name.
-#: includes/Modules/Panel/Screens/Dashboard.php:182
+#: includes/Modules/Panel/Screens/Dashboard.php:192
 #: includes/Modules/Panel/Screens/Orders.php:186
 #: includes/Modules/Panel/Screens/Search.php:130
 #, php-format
 msgid "#%1$s · %2$s"
 msgstr "#%1$s · %2$s"
 
-#: includes/Modules/Panel/Screens/Dashboard.php:193
+#: includes/Modules/Panel/Screens/Dashboard.php:203
 msgid "All orders"
 msgstr "همه سفارش‌ها"
 
@@ -8690,7 +8791,7 @@ msgstr "فروش ماهانه"
 
 #: includes/Modules/Panel/Screens/Reports.php:264
 #: includes/Modules/Panel/Screens/Reports.php:332
-#: includes/Modules/Panel/Screens/Students.php:299
+#: includes/Modules/Panel/Screens/Students.php:300
 msgid "CSV"
 msgstr "CSV"
 
@@ -8732,50 +8833,50 @@ msgstr "مشاهده همه"
 msgid "Course students"
 msgstr "شاگردان دوره‌ها"
 
-#: includes/Modules/Panel/Screens/Students.php:198
+#: includes/Modules/Panel/Screens/Students.php:199
 msgid "Order"
 msgstr "ترتیب"
 
 #. translators: %s: number of students.
-#: includes/Modules/Panel/Screens/Students.php:237
+#: includes/Modules/Panel/Screens/Students.php:238
 #, php-format
 msgid "%s student"
 msgid_plural "%s students"
 msgstr[0] "%s دانشجو"
 
-#: includes/Modules/Panel/Screens/Students.php:241
+#: includes/Modules/Panel/Screens/Students.php:242
 msgid "No published courses yet."
 msgstr "هنوز دوره‌ی منتشرشده‌ای نیست."
 
-#: includes/Modules/Panel/Screens/Students.php:263
-#: includes/Modules/Panel/Screens/Students.php:297
+#: includes/Modules/Panel/Screens/Students.php:264
+#: includes/Modules/Panel/Screens/Students.php:298
 msgid "Students"
 msgstr "دانشجوها"
 
-#: includes/Modules/Panel/Screens/Students.php:264
+#: includes/Modules/Panel/Screens/Students.php:265
 msgid "Income"
 msgstr "درآمد"
 
-#: includes/Modules/Panel/Screens/Students.php:270
-#: includes/Modules/Panel/Screens/Students.php:309
+#: includes/Modules/Panel/Screens/Students.php:271
+#: includes/Modules/Panel/Screens/Students.php:310
 msgid "Waiting list"
 msgstr "لیست انتظار"
 
 #. translators: %s: order number.
-#: includes/Modules/Panel/Screens/Students.php:288
+#: includes/Modules/Panel/Screens/Students.php:289
 #, php-format
 msgid "#%s"
 msgstr "#%s"
 
-#: includes/Modules/Panel/Screens/Students.php:302
+#: includes/Modules/Panel/Screens/Students.php:303
 msgid "Nobody has bought this course yet."
 msgstr "هنوز کسی این دوره را نخریده."
 
-#: includes/Modules/Panel/Screens/Students.php:304
+#: includes/Modules/Panel/Screens/Students.php:305
 msgid "Email every student"
 msgstr "ایمیل به همه شاگردان"
 
-#: includes/Modules/Panel/Screens/Students.php:310
+#: includes/Modules/Panel/Screens/Students.php:311
 msgid "People who asked to hear when registration opens."
 msgstr "کسانی که خواسته‌اند با شروع ثبت‌نام خبردار شوند."
 
@@ -8940,15 +9041,15 @@ msgstr "کمترین سبد برای بازگشت وجه"
 msgid "Most cashback per order"
 msgstr "بیشترین بازگشت وجه هر سفارش"
 
-#: includes/Modules/Panel/Shop/Report.php:383
+#: includes/Modules/Panel/Shop/Report.php:391
 msgid "No payment"
 msgstr "بدون پرداخت"
 
-#: includes/Modules/Panel/Shop/Report.php:391
+#: includes/Modules/Panel/Shop/Report.php:399
 msgid "No shipping"
 msgstr "بدون ارسال"
 
-#: includes/Modules/Panel/Shop/Report.php:511
+#: includes/Modules/Panel/Shop/Report.php:519
 msgid "Unknown"
 msgstr "نامشخص"
 
@@ -9231,6 +9332,329 @@ msgstr "منوی پنل"
 msgid "Main sections"
 msgstr "بخش‌های اصلی"
 
+#: includes/Modules/Performance/Cache_Purge.php:104
+msgid "Sorry, you are not allowed to do that."
+msgstr "متأسفیم، شما اجازه انجام این کار را ندارید."
+
+#: includes/Modules/Performance/Module.php:37
+msgid "Speed"
+msgstr "بهینه‌سازی سرعت"
+
+#: includes/Modules/Performance/Module.php:42
+msgid "Load the theme's sliders, galleries and icon fonts only on pages that use them, show text while fonts load and trim WordPress extras. Works next to WP Rocket's settings."
+msgstr "اسلایدرها، گالری‌ها و فونت‌های آیکون قالب فقط در صفحه‌هایی بارگذاری می‌شوند که از آن‌ها استفاده می‌کنند، متن هنگام بارگذاری فونت نمایش داده می‌شود و اضافه‌های وردپرس حذف می‌شوند. کنار تنظیمات راکت کار می‌کند."
+
+#: includes/Modules/Performance/Rocket.php:95
+msgid "Cache for mobile devices"
+msgstr "کش برای دستگاه‌های موبایل"
+
+#: includes/Modules/Performance/Rocket.php:95
+msgid "Keep it on: the bottom bar and the phone header are in the same page and switch with CSS."
+msgstr "روشن بماند: منوی پایین و هدر موبایل در همان صفحه هستند و با CSS جابه‌جا می‌شوند."
+
+#: includes/Modules/Performance/Rocket.php:96
+msgid "Minify CSS files"
+msgstr "کوچک‌سازی فایل‌های CSS"
+
+#: includes/Modules/Performance/Rocket.php:97
+msgid "Remove unused CSS"
+msgstr "حذف CSS استفاده‌نشده"
+
+#: includes/Modules/Performance/Rocket.php:97
+msgid "Safe with Lenz: the classes Lenz and Lenz+ add from JavaScript are kept."
+msgstr "با لنز ایمن است: کلاس‌هایی که لنز و لنز پلاس با جاوااسکریپت اضافه می‌کنند حفظ می‌شوند."
+
+#: includes/Modules/Performance/Rocket.php:98
+msgid "Minify JavaScript files"
+msgstr "کوچک‌سازی فایل‌های جاوااسکریپت"
+
+#: includes/Modules/Performance/Rocket.php:99
+msgid "Load JavaScript deferred"
+msgstr "بارگذاری جاوااسکریپت با تأخیر (defer)"
+
+#: includes/Modules/Performance/Rocket.php:100
+msgid "Delay JavaScript execution"
+msgstr "تأخیر در اجرای جاوااسکریپت"
+
+#: includes/Modules/Performance/Rocket.php:100
+msgid "Safe with Lenz: menus, sliders and the bottom bar start on the first touch or scroll, and links work before that."
+msgstr "با لنز ایمن است: منوها، اسلایدرها و منوی پایین با اولین لمس یا اسکرول فعال می‌شوند و لینک‌ها از قبل کار می‌کنند."
+
+#: includes/Modules/Performance/Rocket.php:101
+msgid "LazyLoad for images"
+msgstr "بارگذاری تنبل تصاویر"
+
+#: includes/Modules/Performance/Rocket.php:101
+msgid "The first large photo of each page is excluded, so it is not delayed."
+msgstr "اولین عکس بزرگ هر صفحه مستثنا می‌شود تا دیر نمایش داده نشود."
+
+#: includes/Modules/Performance/Rocket.php:102
+msgid "LazyLoad for iframes and videos"
+msgstr "بارگذاری تنبل iframe و ویدیوها"
+
+#: includes/Modules/Performance/Rocket.php:103
+msgid "Disable emoji"
+msgstr "غیرفعال‌سازی ایموجی"
+
+#: includes/Modules/Performance/views/admin.php:36
+msgid "Lenz theme"
+msgstr "قالب لنز"
+
+#: includes/Modules/Performance/views/admin.php:37
+msgid "WordPress"
+msgstr "وردپرس"
+
+#: includes/Modules/Performance/views/admin.php:38
+#: includes/Modules/Performance/views/admin.php:223
+msgid "WooCommerce"
+msgstr "ووکامرس"
+
+#: includes/Modules/Performance/views/admin.php:39
+msgid "WP Rocket and cache"
+msgstr "راکت و کش"
+
+#: includes/Modules/Performance/views/admin.php:54
+msgid "Enable the speed optimisations"
+msgstr "فعال‌سازی بهینه‌سازی سرعت"
+
+#: includes/Modules/Performance/views/admin.php:63
+msgid "The page cache was cleared. Visitors get fresh pages from now on."
+msgstr "کش صفحه‌ها پاک شد. از این به بعد بازدیدکنندگان نسخه تازه صفحه‌ها را می‌بینند."
+
+#: includes/Modules/Performance/views/admin.php:83
+msgid "The Lenz theme is not active, so these settings do nothing for now."
+msgstr "قالب لنز فعال نیست، بنابراین این تنظیمات فعلاً کاری انجام نمی‌دهند."
+
+#: includes/Modules/Performance/views/admin.php:89
+msgid "Theme files"
+msgstr "فایل‌های قالب"
+
+#: includes/Modules/Performance/views/admin.php:90
+msgid "Lenz loads all of its libraries on every page: the slider, the masonry grid, the photo gallery, select boxes, the date picker and the scripts of its widgets, about 700 KB. These settings keep them only on pages that show something that needs them, before WP Rocket minifies and caches the page."
+msgstr "لنز همه کتابخانه‌هایش را در همه صفحه‌ها بارگذاری می‌کند: اسلایدر، چیدمان آجری، گالری عکس، باکس‌های انتخاب، تقویم و اسکریپت ابزارک‌هایش، حدود ۷۰۰ کیلوبایت. این تنظیمات آن‌ها را فقط در صفحه‌هایی نگه می‌دارد که چیزی برای نمایش با آن‌ها دارند؛ پیش از آنکه راکت صفحه را کوچک و کش کند."
+
+#: includes/Modules/Performance/views/admin.php:96
+msgid "Load sliders, galleries and widget scripts only where they are used"
+msgstr "اسلایدرها، گالری‌ها و اسکریپت ابزارک‌ها فقط جایی که استفاده می‌شوند"
+
+#: includes/Modules/Performance/views/admin.php:97
+msgid "Each page is checked for Lenz's sliders, portfolio grids, galleries, sort box, booking form and filters; files nothing on the page uses are left out."
+msgstr "هر صفحه برای اسلایدرها، شبکه نمونه‌کارها، گالری‌ها، باکس مرتب‌سازی، فرم رزرو و فیلترهای لنز بررسی می‌شود و فایل‌هایی که چیزی در صفحه از آن‌ها استفاده نمی‌کند حذف می‌شوند."
+
+#: includes/Modules/Performance/views/admin.php:101
+msgid "Font Awesome icons (96 KB of CSS and its font)"
+msgstr "آیکون‌های Font Awesome (۹۶ کیلوبایت CSS به‌همراه فونتش)"
+
+#: includes/Modules/Performance/views/admin.php:103
+msgid "Only on pages with an fa icon"
+msgstr "فقط در صفحه‌های دارای آیکون fa"
+
+#: includes/Modules/Performance/views/admin.php:104
+msgid "On every page"
+msgstr "در همه صفحه‌ها"
+
+#: includes/Modules/Performance/views/admin.php:106
+msgid "Lenz's own icons use its lenz-icon font. Font Awesome is only needed where a menu, widget or text uses an fa-… icon."
+msgstr "آیکون‌های خود لنز از فونت lenz-icon استفاده می‌کنند. Font Awesome فقط جایی لازم است که منو، ابزارک یا متنی از آیکون ‎fa-…‎ استفاده کند."
+
+#: includes/Modules/Performance/views/admin.php:110
+msgid "Load the Bootstrap grid once"
+msgstr "بارگذاری یک‌باره گرید بوت‌استرپ"
+
+#: includes/Modules/Performance/views/admin.php:111
+msgid "On Persian sites Lenz loads the grid twice (left-to-right, then the complete right-to-left copy). The right-to-left copy alone is enough."
+msgstr "در سایت‌های فارسی لنز گرید را دو بار بارگذاری می‌کند (نسخه چپ‌به‌راست و بعد نسخه کامل راست‌به‌چپ). نسخه راست‌به‌چپ به‌تنهایی کافی است."
+
+#: includes/Modules/Performance/views/admin.php:119
+msgid "Fonts"
+msgstr "فونت‌ها"
+
+#: includes/Modules/Performance/views/admin.php:120
+msgid "Lenz's font files tell the browser to hide text until the font arrives, which can leave a page blank for up to three seconds on a slow mobile connection."
+msgstr "فایل‌های فونت لنز به مرورگر می‌گویند تا رسیدن فونت متن را پنهان کند؛ در اینترنت کند موبایل ممکن است صفحه تا سه ثانیه خالی بماند."
+
+#: includes/Modules/Performance/views/admin.php:126
+msgid "Show text while the font loads"
+msgstr "نمایش متن هنگام بارگذاری فونت"
+
+#: includes/Modules/Performance/views/admin.php:127
+msgid "Text appears at once in a system font and switches to the site font when it has loaded. The small font stylesheet is also placed inside the page, saving one request."
+msgstr "متن بلافاصله با فونت سیستم نمایش داده می‌شود و پس از بارگذاری به فونت سایت تغییر می‌کند. فایل کوچک استایل فونت هم داخل صفحه قرار می‌گیرد و یک درخواست کم می‌شود."
+
+#: includes/Modules/Performance/views/admin.php:131
+msgid "Download the site font first"
+msgstr "دانلود زودتر فونت سایت"
+
+#: includes/Modules/Performance/views/admin.php:132
+msgid "The regular weight of the font chosen in Lenz's typography settings starts downloading together with the page."
+msgstr "وزن معمولی فونتی که در تنظیمات تایپوگرافی لنز انتخاب شده همراه با صفحه دانلود می‌شود."
+
+#: includes/Modules/Performance/views/admin.php:142
+msgid "Extras WordPress loads"
+msgstr "اضافه‌هایی که وردپرس بارگذاری می‌کند"
+
+#: includes/Modules/Performance/views/admin.php:143
+msgid "WP Rocket has switches for some of these too; having both on is fine."
+msgstr "راکت هم برای بعضی از این‌ها گزینه دارد؛ روشن بودن هر دو مشکلی ندارد."
+
+#: includes/Modules/Performance/views/admin.php:149
+msgid "Remove the emoji script"
+msgstr "حذف اسکریپت ایموجی"
+
+#: includes/Modules/Performance/views/admin.php:150
+msgid "Browsers show emojis themselves; WordPress's script only replaces them with images."
+msgstr "مرورگرها خودشان ایموجی را نمایش می‌دهند؛ اسکریپت وردپرس فقط آن‌ها را با تصویر جایگزین می‌کند."
+
+#: includes/Modules/Performance/views/admin.php:154
+msgid "Block editor styles only for the blocks a page uses"
+msgstr "استایل‌های ویرایشگر بلوک فقط برای بلوک‌های استفاده‌شده"
+
+#: includes/Modules/Performance/views/admin.php:155
+msgid "Pages built with Elementor skip WordPress's block stylesheet entirely; articles get only the styles of their own blocks."
+msgstr "صفحه‌های ساخته‌شده با المنتور اصلاً استایل بلوک‌های وردپرس را بارگذاری نمی‌کنند و مقاله‌ها فقط استایل بلوک‌های خودشان را می‌گیرند."
+
+#: includes/Modules/Performance/views/admin.php:159
+msgid "No admin icon font for visitors"
+msgstr "حذف فونت آیکون مدیریت برای بازدیدکنندگان"
+
+#: includes/Modules/Performance/views/admin.php:160
+msgid "Dashicons stay for logged-in users who see the admin bar."
+msgstr "Dashicons برای کاربران واردشده‌ای که نوار مدیریت را می‌بینند باقی می‌ماند."
+
+#: includes/Modules/Performance/views/admin.php:164
+msgid "Remove unneeded links from the page head"
+msgstr "حذف لینک‌های غیرضروری از head صفحه"
+
+#: includes/Modules/Performance/views/admin.php:165
+msgid "The WordPress version, the short link and the links for old blog editors."
+msgstr "نسخه وردپرس، لینک کوتاه و لینک‌های ویرایشگرهای قدیمی وبلاگ."
+
+#: includes/Modules/Performance/views/admin.php:169
+msgid "Turn off WordPress embeds of this site"
+msgstr "غیرفعال‌سازی جاسازی (embed) وردپرس این سایت"
+
+#: includes/Modules/Performance/views/admin.php:170
+msgid "Other WordPress sites can no longer show your posts as cards. Aparat and YouTube videos in your own pages keep working."
+msgstr "سایت‌های وردپرسی دیگر نمی‌توانند نوشته‌های شما را به‌شکل کارت نمایش دهند. ویدیوهای آپارات و یوتیوب در صفحه‌های خودتان کار می‌کنند."
+
+#: includes/Modules/Performance/views/admin.php:174
+msgid "Remove jQuery Migrate"
+msgstr "حذف jQuery Migrate"
+
+#: includes/Modules/Performance/views/admin.php:176
+msgid "Lenz works without it, but some old plugins still need it. Check the site after switching it on."
+msgstr "لنز بدون آن کار می‌کند، اما برخی افزونه‌های قدیمی هنوز به آن نیاز دارند. پس از روشن کردن، سایت را بررسی کنید."
+
+#: includes/Modules/Performance/views/admin.php:177
+msgid "Check after enabling"
+msgstr "پس از فعال‌سازی بررسی کنید"
+
+#: includes/Modules/Performance/views/admin.php:186
+msgid "Server load"
+msgstr "بار سرور"
+
+#: includes/Modules/Performance/views/admin.php:192
+msgid "Heartbeat (background requests of the admin)"
+msgstr "Heartbeat (درخواست‌های پس‌زمینه پیشخوان)"
+
+#: includes/Modules/Performance/views/admin.php:194
+msgid "As WordPress runs it"
+msgstr "پیش‌فرض وردپرس"
+
+#: includes/Modules/Performance/views/admin.php:195
+msgid "Once a minute"
+msgstr "هر یک دقیقه"
+
+#: includes/Modules/Performance/views/admin.php:196
+msgid "Once a minute, and off on the site"
+msgstr "هر یک دقیقه، و خاموش در سایت"
+
+#: includes/Modules/Performance/views/admin.php:198
+msgid "Every open editor tab asks the server for news every 15 seconds. Once a minute is enough for autosave and edit locks."
+msgstr "هر تب باز ویرایشگر هر ۱۵ ثانیه از سرور خبر می‌گیرد. یک بار در دقیقه برای ذخیره خودکار و قفل ویرایش کافی است."
+
+#: includes/Modules/Performance/views/admin.php:202
+msgid "Revisions kept per post"
+msgstr "تعداد رونوشت‌های نگه‌داشته‌شده برای هر نوشته"
+
+#: includes/Modules/Performance/views/admin.php:207
+msgid "0 keeps them all, as WordPress does. Fewer revisions keep the database small."
+msgstr "۰ یعنی همه نگه داشته شوند، مثل خود وردپرس. رونوشت کمتر پایگاه داده را سبک نگه می‌دارد."
+
+#: includes/Modules/Performance/views/admin.php:229
+msgid "Refresh the cart only for visitors who have something in it"
+msgstr "به‌روزرسانی سبد خرید فقط برای بازدیدکنندگانی که سبدشان خالی نیست"
+
+#: includes/Modules/Performance/views/admin.php:230
+msgid "WooCommerce asks the server for the cart on every page view, a request no cache can save. With an empty cart it is skipped; adding a product still updates the cart badge at once."
+msgstr "ووکامرس در هر بازدید صفحه سبد خرید را از سرور می‌پرسد؛ درخواستی که هیچ کشی جلویش را نمی‌گیرد. با سبد خالی این درخواست ارسال نمی‌شود و افزودن محصول همچنان شمارنده سبد را فوراً به‌روز می‌کند."
+
+#: includes/Modules/Performance/views/admin.php:234
+msgid "WooCommerce block styles only where its blocks are used"
+msgstr "استایل بلوک‌های ووکامرس فقط جایی که بلوک‌هایش استفاده شده"
+
+#: includes/Modules/Performance/views/admin.php:235
+msgid "Lenz's shop uses the classic pages, so most pages have no WooCommerce block."
+msgstr "فروشگاه لنز از صفحه‌های کلاسیک استفاده می‌کند، پس بیشتر صفحه‌ها بلوک ووکامرس ندارند."
+
+#: includes/Modules/Performance/views/admin.php:245
+msgid "Working with WP Rocket"
+msgstr "همکاری با راکت"
+
+#: includes/Modules/Performance/views/admin.php:246
+msgid "WP Rocket caches, minifies and delays files; this module decides which theme files a page needs at all. Keep both on."
+msgstr "راکت فایل‌ها را کش، کوچک و با تأخیر اجرا می‌کند؛ این بخش تعیین می‌کند هر صفحه اصلاً به کدام فایل‌های قالب نیاز دارد. هر دو را روشن نگه دارید."
+
+#: includes/Modules/Performance/views/admin.php:252
+msgid "Make WP Rocket's optimisations safe for Lenz"
+msgstr "ایمن‌سازی بهینه‌سازی‌های راکت برای لنز"
+
+#: includes/Modules/Performance/views/admin.php:254
+msgid "«Remove unused CSS» keeps the styles of menus, sliders, galleries and the bottom bar that Lenz and Lenz+ switch on with JavaScript, and «LazyLoad» does not hold back the first large photo of a page."
+msgstr "«حذف CSS استفاده‌نشده» استایل منوها، اسلایدرها، گالری‌ها و منوی پایین را که لنز و لنز پلاس با جاوااسکریپت فعال می‌کنند نگه می‌دارد و «بارگذاری تنبل» اولین عکس بزرگ صفحه را عقب نمی‌اندازد."
+
+#: includes/Modules/Performance/views/admin.php:255
+msgid "WP Rocket active"
+msgstr "راکت فعال است"
+
+#: includes/Modules/Performance/views/admin.php:255
+msgid "WP Rocket not installed"
+msgstr "راکت نصب نیست"
+
+#: includes/Modules/Performance/views/admin.php:260
+msgid "Clear the page cache after Lenz+ changes"
+msgstr "پاک کردن کش صفحه‌ها پس از تغییرات لنز پلاس"
+
+#: includes/Modules/Performance/views/admin.php:261
+msgid "Saving the bottom bar, the support button, page template settings or a header or footer template clears the cache, so visitors do not keep seeing the old version."
+msgstr "ذخیره منوی پایین، دکمه پشتیبانی، تنظیمات قالب‌های صفحه یا قالب هدر و فوتر کش را پاک می‌کند تا بازدیدکنندگان نسخه قدیمی را نبینند."
+
+#: includes/Modules/Performance/views/admin.php:270
+msgid "WP Rocket's settings"
+msgstr "تنظیمات راکت"
+
+#: includes/Modules/Performance/views/admin.php:271
+msgid "Set these in Settings → WP Rocket. All of them can be on with Lenz."
+msgstr "این‌ها را در تنظیمات ← WP Rocket تنظیم کنید. همه آن‌ها می‌توانند با لنز روشن باشند."
+
+#: includes/Modules/Performance/views/admin.php:278
+msgid "On"
+msgstr "روشن"
+
+#. translators: %s: cache plugin names.
+#: includes/Modules/Performance/views/admin.php:296
+#, php-format
+msgid "Clears the saved pages and files of %s."
+msgstr "صفحه‌ها و فایل‌های ذخیره‌شده %s را پاک می‌کند."
+
+#: includes/Modules/Performance/views/admin.php:297
+msgid "No page cache plugin was found. WP Rocket, LiteSpeed Cache, W3 Total Cache and WP Super Cache are supported."
+msgstr "هیچ افزونه کشی پیدا نشد. راکت، LiteSpeed Cache، W3 Total Cache و WP Super Cache پشتیبانی می‌شوند."
+
+#: includes/Modules/Performance/views/admin.php:303
+msgid "Clear the cache now"
+msgstr "پاک کردن کش همین حالا"
+
 #: includes/Modules/Support_Button/Channels.php:45
 msgid "Username (with or without @), a t.me link, or a phone number with the country code."
 msgstr "نام کاربری (با یا بدون @)، لینک t.me یا شماره موبایل با کد کشور."
@@ -9419,11 +9843,6 @@ msgstr "سلام، درباره… سؤال داشتم"
 msgid "Optional. WhatsApp opens with this text typed in; the visitor can edit it before sending."
 msgstr "اختیاری. واتس‌اپ با همین متن نوشته‌شده باز می‌شود و بازدیدکننده پیش از ارسال می‌تواند آن را ویرایش کند."
 
-#: includes/Modules/Support_Button/views/admin.php:203
-#: includes/Modules/Support_Button/views/admin.php:206
-msgid "Design"
-msgstr "مدل"
-
 #: includes/Modules/Support_Button/views/admin.php:204
 msgid "How the channels appear when the button is tapped. The previews use your real channels."
 msgstr "راه‌های ارتباطی با لمس دکمه چگونه نمایش داده شوند. پیش‌نمایش‌ها راه‌های واقعی شما را نشان می‌دهند."
@@ -9578,6 +9997,9 @@ msgstr "لینک‌ها در پیش‌نمایش باز نمی‌شوند. رن�
 #, php-format
 msgid "Lenz Plus requires PHP %s or newer."
 msgstr "لنز پلاس به PHP نسخهٔ %s یا جدیدتر نیاز دارد."
+
+#~ msgid "Product photography"
+#~ msgstr "عکاسی محصول"
 
 #~ msgid "Order number, email or mobile"
 #~ msgstr "شماره سفارش، ایمیل یا موبایل"

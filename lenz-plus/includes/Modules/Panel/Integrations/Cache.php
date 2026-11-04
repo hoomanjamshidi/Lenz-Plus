@@ -8,8 +8,8 @@
  * execution» would hold the panel's script until the first tap). Its address
  * is kept out of WP Rocket's cache, and while the panel prints, the common
  * «do not cache / do not optimise» signals are raised. People who manage the
- * site can clear the page cache from the panel's account screen. Ported from
- * Daftar's Integrations\Cache.
+ * site can clear the page cache from the panel's account screen
+ * (Core\Page_Cache). Ported from Daftar's Integrations\Cache.
  *
  * @package LenzPlus
  */
@@ -81,47 +81,5 @@ final class Cache {
 		$patterns[] = '(.*)';
 
 		return $patterns;
-	}
-
-	/**
-	 * Names of the cache plugins the panel can clear.
-	 *
-	 * @return string[]
-	 */
-	public static function purgeable(): array {
-		$out = array();
-		if ( function_exists( 'rocket_clean_domain' ) ) {
-			$out[] = 'WP Rocket';
-		}
-		if ( has_action( 'litespeed_purge_all' ) ) {
-			$out[] = 'LiteSpeed Cache';
-		}
-		if ( function_exists( 'w3tc_flush_all' ) ) {
-			$out[] = 'W3 Total Cache';
-		}
-		if ( function_exists( 'wp_cache_clear_cache' ) ) {
-			$out[] = 'WP Super Cache';
-		}
-
-		return $out;
-	}
-
-	/** Clears the page caches the site uses. */
-	public static function purge(): void {
-		if ( function_exists( 'rocket_clean_domain' ) ) {
-			rocket_clean_domain();
-			if ( function_exists( 'rocket_clean_minify' ) ) {
-				rocket_clean_minify();
-			}
-		}
-		if ( has_action( 'litespeed_purge_all' ) ) {
-			do_action( 'litespeed_purge_all' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- LiteSpeed Cache's hook.
-		}
-		if ( function_exists( 'w3tc_flush_all' ) ) {
-			w3tc_flush_all();
-		}
-		if ( function_exists( 'wp_cache_clear_cache' ) ) {
-			wp_cache_clear_cache();
-		}
 	}
 }

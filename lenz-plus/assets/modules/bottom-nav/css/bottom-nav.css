@@ -1279,7 +1279,9 @@ html.lzp-sheet-open body {
 	background: none;
 }
 
+/* Stores with the symbol "left" or "right" (no space) print it glued to the digits. */
 .lzp-sheet .lzp-results__price .woocommerce-Price-currencySymbol {
+	margin-inline: 0.2em;
 	font-size: 11px;
 	font-weight: 600;
 }

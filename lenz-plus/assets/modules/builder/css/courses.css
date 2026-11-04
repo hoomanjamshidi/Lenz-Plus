@@ -1610,7 +1610,9 @@
 	box-shadow: 0 -16px 40px -22px rgba(2, 45, 79, 0.45);
 	font-family: var(--lzp-font);
 	transform: translateY(110%);
-	transition: transform 0.35s var(--lzp-ease), bottom 0.3s ease;
+	/* Out of the tab order while it is off screen; hidden only after it has slid away. */
+	visibility: hidden;
+	transition: transform 0.35s var(--lzp-ease), bottom 0.3s ease, visibility 0s linear 0.35s;
 }
 
 .lzp-buybar__inner {
@@ -1624,7 +1626,9 @@
 
 .lzp-buybar.is-visible,
 .lzp-buybar.is-editor {
+	visibility: visible;
 	transform: none;
+	transition-delay: 0s;
 }
 
 /* In the editor it shows in place, so it can be styled. */
@@ -1640,6 +1644,11 @@ body.lzp-bn-on .lzp-buybar {
 
 body.lzp-bn-on.lzp-bn-is-hidden .lzp-buybar {
 	bottom: 0;
+}
+
+/* Hidden: slide past the screen edge, not just below the bottom navigation (it would peek out under it). */
+body.lzp-bn-on .lzp-buybar:not(.is-visible):not(.is-editor) {
+	transform: translateY(calc(110% + var(--lzp-bn-space, 0px)));
 }
 
 .lzp-buybar--all {

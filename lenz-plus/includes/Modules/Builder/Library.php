@@ -133,7 +133,8 @@ final class Library {
 				self::remove_duplicates();
 			}
 
-			update_option( self::VERSION_OPTION, LENZ_PLUS_VERSION, false );
+			// Autoloaded: it is checked on every administrator's page load.
+			update_option( self::VERSION_OPTION, LENZ_PLUS_VERSION, true );
 		} finally {
 			self::unlock();
 		}
@@ -390,6 +391,17 @@ final class Library {
 		if ( is_array( $page_settings ) ) {
 			update_post_meta( $target_id, '_elementor_page_settings', $page_settings );
 		}
+	}
+
+	/**
+	 * Replaces a post's Elementor content (a page made from a design with
+	 * other content, or links rewritten in a page).
+	 *
+	 * @param int   $post_id  Post ID.
+	 * @param array $elements Elementor data.
+	 */
+	public static function set_content( int $post_id, array $elements ): void {
+		self::save_elements( $post_id, $elements );
 	}
 
 	/**

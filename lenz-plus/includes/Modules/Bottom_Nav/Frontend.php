@@ -78,8 +78,11 @@ final class Frontend {
 		);
 		wp_add_inline_script( self::HANDLE, 'window.lzpBottomNav = ' . wp_json_encode( $this->script_config() ) . ';', 'before' );
 
-		if ( $this->has_item_type( 'cart' ) ) {
-			// Keeps the badge in sync after AJAX add-to-cart (WooCommerce 7.8+ no longer loads it everywhere).
+		if ( $this->has_item_type( 'cart' ) && self::has_cart_cookie() ) {
+			// Keeps the badge right on pages restored from the back/forward cache. Only for visitors with a
+			// cart: the script asks the server for fresh fragments on every visit, an uncached request per
+			// visitor (why WooCommerce 7.8 stopped loading it everywhere). AJAX add-to-cart updates the badge
+			// through its own fragments, and page caches skip visitors who have the cart cookie.
 			wp_enqueue_script( 'wc-cart-fragments' );
 		}
 	}
@@ -199,6 +202,11 @@ final class Frontend {
 		}
 
 		return false;
+	}
+
+	/** Whether WooCommerce has marked this visitor as having items in the cart. */
+	private static function has_cart_cookie(): bool {
+		return ! empty( $_COOKIE['woocommerce_items_in_cart'] );
 	}
 
 	/** Runtime options for bottom-nav.js. */

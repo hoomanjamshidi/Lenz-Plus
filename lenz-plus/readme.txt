@@ -3,7 +3,7 @@ Tags: lenz, photography, bottom navigation, elementor, rtl
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.9.0
+Stable tag: 1.10.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,17 @@ It is built for Lenz and reads its colours, logo, menus and options. Without Len
 No. Updates refresh only the ready-made templates you have not edited, and pages created from a design never change by themselves.
 
 == Changelog ==
+
+= 1.10.0 =
+* New Speed section: Lenz's sliders, galleries, select boxes, date picker, widget scripts and Font Awesome load only on pages that use them (about 20 files less on a typical page), text shows while fonts load, the site font is preloaded, WordPress extras (emojis, block styles, dashicons, Heartbeat…) and WooCommerce's cart request for empty carts are trimmed. Works next to WP Rocket: its «Remove unused CSS» keeps the styles Lenz switches on with JavaScript, LazyLoad skips the first large photo, and the page cache is cleared after Lenz+ settings or header/footer templates change.
+* Lighter on the server: the bottom bar's cart button asks WooCommerce for fresh cart data only for visitors who have a cart; sales reports, guest buyers, course students and the panel home's sales total are rebuilt at most once a minute on busy stores (instead of after every order) and keep one cached copy each; the home screen's sales total is no longer summed from up to 500 orders on every visit; project galleries load their photos in two database queries.
+* Fixes: the phone buy bar no longer peeks out under the bottom bar while hidden (and is out of the keyboard order then); long amounts on the panel's home tiles wrap instead of ending in «…»; prices in live search results get a space before the currency; forms sent from browsers that hide the referring page return to the form's page instead of the home page.
+* Builder: single service pages in three designs (photo hero with price cards, ink band with the booking form, minimal with a price list and the order form), under Pages → Single service pages. «Service pages» makes a page for each service on the services page (professional, religious, content creation, event coverage), each with its own texts, prices and questions, and points the services page's tiles at them once they are published.
+
+= 1.9.1 =
+* Lighter on the server: four database lookups less on every page and request (settings never saved and the panel's checks are now loaded with WordPress's options), booking counts without loading every booking, sales reports invalidated once per order instead of several times.
+* Live search answers can be reused by the browser and a CDN for five minutes.
+* Studio panel: notification checks slow down while nothing happens (up to every 10 minutes, back to every minute on new activity or when the page is opened again); pages are prefetched one at a time and never on data-saver connections.
 
 = 1.9.0 =
 * Studio panel: SEO card for Rank Math and Yoast SEO on articles, pages, projects, products and courses (focus keyword, SEO title, meta description, canonical address, noindex, score and a search result preview), written to the plugins' own fields.

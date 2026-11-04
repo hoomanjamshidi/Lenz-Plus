@@ -22,7 +22,7 @@ use LenzPlus\Modules\Panel\Activity\Log;
 use LenzPlus\Modules\Panel\Shop\Csv;
 use LenzPlus\Modules\Panel\Shop\Money;
 use LenzPlus\Modules\Panel\Shop\Order_Text;
-use LenzPlus\Modules\Panel\Shop\Report;
+use LenzPlus\Modules\Panel\Shop\Order_Cache;
 use LenzPlus\Modules\Panel\Ui;
 
 defined( 'ABSPATH' ) || exit;
@@ -114,10 +114,11 @@ final class Students extends Screen {
 	/**
 	 * Paid orders of a course, newest first.
 	 *
-	 * @param int $product_id Course product ID.
-	 * @return \WC_Order[]
+	 * @param int    $product_id Course product ID.
+	 * @param string $fields     `objects`, or `ids` when only the count is needed (no order is loaded).
+	 * @return \WC_Order[]|int[]
 	 */
-	private static function orders( int $product_id ): array {
+	private static function orders( int $product_id, string $fields = 'objects' ): array {
 		$ids = self::order_ids( $product_id );
 		if ( ! $ids ) {
 			return array();
@@ -131,6 +132,7 @@ final class Students extends Screen {
 				'limit'    => -1,
 				'orderby'  => 'date',
 				'order'    => 'DESC',
+				'return'   => $fields,
 			)
 		);
 	}
@@ -141,14 +143,13 @@ final class Students extends Screen {
 	 * @param int $product_id Course product ID.
 	 */
 	private static function count( int $product_id ): int {
-		$key   = 'lenz_plus_students_' . $product_id . '_' . (int) get_option( Report::VERSION_OPTION, 0 );
-		$count = get_transient( $key );
-		if ( false === $count ) {
-			$count = count( self::orders( $product_id ) );
-			set_transient( $key, $count, DAY_IN_SECONDS );
-		}
-
-		return (int) $count;
+		return (int) Order_Cache::remember(
+			'lenz_plus_students_' . $product_id,
+			DAY_IN_SECONDS,
+			static function () use ( $product_id ) {
+				return count( self::orders( $product_id, 'ids' ) );
+			}
+		);
 	}
 
 	/**
