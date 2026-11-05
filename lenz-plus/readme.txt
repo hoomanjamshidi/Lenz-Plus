@@ -3,7 +3,7 @@ Tags: lenz, photography, bottom navigation, elementor, rtl
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.10.0
+Stable tag: 1.10.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,12 @@ It is built for Lenz and reads its colours, logo, menus and options. Without Len
 No. Updates refresh only the ready-made templates you have not edited, and pages created from a design never change by themselves.
 
 == Changelog ==
+
+= 1.10.1 =
+* Checklist grid: new looks (soft cards, the new default; cards with a coloured edge; rows with dividing lines; chips), an icon from Elementor's library as the mark, an own icon for each typed item and marker colours.
+* Curriculum: new looks (soft rows, rows with dividing lines, timeline); any session can show its own icon while the others keep their numbers.
+* Session icons per course: give any session its own icon in the course details box or the studio panel's course form; sessions without one keep the widget's number or icon.
+* Logos are served at the size they are shown, so phones no longer download the full upload.
 
 = 1.10.0 =
 * New Speed section: Lenz's sliders, galleries, select boxes, date picker, widget scripts and Font Awesome load only on pages that use them (about 20 files less on a typical page), text shows while fonts load, the site font is preloaded, WordPress extras (emojis, block styles, dashicons, Heartbeat…) and WooCommerce's cart request for empty carts are trimmed. Works next to WP Rocket: its «Remove unused CSS» keeps the styles Lenz switches on with JavaScript, LazyLoad skips the first large photo, and the page cache is cleared after Lenz+ settings or header/footer templates change.
