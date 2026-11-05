@@ -65,32 +65,34 @@ final class Course_Data {
 	 */
 	public static function empty_details(): array {
 		return array(
-			'status'        => 'open',
-			'kind'          => '',
-			'topic'         => '',
-			'level'         => '',
-			'format'        => 'offline',
-			'place'         => '',
-			'duration'      => '',
-			'schedule'      => '',
-			'year'          => '',
-			'capacity'      => 0,
-			'seats_left'    => '',
-			'tools'         => '',
+			'status'           => 'open',
+			'kind'             => '',
+			'topic'            => '',
+			'level'            => '',
+			'format'           => 'offline',
+			'place'            => '',
+			'duration'         => '',
+			'schedule'         => '',
+			'year'             => '',
+			'capacity'         => 0,
+			'seats_left'       => '',
+			'tools'            => '',
 			// [label, value] rows added to the specs.
-			'specs'         => array(),
-			'learn'         => array(),
-			'audience'      => array(),
-			'audience_note' => '',
-			'not_for'       => array(),
+			'specs'            => array(),
+			'learn'            => array(),
+			'audience'         => array(),
+			'audience_note'    => '',
+			'not_for'          => array(),
 			// [title, description] of each session.
-			'curriculum'    => array(),
-			'outcome'       => '',
+			'curriculum'       => array(),
+			// Icon key per session ('' = the widget's marker), Session_Icons.
+			'curriculum_icons' => array(),
+			'outcome'          => '',
 			// Question and answer pairs.
-			'faq'           => array(),
-			'expert'        => 0,
-			'registration'  => 'cart',
-			'video'         => '',
+			'faq'              => array(),
+			'expert'           => 0,
+			'registration'     => 'cart',
+			'video'            => '',
 		);
 	}
 

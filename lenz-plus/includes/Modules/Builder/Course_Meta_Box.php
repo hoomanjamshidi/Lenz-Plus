@@ -26,6 +26,7 @@ final class Course_Meta_Box {
 	public function register(): void {
 		add_action( 'add_meta_boxes_product', array( $this, 'add' ) );
 		add_action( 'save_post_product', array( $this, 'save' ), 10, 2 );
+		( new Session_Icons() )->register();
 	}
 
 	/** Adds the box below the product data. */
@@ -140,6 +141,7 @@ final class Course_Meta_Box {
 			$this->text_row( 'audience_note', __( 'Note under "Who it is for"', 'lenz-plus' ), $d['audience_note'], '' );
 			$this->area_row( 'not_for', __( 'Who it is not for', 'lenz-plus' ), implode( "\n", $d['not_for'] ), __( 'One per line.', 'lenz-plus' ) );
 			$this->area_row( 'curriculum', __( 'Curriculum', 'lenz-plus' ), $pairs( $d['curriculum'] ), __( 'One session per line, as "Title | what it covers".', 'lenz-plus' ) );
+			Session_Icons::row( $d['curriculum'], $d[ Session_Icons::KEY ] );
 			$this->area_row( 'outcome', __( 'Outcome', 'lenz-plus' ), $d['outcome'], __( 'What participants can do at the end.', 'lenz-plus' ) );
 			$this->area_row( 'faq', __( 'Questions', 'lenz-plus' ), $pairs( $d['faq'] ), __( 'One per line, as "Question | answer".', 'lenz-plus' ) );
 			?>
@@ -212,9 +214,11 @@ final class Course_Meta_Box {
 	/**
 	 * Sanitized course details from the posted fields.
 	 *
-	 * @param array $raw Posted fields.
+	 * @param array $raw     Posted fields.
+	 * @param array $current Saved details, kept for fields a form does not post
+	 *                       (the panel's course form has no session icons).
 	 */
-	public static function clean( array $raw ): array {
+	public static function clean( array $raw, array $current = array() ): array {
 		$get = static function ( string $key ) use ( $raw ): string {
 			return isset( $raw[ $key ] ) && is_scalar( $raw[ $key ] ) ? (string) $raw[ $key ] : '';
 		};
@@ -245,29 +249,30 @@ final class Course_Meta_Box {
 		$seats = $get( 'seats_left' );
 
 		return array(
-			'status'        => $pick( $get( 'status' ), Course_Data::STATUSES ),
-			'kind'          => $text( 'kind' ),
-			'topic'         => $text( 'topic' ),
-			'level'         => $text( 'level' ),
-			'format'        => $pick( $get( 'format' ), Course_Data::FORMATS ),
-			'place'         => $text( 'place' ),
-			'duration'      => $text( 'duration' ),
-			'schedule'      => $text( 'schedule' ),
-			'year'          => $text( 'year' ),
-			'capacity'      => absint( $get( 'capacity' ) ),
-			'seats_left'    => '' === trim( $seats ) ? '' : absint( $seats ),
-			'tools'         => $text( 'tools' ),
-			'specs'         => $pairs( 'specs' ),
-			'learn'         => $lines( 'learn' ),
-			'audience'      => $lines( 'audience' ),
-			'audience_note' => $text( 'audience_note' ),
-			'not_for'       => $lines( 'not_for' ),
-			'curriculum'    => $pairs( 'curriculum' ),
-			'outcome'       => trim( sanitize_textarea_field( $get( 'outcome' ) ) ),
-			'faq'           => $pairs( 'faq' ),
-			'expert'        => absint( $get( 'expert' ) ),
-			'registration'  => $pick( $get( 'registration' ), Course_Data::REGISTRATIONS ),
-			'video'         => esc_url_raw( $get( 'video' ) ),
+			'status'           => $pick( $get( 'status' ), Course_Data::STATUSES ),
+			'kind'             => $text( 'kind' ),
+			'topic'            => $text( 'topic' ),
+			'level'            => $text( 'level' ),
+			'format'           => $pick( $get( 'format' ), Course_Data::FORMATS ),
+			'place'            => $text( 'place' ),
+			'duration'         => $text( 'duration' ),
+			'schedule'         => $text( 'schedule' ),
+			'year'             => $text( 'year' ),
+			'capacity'         => absint( $get( 'capacity' ) ),
+			'seats_left'       => '' === trim( $seats ) ? '' : absint( $seats ),
+			'tools'            => $text( 'tools' ),
+			'specs'            => $pairs( 'specs' ),
+			'learn'            => $lines( 'learn' ),
+			'audience'         => $lines( 'audience' ),
+			'audience_note'    => $text( 'audience_note' ),
+			'not_for'          => $lines( 'not_for' ),
+			'curriculum'       => $pairs( 'curriculum' ),
+			Session_Icons::KEY => Session_Icons::clean( $raw[ Session_Icons::KEY ] ?? ( $current[ Session_Icons::KEY ] ?? array() ) ),
+			'outcome'          => trim( sanitize_textarea_field( $get( 'outcome' ) ) ),
+			'faq'              => $pairs( 'faq' ),
+			'expert'           => absint( $get( 'expert' ) ),
+			'registration'     => $pick( $get( 'registration' ), Course_Data::REGISTRATIONS ),
+			'video'            => esc_url_raw( $get( 'video' ) ),
 		);
 	}
 }

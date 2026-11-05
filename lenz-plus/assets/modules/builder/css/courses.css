@@ -576,8 +576,20 @@
    Ticked boxes
    ========================================================================== */
 
+/* --lzp-mark is the marker colour (the widget's colour control sets it);
+   --lzp-mark-ink is the glyph on the filled tiles. */
 .lzp-ticks {
+	--lzp-mark: var(--lzp-heading, var(--lzp-ink));
+	--lzp-mark-ink: var(--lzp-card, #fff);
 	font-family: var(--lzp-font);
+}
+
+.lzp-ticks--list {
+	--lzp-mark: #2f8a5b;
+}
+
+.lzp-ticks--cross {
+	--lzp-mark: #c24d4d;
 }
 
 .lzp-ticks .lzp-ticks__intro {
@@ -601,21 +613,30 @@
 	display: flex;
 	align-items: flex-start;
 	gap: 12px;
-	padding: 18px;
-	border: 1px dashed var(--lzp-dashed);
-	border-radius: var(--lzp-radius-md);
-	transition: border-color var(--lzp-dur) ease;
+	transition: border-color var(--lzp-dur) ease, box-shadow var(--lzp-dur) ease, transform var(--lzp-dur) ease;
 }
 
-.lzp-ticks .lzp-tick:hover {
-	border-style: solid;
-	border-color: var(--lzp-heading, var(--lzp-ink));
-}
-
-.lzp-ticks .lzp-tick__icon {
+.lzp-ticks .lzp-tick__mark {
+	display: grid;
+	flex: none;
+	place-items: center;
+	box-sizing: border-box;
 	margin-top: 0.3em;
-	color: var(--lzp-heading, var(--lzp-ink));
+	color: var(--lzp-mark);
 	font-size: 20px;
+	line-height: 1;
+}
+
+/* Built-in glyphs and Elementor icons (font or SVG) at one size. */
+.lzp-ticks .lzp-tick__mark svg {
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+}
+
+.lzp-ticks .lzp-tick__mark i {
+	font-size: 1em;
+	line-height: 1;
 }
 
 .lzp-ticks .lzp-tick__text {
@@ -647,15 +668,115 @@
 	font-size: 20px;
 }
 
+/* Soft cards: tinted panels, the marker on a filled rounded tile. */
+.lzp-ticks--soft .lzp-tick {
+	align-items: center;
+	gap: 14px;
+	padding: 14px 16px;
+	border-radius: var(--lzp-radius-md);
+	background: var(--lzp-panel, var(--lzp-soft));
+}
+
+.lzp-ticks--soft .lzp-tick__mark {
+	width: 38px;
+	height: 38px;
+	margin: 0;
+	border-radius: 11px;
+	background: var(--lzp-mark);
+	color: var(--lzp-mark-ink);
+	font-size: 17px;
+}
+
+/* Cards with a coloured inline-start edge (a clipped bar: a thick border
+   would bend along the rounded corner). */
+.lzp-ticks--accent .lzp-tick {
+	position: relative;
+	overflow: hidden;
+	align-items: center;
+	padding: 14px 18px;
+	border: 1px solid var(--lzp-card-line, var(--lzp-line));
+	border-radius: var(--lzp-radius-md);
+	background: var(--lzp-card, #fff);
+}
+
+.lzp-ticks--accent .lzp-tick::before {
+	position: absolute;
+	inset-block: 0;
+	inset-inline-start: 0;
+	width: 4px;
+	background: var(--lzp-mark);
+	content: "";
+}
+
+.lzp-ticks--accent .lzp-tick__mark {
+	width: 32px;
+	height: 32px;
+	margin: 0;
+	border-radius: 50%;
+	background: color-mix(in srgb, var(--lzp-mark) 12%, transparent);
+	font-size: 15px;
+}
+
+/* Lined rows: no boxes, hairlines between the rows. */
+.lzp-ticks--lined .lzp-ticks__list {
+	grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+	gap: 0 40px;
+}
+
+.lzp-ticks--lined .lzp-tick {
+	align-items: center;
+	padding: 14px 0;
+	border-bottom: 1px solid var(--lzp-line);
+}
+
+.lzp-ticks--lined .lzp-tick__mark {
+	width: 30px;
+	height: 30px;
+	margin: 0;
+	border-radius: 9px;
+	background: color-mix(in srgb, var(--lzp-mark) 10%, transparent);
+	font-size: 15px;
+}
+
+/* Chips: compact pills that wrap. */
+.lzp-ticks--chips .lzp-ticks__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.lzp-ticks--chips .lzp-tick {
+	align-items: center;
+	gap: 8px;
+	padding: 8px 16px;
+	padding-inline-start: 8px;
+	border: 1px solid var(--lzp-line);
+	border-radius: 999px;
+	background: var(--lzp-card, #fff);
+}
+
+.lzp-ticks--chips .lzp-tick__mark {
+	width: 26px;
+	height: 26px;
+	margin: 0;
+	border-radius: 50%;
+	background: var(--lzp-mark);
+	color: var(--lzp-mark-ink);
+	font-size: 13px;
+}
+
+.lzp-ticks--chips .lzp-tick__text {
+	line-height: 1.6;
+}
+
+/* Dashed boxes in columns (the mockups' look). */
+.lzp-ticks--boxes .lzp-tick {
+	padding: 18px;
+	border: 1px dashed var(--lzp-dashed);
+	border-radius: var(--lzp-radius-md);
+}
+
 /* Simple list: rows with a small round tick (green) or cross (red). */
-.lzp-ticks--list {
-	--lzp-mark: #2f8a5b;
-}
-
-.lzp-ticks--cross {
-	--lzp-mark: #c24d4d;
-}
-
 .lzp-ticks--list .lzp-ticks__list {
 	grid-template-columns: 1fr;
 	gap: 10px;
@@ -663,39 +784,38 @@
 
 .lzp-ticks--list .lzp-tick {
 	gap: 10px;
-	padding: 0;
-	border: 0;
-	border-radius: 0;
 }
 
-.lzp-ticks--list .lzp-tick:hover {
-	border: 0;
-}
-
-.lzp-ticks--list .lzp-tick__icon {
-	display: grid;
-	flex: none;
-	place-items: center;
-	box-sizing: border-box;
+.lzp-ticks--list .lzp-tick__mark {
 	width: 22px;
 	height: 22px;
 	margin-top: 0.4em;
-	padding: 5px;
 	border-radius: 50%;
 	background: color-mix(in srgb, var(--lzp-mark) 14%, transparent);
-	color: var(--lzp-mark);
 	font-size: 12px;
 }
 
-.lzp-ticks--cross:not(.lzp-ticks--list) .lzp-tick__icon {
-	color: var(--lzp-mark);
+@media (hover: hover) {
+	.lzp-ticks--boxes .lzp-tick:hover {
+		border-style: solid;
+		border-color: var(--lzp-mark);
+	}
+
+	.lzp-ticks--accent .lzp-tick:hover,
+	.lzp-ticks--soft .lzp-tick:hover {
+		box-shadow: 0 8px 24px -16px rgba(2, 45, 79, 0.45);
+		transform: translateY(-2px);
+	}
 }
 
 /* ==========================================================================
    Curriculum (built on the FAQ rows)
    ========================================================================== */
 
+/* --lzp-cur-ink / --lzp-cur-tile: the marker's colours (style controls). */
 .lzp-curriculum {
+	--lzp-cur-ink: var(--lzp-heading, var(--lzp-ink));
+	--lzp-cur-tile: var(--lzp-chip);
 	max-width: none;
 }
 
@@ -706,8 +826,8 @@
 	width: 34px;
 	height: 34px;
 	border-radius: var(--lzp-radius-sm);
-	background: var(--lzp-chip);
-	color: var(--lzp-heading, var(--lzp-ink));
+	background: var(--lzp-cur-tile);
+	color: var(--lzp-cur-ink);
 	font-size: 13px;
 	font-weight: 900;
 	line-height: 1;
@@ -722,6 +842,90 @@
 	width: 18px;
 	height: 18px;
 	fill: currentColor;
+}
+
+/* Soft rows: tinted panels, the marker on a filled tile. */
+.lzp-curriculum--soft {
+	--lzp-cur-ink: var(--lzp-card, #fff);
+	--lzp-cur-tile: var(--lzp-heading, var(--lzp-ink));
+	gap: 10px;
+}
+
+.lzp-curriculum--soft .lzp-faq__item {
+	border-color: transparent;
+	background: var(--lzp-panel, var(--lzp-soft));
+	transition: border-color var(--lzp-dur) ease;
+}
+
+.lzp-curriculum--soft .lzp-faq__item[open] {
+	border-color: var(--lzp-card-line, var(--lzp-line));
+}
+
+.lzp-curriculum--soft .lzp-curriculum__num {
+	width: 38px;
+	height: 38px;
+	border-radius: 11px;
+}
+
+/* Lined rows: no boxes, hairlines between the sessions. */
+.lzp-curriculum--lined {
+	gap: 0;
+}
+
+.lzp-curriculum--lined .lzp-faq__item {
+	border: 0;
+	border-bottom: 1px solid var(--lzp-card-line, var(--lzp-line));
+	border-radius: 0;
+	background: none;
+}
+
+.lzp-curriculum--lined .lzp-faq__q {
+	padding-inline: 0;
+}
+
+.lzp-curriculum--lined .lzp-faq__a {
+	padding-inline: 48px 0;
+}
+
+/* Timeline: round markers joined by a line on the inline-start side. */
+.lzp-curriculum--timeline {
+	--lzp-cur-ink: var(--lzp-card, #fff);
+	--lzp-cur-tile: var(--lzp-heading, var(--lzp-ink));
+	gap: 0;
+}
+
+.lzp-curriculum--timeline .lzp-faq__item {
+	position: relative;
+	overflow: visible;
+	border: 0;
+	border-radius: 0;
+	background: none;
+}
+
+/* The line runs from under this marker to above the next one, with a 6px
+   gap at each end (markers are 34px at 18px padding; none after the last). */
+.lzp-curriculum--timeline .lzp-faq__item:not(:last-child)::before {
+	position: absolute;
+	top: 58px;
+	bottom: -12px;
+	inset-inline-start: 17px;
+	width: 2px;
+	background: color-mix(in srgb, var(--lzp-cur-tile) 28%, transparent);
+	content: "";
+}
+
+.lzp-curriculum--timeline .lzp-faq__q {
+	position: relative;
+	padding: 18px 0;
+}
+
+.lzp-curriculum--timeline .lzp-curriculum__num {
+	border-radius: 50%;
+}
+
+.lzp-curriculum--timeline .lzp-faq__a {
+	padding-inline: 48px 0;
+	padding-bottom: 12px;
 }
 
 /* ==========================================================================

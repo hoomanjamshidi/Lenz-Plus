@@ -16,6 +16,7 @@ namespace LenzPlus\Modules\Panel\Screens;
 use LenzPlus\Core\Persian;
 use LenzPlus\Modules\Builder\Course_Data;
 use LenzPlus\Modules\Builder\Course_Meta_Box;
+use LenzPlus\Modules\Builder\Session_Icons;
 use LenzPlus\Modules\Panel\Ui;
 
 defined( 'ABSPATH' ) || exit;
@@ -43,6 +44,14 @@ final class Courses extends Products {
 	/** Settings switch. */
 	public function section(): string {
 		return 'courses';
+	}
+
+	/** The editor's scripts plus the session icon picker on the edit page. */
+	public function enqueue(): void {
+		parent::enqueue();
+		if ( $this->is_editing() ) {
+			Session_Icons::enqueue_assets();
+		}
 	}
 
 	/** "New" label. */
@@ -194,6 +203,12 @@ final class Courses extends Products {
 				Ui::textarea( 'lzp_course[audience]', __( 'Who it is for', 'lenz-plus' ), implode( "\n", $d['audience'] ), array( 'help' => __( 'One per line.', 'lenz-plus' ) ) );
 				Ui::input( 'lzp_course[audience_note]', __( 'Note under "Who it is for"', 'lenz-plus' ), $d['audience_note'] );
 				Ui::textarea( 'lzp_course[curriculum]', __( 'Curriculum', 'lenz-plus' ), $pairs( $d['curriculum'] ), array( 'help' => __( 'One session per line, as "Title | what it covers".', 'lenz-plus' ) ) );
+				?>
+				<div class="lzp-field">
+					<span class="lzp-field__label"><?php esc_html_e( 'Session icons', 'lenz-plus' ); ?></span>
+					<?php Session_Icons::picker( $d['curriculum'], $d[ Session_Icons::KEY ] ); ?>
+				</div>
+				<?php
 				Ui::textarea( 'lzp_course[outcome]', __( 'Outcome', 'lenz-plus' ), $d['outcome'], array( 'rows' => 3 ) );
 				Ui::textarea( 'lzp_course[specs]', __( 'More specs', 'lenz-plus' ), $pairs( $d['specs'] ), array( 'help' => __( 'One per line, as "Label | value" (e.g. Photo critique | In the last part).', 'lenz-plus' ) ) );
 				Ui::textarea( 'lzp_course[faq]', __( 'Questions', 'lenz-plus' ), $pairs( $d['faq'] ), array( 'help' => __( 'One per line, as "Question | answer".', 'lenz-plus' ) ) );
@@ -266,7 +281,7 @@ final class Courses extends Products {
 			}
 		}
 
-		update_post_meta( $id, Course_Data::META, Course_Meta_Box::clean( $raw ) );
+		update_post_meta( $id, Course_Data::META, Course_Meta_Box::clean( $raw, Course_Data::details( $id ) ) );
 
 		parent::save_fields( $id );
 	}

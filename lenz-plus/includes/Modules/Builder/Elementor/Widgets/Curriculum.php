@@ -1,9 +1,11 @@
 <?php
 /**
  * «سرفصل‌های ورکشاپ»: the course's sessions as an accordion (marker tile,
- * title, what it covers). The tile holds the session number, an icon (from
- * Elementor's library or an uploaded SVG; one for all sessions or one per
- * session) or nothing. Built on <details>, so it opens without JavaScript.
+ * title, what it covers) in one of several looks (cards, soft rows, lined
+ * rows, timeline). The tile holds the session number, an icon (from
+ * Elementor's library or an uploaded SVG) or nothing; any session can get
+ * its own icon whatever the others show. Built on <details>, so it opens
+ * without JavaScript.
  *
  * @package LenzPlus
  */
@@ -13,6 +15,7 @@ namespace LenzPlus\Modules\Builder\Elementor\Widgets;
 use Elementor\Controls_Manager;
 use Elementor\Repeater;
 use LenzPlus\Modules\Builder\Course_Data;
+use LenzPlus\Modules\Builder\Session_Icons;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -48,6 +51,27 @@ final class Curriculum extends Course_Base {
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
 				'return_value' => 'yes',
+			)
+		);
+
+		$this->add_control(
+			'look',
+			array(
+				'label'   => __( 'Look', 'lenz-plus' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'cards',
+				'options' => self::looks(),
+			)
+		);
+
+		$this->add_control(
+			'course_icons',
+			array(
+				'label'        => __( 'Icons chosen in the course', 'lenz-plus' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'yes',
+				'return_value' => 'yes',
+				'description'  => __( 'Sessions given an icon in the course\'s details box (product editor) show it.', 'lenz-plus' ),
 			)
 		);
 
@@ -98,8 +122,7 @@ final class Curriculum extends Course_Base {
 				'default'       => array(),
 				'prevent_empty' => false,
 				'title_field'   => '{{{ elementor.helpers.renderIcon( this, icon, {}, "i", "panel" ) || "—" }}}',
-				'description'   => __( 'Optional. The first row is the first session\'s icon, and so on; sessions without a row use the icon above.', 'lenz-plus' ),
-				'condition'     => array( 'marker' => 'icon' ),
+				'description'   => __( 'Optional. The first row is the first session\'s icon, and so on. A session with an icon here shows it even when the others show numbers; empty rows keep the choice above.', 'lenz-plus' ),
 			)
 		);
 
@@ -114,8 +137,7 @@ final class Curriculum extends Course_Base {
 			array(
 				'label'     => __( 'Marker colour', 'lenz-plus' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .lzp-curriculum__num' => 'color: {{VALUE}};' ),
-				'condition' => array( 'marker!' => 'none' ),
+				'selectors' => array( '{{WRAPPER}} .lzp-curriculum' => '--lzp-cur-ink: {{VALUE}};' ),
 			)
 		);
 
@@ -124,8 +146,7 @@ final class Curriculum extends Course_Base {
 			array(
 				'label'     => __( 'Marker background', 'lenz-plus' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .lzp-curriculum__num' => 'background: {{VALUE}};' ),
-				'condition' => array( 'marker!' => 'none' ),
+				'selectors' => array( '{{WRAPPER}} .lzp-curriculum' => '--lzp-cur-tile: {{VALUE}};' ),
 			)
 		);
 
@@ -133,24 +154,47 @@ final class Curriculum extends Course_Base {
 	}
 
 	/**
-	 * The tile before a session's title: its number, its icon, or nothing.
+	 * Look id → label.
 	 *
-	 * @param array $s     Settings.
-	 * @param int   $index Session index (0-based).
+	 * @return array<string, string>
 	 */
-	private static function marker_html( array $s, int $index ): string {
-		if ( 'none' === $s['marker'] ) {
-			return '';
+	private static function looks(): array {
+		return array(
+			'cards'    => __( 'Bordered cards', 'lenz-plus' ),
+			'soft'     => __( 'Soft rows with a filled tile', 'lenz-plus' ),
+			'lined'    => __( 'Rows with dividing lines', 'lenz-plus' ),
+			'timeline' => __( 'Timeline', 'lenz-plus' ),
+		);
+	}
+
+	/**
+	 * The tile before a session's title: the icon chosen in the course, else
+	 * the widget's icon for that session, its number, the shared icon, or
+	 * nothing.
+	 *
+	 * @param array  $s      Settings.
+	 * @param int    $index  Session index (0-based).
+	 * @param string $chosen Icon key chosen for the session in the course ('' = none).
+	 */
+	private static function marker_html( array $s, int $index, string $chosen ): string {
+		if ( '' !== $chosen && 'yes' === $s['course_icons'] ) {
+			$icon = self::icon( $chosen );
+			if ( '' !== $icon ) {
+				return '<span class="lzp-curriculum__num lzp-curriculum__num--icon">' . $icon . '</span>';
+			}
 		}
 
-		if ( 'icon' === $s['marker'] ) {
-			$icons = is_array( $s['icons'] ) ? array_values( $s['icons'] ) : array();
-			$icon  = self::elementor_icon_html( $icons[ $index ]['icon'] ?? null );
-			if ( '' === $icon ) {
-				$icon = self::elementor_icon_html( $s['icon'] );
-			}
+		$icons = is_array( $s['icons'] ) ? array_values( $s['icons'] ) : array();
+		$icon  = self::elementor_icon_html( $icons[ $index ]['icon'] ?? null );
+		if ( '' === $icon && 'icon' === $s['marker'] ) {
+			$icon = self::elementor_icon_html( $s['icon'] );
+		}
+		if ( '' !== $icon ) {
+			return '<span class="lzp-curriculum__num lzp-curriculum__num--icon">' . $icon . '</span>';
+		}
 
-			return '' !== $icon ? '<span class="lzp-curriculum__num lzp-curriculum__num--icon">' . $icon . '</span>' : '';
+		if ( 'number' !== $s['marker'] ) {
+			return '';
 		}
 
 		return '<span class="lzp-curriculum__num">' . esc_html( self::digits( (string) ( $index + 1 ) ) ) . '</span>';
@@ -164,18 +208,21 @@ final class Curriculum extends Course_Base {
 			return;
 		}
 
-		$sessions = Course_Data::details( $id )['curriculum'];
+		$details  = Course_Data::details( $id );
+		$sessions = $details['curriculum'];
+		$chosen   = $details[ Session_Icons::KEY ];
 		if ( ! $sessions ) {
 			$this->editor_hint( __( 'Nothing to list yet: fill in the curriculum in the course\'s details.', 'lenz-plus' ) );
 			return;
 		}
 
-		echo '<div class="lzp-faq lzp-curriculum">';
+		$look = isset( self::looks()[ $s['look'] ] ) ? $s['look'] : 'cards';
+		printf( '<div class="lzp-faq lzp-curriculum lzp-curriculum--%s">', esc_attr( $look ) );
 		foreach ( array_values( $sessions ) as $index => $session ) {
 			printf(
 				'<details class="lzp-faq__item"%1$s><summary class="lzp-faq__q">%2$s<span class="lzp-faq__question">%3$s</span>%4$s</summary>%5$s</details>',
 				0 === $index && 'yes' === $s['open_first'] ? ' open' : '',
-				self::marker_html( $s, $index ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in marker_html() (icons by Elementor).
+				self::marker_html( $s, $index, (string) ( $chosen[ $index ] ?? '' ) ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in marker_html() (icons by Elementor).
 				esc_html( (string) $session[0] ),
 				self::icon( 'chevron-down', 'lzp-faq__sign' ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- icon markup from the bundled library.
 				'' !== (string) $session[1] ? '<div class="lzp-faq__a">' . esc_html( $session[1] ) . '</div>' : ''
