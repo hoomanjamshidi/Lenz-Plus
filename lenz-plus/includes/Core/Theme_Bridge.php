@@ -178,12 +178,10 @@ final class Theme_Bridge {
 	 * @param string $area `header` or `footer`.
 	 */
 	public static function logo_html( string $area ): string {
-		$alt = array( 'alt' => get_bloginfo( 'name' ) );
-
 		if ( ! self::is_active() ) {
 			$logo_id = (int) get_theme_mod( 'custom_logo' );
 
-			return $logo_id ? (string) wp_get_attachment_image( $logo_id, 'full', false, $alt ) : '';
+			return $logo_id ? self::logo_image( $logo_id ) : '';
 		}
 
 		$prefix = 'footer' === $area ? 'footer-' : '';
@@ -193,7 +191,7 @@ final class Theme_Bridge {
 
 		$image = self::option( $prefix . 'logo-img', '' );
 		if ( is_array( $image ) && ! empty( $image['id'] ) ) {
-			return (string) wp_get_attachment_image( (int) $image['id'], 'full', false, $alt );
+			return self::logo_image( (int) $image['id'] );
 		}
 
 		$url  = is_array( $image ) ? (string) ( $image['url'] ?? '' ) : (string) $image;
@@ -204,7 +202,29 @@ final class Theme_Bridge {
 			$size = self::svg_size_attrs( get_template_directory() . '/' . $file );
 		}
 
-		return '' !== $url ? sprintf( '<img src="%1$s" alt="%2$s"%3$s>', esc_url( $url ), esc_attr( $alt['alt'] ), $size ) : '';
+		return '' !== $url ? sprintf( '<img src="%1$s" alt="%2$s"%3$s>', esc_url( $url ), esc_attr( get_bloginfo( 'name' ) ), $size ) : '';
+	}
+
+	/**
+	 * A logo from the media library at the size it is shown (the Site_Logo
+	 * widget caps it at 120px high). The full upload made phones download a
+	 * 1,500px copy, and WordPress gave it `fetchpriority="high"` as the
+	 * page's first large image, so it competed with the real LCP photo.
+	 *
+	 * @param int $id Attachment ID.
+	 */
+	public static function logo_image( int $id ): string {
+		return (string) wp_get_attachment_image(
+			$id,
+			'medium',
+			false,
+			array(
+				'alt'           => get_bloginfo( 'name' ),
+				'fetchpriority' => 'auto',
+				// Without it the srcset is read as full width and phones pick the 1024px copy.
+				'sizes'         => '(max-width: 767px) 96px, 160px',
+			)
+		);
 	}
 
 	/**

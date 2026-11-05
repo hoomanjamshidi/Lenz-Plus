@@ -1,16 +1,16 @@
-# Graph Report - Lenz-Plus  (2026-11-04)
+# Graph Report - Lenz-Plus  (2026-11-05)
 
 ## Corpus Check
-- 811 files · ~697,781 words
+- 815 files · ~704,740 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 6625 nodes · 11380 edges · 516 communities (250 shown, 266 thin omitted)
-- Extraction: 84% EXTRACTED · 16% INFERRED · 0% AMBIGUOUS · INFERRED: 1871 edges (avg confidence: 0.79)
+- 6679 nodes · 11472 edges · 477 communities (265 shown, 212 thin omitted)
+- Extraction: 83% EXTRACTED · 17% INFERRED · 0% AMBIGUOUS · INFERRED: 1916 edges (avg confidence: 0.79)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2a3235b8`
+- Built from commit: `e2b7c5b7`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -20,7 +20,7 @@
 - Thumbs
 - Slider
 - Products.tsx
-- Shell.tsx
+- Settings.tsx
 - MJ\WPORM\Blueprint
 - Blocks
 - AJAX
@@ -41,7 +41,7 @@
 - Color
 - Module
 - Resolver
-- Parts
+- Context
 - Footer
 - Icon_Library
 - WC
@@ -64,7 +64,7 @@
 - Product_Grid
 - Persian
 - Author_Box
-- LenzSaveBookingProcess
+- Checklist_Grid
 - Otp_Digits
 - Module
 - lenz-plus/assets/modules/support-button/js/support-button-admin.js
@@ -73,7 +73,7 @@
 - lenz-plus/assets/modules/bottom-nav/js/bottom-nav-admin.js
 - Styles
 - Post_Parts
-- Money
+- Customers
 - Archive
 - PlanCart
 - Log
@@ -83,7 +83,7 @@
 - blog.js
 - Comments_Controller
 - Checkout_Form
-- ImageCart
+- Elementor\Widget_Base
 - lenz-plus/assets/admin/js/admin.js
 - Theme_Bridge
 - Contact_Messages
@@ -97,7 +97,7 @@
 - Theme_Bridge
 - GroupImages
 - digits
-- Portfolio
+- Portfolio_Data
 - Contact_Inbox
 - Course_Data
 - Post_Grid
@@ -109,7 +109,7 @@
 - Fields
 - Booking_Requests
 - Library
-- Reservation
+- Header_Action
 - Blog
 - Countdown
 - Customers.tsx
@@ -121,38 +121,38 @@
 - Screen
 - lenz-plus/assets/modules/bottom-nav/js/bottom-nav.js
 - Contact_Box
-- Ui
+- Money
 - Booking_Form
 - Site
 - Module
 - Students
-- Integration
-- Button
+- init.php
+- VideoPortfolios
 - Add_To_Cart
 - Offer_Price
 - Public_Form
 - Pricing_Plans
-- Product_Spotlight
+- .time
 - Money
 - CTA
 - Button
 - Faq
 - Logo_Strip
-- init.php
+- Module
 - types.ts
-- Product_Badges
+- Map_Embed
 - Search
 - Site_Logo
 - Slides
 - Trust_Badges
-- Single_Product
+- Checklist
 - Public_Form
 - Booking_Inbox
 - class-tgm-plugin-activation.php
 - Design_Pages
 - Account
 - Channels
-- Page_Hero
+- Picture
 - Events
 - Features
 - Fields
@@ -160,15 +160,15 @@
 - Search_Query
 - Newsletter
 - Module
-- Template_Post_Type
+- .sanitize_key
 - Promo_Card
 - Related_Products
 - Stats
 - Testimonials
 - Text
 - Social
-- Gallery
-- Wishlist.php
+- course-icons-admin.js
+- Wishlist
 - otp-digits.js
 - Search_Query
 - Video
@@ -176,29 +176,29 @@
 - Router
 - lenz-plus/assets/modules/builder/js/builder-admin.js
 - FilmstripText
-- Persian
+- Ui
 - Orders_Controller
 - ServiceItem
 - Products_Controller
-- Parts.php
+- Product_Attributes
 - Product_Excerpt
 - Editor
-- Content_Controller
+- Ajax_Controller
 - Products
-- Course_Teacher
+- Parts.php
 - Product_Stock
-- Thumbs
+- self
 - Product_Gallery
 - Trust_Badges
 - Orders
 - Career
-- .handle
+- Sample_Courses
 - Video
 - support-button.js
 - Frontend
 - booking.js
 - reservation.js
-- Courses
+- Blocks
 - Form_Base
 - Heading
 - Module
@@ -224,7 +224,7 @@
 - V1_5_0_0
 - Report
 - panel.js
-- Archive_Title
+- Blog_Base
 - Project_Gallery
 - Product_Breadcrumb
 - TGMPA_Utils
@@ -235,10 +235,10 @@
 - lenz-plus/assets/modules/builder/js/builder.js
 - Breadcrumb
 - Autoloader
-- Copyright
+- Icon_Features
 - Color
 - Context
-- Resolver
+- Simple_List
 - Activity.tsx
 - Blog
 - Inbox_Screen
@@ -248,25 +248,25 @@
 - Form_Fields
 - Module
 - Wallet
-- Post_Content
+- Product_Meta_Box
 - Service
 - Design_Pages
-- .time
+- Dashboard
 - Analytics
 - Footer
 - App
 - Heading
-- Dashboard_Controller
-- Bookings
+- Rocket
+- Posts
 - Asset
 - Contact_Cards
 - Contact
-- i18n.ts
+- Product_Content
 - Portfolio_Base
 - Section_Base
 - Coupons_Controller
 - Ui.php
-- Site
+- Seo
 - Brand_Logos
 - Admin
 - Link_Column
@@ -276,30 +276,29 @@
 - Post_Parts
 - Post_Nav
 - Category_Parts
-- MenuItems
+- Product_Rating
 - Plugin
 - Cache
-- ElementorControls.php
+- notify.ts
 - Plugin
-- Course_Nav
+- Contact_Form
 - toast.tsx
 - panel-nav.js
-- Page_Routes
-- Products
-- Picture
+- Info
+- Expert
 - Bulk_Products
 - Contact_Details
 - Frontend
-- Blocks
+- About
 - AboutItem
 - Frontend
-- Product_Variants
+- shortcode-booking.php
 - Asset_Trimmer
-- Booking
+- WP_Post
 - Services
 - Requests
 - Media_Controller
-- Sanitizers
+- api
 - Admin
 - forms.js
 - Comments
@@ -308,32 +307,26 @@
 - lenz-plus/assets/modules/builder/js/blog.js
 - Testimonial
 - Contact_Inbox
-- Map_Embed
-- Portfolios
+- Button
 - Cache_Purge
 - ProductsSlider
-- VideoPortfolios
+- Card_Grid
 - Site_Tweaks
 - build-icons.mjs
-- ArchiveFilter
-- Elementor\Widget_Base
-- Post_Content
+- Request_Form
 - Blog_Base
 - Course_Data.php
 - PostSlider
-- Ajax_Controller
-- Button
-- Marquee
+- Testimonials
+- Newsletter_Form
 - Photo_Frame
 - Post_Search
 - Popular_Posts
-- PostsArchive
 - Process_Steps
 - Promo_Box
 - Reading_Progress
 - Cache
-- Rocket
-- Timeline
+- Product_Reviews
 - Account
 - Wallet
 - Arr
@@ -344,66 +337,34 @@
 - Asset
 - filter.js
 - Media_Link
-- Framed_Band
 - Home_Base
 - courses.js
 - video.js
 - minify.mjs
 - build-zip.sh
-- Portfolio_Data
-- Blog_Pages
-- Search
-- Fonts
-- Elementor
-- Post_Meta
-- Integration
-- Related_Items
+- Persian
+- WP_Post
 - Arr
-- Module
-- MiniCart
-- Checklist
-- Featured_Projects
-- Portfolio_Grid
-- Quote
-- Project_Meta_Box
+- DateTimeImmutable
+- DateTimeZone
+- WC_Order
+- self
 - Mobile_Buy_Bar
 - People
-- Photo_Grid
-- Service_Cards
-- Simple_List
 - Text
-- Dark_Toggle
-- Post_Share
 - Web_App
 - Asset_Groups
-- Seo
-- post.php
-- Blog_Base
-- Blog_Breadcrumb
-- Post_Author
-- Post_Comments
-- Post_Nav
-- Post_Title
-- Post_Toc
-- Product_Attributes
-- Product_Highlights
-- Product_Price
-- Product_Rating
-- Reading_Progress
-- Info
-- Expert
 - Portfolio
-- shortcode-booking.php
 
 ## God Nodes (most connected - your core abstractions)
 1. `Utils` - 307 edges
 2. `t()` - 126 edges
 3. `El` - 121 edges
-4. `El` - 112 edges
-5. `Ui` - 107 edges
-6. `Blocks` - 102 edges
-7. `Base` - 99 edges
-8. `ElementorControls` - 96 edges
+4. `El` - 99 edges
+5. `Base` - 99 edges
+6. `Ui` - 97 edges
+7. `ElementorControls` - 96 edges
+8. `Blocks` - 89 edges
 9. `digits()` - 74 edges
 10. `Blocks` - 65 edges
 
@@ -412,21 +373,21 @@
   reference/lenz/functions/archive.php → reference/lenz/inc/Utils/utils-options.php
 - `lenz_init()` --calls--> `Options`  [INFERRED]
   reference/lenz/functions/init.php → reference/lenz/inc/Utils/utils-options.php
+- `Meter()` --calls--> `digits()`  [EXTRACTED]
+  reference/daftar/app/src/components/seo/SeoPanel.tsx → reference/daftar/app/src/lib/format.ts
 - `ActionsMenu()` --calls--> `t()`  [EXTRACTED]
   reference/daftar/app/src/components/tarhak/data-table.tsx → reference/daftar/app/src/lib/i18n.ts
-- `lenz_sort_posts()` --calls--> `Utils`  [EXTRACTED]
-  reference/lenz/functions/archive.php → reference/lenz/inc/Utils.php
-- `lenz_include_shortcodes()` --calls--> `Options`  [INFERRED]
-  reference/lenz/functions/init.php → reference/lenz/inc/Utils/utils-options.php
+- `ColorField()` --calls--> `t()`  [EXTRACTED]
+  reference/daftar/app/src/screens/Settings.tsx → reference/daftar/app/src/lib/i18n.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (516 total, 266 thin omitted)
+## Communities (477 total, 212 thin omitted)
 
 ### Community 0 - "Utils"
-Cohesion: 0.02
-Nodes (8): lenz_comment_fields(), lenz_comment_star_column(), lenz_comment_stars(), lenz_save_comment_stars(), Heading, DashboardFont, Update, Utils
+Cohesion: 0.01
+Nodes (15): lenz_comment_fields(), lenz_comment_star_column(), lenz_comment_stars(), lenz_save_comment_stars(), lenz_register_elementor_widgets(), Heading, DashboardFont, Gallery (+7 more)
 
 ### Community 1 - "bottom-nav-admin.js"
 Cohesion: 0.07
@@ -438,31 +399,39 @@ Nodes (3): Elementor\Utils, Picture, Slider
 
 ### Community 4 - "Products.tsx"
 Cohesion: 0.10
-Nodes (56): HistoryCard(), ImageSlot(), SeoPanel(), strip(), Action, Checkbox(), DeleteButton(), FilterTab (+48 more)
+Nodes (54): HistoryCard(), Meter(), SeoPanel(), strip(), BulkBar(), Action, Checkbox(), DeleteButton() (+46 more)
 
-### Community 5 - "Shell.tsx"
-Cohesion: 0.05
-Nodes (58): Shell(), Command, CommandPalette(), GROUP_LABELS, Sidebar(), SideItem, spring, Tab (+50 more)
+### Community 5 - "Settings.tsx"
+Cohesion: 0.07
+Nodes (42): Shell(), Sidebar(), SideItem, spring, Tab, TabBar(), VerticalTab, VerticalTabs() (+34 more)
 
 ### Community 6 - "MJ\WPORM\Blueprint"
-Cohesion: 0.07
-Nodes (15): MJ\WPORM\Blueprint, MJ\WPORM\Model, GetReservationData, Booking, BookingMeta, ReserveDayTimes, ReserveLocations, ReservePackages (+7 more)
+Cohesion: 0.08
+Nodes (14): MJ\WPORM\Blueprint, MJ\WPORM\Model, Booking, BookingMeta, ReserveDayTimes, ReserveLocations, ReservePackages, ReservePackagesMeta (+6 more)
 
 ### Community 8 - "AJAX"
 Cohesion: 0.06
 Nodes (7): AJAX, GetAvailableTimes, GetDayTimes, IconPicker, MiniCartSetQTY, Notices, ToggleProductWishlist
+
+### Community 9 - "ElementorControls"
+Cohesion: 0.04
+Nodes (5): Experts, Marquee, Portfolios, Reservation, ElementorControls
+
+### Community 10 - "Header_Footer"
+Cohesion: 0.08
+Nodes (3): Header_Footer, Page_Routes, Renderer
 
 ### Community 11 - "builder.js"
 Cohesion: 0.12
 Nodes (32): bindVariationImages(), boot(), buildChoices(), closeAll(), embedUrl(), escape(), fetchResults(), formOf() (+24 more)
 
 ### Community 14 - "WC.php"
-Cohesion: 0.05
-Nodes (16): lenz_register_elementor_widgets(), lenz_post_thumbnail(), Booking, Options, lenz_requests_item_endpoint_content(), lenz_wc_body_classes(), lenz_wc_cart_empty(), lenz_wc_my_account_before_nav() (+8 more)
+Cohesion: 0.03
+Nodes (18): lenz_post_thumbnail(), LenzSaveBookingProcess, Booking, Options, Products, lenz_requests_item_endpoint_content(), lenz_wc_body_classes(), lenz_wc_cart_empty() (+10 more)
 
 ### Community 15 - "ReservationSettings"
-Cohesion: 0.06
-Nodes (7): AdminScripts, Locations, Main, Subjects, SuggestLocations, Times, ReservationSettings
+Cohesion: 0.04
+Nodes (10): AdminScripts, MenuItems, Locations, Main, Plans, Subjects, SuggestLocations, Times (+2 more)
 
 ### Community 16 - "bottom-nav.js"
 Cohesion: 0.12
@@ -472,17 +441,21 @@ Nodes (21): bind(), bindSheet(), cart(), close(), dark(), enableDragToClose(), f
 Cohesion: 0.08
 Nodes (3): Library, Module, Catalog
 
-### Community 18 - "Post_Categories"
-Cohesion: 0.11
-Nodes (3): WP_Post, WP_Term, Post_Categories
+### Community 21 - ".trim"
+Cohesion: 0.06
+Nodes (3): Sanitizer, Fonts, Sanitizer
 
 ### Community 22 - "builder-admin.js"
 Cohesion: 0.14
 Nodes (21): applyResult(), cardHtml(), closeTermPicker(), createPageDialog(), designCard(), keywordOption(), newTemplateDialog(), openTermPicker() (+13 more)
 
-### Community 27 - "Parts"
+### Community 25 - "Module"
 Cohesion: 0.07
-Nodes (6): Context, WC_Product, WP_Post, Parts, WC_Product, Product_Info
+Nodes (3): Integration, Module, Schema
+
+### Community 27 - "Context"
+Cohesion: 0.06
+Nodes (6): Context, WC_Product, WP_Post, WC_Product, Blog_Breadcrumb, Product_Info
 
 ### Community 30 - "WC"
 Cohesion: 0.05
@@ -492,21 +465,17 @@ Nodes (10): Base, WC_Order, Shipping, WC, WCAttributeFields, lenz_wc_add_to_cart
 Cohesion: 0.11
 Nodes (3): Course_Curriculum, WC_Product, Product_Tabs
 
-### Community 32 - "Content_Screen"
-Cohesion: 0.06
-Nodes (6): WP_Post, Seo, Content_Screen, WP_Post, WP_Post, Posts
-
 ### Community 36 - "Template_Post_Type"
-Cohesion: 0.10
-Nodes (4): Module, Product_Meta_Box, Module, Template_Post_Type
+Cohesion: 0.06
+Nodes (5): Blog_Pages, Renderer, Single_Product, Module, Template_Post_Type
 
 ### Community 37 - "support-button-admin.js"
 Cohesion: 0.21
 Nodes (19): channelGlyph(), channelUrl(), handleUrl(), initChannels(), initPreview(), international(), move(), queueRender() (+11 more)
 
 ### Community 39 - "Base"
-Cohesion: 0.08
-Nodes (5): Cards, WC_Product, WP_Post, Base, WC_Product
+Cohesion: 0.06
+Nodes (6): Cards, WC_Product, WP_Post, Parts, WC_Product, Base
 
 ### Community 48 - "Product_Grid"
 Cohesion: 0.07
@@ -515,6 +484,10 @@ Nodes (3): Heading, Post_Image, Product_Grid
 ### Community 49 - "Persian"
 Cohesion: 0.07
 Nodes (3): Persian, DateTimeInterface, Copyright
+
+### Community 51 - "Checklist_Grid"
+Cohesion: 0.09
+Nodes (3): Course_Base, Checklist_Grid, Curriculum
 
 ### Community 53 - "Module"
 Cohesion: 0.12
@@ -525,32 +498,40 @@ Cohesion: 0.20
 Nodes (19): channelGlyph(), channelUrl(), handleUrl(), initChannels(), initPreview(), international(), move(), queueRender() (+11 more)
 
 ### Community 56 - "El"
-Cohesion: 0.09
-Nodes (3): El, Header, Home
+Cohesion: 0.08
+Nodes (3): Booking, El, Header
 
 ### Community 57 - "lenz-plus/assets/modules/bottom-nav/js/bottom-nav-admin.js"
 Cohesion: 0.11
 Nodes (38): buildRow(), close(), commitItems(), decorate(), faClass(), fillChecks(), fillOptions(), hasActiveVariant() (+30 more)
 
-### Community 60 - "Money"
-Cohesion: 0.08
-Nodes (5): Customers, WC_Order, WP_User, Guests, Money
+### Community 59 - "Post_Parts"
+Cohesion: 0.05
+Nodes (7): WP_Post, Post_Parts, Post_Content, WP_Post, Post_Meta, Post_Share, Post_Toc
+
+### Community 60 - "Customers"
+Cohesion: 0.09
+Nodes (3): Customers, WC_Order, Guests
 
 ### Community 61 - "Archive"
-Cohesion: 0.09
-Nodes (4): Settings, Archive, Page, lenz_wishlist_item_endpoint_content()
+Cohesion: 0.06
+Nodes (5): PostsArchive, Settings, Archive, Page, lenz_wishlist_item_endpoint_content()
+
+### Community 62 - "PlanCart"
+Cohesion: 0.08
+Nodes (4): GetReservationData, Button, PlanCart, Sanitizers
 
 ### Community 63 - "Log"
-Cohesion: 0.08
+Cohesion: 0.09
 Nodes (3): Log, Watcher, Csv
 
 ### Community 64 - "Report"
 Cohesion: 0.13
-Nodes (4): DateTimeImmutable, DateTimeZone, WC_Order, Report
+Nodes (4): DateTimeImmutable, DateTimeZone, Report, WC_Order
 
 ### Community 65 - ".is_rtl"
 Cohesion: 0.05
-Nodes (9): lenz_breadcrumb(), lenz_modify_post_per_page(), lenz_sort_posts(), lenz_admin_enqueue(), File, PublicScripts, Scripts, lenz_wc_product_footer() (+1 more)
+Nodes (11): lenz_breadcrumb(), lenz_modify_post_per_page(), lenz_sort_posts(), lenz_admin_enqueue(), lenz_add_post_views(), lenz_get_post_views(), File, PublicScripts (+3 more)
 
 ### Community 67 - "blog.js"
 Cohesion: 0.29
@@ -564,21 +545,21 @@ Nodes (4): Comments_Controller, WP_Comment, WP_REST_Request, WP_REST_Response
 Cohesion: 0.09
 Nodes (3): Checkout_Form, Module, Schema
 
+### Community 70 - "Elementor\Widget_Base"
+Cohesion: 0.04
+Nodes (6): Elementor\Widget_Base, AccountButton, Button, ImageCart, Menu, MiniCart
+
 ### Community 72 - "lenz-plus/assets/admin/js/admin.js"
 Cohesion: 0.14
 Nodes (13): bindControls(), confirmDialog(), createStore(), escapeHtml(), getPath(), initColorFields(), initModuleSwitches(), paintRange() (+5 more)
 
+### Community 73 - "Theme_Bridge"
+Cohesion: 0.09
+Nodes (3): WP_Term, Theme_Bridge, Dark_Toggle
+
 ### Community 75 - "t"
 Cohesion: 0.12
-Nodes (49): MediaPicker(), BulkBar(), canMakeVariations(), VariationsCard(), ago(), compact(), delta(), money() (+41 more)
-
-### Community 76 - "Newsletter"
-Cohesion: 0.09
-Nodes (3): Newsletter_Form, Newsletter, WP_Post
-
-### Community 78 - "Search_Results"
-Cohesion: 0.12
-Nodes (3): Live_Search, WP_Post, Search_Results
+Nodes (52): MediaPicker(), canMakeVariations(), VariationsCard(), OrderStatus(), statusLabel(), ago(), compact(), delta() (+44 more)
 
 ### Community 79 - "video-player.js"
 Cohesion: 0.27
@@ -586,15 +567,19 @@ Nodes (9): fadeInVideoData(), fadeOutVideoData(), pauseOtherVideos(), playAction
 
 ### Community 80 - "Settings"
 Cohesion: 0.04
-Nodes (5): Access, App, Plugin, Router, Settings
+Nodes (7): Access, App, Plugin, Dashboard_Controller, WP_REST_Response, Router, Settings
 
 ### Community 81 - "Courses"
-Cohesion: 0.08
-Nodes (3): Course_Meta_Box, Courses, WP_Post
+Cohesion: 0.06
+Nodes (5): Course_Meta_Box, Session_Icons, Courses, Products, WP_Post
 
 ### Community 84 - "digits"
 Cohesion: 0.06
-Nodes (54): Meter(), BulkProductsSheet(), BarChart(), BarChartProps, BarPoint, springRise, Calendar(), DateField() (+46 more)
+Nodes (53): BulkProductsSheet(), BarChart(), BarChartProps, BarPoint, springRise, Calendar(), DateField(), fmt() (+45 more)
+
+### Community 85 - "Portfolio_Data"
+Cohesion: 0.07
+Nodes (4): Portfolio_Data, Project_Meta_Box, WP_Post, Portfolio
 
 ### Community 87 - "Course_Data"
 Cohesion: 0.06
@@ -609,104 +594,124 @@ Cohesion: 0.10
 Nodes (3): Media, WP_Post, Uploads
 
 ### Community 90 - "Log"
-Cohesion: 0.08
-Nodes (4): Log, Watcher, Order_Editor, WC_Order
+Cohesion: 0.07
+Nodes (7): Log, Watcher, Activity_Controller, WP_REST_Request, WP_REST_Response, Order_Editor, WC_Order
 
 ### Community 92 - "home.js"
 Cohesion: 0.32
 Nodes (11): formatCount(), hookElementor(), initCount(), initCountdown(), initFilter(), initNewsletter(), initRail(), initScope() (+3 more)
 
+### Community 95 - "Booking_Requests"
+Cohesion: 0.06
+Nodes (3): Booking_Requests, Bookings, WP_Post
+
 ### Community 96 - "Library"
-Cohesion: 0.07
+Cohesion: 0.06
 Nodes (3): Library, Module, Catalog
 
 ### Community 100 - "Customers.tsx"
-Cohesion: 0.12
-Nodes (15): ActionsMenu(), Column, DataTable(), HIDE, listSpring, ROW_EASE, RowAction, Sort (+7 more)
+Cohesion: 0.11
+Nodes (16): ActionsMenu(), Column, DataTable(), HIDE, listSpring, ROW_EASE, RowAction, Sort (+8 more)
 
 ### Community 103 - "OrderForm.tsx"
-Cohesion: 0.17
-Nodes (16): InlineEdit(), statusLabel(), useApp(), latin(), Address, AddressFields(), EMPTY_ADDRESS, Form() (+8 more)
+Cohesion: 0.10
+Nodes (22): autop(), RichEditor(), InlineEdit(), Props, softSpring, ThemeSwitch(), thumbSpring, TRACK (+14 more)
 
 ### Community 107 - "lenz-plus/assets/modules/bottom-nav/js/bottom-nav.js"
 Cohesion: 0.14
 Nodes (17): bind(), bindSheet(), close(), enableDragToClose(), focusables(), init(), isInterceptableLink(), isSamePage() (+9 more)
 
-### Community 109 - "Ui"
-Cohesion: 0.07
-Nodes (3): WP_User, Wallet, Ui
+### Community 109 - "Money"
+Cohesion: 0.12
+Nodes (4): WP_User, WP_User, Wallet, Money
 
 ### Community 112 - "Module"
 Cohesion: 0.08
 Nodes (3): Item_Types, Module, Schema
 
-### Community 121 - "Money"
-Cohesion: 0.08
-Nodes (7): Customers_Controller, WP_REST_Request, WP_REST_Response, WP_User, Csv, Guests, Money
-
-### Community 126 - "init.php"
+### Community 114 - "init.php"
 Cohesion: 0.12
 Nodes (3): lenz_include_shortcodes(), lenz_init(), lenz_register_widgets()
 
+### Community 120 - ".time"
+Cohesion: 0.10
+Nodes (4): WC_Product, Product_Badges, WC_Product, Product_Spotlight
+
+### Community 121 - "Money"
+Cohesion: 0.09
+Nodes (7): Customers_Controller, WP_REST_Request, WP_REST_Response, WP_User, Csv, Guests, Money
+
 ### Community 127 - "types.ts"
-Cohesion: 0.07
-Nodes (30): AttributeRow(), AttributesCard(), DownloadsCard(), Job, UploadDropzone(), upload(), ActivityChange, Attribute (+22 more)
+Cohesion: 0.08
+Nodes (29): ImageSlot(), AttributeRow(), AttributesCard(), DownloadsCard(), Job, UploadDropzone(), upload(), ActivityChange (+21 more)
 
 ### Community 136 - "class-tgm-plugin-activation.php"
 Cohesion: 0.25
 Nodes (5): load_tgm_plugin_activation(), TGM_Bulk_Installer, TGM_Bulk_Installer_Skin, tgmpa(), lenz_register_required_plugins()
 
+### Community 137 - "Design_Pages"
+Cohesion: 0.11
+Nodes (3): Design_Pages, Library_Ajax, Module
+
+### Community 140 - "Picture"
+Cohesion: 0.06
+Nodes (4): Picture, CTA_Band, Page_Hero, Photo_Grid
+
 ### Community 145 - "Search_Query"
 Cohesion: 0.08
 Nodes (5): WP_Post, Search_Query, Live_Search, WP_Post, Search_Scope
+
+### Community 147 - "Module"
+Cohesion: 0.07
+Nodes (4): Integration, Module, Schema, Resolver
+
+### Community 148 - ".sanitize_key"
+Cohesion: 0.09
+Nodes (4): Module, Resolver, Module, Template_Post_Type
+
+### Community 155 - "course-icons-admin.js"
+Cohesion: 0.54
+Nodes (7): close(), enhance(), init(), open(), paint(), sync(), titles()
 
 ### Community 157 - "otp-digits.js"
 Cohesion: 0.52
 Nodes (6): digits(), finish(), finishForm(), normalize(), otpField(), write()
 
-### Community 158 - "Search_Query"
-Cohesion: 0.08
-Nodes (5): WP_Post, Search_Query, Live_Search, WP_Post, Search_Scope
+### Community 161 - "Router"
+Cohesion: 0.10
+Nodes (4): App, Access, Module, Router
 
 ### Community 162 - "lenz-plus/assets/modules/builder/js/builder-admin.js"
-Cohesion: 0.18
-Nodes (18): addCourseDialog(), applyCourseRoute(), applyResult(), cardHtml(), createPageDialog(), designCard(), keywordOption(), newTemplateDialog() (+10 more)
-
-### Community 164 - "Persian"
-Cohesion: 0.07
-Nodes (3): Persian, DateTimeInterface, Reports
+Cohesion: 0.17
+Nodes (20): addCourseDialog(), applyCourseRoute(), applyResult(), cardHtml(), createPageDialog(), designCard(), keywordOption(), newTemplateDialog() (+12 more)
 
 ### Community 165 - "Orders_Controller"
-Cohesion: 0.14
-Nodes (5): Orders_Controller, WP_REST_Request, WP_REST_Response, Order_Data, WC_Order
+Cohesion: 0.09
+Nodes (8): Orders_Controller, WP_REST_Request, WP_REST_Response, WP_REST_Request, WP_REST_Response, Search_Controller, Order_Data, WC_Order
 
 ### Community 167 - "Products_Controller"
-Cohesion: 0.15
-Nodes (4): WC_Product, WP_REST_Request, WP_REST_Response, Products_Controller
-
-### Community 168 - "Parts.php"
-Cohesion: 0.08
-Nodes (3): Media, Product_Content, Product_Reviews
+Cohesion: 0.06
+Nodes (12): Seo, Content_Controller, WP_Post, WP_REST_Request, WP_REST_Response, WC_Product, WP_REST_Request, WP_REST_Response (+4 more)
 
 ### Community 170 - "Editor"
 Cohesion: 0.11
 Nodes (3): Editor, Pages, WP_Post
 
-### Community 171 - "Content_Controller"
-Cohesion: 0.22
-Nodes (4): Content_Controller, WP_Post, WP_REST_Request, WP_REST_Response
+### Community 173 - "Parts.php"
+Cohesion: 0.06
+Nodes (4): Course_Teacher, Media, Product_Highlights, Product_Price
 
 ### Community 178 - "Orders"
 Cohesion: 0.08
 Nodes (6): WC_Order, Shipping, Orders, WC_Order, Order_Text, WC_Order
 
-### Community 180 - ".handle"
-Cohesion: 0.14
-Nodes (3): Library_Ajax, Module, Sample_Courses
-
 ### Community 182 - "support-button.js"
 Cohesion: 0.60
 Nodes (5): closeMenu(), greetingDismissed(), hideGreeting(), initGreeting(), initMenu()
+
+### Community 183 - "Frontend"
+Cohesion: 0.12
+Nodes (4): Frontend, Module, Live_Search, Module
 
 ### Community 184 - "booking.js"
 Cohesion: 0.60
@@ -716,8 +721,12 @@ Nodes (3): createTimeSlotElements(), getTimeRanges(), setDayTimes()
 Cohesion: 0.70
 Nodes (4): createTimeSlotElements(), getTimeRanges(), initCalendar(), setDayTimes()
 
+### Community 186 - "Blocks"
+Cohesion: 0.09
+Nodes (3): Blocks, Courses, Home
+
 ### Community 189 - "Module"
-Cohesion: 0.10
+Cohesion: 0.11
 Nodes (3): Access, Module, Schema
 
 ### Community 190 - "pages.js"
@@ -729,7 +738,7 @@ Cohesion: 0.70
 Nodes (4): afterLoad(), hookElementor(), init(), initScope()
 
 ### Community 197 - "Module"
-Cohesion: 0.08
+Cohesion: 0.07
 Nodes (4): Archive_Types, Item_Types, Module, Schema
 
 ### Community 222 - "Report"
@@ -739,6 +748,10 @@ Nodes (8): WP_REST_Request, WP_REST_Response, Reports_Controller, DateTimeImmuta
 ### Community 297 - "panel.js"
 Cohesion: 0.16
 Nodes (28): addLink(), addReadyItem(), bindForms(), element(), flash(), initCopy(), initEditor(), initMediaField() (+20 more)
+
+### Community 310 - "Blog_Base"
+Cohesion: 0.04
+Nodes (7): Archive_Title, Blog_Base, Post_Author, Post_Comments, Post_Nav, Post_Title, Reading_Progress
 
 ### Community 316 - "Settings_Controller"
 Cohesion: 0.39
@@ -753,8 +766,8 @@ Cohesion: 0.36
 Nodes (6): boot(), closeMenus(), hideLayer(), initStickyHeader(), showLayer(), toggleSubmenu()
 
 ### Community 332 - "Context"
-Cohesion: 0.08
-Nodes (4): Context, WP_Post, Course_Enroll_Band, Faq
+Cohesion: 0.06
+Nodes (5): Context, WP_Post, Course_Enroll_Band, Faq, Post_Content
 
 ### Community 334 - "Activity.tsx"
 Cohesion: 0.18
@@ -765,32 +778,40 @@ Cohesion: 0.60
 Nodes (5): closeMenu(), greetingDismissed(), hideGreeting(), initGreeting(), initMenu()
 
 ### Community 339 - "Controller"
-Cohesion: 0.08
-Nodes (10): Account_Controller, WP_REST_Request, WP_REST_Response, Activity_Controller, WP_REST_Request, WP_REST_Response, Controller, WP_REST_Request (+2 more)
+Cohesion: 0.11
+Nodes (7): Account_Controller, WP_REST_Request, WP_REST_Response, Controller, WP_REST_Request, WP_REST_Response, WP_Error
 
 ### Community 342 - "Wallet"
-Cohesion: 0.16
+Cohesion: 0.15
 Nodes (4): Wallet, WP_REST_Request, WP_REST_Response, Wallet_Controller
+
+### Community 346 - "Service"
+Cohesion: 0.07
+Nodes (3): Service_Content, Service, Service_Pages
 
 ### Community 347 - "Design_Pages"
 Cohesion: 0.12
 Nodes (3): Design_Pages, Library_Ajax, Module
 
-### Community 353 - "Dashboard_Controller"
-Cohesion: 0.13
-Nodes (5): Dashboard_Controller, WP_REST_Response, WP_REST_Request, WP_REST_Response, Search_Controller
+### Community 348 - "Dashboard"
+Cohesion: 0.17
+Nodes (3): Dashboard, Order_Cache, Screen
+
+### Community 352 - "Heading"
+Cohesion: 0.08
+Nodes (3): Heading, Portfolio_Grid, Service_Detail
 
 ### Community 356 - "Asset"
 Cohesion: 0.12
 Nodes (3): Asset, Assets, Gallery_Links
 
-### Community 359 - "i18n.ts"
-Cohesion: 0.17
-Nodes (9): autop(), RichEditor(), Props, softSpring, ThemeSwitch(), thumbSpring, TRACK, fa (+1 more)
+### Community 360 - "Portfolio_Base"
+Cohesion: 0.05
+Nodes (5): Featured_Projects, Portfolio_Base, Project_Header, Quote, Related_Items
 
 ### Community 361 - "Section_Base"
 Cohesion: 0.06
-Nodes (4): Card_Grid, Icon_Features, Pricing_Plans, Section_Base
+Nodes (4): Framed_Band, Section_Base, Service_Cards, Timeline
 
 ### Community 362 - "Coupons_Controller"
 Cohesion: 0.24
@@ -801,20 +822,16 @@ Cohesion: 0.12
 Nodes (4): WP_Post, Post_Parts, WP_Post, Post_Header
 
 ### Community 373 - "Category_Parts"
-Cohesion: 0.14
-Nodes (3): Category_Parts, WP_Term, Category_Grid
-
-### Community 374 - "MenuItems"
 Cohesion: 0.13
-Nodes (3): MenuItems, Plans, AdminUI
-
-### Community 375 - "Plugin"
-Cohesion: 0.20
-Nodes (3): Module, self, Plugin
+Nodes (4): Category_Parts, WP_Term, Category_Grid, WP_Post
 
 ### Community 376 - "Cache"
 Cohesion: 0.15
 Nodes (3): Cache, WP_REST_Response, Tools_Controller
+
+### Community 377 - "notify.ts"
+Cohesion: 0.30
+Nodes (11): announce(), canNotify(), chime(), isInstalled(), Latest, stored(), useNotifySwitch(), useOrderWatcher() (+3 more)
 
 ### Community 378 - "Plugin"
 Cohesion: 0.14
@@ -828,17 +845,13 @@ Nodes (11): Card(), dismiss(), emit(), items, KIND, listeners, push(), springIn 
 Cohesion: 0.22
 Nodes (13): assets(), go(), isPanelUrl(), leaveAllowed(), linkUrl(), load(), needsFullLoad(), parse() (+5 more)
 
-### Community 385 - "Picture"
-Cohesion: 0.06
-Nodes (4): Picture, CTA_Band, Instructor_Box, Testimonials
-
-### Community 392 - "Product_Variants"
-Cohesion: 0.24
-Nodes (3): WC_Product, Product_Variants, WC_Product_Variable
-
 ### Community 397 - "Media_Controller"
 Cohesion: 0.24
 Nodes (4): Media_Controller, WP_Post, WP_REST_Request, WP_REST_Response
+
+### Community 398 - "api"
+Cohesion: 0.28
+Nodes (8): Command, CommandPalette(), GROUP_LABELS, POST_STATUS, api(), url(), SearchResult, Tools()
 
 ### Community 400 - "forms.js"
 Cohesion: 0.70
@@ -848,13 +861,13 @@ Nodes (4): hookElementor(), initBooking(), initForm(), initScope()
 Cohesion: 0.33
 Nodes (11): announce(), copyText(), hookElementor(), initProgress(), initScope(), initShare(), initToc(), runScroll() (+3 more)
 
+### Community 409 - "Button"
+Cohesion: 0.07
+Nodes (3): Button, Course_Grid, Pricing_Plans
+
 ### Community 415 - "build-icons.mjs"
 Cohesion: 0.31
 Nodes (8): buildPack(), cleanSvg(), fetchText(), main(), OUT_DIR, ROOT, ICONS, PACKS
-
-### Community 416 - "ArchiveFilter"
-Cohesion: 0.15
-Nodes (3): ArchiveFilter, PostToc, WP_Widget
 
 ### Community 419 - "Blog_Base"
 Cohesion: 0.10
@@ -862,11 +875,15 @@ Nodes (3): Blog_Base, Post_Comments, Post_Image
 
 ### Community 420 - "Course_Data.php"
 Cohesion: 0.05
-Nodes (5): Checklist_Grid, Course_Base, Course_Outcome, Curriculum, Mobile_Buy_Bar
+Nodes (5): Course_Base, Course_Nav, Course_Outcome, Instructor_Box, Mobile_Buy_Bar
 
 ### Community 447 - "lightbox.js"
 Cohesion: 0.60
 Nodes (3): button(), isRtl(), open()
+
+### Community 448 - "Asset"
+Cohesion: 0.12
+Nodes (3): Asset, Assets, Live_Search
 
 ### Community 449 - "filter.js"
 Cohesion: 0.83
@@ -876,25 +893,29 @@ Nodes (3): hookElementor(), initGrid(), initScope()
 Cohesion: 0.60
 Nodes (5): init(), initBuyBar(), initCourseNav(), initCourseSort(), topCover()
 
+### Community 472 - "Persian"
+Cohesion: 0.09
+Nodes (3): Persian, DateTimeInterface, Search
+
 ## Knowledge Gaps
 - **92 isolated node(s):** `LINKS`, `FIELDS`, `MONEY`, `STOCK`, `Action` (+87 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **266 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **212 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Utils` connect `Utils` to `Info`, `Expert`, `Portfolio`, `shortcode-booking.php`, `Products`, `Slider`, `MJ\WPORM\Blueprint`, `AboutItem`, `AJAX`, `ElementorControls`, `WC.php`, `Sanitizers`, `ReservationSettings`, `.trim`, `Testimonial`, `Social`, `Gallery`, `ProductsSlider`, `VideoPortfolios`, `Wishlist.php`, `Video`, `WC`, `Elementor\Widget_Base`, `ArchiveFilter`, `FilmstripText`, `PostSlider`, `ServiceItem`, `Button`, `.can_plugin_activate`, `PostsArchive`, `Career`, `LenzSaveBookingProcess`, `Video`, `StrokeText`, `Heading`, `Archive`, `PlanCart`, `.is_rtl`, `ImageCart`, `GroupImages`, `Elementor`, `.time`, `MiniCart`, `Reservation`, `MenuItems`, `ElementorControls.php`, `CTA`, `init.php`?**
-  _High betweenness centrality (0.130) - this node is a cross-community bridge._
-- **Why does `Base` connect `Base` to `Product_Badges`, `Search`, `Site_Logo`, `Slider`, `Trust_Badges`, `Account`, `Icon_List`, `Related_Products`, `Text`, `Parts`, `Icon_Library`, `WC`, `Product_Tabs`, `Elementor\Widget_Base`, `Parts.php`, `Product_Excerpt`, `Nav_Menu`, `Course_Teacher`, `Product_Stock`, `Product_Grid`, `Persian`, `Product_Gallery`, `Product_Breadcrumb`, `Product_Title`, `Post_Parts`, `.is_rtl`, `Home_Base`, `Search_Results`, `Page_Base`, `Mobile_Buy_Bar`, `Dark_Toggle`, `Integration`, `Blog_Base`, `Add_To_Cart`, `Category_Parts`, `Product_Highlights`, `Product_Attributes`, `Button`, `Product_Price`, `Product_Rating`?**
-  _High betweenness centrality (0.109) - this node is a cross-community bridge._
-- **Why does `Base` connect `Base` to `Elementor\Widget_Base`, `Site_Logo`, `Course_Data.php`, `Persian`, `Trust_Badges`, `Copyright`, `Social_Links`, `Theme_Bridge`, `Course_Data`, `Integration`, `Icon_Library`, `Heading`, `Nav_Menu`, `Section_Base`, `Site`, `Contact_Box`, `Text`, `Link_Column`, `Post_Parts`, `Button`?**
+- **Why does `Base` connect `Base` to `Search`, `Site_Logo`, `Slider`, `Trust_Badges`, `Account`, `Icon_List`, `Related_Products`, `Module`, `Text`, `Context`, `Icon_Library`, `WC`, `Product_Tabs`, `Product_Attributes`, `Product_Excerpt`, `Nav_Menu`, `Parts.php`, `Product_Stock`, `Product_Grid`, `Persian`, `Product_Gallery`, `Product_Reviews`, `Blog_Base`, `Product_Breadcrumb`, `Product_Title`, `Post_Parts`, `.is_rtl`, `Home_Base`, `Elementor\Widget_Base`, `Theme_Bridge`, `Search_Results`, `Page_Base`, `Mobile_Buy_Bar`, `Product_Content`, `Add_To_Cart`, `Category_Parts`, `Product_Rating`, `.time`, `Button`?**
+  _High betweenness centrality (0.103) - this node is a cross-community bridge._
+- **Why does `Utils` connect `Utils` to `Expert`, `Portfolio`, `Slider`, `MJ\WPORM\Blueprint`, `AboutItem`, `AJAX`, `ElementorControls`, `shortcode-booking.php`, `WC.php`, `ReservationSettings`, `.trim`, `Testimonial`, `Social`, `ProductsSlider`, `Wishlist`, `WC`, `Video`, `FilmstripText`, `PostSlider`, `ServiceItem`, `.can_plugin_activate`, `Career`, `Video`, `StrokeText`, `Heading`, `Archive`, `PlanCart`, `.is_rtl`, `Elementor\Widget_Base`, `GroupImages`, `init.php`, `VideoPortfolios`, `.time`, `CTA`, `Info`?**
+  _High betweenness centrality (0.096) - this node is a cross-community bridge._
+- **Why does `Section_Base` connect `Section_Base` to `Map_Embed`, `Checklist`, `Picture`, `Button`, `Card_Grid`, `Blog_Base`, `Course_Data.php`, `Testimonials`, `Photo_Frame`, `Process_Steps`, `Promo_Box`, `Form_Base`, `Breadcrumb`, `Icon_Features`, `Media_Link`, `Context`, `Simple_List`, `Heading`, `Contact_Cards`, `Base`, `Portfolio_Base`, `Brand_Logos`, `Stats`, `Public_Form`?**
   _High betweenness centrality (0.057) - this node is a cross-community bridge._
 - **Are the 30 inferred relationships involving `Utils` (e.g. with `.check_nonce()` and `.check_requires()`) actually correct?**
   _`Utils` has 30 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 126 inferred relationships involving `self` (e.g. with `.enqueue_assets()` and `.handle()`) actually correct?**
+  _`self` has 126 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 110 inferred relationships involving `El` (e.g. with `.academy()` and `.academy_hero()`) actually correct?**
   _`El` has 110 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 101 inferred relationships involving `El` (e.g. with `.awards()` and `.collaborations()`) actually correct?**
-  _`El` has 101 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 83 inferred relationships involving `Ui` (e.g. with `.handoff()` and `.render()`) actually correct?**
-  _`Ui` has 83 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 88 inferred relationships involving `El` (e.g. with `.awards()` and `.collaborations()`) actually correct?**
+  _`El` has 88 INFERRED edges - model-reasoned connections that need verification._

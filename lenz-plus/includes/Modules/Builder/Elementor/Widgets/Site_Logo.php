@@ -95,7 +95,7 @@ final class Site_Logo extends Base {
 		if ( 'custom' === $s['logo'] ) {
 			$id = (int) ( $s['image']['id'] ?? 0 );
 			if ( $id ) {
-				return (string) wp_get_attachment_image( $id, 'medium', false, array( 'alt' => get_bloginfo( 'name' ) ) );
+				return Theme_Bridge::logo_image( $id );
 			}
 
 			$url = (string) ( $s['image']['url'] ?? '' );
